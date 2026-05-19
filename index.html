@@ -547,6 +547,7 @@ let DATA = null, curView = 'long', curTrack = '整体';
 // —— 加载数据 ——
 fetch('v3_data.json?t='+Date.now()).then(r=>r.json()).then(d=>{
   DATA = d;
+  DATA.reasons = window.__STATIC_REASONS__ || {};  // 只读版静态原因注入
   document.getElementById('genTime').textContent = '更新时间：' + d.gen_time;
   initFilters();
   initTrackTabs();
