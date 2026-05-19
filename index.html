@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>服饰腰尾部客户跃迁监控看板 v3 · 双视角</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:#f5f7fa;color:#202124;font-size:13px}
+  .wrap{max-width:1760px;margin:0 auto;padding:10px 14px}
+  /* 【2026-05-11】紧凑化：header + tabs + card，保证一屏能截到跃迁监控核心指标之上 */
+  header{background:linear-gradient(135deg,#3949ab,#1a73e8);color:#fff;padding:10px 20px;border-radius:8px;margin-bottom:8px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+  header h1{font-size:18px;margin-bottom:3px}
+  header .sub{font-size:11px;opacity:.9}
+  .tabs{display:flex;gap:8px;margin-bottom:8px}
+  .tab{flex:1;padding:8px 16px;background:#fff;border:2px solid transparent;border-radius:8px;cursor:pointer;font-weight:600;color:#5f6368;transition:all .2s;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+  .tab:hover{background:#f1f3f4}
+  .tab.active{background:linear-gradient(135deg,#fff,#e8f0fe);border-color:#1a73e8;color:#1a73e8;box-shadow:0 2px 8px rgba(26,115,232,.15)}
+  .tab .main{font-size:14px;display:block}
+  .tab .hint{font-size:11px;font-weight:normal;opacity:.7;margin-top:2px;display:block}
+  .card{background:#fff;border-radius:8px;padding:12px 14px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+  .card h2{font-size:14px;margin-bottom:8px;color:#202124;display:flex;align-items:center;gap:8px}
+  .card h2 .badge{font-size:11px;font-weight:normal;color:#5f6368;background:#e8eaed;padding:2px 8px;border-radius:10px}
+  .kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
+  .kpi{background:#f8f9fa;border-left:3px solid #1a73e8;border-radius:6px;padding:10px 14px}
+  .kpi .lbl{font-size:11px;color:#5f6368;margin-bottom:4px}
+  .kpi .val{font-size:20px;font-weight:700;color:#202124}
+  .kpi .hint{font-size:11px;color:#5f6368;margin-top:4px}
+  .kpi.green{border-left-color:#137333}.kpi.green .val{color:#137333}
+  .kpi.orange{border-left-color:#e8710a}.kpi.orange .val{color:#e8710a}
+  .kpi.red{border-left-color:#c5221f}.kpi.red .val{color:#c5221f}
+  .kpi.purple{border-left-color:#8e24aa}.kpi.purple .val{color:#8e24aa}
+
+  table{width:100%;border-collapse:collapse;font-size:12px}
+  th{background:#f1f3f4;padding:8px 6px;text-align:center;font-weight:600;border-bottom:2px solid #dadce0;position:sticky;top:0;z-index:1}
+  td{padding:6px;text-align:center;border-bottom:1px solid #f1f3f4}
+  tbody tr:hover{background:#f8f9fa}
+  .tier-head{color:#c5221f;font-weight:700}
+  .tier-mid{color:#e8710a;font-weight:700}
+  .tier-tail{color:#1a73e8;font-weight:700}
+  .tier-none{color:#9aa0a6}
+  .m3-up{color:#137333;font-weight:700}
+  .m3-retain{color:#5f6368}
+  .m3-down{color:#e65100;font-weight:600}
+  .m3-loss{color:#c5221f;font-weight:700}
+  .m3-new{color:#8e24aa;font-weight:700}
+
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;align-items:center}
+  .filters select,.filters input{padding:6px 10px;border:1px solid #dadce0;border-radius:6px;font-size:12px;background:#fff}
+  .filters button{padding:6px 12px;border:1px solid #1a73e8;background:#1a73e8;color:#fff;border-radius:6px;cursor:pointer;font-size:12px}
+  .filters button.sec{background:#fff;color:#1a73e8}
+
+  .scroll{max-height:600px;overflow:auto;border:1px solid #e8eaed;border-radius:6px}
+  .insights li{padding:10px 14px;background:#f8f9fa;border-left:3px solid #1a73e8;border-radius:6px;margin-bottom:8px;list-style:none;line-height:1.6}
+  .pill{display:inline-block;padding:1px 7px;border-radius:10px;font-size:11px;font-weight:600}
+  .pill-adq{background:#e8f0fe;color:#1a73e8}
+  .pill-qq{background:#fce8e6;color:#c5221f}
+  .pill-dual{background:#e6f4ea;color:#137333}
+  .link{color:#1a73e8;text-decoration:none;cursor:pointer}
+  .link:hover{text-decoration:underline}
+  .mini{font-size:10px;color:#9aa0a6}
+  textarea{width:100%;border:1px solid #dadce0;border-radius:4px;padding:4px;font-size:11px;font-family:inherit;resize:vertical;min-height:32px}
+  .save-btn{background:#137333;color:#fff;border:none;padding:3px 10px;border-radius:4px;cursor:pointer;font-size:11px;margin-top:3px}
+  .hidden{display:none !important}
+
+  /* ===== 静态结构概览区（参考经营仪表盘） ===== */
+  /* 【2026-05-11 v3 主-次视觉重构】左右各占 50%，左主右次 */
+  .struct-wrap{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .struct-head{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:6px;gap:18px;flex-wrap:wrap}
+  .struct-head .title{font-size:14px;font-weight:700}
+  .struct-head .meta{font-size:11px;color:#5f6368}
+  /* 顶部三个数字横排 - 【2026-05-11 v4.1 紧凑】不能比下面分层卡主数字还大，否则喧宾夺主 */
+  .struct-hero{display:flex;gap:32px;align-items:flex-end;flex-wrap:wrap;margin-top:2px}
+  .struct-hero .item{min-width:120px}
+  .struct-hero .lbl{font-size:11px;color:#5f6368;margin-bottom:1px;font-weight:600}
+  .struct-hero .val{font-size:22px;font-weight:800;line-height:1.05;letter-spacing:-0.3px}
+  .struct-hero .val.blue{color:#1a73e8}
+  .struct-hero .val.orange{color:#e8710a}
+  .struct-hero .val.green{color:#137333}
+  .struct-hero .delta{font-size:11px;margin-top:2px;color:#5f6368;font-weight:500}
+
+  /* 左右分组标题 - 紧凑化 */
+  .panel-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:5px;padding:0 2px}
+  .panel-title .ttl{font-size:13px;font-weight:800;color:#202124;letter-spacing:.5px}
+  .panel-title .ttl.primary{color:#1a73e8}
+  .panel-title .ttl.secondary{color:#80868b;font-weight:600}
+  .panel-title .sub{font-size:10px;color:#9aa0a6}
+
+  /* ===== 左半：主角化 - 色块层次保留，但紧凑化 ===== */
+  /* 【2026-05-11 v4 紧凑】数字降一档，单卡高度 ~150px → ~95px，让一屏内能看到三张分层卡+B区
+     【2026-05-11 v4.4】头/腰/尾/B 4块之间间距统一拉大到 52px，让左边总高顶到跟右边4图一致 */
+  .layer-card{background:#fff;border-radius:8px;margin-bottom:52px;overflow:hidden;border:1px solid #e8eaed;box-shadow:0 1px 2px rgba(60,64,67,.05)}
+  .layer-card.head{border-left:4px solid #c5221f;background:linear-gradient(135deg,#fef7f6 0%,#fff 30%)}
+  .layer-card.mid{border-left:4px solid #e8710a;background:linear-gradient(135deg,#fff7ef 0%,#fff 30%)}
+  .layer-card.tail{border-left:4px solid #1a73e8;background:linear-gradient(135deg,#f0f6ff 0%,#fff 30%)}
+  .layer-title{display:flex;align-items:center;justify-content:space-between;padding:6px 12px;background:transparent;border-bottom:1px solid #f1f3f4}
+  .layer-title .t{font-size:14px;font-weight:800;letter-spacing:.5px}
+  .layer-title.head .t{color:#c5221f}
+  .layer-title.mid .t{color:#e8710a}
+  .layer-title.tail .t{color:#1a73e8}
+  .layer-title .thr{font-size:10px;color:#5f6368;background:#fff;padding:2px 8px;border-radius:10px;border:1px solid #e8eaed}
+  .layer-body{padding:8px 12px 6px;display:grid;grid-template-columns:auto auto 1fr;gap:18px;align-items:end}
+  .layer-body .item{text-align:left}
+  .layer-body .item .lbl{font-size:11px;color:#80868b;margin-bottom:1px;font-weight:500}
+  .layer-body .item .val{font-size:20px;font-weight:800;color:#202124;line-height:1.05;letter-spacing:-.5px}
+  .layer-body .item.primary .val{font-size:24px}
+  .layer-body .item.secondary .val{font-size:15px;color:#5f6368;font-weight:700}
+  .layer-body .item .unit{font-size:11px;color:#9aa0a6;margin-left:2px;font-weight:400}
+  /* 单行徽章式底部 - 紧凑化 */
+  .layer-foot{padding:5px 12px 7px;font-size:11px;color:#5f6368;border-top:1px dashed #f1f3f4;display:flex;align-items:center;justify-content:flex-start;gap:10px;flex-wrap:wrap}
+  .layer-foot .badge{display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:10px;background:#f8f9fa;font-size:11px}
+  .layer-foot .badge.up{background:#e6f4ea;color:#137333}
+  .layer-foot .badge.up b{color:#0d652d;font-weight:800}
+  .layer-foot .badge.rise{background:#e8f0fe;color:#1967d2}
+  .layer-foot .badge.rise b{color:#174ea6;font-weight:800}
+  .layer-foot .badge.muted{background:#f1f3f4;color:#9aa0a6}
+  .layer-foot .badge.delta{background:transparent}
+  .layer-foot .pct{font-weight:600;color:#202124}
+  .layer-foot b{color:#202124}
+
+  /* ===== 右半：配角化 - 单列纵向、灰底白卡、字号平均 ===== */
+  .right-charts{display:flex;flex-direction:column;gap:10px;background:#fafafa;border-radius:10px;padding:10px;border:1px solid #f1f3f4}
+  .chart-box{background:#fff;border:1px solid #e8eaed;border-radius:6px;padding:10px 12px}
+  .chart-box .ct{font-size:12px;font-weight:700;margin-bottom:3px;color:#5f6368}
+  .chart-box .ct .ch{font-size:10px;color:#9aa0a6;font-weight:400;margin-left:4px}
+  .chart-box .tip{font-size:10px;color:#9aa0a6;margin-bottom:6px;line-height:1.35}
+  .chart-box .tip b{color:#80868b}
+  /* 左半 B 区是主角，要单独覆盖样式 - 紧凑化 */
+  .struct-left .chart-box{background:#fff;border:1px solid #e8eaed;border-radius:8px;padding:8px 12px;box-shadow:0 1px 2px rgba(60,64,67,.05)}
+  .struct-left .chart-box .ct{font-size:13px;font-weight:800;color:#202124;margin-bottom:3px}
+  .struct-left .chart-box .ct .ch{font-size:10px;color:#5f6368;font-weight:500}
+  .struct-left .chart-box .tip{font-size:10px;color:#5f6368;margin-bottom:6px}
+  .struct-left .chart-box .tip b{color:#202124}
+  .chart-box.placeholder{background:repeating-linear-gradient(45deg,#fafafa,#fafafa 10px,#f1f3f4 10px,#f1f3f4 20px);border-style:dashed;position:relative}
+  .chart-box.placeholder::after{content:"待补数据";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:14px;color:#9aa0a6;background:#fff;padding:4px 12px;border-radius:12px;border:1px solid #e8eaed}
+
+  /* 堆叠条 */
+  .stack-row{display:flex;align-items:center;gap:6px;margin-bottom:5px;font-size:11px}
+  .stack-row .label{width:56px;color:#5f6368;text-align:right}
+  .stack-row .bar{flex:1;height:18px;display:flex;border-radius:3px;overflow:hidden;background:#f1f3f4}
+  .stack-row .seg{display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600;font-size:10px;white-space:nowrap}
+  .stack-row .seg.head{background:#1f4788}
+  .stack-row .seg.mid{background:#4285f4}
+  .stack-row .seg.tail{background:#a8c7fa;color:#1f4788}
+  .stack-row .seg.adq{background:#1f4788}
+  .stack-row .seg.qq{background:#a8c7fa;color:#1f4788}
+  .legend{display:flex;gap:10px;margin-top:4px;font-size:10px;color:#5f6368;justify-content:flex-end}
+  .legend .sw{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:3px;vertical-align:middle}
+
+  /* 分组柱（户均日耗对比） */
+  .bar-group{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;padding:4px 2px}
+  .bar-group .g{text-align:center;font-size:11px}
+  .bar-group .g .tier{font-weight:700;margin-bottom:4px}
+  .bar-group .pair{display:flex;justify-content:center;align-items:flex-end;gap:6px;height:72px;margin-bottom:4px}
+  .bar-group .col{width:26px;background:#c9d7ee;border-radius:2px 2px 0 0;position:relative;min-height:3px}
+  .bar-group .col.now{background:#1a73e8}
+  .bar-group .col .v{position:absolute;top:-16px;left:50%;transform:translateX(-50%);font-size:10px;color:#202124;white-space:nowrap;font-weight:600}
+  .bar-group .delta{font-size:10px;font-weight:600;margin-top:2px}
+
+  /* 定义弹窗 */
+  .modal{display:none;position:fixed;z-index:100;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,.5)}
+  .modal.show{display:block}
+  .modal-content{background:#fff;margin:5% auto;padding:24px;border-radius:10px;max-width:800px;max-height:80vh;overflow:auto}
+  .modal-content h3{color:#3949ab;margin:16px 0 8px}
+  .modal-content table{font-size:12px;margin-bottom:12px}
+  .modal-content table td,.modal-content table th{border:1px solid #e8eaed;padding:6px}
+  .close{float:right;cursor:pointer;font-size:24px;color:#5f6368}
+</style>
+<script>
+// 【只读版】硬编码运营原因（截至 2026-05-11 本地兜底备份）
+window.__STATIC_REASONS__ = {"女装_纤衣女装": "roi不达标不投了（ricky测试 · 2026-04-23）", "珠宝配饰_深圳市宝港商务贸易有限公司": "三率问题（haiyouli · 2026-04-26）", "珠宝配饰_德化县合宏蜜百货商行": "主播休息（haiyouli · 2026-04-26）", "珠宝配饰_广州市海珠区铭瑄销售商行(个体工商户)": "主播休息（匿名 · 2026-04-26）", "男装_苏州寻觅时代电子商务有限公司": "爆一爆，客户开新主体投放（jaronxie · 2026-05-06）", "男装_广州启哲贸易有限公司": "简称修改为“贴牌王怀”，4月消耗20万呢（jaronxie · 2026-05-06）", "男装_嘉兴市好遇服饰有限公司": "爆一爆，客户开新主体投放（匿名 · 2026-05-06）", "男装_合肥南芝科技有限公司": "改简称，罗蒙官方（匿名 · 2026-05-06）", "箱包鞋靴_法柏兰": "客户转战海外，放弃国内市场（匿名 · 2026-05-07）"};
+</script>
+</head>
+<body>
+<div style="background:linear-gradient(135deg,#fef7e0,#fff8e1);border-left:4px solid #f9ab00;padding:10px 20px;margin:0;font-size:13px;color:#5f6368">
+  📖 <b style="color:#3c4043">本看板已升级为只读版</b>　|　运营填写功能已下线，已展示截至 2026-05-11 的运营反馈原因（9 条）　|　如需新增反馈请联系 <b style="color:#1a73e8">金洁</b>
+</div>
+<div class="wrap">
+
+<header>
+  <h1>🦞 服饰腰尾部客户跃迁监控看板 v3 · 双视角</h1>
+  <div class="sub">
+    数据范围：ADQ + 全域通闭环 ｜ 口径：老客跃迁 / 留存 / 掉级 / 流失 ｜ 行业打标：401-507最新版
+    <span style="float:right" id="genTime"></span>
+  </div>
+</header>
+
+<div class="tabs">
+  <div class="tab active" id="tabLong" onclick="switchView('long')">
+    <span class="main">🎯 长周期视角</span>
+    <span class="hint">Q2 QTD (4.1-5.7) vs Q1 (1.1-3.31)</span>
+  </div>
+  <div class="tab" id="tabShort" onclick="switchView('short')">
+    <span class="main">⚡ 短周期视角</span>
+    <span class="hint">近双周 (4.24-5.7) vs 上双周 (4.10-4.23)</span>
+  </div>
+  <div class="tab" onclick="showDict()" style="flex:0 0 140px">
+    <span class="main">📖 数据定义</span>
+    <span class="hint">层级/赛道/投放类型</span>
+  </div>
+</div>
+
+<!-- 【2026-05-11】赛道切换tab（点击后底下所有数据按赛道联动） -->
+<div id="trackTabs" style="display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 14px 0;padding:8px 10px;background:#fff;border:1px solid #e8eaed;border-radius:8px;align-items:center">
+  <span style="font-size:12px;color:#5f6368;font-weight:600;margin-right:4px">🛤️ 赛道：</span>
+  <!-- 赛道按钮由 initTrackTabs() 动态生成 -->
+</div>
+
+<!-- 静态结构概览（参考经营仪表盘布局） -->
+<div class="card">
+  <div class="struct-head">
+    <div style="flex:1;min-width:280px">
+      <div class="title">📐 分层结构概览</div>
+      <!-- 【2026-05-11】顶部三大数字：客户数 / 日耗 / 跃迁客户数 -->
+      <div class="struct-hero">
+        <div class="item">
+          <div class="lbl">活跃客户数</div>
+          <div class="val blue" id="structCnt">—</div>
+          <div class="delta" id="structCntDelta"></div>
+        </div>
+        <div class="item">
+          <div class="lbl">大盘日耗</div>
+          <div class="val orange" id="structTotal">—</div>
+          <div class="delta" id="structTotalDelta"></div>
+        </div>
+        <div class="item">
+          <div class="lbl">⭐ 跃迁到头部</div>
+          <div class="val green" id="structUp">—</div>
+          <div class="delta" id="structUpRateLine"><span style="color:#5f6368">跃迁率 </span><b id="structUpRate" style="color:#137333">—</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 【2026-05-11】整体波动业务解读条（瀑布式）- 紧凑化 -->
+  <div id="diagLine" style="margin:3px 0 6px 0;padding:5px 10px;background:linear-gradient(90deg,#e8f0fe,#f8f9fa);border-radius:5px;border-left:3px solid #1a73e8;font-size:11px;line-height:1.4;color:#202124"></div>
+
+  <div class="struct-wrap">
+    <!-- 左：主角 - 三张分层卡 + B 跃迁赛道构成 -->
+    <div class="struct-left">
+      <div class="panel-title">
+        <span class="ttl primary">📊 大盘现状</span>
+        <span class="sub">头/腰/尾分层 + 跃迁赛道构成</span>
+      </div>
+      <div class="layer-card head">
+        <div class="layer-title head"><span class="t">头部</span><span class="thr" id="thrHead">日耗≥1万</span></div>
+        <div class="layer-body">
+          <div class="item primary"><div class="lbl">商家数</div><div class="val" id="headCnt">—</div></div>
+          <div class="item primary"><div class="lbl">日耗</div><div class="val" id="headSpend">—</div></div>
+          <div class="item secondary"><div class="lbl">户均日耗</div><div class="val" id="headAvg">—</div></div>
+        </div>
+        <div class="layer-foot">
+          <span class="pct" title="该层日耗 占 大盘日耗 的比重">占比 <b id="headPct">—</b></span>
+          <span class="badge up" title="⭐ 本周期跃迁到头部的客户数（腰→头 + 尾→头）">⭐ 跃迁进入 <b id="headUp">—</b></span>
+          <span class="badge delta" id="headDelta" title="商家数净变化 = 本周期末家数 - 上周期末家数（已含：跃迁进入 + 同层留存 - 降级 - 流失）">净变化 —</span>
+        </div>
+      </div>
+
+      <div class="layer-card mid">
+        <div class="layer-title mid"><span class="t">腰部</span><span class="thr" id="thrMid">日耗1千-1万</span></div>
+        <div class="layer-body">
+          <div class="item primary"><div class="lbl">商家数</div><div class="val" id="midCnt">—</div></div>
+          <div class="item primary"><div class="lbl">日耗</div><div class="val" id="midSpend">—</div></div>
+          <div class="item secondary"><div class="lbl">户均日耗</div><div class="val" id="midAvg">—</div></div>
+        </div>
+        <div class="layer-foot">
+          <span class="pct" title="该层日耗 占 大盘日耗 的比重">占比 <b id="midPct">—</b></span>
+          <span class="badge rise" title="本周期从尾部上升进入腰部的客户数（尾→腰）。注：从腰部进入头部不属于「跃迁」，故腰部不展示跃迁进入。">↑ 上升进入 <b id="midUp">—</b></span>
+          <span class="badge delta" id="midDelta" title="商家数净变化 = 本周期末家数 - 上周期末家数（已含：上升进入 + 同层留存 - 升级到头部 - 降级到尾部 - 流失）">净变化 —</span>
+        </div>
+      </div>
+
+      <div class="layer-card tail">
+        <div class="layer-title tail"><span class="t">尾部</span><span class="thr" id="thrTail">日耗&lt;1千</span></div>
+        <div class="layer-body">
+          <div class="item primary"><div class="lbl">商家数</div><div class="val" id="tailCnt">—</div></div>
+          <div class="item primary"><div class="lbl">日耗</div><div class="val" id="tailSpend">—</div></div>
+          <div class="item secondary"><div class="lbl">户均日耗</div><div class="val" id="tailAvg">—</div></div>
+        </div>
+        <div class="layer-foot">
+          <span class="pct" title="该层日耗 占 大盘日耗 的比重">占比 <b id="tailPct">—</b></span>
+          <span class="badge muted" title="尾部是起点层，不接收跃迁/上升">上升进入 —</span>
+          <span class="badge delta" id="tailDelta" title="商家数净变化 = 本周期末家数 - 上周期末家数（已含：从腰部降级 + 同层留存 + 新增投放 - 上升到腰部 - 流失）">净变化 —</span>
+        </div>
+      </div>
+
+      <!-- B. 跃迁客户·赛道构成（左半主角区，跟分层卡保持等距留白，让左边4块顶高顶底对齐右边） -->
+      <div class="chart-box">
+        <div class="ct">B · 跃迁客户·赛道构成 <span class="ch">⭐ 跃迁到头部 · 按赛道拆分</span></div>
+        <div class="tip">本周期跃迁到头部的客户来自<b>哪些赛道</b>。柱长=跃迁家数；数字=跃迁家数 / 赛道老客数 = 跃迁率。</div>
+        <div id="chartUpDist" style="padding:6px 4px"></div>
+      </div>
+    </div>
+
+    <!-- 右：配角 - 拆解图表（A/D/E/F 单列纵向） -->
+    <div>
+      <div class="panel-title">
+        <span class="ttl secondary">📑 详细拆解</span>
+        <span class="sub">日耗结构 / 创意基建 / 链路 / 渠道</span>
+      </div>
+      <div class="right-charts">
+        <!-- 1. 分层日耗结构·前后期对比 -->
+        <div class="chart-box">
+          <div class="ct">1 · 分层日耗结构 · 前后期对比 <span class="ch">上周期 vs 本周期</span></div>
+          <div class="tip">看大盘日耗在 <b>头/腰/尾</b> 三层的分布是否健康；条越长=该层贡献的日耗越多。</div>
+          <div id="chartA"></div>
+          <div class="legend">
+            <span><span class="sw" style="background:#1f4788"></span>头部</span>
+            <span><span class="sw" style="background:#4285f4"></span>腰部</span>
+            <span><span class="sw" style="background:#a8c7fa"></span>尾部</span>
+          </div>
+        </div>
+
+        <!-- 2. 创意唯一性ID数（基建丰富度） -->
+        <div class="chart-box">
+          <div class="ct">2 · 创意唯一性ID数 · 分层对比 <span class="ch">本周期 · 户均/总量</span></div>
+          <div class="tip"><b>每家平均跑了多少条独立创意</b>。例：腰部 122 = 腰部客户日均跑 122 条不同创意，是尾部（14）的 8.7 倍。创意越多=广告基建越丰富=拿量天花板越高。</div>
+          <div id="chartD" style="padding:4px 2px"></div>
+          <div class="legend">
+            <span><span class="sw" style="background:#1f4788"></span>头部</span>
+            <span><span class="sw" style="background:#4285f4"></span>腰部</span>
+            <span><span class="sw" style="background:#a8c7fa"></span>尾部</span>
+            <span style="color:#5f6368">柱长=户均创意ID数</span>
+          </div>
+        </div>
+
+        <!-- 3. 商品消费链路（直播 vs 小店） -->
+        <div class="chart-box">
+          <div class="ct">3 · 商品消费链路 · 消耗占比 <span class="ch">直播 vs 小店 · 前后期对比</span></div>
+          <div class="tip">每层日耗中，<b>直播间广告</b>和<b>小店直购</b>各占多少。第二行=本周期、第一行=上周期，<b>看每层的链路结构是涨直播、还是涨小店</b>。</div>
+          <div id="chartE"></div>
+          <div class="legend">
+            <span><span class="sw" style="background:#1f4788"></span>直播</span>
+            <span><span class="sw" style="background:#a8c7fa"></span>小店</span>
+          </div>
+        </div>
+
+        <!-- 4. 全域通 vs ADQ -->
+        <div class="chart-box">
+          <div class="ct">4 · 全域通 vs ADQ · 消耗占比 <span class="ch">按层分</span></div>
+          <div class="tip">每层日耗中，<b>ADQ</b>和<b>全域通</b>各贡献多少。看不同层级更依赖哪条投放路径。</div>
+          <div id="chartF"></div>
+          <div class="legend">
+            <span><span class="sw" style="background:#1f4788"></span>ADQ</span>
+            <span><span class="sw" style="background:#a8c7fa"></span>全域通</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- KPI 区（跃迁监控） -->
+<div class="card">
+  <h2>📊 跃迁监控核心指标 <span class="badge" id="kpiPeriod"></span></h2>
+  <div class="kpi-row">
+    <div class="kpi"><div class="lbl">老客总数</div><div class="val" id="kOld">—</div><div class="hint">上周期有消耗</div></div>
+    <div class="kpi green"><div class="lbl">跃迁到头部 <span title="腰→头 + 尾→头" style="color:#8e24aa;cursor:help">ⓘ</span></div><div class="val" id="kUp">—</div><div class="hint" id="kUpRate"></div></div>
+    <div class="kpi green"><div class="lbl">跃迁率</div><div class="val" id="kUpRateBig">—</div><div class="hint">跃迁到头部 ÷ 老客总数</div></div>
+    <div class="kpi green"><div class="lbl">留存率</div><div class="val" id="kRetain">—</div><div class="hint">跃迁到头部+升级+同层留存</div></div>
+    <div class="kpi red"><div class="lbl">流失客户</div><div class="val" id="kLoss">—</div><div class="hint" id="kLossRate"></div></div>
+    <div class="kpi purple"><div class="lbl">新增投放</div><div class="val" id="kNew">—</div><div class="hint">上周期无消耗</div></div>
+    <div class="kpi orange"><div class="lbl">本周期日耗 <span title="元/天，非累计总消耗" style="color:#8e24aa;cursor:help">ⓘ</span></div><div class="val" id="kSpend">—</div><div class="hint" id="kSpendCmp"></div></div>
+  </div>
+
+  <h3 style="font-size:13px;margin:16px 0 8px;color:#5f6368">🔀 投放类型拆解（老客基准）</h3>
+  <div class="kpi-row">
+    <div class="kpi"><div class="lbl"><span class="pill pill-adq">单ADQ</span> 客户</div><div class="val" id="kADQ">—</div><div class="hint" id="kADQUp"></div></div>
+    <div class="kpi"><div class="lbl"><span class="pill pill-qq">单全域通</span> 客户</div><div class="val" id="kQQ">—</div><div class="hint" id="kQQUp"></div></div>
+    <div class="kpi"><div class="lbl"><span class="pill pill-dual">双投</span> 客户</div><div class="val" id="kDual">—</div><div class="hint" id="kDualUp"></div></div>
+  </div>
+</div>
+
+<!-- 赛道汇总 -->
+<div class="card">
+  <h2>🏁 分赛道汇总 <span class="badge" style="font-size:11px;font-weight:400;color:#5f6368;background:#e8eaed;padding:2px 8px;border-radius:10px;margin-left:6px">基于本周期层级判断腰尾部</span></h2>
+  <div class="scroll">
+    <table id="sumTab">
+      <thead><tr>
+        <th rowspan="2" style="vertical-align:middle">赛道</th>
+        <th rowspan="2" style="vertical-align:middle">老客数</th>
+        <th colspan="2" style="border-bottom:1px solid #e0e0e0">跃迁到头部</th>
+        <th colspan="2" style="border-bottom:1px solid #e0e0e0;background:#fff4e5">本周期日耗</th>
+        <th colspan="2" style="border-bottom:1px solid #e0e0e0;background:#e8f0fe">腰尾部日耗</th>
+      </tr>
+      <tr>
+        <th>家数</th><th>跃迁率</th>
+        <th style="background:#fff4e5">日耗(元/天)</th><th style="background:#fff4e5">vs上周期</th>
+        <th style="background:#e8f0fe">占比</th><th style="background:#e8f0fe">vs上周期</th>
+      </tr></thead>
+      <tbody id="sumBody"></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- 跃迁客户专题 -->
+<div class="card" id="upCard">
+  <h2>⭐ 跃迁客户专题 <span class="badge" id="upPeriod"></span></h2>
+  <p class="mini" style="color:#5f6368;margin:-4px 0 12px 0">
+    本板块展示<b>所有跃迁到头部的客户</b>（腰→头 + 尾→头，与 KPI 区「跃迁到头部」口径一致），支持按赛道/方向筛选并导出明细，便于运营锁定标杆 case 复盘打法。
+  </p>
+
+  <!-- 统计区 -->
+  <div class="kpi-row" style="margin-bottom:12px">
+    <div class="kpi green"><div class="lbl">跃迁到头部总数 ⭐</div><div class="val" id="upTotal">—</div><div class="hint" id="upTotalHint"></div></div>
+    <div class="kpi" style="border-left-color:#c5221f"><div class="lbl">腰→头</div><div class="val" id="upToHead">—</div><div class="hint">腰部客户升到头部</div></div>
+    <div class="kpi" style="border-left-color:#e8710a"><div class="lbl">尾→头</div><div class="val" id="upToMid">—</div><div class="hint">尾部客户升到头部</div></div>
+    <div class="kpi" style="border-left-color:#1a73e8"><div class="lbl">本周期日耗增量</div><div class="val" id="upSpendInc">—</div><div class="hint" id="upSpendIncHint"></div></div>
+  </div>
+
+  <!-- 筛选 -->
+  <div class="filters" style="margin-bottom:8px">
+    <select id="upDir" onchange="renderUp()">
+      <option value="">跃迁方向：全部</option>
+      <option value="腰→头">腰→头</option>
+      <option value="尾→头">尾→头</option>
+    </select>
+    <span style="margin-left:auto;color:#5f6368" id="upCnt"></span>
+    <button class="sec" onclick="exportUpCsv()">导出CSV</button>
+  </div>
+  <!-- 分赛道分组卡片 -->
+  <div id="upGroupBox" style="display:flex;flex-direction:column;gap:12px"></div>
+</div>
+
+<!-- 明细 -->
+<div class="card">
+  <h2>📋 客户明细</h2>
+  <div class="filters">
+    <select id="fInd" onchange="renderD()"><option value="">赛道：全部</option></select>
+    <select id="fBaseTier" onchange="renderD()">
+      <option value="">上周期层级：全部</option>
+      <option value="头部">头部</option><option value="腰部">腰部</option>
+      <option value="尾部">尾部</option><option value="无消耗">无消耗</option>
+    </select>
+    <select id="fM3" onchange="renderD()">
+      <option value="">变化：全部</option>
+      <option value="跃迁到头部">跃迁到头部</option>
+      <option value="腰→头">└ 腰部→头部</option>
+      <option value="尾→头">└ 尾部→头部</option>
+      <option value="升级">升级（尾→腰）</option>
+      <option value="留存">留存</option>
+      <option value="掉级">掉级</option><option value="流失">流失</option>
+      <option value="新增投放">新增投放</option>
+    </select>
+    <select id="fAd" onchange="renderD()">
+      <option value="">投放类型：全部</option>
+      <option value="单ADQ">仅单ADQ</option>
+      <option value="单全域通">仅单全域通</option>
+      <option value="双投">仅双投</option>
+    </select>
+    <input id="fKey" placeholder="🔍 客户简称关键字" oninput="renderD()" style="width:180px">
+    <span style="margin-left:auto;color:#5f6368" id="detailCnt"></span>
+    <button class="sec" onclick="exportCsv()">导出CSV</button>
+  </div>
+  <div class="scroll">
+    <table id="detTab">
+      <thead><tr>
+        <th>赛道</th><th>客户</th><th>投放<br>类型</th>
+        <th>上周期<br>层级</th><th>上周期<br>日耗(元)</th><th>上周期<br>ROI</th>
+        <th>本周期<br>层级</th><th>本周期<br>日耗(元)</th><th>本周期<br>ROI</th>
+        <th>变化</th><th>广告数</th><th>创意ID数</th>
+        <th>运营填写原因</th>
+      </tr></thead>
+      <tbody id="detBody"></tbody>
+    </table>
+  </div>
+</div>
+
+</div>
+
+<!-- 定义弹窗 -->
+<div class="modal" id="dictModal" onclick="if(event.target===this)this.classList.remove('show')">
+<div class="modal-content">
+  <span class="close" onclick="document.getElementById('dictModal').classList.remove('show')">×</span>
+  <h2>📖 数据定义与口径</h2>
+
+  <h3>① 层级定义（按日均消耗）</h3>
+  <table style="width:100%">
+    <tr style="background:#f1f3f4"><th>层级</th><th>日耗阈值</th></tr>
+    <tr><td><b class="tier-head">头部</b></td><td>日耗 ≥ 10,000 元</td></tr>
+    <tr><td><b class="tier-mid">腰部</b></td><td>1,000 ≤ 日耗 &lt; 10,000 元</td></tr>
+    <tr><td><b class="tier-tail">尾部</b></td><td>0 &lt; 日耗 &lt; 1,000 元</td></tr>
+    <tr><td><b class="tier-none">无消耗</b></td><td>日耗 = 0</td></tr>
+  </table>
+
+  <h3>② 时间窗口（双视角）</h3>
+  <table style="width:100%">
+    <tr style="background:#f1f3f4"><th>视角</th><th>上周期</th><th>本周期</th><th>适用场景</th></tr>
+    <tr><td><b>长周期</b></td><td>Q1（1.1-3.31，90天）</td><td>Q2 QTD（4.1-5.7，37天）</td><td>季度同比，看大趋势</td></tr>
+    <tr><td><b>短周期</b></td><td>上双周（4.10-4.23）</td><td>近双周（4.24-5.7）</td><td>双周环比，看近期波动</td></tr>
+  </table>
+
+  <h3>③ 变化类型</h3>
+  <table style="width:100%">
+    <tr style="background:#f1f3f4"><th>类型</th><th>定义</th><th>颜色</th></tr>
+    <tr><td><b>跃迁到头部</b></td><td>层级从腰部/尾部 → 头部（本看板的"跃迁"特指此）</td><td class="m3-up">绿色 ⭐</td></tr>
+    <tr><td><b>留存</b></td><td>本周期层级 = 上周期层级</td><td class="m3-retain">灰色</td></tr>
+    <tr><td><b>掉级</b></td><td>层级从高→低</td><td class="m3-down">橙色</td></tr>
+    <tr><td><b>流失</b></td><td>上周期有消耗、本周期无消耗</td><td class="m3-loss">红色</td></tr>
+    <tr><td><b>新增投放</b></td><td>上周期无消耗、本周期有消耗</td><td class="m3-new">紫色</td></tr>
+  </table>
+  <p class="mini">📌 <b>2026-05-11 更新</b>：本看板「跃迁」口径已收紧为<b>「跃迁到头部」</b>（腰→头 + 尾→头），不再包含"尾→腰"，因此跃迁数会比旧版本明显减少（这是定义变化，非业务变化）。</p>
+
+  <h3>④ 核心指标计算公式</h3>
+  <table style="width:100%">
+    <tr style="background:#f1f3f4"><th>指标</th><th>计算公式</th><th>说明</th></tr>
+    <tr><td><b>跃迁率</b></td><td>跃迁到头部客户数 ÷ 老客总数 × 100%</td><td>分母=上周期有消耗的客户数；分子=本周期升至头部的客户数（含腰→头、尾→头）</td></tr>
+    <tr><td><b>留存率</b></td><td>(留存 + 跃迁到头部) 客户数 ÷ 老客总数 × 100%</td><td>留存=本周期层级与上周期相同；跃迁到头部也算"成功留住"</td></tr>
+    <tr><td><b>流失率</b></td><td>流失客户数 ÷ 老客总数 × 100%</td><td>流失=上周期有消耗、本周期完全无消耗</td></tr>
+    <tr><td><b>掉级</b></td><td>掉级客户数（不参与流失/留存计算）</td><td>头→腰、头→尾、腰→尾，算"消耗规模收缩"但仍在投</td></tr>
+    <tr><td><b>新增投放</b></td><td>新增客户数（不算入老客统计）</td><td>上周期无消耗、本周期有消耗，是增量市场</td></tr>
+    <tr><td><b>户均日耗</b></td><td>该层本周期日耗总和 ÷ 该层客户数</td><td>反映本层平均健康度</td></tr>
+    <tr><td><b>占比</b></td><td>该层日耗 ÷ 大盘总日耗 × 100%</td><td>看大盘资源在头/腰/尾的分布</td></tr>
+    <tr><td><b>创意唯一性ID数</b></td><td>该层本周期日均曝光的去重创意数（户均/总量）</td><td>每个独立创意=一个ID，越多说明广告基建越丰富、拿量天花板越高</td></tr>
+  </table>
+  <p class="mini">⚠️ <b>关于"分层占比变化"</b>：分层占比每期都重新计算（按本周期日耗重新分层），所以哪怕跃迁定义不变，<b>每个客户每期可能落在不同层</b>——例如一个客户从尾部升到腰部，腰部商家数+1，尾部商家数-1，腰部占比自然上升。这是<b>正常的客户结构变化</b>，不是数据口径错误。</p>
+
+  <h3>⑤ 投放类型（按本周期判断）</h3>
+  <table style="width:100%">
+    <tr style="background:#f1f3f4"><th>类型</th><th>定义</th></tr>
+    <tr><td><span class="pill pill-adq">单ADQ</span></td><td>本周期只有ADQ消耗</td></tr>
+    <tr><td><span class="pill pill-qq">单全域通</span></td><td>本周期只有全域通消耗</td></tr>
+    <tr><td><span class="pill pill-dual">双投</span></td><td>本周期同时有ADQ和全域通消耗</td></tr>
+  </table>
+  <p class="mini">注：若客户本周期无投放（流失），则按上周期判断。</p>
+
+  <h3>⑥ 赛道合并规则（基于运营二级行业）</h3>
+  <p class="mini" style="margin-bottom:8px">📌 若客户上周期/本周期被打标到不同赛道，以<b>本周期赛道</b>为准；所有客户的行业以 401-507 最新一期打标覆盖。</p>
+  <table style="width:100%">
+    <tr style="background:#f1f3f4"><th>赛道</th><th>口径</th></tr>
+    <tr><td><b>女装+童装</b></td><td>一级"服饰鞋包" × 二级"女装" + 二级"童装"</td></tr>
+    <tr><td><b>男装</b></td><td>一级"服饰鞋包" × 二级"男装"</td></tr>
+    <tr><td><b>箱包鞋靴</b></td><td>一级"服饰鞋包" × 二级"箱包鞋靴"</td></tr>
+    <tr><td><b>贴身衣物</b></td><td>一级"服饰鞋包" × 二级"贴身衣物"</td></tr>
+    <tr><td><b>服饰鞋包其他</b></td><td>一级"服饰鞋包"下其他二级</td></tr>
+    <tr><td><b>珠宝配饰</b></td><td>一级"珠宝配饰"整个行业</td></tr>
+    <tr><td><b>运动户外</b></td><td>一级"运动户外"整个行业</td></tr>
+    <tr><td><b>综合服饰</b></td><td>一级"综合服饰" + 二级"跑品客户"</td></tr>
+    <tr><td><b>服饰奢品</b></td><td>一级"服饰奢品" + 二级"潮流奢品"</td></tr>
+    <tr><td><b>其他</b></td><td>一级为空/0/未归类的客户</td></tr>
+  </table>
+</div>
+</div>
+
+<script>
+let DATA = null, curView = 'long', curTrack = '整体';
+
+// —— 加载数据 ——
+fetch('v3_data.json?t='+Date.now()).then(r=>r.json()).then(d=>{
+  DATA = d;
+  document.getElementById('genTime').textContent = '更新时间：' + d.gen_time;
+  initFilters();
+  initTrackTabs();
+  switchView('long');
+}).catch(e=>{
+  document.body.innerHTML = '<div style="padding:40px;color:#c5221f"><h2>数据加载失败</h2><p>无法加载 v3_data.json：'+e.message+'</p><p>请确保运行 <code>python3 generate_v3.py</code> 生成数据后再打开。</p></div>';
+});
+
+function initFilters(){
+  const fInd = document.getElementById('fInd');
+  DATA.tracks.forEach(t=>{
+    const opt = document.createElement('option');
+    opt.value = t; opt.textContent = '赛道：'+t;
+    fInd.appendChild(opt);
+  });
+}
+
+// 【2026-05-11】赛道tab：动态渲染，点击切换 curTrack
+function initTrackTabs(){
+  const wrap = document.getElementById('trackTabs');
+  const list = ['整体'].concat(DATA.tracks || []);
+  // 保留 label span，移除旧按钮
+  const labelSpan = wrap.querySelector('span');
+  wrap.innerHTML = '';
+  wrap.appendChild(labelSpan);
+  list.forEach(tr=>{
+    const btn = document.createElement('button');
+    btn.className = 'track-tab' + (tr===curTrack?' active':'');
+    btn.textContent = tr;
+    btn.dataset.track = tr;
+    btn.onclick = ()=>switchTrack(tr);
+    btn.style.cssText = 'padding:6px 14px;border:1px solid #dadce0;border-radius:14px;background:'
+      +(tr===curTrack?'#1f4788':'#fff')+';color:'+(tr===curTrack?'#fff':'#3c4043')
+      +';cursor:pointer;font-size:12px;font-weight:600;transition:all .15s';
+    wrap.appendChild(btn);
+  });
+}
+function switchTrack(tr){
+  curTrack = tr;
+  // 刷新tab样式
+  document.querySelectorAll('#trackTabs .track-tab').forEach(b=>{
+    const active = b.dataset.track===tr;
+    b.classList.toggle('active', active);
+    b.style.background = active?'#1f4788':'#fff';
+    b.style.color = active?'#fff':'#3c4043';
+  });
+  // 重渲染所有依赖view的模块
+  renderStructure(); renderKPI(); renderSummary(); renderUp(); renderD();
+}
+
+// 【2026-05-11】返回当前赛道+周期下的视图：structure/summary/detail 都按 curTrack 过滤
+// curTrack='整体' 时返回原始数据
+function getView(){
+  const v = DATA[curView];
+  if(curTrack==='整体'){
+    return {
+      label: v.label, base: v.base, obs: v.obs,
+      base_days: v.base_days, obs_days: v.obs_days,
+      structure: v.structure_by_track ? v.structure_by_track['整体'] : v.structure,
+      summary: v.summary,
+      detail: v.detail,
+      insights: v.insights,
+    };
+  }
+  // 单赛道：structure 取 structure_by_track[curTrack]，summary/detail 过滤 ind===curTrack
+  const sbt = v.structure_by_track || {};
+  return {
+    label: v.label, base: v.base, obs: v.obs,
+    base_days: v.base_days, obs_days: v.obs_days,
+    structure: sbt[curTrack] || v.structure,  // 兜底：找不到时退回整体
+    summary: (v.summary||[]).filter(r=>r.ind===curTrack || r.ind==='整体'),  // 保留整体行供KPI计算
+    detail: (v.detail||[]).filter(r=>r.ind===curTrack),
+    insights: v.insights,
+    _isTrackView: true,
+    _track: curTrack,
+  };
+}
+
+function switchView(v){
+  curView = v;
+  document.getElementById('tabLong').classList.toggle('active', v==='long');
+  document.getElementById('tabShort').classList.toggle('active', v==='short');
+  const view = DATA[v];
+  document.getElementById('kpiPeriod').textContent = view.label;
+  document.getElementById('upPeriod').textContent = view.label;
+  renderStructure(); renderKPI(); renderSummary(); initUpFilters(); renderUp(); renderD();
+}
+
+const N = x => x==null?'—':(typeof x==='number'?x.toLocaleString('zh-CN',{maximumFractionDigits:0}):x);
+const pct = x => (x||0).toFixed(1)+'%';
+const tierCls = t => ({'头部':'tier-head','腰部':'tier-mid','尾部':'tier-tail','无消耗':'tier-none'}[t]||'');
+const m3Cls = m => ({'跃迁':'m3-up','升级':'m3-up','留存':'m3-retain','掉级':'m3-down','流失':'m3-loss','新增投放':'m3-new'}[m]||'');
+const adPill = at => ({'单ADQ':'pill-adq','单全域通':'pill-qq','双投':'pill-dual'}[at]||'');
+
+// 【2026-05-11】统一的 m3 筛选函数 —— 跃迁=跃迁到头部（含腰→头+尾→头）
+function m3Filter(row, fm){
+  if(!fm) return true;
+  if(fm==='跃迁到头部') return row.to_head===true;
+  if(fm==='腰→头') return row.base_tier==='腰部' && row.obs_tier==='头部';
+  if(fm==='尾→头') return row.base_tier==='尾部' && row.obs_tier==='头部';
+  return row.m3t===fm;
+}
+
+// 万元化显示：5360409 → "536万"；26716 → "2.7万"；56 → "56"
+function toWan(n){
+  if(n==null||isNaN(n)) return '—';
+  const a = Math.abs(n);
+  if(a>=10000) return (n/10000).toFixed(a>=1000000?0:1).replace(/\.0$/,'')+'万';
+  return Math.round(n).toLocaleString('zh-CN');
+}
+function deltaHtml(v, unit, invertColor){
+  // v: 百分比数字；invertColor=false (正向绿色、负向红色)
+  if(v==null) return '';
+  const up = v>=0;
+  const color = invertColor ? (up?'#c5221f':'#137333') : (up?'#137333':'#c5221f');
+  const arrow = up?'▲':'▼';
+  return `<span style="color:${color}">${arrow} ${up?'+':''}${v.toFixed(2)}${unit||'%'}</span>`;
+}
+function deltaCntHtml(v){
+  if(v==null||v===0) return `<span style="color:#5f6368">—</span>`;
+  const up = v>0;
+  return `<span style="color:${up?'#137333':'#c5221f'}">${up?'▲ +':'▼ '}${v} 家</span>`;
+}
+
+function renderStructure(){
+  const view = getView();
+  const s = view.structure;
+  if(!s) return;
+  const o = s.overall;
+  // 【2026-05-11】顶部三大数字
+  // 客户数 + 环比
+  document.getElementById('structCnt').textContent = N(o.cnt_obs||0) + ' 家';
+  const cntDelta = o.cnt_delta_abs||0, cntRate = o.cnt_delta_rate||0;
+  document.getElementById('structCntDelta').innerHTML =
+    `环比 ${deltaHtml(cntRate,'%')} (${cntDelta>=0?'+':''}${N(cntDelta)} 家)`;
+  // 大盘日耗
+  document.getElementById('structTotal').textContent = toWan(o.spend_day);
+  document.getElementById('structTotalDelta').innerHTML =
+    `环比 ${deltaHtml(o.delta_rate,'%')} (${o.delta_abs>=0?'+':''}${toWan(o.delta_abs)})`;
+  // 跃迁总数+跃迁率（取自 summary 整体行 / 当前赛道行）
+  let tot;
+  if (curTrack==='整体'){
+    tot = (DATA[curView].summary||[]).find(r=>r.ind==='整体'&&r.tier==='全部') || {};
+  } else {
+    // 单赛道：用该赛道的"全部"行
+    tot = (DATA[curView].summary||[]).find(r=>r.ind===curTrack&&r.tier==='全部') || {};
+  }
+  document.getElementById('structUp').textContent = N(tot.up||0) + ' 家';
+  document.getElementById('structUpRate').textContent = pct(tot.up_rate||0);
+
+  // 【2026-05-11 重写】整体波动归因 · 严格 MECE 拆解（5项之和 = 顶部delta_abs，一分不差）
+  // 客户互斥归类：跃迁向上(到头部) + 头部老客留存 + 其他老客 + 新增投放 + 流失 = total_delta
+  const diag = s.dashboard_diag;
+  if (diag){
+    const parts = [
+      {name:'跃迁向上',     val:diag.up_contrib,           cnt:diag.up_cnt,           desc:'腰/尾→头部'},
+      {name:'头部老客',     val:diag.head_old_contrib,     cnt:diag.head_old_cnt,     desc:'前后均头部'},
+      {name:'其他老客',     val:diag.mid_tail_old_contrib, cnt:diag.mid_tail_old_cnt, desc:'腰尾留存+下沉'},
+      {name:'新增投放',     val:diag.new_contrib,          cnt:diag.new_cnt,          desc:'上周期未投放'},
+      {name:'流失客户',     val:diag.loss_impact,          cnt:diag.loss_cnt,         desc:'本周期未投放'},
+    ];
+    // 对账校验（前端二次保险）
+    const fiveSum = parts.reduce((a,p)=>a+p.val, 0);
+    const reconOk = Math.abs(fiveSum - diag.total_delta) < 1;
+    const ups = parts.filter(p=>p.val>0).sort((a,b)=>b.val-a.val);
+    const downs = parts.filter(p=>p.val<0).sort((a,b)=>a.val-b.val);
+    const fmt = (p, color) => `<b style="color:${color}" title="${p.desc} · ${p.cnt}户">${p.name} ${p.val>=0?'+':''}${toWan(p.val)}</b>`;
+    const upLine  = ups.length   ? `消耗增长：${ups.map(p=>fmt(p,'#137333')).join('<span style="color:#bdc1c6">、</span>')}` : '';
+    const dnLine  = downs.length ? `消耗下滑：${downs.map(p=>fmt(p,'#c5221f')).join('<span style="color:#bdc1c6">、</span>')}` : '';
+    const totalColor = diag.total_delta>=0?'#137333':'#c5221f';
+    const totalSign = diag.total_delta>=0?'+':'';
+    const reconBadge = reconOk
+      ? ''  // 对账正常时不显示徽章（避免冗余信息）
+      : `<span style="color:#c5221f;font-size:10px;margin-left:6px" title="对账失败！差额${toWan(fiveSum-diag.total_delta)}">⚠ 对账异常</span>`;
+    document.getElementById('diagLine').innerHTML =
+      `<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:3px">
+        <div style="font-weight:700;color:#1a73e8;font-size:12px">📊 整体波动归因${reconBadge}</div>
+        <div style="font-size:11px">
+          <span style="color:#5f6368">合计 </span>
+          <b style="color:${totalColor};font-size:13px">${totalSign}${toWan(diag.total_delta)}</b>
+          <span style="color:${totalColor};font-size:11px">（${totalSign}${diag.total_delta_rate.toFixed(1)}%）</span>
+        </div>
+      </div>
+      ${upLine ? `<div style="font-size:11px;line-height:1.55">${upLine}</div>` : ''}
+      ${dnLine ? `<div style="font-size:11px;line-height:1.55">${dnLine}</div>` : ''}`;
+  }
+
+  // 阈值
+  document.getElementById('thrHead').textContent = s.thresholds['头部'];
+  document.getElementById('thrMid').textContent = s.thresholds['腰部'];
+  document.getElementById('thrTail').textContent = s.thresholds['尾部'];
+
+  // 【2026-05-11】从 detail 统计"跃迁进入"各层的家数（按当前赛道过滤）
+  const det = view.detail || [];
+  const upInto = {'头部':0, '腰部':0};  // 尾部不接收跃迁
+  det.forEach(r=>{
+    const b = r.base_tier, o = r.obs_tier;
+    if (!b || !o || b === o) return;
+    // 跃迁到头部：腰→头 + 尾→头
+    if (o === '头部' && (b === '腰部' || b === '尾部')) upInto['头部']++;
+    // 跃迁到腰部：尾→腰（从尾部提升到腰部）
+    if (o === '腰部' && b === '尾部') upInto['腰部']++;
+  });
+
+  // 三层卡
+  const mp = {'头部':'head','腰部':'mid','尾部':'tail'};
+  Object.entries(mp).forEach(([tier, pre])=>{
+    const t = s.tiers[tier];
+    document.getElementById(pre+'Cnt').innerHTML = `${t.cnt.toLocaleString()}<span class="unit">家</span>`;
+    document.getElementById(pre+'Spend').innerHTML = `${toWan(t.spend_day)}`;
+    document.getElementById(pre+'Avg').innerHTML = `${toWan(t.avg)}`;
+    document.getElementById(pre+'Pct').textContent = t.pct.toFixed(2)+'%';
+    document.getElementById(pre+'Delta').innerHTML =
+      `<span style="color:#5f6368">净变化</span> ${deltaCntHtml(t.cnt_delta)} <span style="color:#bdc1c6">｜</span> 日耗 ${deltaHtml(t.spend_delta_rate,'%')}`;
+    // 跃迁进入
+    const upEl = document.getElementById(pre+'Up');
+    if (upEl && upInto[tier] !== undefined) {
+      upEl.textContent = upInto[tier] + '家';
+    }
+  });
+
+  // 图A：分层日耗结构·前后期对比（两行堆叠条）
+  const T = s.tiers;
+  function stackRow(label, pct_h, pct_m, pct_t){
+    return `<div class="stack-row">
+      <div class="label">${label}</div>
+      <div class="bar">
+        <div class="seg head" style="width:${pct_h}%">${pct_h>=5?pct_h.toFixed(1)+'%':''}</div>
+        <div class="seg mid"  style="width:${pct_m}%">${pct_m>=5?pct_m.toFixed(1)+'%':''}</div>
+        <div class="seg tail" style="width:${pct_t}%">${pct_t>=5?pct_t.toFixed(1)+'%':''}</div>
+      </div>
+    </div>`;
+  }
+  document.getElementById('chartA').innerHTML =
+    stackRow('上周期', T['头部'].pct_prev, T['腰部'].pct_prev, T['尾部'].pct_prev)
+    + stackRow('本周期', T['头部'].pct,      T['腰部'].pct,      T['尾部'].pct);
+
+  // 图B：跃迁客户·赛道构成 / 单赛道时切换为该赛道跃迁客户Top10
+  if (curTrack === '整体'){
+    // 整体视图：各赛道横向对比
+    const upBySeg = (DATA[curView].summary||[])
+      .filter(r=>r.tier==='全部'&&r.ind!=='整体'&&(r.up||0)>0)
+      .sort((a,b)=>(b.up||0)-(a.up||0));
+    const maxUp = upBySeg.length ? Math.max(...upBySeg.map(r=>r.up)) : 1;
+    const totalUp = tot.up || 0;
+    document.getElementById('chartUpDist').innerHTML = upBySeg.length ?
+      upBySeg.map(r=>{
+        const w = (r.up/maxUp)*100;
+        const share = totalUp>0 ? (r.up/totalUp*100).toFixed(0) : 0;
+      // 跃迁率高亮：>=1% 字重加粗深蓝，其他普通灰
+      const isHigh = (r.up_rate||0)>=1;
+      const rateStyle = isHigh ? 'color:#1967d2;font-weight:700' : 'color:#80868b';
+      return `<div style="display:flex;align-items:center;gap:10px;margin-bottom:5px;font-size:12px" title="${r.ind}：跃迁 ${r.up} 家 · 跃迁率 ${pct(r.up_rate||0)} · 占跃迁总量 ${share}%">
+        <div style="width:84px;text-align:right;color:#202124;flex-shrink:0;font-size:12px;font-weight:600">${r.ind}</div>
+        <div style="flex:1;background:#f1f3f4;height:18px;border-radius:3px;position:relative;overflow:hidden">
+          <div style="width:${w}%;height:100%;background:#1f4788;border-radius:3px"></div>
+          <span style="position:absolute;left:8px;top:0;line-height:18px;color:#fff;font-size:11px;font-weight:700">${r.up} 家</span>
+        </div>
+        <div style="width:130px;font-size:11px;${rateStyle};flex-shrink:0">跃迁率 ${pct(r.up_rate||0)} <span style="color:#bdc1c6">·</span> 占比 ${share}%</div>
+      </div>`;
+    }).join('') :
+    `<div style="color:#9aa0a6;font-size:12px;text-align:center;padding:30px 0">本期无跃迁客户</div>`;
+  } else {
+    // 单赛道视图：显示该赛道跃迁客户Top10（按obs_spend排序，仅包含 to_head=true）
+    const upClients = (view.detail||[])
+      .filter(r=>r.to_head===true)
+      .sort((a,b)=>(b.obs_spend||0)-(a.obs_spend||0))
+      .slice(0,10);
+    const maxSpend = upClients.length ? Math.max(...upClients.map(r=>r.obs_spend||0)) : 1;
+    document.getElementById('chartUpDist').innerHTML = upClients.length ?
+      `<div style="font-size:11px;color:#5f6368;margin-bottom:6px">📊 ${curTrack}·跃迁到头部客户 Top${upClients.length}（按本周期日耗）</div>`
+      + upClients.map(r=>{
+          const w = ((r.obs_spend||0)/maxSpend)*100;
+          const dirColor = r.base_tier==='尾部'?'#137333':'#1f4788';  // 尾→头标绿（更难得）
+          return `<div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;font-size:11px" title="${r.name}：${r.base_tier}→${r.obs_tier} · 日耗${toWan(r.obs_spend||0)} · ROI ${(r.obs_roi||0).toFixed(2)}">
+            <div style="width:96px;text-align:right;color:#202124;flex-shrink:0;font-size:11px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${r.name||'—'}</div>
+            <div style="flex:1;background:#f1f3f4;height:16px;border-radius:3px;position:relative;overflow:hidden">
+              <div style="width:${w}%;height:100%;background:#1f4788;border-radius:3px"></div>
+              <span style="position:absolute;left:8px;top:0;line-height:16px;color:#fff;font-size:10px;font-weight:700">日耗 ${toWan(r.obs_spend||0)}</span>
+            </div>
+            <div style="width:90px;font-size:10px;color:${dirColor};flex-shrink:0;font-weight:600">${r.base_tier}→${r.obs_tier}</div>
+          </div>`;
+        }).join('') :
+      `<div style="color:#9aa0a6;font-size:12px;text-align:center;padding:30px 0">${curTrack}·本期无跃迁到头部的客户</div>`;
+  }
+
+  // 图D：创意唯一性ID数（户均，反映基建丰富度）—— 【2026-05-11 v4.3 横向条状·统一蓝色系】
+  const maxCids = Math.max(T['头部'].cids_avg||0, T['腰部'].cids_avg||0, T['尾部'].cids_avg||0, 1);
+  function barCids(tier){
+    const d = T[tier];
+    const w_now = Math.max(2, ((d.cids_avg||0)/maxCids)*100);
+    // 统一蓝色系（跟A/E/F图一致）：头部=深蓝，腰部=中蓝，尾部=浅蓝
+    const segColor = tier==='头部'?'#1f4788':(tier==='腰部'?'#4285f4':'#a8c7fa');
+    const segText  = tier==='尾部'?'#1f4788':'#fff';
+    // 【2026-05-12】短条文字放外面：横条<35%时，户均数字渲染到条外右侧（避免文字被截断）
+    const labelText = '户均 ' + toWan(d.cids_avg||0);
+    const isShort = w_now < 35;
+    const innerLabel = isShort ? '' : labelText;
+    const outerLabel = isShort ? `<span style="font-size:10px;color:#3c4043;font-weight:700;margin-left:6px">${labelText}</span>` : '';
+    return `<div class="stack-row" style="margin-bottom:8px">
+      <div class="label">${tier}</div>
+      <div class="bar" style="background:#f1f3f4;height:20px;display:flex;align-items:center">
+        <div class="seg" style="width:${w_now}%;background:${segColor};color:${segText};font-size:10px;font-weight:700">${innerLabel}</div>
+        ${outerLabel}
+      </div>
+      <div style="width:88px;font-size:10px;color:#5f6368;text-align:right">总量 ${toWan(d.cids_total||0)}</div>
+    </div>`;
+  }
+  document.getElementById('chartD').innerHTML =
+    barCids('头部') + barCids('腰部') + barCids('尾部');
+
+  // 图F：全域通 vs ADQ
+  function stackRowAdq(label, adq, qq){
+    return `<div class="stack-row">
+      <div class="label">${label}</div>
+      <div class="bar">
+        <div class="seg adq" style="width:${adq}%">ADQ ${adq.toFixed(1)}%</div>
+        <div class="seg qq"  style="width:${qq}%">全域通 ${qq.toFixed(1)}%</div>
+      </div>
+    </div>`;
+  }
+  document.getElementById('chartF').innerHTML =
+    stackRowAdq('头部', T['头部'].adq_pct, T['头部'].qq_pct)
+    + stackRowAdq('腰部', T['腰部'].adq_pct, T['腰部'].qq_pct)
+    + stackRowAdq('尾部', T['尾部'].adq_pct, T['尾部'].qq_pct);
+
+  // 图E：直播 vs 小店（商品消费链路）—— 每层2行（上周期/本周期）+ 涨跌差 · 统一蓝灰色阶
+  function stackRowLink2(label, split, prefix){
+    if (!split) {
+      return `<div class="stack-row">
+        <div class="label" style="font-size:11px">${label}</div>
+        <div class="bar" style="background:#f5f5f5;color:#9aa0a6;font-size:11px;text-align:center;line-height:28px">暂无数据</div>
+      </div>`;
+    }
+    const live = split['直播'] || 0;
+    const shop = split['小店'] || 0;
+    const liveDay = split['直播_日耗'] || 0;
+    const shopDay = split['小店_日耗'] || 0;
+    return `<div class="stack-row" title="${prefix}：直播日耗 ${toWan(liveDay)} / 小店日耗 ${toWan(shopDay)}">
+      <div class="label" style="font-size:11px;color:#5f6368">${label}</div>
+      <div class="bar">
+        <div class="seg" style="width:${live}%;background:#1f4788;color:#fff">${live>=8?'直播 '+live.toFixed(1)+'%':''}</div>
+        <div class="seg" style="width:${shop}%;background:#a8c7fa;color:#1f4788">${shop>=8?'小店 '+shop.toFixed(1)+'%':''}</div>
+      </div>
+    </div>`;
+  }
+  // 涨跌行：只保留字符色（绿涨红跌），去掉色块小方块
+  function deltaRow(tier, cur, prev){
+    if (!cur || !prev) return '';
+    const liveCur = cur['直播_日耗']||0, livePrev = prev['直播_日耗']||0;
+    const shopCur = cur['小店_日耗']||0, shopPrev = prev['小店_日耗']||0;
+    const liveR = livePrev>0 ? (liveCur-livePrev)/livePrev*100 : 0;
+    const shopR = shopPrev>0 ? (shopCur-shopPrev)/shopPrev*100 : 0;
+    const fmtD = (r, prevD, curD) => {
+      if (prevD<=0) return '<span style="color:#9aa0a6">新增</span>';
+      const up = r>=0;
+      return `<span style="color:${up?'#137333':'#c5221f'};font-weight:600">${up?'▲':'▼'} ${up?'+':''}${r.toFixed(1)}%</span> <span style="color:#9aa0a6">(${toWan(prevD)}→${toWan(curD)})</span>`;
+    };
+    return `<div style="display:flex;gap:18px;font-size:11px;padding:3px 0 8px 56px;color:#5f6368;line-height:1.4">
+      <span><span style="color:#3c4043">直播</span> ${fmtD(liveR, livePrev, liveCur)}</span>
+      <span><span style="color:#3c4043">小店</span> ${fmtD(shopR, shopPrev, shopCur)}</span>
+    </div>`;
+  }
+  function tierBlockE(tier){
+    const t = T[tier];
+    return `<div style="margin-bottom:10px">
+      <div style="font-size:12px;font-weight:700;color:#3c4043;margin:4px 0 4px 6px">${tier}</div>
+      ${stackRowLink2('上周期', t.live_ecom_split_prev, '上周期')}
+      ${stackRowLink2('本周期', t.live_ecom_split, '本周期')}
+      ${deltaRow(tier, t.live_ecom_split, t.live_ecom_split_prev)}
+    </div>`;
+  }
+  document.getElementById('chartE').innerHTML =
+    tierBlockE('头部') + tierBlockE('腰部') + tierBlockE('尾部');
+}
+
+function renderKPI(){
+  const view = DATA[curView];
+  // 【2026-05-11】KPI 区按当前赛道取数：整体 → 取「整体·全部」行；单赛道 → 取「赛道·全部」行
+  const tot = (curTrack==='整体')
+    ? (view.summary.find(r=>r.ind==='整体'&&r.tier==='全部') || {})
+    : (view.summary.find(r=>r.ind===curTrack&&r.tier==='全部') || {});
+  document.getElementById('kOld').textContent = N(tot.n);
+  document.getElementById('kUp').textContent = N(tot.up);
+  document.getElementById('kUpRate').textContent = '腰→头 '+N(tot.up_mid2head||0)+' ｜ 尾→头 '+N(tot.up_tail2head||0);
+  document.getElementById('kUpRateBig').textContent = pct(tot.up_rate);
+  document.getElementById('kRetain').textContent = pct(tot.retain_rate);
+  document.getElementById('kLoss').textContent = N(tot.loss);
+  document.getElementById('kLossRate').textContent = '流失率 '+pct(tot.loss_rate);
+  document.getElementById('kNew').textContent = N(tot.new_cnt);
+  document.getElementById('kSpend').textContent = toWan(tot.spend_obs) + '元/天';
+  const chg = tot.spend_base ? (tot.spend_obs/tot.spend_base-1)*100 : 0;
+  const absDiff = tot.spend_obs - (tot.spend_base||0);
+  const chgColor = chg>=0?'#137333':'#c5221f';
+  document.getElementById('kSpendCmp').innerHTML =
+    `vs上周期 <b style="color:${chgColor}">${chg>=0?'+':''}${chg.toFixed(1)}%</b> <span style="color:${chgColor}">(${absDiff>=0?'+':''}${toWan(absDiff)}元/天)</span>`;
+
+  // 投放类型
+  const adq = view.summary.find(r=>r.ind==='整体'&&r.tier==='投放类型_单ADQ')||{};
+  const qq = view.summary.find(r=>r.ind==='整体'&&r.tier==='投放类型_单全域通')||{};
+  const du = view.summary.find(r=>r.ind==='整体'&&r.tier==='投放类型_双投')||{};
+  document.getElementById('kADQ').textContent = N(adq.n);
+  document.getElementById('kADQUp').textContent = '跃迁率 '+pct(adq.up_rate);
+  document.getElementById('kQQ').textContent = N(qq.n);
+  document.getElementById('kQQUp').textContent = '跃迁率 '+pct(qq.up_rate);
+  document.getElementById('kDual').textContent = N(du.n);
+  document.getElementById('kDualUp').innerHTML = '跃迁率 <b style="color:#137333">'+pct(du.up_rate)+'</b>';
+}
+
+function renderSummary(){
+  const view = DATA[curView];
+  const body = document.getElementById('sumBody');
+  body.innerHTML = '';
+  // 只取 tier='全部' 的行（整体 + 各赛道），不再展开头腰尾分层
+  let rows = view.summary.filter(r => r.tier==='全部' && !String(r.tier||'').startsWith('投放类型_'));
+  // 【2026-05-11】整体行置顶；其余赛道按本周期日耗降序
+  const totalRow = rows.find(r=>r.ind==='整体');
+  let indRows = rows.filter(r=>r.ind!=='整体').sort((a,b)=>(b.spend_obs||0)-(a.spend_obs||0));
+  // 【2026-05-11】单赛道时：只保留「整体」+ 当前赛道（提供对比锚点）
+  if (curTrack !== '整体'){
+    indRows = indRows.filter(r=>r.ind===curTrack);
+  }
+  rows = totalRow ? [totalRow, ...indRows] : indRows;
+  rows.forEach(r=>{
+    const isAll = r.ind==='整体';
+    const tr = document.createElement('tr');
+    if(isAll) tr.style.background = '#e8f0fe';
+
+    // 日耗涨跌
+    const chg = r.spend_base ? (r.spend_obs/r.spend_base-1)*100 : 0;
+    const chgAbs = r.spend_obs - (r.spend_base||0);
+    const chgColor = chg>=0?'#137333':'#c5221f';
+
+    // 腰尾部日耗
+    const midTailObs = (r.spend_obs_mid||0) + (r.spend_obs_tail||0);
+    const midTailBase = (r.spend_base_mid||0) + (r.spend_base_tail||0);
+    const midTailPctObs = r.spend_obs>0 ? midTailObs/r.spend_obs*100 : 0;
+    const midTailPctBase = r.spend_base>0 ? midTailBase/r.spend_base*100 : 0;
+    const midTailPctDelta = midTailPctObs - midTailPctBase;  // 百分点变化
+    const midTailChg = midTailBase>0 ? (midTailObs/midTailBase-1)*100 : 0;
+    const midTailColor = midTailChg>=0?'#137333':'#c5221f';
+    const pctDeltaColor = midTailPctDelta>=0?'#137333':'#c5221f';
+
+    // 跃迁率颜色（高于整体=好）
+    const upRateColor = (r.up_rate||0) >= 1 ? '#137333' : ((r.up_rate||0) >= 0.3 ? '#1a73e8' : '#9aa0a6');
+
+    tr.innerHTML = `
+      <td style="text-align:left;font-weight:${isAll?700:600};color:${isAll?'#1a73e8':'inherit'}">${r.ind}</td>
+      <td>${N(r.n)}</td>
+      <td class="m3-up"><b>${N(r.up||0)}</b><span style="color:#9aa0a6;font-size:11px"> (腰→头 ${r.up_mid2head||0}/尾→头 ${r.up_tail2head||0})</span></td>
+      <td><b style="color:${upRateColor}">${pct(r.up_rate||0)}</b></td>
+      <td style="background:#fffbf5">${toWan(r.spend_obs)}</td>
+      <td style="background:#fffbf5;color:${chgColor};font-weight:600">
+        ${chg>=0?'+':''}${chg.toFixed(1)}%
+        <div style="font-size:11px;font-weight:400">(${chgAbs>=0?'+':''}${toWan(chgAbs)}元/天)</div>
+      </td>
+      <td style="background:#f8faff">
+        <b>${midTailPctObs.toFixed(1)}%</b>
+        <div style="font-size:11px;color:${pctDeltaColor}">vs上周期 ${midTailPctDelta>=0?'+':''}${midTailPctDelta.toFixed(1)}pp</div>
+      </td>
+      <td style="background:#f8faff;color:${midTailColor};font-weight:600">
+        ${midTailChg>=0?'+':''}${midTailChg.toFixed(1)}%
+        <div style="font-size:11px;font-weight:400;color:#9aa0a6">${toWan(midTailBase)}→${toWan(midTailObs)}</div>
+      </td>
+    `;
+    body.appendChild(tr);
+  });
+}
+
+// ============ 跃迁客户专题 ============
+function getUpRows(){
+  // 使用 to_head 标志（与 KPI 区/概览口径完全一致）+ 按当前赛道过滤
+  let det = DATA[curView].detail || [];
+  if (curTrack !== '整体') det = det.filter(r=>r.ind===curTrack);
+  return det.filter(r=>r.to_head===true).map(r=>{
+    return Object.assign({}, r, {
+      _dir: r.base_tier+'→'+r.obs_tier,
+    });
+  });
+}
+
+function initUpFilters(){
+  // 改版后不再需要赛道下拉（按赛道分组展示），保留函数避免外部调用报错
+}
+
+// 【2026-05-11】客户级跃迁原因诊断：基于数据自动总结
+function diagUpReason(r){
+  const reasons = [];
+  // 1. 投放结构升级（单投→双投，或加链路）
+  const baseDual = r.base_adq>0 && r.base_qq>0;
+  const obsDual  = r.obs_adq>0 && r.obs_qq>0;
+  const baseAdqOnly = r.base_adq>0 && !r.base_qq;
+  const baseQqOnly  = r.base_qq>0 && !r.base_adq;
+  if (!baseDual && obsDual){
+    if (baseAdqOnly) reasons.push('<span style="color:#1a73e8">单ADQ→双投</span>，加全域通拓量');
+    else if (baseQqOnly) reasons.push('<span style="color:#1a73e8">单全域通→双投</span>，加ADQ拓量');
+    else reasons.push('<span style="color:#1a73e8">新进双投</span>');
+  }
+  // 2. ADQ消耗倍数（同口径下显著放大）
+  if (r.base_adq>=100 && r.obs_adq/r.base_adq >= 2){
+    reasons.push(`ADQ日耗 <b style="color:#137333">×${(r.obs_adq/r.base_adq).toFixed(1)}</b>（${toWan(r.base_adq)}→${toWan(r.obs_adq)}）`);
+  }
+  // 3. 全域通消耗倍数
+  if (r.base_qq>=100 && r.obs_qq/r.base_qq >= 2){
+    reasons.push(`全域通日耗 <b style="color:#137333">×${(r.obs_qq/r.base_qq).toFixed(1)}</b>（${toWan(r.base_qq)}→${toWan(r.obs_qq)}）`);
+  }
+  // 4. 链路放大（直播/小店）
+  const liveBase=r.base_live||0, liveObs=r.obs_live||0;
+  const shopBase=r.base_shop||0, shopObs=r.obs_shop||0;
+  if (liveBase>=200 && liveObs/Math.max(liveBase,1) >= 3){
+    reasons.push(`<span style="color:#e8710a">直播链路放大</span> ×${(liveObs/liveBase).toFixed(1)}`);
+  } else if (liveBase<200 && liveObs>=2000){
+    reasons.push(`<span style="color:#e8710a">新拓直播链路</span>（${toWan(liveObs)}元/天）`);
+  }
+  if (shopBase>=200 && shopObs/Math.max(shopBase,1) >= 3){
+    reasons.push(`<span style="color:#1a73e8">小店直购链路放大</span> ×${(shopObs/shopBase).toFixed(1)}`);
+  } else if (shopBase<200 && shopObs>=2000){
+    reasons.push(`<span style="color:#1a73e8">新拓小店直购</span>（${toWan(shopObs)}元/天）`);
+  }
+  // 5. ROI松绑（降ROI要求换量）
+  if (r.base_roi>0 && r.obs_roi>0){
+    const roiDrop = (r.base_roi - r.obs_roi)/r.base_roi;
+    if (roiDrop >= 0.2){
+      reasons.push(`<span style="color:#c5221f">降低ROI要求</span>（${r.base_roi.toFixed(1)}→${r.obs_roi.toFixed(1)}，-${(roiDrop*100).toFixed(0)}%）换量`);
+    } else if (roiDrop <= -0.15){
+      reasons.push(`<span style="color:#137333">ROI同步抬升</span>（${r.base_roi.toFixed(1)}→${r.obs_roi.toFixed(1)}，+${(-roiDrop*100).toFixed(0)}%），高质量跃迁`);
+    }
+  }
+  // 6. 创意ID基建充足（本周期>=10个就值得标注）
+  if ((r.cids||0) >= 10){
+    reasons.push(`基建充足（创意ID ${r.cids}）`);
+  }
+  // 7. 冷启动跃迁（base日耗很小）
+  if (r.base_spend < 100){
+    reasons.unshift('<span style="color:#9c27b0">冷启动跃迁</span>（上周期几乎无消耗）');
+  }
+  // 兜底
+  if (!reasons.length){
+    reasons.push(`日耗 ×${r.base_spend>0 ? (r.obs_spend/r.base_spend).toFixed(1) : '∞'} 同结构放大`);
+  }
+  return reasons.join(' ｜ ');
+}
+
+function renderUp(){
+  const rows = getUpRows();
+  const total = rows.length;
+  const mid2head = rows.filter(r=>r.base_tier==='腰部'&&r.obs_tier==='头部').length;
+  const tail2head = rows.filter(r=>r.base_tier==='尾部'&&r.obs_tier==='头部').length;
+  const spendInc = rows.reduce((s,r)=>s+(r.obs_spend-r.base_spend), 0);
+  document.getElementById('upTotal').textContent = total.toLocaleString();
+  document.getElementById('upTotalHint').textContent = '腰→头 + 尾→头（与KPI区一致）';
+  document.getElementById('upToHead').textContent = mid2head.toLocaleString();
+  document.getElementById('upToMid').textContent = tail2head.toLocaleString();
+  document.getElementById('upSpendInc').textContent = toWan(spendInc) + '元/天';
+  document.getElementById('upSpendIncHint').textContent = '本周期 - 上周期';
+
+  // 筛选
+  const fd = document.getElementById('upDir').value;
+  let d = rows.slice();
+  if (fd) d = d.filter(r=>r._dir===fd);
+
+  document.getElementById('upCnt').textContent = '共 '+d.length.toLocaleString()+' 家跃迁客户';
+
+  // 按赛道分组，赛道按家数倒序
+  const byInd = {};
+  d.forEach(r=>{
+    if (!byInd[r.ind]) byInd[r.ind] = [];
+    byInd[r.ind].push(r);
+  });
+  const indList = Object.keys(byInd).sort((a,b)=>byInd[b].length - byInd[a].length);
+
+  const box = document.getElementById('upGroupBox');
+  if (!d.length){
+    box.innerHTML = '<div style="text-align:center;color:#9aa0a6;padding:40px 0">本期无跃迁客户</div>';
+    return;
+  }
+  box.innerHTML = indList.map(ind=>{
+    const list = byInd[ind].slice().sort((a,b)=>{
+      const ra = a.base_spend>0 ? a.obs_spend/a.base_spend : 999;
+      const rb = b.base_spend>0 ? b.obs_spend/b.base_spend : 999;
+      return rb - ra;
+    });
+    const sumInc = list.reduce((s,r)=>s+(r.obs_spend-r.base_spend), 0);
+    return `
+      <div style="border:1px solid #e0e0e0;border-radius:8px;overflow:hidden">
+        <div style="background:#f1f3f4;padding:8px 14px;display:flex;align-items:center;gap:10px">
+          <b style="font-size:14px;color:#1a73e8">${ind}</b>
+          <span style="background:#fff;padding:2px 8px;border-radius:10px;font-size:12px;color:#5f6368">${list.length} 家跃迁</span>
+          <span style="margin-left:auto;font-size:12px;color:#137333">日耗增量 +${toWan(sumInc)} 元/天</span>
+        </div>
+        <table style="width:100%;border-collapse:collapse">
+          <thead><tr style="background:#fafbfc;font-size:11px;color:#5f6368">
+            <th style="padding:6px 8px;text-align:left;width:120px">客户</th>
+            <th style="padding:6px 8px;width:60px">方向</th>
+            <th style="padding:6px 8px;width:60px">投放</th>
+            <th style="padding:6px 8px;width:90px">日耗(元/天)</th>
+            <th style="padding:6px 8px;width:60px">ROI</th>
+            <th style="padding:6px 8px;text-align:left">⭐ 跃迁原因（自动诊断）</th>
+          </tr></thead>
+          <tbody>
+            ${list.map(r=>{
+              const ratio = r.base_spend>0 ? r.obs_spend/r.base_spend : null;
+              const rColor = ratio==null ? '#9c27b0' : (ratio>=5?'#c5221f':(ratio>=2?'#e8710a':'#137333'));
+              const ratioTxt = ratio==null ? '冷启动' : `×${ratio.toFixed(1)}`;
+              const roiObs = r.obs_roi ? r.obs_roi.toFixed(1) : '—';
+              const roiBase = r.base_roi ? r.base_roi.toFixed(1) : '—';
+              return `<tr style="border-top:1px solid #f0f0f0;font-size:12px">
+                <td style="padding:7px 8px;font-weight:600">${r.name}</td>
+                <td style="padding:7px 8px;text-align:center;color:#c5221f">${r._dir}</td>
+                <td style="padding:7px 8px;text-align:center"><span class="pill ${adPill(r['投放类型'])}" style="font-size:10px;padding:1px 6px">${r['投放类型']}</span></td>
+                <td style="padding:7px 8px;text-align:center;color:${rColor}">
+                  <b>${toWan(r.obs_spend)}</b>
+                  <div style="font-size:10px;color:#9aa0a6">${toWan(r.base_spend)} → ${toWan(r.obs_spend)} ${ratioTxt}</div>
+                </td>
+                <td style="padding:7px 8px;text-align:center">
+                  <b>${roiObs}</b>
+                  <div style="font-size:10px;color:#9aa0a6">基期 ${roiBase}</div>
+                </td>
+                <td style="padding:7px 8px;line-height:1.5">${diagUpReason(r)}</td>
+              </tr>`;
+            }).join('')}
+          </tbody>
+        </table>
+      </div>
+    `;
+  }).join('');
+}
+
+function exportUpCsv(){
+  const rows = getUpRows();
+  const fd = document.getElementById('upDir').value;
+  let d = rows.slice();
+  if (fd) d = d.filter(r=>r._dir===fd);
+  // 按赛道+日耗倍数排序
+  d.sort((a,b)=>{
+    if (a.ind !== b.ind) return a.ind.localeCompare(b.ind);
+    const ra = a.base_spend>0 ? a.obs_spend/a.base_spend : 999;
+    const rb = b.base_spend>0 ? b.obs_spend/b.base_spend : 999;
+    return rb - ra;
+  });
+  const head = ['赛道','客户简称','跃迁方向','投放类型','上周期日耗','本周期日耗','日耗倍数',
+                '上周期ROI','本周期ROI','上周期直播日耗','本周期直播日耗','上周期小店日耗','本周期小店日耗',
+                '本周期广告数','本周期创意ID数','跃迁原因(自动诊断)'];
+  const data = d.map(r=>{
+    const ratio = r.base_spend>0 ? (r.obs_spend/r.base_spend).toFixed(2) : '冷启动';
+    // 调用诊断函数 → 去HTML标签得纯文本
+    const reason = diagUpReason(r).replace(/<[^>]+>/g,'').replace(/\s+/g,' ').trim();
+    return [r.ind,r.name,r._dir,r['投放类型'],r.base_spend,r.obs_spend,ratio,
+            r.base_roi,r.obs_roi,
+            r.base_live||0, r.obs_live||0, r.base_shop||0, r.obs_shop||0,
+            r.ads,r.cids, reason];
+  });
+  const csv = '\ufeff' + [head.join(','), ...data.map(r=>r.map(v=>{
+    if(v==null) return '';
+    const s = String(v);
+    return s.includes(',')||s.includes('"') ? '"'+s.replace(/"/g,'""')+'"' : s;
+  }).join(','))].join('\n');
+  const blob = new Blob([csv], {type:'text/csv'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `跃迁客户专题_${curView==='long'?'长周期':'短周期'}_${new Date().toISOString().slice(0,10)}.csv`;
+  a.click();
+}
+
+function renderD(){
+  const view = DATA[curView];
+  let d = view.detail.slice();
+  // 【2026-05-11】顶部赛道tab优先：单赛道时先按 curTrack 过滤（覆盖 fInd 下拉）
+  if (curTrack !== '整体') d = d.filter(x=>x.ind===curTrack);
+  const fi = document.getElementById('fInd').value;
+  const fbt = document.getElementById('fBaseTier').value;
+  const fm = document.getElementById('fM3').value;
+  const fa = document.getElementById('fAd').value;
+  const fk = document.getElementById('fKey').value.trim();
+  if(fi) d = d.filter(x=>x.ind===fi);
+  if(fbt) d = d.filter(x=>x.base_tier===fbt);
+  if(fm) d = d.filter(x=>m3Filter(x, fm));
+  if(fa) d = d.filter(x=>x['投放类型']===fa);
+  if(fk) d = d.filter(x=>x.name&&x.name.toLowerCase().includes(fk.toLowerCase()));
+
+  // 按本周期消耗倒序
+  d.sort((a,b)=>(b.obs_spend||0)-(a.obs_spend||0));
+
+  document.getElementById('detailCnt').textContent = '共 '+d.length.toLocaleString()+' 家客户';
+
+  const body = document.getElementById('detBody');
+  // 最多渲染 500 行，超出请用筛选/导出
+  const LIMIT = 500;
+  const show = d.slice(0, LIMIT);
+  body.innerHTML = show.map(r=>{
+    const reasons = (DATA.reasons && DATA.reasons[r.uid]) || '';
+    return `<tr>
+      <td style="color:#5f6368">${r.ind}</td>
+      <td style="text-align:left;font-weight:600">${r.name}</td>
+      <td><span class="pill ${adPill(r['投放类型'])}">${r['投放类型']}</span></td>
+      <td class="${tierCls(r.base_tier)}">${r.base_tier}</td>
+      <td>${N(r.base_spend)}</td>
+      <td>${r.base_roi?r.base_roi.toFixed(2):'—'}</td>
+      <td class="${tierCls(r.obs_tier)}">${r.obs_tier}</td>
+      <td>${N(r.obs_spend)}</td>
+      <td>${r.obs_roi?r.obs_roi.toFixed(2):'—'}</td>
+      <td class="${m3Cls(r.m3t)}">${r.m3t==='跃迁' ? '⭐ 跃迁到头部' : (r.m3t==='升级' ? '升级（尾→腰）' : r.m3t)}</td>
+      <td>${N(r.ads)}</td>
+      <td>${N(r.cids)}</td>
+      <td style="min-width:200px;text-align:left;color:#5f6368;font-size:12px;line-height:1.6;padding:6px 10px">
+        ${reasons || '<span style="color:#dadce0">—</span>'}
+      </td>
+    </tr>`;
+  }).join('');
+  if(d.length > LIMIT){
+    body.insertAdjacentHTML('beforeend',
+      `<tr><td colspan="13" style="padding:16px;color:#5f6368">（仅展示前 ${LIMIT} 行，筛选或导出查看更多）</td></tr>`);
+  }
+}
+
+function saveReason(uid, val){ /* 只读版，填写功能已下线 */ }
+
+function exportCsv(){
+  const view = DATA[curView];
+  let d = view.detail.slice();
+  // 【2026-05-11】顶部赛道tab优先：单赛道时先按 curTrack 过滤
+  if (curTrack !== '整体') d = d.filter(x=>x.ind===curTrack);
+  const fi = document.getElementById('fInd').value;
+  const fbt = document.getElementById('fBaseTier').value;
+  const fm = document.getElementById('fM3').value;
+  const fa = document.getElementById('fAd').value;
+  const fk = document.getElementById('fKey').value.trim();
+  if(fi) d = d.filter(x=>x.ind===fi);
+  if(fbt) d = d.filter(x=>x.base_tier===fbt);
+  if(fm) d = d.filter(x=>m3Filter(x, fm));
+  if(fa) d = d.filter(x=>x['投放类型']===fa);
+  if(fk) d = d.filter(x=>x.name&&x.name.toLowerCase().includes(fk.toLowerCase()));
+
+  const head = ['赛道','客户简称','投放类型','上周期层级','上周期日耗','上周期ROI',
+                '本周期层级','本周期日耗','本周期ROI','变化','广告数','创意ID数','上周期ADQ消耗','上周期全域通消耗','本周期ADQ消耗','本周期全域通消耗'];
+  const rows = d.map(r=>[r.ind,r.name,r['投放类型'],r.base_tier,r.base_spend,r.base_roi,
+                         r.obs_tier,r.obs_spend,r.obs_roi,r.m3t,r.ads,r.cids,
+                         r.base_adq,r.base_qq,r.obs_adq,r.obs_qq]);
+  const csv = '\ufeff' + [head.join(','), ...rows.map(r=>r.map(v=>{
+    if(v==null) return '';
+    const s = String(v);
+    return s.includes(',')||s.includes('"') ? '"'+s.replace(/"/g,'""')+'"' : s;
+  }).join(','))].join('\n');
+  const blob = new Blob([csv], {type:'text/csv'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `客户跃迁明细_${curView==='long'?'长周期':'短周期'}_${new Date().toISOString().slice(0,10)}.csv`;
+  a.click();
+}
+
+function showDict(){
+  document.getElementById('dictModal').classList.add('show');
+}
+</script>
+</body>
+</html>
