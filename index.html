@@ -245,9 +245,10 @@ window.__STATIC_REASONS__ = {"女装_纤衣女装": "roi不达标不投了（ric
     </div>
   </div>
 
-  <div style="margin-top:8px;font-size:11px;color:#5f6368;line-height:1.5">
-    💡 <b>归因规则</b>：环比变化≥10% 视为显著变化｜优先级 = 双驱动 &gt; 基建增加 &gt; ROI提升 &gt; 自然回升<br>
-    🔧 <b>基建增加</b>：账户数/广告数/创意ID数 任一环比增加 ≥10%　　⭐ <b>双驱动</b>：基建增加 + ROI提升 同时满足
+  <div style="margin-top:8px;font-size:11px;color:#5f6368;line-height:1.6">
+    💡 <b>归因规则</b>：环比变化≥10% 视为显著变化｜优先级 = 链路新增 &gt; 投放端新增 &gt; 双驱动 &gt; 基建增加 &gt; ROI提升 &gt; 自然回升<br>
+    🔗 <b>链路新增</b>：单链路（仅直播或仅小店）→ 双链路（直播+小店）　　🚀 <b>投放端新增</b>：单端（仅ADQ或仅QYT）→ 双端（ADQ+全域通）<br>
+    ⭐ <b>双驱动</b>：基建增加 + ROI提升 同时满足　　🔧 <b>基建增加</b>：账户数/广告数/创意ID数 任一环比增加≥10%　　💰 <b>ROI提升</b>：ROI环比增加≥10%
   </div>
 </div>
 
@@ -264,7 +265,7 @@ window.__STATIC_REASONS__ = {"女装_纤衣女装": "roi不达标不投了（ric
           <div class="delta" id="structCntDelta"></div>
         </div>
         <div class="item">
-          <div class="lbl">大盘日耗</div>
+          <div class="lbl">大盘日耗 <span id="structTotalSrc" style="font-size:10px;color:#5f6368;font-weight:normal;display:none">ⓘ</span></div>
           <div class="val orange" id="structTotal">—</div>
           <div class="delta" id="structTotalDelta"></div>
         </div>
@@ -618,13 +619,17 @@ function renderMigrationInsights(){
   // 期间标签
   document.getElementById('miPeriod').textContent = MIG.period || '';
 
+  // 归因色板（6类，2026-05-25主人新增 链路新增/投放端新增）
+  const DRIVER_COLOR = {'链路新增':'#0d652d','投放端新增':'#0b5394','双驱动':'#a142f4','基建增加':'#1a73e8','ROI提升':'#137333','自然回升':'#fbbc04'};
+  const DRIVER_ICON  = {'链路新增':'🔗','投放端新增':'🚀','双驱动':'⭐','基建增加':'🔧','ROI提升':'💰','自然回升':'📈'};
+
   // A · TOP3赛道 + 代表客户
   const topBox = document.getElementById('miTopTracks');
   topBox.innerHTML = '';
   (MIG.module_a_top3||[]).forEach((it,idx)=>{
     const r = it.rep_customer || {};
-    const driverColor = r.driver==='双驱动'?'#a142f4':r.driver==='基建增加'?'#1a73e8':r.driver==='ROI提升'?'#137333':'#5f6368';
-    const driverIcon = r.driver==='双驱动'?'⭐':r.driver==='基建增加'?'🔧':r.driver==='ROI提升'?'💰':'📈';
+    const driverColor = DRIVER_COLOR[r.driver] || '#5f6368';
+    const driverIcon  = DRIVER_ICON[r.driver]  || '📊';
     const liftPct = r.spend_lift!=null ? ('+' + Math.round(r.spend_lift*100) + '%') : '';
     const card = document.createElement('div');
     card.style.cssText = 'background:#fff;border-radius:8px;padding:10px 12px;border:1px solid #fce8a3;box-shadow:0 1px 3px rgba(0,0,0,.04)';
@@ -646,7 +651,7 @@ function renderMigrationInsights(){
   const total = MIG.module_b_common.total_up || 1;
   drvBox.innerHTML = '';
   (MIG.module_b_common.drivers||[]).forEach(d=>{
-    const color = d.name==='双驱动'?'#a142f4':d.name==='基建增加'?'#1a73e8':d.name==='ROI提升'?'#137333':'#fbbc04';
+    const color = DRIVER_COLOR[d.name] || '#fbbc04';
     const w = (d.pct||0).toFixed(1);
     const row = document.createElement('div');
     row.style.cssText = 'display:flex;align-items:center;gap:10px;margin-bottom:6px;font-size:12px';
@@ -836,6 +841,16 @@ function renderStructure(){
   document.getElementById('structTotal').textContent = toWan(o.spend_day);
   document.getElementById('structTotalDelta').innerHTML =
     `环比 ${deltaHtml(o.delta_rate,'%')} (${o.delta_abs>=0?'+':''}${toWan(o.delta_abs)})`;
+  // 【2026-05-25】口径标注：CSV整体行真值 vs 明细聚合（差约1.2%为结构性误差）
+  const srcSpan = document.getElementById('structTotalSrc');
+  if (srcSpan && o.source === 'CSV整体行真值' && o.spend_day_aggregated) {
+    const aggWan = (o.spend_day_aggregated/10000).toFixed(1);
+    const diffPct = ((o.spend_day - o.spend_day_aggregated)/o.spend_day_aggregated*100).toFixed(1);
+    srcSpan.style.display = 'inline';
+    srcSpan.title = `口径：CSV「整体」行真值（中台权威输出）\n明细聚合：${aggWan}万（差${diffPct}%为客户过滤结构性偏差）`;
+  } else if (srcSpan) {
+    srcSpan.style.display = 'none';
+  }
   // 跃迁总数+跃迁率（取自 summary 整体行 / 当前赛道行）
   let tot;
   if (curTrack==='整体'){
