@@ -205,6 +205,52 @@ window.__STATIC_REASONS__ = {"女装_纤衣女装": "roi不达标不投了（ric
   <!-- 赛道按钮由 initTrackTabs() 动态生成 -->
 </div>
 
+<!-- 【2026-05-25】跃迁洞察卡片（仅短周期视角展示，三个模块） -->
+<div id="migrationInsights" class="card" style="display:none;background:linear-gradient(135deg,#fffbe6,#fff8d6);border:2px solid #f9ab00">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+    <h2 style="margin:0;color:#b06000">⭐ 本周跃迁洞察 <span style="font-size:13px;font-weight:normal;color:#5f6368">·  归因 · 共性 · 头部基建标准</span></h2>
+    <span class="badge" id="miPeriod" style="background:#f9ab00;color:#fff"></span>
+  </div>
+
+  <!-- 模块A：TOP3跃迁赛道 + 代表客户 -->
+  <div style="margin-bottom:14px">
+    <div style="font-weight:600;color:#3c4043;margin-bottom:6px">📍 A · 本周跃迁TOP3赛道 · 代表客户与归因</div>
+    <div id="miTopTracks" style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px"></div>
+  </div>
+
+  <!-- 模块B：跃迁共性原因 -->
+  <div style="margin-bottom:14px">
+    <div style="font-weight:600;color:#3c4043;margin-bottom:6px">🎯 B · 跃迁共性原因（按驱动力分类）</div>
+    <div id="miDrivers" style="background:#fff;border-radius:6px;padding:10px;border:1px solid #fce8a3"></div>
+    <div id="miVerdict" style="margin-top:8px;padding:8px 12px;background:#137333;color:#fff;border-radius:6px;font-size:13px;font-weight:600"></div>
+  </div>
+
+  <!-- 模块C：分赛道头部基建标准 -->
+  <div>
+    <div style="font-weight:600;color:#3c4043;margin-bottom:6px">📐 C · 分赛道头部客户基建标准 <span style="font-size:11px;font-weight:normal;color:#5f6368">（腰部跃迁参考线）</span></div>
+    <div style="background:#fff;border-radius:6px;padding:8px;border:1px solid #fce8a3">
+      <table id="miHeadBaseline" style="width:100%;font-size:12px;border-collapse:collapse">
+        <thead>
+          <tr style="background:#fef7e0;color:#3c4043">
+            <th style="padding:6px 8px;text-align:left;border-bottom:1px solid #fce8a3">赛道</th>
+            <th style="padding:6px 8px;text-align:right;border-bottom:1px solid #fce8a3">头部数</th>
+            <th style="padding:6px 8px;text-align:right;border-bottom:1px solid #fce8a3">平均账户数</th>
+            <th style="padding:6px 8px;text-align:right;border-bottom:1px solid #fce8a3">日均广告数</th>
+            <th style="padding:6px 8px;text-align:right;border-bottom:1px solid #fce8a3">日均创意ID</th>
+            <th style="padding:6px 8px;text-align:right;border-bottom:1px solid #fce8a3">户均日耗</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div style="margin-top:8px;font-size:11px;color:#5f6368;line-height:1.5">
+    💡 <b>归因规则</b>：环比变化≥10% 视为显著变化｜优先级 = 双驱动 &gt; 基建增加 &gt; ROI提升 &gt; 自然回升<br>
+    🔧 <b>基建增加</b>：账户数/广告数/创意ID数 任一环比增加 ≥10%　　⭐ <b>双驱动</b>：基建增加 + ROI提升 同时满足
+  </div>
+</div>
+
 <!-- 静态结构概览（参考经营仪表盘布局） -->
 <div class="card">
   <div class="struct-head">
@@ -542,11 +588,15 @@ window.__STATIC_REASONS__ = {"女装_纤衣女装": "roi不达标不投了（ric
 </div>
 
 <script>
-let DATA = null, curView = 'long', curTrack = '整体';
+let DATA = null, MIG = null, curView = 'long', curTrack = '整体';
 
 // —— 加载数据 ——
-fetch('v3_data.json?t='+Date.now()).then(r=>r.json()).then(d=>{
+Promise.all([
+  fetch('v3_data.json?t='+Date.now()).then(r=>r.json()),
+  fetch('migration_insights.json?t='+Date.now()).then(r=>r.json()).catch(()=>null)
+]).then(([d, mig])=>{
   DATA = d;
+  MIG = mig;
   DATA.reasons = window.__STATIC_REASONS__ || {};  // 只读版静态原因注入
   document.getElementById('genTime').textContent = '更新时间：' + d.gen_time;
   initFilters();
@@ -555,6 +605,86 @@ fetch('v3_data.json?t='+Date.now()).then(r=>r.json()).then(d=>{
 }).catch(e=>{
   document.body.innerHTML = '<div style="padding:40px;color:#c5221f"><h2>数据加载失败</h2><p>无法加载 v3_data.json：'+e.message+'</p><p>请确保运行 <code>python3 generate_v3.py</code> 生成数据后再打开。</p></div>';
 });
+
+// —— 渲染跃迁洞察（仅短周期视角） ——
+function renderMigrationInsights(){
+  const box = document.getElementById('migrationInsights');
+  if(!MIG || curView !== 'short' || curTrack !== '整体'){
+    box.style.display = 'none';
+    return;
+  }
+  box.style.display = 'block';
+
+  // 期间标签
+  document.getElementById('miPeriod').textContent = MIG.period || '';
+
+  // A · TOP3赛道 + 代表客户
+  const topBox = document.getElementById('miTopTracks');
+  topBox.innerHTML = '';
+  (MIG.module_a_top3||[]).forEach((it,idx)=>{
+    const r = it.rep_customer || {};
+    const driverColor = r.driver==='双驱动'?'#a142f4':r.driver==='基建增加'?'#1a73e8':r.driver==='ROI提升'?'#137333':'#5f6368';
+    const driverIcon = r.driver==='双驱动'?'⭐':r.driver==='基建增加'?'🔧':r.driver==='ROI提升'?'💰':'📈';
+    const liftPct = r.spend_lift!=null ? ('+' + Math.round(r.spend_lift*100) + '%') : '';
+    const card = document.createElement('div');
+    card.style.cssText = 'background:#fff;border-radius:8px;padding:10px 12px;border:1px solid #fce8a3;box-shadow:0 1px 3px rgba(0,0,0,.04)';
+    card.innerHTML = `
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
+        <div style="font-weight:600;color:#202124;font-size:14px">${idx===0?'🥇':idx===1?'🥈':'🥉'} ${it.track}</div>
+        <div style="font-size:12px;color:#5f6368">跃迁 <b style="color:#137333">${it.up_count}</b> 家</div>
+      </div>
+      <div style="font-size:12px;color:#3c4043;margin-bottom:4px">代表客户：<b>${r.name||'—'}</b></div>
+      <div style="font-size:11px;color:#5f6368;margin-bottom:6px">日耗 ${formatNum(r.base_spend)} → ${formatNum(r.obs_spend)} 元 <span style="color:#137333;font-weight:600">${liftPct}</span></div>
+      <div style="display:inline-block;padding:3px 8px;background:${driverColor}1a;color:${driverColor};border-radius:4px;font-size:11px;font-weight:600;margin-bottom:4px">${driverIcon} ${r.driver||'—'}</div>
+      <div style="font-size:11px;color:#5f6368;line-height:1.5">${r.driver_detail||''}</div>
+    `;
+    topBox.appendChild(card);
+  });
+
+  // B · 共性原因
+  const drvBox = document.getElementById('miDrivers');
+  const total = MIG.module_b_common.total_up || 1;
+  drvBox.innerHTML = '';
+  (MIG.module_b_common.drivers||[]).forEach(d=>{
+    const color = d.name==='双驱动'?'#a142f4':d.name==='基建增加'?'#1a73e8':d.name==='ROI提升'?'#137333':'#fbbc04';
+    const w = (d.pct||0).toFixed(1);
+    const row = document.createElement('div');
+    row.style.cssText = 'display:flex;align-items:center;gap:10px;margin-bottom:6px;font-size:12px';
+    row.innerHTML = `
+      <div style="width:90px;font-weight:600;color:#3c4043">${d.name}</div>
+      <div style="flex:1;background:#f1f3f4;border-radius:10px;height:18px;position:relative;overflow:hidden">
+        <div style="width:${w}%;background:${color};height:100%;border-radius:10px"></div>
+        <div style="position:absolute;top:0;left:8px;line-height:18px;font-size:11px;color:#3c4043;font-weight:600">${d.count} 家</div>
+      </div>
+      <div style="width:55px;text-align:right;font-weight:600;color:${color}">${w}%</div>
+    `;
+    drvBox.appendChild(row);
+  });
+  document.getElementById('miVerdict').textContent = '💡 ' + (MIG.module_b_common.verdict || '');
+
+  // C · 头部基建标准
+  const tbody = document.querySelector('#miHeadBaseline tbody');
+  tbody.innerHTML = '';
+  (MIG.module_c_head_baseline||[]).forEach(t=>{
+    const tr = document.createElement('tr');
+    tr.style.borderBottom = '1px solid #f1f3f4';
+    tr.innerHTML = `
+      <td style="padding:5px 8px;font-weight:600;color:#3c4043">${t.track}</td>
+      <td style="padding:5px 8px;text-align:right">${t.head_count}</td>
+      <td style="padding:5px 8px;text-align:right">${t.avg_accounts}</td>
+      <td style="padding:5px 8px;text-align:right">${t.avg_ads_per_day}</td>
+      <td style="padding:5px 8px;text-align:right">${t.avg_cids_per_day}</td>
+      <td style="padding:5px 8px;text-align:right;font-weight:600;color:#1a73e8">${t.avg_spend}万</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+function formatNum(n){
+  if(n==null) return '—';
+  if(n>=10000) return (n/10000).toFixed(1)+'万';
+  return Math.round(n).toLocaleString();
+}
 
 function initFilters(){
   const fInd = document.getElementById('fInd');
@@ -596,6 +726,7 @@ function switchTrack(tr){
   });
   // 重渲染所有依赖view的模块
   renderStructure(); renderKPI(); renderSummary(); renderUp(); renderD();
+  renderMigrationInsights();
 }
 
 // 【2026-05-11】返回当前赛道+周期下的视图：structure/summary/detail 都按 curTrack 过滤
@@ -651,6 +782,7 @@ function switchView(v){
   document.getElementById('upPeriod').textContent = view.label;
   injectPeriodLabels();
   renderStructure(); renderKPI(); renderSummary(); initUpFilters(); renderUp(); renderD();
+  renderMigrationInsights();
 }
 
 const N = x => x==null?'—':(typeof x==='number'?x.toLocaleString('zh-CN',{maximumFractionDigits:0}):x);
