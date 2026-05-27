@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>全域通→ADQ 跃迁监控 · 服饰行业</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:#f5f7fa;color:#202124;font-size:13px}
+  .wrap{max-width:1760px;margin:0 auto;padding:10px 14px}
+  header{background:linear-gradient(135deg,#0b5394,#1a73e8);color:#fff;padding:12px 20px;border-radius:8px;margin-bottom:8px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+  header h1{font-size:20px;margin-bottom:3px}
+  header .sub{font-size:12px;opacity:.92}
+  .card{background:#fff;border-radius:8px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+  .card h2{font-size:15px;margin-bottom:10px;color:#202124;display:flex;align-items:center;gap:8px;font-weight:700}
+  .card h2 .badge{font-size:11px;font-weight:normal;color:#5f6368;background:#e8eaed;padding:2px 8px;border-radius:10px}
+
+  /* KPI区 */
+  .kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+  .kpi{background:#f8f9fa;border-left:4px solid #1a73e8;border-radius:6px;padding:12px 16px}
+  .kpi .lbl{font-size:12px;color:#5f6368;margin-bottom:6px;font-weight:600}
+  .kpi .val{font-size:26px;font-weight:800;color:#202124;line-height:1.1;letter-spacing:-0.5px}
+  .kpi .hint{font-size:11px;color:#5f6368;margin-top:6px}
+  .kpi.green{border-left-color:#137333}.kpi.green .val{color:#137333}
+  .kpi.orange{border-left-color:#e8710a}.kpi.orange .val{color:#e8710a}
+  .kpi.purple{border-left-color:#8e24aa}.kpi.purple .val{color:#8e24aa}
+  .kpi.red{border-left-color:#c5221f}.kpi.red .val{color:#c5221f}
+
+  /* 分层卡片 */
+  .tier-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .tier-card{border-radius:8px;padding:16px;color:#fff;position:relative;overflow:hidden}
+  .tier-card.gold{background:linear-gradient(135deg,#fbbc04 0%,#e8710a 100%)}
+  .tier-card.fire{background:linear-gradient(135deg,#e8710a 0%,#c5221f 100%)}
+  .tier-card.seed{background:linear-gradient(135deg,#43a047 0%,#137333 100%)}
+  .tier-card .t-emoji{font-size:30px}
+  .tier-card .t-label{font-size:14px;font-weight:700;margin-top:4px}
+  .tier-card .t-cnt{font-size:38px;font-weight:800;margin-top:8px;letter-spacing:-1px}
+  .tier-card .t-meta{font-size:12px;opacity:.9;margin-top:4px}
+  .tier-card .t-rule{font-size:10px;opacity:.7;margin-top:8px;border-top:1px solid rgba(255,255,255,.2);padding-top:6px}
+
+  /* 表格 */
+  table{width:100%;border-collapse:collapse;font-size:12px}
+  th{background:#f1f3f4;padding:8px 6px;text-align:center;font-weight:600;border-bottom:2px solid #dadce0;position:sticky;top:0;z-index:1}
+  td{padding:6px 8px;text-align:center;border-bottom:1px solid #f1f3f4}
+  tbody tr:hover{background:#f8f9fa}
+  .scroll{max-height:480px;overflow:auto;border:1px solid #e8eaed;border-radius:6px}
+  .pill{display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600}
+  .pill-gold{background:#fef7e0;color:#e8710a}
+  .pill-fire{background:#fce8e6;color:#c5221f}
+  .pill-seed{background:#e6f4ea;color:#137333}
+  .nm{color:#5f6368}
+  .pos{color:#137333;font-weight:700}
+  .neg{color:#c5221f;font-weight:700}
+
+  /* tabs */
+  .tabs{display:flex;gap:8px;margin-bottom:10px}
+  .tab{flex:1;padding:10px 16px;background:#fff;border:2px solid transparent;border-radius:8px;cursor:pointer;font-weight:600;color:#5f6368;transition:all .2s;box-shadow:0 1px 3px rgba(0,0,0,.06);text-align:center}
+  .tab:hover{background:#f1f3f4}
+  .tab.active{background:linear-gradient(135deg,#fff,#e8f0fe);border-color:#1a73e8;color:#1a73e8;box-shadow:0 2px 8px rgba(26,115,232,.15)}
+  .tab .main{font-size:15px;display:block}
+  .tab .hint{font-size:11px;font-weight:normal;opacity:.7;margin-top:3px;display:block}
+  .hidden{display:none !important}
+
+  /* 业务洞察 */
+  .insight{background:linear-gradient(135deg,#fff8e1,#fff3cd);border-left:4px solid #fbbc04;padding:12px 16px;border-radius:6px;margin-bottom:10px;line-height:1.7}
+  .insight .t{font-size:13px;font-weight:700;color:#5f6368;margin-bottom:4px}
+  .insight b{color:#c5221f}
+
+  /* 赛道柱状条 */
+  .track-bar{display:flex;align-items:center;margin-bottom:6px;font-size:12px;gap:8px}
+  .track-bar .name{width:90px;text-align:right;font-weight:600;color:#5f6368}
+  .track-bar .bar{flex:1;height:22px;background:#f1f3f4;border-radius:4px;overflow:hidden;display:flex}
+  .track-bar .seg{height:100%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:600}
+  .track-bar .gold-seg{background:#e8710a}
+  .track-bar .fire-seg{background:#c5221f}
+  .track-bar .seed-seg{background:#137333}
+  .track-bar .cnt{width:60px;text-align:right;font-weight:700}
+
+  footer{text-align:center;color:#9aa0a6;font-size:11px;margin-top:20px;padding:10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>🚀 全域通 → ADQ 跃迁监控 · 服饰行业</h1>
+    <div class="sub" id="header-sub">加载中...</div>
+  </header>
+
+  <!-- 顶部4大KPI -->
+  <div class="card">
+    <h2>📊 核心指标 <span class="badge" id="period-badge">—</span></h2>
+    <div class="kpi-row" id="kpi-row"></div>
+  </div>
+
+  <!-- 业务洞察 -->
+  <div id="insight-box"></div>
+
+  <!-- Tab切换：Q2TD累计 vs 近一周新增 -->
+  <div class="tabs">
+    <div class="tab active" data-view="q2td" onclick="switchView('q2td')">
+      <span class="main">📈 Q2TD 累计跃迁</span>
+      <span class="hint" id="tab-q2td-hint">—</span>
+    </div>
+    <div class="tab" data-view="week" onclick="switchView('week')">
+      <span class="main">🆕 近一周新增跃迁</span>
+      <span class="hint" id="tab-week-hint">—</span>
+    </div>
+  </div>
+
+  <!-- 3档分层卡片 -->
+  <div class="card">
+    <h2>🎯 跃迁质量分层 <span class="badge">按 ADQ 日均消耗</span></h2>
+    <div class="tier-row" id="tier-row"></div>
+  </div>
+
+  <!-- 分赛道分布 -->
+  <div class="card">
+    <h2>🛍️ 分赛道分布 <span class="badge">堆叠条 = 💎+🔥+🌱</span></h2>
+    <div id="track-box"></div>
+  </div>
+
+  <!-- 跃迁明细 -->
+  <div class="card">
+    <h2>📋 跃迁客户明细 <span class="badge" id="detail-cnt">—</span></h2>
+    <div class="scroll">
+      <table id="detail-table"></table>
+    </div>
+  </div>
+
+  <footer>
+    数据生成时间：<span id="gen-time">—</span> · 橘橘有500w制作 🦞 · 数据真实性铁律
+  </footer>
+</div>
+
+<script>
+let DATA = null;
+let curView = 'q2td';
+
+fetch('qyt2adq_data.json?v=' + Date.now())
+  .then(r => r.json())
+  .then(d => {
+    DATA = d;
+    render();
+  })
+  .catch(e => {
+    document.body.innerHTML = '<div style="padding:40px;color:#c5221f">❌ 数据加载失败：' + e.message + '</div>';
+  });
+
+function fmt(n) {
+  if (n == null || isNaN(n)) return '—';
+  return Number(n).toLocaleString('zh-CN');
+}
+function wan(n) {
+  if (n == null || isNaN(n)) return '—';
+  return (n / 10000).toFixed(1) + '万';
+}
+function pct(n, total) {
+  if (!total) return '0%';
+  return (n / total * 100).toFixed(1) + '%';
+}
+
+function render() {
+  const meta = DATA.meta;
+  const k = DATA.kpi;
+
+  // header sub
+  document.getElementById('header-sub').textContent =
+    `Q1池子（2026.1.1-3.31）→ Q2TD跃迁（${meta.q2td_label}） · 近一周（${meta.week_label}） · 生成于 ${meta.generated_at}`;
+  document.getElementById('gen-time').textContent = meta.generated_at;
+  document.getElementById('period-badge').textContent = `Q2TD ${meta.q2td_label}`;
+
+  // KPI
+  const kpiHtml = `
+    <div class="kpi"><div class="lbl">Q1 纯 QYT 池</div><div class="val">${fmt(k.q1_pool)}</div><div class="hint">家｜分母（仅服饰行业）</div></div>
+    <div class="kpi green"><div class="lbl">Q2TD 累计跃迁</div><div class="val">${fmt(k.q2td_mig)}</div><div class="hint">家｜跃迁率 ${k.mig_rate}%</div></div>
+    <div class="kpi orange"><div class="lbl">近一周新增跃迁</div><div class="val">${fmt(k.week_new)}</div><div class="hint">家｜${meta.week_label}</div></div>
+    <div class="kpi purple"><div class="lbl">跃迁客户 Q2TD ADQ 累计</div><div class="val">${wan(k.q2td_adq_total_cum)}</div><div class="hint">元｜新增 ADQ 消耗盘</div></div>
+  `;
+  document.getElementById('kpi-row').innerHTML = kpiHtml;
+
+  // 业务洞察（自动算QYT变化）
+  const qytGrowth = ((k.q2td_qyt_total_cum - k.q1_qyt_total_cum) / k.q1_qyt_total_cum * 100).toFixed(1);
+  const qytGrowthClass = qytGrowth >= 0 ? 'pos' : 'neg';
+  const qytSign = qytGrowth >= 0 ? '↑' : '↓';
+  document.getElementById('insight-box').innerHTML = `
+    <div class="insight">
+      <div class="t">💡 业务洞察 · 跃迁客户的 QYT 变化（验证是否替代 vs 叠加）</div>
+      跃迁客户群体在 Q1 时 QYT 累计消耗 <b>${wan(k.q1_qyt_total_cum)}</b>，
+      Q2TD 跃迁开 ADQ 后 QYT 累计消耗 <b>${wan(k.q2td_qyt_total_cum)}</b>
+      （<span class="${qytGrowthClass}">${qytSign} ${Math.abs(qytGrowth)}%</span>）
+      ${qytGrowth >= 0
+        ? `→ <b>ADQ 与 QYT 呈叠加效应</b>：跃迁客户开 ADQ 后 QYT 没下降反而 ${qytSign}${Math.abs(qytGrowth)}%，
+          额外贡献 ADQ 累计消耗 <b>${wan(k.q2td_adq_total_cum)}</b>。`
+        : `→ <b>ADQ 对 QYT 有部分替代</b>：跃迁客户开 ADQ 后 QYT 下降 ${Math.abs(qytGrowth)}%，
+          但同期 ADQ 累计贡献 <b>${wan(k.q2td_adq_total_cum)}</b>，净增量为正。`}
+    </div>
+  `;
+
+  // tab hint
+  document.getElementById('tab-q2td-hint').textContent = `${k.q2td_mig} 家 · ${wan(k.q2td_adq_total_cum)} ADQ累计`;
+  document.getElementById('tab-week-hint').textContent = `${k.week_new} 家 · 本周首次开 ADQ`;
+
+  renderView();
+}
+
+function switchView(v) {
+  curView = v;
+  document.querySelectorAll('.tab').forEach(t => {
+    t.classList.toggle('active', t.dataset.view === v);
+  });
+  renderView();
+}
+
+function renderView() {
+  const tiers = curView === 'q2td' ? DATA.q2td_tiers : DATA.week_new_tiers;
+  const byTrack = curView === 'q2td' ? DATA.q2td_by_track : DATA.week_new_by_track;
+  const detail = curView === 'q2td' ? DATA.q2td_detail : DATA.week_new_detail;
+  const dailyCol = curView === 'q2td' ? 'Q2_ADQ_日均' : '本周_ADQ_日均';
+  const cumCol = curView === 'q2td' ? 'Q2_ADQ_累计' : '本周_ADQ_累计';
+  const totalCnt = detail.length;
+
+  // 分层卡片
+  const tierClass = {'有效起量':'gold','已起步':'fire','尝试性':'seed'};
+  const tierRule = {
+    '有效起量': 'ADQ 日均 ≥ 5000 元',
+    '已起步': 'ADQ 日均 1000-5000 元',
+    '尝试性': 'ADQ 日均 < 1000 元'
+  };
+  document.getElementById('tier-row').innerHTML = tiers.map(t => `
+    <div class="tier-card ${tierClass[t.label]}">
+      <div class="t-emoji">${t.emoji}</div>
+      <div class="t-label">${t.label}</div>
+      <div class="t-cnt">${t.cnt}</div>
+      <div class="t-meta">家 · 占比 ${pct(t.cnt, totalCnt)}</div>
+      <div class="t-meta">累计消耗 ${wan(t.cum_total)} 元</div>
+      <div class="t-rule">${tierRule[t.label]}</div>
+    </div>
+  `).join('');
+
+  // 分赛道堆叠条
+  const maxCnt = Math.max(...byTrack.map(t => t.cnt), 1);
+  document.getElementById('track-box').innerHTML = byTrack.map(t => {
+    const g = t.tiers.有效起量, f = t.tiers.已起步, s = t.tiers.尝试性;
+    const totW = (t.cnt / maxCnt * 100);
+    const gW = g/t.cnt*totW, fW = f/t.cnt*totW, sW = s/t.cnt*totW;
+    return `
+      <div class="track-bar">
+        <span class="name">${t.track}</span>
+        <div class="bar">
+          ${g>0 ? `<div class="seg gold-seg" style="width:${gW}%" title="💎有效起量 ${g}家">${g>0&&gW>3?g:''}</div>`:''}
+          ${f>0 ? `<div class="seg fire-seg" style="width:${fW}%" title="🔥已起步 ${f}家">${f>0&&fW>3?f:''}</div>`:''}
+          ${s>0 ? `<div class="seg seed-seg" style="width:${sW}%" title="🌱尝试性 ${s}家">${s>0&&sW>3?s:''}</div>`:''}
+        </div>
+        <span class="cnt">${t.cnt} 家</span>
+      </div>
+    `;
+  }).join('');
+
+  // 明细表格
+  document.getElementById('detail-cnt').textContent = `${totalCnt} 家 · 按 ADQ 累计消耗倒序`;
+  let thead, tbody;
+  if (curView === 'q2td') {
+    thead = `<thead><tr>
+      <th>客户简称</th><th>赛道</th><th>分层</th>
+      <th>Q1 QYT 累计</th><th>Q2TD QYT 累计</th>
+      <th>Q2TD ADQ 累计</th><th>Q2TD ADQ 日均</th><th>ADQ ROI</th>
+    </tr></thead>`;
+    tbody = '<tbody>' + detail.map(r => {
+      const tcls = {'有效起量':'pill-gold','已起步':'pill-fire','尝试性':'pill-seed'}[r.分层] || '';
+      const temo = {'有效起量':'💎','已起步':'🔥','尝试性':'🌱'}[r.分层] || '';
+      const qytDelta = r.Q2_QYT_累计 - r.Q1_QYT_累计;
+      const qytCls = qytDelta >= 0 ? 'pos' : 'neg';
+      return `<tr>
+        <td>${r.客户简称}</td>
+        <td>${r.赛道}</td>
+        <td><span class="pill ${tcls}">${temo} ${r.分层}</span></td>
+        <td>${fmt(r.Q1_QYT_累计)}</td>
+        <td>${fmt(r.Q2_QYT_累计)} <span class="${qytCls}" style="font-size:10px">(${qytDelta>=0?'+':''}${fmt(qytDelta)})</span></td>
+        <td><b>${fmt(r.Q2_ADQ_累计)}</b></td>
+        <td>${fmt(r.Q2_ADQ_日均)}</td>
+        <td>${r.Q2_ADQ_ROI > 0 ? r.Q2_ADQ_ROI : '<span class="nm">—</span>'}</td>
+      </tr>`;
+    }).join('') + '</tbody>';
+  } else {
+    thead = `<thead><tr>
+      <th>客户简称</th><th>赛道</th><th>分层</th>
+      <th>Q1 QYT 累计</th>
+      <th>本周 ADQ 累计</th><th>本周 ADQ 日均</th>
+      <th>本周 QYT 日均</th><th>前期推算日均</th>
+    </tr></thead>`;
+    tbody = '<tbody>' + detail.map(r => {
+      const tcls = {'有效起量':'pill-gold','已起步':'pill-fire','尝试性':'pill-seed'}[r.分层] || '';
+      const temo = {'有效起量':'💎','已起步':'🔥','尝试性':'🌱'}[r.分层] || '';
+      return `<tr>
+        <td>${r.客户简称}</td>
+        <td>${r.赛道}</td>
+        <td><span class="pill ${tcls}">${temo} ${r.分层}</span></td>
+        <td>${fmt(r.Q1_QYT_累计)}</td>
+        <td><b>${fmt(r.本周_ADQ_累计)}</b></td>
+        <td>${fmt(r.本周_ADQ_日均)}</td>
+        <td>${fmt(r.本周_QYT_日均)}</td>
+        <td><span class="nm">${fmt(r.前期推算日均)}</span></td>
+      </tr>`;
+    }).join('') + '</tbody>';
+  }
+  document.getElementById('detail-table').innerHTML = thead + tbody;
+}
+</script>
+</body>
+</html>
