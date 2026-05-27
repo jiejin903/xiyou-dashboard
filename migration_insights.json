@@ -1,17 +1,29 @@
 {
-  "gen_time": "2026-05-25 22:25:28",
-  "period": "5.18-5.24",
+  "gen_time": "2026-05-27 19:22:25",
+  "period": "5.20-5.26",
   "module_a_top3": [
     {
-      "track": "运动户外",
-      "up_count": 6,
+      "track": "服饰鞋包其他",
+      "up_count": 7,
       "rep_customer": {
-        "name": "杭州舒搏乐智能生活科技有限公司",
-        "base_spend": 2311.0,
-        "obs_spend": 19296.0,
-        "spend_lift": 1.7,
+        "name": "杭州兴略电子商务有限公司",
+        "base_spend": 23.0,
+        "obs_spend": 11464.0,
+        "spend_lift": 1.14,
         "driver": "基建增加",
-        "driver_detail": "账户数4.0→6.0(+50%) + 广告数39→168(+331%) + 创意ID44→175(+297%)"
+        "driver_detail": "广告数2→37(+1418%) + 创意ID18→193(+973%)"
+      }
+    },
+    {
+      "track": "综合服饰",
+      "up_count": 7,
+      "rep_customer": {
+        "name": "鹰潭市知恒贸易有限公司",
+        "base_spend": 2118.0,
+        "obs_spend": 12881.0,
+        "spend_lift": 1.08,
+        "driver": "基建增加",
+        "driver_detail": "账户数5.0→8.0(+60%) + 创意ID55→82(+49%)"
       }
     },
     {
@@ -19,145 +31,133 @@
       "up_count": 5,
       "rep_customer": {
         "name": "晚年之美",
-        "base_spend": 4554.0,
-        "obs_spend": 13848.0,
-        "spend_lift": 0.93,
+        "base_spend": 6137.0,
+        "obs_spend": 14860.0,
+        "spend_lift": 0.87,
         "driver": "基建增加",
-        "driver_detail": "账户数2.0→2.5(+25%) + 广告数35→47(+31%) + 创意ID206→248(+20%)"
-      }
-    },
-    {
-      "track": "服饰鞋包其他",
-      "up_count": 4,
-      "rep_customer": {
-        "name": "义乌市振梦贸易有限公司",
-        "base_spend": 3162.0,
-        "obs_spend": 31781.0,
-        "spend_lift": 2.86,
-        "driver": "双驱动",
-        "driver_detail": "广告数24→70(+193%) + 创意ID12→39(+218%) + ROI 2.25→2.49(+11%)"
+        "driver_detail": "账户数2.0→2.5(+25%) + 广告数35→59(+67%) + 创意ID213→258(+21%)"
       }
     }
   ],
   "module_b_common": {
-    "total_up": 32,
+    "total_up": 37,
     "drivers": [
       {
         "name": "基建增加",
-        "count": 15,
-        "pct": 46.9
+        "count": 19,
+        "pct": 51.4
       },
       {
         "name": "自然回升",
-        "count": 8,
-        "pct": 25.0
+        "count": 9,
+        "pct": 24.3
       },
       {
         "name": "双驱动",
-        "count": 6,
-        "pct": 18.8
-      },
-      {
-        "name": "ROI提升",
-        "count": 2,
-        "pct": 6.2
+        "count": 5,
+        "pct": 13.5
       },
       {
         "name": "投放端新增",
-        "count": 1,
-        "pct": 3.1
+        "count": 2,
+        "pct": 5.4
       },
       {
         "name": "链路新增",
-        "count": 0,
-        "pct": 0.0
+        "count": 1,
+        "pct": 2.7
+      },
+      {
+        "name": "ROI提升",
+        "count": 1,
+        "pct": 2.7
       }
     ],
     "main_driver": "基建增加",
-    "main_driver_pct": 46.9,
+    "main_driver_pct": 51.4,
     "show_main": true,
-    "verdict": "主驱动 = 基建增加（占46.9%）。基建扩张是主要驱动力，建议推动其他客户对齐基建标准。"
+    "verdict": "主驱动 = 基建增加（占51.4%）。基建扩张是主要驱动力，建议推动其他客户对齐基建标准。"
   },
   "module_c_head_baseline": [
     {
       "track": "女装",
-      "head_count": 15,
-      "avg_accounts": 6.2,
-      "avg_ads_per_day": 139.0,
-      "avg_cids_per_day": 474.0,
-      "avg_spend": 2.02,
+      "head_count": 16,
+      "avg_accounts": 5.6,
+      "avg_ads_per_day": 131.0,
+      "avg_cids_per_day": 414.0,
+      "avg_spend": 1.89,
       "note": ""
     },
     {
       "track": "男装",
-      "head_count": 16,
-      "avg_accounts": 7.1,
-      "avg_ads_per_day": 258.0,
-      "avg_cids_per_day": 970.0,
-      "avg_spend": 3.29,
+      "head_count": 17,
+      "avg_accounts": 6.8,
+      "avg_ads_per_day": 240.0,
+      "avg_cids_per_day": 838.0,
+      "avg_spend": 3.03,
       "note": ""
     },
     {
       "track": "箱包鞋靴",
-      "head_count": 11,
-      "avg_accounts": 16.6,
-      "avg_ads_per_day": 150.0,
-      "avg_cids_per_day": 574.0,
-      "avg_spend": 1.91,
+      "head_count": 10,
+      "avg_accounts": 17.6,
+      "avg_ads_per_day": 148.0,
+      "avg_cids_per_day": 540.0,
+      "avg_spend": 1.96,
       "note": ""
     },
     {
       "track": "贴身衣物",
-      "head_count": 32,
-      "avg_accounts": 8.8,
-      "avg_ads_per_day": 449.0,
-      "avg_cids_per_day": 1191.0,
-      "avg_spend": 5.44,
+      "head_count": 33,
+      "avg_accounts": 8.6,
+      "avg_ads_per_day": 406.0,
+      "avg_cids_per_day": 992.0,
+      "avg_spend": 5.11,
       "note": ""
     },
     {
       "track": "服饰鞋包其他",
-      "head_count": 7,
-      "avg_accounts": 3.6,
-      "avg_ads_per_day": 26.0,
-      "avg_cids_per_day": 78.0,
-      "avg_spend": 1.61,
+      "head_count": 10,
+      "avg_accounts": 4.2,
+      "avg_ads_per_day": 22.0,
+      "avg_cids_per_day": 76.0,
+      "avg_spend": 1.49,
       "note": ""
     },
     {
       "track": "珠宝配饰",
-      "head_count": 11,
-      "avg_accounts": 3.5,
-      "avg_ads_per_day": 116.0,
-      "avg_cids_per_day": 567.0,
+      "head_count": 9,
+      "avg_accounts": 4.0,
+      "avg_ads_per_day": 115.0,
+      "avg_cids_per_day": 589.0,
       "avg_spend": 2.33,
       "note": ""
     },
     {
       "track": "运动户外",
-      "head_count": 11,
-      "avg_accounts": 7.9,
-      "avg_ads_per_day": 181.0,
-      "avg_cids_per_day": 600.0,
-      "avg_spend": 2.5,
+      "head_count": 10,
+      "avg_accounts": 8.2,
+      "avg_ads_per_day": 197.0,
+      "avg_cids_per_day": 572.0,
+      "avg_spend": 2.58,
       "note": ""
     },
     {
       "track": "综合服饰",
-      "head_count": 22,
-      "avg_accounts": 20.4,
-      "avg_ads_per_day": 126.0,
-      "avg_cids_per_day": 363.0,
-      "avg_spend": 2.63,
+      "head_count": 26,
+      "avg_accounts": 17.9,
+      "avg_ads_per_day": 109.0,
+      "avg_cids_per_day": 337.0,
+      "avg_spend": 2.22,
       "note": ""
     },
     {
       "track": "服饰奢品",
-      "head_count": 15,
-      "avg_accounts": 6.5,
-      "avg_ads_per_day": 248.0,
-      "avg_cids_per_day": 454.0,
-      "avg_spend": 2.45,
+      "head_count": 12,
+      "avg_accounts": 7.9,
+      "avg_ads_per_day": 260.0,
+      "avg_cids_per_day": 423.0,
+      "avg_spend": 2.65,
       "note": ""
     }
   ],
