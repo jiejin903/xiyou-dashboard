@@ -246,14 +246,14 @@
   <h1>🏆 服饰运动 · 小店服务商榜单 TOP100</h1>
   <div class="meta">
     数据时点：2026-05-22 ｜ 数据来源：小店动销表（GMV）+ 小店服务商挂靠表 <br>
-    底盘口径：<b style="color:#fde68a">挂靠表全部小店</b>（不限是否注册全域通），详情页含「是否注册全域通」标签
+    底盘口径：<b style="color:#fde68a">已注册全域通的挂靠小店</b>（确保每家小店都能展示客户主体名称）
   </div>
 </div>
 
 <div class="container">
 
   <div class="notice-bar">
-    📌 <b>口径说明</b>：榜单底盘 = 服饰运动行业全部有挂靠服务商的小店；详情页里每家小店都打了「✅ 已注册全域通 / ❌ 未注册全域通」标签，方便销售识别<b>潜在拓客线索</b>（手上有挂靠但还没注册全域通的小店 = 服务商已经能影响、但还没拉进来的客户）。
+    📌 <b>口径说明</b>：榜单底盘 = 服饰运动行业<b>已注册全域通且有挂靠服务商</b>的小店（共 12,592 家、405 个服务商）。详情页展示每家小店的<b>客户主体名称</b>，便于销售直接对接客户/识别同主体多店关系。
   </div>
 
   <div class="tabs" id="tabs"></div>
@@ -270,8 +270,7 @@
           <th width="60">排名</th>
           <th>服务商 / 主体</th>
           <th width="120">绑定店铺数</th>
-          <th width="160">GMV (万元)</th>
-          <th width="140">已注册全域通</th>
+          <th width="160">GMV (区间)</th>
           <th width="100">ADQ在投</th>
           <th width="100">QYT在投</th>
         </tr>
@@ -297,9 +296,9 @@
           <tr>
             <th width="50">#</th>
             <th>小店名称</th>
+            <th width="220">客户主体</th>
             <th width="200">类目</th>
-            <th width="100">GMV(万)</th>
-            <th width="130">是否全域通</th>
+            <th width="120">GMV(区间)</th>
             <th width="180">投放状态</th>
           </tr>
         </thead>
@@ -310,14 +309,34 @@
 </div>
 
 <script>
+// 【数据安全】GMV区间化脱敏函数（输入单位：万元）
+// 服务商/汇总级（数字较大）
+function gmvBucketAgg(v) {
+  v = +v || 0;
+  if (v < 100) return '<100万';
+  if (v < 500) return '100-500万';
+  if (v < 1000) return '500-1000万';
+  if (v < 5000) return '1000-5000万';
+  if (v < 10000) return '5000万-1亿';
+  return '>1亿';
+}
+// 单店级（数字较小）
+function gmvBucketShop(v) {
+  v = +v || 0;
+  if (v < 10) return '<10万';
+  if (v < 100) return '10-100万';
+  if (v < 500) return '100-500万';
+  if (v < 1000) return '500-1000万';
+  return '>1000万';
+}
 let DATA = null;
 let CURRENT_SCOPE = '整体';
 let CURRENT_SORT = 'shop_count';
 let SEARCH_KW = '';
 
-const SCOPES = ['整体', '男装', '内衣', '箱包皮具', '鞋靴'];
+const SCOPES = ['整体', '男装', '女装', '内衣', '箱包皮具', '鞋靴', '珠宝文玩配饰'];
 
-fetch('agency_data.json').then(r => r.json()).then(data => {
+fetch('agency_data.json?v=' + Date.now()).then(r => r.json()).then(data => {
   DATA = data;
   initTabs();
   render();
@@ -363,12 +382,10 @@ function render() {
   // 统计
   const totalShops = filtered.reduce((s, r) => s + (r.shop_count || 0), 0);
   const totalGmv = filtered.reduce((s, r) => s + (r.gmv_total || 0), 0);
-  const totalQytReg = filtered.reduce((s, r) => s + (r.qyt_registered_count || 0), 0);
   document.getElementById('stats').innerHTML = `
     <div class="stat-card"><div class="label">服务商总数</div><div class="value">${filtered.length}</div></div>
     <div class="stat-card"><div class="label">绑定小店数（合计）</div><div class="value">${totalShops.toLocaleString()}</div></div>
-    <div class="stat-card"><div class="label">GMV合计（万元）</div><div class="value">${Math.round(totalGmv).toLocaleString()}</div></div>
-    <div class="stat-card"><div class="label">已注册全域通小店数</div><div class="value">${totalQytReg.toLocaleString()}</div></div>
+    <div class="stat-card"><div class="label">GMV合计（区间）</div><div class="value" style="font-size:22px">${gmvBucketAgg(totalGmv)}</div></div>
   `;
 
   // 表格
@@ -376,14 +393,13 @@ function render() {
   const maxGmv = Math.max(...filtered.map(r => r.gmv_total || 0)) || 1;
   const tbody = document.getElementById('tbody');
   if (!filtered.length) {
-    tbody.innerHTML = '<tr class="empty-row"><td colspan="7">没有匹配的服务商</td></tr>';
+    tbody.innerHTML = '<tr class="empty-row"><td colspan="6">没有匹配的服务商</td></tr>';
     return;
   }
   tbody.innerHTML = filtered.map((r, i) => {
     const rankClass = i === 0 ? 'top1' : i === 1 ? 'top2' : i === 2 ? 'top3' : '';
     const shopBar = (r.shop_count / maxShop * 100).toFixed(1);
     const gmvBar = (r.gmv_total / maxGmv * 100).toFixed(1);
-    const qytRegRate = r.shop_count ? (r.qyt_registered_count / r.shop_count * 100).toFixed(0) : 0;
     return `
       <tr onclick="openDetail('${(r.agency || '').replace(/'/g, "\\'")}')">
         <td><span class="rank ${rankClass}">${i + 1}</span></td>
@@ -396,10 +412,9 @@ function render() {
           <div class="bar-bg" style="width: calc(${shopBar}% - 16px)"></div>
         </td>
         <td class="bar-cell">
-          <span class="num">${Math.round(r.gmv_total || 0).toLocaleString()}</span>
+          <span class="num" style="font-size:13px">${gmvBucketAgg(r.gmv_total || 0)}</span>
           <div class="bar-bg" style="width: calc(${gmvBar}% - 16px)"></div>
         </td>
-        <td>${(r.qyt_registered_count || 0).toLocaleString()} / ${r.shop_count} <span style="color:#9ca3af;font-size:11px">(${qytRegRate}%)</span></td>
         <td><span class="num">${(r.adq_active_count || 0).toLocaleString()}</span></td>
         <td><span class="num">${(r.qyt_active_count || 0).toLocaleString()}</span></td>
       </tr>
@@ -421,11 +436,9 @@ function openDetail(agency) {
   const totalGmv = detail.reduce((s, r) => s + (r.gmv || 0), 0);
   const adqCount = detail.filter(r => r.is_adq).length;
   const qytCount = detail.filter(r => r.is_qyt).length;
-  const qytRegCount = detail.filter(r => r.is_qyt_registered).length;
   document.getElementById('modal-stats').innerHTML = `
     <div class="item"><div class="label">绑定小店数</div><div class="value">${detail.length}</div></div>
-    <div class="item"><div class="label">GMV(万)</div><div class="value">${Math.round(totalGmv).toLocaleString()}</div></div>
-    <div class="item"><div class="label">已注册全域通</div><div class="value">${qytRegCount}</div></div>
+    <div class="item"><div class="label">GMV合计</div><div class="value" style="font-size:18px">${gmvBucketAgg(totalGmv)}</div></div>
     <div class="item"><div class="label">ADQ在投</div><div class="value">${adqCount}</div></div>
     <div class="item"><div class="label">QYT在投</div><div class="value">${qytCount}</div></div>
   `;
@@ -435,16 +448,13 @@ function openDetail(agency) {
     const adqBadge = s.is_adq ? '<span class="badge badge-adq">ADQ在投</span>' : '';
     const qytBadge = s.is_qyt ? '<span class="badge badge-qyt">QYT在投</span>' : '';
     const noActiveBadge = (!s.is_adq && !s.is_qyt) ? '<span class="badge badge-no-active">未在投</span>' : '';
-    const qytRegBadge = s.is_qyt_registered
-      ? '<span class="badge badge-qyt-reg">✅ 已注册全域通</span>'
-      : '<span class="badge badge-no-qyt">❌ 未注册全域通</span>';
     return `
       <tr>
         <td>${i + 1}</td>
         <td><div class="agency-name">${s.shop_name || '-'}</div><div class="entity-name">${s.shop_id}</div></td>
+        <td>${s.shop_entity || '-'}</td>
         <td>${s.cat1 || '-'} / ${s.cat2 || '-'}</td>
-        <td><span class="num">${(s.gmv || 0).toFixed(2)}</span></td>
-        <td>${qytRegBadge}</td>
+        <td><span class="num" style="font-size:13px">${gmvBucketShop(s.gmv || 0)}</span></td>
         <td>${adqBadge}${qytBadge}${noActiveBadge}</td>
       </tr>
     `;
