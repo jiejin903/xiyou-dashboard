@@ -433,18 +433,30 @@ function openDetail(agency) {
   const entity = allRanks.find(r => r.agency === agency)?.agency_entity || '';
   document.getElementById('modal-entity').textContent = `主体：${entity} ｜ 当前类目：${CURRENT_SCOPE}`;
 
-  const totalGmv = detail.reduce((s, r) => s + (r.gmv || 0), 0);
-  const adqCount = detail.filter(r => r.is_adq).length;
-  const qytCount = detail.filter(r => r.is_qyt).length;
+  // 从ranks拿真实总数（全量底盘），明细只展示前100
+  const realRow = allRanks.find(r => r.agency === agency) || {};
+  const realShopCount = realRow.shop_count || detail.length;
+  const realAdqCount = realRow.adq_active_count || 0;
+  const realQytCount = realRow.qyt_active_count || 0;
+  const realGmvTotal = realRow.gmv_total || detail.reduce((s, r) => s + (r.gmv || 0), 0);
+  const showDetail = detail.slice(0, 100);
+  const detailNote = detail.length > 100 ? `（共${detail.length}家明细，仅展示前100）` : (realShopCount > detail.length ? `（共绑定${realShopCount}家，仅展示明细范围${detail.length}家）` : '');
+
   document.getElementById('modal-stats').innerHTML = `
-    <div class="item"><div class="label">绑定小店数</div><div class="value">${detail.length}</div></div>
-    <div class="item"><div class="label">GMV合计</div><div class="value" style="font-size:18px">${gmvBucketAgg(totalGmv)}</div></div>
-    <div class="item"><div class="label">ADQ在投</div><div class="value">${adqCount}</div></div>
-    <div class="item"><div class="label">QYT在投</div><div class="value">${qytCount}</div></div>
+    <div class="item"><div class="label">绑定小店数</div><div class="value">${realShopCount}</div></div>
+    <div class="item"><div class="label">GMV合计</div><div class="value" style="font-size:18px">${gmvBucketAgg(realGmvTotal)}</div></div>
+    <div class="item"><div class="label">ADQ在投</div><div class="value">${realAdqCount}</div></div>
+    <div class="item"><div class="label">QYT在投</div><div class="value">${realQytCount}</div></div>
   `;
 
+  // 明细页脚备注
+  const modalSubtitle = document.getElementById('modal-entity');
+  if (detailNote) {
+    modalSubtitle.textContent = `主体：${entity} ｜ 当前类目：${CURRENT_SCOPE} ｜ ${detailNote}`;
+  }
+
   const tbody = document.getElementById('modal-tbody');
-  tbody.innerHTML = detail.map((s, i) => {
+  tbody.innerHTML = showDetail.map((s, i) => {
     const adqBadge = s.is_adq ? '<span class="badge badge-adq">ADQ在投</span>' : '';
     const qytBadge = s.is_qyt ? '<span class="badge badge-qyt">QYT在投</span>' : '';
     const noActiveBadge = (!s.is_adq && !s.is_qyt) ? '<span class="badge badge-no-active">未在投</span>' : '';
