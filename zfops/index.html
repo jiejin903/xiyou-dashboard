@@ -1248,9 +1248,9 @@ const CLOUD_API = 'https://api.counterapi.dev/v1';
 
 let CURRENT_USER = null;
 
-// 记录一次登录
+// 记录一次活跃（DAU 模型：每人每天首次访问 +1，多次刷新/标签页不重复计算）
 function recordLogin(user){
-  // ① 本机历史（兜底，万一云端挂了还能查本机）
+  // ① 本机历史（兜底，每次都记 — 多次刷新会被本机过滤，但保留原始流水方便排错）
   try{
     const log = JSON.parse(localStorage.getItem(LOGIN_LOG_KEY) || '[]');
     log.push({u:user.u, n:user.n, role:user.role, t:Date.now(), ua:navigator.userAgent.slice(0,80)});
@@ -1258,17 +1258,23 @@ function recordLogin(user){
     localStorage.setItem(LOGIN_LOG_KEY, JSON.stringify(log));
   }catch(e){ console.warn('记录登录失败', e); }
 
-  // ② 云端聚合统计（每人一个 counter，登录 +1，自带 updated_at = 最后登录时间）
-  fetch(`${CLOUD_API}/${CLOUD_NS}/${encodeURIComponent(user.u)}/up`, {
-    method:'GET',
-    mode:'cors',
-    cache:'no-store'
-  }).catch(()=>{}); // 静默失败，不影响登录主流程
+  // ② 云端 DAU：每人每天首次 +1，今天已经 +1 过则跳过
+  const now = new Date();
+  const pad = n => String(n).padStart(2,'0');
+  const todayKey = `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}`;
+  const lastDateKey = `zfops_dau_last_${user.u}`;
+  const lastDate = localStorage.getItem(lastDateKey);
 
-  // ③ 企微/飞书机器人播报（无 URL 时跳过）
+  if (lastDate !== todayKey){
+    fetch(`${CLOUD_API}/${CLOUD_NS}/${encodeURIComponent(user.u)}/up`, {
+      method:'GET', mode:'cors', cache:'no-store'
+    }).then(r => {
+      if (r && r.ok) localStorage.setItem(lastDateKey, todayKey);
+    }).catch(()=>{}); // 静默失败，下次再试
+  }
+
+  // ③ 企微/飞书机器人播报（无 URL 时跳过；只在真登录时推，自动恢复会话不推 — 由调用方控制）
   if (LOGIN_WEBHOOK_URL){
-    const now = new Date();
-    const pad = n => String(n).padStart(2,'0');
     const ts = `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())} ${pad(now.getHours())}:${pad(now.getMinutes())}`;
     const msg = `📊 [作战地图] ${user.n}（${user.u}·${user.role}）于 ${ts} 登录`;
     fetch(LOGIN_WEBHOOK_URL, {
@@ -1359,19 +1365,19 @@ async function showLoginStats(){
 
   body.innerHTML = `
     <div class="ls-summary">
-      <div class="ls-sum-c"><div class="lab">已登录账号</div><div class="v">${activeAccounts}<span style="font-size:13px;color:#8a9aae">/${totalAccounts}</span></div></div>
-      <div class="ls-sum-c"><div class="lab">累计登录次数</div><div class="v">${totalLogins}</div></div>
+      <div class="ls-sum-c"><div class="lab">已活跃账号</div><div class="v">${activeAccounts}<span style="font-size:13px;color:#8a9aae">/${totalAccounts}</span></div></div>
+      <div class="ls-sum-c"><div class="lab">累计活跃人天</div><div class="v">${totalLogins}</div></div>
       <div class="ls-sum-c"><div class="lab">近7天活跃</div><div class="v">${recent7d}<span style="font-size:13px;color:#8a9aae">人</span></div></div>
     </div>
-    <div style="font-size:12px;color:#5a6b7e;margin:10px 0 6px;font-weight:600">🏆 全员登录排行榜</div>
+    <div style="font-size:12px;color:#5a6b7e;margin:10px 0 6px;font-weight:600">🏆 全员活跃排行榜（按累计活跃天数排序）</div>
     <table class="ls-table">
       <thead>
         <tr>
           <th style="width:40px">#</th>
           <th>账号 / 姓名</th>
           <th>角色</th>
-          <th>最近登录</th>
-          <th style="text-align:right">登录次数</th>
+          <th>最近活跃</th>
+          <th style="text-align:right">活跃天数</th>
         </tr>
       </thead>
       <tbody>
@@ -1383,7 +1389,7 @@ async function showLoginStats(){
               <code style="font-size:11px;color:#8a9aae">${r.u}</code>
             </td>
             <td style="font-size:12px;color:#5a6b7e">${r.role}</td>
-            <td>${r.never ? '<span style="color:#c43e3e;font-size:12px">从未登录</span>' :
+            <td>${r.never ? '<span style="color:#c43e3e;font-size:12px">从未访问</span>' :
               `${fmtLoginRelative(r.last)}<div style="font-size:11px;color:#8a9aae">${fmtLoginTime(r.last)}</div>`}
             </td>
             <td style="text-align:right"><span class="ls-cnt">${r.count}</span></td>
@@ -1392,13 +1398,13 @@ async function showLoginStats(){
     </table>
     ${sleepList.length ? `
     <div style="margin-top:14px;padding:10px 12px;background:#fff7e6;border:1px solid #ffe1a8;border-radius:8px">
-      <div style="font-size:12px;color:#a05a00;margin-bottom:4px;font-weight:600">😴 沉睡名单（${sleepList.length}人 · 7天未登录或从未登录）</div>
+      <div style="font-size:12px;color:#a05a00;margin-bottom:4px;font-weight:600">😴 沉睡名单（${sleepList.length}人 · 7天未活跃或从未访问）</div>
       <div style="font-size:12px;color:#5a6b7e;line-height:1.7">
         ${sleepList.map(r => `<span style="display:inline-block;margin-right:10px">${r.n}（${r.u}）${r.never?'<span style="color:#c43e3e">·从未</span>':''}</span>`).join('')}
       </div>
     </div>` : ''}
     <div style="margin-top:10px;font-size:11px;color:#bfbfbf;text-align:center">
-      数据来源：counterapi.dev 公共计数器 · 命名空间 ${CLOUD_NS} · 实时拉取
+      统计口径：每人每天首次访问 +1（DAU 模型）· 数据来源 counterapi.dev · 命名空间 ${CLOUD_NS}
     </div>`;
 }
 
@@ -1482,6 +1488,8 @@ function checkLogin(){
         CURRENT_USER = user;
         applyUser(user);
         document.getElementById('loginMask').classList.add('hide');
+        // DAU：自动会话恢复也算今日活跃（recordLogin 内部会做"今天是否已+1"判断，重复刷新不会虚增）
+        recordLogin(user);
         return;
       }
     }catch(e){}
