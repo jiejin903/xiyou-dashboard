@@ -351,7 +351,7 @@ details[open] .nc-ended-sum::before{transform:rotate(90deg)}
 .ls-close{cursor:pointer;color:#8a9aae;font-size:18px;width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;transition:.2s}
 .ls-close:hover{background:#f0f3f8;color:#1a2332}
 .ls-body{flex:1;overflow:auto;padding:18px 24px}
-.ls-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+.ls-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px}
 .ls-sum-c{padding:12px 14px;background:#fafbff;border:1px solid #d6e4ff;border-radius:8px;text-align:center}
 .ls-sum-c .lab{font-size:11px;color:#5a6b7e;margin-bottom:4px}
 .ls-sum-c .v{font-size:20px;font-weight:700;color:#1677ff}
@@ -1272,7 +1272,10 @@ function recordLogin(user){
     }).catch(()=>{}); // 静默失败，下次再试
   }
 
-  // ③ 企微/飞书机器人播报（无 URL 时跳过；只在真登录时推，自动恢复会话不推 — 由调用方控制）
+  // ③ 启动深度访问监听（停留 ≥5 分钟有动作 = +1，每天去重）
+  startDeepActivityTracker(user);
+
+  // ④ 企微/飞书机器人播报（无 URL 时跳过；只在真登录时推，自动恢复会话不推 — 由调用方控制）
   if (LOGIN_WEBHOOK_URL){
     const ts = `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())} ${pad(now.getHours())}:${pad(now.getMinutes())}`;
     const msg = `📊 [作战地图] ${user.n}（${user.u}·${user.role}）于 ${ts} 登录`;
@@ -1285,22 +1288,84 @@ function recordLogin(user){
   }
 }
 
-// 拉取全员云端登录数据（并行 14 个 fetch）
-async function fetchCloudLoginStats(){
-  const tasks = USERS.map(u =>
-    fetch(`${CLOUD_API}/${CLOUD_NS}/${encodeURIComponent(u.u)}/`, {cache:'no-store'})
-      .then(r => r.ok ? r.json() : null)
-      .then(j => {
-        if (!j || !j.count) return {u:u.u, n:u.n, role:u.role, count:0, last:null, never:true};
-        return {
-          u:u.u, n:u.n, role:u.role,
-          count: j.count,
-          last: j.updated_at ? new Date(j.updated_at).getTime() : null,
-          never: false
-        };
-      })
-      .catch(() => ({u:u.u, n:u.n, role:u.role, count:0, last:null, never:true, err:true}))
+// 深度访问监听器（B 方案 · 2026-06-09）
+// 规则：用户在页面有动作（鼠标/键盘/滚轮/点击/触摸），累计满 5 分钟"活跃秒数" → +1 一次"深度访问"
+//      每天每人最多 +1 次，重复刷新/多标签页不重复计算
+//      "活跃秒数" 定义：每秒 tick 时，60s 内有过任一动作即算 1 秒活跃
+let __deepTracker = null;
+function startDeepActivityTracker(user){
+  // 已经有 tracker 在跑就别启第二个
+  if (__deepTracker) return;
+
+  // 今日已 +1 过 → 直接跳过
+  const now = new Date();
+  const pad = n => String(n).padStart(2,'0');
+  const todayKey = `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}`;
+  const lastDeepKey = `zfops_deep_last_${user.u}`;
+  if (localStorage.getItem(lastDeepKey) === todayKey) return;
+
+  const REQUIRE_SEC = 300;   // 5 分钟
+  const ACTIVE_WINDOW = 60000; // 60s 内有动作 = 算活跃
+  let activeSec = 0;
+  let lastActAt = Date.now();
+
+  const onAct = () => { lastActAt = Date.now(); };
+  ['mousemove','keydown','scroll','click','touchstart'].forEach(ev =>
+    window.addEventListener(ev, onAct, {passive:true})
   );
+
+  const timer = setInterval(() => {
+    // 标签页隐藏 / 已注销 → 不计数（但保留计时器，回到前台继续累计）
+    if (document.hidden) return;
+    if (!CURRENT_USER || CURRENT_USER.u !== user.u) return;
+    if (Date.now() - lastActAt > ACTIVE_WINDOW) return;
+
+    activeSec++;
+    if (activeSec >= REQUIRE_SEC){
+      // 上报 +1 一次
+      fetch(`${CLOUD_API}/${CLOUD_NS}/${encodeURIComponent(user.u)}_deep/up`, {
+        method:'GET', mode:'cors', cache:'no-store'
+      }).then(r => {
+        if (r && r.ok) localStorage.setItem(lastDeepKey, todayKey);
+      }).catch(()=>{});
+      // 当日任务完成，清理监听
+      stopDeepActivityTracker();
+    }
+  }, 1000);
+
+  __deepTracker = {
+    timer,
+    cleanup: () => {
+      clearInterval(timer);
+      ['mousemove','keydown','scroll','click','touchstart'].forEach(ev =>
+        window.removeEventListener(ev, onAct)
+      );
+    }
+  };
+}
+function stopDeepActivityTracker(){
+  if (__deepTracker){ __deepTracker.cleanup(); __deepTracker = null; }
+}
+
+// 拉取全员云端登录数据（DAU + 深度访问 双 counter，并行 14×2 个 fetch）
+async function fetchCloudLoginStats(){
+  const tasks = USERS.map(u => Promise.all([
+    fetch(`${CLOUD_API}/${CLOUD_NS}/${encodeURIComponent(u.u)}/`, {cache:'no-store'})
+      .then(r => r.ok ? r.json() : null).catch(()=>null),
+    fetch(`${CLOUD_API}/${CLOUD_NS}/${encodeURIComponent(u.u)}_deep/`, {cache:'no-store'})
+      .then(r => r.ok ? r.json() : null).catch(()=>null),
+  ]).then(([dau, deep]) => {
+    const c = (dau && dau.count) ? dau.count : 0;
+    const dc = (deep && deep.count) ? deep.count : 0;
+    return {
+      u:u.u, n:u.n, role:u.role,
+      count: c,
+      deep: dc,
+      last: (dau && dau.updated_at) ? new Date(dau.updated_at).getTime() : null,
+      lastDeep: (deep && deep.updated_at) ? new Date(deep.updated_at).getTime() : null,
+      never: c === 0
+    };
+  }).catch(() => ({u:u.u, n:u.n, role:u.role, count:0, deep:0, last:null, lastDeep:null, never:true, err:true})));
   return Promise.all(tasks);
 }
 
@@ -1346,29 +1411,28 @@ async function showLoginStats(){
   const active = rows.filter(r => !r.never);
   const totalAccounts = USERS.length;
   const activeAccounts = active.length;
-  const sleepAccounts = totalAccounts - activeAccounts;
   const totalLogins = rows.reduce((s,r)=>s+(r.count||0), 0);
+  const totalDeep = rows.reduce((s,r)=>s+(r.deep||0), 0);
   const now = Date.now();
   const recent7d = rows.filter(r => r.last && (now - r.last < 7*24*3600*1000)).length;
 
-  // 排序：登录次数降序 → 最近登录时间降序 → 沉睡放最后
+  // 排序：深度访问降序 → 活跃天数降序 → 最近活跃时间降序 → 从未访问放最后
   const sorted = [...rows].sort((a,b)=>{
     if (a.never && !b.never) return 1;
     if (!a.never && b.never) return -1;
+    if (b.deep !== a.deep) return b.deep - a.deep;
     if (b.count !== a.count) return b.count - a.count;
     return (b.last||0) - (a.last||0);
   });
-
-  // 沉睡名单（从未登录 OR 最后登录超过 7 天）
-  const sleepList = rows.filter(r => r.never || (r.last && (now - r.last >= 7*24*3600*1000)));
 
   body.innerHTML = `
     <div class="ls-summary">
       <div class="ls-sum-c"><div class="lab">已活跃账号</div><div class="v">${activeAccounts}<span style="font-size:13px;color:#8a9aae">/${totalAccounts}</span></div></div>
       <div class="ls-sum-c"><div class="lab">累计活跃人天</div><div class="v">${totalLogins}</div></div>
+      <div class="ls-sum-c"><div class="lab">累计深度访问</div><div class="v">${totalDeep}<span style="font-size:11px;color:#8a9aae;font-weight:400">次</span></div></div>
       <div class="ls-sum-c"><div class="lab">近7天活跃</div><div class="v">${recent7d}<span style="font-size:13px;color:#8a9aae">人</span></div></div>
     </div>
-    <div style="font-size:12px;color:#5a6b7e;margin:10px 0 6px;font-weight:600">🏆 全员活跃排行榜（按累计活跃天数排序）</div>
+    <div style="font-size:12px;color:#5a6b7e;margin:10px 0 6px;font-weight:600">🏆 全员活跃排行榜（按深度访问次数排序）</div>
     <table class="ls-table">
       <thead>
         <tr>
@@ -1377,6 +1441,7 @@ async function showLoginStats(){
           <th>角色</th>
           <th>最近活跃</th>
           <th style="text-align:right">活跃天数</th>
+          <th style="text-align:right" title="单次停留 ≥5 分钟且有动作 = 1 次深度访问，每天去重">深度访问</th>
         </tr>
       </thead>
       <tbody>
@@ -1391,12 +1456,13 @@ async function showLoginStats(){
             <td>${r.never ? '<span style="color:#c43e3e;font-size:12px">从未访问</span>' :
               `${fmtLoginRelative(r.last)}<div style="font-size:11px;color:#8a9aae">${fmtLoginTime(r.last)}</div>`}
             </td>
-            <td style="text-align:right"><span class="ls-cnt">${r.count}</span></td>
+            <td style="text-align:right"><span class="ls-cnt" style="background:#f5f6fa;color:#5a6b7e">${r.count}</span></td>
+            <td style="text-align:right"><span class="ls-cnt">${r.deep||0}</span></td>
           </tr>`).join('')}
       </tbody>
     </table>
     <div style="margin-top:10px;font-size:11px;color:#bfbfbf;text-align:center">
-      统计口径：每人每天首次访问 +1（DAU 模型）· 数据来源 counterapi.dev · 命名空间 ${CLOUD_NS}
+      统计口径：活跃天数 = 每人每天首次访问 +1 · 深度访问 = 单次停留 ≥5 分钟且有动作 +1（每天去重）
     </div>`;
 }
 
@@ -1445,6 +1511,7 @@ function doLogin(){
 }
 
 function doLogout(){
+  stopDeepActivityTracker();
   sessionStorage.removeItem(SESSION_KEY);
   document.getElementById('userMenu').classList.remove('show');
   document.getElementById('loginMask').classList.remove('hide');
