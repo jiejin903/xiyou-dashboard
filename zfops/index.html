@@ -503,7 +503,7 @@ details[open] .nc-ended-sum::before{transform:rotate(90deg)}
 <div class="ls-mask" id="lsMask" onclick="if(event.target===this)closeLoginStats()">
   <div class="ls-box">
     <div class="ls-hd">
-      <h3>📊 登录统计 <span class="ls-hd-tag">本机数据</span></h3>
+      <h3>📊 登录统计 <span class="ls-hd-tag" id="lsHdTag">全员云端数据</span></h3>
       <span class="ls-close" onclick="closeLoginStats()">✕</span>
     </div>
     <div class="ls-body" id="lsBody"></div>
@@ -1240,19 +1240,32 @@ const LOGIN_LOG_KEY = 'zfops_login_log';
 // 企微/飞书机器人 webhook（可选；填后每次登录会自动播报到群）
 // 格式示例：'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=xxx'
 const LOGIN_WEBHOOK_URL = '';
+
+// 云端统计：counterapi.dev 公共计数器（0 注册、0 部署、0 运维）
+// 命名空间锁定到本系统专属，每个账号一个独立计数器
+const CLOUD_NS = 'zfops_warmap_2026h1';
+const CLOUD_API = 'https://api.counterapi.dev/v1';
+
 let CURRENT_USER = null;
 
 // 记录一次登录
 function recordLogin(user){
+  // ① 本机历史（兜底，万一云端挂了还能查本机）
   try{
     const log = JSON.parse(localStorage.getItem(LOGIN_LOG_KEY) || '[]');
     log.push({u:user.u, n:user.n, role:user.role, t:Date.now(), ua:navigator.userAgent.slice(0,80)});
-    // 保留最近 1000 条
     if (log.length > 1000) log.splice(0, log.length - 1000);
     localStorage.setItem(LOGIN_LOG_KEY, JSON.stringify(log));
   }catch(e){ console.warn('记录登录失败', e); }
 
-  // 可选：企微/飞书机器人播报（无 URL 时跳过）
+  // ② 云端聚合统计（每人一个 counter，登录 +1，自带 updated_at = 最后登录时间）
+  fetch(`${CLOUD_API}/${CLOUD_NS}/${encodeURIComponent(user.u)}/up`, {
+    method:'GET',
+    mode:'cors',
+    cache:'no-store'
+  }).catch(()=>{}); // 静默失败，不影响登录主流程
+
+  // ③ 企微/飞书机器人播报（无 URL 时跳过）
   if (LOGIN_WEBHOOK_URL){
     const now = new Date();
     const pad = n => String(n).padStart(2,'0');
@@ -1263,8 +1276,27 @@ function recordLogin(user){
       headers:{'Content-Type':'application/json'},
       mode:'no-cors',
       body:JSON.stringify({msgtype:'text', text:{content:msg}})
-    }).catch(()=>{}); // 静默失败，不影响登录
+    }).catch(()=>{});
   }
+}
+
+// 拉取全员云端登录数据（并行 14 个 fetch）
+async function fetchCloudLoginStats(){
+  const tasks = USERS.map(u =>
+    fetch(`${CLOUD_API}/${CLOUD_NS}/${encodeURIComponent(u.u)}/`, {cache:'no-store'})
+      .then(r => r.ok ? r.json() : null)
+      .then(j => {
+        if (!j || !j.count) return {u:u.u, n:u.n, role:u.role, count:0, last:null, never:true};
+        return {
+          u:u.u, n:u.n, role:u.role,
+          count: j.count,
+          last: j.updated_at ? new Date(j.updated_at).getTime() : null,
+          never: false
+        };
+      })
+      .catch(() => ({u:u.u, n:u.n, role:u.role, count:0, last:null, never:true, err:true}))
+  );
+  return Promise.all(tasks);
 }
 
 // 格式化时间
@@ -1285,75 +1317,89 @@ function fmtLoginRelative(ts){
   return fmtLoginTime(ts).slice(0,10);
 }
 
-function showLoginStats(){
+async function showLoginStats(){
   document.getElementById('userMenu').classList.remove('show');
-  const log = JSON.parse(localStorage.getItem(LOGIN_LOG_KEY) || '[]');
   const body = document.getElementById('lsBody');
+  const tag = document.getElementById('lsHdTag');
 
-  if (!log.length){
-    body.innerHTML = '<div class="ls-empty">暂无登录记录<br><span style="font-size:11px;color:#bfbfbf">登录后下次再来这里看～</span></div>';
-    document.getElementById('lsMask').classList.add('show');
+  // 立即弹窗 + loading
+  body.innerHTML = '<div class="ls-empty">☁️ 正在拉取全员云端数据...<br><span style="font-size:11px;color:#bfbfbf">14 个账号并行查询，1 秒内出结果</span></div>';
+  document.getElementById('lsMask').classList.add('show');
+  if (tag){ tag.textContent='加载中...'; tag.style.background='#fff7e6'; tag.style.color='#d4892e'; }
+
+  let rows;
+  try{
+    rows = await fetchCloudLoginStats();
+  }catch(e){
+    body.innerHTML = '<div class="ls-empty" style="color:#c43e3e">☁️ 云端拉取失败<br><span style="font-size:11px">'+(e.message||e)+'</span></div>';
+    if (tag){ tag.textContent='云端连接失败'; tag.style.background='#ffeaea'; tag.style.color='#c43e3e'; }
     return;
   }
-
-  // 按账号聚合
-  const grp = {};
-  log.forEach(r => {
-    if (!grp[r.u]) grp[r.u] = {u:r.u, n:r.n, role:r.role, count:0, last:0, first:Date.now()};
-    grp[r.u].count++;
-    if (r.t > grp[r.u].last) grp[r.u].last = r.t;
-    if (r.t < grp[r.u].first) grp[r.u].first = r.t;
-  });
-  const rows = Object.values(grp).sort((a,b) => b.last - a.last);
+  if (tag){ tag.textContent='全员云端数据'; tag.style.background='#e6f0ff'; tag.style.color='#1677ff'; }
 
   // 总计
-  const totalAccounts = rows.length;
-  const totalLogins = log.length;
-  const recent7d = log.filter(r => Date.now() - r.t < 7*24*3600*1000).length;
-  const recent24h = log.filter(r => Date.now() - r.t < 24*3600*1000).length;
+  const active = rows.filter(r => !r.never);
+  const totalAccounts = USERS.length;
+  const activeAccounts = active.length;
+  const sleepAccounts = totalAccounts - activeAccounts;
+  const totalLogins = rows.reduce((s,r)=>s+(r.count||0), 0);
+  const now = Date.now();
+  const recent7d = rows.filter(r => r.last && (now - r.last < 7*24*3600*1000)).length;
+
+  // 排序：登录次数降序 → 最近登录时间降序 → 沉睡放最后
+  const sorted = [...rows].sort((a,b)=>{
+    if (a.never && !b.never) return 1;
+    if (!a.never && b.never) return -1;
+    if (b.count !== a.count) return b.count - a.count;
+    return (b.last||0) - (a.last||0);
+  });
+
+  // 沉睡名单（从未登录 OR 最后登录超过 7 天）
+  const sleepList = rows.filter(r => r.never || (r.last && (now - r.last >= 7*24*3600*1000)));
 
   body.innerHTML = `
     <div class="ls-summary">
-      <div class="ls-sum-c"><div class="lab">登录账号数</div><div class="v">${totalAccounts}</div></div>
+      <div class="ls-sum-c"><div class="lab">已登录账号</div><div class="v">${activeAccounts}<span style="font-size:13px;color:#8a9aae">/${totalAccounts}</span></div></div>
       <div class="ls-sum-c"><div class="lab">累计登录次数</div><div class="v">${totalLogins}</div></div>
-      <div class="ls-sum-c"><div class="lab">近7天登录</div><div class="v">${recent7d}</div></div>
+      <div class="ls-sum-c"><div class="lab">近7天活跃</div><div class="v">${recent7d}<span style="font-size:13px;color:#8a9aae">人</span></div></div>
     </div>
+    <div style="font-size:12px;color:#5a6b7e;margin:10px 0 6px;font-weight:600">🏆 全员登录排行榜</div>
     <table class="ls-table">
       <thead>
         <tr>
-          <th>账号</th>
-          <th>姓名 / 角色</th>
-          <th>首次登录</th>
+          <th style="width:40px">#</th>
+          <th>账号 / 姓名</th>
+          <th>角色</th>
           <th>最近登录</th>
           <th style="text-align:right">登录次数</th>
         </tr>
       </thead>
       <tbody>
-        ${rows.map(r => `
-          <tr>
-            <td><code style="font-size:12px;color:#5a6b7e">${r.u}</code></td>
-            <td>${r.n} · <span style="font-size:11px;color:#8a9aae">${r.role}</span></td>
-            <td style="font-size:12px;color:#5a6b7e">${fmtLoginTime(r.first)}</td>
-            <td>${fmtLoginRelative(r.last)}<div style="font-size:11px;color:#8a9aae">${fmtLoginTime(r.last)}</div></td>
+        ${sorted.map((r,i) => `
+          <tr ${r.never ? 'style="opacity:0.5"' : ''}>
+            <td style="color:#8a9aae;font-size:12px">${r.never ? '—' : (i+1)}</td>
+            <td>
+              <div style="font-weight:500">${r.n}</div>
+              <code style="font-size:11px;color:#8a9aae">${r.u}</code>
+            </td>
+            <td style="font-size:12px;color:#5a6b7e">${r.role}</td>
+            <td>${r.never ? '<span style="color:#c43e3e;font-size:12px">从未登录</span>' :
+              `${fmtLoginRelative(r.last)}<div style="font-size:11px;color:#8a9aae">${fmtLoginTime(r.last)}</div>`}
+            </td>
             <td style="text-align:right"><span class="ls-cnt">${r.count}</span></td>
           </tr>`).join('')}
       </tbody>
     </table>
-    <div style="margin-top:14px;padding-top:12px;border-top:1px dashed #e6e9f0">
-      <div style="font-size:12px;color:#5a6b7e;margin-bottom:6px;font-weight:600">📋 最近 10 次登录详情</div>
-      <table class="ls-table">
-        <thead><tr><th>时间</th><th>账号</th><th>姓名</th></tr></thead>
-        <tbody>
-          ${[...log].reverse().slice(0,10).map(r => `
-            <tr>
-              <td style="font-size:12px;color:#5a6b7e">${fmtLoginTime(r.t)}</td>
-              <td><code style="font-size:12px;color:#5a6b7e">${r.u}</code></td>
-              <td>${r.n}</td>
-            </tr>`).join('')}
-        </tbody>
-      </table>
+    ${sleepList.length ? `
+    <div style="margin-top:14px;padding:10px 12px;background:#fff7e6;border:1px solid #ffe1a8;border-radius:8px">
+      <div style="font-size:12px;color:#a05a00;margin-bottom:4px;font-weight:600">😴 沉睡名单（${sleepList.length}人 · 7天未登录或从未登录）</div>
+      <div style="font-size:12px;color:#5a6b7e;line-height:1.7">
+        ${sleepList.map(r => `<span style="display:inline-block;margin-right:10px">${r.n}（${r.u}）${r.never?'<span style="color:#c43e3e">·从未</span>':''}</span>`).join('')}
+      </div>
+    </div>` : ''}
+    <div style="margin-top:10px;font-size:11px;color:#bfbfbf;text-align:center">
+      数据来源：counterapi.dev 公共计数器 · 命名空间 ${CLOUD_NS} · 实时拉取
     </div>`;
-  document.getElementById('lsMask').classList.add('show');
 }
 
 function closeLoginStats(){
