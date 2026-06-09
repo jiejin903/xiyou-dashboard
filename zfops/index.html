@@ -215,6 +215,10 @@ body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;backgr
 .nc-cat.cy{background:#e6fffb;color:#13c2c2;border-color:#87e8de}
 .nc-cat.or{background:#fff2e8;color:#fa541c;border-color:#ffbb96}
 .nc-name{font-size:15px;font-weight:700;color:#1a2332;margin-bottom:4px;line-height:1.4}
+.nc-new{display:inline-block;margin-left:6px;padding:1px 7px;font-size:10px;font-weight:700;background:linear-gradient(90deg,#ff4d4f,#ff7a45);color:#fff;border-radius:4px;letter-spacing:.5px;vertical-align:middle;animation:ncNewBlink 1.6s ease-in-out infinite}
+@keyframes ncNewBlink{0%,100%{box-shadow:0 0 0 0 rgba(255,77,79,.5)}50%{box-shadow:0 0 0 4px rgba(255,77,79,0)}}
+.nc.pinned{border:1px solid #ffccc7;background:linear-gradient(180deg,#fff5f5 0%,#fff 60%);box-shadow:0 2px 8px rgba(255,77,79,.08)}
+.nc-pin-h{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:#cf1322;padding:8px 12px;margin:6px 0 8px;background:linear-gradient(90deg,#fff1f0,#fff5f5);border-left:3px solid #ff4d4f;border-radius:4px}
 .nc-desc{font-size:12px;color:#5a6b7e;line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .nc-extra{margin-top:6px;font-size:11px;color:#8a9aae}
 .nc-extra strong{color:#52c41a}
@@ -903,7 +907,7 @@ const INFO_FUCHI = [
 /* 产品能力 · 5 个 sheet 分组 · 共 23 项（严格按 sheet 名命名）*/
 const INFO_CAPA = [
   // ===== 产品形态（11）=====
-  {group:'产品形态',name:'潜客优投能力上线',
+  {group:'产品形态',name:'潜客优投能力上线',pin:true,isNew:true,
     desc:'智能触达高潜力用户。',
     range:'AIM+ 智能投放 & 竞价投放的小店客户；白名单制，需前置加白',
     links:[{t:'白名单申请',u:'https://doc.weixin.qq.com/sheet/e3_ARoAPgaoANUCNxLovmKxkQwyjsEGZ?scode=AJEAIQdfAAol7Md060AeEAsQb6APs&tab=7ng1a9'},{t:'能力说明（对内）',u:'https://doc.weixin.qq.com/doc/w3_ARoAPgaoANUCNDF1i7Ki0QrOLiaoU?scode=AJEAIQdfAAoqbhFWWVAeEAsQb6APs'},{t:'能力说明（对外）',u:'https://doc.weixin.qq.com/doc/w3_ARoAPgaoANUCNtB1LB501QBW0Ij24?scode=AJEAIQdfAAoL3W56a8AAoArgYoACg'},{t:'看数链接',u:'https://adata.woa.com/bi/view/new/g:biz_main_multiple:log_time?s=9wuAp'}]},
@@ -1185,8 +1189,39 @@ function renderCapa(){
   }).join('');
   document.getElementById('cnt-capa').textContent = INFO_CAPA.length;
 
+  // 渲染单条卡片的工具函数
+  const renderItem = (i, opts={}) => {
+    const linksHtml = (i.links||[]).map(l =>
+      `<a href="${l.u}" target="_blank" rel="noopener" title="${l.t}">📎 ${l.t}</a>`
+    ).join('');
+    const newBadge = i.isNew ? '<span class="nc-new">NEW</span>' : '';
+    const pinCls = opts.pinned ? ' pinned' : '';
+    return `<div class="nc s-long${pinCls}">
+      <div class="nc-l">
+        <span class="nc-stat long">${i.group}</span>
+        <span class="nc-period" style="color:#8a9aae;font-size:11px">${opts.pinned ? '🔥 重点关注' : '能力上线 / 持续关注'}</span>
+      </div>
+      <div class="nc-c">
+        <span class="nc-cat ${CAT_COLOR_MAP[i.group]||'bl'}">${i.group}</span>
+        <div class="nc-name">${i.name}${newBadge}</div>
+        <div class="nc-desc">${i.desc}</div>
+        ${i.range ? `<div class="nc-extra">📌 ${i.range}</div>` : ''}
+      </div>
+      <div class="nc-r">${linksHtml || '<span style="font-size:11px;color:#bfbfbf">暂无链接</span>'}</div>
+    </div>`;
+  };
+
   // 列表
   let html = '';
+
+  // 置顶项优先（pin:true）
+  const pinnedItems = INFO_CAPA.filter(i => i.pin);
+  if (pinnedItems.length){
+    html += `<div class="nc-pin-h">📌 置顶 · 重点关注 <span style="font-weight:400;color:#8a9aae;font-size:11px">· ${pinnedItems.length} 项</span></div>`;
+    html += pinnedItems.map(i => renderItem(i, {pinned:true})).join('');
+  }
+
+  // 按分组渲染（保持完整性，置顶项也保留在原分组中）
   groups.forEach(g => {
     const items = INFO_CAPA.filter(i => i.group === g);
     if (!items.length) return;
@@ -1195,24 +1230,7 @@ function renderCapa(){
       ${g}
       <span class="nc-cnt">· ${items.length} 项</span>
     </div>`;
-    html += items.map(i => {
-      const linksHtml = (i.links||[]).map(l =>
-        `<a href="${l.u}" target="_blank" rel="noopener" title="${l.t}">📎 ${l.t}</a>`
-      ).join('');
-      return `<div class="nc s-long">
-        <div class="nc-l">
-          <span class="nc-stat long">${g}</span>
-          <span class="nc-period" style="color:#8a9aae;font-size:11px">能力上线 / 持续关注</span>
-        </div>
-        <div class="nc-c">
-          <span class="nc-cat ${CAT_COLOR_MAP[g]||'bl'}">${g}</span>
-          <div class="nc-name">${i.name}</div>
-          <div class="nc-desc">${i.desc}</div>
-          ${i.range ? `<div class="nc-extra">📌 ${i.range}</div>` : ''}
-        </div>
-        <div class="nc-r">${linksHtml || '<span style="font-size:11px;color:#bfbfbf">暂无链接</span>'}</div>
-      </div>`;
-    }).join('');
+    html += items.map(i => renderItem(i)).join('');
   });
   list.innerHTML = html;
 
