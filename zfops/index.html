@@ -339,6 +339,35 @@ details[open] .nc-ended-sum::before{transform:rotate(90deg)}
 .login-err{font-size:12px;color:#f5222d;background:#fff1f0;border:1px solid #ffccc7;padding:8px 12px;border-radius:6px;margin-top:10px;display:none}
 .login-err.show{display:block}
 .login-tip{font-size:11px;color:#8a9aae;text-align:center;margin-top:14px;line-height:1.6}
+
+/* 登录统计弹窗 */
+.ls-mask{position:fixed;inset:0;background:rgba(12,28,58,.55);z-index:10000;display:none;align-items:center;justify-content:center;padding:20px}
+.ls-mask.show{display:flex}
+.ls-box{width:100%;max-width:780px;max-height:85vh;background:#fff;border-radius:14px;box-shadow:0 24px 64px rgba(0,0,0,.3);display:flex;flex-direction:column;overflow:hidden}
+.ls-hd{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:1px solid #f0f3f8;background:linear-gradient(135deg,#f6faff,#eef4fc)}
+.ls-hd h3{font-size:16px;font-weight:700;color:#1a2332;margin:0}
+.ls-hd-tag{display:inline-block;margin-left:8px;font-size:11px;font-weight:500;color:#1677ff;background:#e6f0ff;padding:2px 8px;border-radius:10px}
+.ls-close{cursor:pointer;color:#8a9aae;font-size:18px;width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;transition:.2s}
+.ls-close:hover{background:#f0f3f8;color:#1a2332}
+.ls-body{flex:1;overflow:auto;padding:18px 24px}
+.ls-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+.ls-sum-c{padding:12px 14px;background:#fafbff;border:1px solid #d6e4ff;border-radius:8px;text-align:center}
+.ls-sum-c .lab{font-size:11px;color:#5a6b7e;margin-bottom:4px}
+.ls-sum-c .v{font-size:20px;font-weight:700;color:#1677ff}
+.ls-table{width:100%;border-collapse:collapse;font-size:13px}
+.ls-table th{text-align:left;padding:8px 10px;background:#f6faff;color:#5a6b7e;font-weight:600;font-size:12px;border-bottom:1px solid #d6e4ff;position:sticky;top:0}
+.ls-table td{padding:9px 10px;border-bottom:1px solid #f0f3f8;color:#1a2332}
+.ls-table tr:hover td{background:#fafbff}
+.ls-table .ls-cnt{display:inline-block;min-width:24px;text-align:center;background:#e6f0ff;color:#1677ff;border-radius:10px;padding:1px 8px;font-weight:700;font-size:12px}
+.ls-empty{padding:40px 20px;text-align:center;color:#8a9aae;font-size:13px}
+.ls-ft{padding:12px 24px;background:#fafbff;border-top:1px solid #f0f3f8;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
+.ls-tip{font-size:11px;color:#8a9aae;line-height:1.5}
+.ls-actions{display:flex;gap:8px}
+.ls-btn{padding:6px 14px;font-size:12px;border-radius:6px;border:1px solid #d6e4ff;background:#fff;color:#1677ff;cursor:pointer;transition:.2s;font-family:inherit;font-weight:600}
+.ls-btn:hover{background:#e6f0ff;border-color:#1677ff}
+.ls-btn-ghost{color:#5a6b7e;border-color:#e6e9f0}
+.ls-btn-ghost:hover{color:#1677ff}
+@media(max-width:768px){.ls-summary{grid-template-columns:repeat(2,1fr)}.ls-table th:nth-child(3),.ls-table td:nth-child(3){display:none}.ls-ft{flex-direction:column;align-items:stretch}.ls-actions{justify-content:flex-end}}
 .user-menu{position:absolute;top:54px;right:24px;background:#fff;border:1px solid #e4e9f0;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.12);min-width:180px;z-index:1500;display:none;overflow:hidden}
 .user-menu.show{display:block}
 .user-menu .um-i{padding:14px 16px;border-bottom:1px solid #f0f2f5}
@@ -466,7 +495,26 @@ details[open] .nc-ended-sum::before{transform:rotate(90deg)}
 <!-- 用户菜单 -->
 <div class="user-menu" id="userMenu">
   <div class="um-i"><div class="nm" id="umName">—</div><div class="role" id="umRole">—</div></div>
+  <div class="um-a" onclick="showLoginStats()">📊 登录统计</div>
   <div class="um-a" onclick="doLogout()">🚪 退出登录</div>
+</div>
+
+<!-- 登录统计弹窗 -->
+<div class="ls-mask" id="lsMask" onclick="if(event.target===this)closeLoginStats()">
+  <div class="ls-box">
+    <div class="ls-hd">
+      <h3>📊 登录统计 <span class="ls-hd-tag">本机数据</span></h3>
+      <span class="ls-close" onclick="closeLoginStats()">✕</span>
+    </div>
+    <div class="ls-body" id="lsBody"></div>
+    <div class="ls-ft">
+      <span class="ls-tip">⚠️ 这里只展示<strong>本浏览器</strong>登录过的账号记录。要查看全员登录情况请联系金洁。</span>
+      <div class="ls-actions">
+        <button class="ls-btn ls-btn-ghost" onclick="exportLoginStats()">⬇ 导出 JSON</button>
+        <button class="ls-btn ls-btn-ghost" onclick="clearLoginStats()">🗑 清空记录</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <header class="header">
@@ -1185,7 +1233,149 @@ const USERS = [
 ];
 
 const SESSION_KEY = 'zfops_user';
+const LOGIN_LOG_KEY = 'zfops_login_log';
+// 企微/飞书机器人 webhook（可选；填后每次登录会自动播报到群）
+// 格式示例：'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=xxx'
+const LOGIN_WEBHOOK_URL = '';
 let CURRENT_USER = null;
+
+// 记录一次登录
+function recordLogin(user){
+  try{
+    const log = JSON.parse(localStorage.getItem(LOGIN_LOG_KEY) || '[]');
+    log.push({u:user.u, n:user.n, role:user.role, t:Date.now(), ua:navigator.userAgent.slice(0,80)});
+    // 保留最近 1000 条
+    if (log.length > 1000) log.splice(0, log.length - 1000);
+    localStorage.setItem(LOGIN_LOG_KEY, JSON.stringify(log));
+  }catch(e){ console.warn('记录登录失败', e); }
+
+  // 可选：企微/飞书机器人播报（无 URL 时跳过）
+  if (LOGIN_WEBHOOK_URL){
+    const now = new Date();
+    const pad = n => String(n).padStart(2,'0');
+    const ts = `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())} ${pad(now.getHours())}:${pad(now.getMinutes())}`;
+    const msg = `📊 [作战地图] ${user.n}（${user.u}·${user.role}）于 ${ts} 登录`;
+    fetch(LOGIN_WEBHOOK_URL, {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      mode:'no-cors',
+      body:JSON.stringify({msgtype:'text', text:{content:msg}})
+    }).catch(()=>{}); // 静默失败，不影响登录
+  }
+}
+
+// 格式化时间
+function fmtLoginTime(ts){
+  const d = new Date(ts);
+  const pad = n => String(n).padStart(2,'0');
+  return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
+}
+function fmtLoginRelative(ts){
+  const diff = Date.now() - ts;
+  const min = Math.floor(diff/60000);
+  if (min < 1) return '刚刚';
+  if (min < 60) return `${min} 分钟前`;
+  const hr = Math.floor(min/60);
+  if (hr < 24) return `${hr} 小时前`;
+  const day = Math.floor(hr/24);
+  if (day < 7) return `${day} 天前`;
+  return fmtLoginTime(ts).slice(0,10);
+}
+
+function showLoginStats(){
+  document.getElementById('userMenu').classList.remove('show');
+  const log = JSON.parse(localStorage.getItem(LOGIN_LOG_KEY) || '[]');
+  const body = document.getElementById('lsBody');
+
+  if (!log.length){
+    body.innerHTML = '<div class="ls-empty">暂无登录记录<br><span style="font-size:11px;color:#bfbfbf">登录后下次再来这里看～</span></div>';
+    document.getElementById('lsMask').classList.add('show');
+    return;
+  }
+
+  // 按账号聚合
+  const grp = {};
+  log.forEach(r => {
+    if (!grp[r.u]) grp[r.u] = {u:r.u, n:r.n, role:r.role, count:0, last:0, first:Date.now()};
+    grp[r.u].count++;
+    if (r.t > grp[r.u].last) grp[r.u].last = r.t;
+    if (r.t < grp[r.u].first) grp[r.u].first = r.t;
+  });
+  const rows = Object.values(grp).sort((a,b) => b.last - a.last);
+
+  // 总计
+  const totalAccounts = rows.length;
+  const totalLogins = log.length;
+  const recent7d = log.filter(r => Date.now() - r.t < 7*24*3600*1000).length;
+  const recent24h = log.filter(r => Date.now() - r.t < 24*3600*1000).length;
+
+  body.innerHTML = `
+    <div class="ls-summary">
+      <div class="ls-sum-c"><div class="lab">登录账号数</div><div class="v">${totalAccounts}</div></div>
+      <div class="ls-sum-c"><div class="lab">累计登录次数</div><div class="v">${totalLogins}</div></div>
+      <div class="ls-sum-c"><div class="lab">近7天登录</div><div class="v">${recent7d}</div></div>
+    </div>
+    <table class="ls-table">
+      <thead>
+        <tr>
+          <th>账号</th>
+          <th>姓名 / 角色</th>
+          <th>首次登录</th>
+          <th>最近登录</th>
+          <th style="text-align:right">登录次数</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${rows.map(r => `
+          <tr>
+            <td><code style="font-size:12px;color:#5a6b7e">${r.u}</code></td>
+            <td>${r.n} · <span style="font-size:11px;color:#8a9aae">${r.role}</span></td>
+            <td style="font-size:12px;color:#5a6b7e">${fmtLoginTime(r.first)}</td>
+            <td>${fmtLoginRelative(r.last)}<div style="font-size:11px;color:#8a9aae">${fmtLoginTime(r.last)}</div></td>
+            <td style="text-align:right"><span class="ls-cnt">${r.count}</span></td>
+          </tr>`).join('')}
+      </tbody>
+    </table>
+    <div style="margin-top:14px;padding-top:12px;border-top:1px dashed #e6e9f0">
+      <div style="font-size:12px;color:#5a6b7e;margin-bottom:6px;font-weight:600">📋 最近 10 次登录详情</div>
+      <table class="ls-table">
+        <thead><tr><th>时间</th><th>账号</th><th>姓名</th></tr></thead>
+        <tbody>
+          ${[...log].reverse().slice(0,10).map(r => `
+            <tr>
+              <td style="font-size:12px;color:#5a6b7e">${fmtLoginTime(r.t)}</td>
+              <td><code style="font-size:12px;color:#5a6b7e">${r.u}</code></td>
+              <td>${r.n}</td>
+            </tr>`).join('')}
+        </tbody>
+      </table>
+    </div>`;
+  document.getElementById('lsMask').classList.add('show');
+}
+
+function closeLoginStats(){
+  document.getElementById('lsMask').classList.remove('show');
+}
+
+function exportLoginStats(){
+  const log = JSON.parse(localStorage.getItem(LOGIN_LOG_KEY) || '[]');
+  if (!log.length){ alert('暂无登录记录'); return; }
+  const blob = new Blob([JSON.stringify(log, null, 2)], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  const now = new Date();
+  const pad = n => String(n).padStart(2,'0');
+  a.href = url;
+  a.download = `zfops_login_log_${now.getFullYear()}${pad(now.getMonth()+1)}${pad(now.getDate())}_${pad(now.getHours())}${pad(now.getMinutes())}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function clearLoginStats(){
+  if (!confirm('确定清空本机所有登录记录？此操作不可恢复。')) return;
+  localStorage.removeItem(LOGIN_LOG_KEY);
+  showLoginStats();
+}
 
 function initLoginSelect(){
   const sel = document.getElementById('loginUser');
@@ -1208,6 +1398,7 @@ function doLogin(){
   err.classList.remove('show');
   sessionStorage.setItem(SESSION_KEY, JSON.stringify({u:user.u, n:user.n, role:user.role, icon:user.icon, t:Date.now()}));
   CURRENT_USER = user;
+  recordLogin(user);
   applyUser(user);
   document.getElementById('loginMask').classList.add('hide');
 }
