@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>服饰运营作战指挥中心</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:#f4f6fa;color:#1a2332;font-size:14px;min-height:100vh}
+/* Header */
+.header{height:60px;padding:0 24px;background:#fff;border-bottom:1px solid #e4e9f0;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 1px 4px rgba(0,21,41,.06)}
+.h-l,.h-r{display:flex;align-items:center;gap:12px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:600;font-size:16px;color:#1a2332}
+.logo-icon{width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,#1677ff,#0958d9);display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 2px 8px rgba(22,119,255,.3)}
+.live{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;background:#f6ffed;border:1px solid #b7eb8f;border-radius:20px;color:#52c41a;font-size:11px}
+.live::before{content:'';width:6px;height:6px;border-radius:50%;background:#52c41a;animation:blink 1.4s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.role-sw{display:flex;background:#f0f5ff;border:1px solid #d6e4ff;border-radius:6px;overflow:hidden}
+.role-btn{padding:6px 14px;font-size:12px;cursor:pointer;color:#5a6b7e;background:transparent;border:none;transition:.2s}
+.role-btn.active{background:linear-gradient(135deg,#1677ff,#0958d9);color:#fff}
+.bs-btn{padding:6px 12px;background:#f0f5ff;border:1px solid #d6e4ff;border-radius:6px;color:#1677ff;cursor:pointer;font-size:12px}
+.uinfo{display:flex;align-items:center;gap:8px;padding:6px 12px;background:#f4f6fa;border-radius:6px;font-size:12px;color:#5a6b7e}
+.av{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#ff7a45,#fa541c);display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:600}
+.menu-toggle{display:none;padding:6px 10px;background:#f0f5ff;border:1px solid #d6e4ff;color:#1677ff;border-radius:6px;cursor:pointer;font-size:16px}
+
+/* Layout */
+.layout{display:flex;min-height:calc(100vh - 60px)}
+.sidebar{width:220px;background:#fff;border-right:1px solid #e4e9f0;padding:16px 0}
+.nav-item{display:flex;align-items:center;gap:12px;padding:12px 20px;cursor:pointer;color:#5a6b7e;border-left:3px solid transparent;transition:.2s;font-size:14px}
+.nav-item:hover{background:#f4f6fa;color:#1677ff}
+.nav-item.active{background:#e6f4ff;border-left-color:#1677ff;color:#1677ff;font-weight:600}
+.nav-icon{font-size:18px}
+.nav-badge{margin-left:auto;padding:1px 6px;font-size:10px;background:#f5222d;color:#fff;border-radius:10px}
+.main{flex:1;padding:24px;overflow-x:hidden}
+.page{display:none}.page.active{display:block}
+
+.page-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px}
+.page-title h2{font-size:22px;color:#1a2332;font-weight:600}
+.bcb{font-size:12px;color:#8a9aae;margin-top:4px}
+.fbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.ftag{padding:6px 12px;font-size:12px;cursor:pointer;background:#fff;color:#5a6b7e;border:1px solid #d9dde5;border-radius:6px;transition:.2s}
+.ftag:hover,.ftag.active{background:#e6f4ff;color:#1677ff;border-color:#1677ff}
+
+.card{background:#fff;border:1px solid #e4e9f0;border-radius:12px;padding:20px;box-shadow:0 1px 4px rgba(0,21,41,.04)}
+.ct{font-size:14px;color:#1a2332;font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.ind{width:3px;height:14px;background:#1677ff;border-radius:2px}
+.cs{font-size:11px;color:#8a9aae;margin-left:auto;font-weight:400}
+
+.kg{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px}
+.kpi{background:#fff;border:1px solid #e4e9f0;border-radius:10px;padding:18px 16px;position:relative;overflow:hidden;box-shadow:0 1px 4px rgba(0,21,41,.04)}
+.kpi::before{content:'';position:absolute;right:-20px;top:-20px;width:80px;height:80px;border-radius:50%;background:radial-gradient(circle,rgba(22,119,255,.08),transparent)}
+.kpi.warn{border-color:#ffd591}
+.kpi.warn::before{background:radial-gradient(circle,rgba(250,173,20,.12),transparent)}
+.k-l{font-size:18px;color:#5a6a7e;font-weight:600;letter-spacing:.5px;line-height:1.4}
+.k-v{font-size:28px;font-weight:700;color:#1a2332;margin:8px 0 4px;font-family:'SF Mono',Menlo,monospace}
+.k-t{font-size:11px}.k-t.up{color:#52c41a}.k-t.dn,.k-t.down{color:#f5222d}
+/* 双数据卡（链路构成 / ADQ-QYT 拆解） */
+.kpi-dual{display:flex;flex-direction:column;justify-content:center}
+.kpi-dual .dual-row{display:flex;align-items:baseline;gap:10px;padding:7px 0;border-bottom:1px dashed #eef1f6}
+.kpi-dual .dual-row:last-of-type{border-bottom:none}
+.kpi-dual .dr-tag{flex-shrink:0;padding:3px 10px;border-radius:10px;font-size:12px;font-weight:600;letter-spacing:.5px}
+.kpi-dual .dr-tag.closed{background:#e6f7ff;color:#1890ff;border:1px solid #91d5ff}
+.kpi-dual .dr-tag.open{background:#f6f6f7;color:#8a9aae;border:1px solid #dcdfe6}
+.kpi-dual .dr-tag.adq{background:#fff7e6;color:#fa8c16;border:1px solid #ffd591}
+.kpi-dual .dr-tag.qyt{background:#f9f0ff;color:#722ed1;border:1px solid #d3adf7}
+.kpi-dual .dr-v{font-size:26px;font-weight:700;color:#1a2332;font-family:'SF Mono',Menlo,monospace;line-height:1;flex:1}
+.kpi-dual .dr-t{font-size:11px;font-weight:500}
+.kpi-dual .dr-t.up{color:#52c41a}
+.kpi-dual .dr-t.down{color:#f5222d}
+
+/* Q2 过程指标表 */
+.kpi-tbl{width:100%;border-collapse:collapse;margin-top:12px;font-size:13px;background:#fff;border:1px solid #e4e9f0;border-radius:8px;overflow:hidden}
+.kpi-tbl thead{background:linear-gradient(135deg,#1a2940,#2c3e5d);color:#fff}
+.kpi-tbl th{padding:14px 12px;font-weight:600;text-align:left;font-size:12px;letter-spacing:.5px}
+.kpi-tbl td{padding:14px 12px;border-top:1px solid #f0f2f5;color:#1a2332;vertical-align:middle}
+.kpi-tbl td.dir-brand{background:#fff7e6;color:#d46b08;font-weight:600;text-align:center;font-size:13px;border-right:1px solid #ffe7ba}
+.kpi-tbl td.dir-effect{background:#f0f9ec;color:#389e0d;font-weight:600;text-align:center;font-size:13px;border-right:1px solid #d9f7be}
+.kpi-tbl td.num{text-align:right;font-family:'SF Mono',Menlo,monospace;font-weight:600;color:#1a2332}
+.kpi-tbl td.pct-cell{text-align:center;font-weight:700;font-style:italic;font-size:14px;font-family:'SF Mono',Menlo,monospace}
+.kpi-tag{display:inline-block;padding:4px 12px;border-radius:4px;font-size:12px;font-weight:600;color:#fff}
+.kpi-tag.warn{background:#e26049}
+.kpi-tag.steady{background:#5a8fde}
+.kpi-tag.done{background:#3aa050}
+.kpi-tag.almost{background:#f0ad4e}
+.kpi-note{margin-top:10px;padding:10px 12px;background:#fffbe6;border:1px solid #ffe58f;border-radius:6px;font-size:12px;color:#a86a00;line-height:1.6}
+
+/* 章节标题（消耗概览 / OKR进展 / 运营核心3件事） */
+.sec-title{display:flex;align-items:center;gap:14px;margin:22px 0 14px;padding:14px 18px;background:linear-gradient(90deg,#1a2940 0%,#2c3e5d 60%,#3a516e 100%);border-radius:10px;color:#fff;box-shadow:0 4px 12px rgba(26,41,64,.12)}
+.sec-title:first-of-type{margin-top:6px}
+.sec-num{font-family:'SF Mono','DIN',Menlo,monospace;font-size:30px;font-weight:800;color:#ffd76a;letter-spacing:1px;line-height:1;text-shadow:0 2px 6px rgba(0,0,0,.18);min-width:46px}
+.sec-info{flex:1;min-width:0}
+.sec-info h3{margin:0;font-size:18px;font-weight:700;letter-spacing:1px}
+.sec-info p{margin:4px 0 0;font-size:12px;color:#bcd0e6;font-weight:400}
+.sec-tag{padding:5px 12px;background:rgba(255,215,106,.18);color:#ffd76a;font-size:12px;border-radius:14px;border:1px solid rgba(255,215,106,.35);white-space:nowrap}
+
+/* OKR双列网格 */
+.okr-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 26px;padding:6px 4px 0}
+
+/* 七大赛道 lane 三列布局（首页紧凑展示） */
+.lg{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+
+@media (max-width: 768px){
+  .kpi-tbl{font-size:11px}
+  .kpi-tbl th,.kpi-tbl td{padding:8px 6px}
+  .kpi-tbl td.dir-brand,.kpi-tbl td.dir-effect{font-size:11px;writing-mode:vertical-rl;letter-spacing:2px}
+  .sec-title{padding:12px 14px;gap:10px;margin:18px 0 12px}
+  .sec-num{font-size:22px;min-width:32px}
+  .sec-info h3{font-size:15px}
+  .sec-info p{font-size:11px}
+  .sec-tag{display:none}
+  .okr-grid{grid-template-columns:1fr;gap:14px}
+  .lg{grid-template-columns:1fr;gap:12px}
+}
+
+.okr{margin:12px 0}
+.okr-r{display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px}
+.okr-r .lab{color:#1a2332}.okr-r .pct{font-weight:700;font-family:monospace}
+.prog{height:8px;background:#f0f2f5;border-radius:4px;overflow:hidden}
+.fill{height:100%;border-radius:4px;background:linear-gradient(90deg,#1677ff,#69b1ff);transition:width .6s}
+.fill.g{background:linear-gradient(90deg,#52c41a,#95de64)}
+.fill.y{background:linear-gradient(90deg,#faad14,#ffd666)}
+.fill.r{background:linear-gradient(90deg,#f5222d,#ff7875)}
+
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
+.dot.g{background:#52c41a;box-shadow:0 0 0 3px rgba(82,196,26,.15)}
+.dot.y{background:#faad14;box-shadow:0 0 0 3px rgba(250,173,20,.15)}
+.dot.r{background:#f5222d;box-shadow:0 0 0 3px rgba(245,34,45,.18);animation:pulse 1.4s infinite}
+.pill{display:inline-flex;align-items:center;padding:2px 10px;border-radius:12px;font-size:11px;font-weight:500}
+.pill.g{background:#f6ffed;color:#52c41a;border:1px solid #b7eb8f}
+.pill.y{background:#fffbe6;color:#d48806;border:1px solid #ffe58f}
+.pill.r{background:#fff1f0;color:#f5222d;border:1px solid #ffa39e}
+.pill.b{background:#e6f4ff;color:#1677ff;border:1px solid #91caff}
+
+.lg{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.lc{background:#fff;border:1px solid #e4e9f0;border-radius:10px;padding:16px;transition:.2s;cursor:pointer}
+.lc:hover{transform:translateY(-2px);border-color:#1677ff;box-shadow:0 6px 16px rgba(22,119,255,.1)}
+.lh{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.ln{font-size:15px;font-weight:600;color:#1a2332}
+.lt{font-size:12px;color:#5a6b7e;line-height:1.8}
+.lt .it{display:flex;gap:6px;align-items:flex-start}
+.lt .num{flex-shrink:0;width:16px;height:16px;border-radius:4px;background:#e6f4ff;color:#1677ff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.lm{margin-top:12px;padding-top:12px;border-top:1px dashed #e4e9f0;display:flex;justify-content:space-between;font-size:11px;color:#8a9aae}
+.lm strong{color:#1677ff;font-family:monospace}
+
+.pg{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.pc{background:#fff;border:1px solid #e4e9f0;border-radius:10px;padding:18px 18px 16px;cursor:pointer;transition:.2s;display:flex;flex-direction:column}
+.pc:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(22,119,255,.1)}
+.pc.urg{border-left:4px solid #f5222d}
+.pc.wrn{border-left:4px solid #faad14}
+.pc.ok{border-left:4px solid #52c41a}
+.ph{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:6px}
+.pn{font-size:18px;font-weight:700;color:#1a2332;line-height:1.35;letter-spacing:.3px;flex:1;min-width:0}
+.ps{flex-shrink:0}
+/* 专项卡链接条 */
+.pc-link{margin-top:auto;padding-top:10px;border-top:1px dashed #e4e9f0;display:flex;flex-wrap:wrap;gap:6px}
+.pc-link a{display:inline-flex;align-items:center;gap:4px;padding:5px 10px;background:#f0f5ff;border:1px solid #d6e4ff;border-radius:14px;color:#1677ff;font-size:11px;text-decoration:none;transition:.2s;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pc-link a:hover{background:#1677ff;color:#fff;border-color:#1677ff}
+.pc-link a.doc{background:#fffbe6;border-color:#ffe58f;color:#d48806}
+.pc-link a.doc:hover{background:#d48806;color:#fff;border-color:#d48806}
+.ps{font-size:10px;padding:2px 8px;border-radius:4px;background:#e6f4ff;color:#1677ff;flex-shrink:0}
+.pd{font-size:12px;color:#5a6b7e;margin:8px 0;line-height:1.6}
+.pst{display:flex;gap:12px;margin-top:10px;font-size:11px;flex-wrap:wrap}
+.pst .it{display:flex;gap:4px;color:#8a9aae}.pst strong{color:#1a2332}
+
+/* 信息流 */
+.il{display:flex;flex-direction:column;gap:10px}
+.ii{background:#fff;border:1px solid #e4e9f0;border-radius:10px;padding:14px 16px;display:grid;grid-template-columns:90px 1fr auto;gap:14px;align-items:center;transition:.2s}
+.ii:hover{border-color:#1677ff;transform:translateX(2px);box-shadow:0 4px 12px rgba(22,119,255,.08)}
+.ii.high{border-left:4px solid #f5222d}
+.ii.mid{border-left:4px solid #faad14}
+.ii.low{border-left:4px solid #52c41a}
+.ii.unread{background:#f0f7ff}
+.itc{display:flex;flex-direction:column;gap:4px}
+.icat{font-size:10px;padding:2px 8px;border-radius:4px;background:#e6f4ff;color:#1677ff;text-align:center}
+.iprio{font-size:10px;font-weight:600;text-align:center}
+.it-h{font-size:14px;color:#1a2332;font-weight:600;margin-bottom:4px}
+.it-m{font-size:11px;color:#8a9aae}
+.it-s{font-size:12px;color:#5a6b7e;margin-top:6px;line-height:1.6}
+.it-d{display:inline-block;margin-top:6px;padding:2px 8px;font-size:11px;background:#fff7e6;color:#d48806;border:1px solid #ffe7ba;border-radius:4px}
+.it-d.expired{background:#fff1f0;color:#f5222d;border-color:#ffa39e}
+.it-d.long{background:#f6ffed;color:#52c41a;border-color:#b7eb8f}
+.ia{display:flex;flex-direction:column;gap:6px;align-items:flex-end}
+.itm{font-size:10px;color:#8a9aae}
+.ilink{font-size:11px;padding:4px 10px;border-radius:4px;cursor:pointer;background:#e6f4ff;color:#1677ff;border:1px solid #91caff;transition:.2s;white-space:nowrap}
+.ilink:hover{background:#1677ff;color:#fff}
+.ilink.done{background:#f6ffed;color:#52c41a;border-color:#b7eb8f}
+.um{display:inline-block;width:8px;height:8px;border-radius:50%;background:#1677ff;box-shadow:0 0 0 3px rgba(22,119,255,.18);vertical-align:middle;margin-right:6px}
+
+/* ====== 信息通知中心 · tab切换 + 横条卡片优化 ====== */
+.info-tabs{display:flex;gap:0;background:#fff;border:1px solid #e4e9f0;border-radius:10px;padding:4px;margin-bottom:14px;box-shadow:0 1px 3px rgba(0,0,0,.03)}
+.info-tab{flex:1;padding:12px 16px;font-size:14px;font-weight:600;color:#5a6b7e;text-align:center;cursor:pointer;border-radius:8px;transition:.25s;display:flex;align-items:center;justify-content:center;gap:8px;letter-spacing:.3px}
+.info-tab:hover{color:#1677ff;background:#f0f7ff}
+.info-tab.active{background:linear-gradient(135deg,#1677ff,#4096ff);color:#fff;box-shadow:0 4px 12px rgba(22,119,255,.25)}
+.info-tab .it-cnt{font-size:11px;padding:2px 8px;border-radius:10px;background:rgba(255,255,255,.25);font-weight:500}
+.info-tab:not(.active) .it-cnt{background:#f0f5ff;color:#1677ff}
+/* 信息通知 · 横条卡片重设计：左周期/中内容/右链接，统一节奏 */
+.nc{background:#fff;border:1px solid #e4e9f0;border-radius:10px;padding:14px 18px;display:grid;grid-template-columns:160px 1fr 200px;gap:16px;align-items:center;transition:.2s;margin-bottom:10px}
+.nc:hover{border-color:#1677ff;transform:translateX(2px);box-shadow:0 4px 12px rgba(22,119,255,.08)}
+.nc.s-on{border-left:4px solid #52c41a}   /* 进行中 */
+.nc.s-soon{border-left:4px solid #faad14} /* 即将开始 */
+.nc.s-end{border-left:4px solid #bfbfbf}  /* 已结束 */
+.nc.s-long{border-left:4px solid #1677ff} /* 长期/无截止 */
+.nc-l{display:flex;flex-direction:column;gap:6px}
+.nc-stat{display:inline-block;padding:3px 10px;border-radius:10px;font-size:11px;font-weight:600;width:fit-content}
+.nc-stat.on{background:#f6ffed;color:#52c41a;border:1px solid #b7eb8f}
+.nc-stat.soon{background:#fff7e6;color:#d48806;border:1px solid #ffe58f}
+.nc-stat.end{background:#f5f5f5;color:#8a9aae;border:1px solid #d9d9d9}
+.nc-stat.long{background:#e6f4ff;color:#1677ff;border:1px solid #91caff}
+.nc-period{font-size:12px;color:#5a6b7e;font-family:'SF Mono','Monaco','Consolas',monospace}
+.nc-c{min-width:0}
+.nc-cat{display:inline-block;font-size:10px;padding:2px 8px;border-radius:4px;background:#fff7e6;color:#d48806;border:1px solid #ffe7ba;margin-bottom:6px}
+.nc-cat.bl{background:#e6f4ff;color:#1677ff;border-color:#91caff}
+.nc-cat.gn{background:#f6ffed;color:#52c41a;border-color:#b7eb8f}
+.nc-cat.pp{background:#f9f0ff;color:#722ed1;border-color:#d3adf7}
+.nc-cat.cy{background:#e6fffb;color:#13c2c2;border-color:#87e8de}
+.nc-cat.or{background:#fff2e8;color:#fa541c;border-color:#ffbb96}
+.nc-name{font-size:15px;font-weight:700;color:#1a2332;margin-bottom:4px;line-height:1.4}
+.nc-desc{font-size:12px;color:#5a6b7e;line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.nc-extra{margin-top:6px;font-size:11px;color:#8a9aae}
+.nc-extra strong{color:#52c41a}
+.nc-r{display:flex;flex-direction:column;gap:5px;align-items:flex-end}
+.nc-r a{display:inline-flex;align-items:center;gap:4px;padding:5px 10px;font-size:11px;background:#f0f5ff;border:1px solid #d6e4ff;color:#1677ff;border-radius:14px;text-decoration:none;transition:.2s;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nc-r a:hover{background:#1677ff;color:#fff;border-color:#1677ff}
+/* 分组标题 */
+.nc-group-h{display:flex;align-items:center;gap:8px;margin:14px 0 10px;font-size:14px;font-weight:700;color:#1a2332}
+.nc-group-h .nc-bar{display:inline-block;width:4px;height:16px;border-radius:2px}
+.nc-group-h .nc-cnt{font-size:11px;color:#8a9aae;font-weight:400}
+/* 总览数据卡 */
+.nc-sum{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:10px}
+.nc-sum-c{background:#fff;border:1px solid #e4e9f0;border-radius:10px;padding:14px;text-align:center;border-top:3px solid #1677ff}
+.nc-sum-c.or{border-top-color:#fa8c16}
+.nc-sum-c.bl{border-top-color:#1677ff}
+.nc-sum-c.gn{border-top-color:#52c41a}
+.nc-sum-c.pp{border-top-color:#722ed1}
+.nc-sum-c.cy{border-top-color:#13c2c2}
+.nc-sum-c .lab{font-size:11px;color:#8a9aae;margin-bottom:6px}
+.nc-sum-c .v{font-size:24px;font-weight:700;color:#1a2332;line-height:1}
+.nc-sum-c .sub{font-size:10px;color:#8a9aae;margin-top:4px}
+
+.row{display:grid;gap:14px;margin-bottom:14px}
+.r-2{grid-template-columns:1.4fr 1fr}
+.r-3{grid-template-columns:1fr 1fr 1fr}
+
+/* 趋势图 */
+.trend-chart{position:relative;height:200px;margin-top:10px;padding-left:46px;padding-bottom:24px}
+.trend-y{position:absolute;left:0;top:0;bottom:24px;width:42px;display:flex;flex-direction:column;justify-content:space-between;font-size:10px;color:#8a9aae;text-align:right;padding-right:6px}
+.trend-area{position:relative;width:100%;height:100%;border-left:1px solid #e4e9f0;border-bottom:1px solid #e4e9f0}
+.trend-grid{position:absolute;inset:0;background-image:linear-gradient(to top,transparent 24%,#f0f2f5 25%,transparent 26%),linear-gradient(to top,transparent 49%,#f0f2f5 50%,transparent 51%),linear-gradient(to top,transparent 74%,#f0f2f5 75%,transparent 76%)}
+.trend-bar{position:absolute;bottom:0;width:2.5%;background:linear-gradient(to top,#1677ff,#69b1ff);border-radius:2px 2px 0 0;transition:height .6s;cursor:pointer}
+.trend-bar:hover{background:linear-gradient(to top,#52c41a,#95de64)}
+.trend-line{position:absolute;left:0;right:0;border-top:2px dashed #f5222d;top:0}
+.trend-line::after{content:'OKR目标 1000万';position:absolute;right:6px;top:-18px;font-size:10px;color:#f5222d;background:#fff;padding:2px 6px;border-radius:3px;border:1px solid #ffa39e}
+.trend-x{position:absolute;left:46px;right:0;bottom:0;display:flex;justify-content:space-between;font-size:10px;color:#8a9aae}
+
+/* 饼图 */
+.pie-wrap{display:flex;align-items:center;gap:24px;padding:12px 0}
+.pie{width:160px;height:160px;border-radius:50%;flex-shrink:0;background:conic-gradient(#ff85c0 0% 22%,#1677ff 22% 39%,#faad14 39% 51%,#52c41a 51% 65%,#9254de 65% 79%,#fa8c16 79% 89%,#8c8c8c 89% 100%);position:relative}
+.pie::after{content:'';position:absolute;inset:30px;background:#fff;border-radius:50%}
+.pie-c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:10px;color:#8a9aae;z-index:1}
+.pie-c b{font-size:18px;color:#1a2332;font-family:monospace}
+.pie-l{flex:1;font-size:12px}
+.pie-l div{display:flex;align-items:center;gap:6px;margin-bottom:6px;color:#5a6b7e}
+.pie-l span{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+
+/* 模态 */
+.mask{position:fixed;inset:0;background:rgba(0,21,41,.45);backdrop-filter:blur(2px);z-index:1000;display:none;align-items:center;justify-content:center}
+.mask.show{display:flex}
+.modal{width:90%;max-width:680px;background:#fff;border:1px solid #e4e9f0;border-radius:12px;padding:24px;max-height:80vh;overflow-y:auto;box-shadow:0 12px 48px rgba(0,21,41,.18)}
+.mh{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid #f0f2f5}
+.mh h3{color:#1a2332;font-size:16px}
+.mc{cursor:pointer;color:#8a9aae;font-size:20px}
+
+.lock{padding:60px 20px;text-align:center;background:#fff;border:1px dashed #ffd591;border-radius:12px;color:#d48806}
+.lock .li{font-size:48px;margin-bottom:16px}
+.lock h3{color:#1a2332;font-size:18px;margin-bottom:8px}
+.lock p{font-size:13px;color:#5a6b7e;line-height:1.7}
+
+.tbl{font-size:12px}
+.tbl .row-h,.tbl .row-r{display:grid;gap:12px;padding:10px 0;align-items:center}
+.tbl .row-h{color:#5a6b7e;font-size:11px;border-bottom:1px solid #e4e9f0;font-weight:600;background:#fafbfc}
+.tbl .row-r{border-bottom:1px solid #f0f2f5}
+.tbl .row-r:hover{background:#fafbfc}
+
+.empty{text-align:center;color:#8a9aae;font-size:13px;padding:40px}
+
+/* 赛道排行表 */
+.lane-rank{display:grid;grid-template-columns:1fr 1fr 1.6fr 1fr 1.4fr;gap:0;font-size:12px;background:#fff;border:1px solid #e4e9f0;border-radius:8px;overflow:hidden}
+.lane-rank-h{display:contents}
+.lane-rank-h>div{padding:12px;background:#fafbfc;color:#5a6b7e;font-size:11px;font-weight:600;border-bottom:1px solid #e4e9f0}
+.lane-rank-r{display:contents}
+.lane-rank-r>div{padding:12px;border-bottom:1px solid #f0f2f5;display:flex;align-items:center;gap:8px}
+.lane-rank-r:last-child>div{border-bottom:none}
+.mini-prog{flex:1;height:6px;background:#f0f2f5;border-radius:3px;overflow:hidden;min-width:60px}
+.mini-prog>div{height:100%;border-radius:3px}
+
+/* 审计简化版 */
+.audit-row{display:grid;grid-template-columns:120px 80px 110px 80px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid #f0f2f5;font-size:12px;align-items:center}
+.audit-row.h{background:#fafbfc;color:#5a6b7e;font-size:11px;font-weight:600;padding:12px;border-bottom:1px solid #e4e9f0}
+
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.3)}}
+
+/* 手机适配 */
+@media (max-width:768px){
+  .header{padding:0 14px;height:54px}
+  .logo span:not(.logo-icon){font-size:13px}
+  .ltf{display:none}.live{display:none}
+  .role-sw{transform:scale(.85)}
+  .uinfo{padding:4px 8px;font-size:11px}
+  .uinfo .un{display:none}
+  .menu-toggle{display:block}
+  .layout{flex-direction:column}
+  .sidebar{position:fixed;top:54px;left:-100%;width:75%;height:calc(100vh - 54px);z-index:99;transition:left .3s;overflow-y:auto;box-shadow:4px 0 20px rgba(0,21,41,.1)}
+  .sidebar.open{left:0}
+  .main{padding:14px}
+  .page-title{flex-direction:column;align-items:flex-start;gap:12px}
+  .page-title h2{font-size:18px}
+  .fbar{width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}
+  .ftag{white-space:nowrap;flex-shrink:0}
+  .kg{grid-template-columns:repeat(2,1fr);gap:10px}
+  .k-l{font-size:13px;font-weight:600}
+  .k-v{font-size:22px}
+  .kpi{padding:12px}
+  .kpi-dual .dr-v{font-size:18px}
+  .kpi-dual .dr-tag{font-size:10px;padding:2px 7px}
+  .kpi-dual .dr-t{font-size:10px}
+  .kpi-dual .dual-row{gap:6px;padding:5px 0}
+  .r-2,.r-3{grid-template-columns:1fr}
+  .lg,.pg{grid-template-columns:1fr}
+  /* 核心专项卡 · 移动端字号放大 */
+  .pc{padding:16px}
+  .pn{font-size:20px;line-height:1.3}
+  .pc .ps{font-size:11px}
+  .pc .pd{font-size:13px}
+  .pc-link a{font-size:12px;padding:6px 12px}
+  .ii{grid-template-columns:1fr;gap:8px;padding:12px}
+  .itc{flex-direction:row;justify-content:flex-start}
+  .ia{flex-direction:row;align-items:center;justify-content:space-between}
+  /* 信息通知中心 · 移动端 */
+  .info-tab{padding:10px 8px;font-size:13px;flex-direction:column;gap:4px}
+  .info-tab .it-cnt{font-size:10px}
+  .nc{grid-template-columns:1fr;gap:10px;padding:14px}
+  .nc-l{flex-direction:row;justify-content:space-between;align-items:center;flex-wrap:wrap}
+  .nc-r{flex-direction:row;flex-wrap:wrap;align-items:flex-start}
+  .nc-r a{font-size:12px}
+  .nc-name{font-size:15px}
+  .nc-sum{grid-template-columns:repeat(2,1fr)}
+  .pie-wrap{flex-direction:column}
+  .modal{max-width:100%;height:100vh;max-height:100vh;border-radius:0}
+  .bs-btn{display:none}
+  .lane-rank{grid-template-columns:1fr 1fr 1.5fr;font-size:11px}
+  .lane-rank-h>div:nth-child(n+4),.lane-rank-r>div:nth-child(n+4){display:none}
+  .audit-row{grid-template-columns:1fr 1fr 1fr;gap:8px;font-size:11px}
+  .audit-row>:nth-child(n+4){display:none}
+}
+@media (max-width:480px){
+  .kg{grid-template-columns:1fr 1fr}
+  .k-l{font-size:12px}
+  .h-r .role-sw{display:none}
+  .h-r .bs-btn{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="h-l">
+    <button class="menu-toggle" onclick="toggleSb()">☰</button>
+    <div class="logo"><div class="logo-icon">⚔</div><span class="ltf">服饰运营作战指挥中心</span></div>
+    <span class="live">实时数据 · 同步中</span>
+  </div>
+  <div class="h-r">
+    <div class="role-sw">
+      <button class="role-btn active" data-role="leader" onclick="switchRole('leader')">运营负责人</button>
+      <button class="role-btn" data-role="lane" onclick="switchRole('lane')">赛道运营</button>
+    </div>
+    <button class="bs-btn" onclick="toggleFs()">⛶ 大屏</button>
+    <div class="uinfo"><div class="av" id="avatar">橘</div><div class="un" id="uname">金洁 · 运营负责人</div></div>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="nav-item active" data-page="dashboard" onclick="switchPage('dashboard')"><span class="nav-icon">📊</span><span>消耗 &amp; OKR进展</span></div>
+    <div class="nav-item" data-page="project" onclick="switchPage('project')"><span class="nav-icon">🎯</span><span>核心专项</span></div>
+    <div class="nav-item" data-page="info" onclick="switchPage('info')"><span class="nav-icon">📡</span><span>信息通知中心</span></div>
+    <div class="nav-item" data-page="audit" onclick="switchPage('audit')"><span class="nav-icon">🛡</span><span>系统使用情况</span></div>
+    <div style="margin-top:30px;padding:0 20px">
+      <div style="font-size:11px;color:#8a9aae;margin-bottom:10px;letter-spacing:1px">— 我的赛道 —</div>
+      <div style="font-size:12px;color:#5a6b7e;line-height:2" id="myLanes">全量数据 · 7赛道</div>
+    </div>
+  </nav>
+
+  <main class="main">
+
+    <!-- Tab 1: 消耗 & OKR进展 -->
+    <div class="page active" id="page-dashboard">
+      <div class="page-title">
+        <div><h2>消耗 &amp; OKR进展</h2></div>
+      </div>
+
+      <!-- ====================================== -->
+      <!-- 章节一：消耗概览                         -->
+      <!-- ====================================== -->
+      <div class="sec-title">
+        <span class="sec-num">01</span>
+        <div class="sec-info">
+          <h3>消耗概览</h3>
+          <p>近14天消耗及环比 · 昨日消耗及环比 · 分天消耗走势</p>
+        </div>
+        <span class="sec-tag">数据区间 5/25 ~ 6/7</span>
+      </div>
+
+      <!-- 1.1 核心指标 KPI -->
+      <div class="card" style="margin-bottom:14px">
+        <div class="ct"><span class="ind"></span>核心指标<span class="cs">近14天日耗 · 昨日消耗 · 闭环/非闭环链路 · ADQ/全域通拆解</span></div>
+        <div class="kg" style="margin-bottom:0">
+          <div class="kpi"><div class="k-l">近14天日均消耗(万元)</div><div class="k-v">1,278</div><div class="k-t up">已超 OKR 目标 1000万 · 环比待补</div></div>
+          <div class="kpi"><div class="k-l">昨日 6/7 消耗(万元)</div><div class="k-v">1,277</div><div class="k-t down">▼ 8.4% vs 6/6 · 环比前一日</div></div>
+          <div class="kpi kpi-dual"><div class="k-l">链路构成 · 昨日 6/7 日耗(万元)</div>
+            <div class="dual-row"><span class="dr-tag closed">闭环</span><span class="dr-v">667.3</span><span class="dr-t down">▼ 7.7% vs 6/6</span></div>
+            <div class="dual-row"><span class="dr-tag open">非闭环</span><span class="dr-v">609.3</span><span class="dr-t down">▼ 9.3% vs 6/6</span></div>
+            <div class="k-t" style="margin-top:6px;color:#8a9aae">闭环=直播+小店 · 非闭环=CID/加粉/品宣/直购/其他</div>
+          </div>
+          <div class="kpi kpi-dual"><div class="k-l">闭环链路拆解 · 昨日 6/7 (万元)</div>
+            <div class="dual-row"><span class="dr-tag adq">ADQ</span><span class="dr-v">515.1</span><span class="dr-t up">占比 77.2%</span></div>
+            <div class="dual-row"><span class="dr-tag qyt">全域通</span><span class="dr-v">152.2</span><span class="dr-t up">占比 22.8%</span></div>
+            <div class="k-t" style="margin-top:6px;color:#8a9aae">闭环合计 667.3万 · 主消耗 ADQ 主导</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1.2 分天消耗走势 -->
+      <div class="card" style="margin-bottom:18px">
+        <div class="ct"><span class="ind"></span>分天消耗走势<span class="cs">单位：万元/日 · 红线为日均 OKR 目标 1000万</span></div>
+        <div class="trend-chart" id="trendChart"></div>
+      </div>
+
+      <!-- ====================================== -->
+      <!-- 章节二：OKR进展                          -->
+      <!-- ====================================== -->
+      <div class="sec-title">
+        <span class="sec-num">02</span>
+        <div class="sec-info">
+          <h3>OKR进展</h3>
+          <p>整体OKR进展 · 运营过程指标完成进度</p>
+        </div>
+        <span class="sec-tag">截至 2026-06-08</span>
+      </div>
+
+      <!-- 2.1 整体OKR进展 -->
+      <div class="card" style="margin-bottom:14px">
+        <div class="ct"><span class="ind"></span>整体OKR进展<span class="cs">Q2 四大核心OKR · 目标 vs 当前完成度</span></div>
+        <div class="okr-grid">
+          <div class="okr"><div class="okr-r"><span class="lab">行业大盘日耗 · 目标 1000万</span><span class="pct" style="color:#52c41a">127.8%</span></div><div class="prog"><div class="fill g" style="width:100%"></div></div></div>
+          <div class="okr"><div class="okr-r"><span class="lab">头部客户跃迁数 · 目标 80</span><span class="pct" style="color:#52c41a">88.0%</span></div><div class="prog"><div class="fill g" style="width:88%"></div></div></div>
+          <div class="okr"><div class="okr-r"><span class="lab">新锐新客 · 目标 120</span><span class="pct" style="color:#f5222d">52.5%</span></div><div class="prog"><div class="fill r" style="width:52.5%"></div></div></div>
+          <div class="okr"><div class="okr-r"><span class="lab">视频号双投率 · 目标 60%</span><span class="pct" style="color:#52c41a">104%</span></div><div class="prog"><div class="fill g" style="width:100%"></div></div></div>
+        </div>
+      </div>
+
+      <!-- 2.2 运营过程指标 -->
+      <div class="card" style="margin-bottom:18px">
+        <div class="ct"><span class="ind"></span>运营过程指标<span class="cs">品牌运营 / 效果运营 · Q2 QTD 完成进度晾晒</span></div>
+        <table class="kpi-tbl">
+          <thead>
+            <tr>
+              <th style="width:120px">运营方向</th>
+              <th>过程指标</th>
+              <th style="width:130px;text-align:right">Q2 目标</th>
+              <th style="width:130px;text-align:right">QTD 数据</th>
+              <th style="width:90px;text-align:center">完成度</th>
+              <th style="width:110px;text-align:center">状态</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="2" class="dir-brand">品牌运营</td>
+              <td>品牌客户闭环消耗（元/d）</td>
+              <td class="num">550,000</td>
+              <td class="num">434,099</td>
+              <td class="pct-cell" style="color:#faad14">78.9%</td>
+              <td><span class="kpi-tag warn">需加速</span></td>
+            </tr>
+            <tr>
+              <td>品牌客户唯一性创意数（个）</td>
+              <td class="num">41,000</td>
+              <td class="num">38,233</td>
+              <td class="pct-cell" style="color:#1677ff">93.3%</td>
+              <td><span class="kpi-tag steady">稳步推进</span></td>
+            </tr>
+            <tr>
+              <td rowspan="2" class="dir-effect">效果运营</td>
+              <td>效果客户闭环跃迁客户数（个）</td>
+              <td class="num">120</td>
+              <td class="num">124</td>
+              <td class="pct-cell" style="color:#52c41a">103.3%</td>
+              <td><span class="kpi-tag done">已达成</span></td>
+            </tr>
+            <tr>
+              <td>效果客户唯一性创意数（个）</td>
+              <td class="num">480,000</td>
+              <td class="num">470,955</td>
+              <td class="pct-cell" style="color:#52c41a">98.1%</td>
+              <td><span class="kpi-tag almost">临门一脚</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="kpi-note">📌 <b>口径说明：</b>效果客户闭环跃迁客户数 = 剔除"整体"行后，客户日均消耗 ≥ 10,000 元的客户数；该项由隐藏源数据表动态 COUNTIFS 计算。</div>
+      </div>
+
+      <!-- ====================================== -->
+      <!-- 章节三：运营核心3件事                    -->
+      <!-- ====================================== -->
+      <div class="sec-title">
+        <span class="sec-num">03</span>
+        <div class="sec-info">
+          <h3>运营核心3件事</h3>
+          <p>七大赛道差异化作战 · 每条赛道聚焦最关键的3件事</p>
+        </div>
+        <span class="sec-tag">点击赛道查看详情</span>
+      </div>
+
+      <div class="card" style="margin-bottom:14px">
+        <div class="ct"><span class="ind"></span>七大赛道 · 核心3件事进展<span class="cs">女装 / 男装 / 珠宝配饰 / 箱包鞋靴 / 潮奢跑品 / 贴身衣物 / 其他</span></div>
+        <div class="lg" id="laneGrid"></div>
+      </div>
+    </div>
+
+    <!-- Tab 3: 核心专项 -->
+    <div class="page" id="page-project">
+      <div class="page-title">
+        <div><h2>核心专项</h2><div class="bcb">12个关键专项 · 数据进展追踪 · 数据来源：服饰运营作战地图信息汇总 · sheet2「关键项目」</div></div>
+      </div>
+
+      <!-- ====================================== -->
+      <!-- 章节一：专项类型概览                       -->
+      <!-- ====================================== -->
+      <div class="sec-title">
+        <span class="sec-num">01</span>
+        <div class="sec-info">
+          <h3>专项类型概览</h3>
+          <p>提消耗 · 基础必备 · 组织发展 · 新机会测试 · 共12个关键专项</p>
+        </div>
+        <span class="sec-tag">数据时间口径：~6/5</span>
+      </div>
+
+      <!-- 1.1 类型分布 -->
+      <div class="card" style="margin-bottom:14px">
+        <div class="ct"><span class="ind"></span>四类专项分布<span class="cs">按业务类型 · 主要看点对齐 sheet2 数据进展原文</span></div>
+        <div class="lane-rank" style="grid-template-columns:1.1fr 0.8fr 2fr 2fr">
+          <div class="lane-rank-h"><div>专项类型</div><div>在战专项</div><div>主要看点</div><div>核心专项</div></div>
+          <div class="lane-rank-r"><div><span class="dot y" style="background:#fa8c16"></span><strong>提消耗</strong></div><div>4</div><div><span style="color:#5a6b7e">提ARPU · 审核 · 腾飞撬动 · 创意基建</span></div><div><span style="color:#1a2332">4+m · 审核 · 腾飞 · 创意基建</span></div></div>
+          <div class="lane-rank-r"><div><span class="dot b" style="background:#1677ff"></span><strong>基础必备</strong></div><div>5</div><div><span style="color:#5a6b7e">CID/直播/小店三大链路 + AIGC + 回传质量</span></div><div><span style="color:#1a2332">CID · 直播 · 小店 · AIGC · 回传质量</span></div></div>
+          <div class="lane-rank-r"><div><span class="dot p" style="background:#722ed1"></span><strong>组织发展</strong></div><div>1</div><div><span style="color:#5a6b7e">闭环腰部→头部跃迁 · Q2 30个目标</span></div><div><span style="color:#1a2332">腰尾部跃迁</span></div></div>
+          <div class="lane-rank-r"><div><span class="dot c" style="background:#13c2c2"></span><strong>新机会测试</strong></div><div>2</div><div><span style="color:#5a6b7e">全店托管客户数 · 达人素材加热待启动</span></div><div><span style="color:#1a2332">全店托管 · 互选联投·达人素材加热</span></div></div>
+        </div>
+      </div>
+
+      <!-- ====================================== -->
+      <!-- 章节二：当前专项                          -->
+      <!-- ====================================== -->
+      <div class="sec-title">
+        <span class="sec-num">02</span>
+        <div class="sec-info">
+          <h3>当前专项</h3>
+          <p>12个关键专项 · 按业务类型分组 · 点击卡片查看完整数据进展</p>
+        </div>
+        <span class="sec-tag">同步频率：双周</span>
+      </div>
+
+      <!-- 2.1 专项卡 -->
+      <div class="card">
+        <div class="ct"><span class="ind"></span>专项卡<span class="cs">数据来源：sheet2 · 数据进展原文 · 弹窗内含「近期需关注事项」「数据看板链接」</span></div>
+        <div class="pg" id="projGrid" style="display:block;gap:0"></div>
+      </div>
+    </div>
+
+    <!-- Tab 4: 信息通知中心 -->
+    <div class="page" id="page-info">
+      <div class="page-title">
+        <div><h2>信息通知中心</h2><div class="bcb">扶持信息 · 产品能力 · 自动同步行业最新政策与产品动态</div></div>
+      </div>
+
+      <!-- 顶部 2-tab 切换 -->
+      <div class="info-tabs">
+        <div class="info-tab active" data-info="fuchi" onclick="switchInfoTab('fuchi')">
+          🎁 扶持信息汇总 <span class="it-cnt" id="cnt-fuchi">15</span>
+        </div>
+        <div class="info-tab" data-info="capa" onclick="switchInfoTab('capa')">
+          ⚡ 产品能力汇总 <span class="it-cnt" id="cnt-capa">23</span>
+        </div>
+      </div>
+
+      <!-- ====== Tab A: 扶持信息汇总 ====== -->
+      <div class="info-pane" id="pane-fuchi">
+        <!-- 章节01: 总览 -->
+        <div class="sec-title">
+          <span class="sec-num">01</span>
+          <div class="sec-info">
+            <h3>扶持信息总览</h3>
+            <p>同步自《扶持信息汇总》文档 · 流量扶持 + 产品扶持 · 共 15 项</p>
+          </div>
+          <span class="sec-tag" id="fuchi-src">📄 数据来源：扶持信息汇总</span>
+        </div>
+        <div class="nc-sum" id="fuchi-sum"></div>
+
+        <!-- 章节02: 分类清单 -->
+        <div class="sec-title">
+          <span class="sec-num">02</span>
+          <div class="sec-info">
+            <h3>扶持明细 · 按类别</h3>
+            <p>流量扶持（朋友圈/视频号/PCAD等）· 产品扶持（融合直播/小店/腾飞等）</p>
+          </div>
+          <span class="sec-tag">点击右侧链接查看完整方案</span>
+        </div>
+        <div class="card">
+          <div id="fuchiList"></div>
+        </div>
+      </div>
+
+      <!-- ====== Tab B: 产品能力汇总 ====== -->
+      <div class="info-pane" id="pane-capa" style="display:none">
+        <!-- 章节01: 总览 -->
+        <div class="sec-title">
+          <span class="sec-num">01</span>
+          <div class="sec-info">
+            <h3>产品能力总览</h3>
+            <p>同步自《产品能力汇总》文档 · 5 大分类 · 共 23 项产品能力</p>
+          </div>
+          <span class="sec-tag" id="capa-src">📄 数据来源：产品能力汇总</span>
+        </div>
+        <div class="nc-sum" id="capa-sum"></div>
+
+        <!-- 章节02: 分类清单 -->
+        <div class="sec-title">
+          <span class="sec-num">02</span>
+          <div class="sec-info">
+            <h3>产品能力明细 · 按 5 个 sheet 分类</h3>
+            <p>产品形态 · 智投 · 小店 · AIGC · 人群tag</p>
+          </div>
+          <span class="sec-tag">原文链接已挂在每张卡片右侧</span>
+        </div>
+        <div class="card">
+          <div id="capaList"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 5: 系统使用情况（简化版） -->
+    <div class="page" id="page-audit">
+      <div class="page-title">
+        <div><h2>系统使用情况</h2><div class="bcb">登录情况 · 使用时长 · 仅运营负责人可见</div></div>
+        <div class="fbar"><span class="ftag active">今日</span><span class="ftag">近7天</span><span class="ftag">近30天</span></div>
+      </div>
+      <div class="kg">
+        <div class="kpi"><div class="k-l">今日登录次数</div><div class="k-v">68</div><div class="k-t up">▲ 12% vs 昨日</div></div>
+        <div class="kpi"><div class="k-l">今日登录人数</div><div class="k-v">23<span style="font-size:14px;color:#8a9aae">/27</span></div><div class="k-t up">85.2% 在线率</div></div>
+        <div class="kpi"><div class="k-l">人均停留时长</div><div class="k-v">42<span style="font-size:14px;color:#8a9aae">分</span></div><div class="k-t up">▲ 8分 vs 昨日</div></div>
+        <div class="kpi"><div class="k-l">总使用时长</div><div class="k-v">16.1<span style="font-size:14px;color:#8a9aae">小时</span></div><div class="k-t up">活跃度健康</div></div>
+      </div>
+      <div class="card">
+        <div class="ct"><span class="ind"></span>登录明细<span class="cs"><span style="cursor:pointer;color:#1677ff" onclick="showAuditDetail()">查看完整明细 →</span></span></div>
+        <div class="audit-row h"><span>登录时间</span><span>用户</span><span>赛道</span><span>停留</span><span>访问模块</span></div>
+        <div class="audit-row"><span style="font-family:monospace">06-08 09:02</span><span>金洁</span><span><span class="pill b">全量</span></span><span style="font-family:monospace;color:#52c41a">58分</span><span style="color:#5a6b7e">消耗&amp;OKR · 核心专项 · 信息中心</span></div>
+        <div class="audit-row"><span style="font-family:monospace">06-08 09:15</span><span>张三</span><span><span class="pill b">女装</span></span><span style="font-family:monospace;color:#52c41a">45分</span><span style="color:#5a6b7e">消耗&amp;OKR · 核心专项</span></div>
+        <div class="audit-row"><span style="font-family:monospace">06-08 09:30</span><span>李四</span><span><span class="pill b">男装</span></span><span style="font-family:monospace;color:#faad14">28分</span><span style="color:#5a6b7e">消耗&amp;OKR · 信息中心</span></div>
+        <div class="audit-row"><span style="font-family:monospace">06-08 10:02</span><span>王五</span><span><span class="pill b">珠宝</span></span><span style="font-family:monospace;color:#52c41a">62分</span><span style="color:#5a6b7e">消耗&amp;OKR · 核心专项 · 信息中心</span></div>
+        <div class="audit-row"><span style="font-family:monospace">06-08 10:18</span><span>赵六</span><span><span class="pill b">箱包鞋靴</span></span><span style="font-family:monospace;color:#faad14">35分</span><span style="color:#5a6b7e">消耗&amp;OKR · 信息中心</span></div>
+        <div class="audit-row"><span style="font-family:monospace">06-08 10:45</span><span>孙七</span><span><span class="pill b">潮奢</span></span><span style="font-family:monospace;color:#52c41a">52分</span><span style="color:#5a6b7e">消耗&amp;OKR · 核心专项</span></div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<div class="mask" id="modalMask" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div class="mh"><h3 id="modalTitle">详情</h3><span class="mc" onclick="closeModal()">✕</span></div>
+    <div id="modalBody" style="font-size:13px;color:#5a6b7e;line-height:1.8"></div>
+  </div>
+</div>
+
+<script>
+const LANES = [
+  {name:'女装',daily:184,status:'r',three:['618大促头客护盘 · 65% · 红','新锐拓客 · 12/20 · 黄','QYT→ADQ跃迁 · 8/15 · 黄'],lead:'张三'},
+  {name:'男装',daily:138,status:'y',three:['运动男装新品破圈 · 70% · 黄','成熟产业带（虎门）拓客 · 60% · 黄','直播间4+M提量 · 85% · 绿'],lead:'李四'},
+  {name:'珠宝配饰',daily:96,status:'r',three:['三率违规客户排查 · 红','黄金链路全域通破冰 · 40% · 红','超品日预热 · 110% · 绿'],lead:'王五'},
+  {name:'箱包鞋靴',daily:118,status:'y',three:['运动鞋靴618备战 · 75% · 绿','尾部箱包提消耗 · 55% · 黄','QYT→ADQ跃迁停滞·待破局 · 红'],lead:'赵六'},
+  {name:'潮奢跑品',daily:142,status:'g',three:['超品日预热达成 110% · 绿','潮流新锐拓客 · 90% · 绿','奢品大客一对一 · 80% · 绿'],lead:'孙七'},
+  {name:'贴身衣物',daily:78,status:'g',three:['内衣4+M直播提量 · 95% · 绿','夏季新品节 · 70% · 黄','尾部新客拓展 · 88% · 绿'],lead:'周八'},
+  {name:'其他',daily:36,status:'y',three:['童装赛道孵化 · 50% · 黄','综合品类清洗 · 进行中','行业拓品试点 · 40% · 黄'],lead:'吴九'},
+];
+/* 专项数据 · 数据来源：服饰运营作战地图信息汇总 sheet2「关键项目」 · 复核更新于 2026-06-08
+   字段口径全部对齐 sheet2 原文，已删除编造的"推进度数字" */
+const PROJ = [
+  // ========== 提消耗（4） ==========
+  {name:'4+m',type:'提消耗',cls:'wrn',owner:'嘉润',
+    desc:'提高客户ARPU',
+    target:'消耗、消耗占直播消耗比例',
+    progress:'截止 6/4 双周，服饰直播 4+m 日耗 61万，环比 -6%，投放客户数 99家，4+m 消耗占比直播消耗 14%。',
+    focus:'',
+    docLink:'',docLinkText:'',
+    dataLink:'',dataNote:''},
+  {name:'审核',type:'提消耗',cls:'ok',owner:'ricky',
+    desc:'监控服饰审核问题',
+    target:'sheet2 原表此项未填',
+    progress:'近14日服饰提报审核放宽需求共计 3条，均为品牌类客户的单 case 需求。其中 1条已支持放宽 / 1条等待运营补充信息 / 1条待审核反馈。',
+    focus:'',
+    docLink:'https://doc.weixin.qq.com/sheet/e3_AKcAPgaIAE0CNhZudjzqIRt0yfeGT?scode=AJEAIQdfAAomaUAAPDAKcAPgaIAE0&tab=BB08J2',
+    docLinkText:'服饰审核放宽提报记录',
+    dataLink:'',dataNote:''},
+  {name:'腾飞',type:'提消耗',cls:'ok',owner:'嘉润',
+    desc:'行业腾飞扶持',
+    target:'扶持带来消耗、撬动比',
+    progress:'截止 5/31，Q2TD 累计腾飞花费 243.65万，带来消耗 1266万，扶持撬动比 5.20。',
+    focus:'',
+    docLink:'https://doc.weixin.qq.com/sheet/e3_ABcA0gbtACgCNVhKJLQ15RlCx4B3Y?scode=AJEAIQdfAAop5inPc0ABcA0gbtACg&tab=BB08J2',
+    docLinkText:'服饰腾飞复盘',
+    dataLink:'',dataNote:''},
+  {name:'创意基建',type:'提消耗',cls:'ok',owner:'俊昊',
+    desc:'通过提升创意量供给，提升消耗',
+    target:'曝光创意唯一性ID数 / 全新创意唯一性ID数 / 在线创意唯一性ID数 提升',
+    progress:'视频号：近双周日均曝光创意唯一性ID数 177,182，对比基准期日均提升 16.9%；\n朋友圈9图：近双周日均曝光创意唯一性ID数 20,920，对比基准期日均提升 77.9%。',
+    focus:'每日关注数据，将提升创意基建融入客户服务',
+    docLink:'',docLinkText:'',
+    dataLink:'',dataNote:''},
+  // ========== 基础必备（5） ==========
+  {name:'CID 专项',type:'基础必备',cls:'ok',owner:'小美',
+    desc:'CID 链路消耗增长',
+    target:'H1 日耗 185w',
+    progress:'双周日耗 233w，环比 -3.01%。',
+    focus:'测试 paa-官方pa链路',
+    docLink:'',docLinkText:'',
+    dataLink:'https://adata.woa.com/bi/view/new/g:biz_main_multiple:log_time?s=3AD3qP',
+    dataNote:''},
+  {name:'直播专项',type:'基础必备',cls:'ok',owner:'嘉润',
+    desc:'闭环直播链路消耗增长及能力应用',
+    target:'H1 日耗 480w',
+    progress:'截止 6/4 双周，服饰直播日耗 427w，年同比 +28%，服饰直播消耗占比行一直播 20%。',
+    focus:'',
+    docLink:'',docLinkText:'',
+    dataLink:'',dataNote:''},
+  {name:'小店专项',type:'基础必备',cls:'wrn',owner:'俊昊',
+    desc:'闭环小店直购链路消耗增长',
+    target:'H1 日耗 240w',
+    progress:'双周日耗 249w，环比 -12%（绝对值 -12w）。\n分投放端：ADQ 日耗 162w（占比 65%）环比 -11% / 全域通日耗 86w（占比 35%）环比 -14%；ADQ 下跌主要来自跑品客户的休闲裤持续衰退。\n分类目：本周期 ADQ 掉量主要来自男装 -21%。\n① 男装 同比 -21%，男装夏季品（短袖T恤、冰丝裤等）生命周期进入衰退期，头部客户（合肥邦鑫、广州后时代等）主力产品大幅衰减；\n② 男鞋 同比 +26%，夏季凉鞋/洞洞鞋/一脚蹬旺季效应明显，瓯海鸿星、花花公子等品牌新品放量；\n③ 女装 同比 +20%，主曼（+27%）等客户拉动，整体回暖；\n④ 时尚饰品 同比 -19%（绝对值 -1.2w），貔貅手串、胸针衰退。',
+    focus:'1、流量盖帽策略：（sheet2 原表此处未续填，需补充）',
+    docLink:'',docLinkText:'',
+    dataLink:'',dataNote:''},
+  {name:'AIGC',type:'基础必备',cls:'wrn',owner:'ricky',
+    desc:'监控服饰 AIGC 消耗，优化产品能力适配客户实际素材使用需求，推进客户 AI 素材生产 & 消耗提升',
+    target:'消耗达到 80w/d',
+    progress:'sheet2 原表此项填「可以和周报内容一致」，未给出具体双周日耗数字。',
+    focus:'消耗持续持平，辛苦各赛道关注 AIGC 消耗，push 客户打开衍生开关 & 使用妙思平台自主创作 AI 素材投放',
+    docLink:'',docLinkText:'',
+    dataLink:'https://adata.woa.com/bi/view/10140?s=pk750',
+    dataNote:'数据进展具体数值待运营补充'},
+  {name:'回传质量',type:'基础必备',cls:'wrn',owner:'megan',
+    desc:'sheet2 原表此项未填',
+    target:'sheet2 原表此项未填',
+    progress:'sheet2 原表此项填「可以和周报内容一致」。',
+    focus:'',
+    docLink:'',docLinkText:'',
+    dataLink:'',dataNote:'核心目标 / 具体内容待运营补充'},
+  // ========== 组织发展（1） ==========
+  {name:'腰尾部跃迁',type:'组织发展',cls:'ok',owner:'橘子',
+    desc:'监控赛道客户分层构成，挖掘潜在跃迁客户，并总结有效的促跃迁动作，通过跃迁专项培训营等形式，提升赛道腰尾向头部跃迁的客户数。',
+    target:'与 OKR 对齐：Q2 推动闭环腰部跃迁到头部客户，数量 30个',
+    progress:'Q2TD 跃迁客户数 52个（vs 目标 30个，达成 173%）。',
+    focus:'1、各赛道看清跃迁情况：跃迁了多少客户数、原因是什么、是自然跃迁还是运营结果；潜在跃迁客户是哪些、是否已建立动态追踪机制及追踪结果；总结有效的跃迁动作有哪些、下一步如何做。\n2、持续提升对外发声（销售群 / 服务商群 / 运营群），强化「跃迁」心智。\n3、橘子跑通跃迁专项培训营，拿到数据结果，跨部门合作发声 + 争资源。',
+    docLink:'',docLinkText:'',
+    dataLink:'https://jiejin903.github.io/xiyou-dashboard/?v=20260520-fix',
+    dataNote:''},
+  // ========== 新机会测试（2） ==========
+  {name:'全店托管',type:'新机会测试',cls:'wrn',owner:'海友',
+    desc:'提升全店托管消耗',
+    target:'全店托管客户数提升至 120家',
+    progress:'sheet2 原表此项填「可以和周报内容一致」，未给出当前家数。',
+    focus:'关注全店托管中新品起量率和消耗情况',
+    docLink:'',docLinkText:'',
+    dataLink:'',dataNote:'当前客户家数待运营补充'},
+  {name:'互选联投·达人素材加热',type:'新机会测试',cls:'urg',owner:'待定',
+    desc:'sheet2 原表此项未填',
+    target:'sheet2 原表此项未填',
+    progress:'sheet2 原表此项填「可以和周报内容一致」。',
+    focus:'',
+    docLink:'',docLinkText:'',
+    dataLink:'',dataNote:'负责人 / 核心目标 / 具体内容待补充'},
+];
+
+/* ========== 信息通知中心 · 数据来源 · 同步 2026-06-08 ==========
+   1) 扶持信息汇总：https://doc.weixin.qq.com/sheet/e3_AAoArgYoACgCNFKi5PTbjSfu2XUlb
+   2) 产品能力汇总：https://doc.weixin.qq.com/sheet/e3_AAoArgYoACgCNcirNtLAVTR65Z2p8
+   字段口径全部对齐文档原文 · 时效状态按 2026-06-08 自动判断 */
+const INFO_FUCHI_SRC = 'https://doc.weixin.qq.com/sheet/e3_AAoArgYoACgCNFKi5PTbjSfu2XUlb?scode=AJEAIQdfAAopErVx0CAOQALQY-AEk&tab=gfbi14';
+const INFO_CAPA_SRC  = 'https://doc.weixin.qq.com/sheet/e3_AAoArgYoACgCNcirNtLAVTR65Z2p8?scode=AJEAIQdfAAohrdktfYAOQALQY-AEk&tab=jpzegm';
+
+/* 扶持信息 · 2 类（流量扶持 / 产品扶持）· 共 15 项 */
+const INFO_FUCHI = [
+  // ===== 流量扶持（10）=====
+  {group:'流量扶持',name:'朋友圈非闭环 9 图扶持',period:'6.4 – 6.18',start:'2026-06-04',end:'2026-06-18',
+    target:'商消非闭环 5 月朋友圈竞价日耗 > 1w 的客户',
+    require:'6.11 巡查清退；消耗/基建/多图智拼三者满足其一即可保留',
+    extra:'DDL：6.4 17:00 前提报',
+    links:[{t:'扶持名单',u:'https://doc.weixin.qq.com/sheet/e3_AHUAxAaCACcCNMqcAeq3EQpeXyUgS?scode=AJEAIQdfAAoqSe7R76AHUAxAaCACc&tab=r7s437'}]},
+  {group:'流量扶持',name:'PCAD · 6 月节点扶持',period:'5.15 – 6.21',start:'2026-05-15',end:'2026-06-21',
+    target:'符合门槛的客户定向扶持',
+    require:'含 4 个子方向：①小店大促商品一转 ②PCAD潜客召回粗排保送+精排eCPM ③潜力场景x核心人群 ④新鲜度策略；潜客扶持需小群提报',
+    extra:'',
+    links:[{t:'618 PCAD 通案',u:'https://doc.weixin.qq.com/doc/w3_ALQAWgYyACkCNdagL7K9cSeiuNwPq?scode=AJEAIQdfAAoVi9nbGfAAoArgYoACg'},{t:'Q2 扶持方案',u:'https://doc.weixin.qq.com/sheet/e3_ALQAWgYyACkCNrEsUxBF4QQG1YnUn?scode=AJEAIQdfAAo1TNERDkALQAWgYyACk&tab=2gqkax'}]},
+  {group:'流量扶持',name:'朋友圈竞价 · 轮播三视频 / 轮播三图',period:'5.26 – 6.1',start:'2026-05-26',end:'2026-06-01',
+    target:'满足条件自动扶持，无需申请',
+    require:'生效流量位 = 朋友圈版位 / 售卖类型 = 竞价 / 广告勾选轮播三视频或轮播三图，自动生效 eCPM 扶持',
+    extra:'',
+    links:[{t:'投放指引',u:'https://docs.qq.com/doc/DUFhjYXFNV2dvVXBw'}]},
+  {group:'流量扶持',name:'母亲节 & 520 节点扶持（视频号&朋友圈）',period:'5.8 – 5.21',start:'2026-05-08',end:'2026-05-21',
+    target:'4 月日耗 ≥1 万 / 行业筛选有节点预算增量的客户',
+    require:'消耗 +10% 或基建 +10%（朋友圈需自建 9 图 ≥10 条 / 视频号需 4+m 商品广告 ≥10 条）',
+    extra:'服饰提报 41 家',
+    links:[{t:'扶持方案',u:'https://doc.weixin.qq.com/doc/w3_AZ0AAQbUAOMCNzwIzv7vXStWcVB5Z'},{t:'服饰名单',u:'https://doc.weixin.qq.com/sheet/e3_AZ0AAQbUAOMCNIqDZnSKIReKYEEdE?scode=AJEAIQdfAAozd1H0yJAOQALQY-AEk&tab=BB08J2'}]},
+  {group:'流量扶持',name:'PCAD 五一假期流量扶持',period:'4.28 – 5.31',start:'2026-04-28',end:'2026-05-31',
+    target:'PCAD 流量扶持 / 小店一转扶持 / 小程序低渗透客户扶持',
+    require:'自动生效，无需提报；建议增加 PCAD 基建提升扶持金',
+    extra:'分两轮：4.28-5.12 / 5.12-5.31',
+    links:[{t:'Q2 扶持方案',u:'https://doc.weixin.qq.com/sheet/e3_ALQAWgYyACkCNrEsUxBF4QQG1YnUn?scode=AJEAIQdfAAo1TNERDkALQAWgYyACk&tab=2gqkax'}]},
+  {group:'流量扶持',name:'朋友圈投放 9 图激励',period:'4.21 – 5.10',start:'2026-04-21',end:'2026-05-10',
+    target:'全行业 Q1 没定投过朋友圈 9 图的客户',
+    require:'增加朋友圈 9 图基建，定投/通投/智投均可',
+    extra:'',
+    links:[{t:'对客方案',u:'https://doc.weixin.qq.com/doc/w3_AdIAWwZbAKACNiWlEugPFT1S1JtZ2?scode=AJEAIQdfAAoMxfbj9nAX0ArgaLAKo'}]},
+  {group:'流量扶持',name:'朋友圈 9 图重点客户扶持',period:'4.24 – 5.10',start:'2026-04-24',end:'2026-05-10',
+    target:'重点扶持客户名单',
+    require:'达标规则：新建 9 图创意指纹数 +10%；不符合即清退',
+    extra:'服饰 10 家参加，4 家本周已退出',
+    links:[{t:'看数链接',u:'https://adata.woa.com/bi/view/new/g:biz_main_multiple:log_time?s=1wgh7c'},{t:'基建盘点',u:'https://doc.weixin.qq.com/sheet/e3_AWIAvQaoACwCNmsC3lopNS2aJM8Io?scode=AJEAIQdfAAoe4tSbZ1AWIAvQaoACw&tab=thkeds'}]},
+  {group:'流量扶持',name:'朋友圈激励政策（长期）',period:'H1 长期',start:'',end:'long',
+    target:'朋友圈有增长预算的客户 · 核心人群加权扶持',
+    require:'按月分月盘点 / 提供预估收入、预算类型、代表性类目',
+    extra:'服饰 5 月提报 52 个 / 6 月提报 17 个',
+    links:[{t:'提报名单',u:'https://doc.weixin.qq.com/sheet/e3_AeEAsQb6APsCN0C1L8sdTRaidMFdu?scode=AJEAIQdfAAovmIap5VAeEAsQb6APs&tab=zweo2z'}]},
+  {group:'流量扶持',name:'视频号 / 朋友圈 x 小店头部客户扶持',period:'4.18 – 4.28',start:'2026-04-18',end:'2026-04-28',
+    target:'视频号 / 朋友圈 4 月 MTD 消耗 Top20 + 投小店直播+直购客户',
+    require:'扶持金额 200 万；唯一性素材 ID +10% 且不降出价',
+    extra:'服饰视频号 3 家、朋友圈 2 家参与，扶持已结束',
+    links:[{t:'巡查名单',u:'https://doc.weixin.qq.com/sheet/e3_AZ0AAQbUAOMCNQJ13G4qiTjWbQj3Z'}]},
+  {group:'流量扶持',name:'视频号放量',period:'5.16 – 5 月底',start:'2026-05-16',end:'2026-05-31',
+    target:'整体放量 10%',
+    require:'通知客户提升基建',
+    extra:'',links:[]},
+  // ===== 产品扶持（5）=====
+  {group:'产品扶持',name:'融合小程序直播 / 融合小店扶持',period:'6.2 – 6.15',start:'2026-06-02',end:'2026-06-15',
+    target:'近 30 天日耗 1万+ 且有直播留咨需求的客户',
+    require:'融合直播：合规留咨替代盲盒 → 提 eCPM；融合小店：自定义详情页 + 618 券 → 提 CVR',
+    extra:'6.1 18:00 前完成账户提报',
+    links:[{t:'提报名单',u:'https://doc.weixin.qq.com/sheet/e3_AO4AXQbdAFwCNrhH95FR8Rpi5U8hW?scode=AJEAIQdfAAoYxkZtmqAO4AXQbdAFw&tab=BB08J2'},{t:'扶持方案',u:'https://doc.weixin.qq.com/doc/w3_AO4AXQbdAFwCNeLktg1OBTeyGOtUn?scode=AJEAIQdfAAodHZ4CSqAO4AXQbdAFw'},{t:'对外材料',u:'https://doc.weixin.qq.com/doc/w3_AO4AXQbdAFw8Y6SKLzNSGygdRSDdC?scode=AJEAIQdfAAo0spV4TtAO4AXQbdAFw'}]},
+  {group:'产品扶持',name:'小店 618 大促精排扶持',period:'持续至 6.18',start:'2026-05-20',end:'2026-06-18',
+    target:'大促 A 类（全资券商品）活动商品广告（直播 & 直购）',
+    require:'覆盖视频号 + 朋友圈，总预算 200 万；扶持策略 ID：62476/62477/62478/62479',
+    extra:'优惠字段已上 adata 【小店商品优惠信息】',
+    links:[{t:'adata 取数',u:'https://adata.woa.com/bi/view/16443?s=2UbbPc&threadId=b37a584e-7dd9-477d-8ee9-1505edc97edf'}]},
+  {group:'产品扶持',name:'拼多多 CID 腾讯自归腾飞扶持',period:'6.2 – 6.14',start:'2026-06-02',end:'2026-06-14',
+    target:'腾讯归因（非服务商归因）+ 落地页一跳为拼多多小程序 + 转化数 < 500 的营销对象',
+    require:'6.1 15:00 前提报；扶持当日起转化数 ≥500 即停止扶持；扶持策略 ID：63222',
+    extra:'',
+    links:[{t:'对外 SOP',u:'https://doc.weixin.qq.com/doc/w3_AMQA1QYhACoCNiy3QGiWzSRSxWUgZ?scode=AJEAIQdfAAo456z2yhAMQA1QYhACo&isEnterEdit=1'},{t:'扶持名单',u:'https://doc.weixin.qq.com/sheet/e3_AMQA1QYhACoCNFfI9WIVPSxW30SdN?scode=AJEAIQdfAAoT68ask4AMQA1QYhACo&tab=BB08J2'},{t:'开白名单',u:'https://doc.weixin.qq.com/smartsheet/s3_ATUA8wYpAC4CNkJfk7Z9AQVyiWxTS?scode=AJEAIQdfAAobpnuGcSATUA8wYpAC4&tab=q979lj&viewId=vukaF8'}]},
+  {group:'产品扶持',name:'全店托管扶持',period:'5.1 – 6.18',start:'2026-05-01',end:'2026-06-18',
+    target:'活动周期内在投 / 新搭建的全店托管项目均可享受',
+    require:'需完成提报 + 开白流程',
+    extra:'',
+    links:[{t:'白名单配置',u:'https://doc.weixin.qq.com/sheet/e3_AZ4A1wZyAN4Yu5IigfpRt2GGhn283?tab=947uod&scode=AJEAIQdfAAoo26pce0'},{t:'艾米手册',u:'https://doc.weixin.qq.com/doc/w3_AfQAdgYeABoCNwJ9oFeITRB0yNw30?scode=AJEAIQdfAAoUTkaPz1AAoArgYoACg'},{t:'拟推广名单',u:'https://doc.weixin.qq.com/sheet/e3_AewAsgZoAHwCNFJZhQ10wSK0v1IfO?scode=AJEAIQdfAAobuIPc0FAewAsgZoAHw&tab=BB08J2'}]},
+  {group:'产品扶持',name:'小店艾米 5 月腾飞扶持',period:'5.8 – 5.15',start:'2026-05-08',end:'2026-05-15',
+    target:'符合门槛的客户定向扶持，无需提报',
+    require:'开启艾米功能即自动获取扶持：直播快推 / 全库智选 / AIGC / 专场放量 / 全店托管',
+    extra:'',
+    links:[{t:'对内方案',u:'https://doc.weixin.qq.com/doc/w3_AH0AYga-ACcCNXGynOh35Tge2buC4?scode=AJEAIQdfAAoxqPkQ52AAoArgYoACg'},{t:'AIM+艾米激励',u:'https://doc.weixin.qq.com/doc/w3_AH0AYga-ACcCN7bHwEvEzRze8jWFi?scode=AJEAIQdfAAo6Nkcs7kAOQALQY-AEk'}]},
+];
+
+/* 产品能力 · 5 个 sheet 分组 · 共 23 项（严格按 sheet 名命名）*/
+const INFO_CAPA = [
+  // ===== 产品形态（11）=====
+  {group:'产品形态',name:'潜客优投能力上线',
+    desc:'智能触达高潜力用户。',
+    range:'AIM+ 智能投放 & 竞价投放的小店客户；白名单制，需前置加白',
+    links:[{t:'白名单申请',u:'https://doc.weixin.qq.com/sheet/e3_ARoAPgaoANUCNxLovmKxkQwyjsEGZ?scode=AJEAIQdfAAol7Md060AeEAsQb6APs&tab=7ng1a9'},{t:'能力说明（对内）',u:'https://doc.weixin.qq.com/doc/w3_ARoAPgaoANUCNDF1i7Ki0QrOLiaoU?scode=AJEAIQdfAAoqbhFWWVAeEAsQb6APs'},{t:'能力说明（对外）',u:'https://doc.weixin.qq.com/doc/w3_ARoAPgaoANUCNtB1LB501QBW0Ij24?scode=AJEAIQdfAAoL3W56a8AAoArgYoACg'},{t:'看数链接',u:'https://adata.woa.com/bi/view/new/g:biz_main_multiple:log_time?s=9wuAp'}]},
+  {group:'产品形态',name:'朋友圈竞价轮播三图 / 三视频形态（白名单测试）',
+    desc:'朋友圈竞价新增"轮播三图、轮播三视频"创意形态，支持自然停留与手动轮播，提升创意沉浸感与互动效果。',
+    range:'ADQ + AIM 智投 / 竞价 + 含朋友圈版位',
+    links:[{t:'对客投放指引',u:'https://docs.qq.com/doc/DUFhjYXFNV2dvVXBw'},{t:'白名单提报',u:'https://doc.weixin.qq.com/sheet/e3_Ae8AGwbgAKwCNHfmtu450RXiqgBB0'}]},
+  {group:'产品形态',name:'小店聚合页广告（春日焕新）',
+    desc:'单次曝光聚合多商品：朋友圈外层 9 图展示 9 个商品，点击进入聚合页商品卡清单，再跳商详。',
+    range:'小店链路 + 朋友圈 + 图片创意，好店标签且品牌自营/授权店，类目=服饰鞋包/运动户外的春日焕新子类',
+    links:[{t:'屏蔽名单',u:'https://doc.weixin.qq.com/sheet/e3_AOQALQY-AEkCNLFLSkrOOQmShPWV5?scode=AJEAIQdfAAoOfsQ3D9AOQALQY-AEk&tab=BB08J2'},{t:'方案介绍（仅内）',u:'https://doc.weixin.qq.com/doc/w3_ALwAjAaFABECN4CzSK9tRS3Orllgl?scode=AJEAIQdfAAoP2G35CJAOQALQY-AEk'}]},
+  {group:'产品形态',name:'视频号图文：支持多预算投放',
+    desc:'支持多图组合（3图/4图/6图/9图）+ 背景音乐，强化沉浸感，优化转化效果。',
+    range:'支持预算类型：小店 / 小游戏 / 线索 / 应用下载 / 直播 / 视频号动态推广 等',
+    links:[{t:'对外投放指引',u:'https://doc.weixin.qq.com/doc/w3_ACYACgZ4ACcCNxQ0FR5FQRnmNITlW?scode=AJEAIQdfAAomct4SHtACYACgZ4ACc'}]},
+  {group:'产品形态',name:'组件形态增加 618 氛围',
+    desc:'不涉及主视觉变动，仅在大促满减活动商品广告上增加 618 氛围组件。',
+    range:'直购广告：5.28 上线 / 直播广告：6.2 上线；敏感客户屏蔽提报 5.27 下班前截止',
+    links:[{t:'屏蔽客户提报',u:'https://doc.weixin.qq.com/sheet/e3_AcgApAY1AC8CNBWRINTz7Qwm8YW6c?scode=AJEAIQdfAAomzg6Kl1AcgApAY1AC8&tab=BB08J2'}]},
+  {group:'产品形态',name:'创意主视觉增加 618 氛围',
+    desc:'在广告主视觉基础上自动 / 手动增加 618 氛围。',
+    range:'支持 9 图、竖转横、方转横（竖版视频不支持）；3.0+ 智投 MAX 通路自动衍生，不提供屏蔽',
+    links:[{t:'618 形态&创意能力介绍',u:'https://doc.weixin.qq.com/doc/w3_ADEA4AaOACcCNcfjbGdUmSAeZyf4K?scode=AJEAIQdfAAoD1PAxWYAcgApAY1AC8'}]},
+  {group:'产品形态',name:'小程序激励版位蒙层',
+    desc:'进播前增加缓冲页，提升进播人群质量，减少恶意评价。',
+    range:'加白生效',links:[]},
+  {group:'产品形态',name:'聚合页表达商品组合',
+    desc:'闭环链路下，官方落地页支持小店商品聚合表达，实现商品聚合页呈现。',
+    range:'预计 6.4 上线（区分直播 / 直购）',
+    links:[{t:'方案文档',u:'https://doc.weixin.qq.com/doc/w3_AN0ARwawACgCN0VtO7SoLSNeOZQ1g'}]},
+  {group:'产品形态',name:'全库智选扩素材供给',
+    desc:'引用客户优质历史组件自动创编，高效补充创意。',
+    range:'拓展可拉取范围 5.22 快捷授权上线；全库创意汰换迭代 5.20 实验已推全',
+    links:[]},
+  {group:'产品形态',name:'相似创意指纹口径优化',
+    desc:'视频相似指纹口径优化：消费品单客单品 / 白达客户特性下，重点识别脚本框架差异，推动视频指纹增加脚本差异化识别。',
+    range:'预计 5.29 上线',
+    links:[]},
+  {group:'产品形态',name:'直购链路-广告形态组件外显最低优惠券面额（问题排查）',
+    desc:'平台优惠接口仅披露可用券列表，无最高满减面额识别逻辑，导致仅能外显最低券面额（如满 80 减 10）。短期：技术 618 前难支持；长期：推动接口透传最优券面额。',
+    range:'直购场景（高客单价点击吸引力受影响）；直播场景本身不外显满减金额，预估不受影响',
+    links:[]},
+  // ===== 智投（3）=====
+  {group:'智投',name:'智投「直播快推」批量操作功能全量',
+    desc:'智投"直播快推"的批量操作能力已正式全量，提升广告批处理效率。',
+    range:'',
+    links:[{t:'对外能力指南',u:'https://doc.weixin.qq.com/doc/w3_AKIApgbdAFwCNF4Igxc9lT9e1L6yr?scode=AJEAIQdfAAoc00TOlQAN0ARwawACg'}]},
+  {group:'智投',name:'智投功能一览',
+    desc:'短直双开、小店单链路、全店托管等详细介绍。',
+    range:'',
+    links:[{t:'对客功能指南',u:'https://doc.weixin.qq.com/doc/w3_AN0ARwawACgCNrMSgvto1QbaRTUCL?scode=AJEAIQdfAAo7HH04CiAN0ARwawACg&isEnterEdit=1'}]},
+  {group:'智投',name:'智投非闭环链路冲量宝',
+    desc:'智投非闭环链路的一键起量。',
+    range:'',
+    links:[{t:'内版功能指南',u:'https://doc.weixin.qq.com/doc/w3_AN0ARwawACgCN9AP8jO7TSdeg9uk0?scode=AJEAIQdfAAoynHsB2kAN0ARwawACg'},{t:'对外冲量宝介绍',u:'https://doc.weixin.qq.com/doc/w3_AasArQY_ADoCNZRbiElh9Qw00a688?scode=AJEAIQdfAAoL8EMvyOAN0ARwawACg'}]},
+  // ===== 小店（4）=====
+  {group:'小店',name:'再营销-潜客优投（白名单测试）',
+    desc:'再营销出价表达，支持对再营销人群单独提价。',
+    range:'预计 5/26 上线',
+    links:[{t:'白名单申请',u:'https://doc.weixin.qq.com/sheet/e3_ARoAPgaoANUCNxLovmKxkQwyjsEGZ?scode=AJEAIQdfAAoWwtyjkPAeEAsQb6APs&tab=BB08J2'},{t:'能力说明（对内）',u:'https://doc.weixin.qq.com/doc/w3_ARoAPgaoANUCNDF1i7Ki0QrOLiaoU?scode=AJEAIQdfAAoIvtvE6yAeEAsQb6APs'}]},
+  {group:'小店',name:'小店联盟「双佣金」（白名单测试）',
+    desc:'联盟"双佣金"投放表达，帮助商家与达人做投流撮合。',
+    range:'预计本月上线；测试客户要求：历史用过原生广告或对双佣金有需求；可与产品组建群预沟通',
+    links:[]},
+  {group:'小店',name:'速推权限开通（618 大促）',
+    desc:'统一收集 618 大促期间需开通"速推"权限的客户名单。',
+    range:'',
+    links:[{t:'权限申请表',u:'https://doc.weixin.qq.com/sheet/e3_AVgAVQb0AAwCNCp0WqSaeT4maS295?scode=AJEAIQdfAAo307ClgzAMQA1QYhACo&tab=BB08J2'},{t:'速推经验分享',u:'https://doc.weixin.qq.com/doc/w3_AYAANAYEAMECNfuCQVcStQOikLGzh?scode=AJEAIQdfAAoqHzVcSWAKsAyAaCACc'}]},
+  {group:'小店',name:'520 节日商品策略加码',
+    desc:'为 520 相关商品提供更多模型支持：509 个走"场景推荐"支路探索潜在人群；707 个非支路品需补节日元素以进入支路扶持。',
+    range:'',
+    links:[{t:'520 商品策略（对外）',u:'https://doc.weixin.qq.com/doc/w3_AeAAeQZMAIACNGELVjjF1TgC6f8sq?scode=AJEAIQdfAAoYlxNWnyAeAAeQZMAIA'},{t:'2.0 场景支路测试',u:'https://doc.weixin.qq.com/sheet/e3_AeEAsQb6APsCNnu28Z5BoTIyg2zlh?scode=AJEAIQdfAAouu3hvKgAeEAsQb6APs&tab=BB08J2'},{t:'商品力推进表',u:'https://doc.weixin.qq.com/sheet/e3_AeEAsQb6APsCNDyfgzV8ISI2sWdVE?scode=AJEAIQdfAAon8Ixv0oAeEAsQb6APs&tab=BB08J2'}]},
+  // ===== AIGC（2）=====
+  {group:'AIGC',name:'3.0 MAX 多品直播间-衍生 9 图屏蔽名单 review',
+    desc:'多品直播间因品多变化易出 badcase，按 adata【直播间TOP1商品分位线 < 80】对涉及主体做衍生 9 图屏蔽。',
+    range:'有退出和新增可沟通',
+    links:[{t:'屏蔽名单',u:'https://doc.weixin.qq.com/sheet/e3_AcgApAY1AC8CNHuhrt2A0T00os2f6?scode=AJEAIQdfAAoM91Rr1PAcgApAY1AC8&tab=BB08J2'},{t:'衍生开关黑名单',u:'https://doc.weixin.qq.com/sheet/e3_AcgApAY1AC8CNMGuMGZ8XQl2aQCKp?scode=AJEAIQdfAAoXShAJKeAcgApAY1AC8&tab=BB08J2'}]},
+  {group:'AIGC',name:'3.0 MAX 衍生开关批量开启',
+    desc:'投放端支持批量选中广告，一键打开衍生开关——助力客户高效堆创意唯一性 ID。',
+    range:'',
+    links:[]},
+  // ===== 人群tag（3）=====
+  {group:'人群tag',name:'种草 agent 上线',
+    desc:'支持"直播间 / 商品类目 / 名人兴趣"三大种草人群 leveltag 的自助查询与挖掘。',
+    range:'',
+    links:[{t:'产品入口',u:'https://ecom-ads.woa.com/conversation'},{t:'使用指南（对内）',u:'https://doc.weixin.qq.com/doc/w3_AKIApgbdAFwCNI19zuW1TTXu42Ikn?scode=AJEAIQdfAAovw8P0UKAMQA1QYhACo'},{t:'问题反馈',u:'https://doc.weixin.qq.com/sheet/e3_AKIApgbdAFw1EHZoNCJRgCs1zi45G?scode=AJEAIQdfAAoS0OIzGX'}]},
+  {group:'人群tag',name:'京东 CID · 一方人群助攻测试',
+    desc:'京东提供一方转化人群扩量回传至腾讯，加强模型学习能力，提升投放 ROI 和消耗规模（大健康曝光归因客户消耗 +12%~20%）。',
+    range:'加白条件：使用京东 CIDPro 监测链接 + 提报账户加白 + 客户开「一方数据跑量加强」',
+    links:[{t:'监控链接',u:'https://adata.woa.com/bi/view/new/g:biz_main_multiple:log_time?s=zLnc7'},{t:'白名单',u:'https://doc.weixin.qq.com/sheet/e3_AMQA1QYhACoCNBuKGN03TQz0sNvMB?scode=AJEAIQdfAAoBupp15gAMQA1QYhACo&tab=BB08J2'}]},
+  {group:'人群tag',name:'520 礼赠 / 行业热点兴趣 leveltag 上线',
+    desc:'「520 礼赠人群」「行业热点兴趣人群」leveltag 已上线，可用于分人群出价配置。',
+    range:'',
+    links:[{t:'520 节点人群支持',u:'https://doc.weixin.qq.com/sheet/e3_AeAAeQZMAIACNsp7PMbOPT5mvU0fn?scode=AJEAIQdfAAoyauiLGGAeAAeQZMAIA&tab=BB08J2'}]},
+];
+
+let curRole = 'leader';
+const TODAY = new Date('2026-06-08');
+
+function getExpireStatus(expire){
+  if (expire === '长期有效') return {cls:'long',text:'⏳ 长期有效'};
+  const exp = new Date(expire);
+  const diff = Math.ceil((exp - TODAY) / (24*3600*1000));
+  if (diff < 0) return {cls:'expired',text:'⚠ 已失效'};
+  if (diff <= 7) return {cls:'expired',text:`⏰ ${diff}天后失效（${expire}）`};
+  if (diff <= 30) return {cls:'',text:`📅 ${diff}天后失效（${expire}）`};
+  return {cls:'long',text:`📅 有效至 ${expire}`};
+}
+
+function renderLanes(){
+  const grid = document.getElementById('laneGrid');
+  let lanes = LANES;
+  if (curRole === 'lane') lanes = LANES.filter(l => l.name === '女装');
+  grid.innerHTML = lanes.map(l => `
+    <div class="lc" onclick="showLane('${l.name}')">
+      <div class="lh"><span class="ln">${l.name}</span><span class="pill ${l.status}">${l.status==='r'?'红':l.status==='y'?'黄':'绿'} · 日耗 ${l.daily}万</span></div>
+      <div class="lt">${l.three.map((x,i)=>`<div class="it"><span class="num">${i+1}</span><span>${x}</span></div>`).join('')}</div>
+      <div class="lm"><span>负责人 <strong>${l.lead}</strong></span></div>
+    </div>`).join('');
+}
+
+function renderProj(){
+  const grid = document.getElementById('projGrid');
+  // 按业务类型分组（提消耗 / 基础必备 / 组织发展 / 新机会测试）
+  const TYPE_ORDER = ['提消耗','基础必备','组织发展','新机会测试'];
+  const TYPE_COLOR = {'提消耗':'#fa8c16','基础必备':'#1677ff','组织发展':'#722ed1','新机会测试':'#13c2c2'};
+  const TYPE_BG    = {'提消耗':'#fff7e6','基础必备':'#e6f4ff','组织发展':'#f9f0ff','新机会测试':'#e6fffb'};
+  // 数据进展摘要（取前 60 字 + 省略号）
+  const summarize = (s) => {
+    if (!s) return '';
+    const first = s.split('\n')[0];
+    return first.length > 60 ? first.slice(0,60) + '…' : first;
+  };
+  let list = PROJ;
+  let html = '';
+  TYPE_ORDER.forEach(t => {
+    const items = list.filter(p => p.type === t);
+    if (!items.length) return;
+    html += `<div class="proj-type-h" style="margin:18px 0 10px;display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:${TYPE_COLOR[t]}">
+      <span style="display:inline-block;width:4px;height:16px;background:${TYPE_COLOR[t]};border-radius:2px"></span>
+      ${t}
+      <span style="font-size:11px;color:#8a9aae;font-weight:400">· ${items.length}个专项</span>
+    </div>`;
+    html += '<div class="pg">' + items.map((p) => {
+      const idx = PROJ.indexOf(p);
+      const links = [];
+      if (p.docLink) links.push(`<a class="doc" href="${p.docLink}" target="_blank" rel="noopener" onclick="event.stopPropagation()" title="${p.docLinkText||'腾讯文档'}">📋 ${p.docLinkText||'腾讯文档'}</a>`);
+      if (p.dataLink) {
+        const isJiejin = p.dataLink.indexOf('jiejin903') >= 0;
+        const txt = isJiejin ? '跃迁监控看板' : 'adata 监控';
+        links.push(`<a href="${p.dataLink}" target="_blank" rel="noopener" onclick="event.stopPropagation()" title="${p.dataLink}">📊 ${txt}</a>`);
+      }
+      return `<div class="pc ${p.cls}" onclick="showProj(${idx})">
+        <div class="ph">
+          <span class="pn">${p.name}</span>
+          <span class="ps" style="background:${TYPE_BG[t]};color:${TYPE_COLOR[t]};border:1px solid ${TYPE_COLOR[t]}33;padding:3px 9px;border-radius:10px;font-size:11px;font-weight:600;white-space:nowrap">${t}</span>
+        </div>
+        <div class="pd" style="font-size:13px;color:#5a6b7e;line-height:1.6;margin:6px 0 10px">${p.desc}</div>
+        <div style="padding:10px 12px;background:#fafbfc;border-radius:6px;font-size:12px;color:#5a6b7e;line-height:1.7">
+          <div style="margin-bottom:6px"><span style="color:#8a9aae">🎯 核心目标 </span><strong style="color:#1a2332">${p.target}</strong></div>
+          <div><span style="color:#8a9aae">📊 数据进展 </span><span style="color:#1a2332">${summarize(p.progress)}</span></div>
+        </div>
+        <div class="pc-link">
+          <span style="display:inline-flex;align-items:center;padding:5px 10px;background:#f4f6fa;border-radius:14px;color:#5a6b7e;font-size:11px">👤 ${p.owner}</span>
+          ${p.focus ? '<span style="display:inline-flex;align-items:center;padding:5px 10px;background:#fffbe6;border:1px solid #ffe58f;border-radius:14px;color:#d48806;font-size:11px">⚠ 关注事项</span>' : ''}
+          ${links.join('')}
+        </div>
+      </div>`;
+    }).join('') + '</div>';
+  });
+  grid.innerHTML = html;
+}
+
+/* ====== 信息通知中心 · 渲染逻辑 ====== */
+function getFuchiStatus(item){
+  // 状态：进行中 / 即将开始 / 已结束 / 长期有效
+  if (item.end === 'long') return {key:'long',label:'长期有效',cls:'long',ncls:'s-long'};
+  const t = TODAY.getTime();
+  const s = item.start ? new Date(item.start).getTime() : -Infinity;
+  const e = new Date(item.end).getTime() + 24*3600*1000 - 1; // 当天 23:59:59
+  if (t > e) return {key:'end',label:'已结束',cls:'end',ncls:'s-end'};
+  if (t < s) return {key:'soon',label:'即将开始',cls:'soon',ncls:'s-soon'};
+  // 进行中：剩余 ≤7 天 → 即将结束
+  const days = Math.ceil((e - t)/(24*3600*1000));
+  if (days <= 7) return {key:'on',label:`进行中 · ${days}天后结束`,cls:'on',ncls:'s-on'};
+  return {key:'on',label:'进行中',cls:'on',ncls:'s-on'};
+}
+
+const CAT_COLOR_MAP = {
+  '产品形态':'bl','智投':'pp','小店':'or','AIGC':'cy','人群tag':'gn',
+  '流量扶持':'or','产品扶持':'pp'
+};
+
+function renderFuchi(){
+  const list = document.getElementById('fuchiList');
+  const sumEl = document.getElementById('fuchi-sum');
+  const groups = ['流量扶持','产品扶持'];
+  const groupColor = {'流量扶持':'#fa8c16','产品扶持':'#722ed1'};
+
+  // 总览数据卡：5个数字（流量/产品/进行中/已结束/长期）
+  const cnt = {liu:0,chan:0,on:0,end:0,long:0,soon:0};
+  INFO_FUCHI.forEach(i => {
+    if (i.group === '流量扶持') cnt.liu++; else cnt.chan++;
+    cnt[getFuchiStatus(i).key]++;
+  });
+  sumEl.innerHTML = `
+    <div class="nc-sum-c or"><div class="lab">流量扶持</div><div class="v">${cnt.liu}</div><div class="sub">朋友圈/视频号/PCAD等</div></div>
+    <div class="nc-sum-c pp"><div class="lab">产品扶持</div><div class="v">${cnt.chan}</div><div class="sub">融合/小店/腾飞等</div></div>
+    <div class="nc-sum-c gn"><div class="lab">进行中</div><div class="v" style="color:#52c41a">${cnt.on}</div><div class="sub">需立即响应</div></div>
+    <div class="nc-sum-c bl"><div class="lab">长期有效</div><div class="v" style="color:#1677ff">${cnt.long}</div><div class="sub">持续关注</div></div>
+    <div class="nc-sum-c"><div class="lab">已结束</div><div class="v" style="color:#8a9aae">${cnt.end}</div><div class="sub">归档参考</div></div>`;
+  document.getElementById('cnt-fuchi').textContent = INFO_FUCHI.length;
+
+  // 列表（按组 + 状态优先级排序：进行中 > 即将开始 > 长期 > 已结束）
+  const orderKey = {on:0,soon:1,long:2,end:3};
+  let html = '';
+  groups.forEach(g => {
+    const items = INFO_FUCHI.filter(i => i.group === g)
+      .map(i => ({...i, _status:getFuchiStatus(i)}))
+      .sort((a,b) => orderKey[a._status.key] - orderKey[b._status.key]);
+    if (!items.length) return;
+    html += `<div class="nc-group-h">
+      <span class="nc-bar" style="background:${groupColor[g]}"></span>
+      ${g}
+      <span class="nc-cnt">· ${items.length} 项</span>
+    </div>`;
+    html += items.map(i => {
+      const s = i._status;
+      const linksHtml = (i.links||[]).map(l =>
+        `<a href="${l.u}" target="_blank" rel="noopener" title="${l.t}">📎 ${l.t}</a>`
+      ).join('');
+      return `<div class="nc ${s.ncls}">
+        <div class="nc-l">
+          <span class="nc-stat ${s.cls}">${s.label}</span>
+          <span class="nc-period">📅 ${i.period}</span>
+        </div>
+        <div class="nc-c">
+          <span class="nc-cat ${CAT_COLOR_MAP[g]||'bl'}">${g}</span>
+          <div class="nc-name">${i.name}</div>
+          <div class="nc-desc"><strong style="color:#1a2332">扶持对象：</strong>${i.target}<br><strong style="color:#1a2332">配合要求：</strong>${i.require}</div>
+          ${i.extra ? `<div class="nc-extra">📌 ${i.extra}</div>` : ''}
+        </div>
+        <div class="nc-r">${linksHtml || '<span style="font-size:11px;color:#bfbfbf">暂无链接</span>'}</div>
+      </div>`;
+    }).join('');
+  });
+  list.innerHTML = html;
+
+  // 顶部数据来源 chip 可点击跳源文档
+  const srcEl = document.getElementById('fuchi-src');
+  if (srcEl) srcEl.innerHTML = `<a href="${INFO_FUCHI_SRC}" target="_blank" rel="noopener" style="color:#1677ff;text-decoration:none">📄 数据来源：扶持信息汇总（点击跳转）</a>`;
+}
+
+function renderCapa(){
+  const list = document.getElementById('capaList');
+  const sumEl = document.getElementById('capa-sum');
+  const groups = ['产品形态','智投','小店','AIGC','人群tag'];
+  const groupColor = {'产品形态':'#1677ff','智投':'#722ed1','小店':'#fa8c16','AIGC':'#13c2c2','人群tag':'#52c41a'};
+  const groupCntMap = {};
+  INFO_CAPA.forEach(i => groupCntMap[i.group] = (groupCntMap[i.group]||0)+1);
+
+  // 总览：5 个分类卡
+  sumEl.innerHTML = groups.map(g => {
+    const cls = CAT_COLOR_MAP[g] || 'bl';
+    return `<div class="nc-sum-c ${cls}">
+      <div class="lab">${g}</div>
+      <div class="v" style="color:${groupColor[g]}">${groupCntMap[g]||0}</div>
+      <div class="sub">sheet 项数</div>
+    </div>`;
+  }).join('');
+  document.getElementById('cnt-capa').textContent = INFO_CAPA.length;
+
+  // 列表
+  let html = '';
+  groups.forEach(g => {
+    const items = INFO_CAPA.filter(i => i.group === g);
+    if (!items.length) return;
+    html += `<div class="nc-group-h">
+      <span class="nc-bar" style="background:${groupColor[g]}"></span>
+      ${g}
+      <span class="nc-cnt">· ${items.length} 项</span>
+    </div>`;
+    html += items.map(i => {
+      const linksHtml = (i.links||[]).map(l =>
+        `<a href="${l.u}" target="_blank" rel="noopener" title="${l.t}">📎 ${l.t}</a>`
+      ).join('');
+      return `<div class="nc s-long">
+        <div class="nc-l">
+          <span class="nc-stat long">${g}</span>
+          <span class="nc-period" style="color:#8a9aae;font-size:11px">能力上线 / 持续关注</span>
+        </div>
+        <div class="nc-c">
+          <span class="nc-cat ${CAT_COLOR_MAP[g]||'bl'}">${g}</span>
+          <div class="nc-name">${i.name}</div>
+          <div class="nc-desc">${i.desc}</div>
+          ${i.range ? `<div class="nc-extra">📌 ${i.range}</div>` : ''}
+        </div>
+        <div class="nc-r">${linksHtml || '<span style="font-size:11px;color:#bfbfbf">暂无链接</span>'}</div>
+      </div>`;
+    }).join('');
+  });
+  list.innerHTML = html;
+
+  const srcEl = document.getElementById('capa-src');
+  if (srcEl) srcEl.innerHTML = `<a href="${INFO_CAPA_SRC}" target="_blank" rel="noopener" style="color:#1677ff;text-decoration:none">📄 数据来源：产品能力汇总（点击跳转）</a>`;
+}
+
+function switchInfoTab(name){
+  document.querySelectorAll('.info-tab').forEach(t => t.classList.toggle('active', t.dataset.info === name));
+  document.getElementById('pane-fuchi').style.display = name === 'fuchi' ? '' : 'none';
+  document.getElementById('pane-capa').style.display = name === 'capa' ? '' : 'none';
+}
+
+function switchPage(p){
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelector(`.nav-item[data-page="${p}"]`).classList.add('active');
+  document.querySelectorAll('.page').forEach(pg => pg.classList.remove('active'));
+  const target = document.getElementById('page-' + p);
+  if (curRole === 'lane' && p === 'audit') {
+    target.classList.add('active');
+    target.innerHTML = `<div class="lock"><div class="li">🔒</div><h3>权限不足</h3><p>「系统使用情况」仅运营负责人可访问<br>当前角色：赛道运营专员（女装赛道）<br><br>如有疑问请联系 运营负责人 金洁</p></div>`;
+  } else {
+    target.classList.add('active');
+    if (p === 'dashboard') renderTrend();
+  }
+  document.getElementById('sidebar').classList.remove('open');
+}
+
+function switchRole(r){
+  curRole = r;
+  document.querySelectorAll('.role-btn').forEach(b => b.classList.toggle('active', b.dataset.role === r));
+  document.getElementById('uname').textContent = r==='leader'?'金洁 · 运营负责人':'张三 · 女装赛道运营';
+  document.getElementById('avatar').textContent = r==='leader'?'橘':'张';
+  document.getElementById('myLanes').innerHTML = r==='leader'?'全量数据 · 7赛道':'仅 <strong style="color:#1677ff">女装赛道</strong> 数据可见';
+  renderLanes(); renderProj(); renderFuchi(); renderCapa();
+  const cur = document.querySelector('.nav-item.active')?.dataset.page;
+  if (cur === 'audit') switchPage('audit');
+}
+
+function showModal(t,b){ document.getElementById('modalTitle').textContent = t; document.getElementById('modalBody').innerHTML = b; document.getElementById('modalMask').classList.add('show'); }
+function closeModal(){ document.getElementById('modalMask').classList.remove('show'); }
+
+function showLane(name){
+  const l = LANES.find(x => x.name === name);
+  showModal(l.name + ' 赛道作战室', `
+    <p><strong>负责人：</strong>${l.lead} · <strong>今日日耗：</strong>${l.daily}万 · <span class="pill ${l.status}">${l.status==='r'?'红色预警':l.status==='y'?'黄色关注':'绿色健康'}</span></p>
+    <p style="margin-top:10px"><strong>核心三件事：</strong></p>
+    ${l.three.map((x,i) => `<p style="margin:6px 0;color:#5a6b7e">${i+1}. ${x}</p>`).join('')}
+    <p style="margin-top:14px;color:#8a9aae;font-size:12px">💡 该赛道数据每日 09:00 自动刷新；点击预警条目可跳转对应作战室。</p>
+  `);
+}
+function showProj(idx){
+  const p = PROJ[idx];
+  const focusHtml = p.focus
+    ? `<div style="margin-top:12px;padding:12px;background:#fffbe6;border-left:3px solid #fa8c16;border-radius:6px">
+         <p style="margin-bottom:6px;font-weight:600;color:#fa8c16">⚠ 近期需大家关注事项</p>
+         <p style="white-space:pre-wrap;color:#5a6b7e;line-height:1.7">${p.focus}</p>
+       </div>` : '';
+  const linksArr = [];
+  if (p.docLink) linksArr.push(`<a href="${p.docLink}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;padding:6px 12px;background:#fffbe6;border:1px solid #ffe58f;color:#d48806;border-radius:14px;text-decoration:none;font-size:12px;margin-right:8px;margin-bottom:6px">📋 ${p.docLinkText||'腾讯文档'}</a>`);
+  if (p.dataLink) {
+    const isJiejin = p.dataLink.indexOf('jiejin903') >= 0;
+    const txt = isJiejin ? '跃迁监控看板' : 'adata 监控数据';
+    linksArr.push(`<a href="${p.dataLink}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;padding:6px 12px;background:#f0f5ff;border:1px solid #d6e4ff;color:#1677ff;border-radius:14px;text-decoration:none;font-size:12px;margin-right:8px;margin-bottom:6px;max-width:100%;word-break:break-all">📊 ${txt}</a>`);
+  }
+  const linksHtml = linksArr.length
+    ? `<div style="margin-top:12px;padding:12px;background:#f6f8fa;border-radius:6px">
+         <p style="font-weight:600;margin-bottom:8px;color:#1a2332">🔗 相关链接</p>
+         ${linksArr.join('')}
+       </div>` : '';
+  const noteHtml = p.dataNote
+    ? `<p style="margin-top:10px;padding:8px 12px;background:#fff2f0;border:1px solid #ffccc7;border-radius:6px;color:#cf1322;font-size:12px">⚠ 数据备注：${p.dataNote}</p>` : '';
+  showModal(p.name, `
+    <p><strong>类型：</strong><span class="pill b">${p.type}</span> · <strong>负责人：</strong>${p.owner}</p>
+    <p style="margin-top:10px"><strong>具体内容：</strong>${p.desc}</p>
+    <div style="margin-top:12px;padding:12px;background:#fafbfc;border-radius:8px;border:1px solid #e4e9f0">
+      <p style="margin-bottom:8px"><strong>🎯 核心目标：</strong>${p.target}</p>
+    </div>
+    <div style="margin-top:12px;padding:12px;background:#f6f8fa;border-radius:6px">
+      <p style="font-weight:600;margin-bottom:6px;color:#1a2332">📊 数据进展（sheet2 原文）</p>
+      <p style="white-space:pre-wrap;color:#1a2332;line-height:1.8">${p.progress}</p>
+      ${noteHtml}
+    </div>
+    ${focusHtml}
+    ${linksHtml}
+    <p style="margin-top:12px;color:#8a9aae;font-size:11px">数据来源：服饰运营作战地图信息汇总 · sheet2「关键项目」 · 同步时间 2026-06-08</p>
+  `);
+}
+
+function showAuditDetail(){
+  showModal('完整登录明细 · 今日', `
+    <p style="margin-bottom:12px"><strong style="color:#1a2332">汇总：</strong>登录次数 68 · 登录人数 23/27 · 人均停留 42分</p>
+    <table style="width:100%;border-collapse:collapse;font-size:12px">
+      <thead><tr style="background:#fafbfc"><th style="padding:10px;text-align:left;border-bottom:1px solid #e4e9f0">用户</th><th style="padding:10px;text-align:left;border-bottom:1px solid #e4e9f0">赛道</th><th style="padding:10px;text-align:right;border-bottom:1px solid #e4e9f0">登录次数</th><th style="padding:10px;text-align:right;border-bottom:1px solid #e4e9f0">总停留</th></tr></thead>
+      <tbody>
+        <tr><td style="padding:10px;border-bottom:1px solid #f0f2f5">金洁</td><td>全量</td><td style="text-align:right;font-family:monospace">3</td><td style="text-align:right;font-family:monospace">2h12m</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid #f0f2f5">张三</td><td>女装</td><td style="text-align:right;font-family:monospace">2</td><td style="text-align:right;font-family:monospace">1h05m</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid #f0f2f5">李四</td><td>男装</td><td style="text-align:right;font-family:monospace">2</td><td style="text-align:right;font-family:monospace">48m</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid #f0f2f5">王五</td><td>珠宝</td><td style="text-align:right;font-family:monospace">3</td><td style="text-align:right;font-family:monospace">1h32m</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid #f0f2f5">赵六</td><td>箱包鞋靴</td><td style="text-align:right;font-family:monospace">2</td><td style="text-align:right;font-family:monospace">55m</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid #f0f2f5">孙七</td><td>潮奢</td><td style="text-align:right;font-family:monospace">2</td><td style="text-align:right;font-family:monospace">1h18m</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid #f0f2f5">周八</td><td>贴身衣物</td><td style="text-align:right;font-family:monospace">2</td><td style="text-align:right;font-family:monospace">52m</td></tr>
+        <tr><td style="padding:10px">吴九</td><td>其他</td><td style="text-align:right;font-family:monospace">1</td><td style="text-align:right;font-family:monospace">25m</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:12px;color:#8a9aae;font-size:12px">💡 数据每日 23:59 重置，支持导出为 Excel</p>
+  `);
+}
+
+function toggleSb(){ document.getElementById('sidebar').classList.toggle('open'); }
+function toggleFs(){ if (!document.fullscreenElement) document.documentElement.requestFullscreen(); else document.exitFullscreen(); }
+
+function renderTrend(){
+  const wrap = document.getElementById('trendChart');
+  if (!wrap || wrap.dataset.rendered) return;
+  wrap.dataset.rendered = '1';
+  // 5/25-6/7 真实日均消耗（万元，按日期升序）
+  const data = [1205,1249,1322,1297,1271,1323,1276,1232,1254,1234,1273,1289,1395,1277];
+  const dates = ['5/25','5/26','5/27','5/28','5/29','5/30','5/31','6/1','6/2','6/3','6/4','6/5','6/6','6/7'];
+  const target = 1000;
+  const max = 1500;
+  const yAxis = `<div class="trend-y"><span>${max}</span><span>${Math.round(max*0.75)}</span><span>${Math.round(max*0.5)}</span><span>${Math.round(max*0.25)}</span><span>0</span></div>`;
+  const targetTop = (1 - target/max) * 100;
+  const bars = data.map((v,i) => {
+    const h = (v/max) * 100;
+    const left = (i / (data.length - 1)) * 96;
+    return `<div class="trend-bar" style="left:${left}%;height:${h}%" title="${dates[i]}: ${v}万"></div>`;
+  }).join('');
+  const xLabels = dates.filter((_,i)=>i%2===0||i===dates.length-1).map(d => `<span>${d}</span>`).join('');
+  wrap.innerHTML = `${yAxis}<div class="trend-area"><div class="trend-grid"></div>${bars}<div class="trend-line" style="top:${targetTop}%"></div></div><div class="trend-x">${xLabels}</div>`;
+}
+
+// 初始化
+renderLanes();
+renderProj();
+renderFuchi();
+renderCapa();
+renderTrend();
+</script>
+</body>
+</html>
