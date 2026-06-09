@@ -1368,67 +1368,106 @@ const CAT_COLOR_MAP = {
   '流量扶持':'or','产品扶持':'pp'
 };
 
+// 扶持信息筛选状态（null = 全部）
+// kind: 'group' | 'status'  val: 流量扶持/产品扶持 或 on/long/end
+let FUCHI_FILTER = null;
+function filterFuchi(kind, val){
+  if (FUCHI_FILTER && FUCHI_FILTER.kind === kind && FUCHI_FILTER.val === val) {
+    FUCHI_FILTER = null;
+  } else {
+    FUCHI_FILTER = {kind, val};
+  }
+  renderFuchi();
+}
+
 function renderFuchi(){
   const list = document.getElementById('fuchiList');
   const sumEl = document.getElementById('fuchi-sum');
   const groups = ['流量扶持','产品扶持'];
   const groupColor = {'流量扶持':'#fa8c16','产品扶持':'#722ed1'};
 
-  // 总览数据卡：5个数字（流量/产品/进行中/已结束/长期）
+  // 总览数据卡：5个数字（流量/产品/进行中/长期/已结束）— 可点击筛选
   const cnt = {liu:0,chan:0,on:0,end:0,long:0,soon:0};
   INFO_FUCHI.forEach(i => {
     if (i.group === '流量扶持') cnt.liu++; else cnt.chan++;
     cnt[getFuchiStatus(i).key]++;
   });
+  const isActive = (kind,val) => (FUCHI_FILTER && FUCHI_FILTER.kind===kind && FUCHI_FILTER.val===val) ? ' active' : '';
   sumEl.innerHTML = `
-    <div class="nc-sum-c or"><div class="lab">流量扶持</div><div class="v">${cnt.liu}</div><div class="sub">朋友圈/视频号/PCAD等</div></div>
-    <div class="nc-sum-c pp"><div class="lab">产品扶持</div><div class="v">${cnt.chan}</div><div class="sub">融合/小店/腾飞等</div></div>
-    <div class="nc-sum-c gn"><div class="lab">进行中</div><div class="v" style="color:#52c41a">${cnt.on}</div><div class="sub">需立即响应</div></div>
-    <div class="nc-sum-c bl"><div class="lab">长期有效</div><div class="v" style="color:#1677ff">${cnt.long}</div><div class="sub">持续关注</div></div>
-    <div class="nc-sum-c"><div class="lab">已结束</div><div class="v" style="color:#8a9aae">${cnt.end}</div><div class="sub">归档参考</div></div>`;
+    <div class="nc-sum-c clickable or${isActive('group','流量扶持')}" onclick="filterFuchi('group','流量扶持')" title="点击筛选 流量扶持（再次点击恢复全部）"><div class="lab">流量扶持</div><div class="v">${cnt.liu}</div><div class="sub">朋友圈/视频号/PCAD等</div></div>
+    <div class="nc-sum-c clickable pp${isActive('group','产品扶持')}" onclick="filterFuchi('group','产品扶持')" title="点击筛选 产品扶持（再次点击恢复全部）"><div class="lab">产品扶持</div><div class="v">${cnt.chan}</div><div class="sub">融合/小店/腾飞等</div></div>
+    <div class="nc-sum-c clickable gn${isActive('status','on')}" onclick="filterFuchi('status','on')" title="点击筛选 进行中（再次点击恢复全部）"><div class="lab">进行中</div><div class="v" style="color:#52c41a">${cnt.on}</div><div class="sub">需立即响应</div></div>
+    <div class="nc-sum-c clickable bl${isActive('status','long')}" onclick="filterFuchi('status','long')" title="点击筛选 长期有效（再次点击恢复全部）"><div class="lab">长期有效</div><div class="v" style="color:#1677ff">${cnt.long}</div><div class="sub">持续关注</div></div>
+    <div class="nc-sum-c clickable${isActive('status','end')}" onclick="filterFuchi('status','end')" title="点击筛选 已结束（再次点击恢复全部）"><div class="lab">已结束</div><div class="v" style="color:#8a9aae">${cnt.end}</div><div class="sub">归档参考</div></div>`;
   document.getElementById('cnt-fuchi').textContent = INFO_FUCHI.length;
 
   // 列表（按组 + 状态优先级排序：进行中 > 即将开始 > 长期 > 已结束）
   const orderKey = {on:0,soon:1,long:2,end:3};
   let html = '';
+
+  // 当前筛选状态提示
+  if (FUCHI_FILTER){
+    const labelMap = {on:'进行中',long:'长期有效',end:'已结束'};
+    const showLabel = FUCHI_FILTER.kind === 'group' ? FUCHI_FILTER.val : (labelMap[FUCHI_FILTER.val] || FUCHI_FILTER.val);
+    html += `<div style="margin-bottom:10px;padding:8px 14px;background:#f0f5ff;border:1px solid #d6e4ff;border-radius:8px;font-size:12px;color:#1677ff">
+      🔍 当前筛选：<strong>${showLabel}</strong> · <span style="color:#5a6b7e">点击上方分类卡可切换 / 再次点击恢复全部</span>
+      <span onclick="FUCHI_FILTER=null;renderFuchi()" style="float:right;cursor:pointer;color:#1677ff;font-weight:600">✕ 取消筛选</span>
+    </div>`;
+  }
+
+  const renderItem = i => {
+    const s = i._status;
+    const linksHtml = (i.links||[]).map(l =>
+      `<a href="${l.u}" target="_blank" rel="noopener" title="${l.t}">📎 ${l.t}</a>`
+    ).join('');
+    return `<div class="nc ${s.ncls}">
+      <div class="nc-l">
+        <span class="nc-stat ${s.cls}">${s.label}</span>
+        <span class="nc-period">📅 ${i.period}</span>
+      </div>
+      <div class="nc-c">
+        <span class="nc-cat ${CAT_COLOR_MAP[i.group]||'bl'}">${i.group}</span>
+        <div class="nc-name">${i.name}</div>
+        <div class="nc-desc"><strong style="color:#1a2332">扶持对象：</strong>${i.target}<br><strong style="color:#1a2332">配合要求：</strong>${i.require}</div>
+        ${i.extra ? `<div class="nc-extra">📌 ${i.extra}</div>` : ''}
+      </div>
+      <div class="nc-r">${linksHtml || '<span style="font-size:11px;color:#bfbfbf">暂无链接</span>'}</div>
+    </div>`;
+  };
+
   groups.forEach(g => {
-    const items = INFO_FUCHI.filter(i => i.group === g)
+    // group 维度筛选：跳过非选中组
+    if (FUCHI_FILTER && FUCHI_FILTER.kind === 'group' && FUCHI_FILTER.val !== g) return;
+
+    let items = INFO_FUCHI.filter(i => i.group === g)
       .map(i => ({...i, _status:getFuchiStatus(i)}))
       .sort((a,b) => orderKey[a._status.key] - orderKey[b._status.key]);
+
+    // status 维度筛选：只保留对应状态的项
+    if (FUCHI_FILTER && FUCHI_FILTER.kind === 'status') {
+      items = items.filter(i => i._status.key === FUCHI_FILTER.val);
+    }
+
     if (!items.length) return;
     html += `<div class="nc-group-h">
       <span class="nc-bar" style="background:${groupColor[g]}"></span>
       ${g}
       <span class="nc-cnt">· ${items.length} 项</span>
     </div>`;
-    const renderItem = i => {
-      const s = i._status;
-      const linksHtml = (i.links||[]).map(l =>
-        `<a href="${l.u}" target="_blank" rel="noopener" title="${l.t}">📎 ${l.t}</a>`
-      ).join('');
-      return `<div class="nc ${s.ncls}">
-        <div class="nc-l">
-          <span class="nc-stat ${s.cls}">${s.label}</span>
-          <span class="nc-period">📅 ${i.period}</span>
-        </div>
-        <div class="nc-c">
-          <span class="nc-cat ${CAT_COLOR_MAP[g]||'bl'}">${g}</span>
-          <div class="nc-name">${i.name}</div>
-          <div class="nc-desc"><strong style="color:#1a2332">扶持对象：</strong>${i.target}<br><strong style="color:#1a2332">配合要求：</strong>${i.require}</div>
-          ${i.extra ? `<div class="nc-extra">📌 ${i.extra}</div>` : ''}
-        </div>
-        <div class="nc-r">${linksHtml || '<span style="font-size:11px;color:#bfbfbf">暂无链接</span>'}</div>
-      </div>`;
-    };
-    // 将"已结束"的扶持折叠收起
-    const activeItems = items.filter(i => i._status.key !== 'end');
-    const endedItems  = items.filter(i => i._status.key === 'end');
-    html += activeItems.map(renderItem).join('');
-    if (endedItems.length) {
-      html += `<details class="nc-ended-box">
-        <summary class="nc-ended-sum">📦 已结束扶持 · ${endedItems.length} 项 <span class="nc-ended-hint">点击展开查看历史</span></summary>
-        <div class="nc-ended-list">${endedItems.map(renderItem).join('')}</div>
-      </details>`;
+
+    // 状态筛选时不再折叠（用户主动想看），其他情况已结束依然折叠
+    if (FUCHI_FILTER && FUCHI_FILTER.kind === 'status') {
+      html += items.map(renderItem).join('');
+    } else {
+      const activeItems = items.filter(i => i._status.key !== 'end');
+      const endedItems  = items.filter(i => i._status.key === 'end');
+      html += activeItems.map(renderItem).join('');
+      if (endedItems.length) {
+        html += `<details class="nc-ended-box">
+          <summary class="nc-ended-sum">📦 已结束扶持 · ${endedItems.length} 项 <span class="nc-ended-hint">点击展开查看历史</span></summary>
+          <div class="nc-ended-list">${endedItems.map(renderItem).join('')}</div>
+        </details>`;
+      }
     }
   });
   list.innerHTML = html;
