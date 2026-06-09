@@ -440,7 +440,7 @@ body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;backgr
     <div class="nav-item active" data-page="dashboard" onclick="switchPage('dashboard')"><span class="nav-icon">📊</span><span>消耗 &amp; OKR进展</span></div>
     <div class="nav-item" data-page="project" onclick="switchPage('project')"><span class="nav-icon">🎯</span><span>核心专项</span></div>
     <div class="nav-item" data-page="info" onclick="switchPage('info')"><span class="nav-icon">📡</span><span>信息通知中心</span></div>
-    <div class="nav-item" data-page="audit" onclick="switchPage('audit')"><span class="nav-icon">🛡</span><span>系统使用情况</span></div>
+
     <div style="margin-top:30px;padding:0 20px">
       <div style="font-size:11px;color:#8a9aae;margin-bottom:10px;letter-spacing:1px">— 我的赛道 —</div>
       <div style="font-size:12px;color:#5a6b7e;line-height:2" id="myLanes">全量数据 · 7赛道</div>
@@ -727,29 +727,7 @@ body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;backgr
       </div>
     </div>
 
-    <!-- Tab 5: 系统使用情况（简化版） -->
-    <div class="page" id="page-audit">
-      <div class="page-title">
-        <div><h2>系统使用情况</h2><div class="bcb">登录情况 · 使用时长</div></div>
-        <div class="fbar"><span class="ftag active">今日</span><span class="ftag">近7天</span><span class="ftag">近30天</span></div>
-      </div>
-      <div class="kg">
-        <div class="kpi"><div class="k-l">今日登录次数</div><div class="k-v">68</div><div class="k-t up">▲ 12% vs 昨日</div></div>
-        <div class="kpi"><div class="k-l">今日登录人数</div><div class="k-v">23<span style="font-size:14px;color:#8a9aae">/27</span></div><div class="k-t up">85.2% 在线率</div></div>
-        <div class="kpi"><div class="k-l">人均停留时长</div><div class="k-v">42<span style="font-size:14px;color:#8a9aae">分</span></div><div class="k-t up">▲ 8分 vs 昨日</div></div>
-        <div class="kpi"><div class="k-l">总使用时长</div><div class="k-v">16.1<span style="font-size:14px;color:#8a9aae">小时</span></div><div class="k-t up">活跃度健康</div></div>
-      </div>
-      <div class="card">
-        <div class="ct"><span class="ind"></span>登录明细<span class="cs"><span style="cursor:pointer;color:#1677ff" onclick="showAuditDetail()">查看完整明细 →</span></span></div>
-        <div class="audit-row h"><span>登录时间</span><span>用户</span><span>赛道</span><span>停留</span><span>访问模块</span></div>
-        <div class="audit-row"><span style="font-family:monospace">06-08 09:02</span><span>金洁</span><span><span class="pill b">全量</span></span><span style="font-family:monospace;color:#52c41a">58分</span><span style="color:#5a6b7e">消耗&amp;OKR · 核心专项 · 信息中心</span></div>
-        <div class="audit-row"><span style="font-family:monospace">06-08 09:15</span><span>张三</span><span><span class="pill b">女装</span></span><span style="font-family:monospace;color:#52c41a">45分</span><span style="color:#5a6b7e">消耗&amp;OKR · 核心专项</span></div>
-        <div class="audit-row"><span style="font-family:monospace">06-08 09:30</span><span>李四</span><span><span class="pill b">男装</span></span><span style="font-family:monospace;color:#faad14">28分</span><span style="color:#5a6b7e">消耗&amp;OKR · 信息中心</span></div>
-        <div class="audit-row"><span style="font-family:monospace">06-08 10:02</span><span>王五</span><span><span class="pill b">珠宝</span></span><span style="font-family:monospace;color:#52c41a">62分</span><span style="color:#5a6b7e">消耗&amp;OKR · 核心专项 · 信息中心</span></div>
-        <div class="audit-row"><span style="font-family:monospace">06-08 10:18</span><span>赵六</span><span><span class="pill b">箱包鞋靴</span></span><span style="font-family:monospace;color:#faad14">35分</span><span style="color:#5a6b7e">消耗&amp;OKR · 信息中心</span></div>
-        <div class="audit-row"><span style="font-family:monospace">06-08 10:45</span><span>孙七</span><span><span class="pill b">潮奢</span></span><span style="font-family:monospace;color:#52c41a">52分</span><span style="color:#5a6b7e">消耗&amp;OKR · 核心专项</span></div>
-      </div>
-    </div>
+    <!-- Tab 5: 系统使用情况 已下线 -->
 
   </main>
 </div>
@@ -1449,25 +1427,7 @@ function showProj(idx){
   `);
 }
 
-function showAuditDetail(){
-  showModal('完整登录明细 · 今日', `
-    <p style="margin-bottom:12px"><strong style="color:#1a2332">汇总：</strong>登录次数 68 · 登录人数 23/27 · 人均停留 42分</p>
-    <table style="width:100%;border-collapse:collapse;font-size:12px">
-      <thead><tr style="background:#fafbfc"><th style="padding:10px;text-align:left;border-bottom:1px solid #e4e9f0">用户</th><th style="padding:10px;text-align:left;border-bottom:1px solid #e4e9f0">赛道</th><th style="padding:10px;text-align:right;border-bottom:1px solid #e4e9f0">登录次数</th><th style="padding:10px;text-align:right;border-bottom:1px solid #e4e9f0">总停留</th></tr></thead>
-      <tbody>
-        <tr><td style="padding:10px;border-bottom:1px solid #f0f2f5">金洁</td><td>全量</td><td style="text-align:right;font-family:monospace">3</td><td style="text-align:right;font-family:monospace">2h12m</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid #f0f2f5">张三</td><td>女装</td><td style="text-align:right;font-family:monospace">2</td><td style="text-align:right;font-family:monospace">1h05m</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid #f0f2f5">李四</td><td>男装</td><td style="text-align:right;font-family:monospace">2</td><td style="text-align:right;font-family:monospace">48m</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid #f0f2f5">王五</td><td>珠宝</td><td style="text-align:right;font-family:monospace">3</td><td style="text-align:right;font-family:monospace">1h32m</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid #f0f2f5">赵六</td><td>箱包鞋靴</td><td style="text-align:right;font-family:monospace">2</td><td style="text-align:right;font-family:monospace">55m</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid #f0f2f5">孙七</td><td>潮奢</td><td style="text-align:right;font-family:monospace">2</td><td style="text-align:right;font-family:monospace">1h18m</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid #f0f2f5">周八</td><td>贴身衣物</td><td style="text-align:right;font-family:monospace">2</td><td style="text-align:right;font-family:monospace">52m</td></tr>
-        <tr><td style="padding:10px">吴九</td><td>其他</td><td style="text-align:right;font-family:monospace">1</td><td style="text-align:right;font-family:monospace">25m</td></tr>
-      </tbody>
-    </table>
-    <p style="margin-top:12px;color:#8a9aae;font-size:12px">💡 数据每日 23:59 重置，支持导出为 Excel</p>
-  `);
-}
+function showAuditDetail(){ /* deprecated */ }
 
 function toggleSb(){ document.getElementById('sidebar').classList.toggle('open'); }
 function toggleFs(){ if (!document.fullscreenElement) document.documentElement.requestFullscreen(); else document.exitFullscreen(); }
