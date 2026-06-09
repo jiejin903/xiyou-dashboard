@@ -96,8 +96,9 @@ body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;backgr
 /* OKR双列网格 */
 .okr-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 26px;padding:6px 4px 0}
 
-/* 七大赛道 lane 三列布局（首页紧凑展示） */
+/* 10个子赛道 lane 三列布局（首页紧凑展示） */
 .lg{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.lc-cnt{display:inline-block;padding:2px 8px;background:#f0f5ff;color:#1677ff;font-size:11px;font-weight:600;border-radius:10px;border:1px solid #d9e8ff}
 
 @media (max-width: 768px){
   .kpi-tbl{font-size:11px}
@@ -654,13 +655,13 @@ details[open] .nc-ended-sum::before{transform:rotate(90deg)}
         <span class="sec-num">03</span>
         <div class="sec-info">
           <h3>运营核心3件事</h3>
-          <p>七大赛道差异化作战 · 每条赛道聚焦最关键的3件事</p>
+          <p>10 个子赛道差异化作战 · 每条赛道聚焦最关键的 3 件事</p>
         </div>
         <span class="sec-tag">点击赛道查看详情</span>
       </div>
 
       <div class="card" style="margin-bottom:14px">
-        <div class="ct"><span class="ind"></span>七大赛道 · 核心3件事进展<span class="cs">👗 女装 / 👔 男装 / 💎 珠宝配饰 / 👜 箱包鞋靴 / ✨ 潮奢跑品 / 👙 贴身衣物 / 🏃 其他</span></div>
+        <div class="ct"><span class="ind"></span>10 个子赛道 · 核心 3 件事进展<span class="cs">👙 贴身衣物 / 🏃 运动户外 / 👔 男装 / 👗 女装 / 👜 箱包鞋靴 / 💎 珠宝配饰 / 💍 潮奢珠宝腕表 / 👟 潮奢鞋服 / 🏷️ 本土鞋服-品牌 / ⚽ 运动户外-品牌</span></div>
         <div class="lg" id="laneGrid"></div>
       </div>
     </div>
@@ -799,14 +800,58 @@ details[open] .nc-ended-sum::before{transform:rotate(90deg)}
 
 <script>
 const LANES = [
-  // 数据来源：作战地图 sheet1「3、各赛道核心三件事」· daily/status/lead 仍为占位，待补对应日耗
-  {name:'👗 女装',daily:184,status:'r',three:['标品提收','ADQ-全域通双投','腰尾部客户跃迁'],lead:'张三'},
-  {name:'👔 男装',daily:138,status:'y',three:['和KA销售一起做好头部客户服务，做大存量盘','腰部客户跃迁','联动拓新组拓新（小店直购链路提收）'],lead:'李四'},
-  {name:'💎 珠宝配饰',daily:96,status:'r',three:['标品 · 品类拓展','ADQ和QYT双投率','腰尾部商家运营'],lead:'王五'},
-  {name:'👜 箱包鞋靴',daily:118,status:'y',three:['客户拓展（抖音高付费100 + 全域通高消耗100）','节点营销','腰尾部客户跃迁'],lead:'赵六'},
-  {name:'✨ 潮奢跑品',daily:142,status:'g',three:['潮奢珠宝腕表：小店闭环 / 直购&导购提收 / 品宣&加粉提收','潮奢鞋服：直购推动 / 事件营销 / 流量版位覆盖','本土&运动品牌：闭环提收 + 高GMV低TR投流引入'],lead:'孙七'},
-  {name:'👙 贴身衣物',daily:78,status:'g',three:['头部客户挽回和提收','腰尾部客户跃迁和服务','袜子 / 睡衣类目拓品拓客'],lead:'周八'},
-  {name:'🏃 其他',daily:36,status:'y',three:['运动户外：头客收入挽回','运动户外：腰尾部客户跃迁到头部','运动户外：运动用品产业带拓客'],lead:'吴九'},
+  // 数据来源：作战地图 sheet1「3、各赛道核心三件事」严格对齐原文（10个子赛道，不合并）
+  {name:'👙 贴身衣物',three:[
+    '头部客户挽回和提收',
+    '腰尾部客户跃迁和服务',
+    '袜子 / 睡衣类目拓品拓客',
+  ]},
+  {name:'🏃 运动户外',three:[
+    '头客收入挽回',
+    '腰尾部客户跃迁到头部',
+    '运动用品产业带拓客',
+  ]},
+  {name:'👔 男装',three:[
+    '和 KA 销售一起做好头部客户服务，做大存量盘',
+    '腰部客户跃迁',
+    '联动拓新组拓新',
+    '小店直购链路提收',
+  ]},
+  {name:'👗 女装',three:[
+    '标品提收',
+    'ADQ-全域通双投',
+    '腰尾部客户跃迁',
+  ]},
+  {name:'👜 箱包鞋靴',three:[
+    '客户拓展（抖音高付费客户100、全域通高消耗客户100）',
+    '节点营销',
+    '腰尾部客户跃迁',
+  ]},
+  {name:'💎 珠宝配饰',three:[
+    '标品-品类拓展',
+    'ADQ 和 QYT 双投率',
+    '腰尾部商家运营',
+  ]},
+  {name:'💍 潮奢珠宝腕表',three:[
+    '小店闭环',
+    '直购 & 导购提收',
+    '品宣 & 加粉提收',
+  ]},
+  {name:'👟 潮奢鞋服',three:[
+    '直购推动',
+    '事件营销',
+    '流量版位覆盖',
+  ]},
+  {name:'🏷️ 本土鞋服-品牌',three:[
+    '品牌闭环提收',
+    '高 GMV 低 TR 商家投流引入',
+    '会员全生命周期运营',
+  ]},
+  {name:'⚽ 运动户外-品牌',three:[
+    '原生内容推广 + 互选',
+    '闭环：dp 模式攻坚 / 好友日 bigday 跟进',
+    '小程序新玩法提收：品类营销 + 自造节',
+  ]},
 ];
 /* 专项数据 · 数据来源：服饰运营作战地图信息汇总 sheet2「关键项目」 · 复核更新于 2026-06-08
    字段口径全部对齐 sheet2 原文，已删除编造的"推进度数字" */
@@ -1203,7 +1248,7 @@ function renderLanes(){
   const lanes = LANES;
   grid.innerHTML = lanes.map(l => `
     <div class="lc" onclick="showLane('${l.name}')">
-      <div class="lh"><span class="ln">${l.name}</span><span class="pill ${l.status}">${l.status==='r'?'红':l.status==='y'?'黄':'绿'} · 日耗 ${l.daily}万</span></div>
+      <div class="lh"><span class="ln">${l.name}</span><span class="lc-cnt">${l.three.length} 件事</span></div>
       <div class="lt">${l.three.map((x,i)=>`<div class="it"><span class="num">${i+1}</span><span>${x}</span></div>`).join('')}</div>
     </div>`).join('');
 }
