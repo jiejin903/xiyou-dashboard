@@ -511,7 +511,7 @@ body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;backgr
 
       <!-- 1.2 分天消耗走势 -->
       <div class="card" style="margin-bottom:18px">
-        <div class="ct"><span class="ind"></span>分天消耗走势<span class="cs">单位：万元/日 · 红线为日均 OKR 目标 1000万</span></div>
+        <div class="ct"><span class="ind"></span>分天消耗走势<span class="cs">单位：万元/日</span></div>
         <div class="trend-chart" id="trendChart"></div>
       </div>
 
@@ -1502,7 +1502,7 @@ function renderTrend(){
     return `<div class="trend-bar" style="left:${left}%;height:${h}%" title="${dates[i]}: ${v}万"></div>`;
   }).join('');
   const xLabels = dates.filter((_,i)=>i%2===0||i===dates.length-1).map(d => `<span>${d}</span>`).join('');
-  wrap.innerHTML = `${yAxis}<div class="trend-area"><div class="trend-grid"></div>${bars}<div class="trend-line" style="top:${targetTop}%"></div></div><div class="trend-x">${xLabels}</div>`;
+  wrap.innerHTML = `${yAxis}<div class="trend-area"><div class="trend-grid"></div>${bars}</div><div class="trend-x">${xLabels}</div>`;
 }
 
 // 初始化
