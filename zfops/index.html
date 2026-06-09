@@ -168,6 +168,9 @@ body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;backgr
 .lm strong{color:#1677ff;font-family:monospace}
 
 .pg{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.pt-tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;padding:10px 12px;background:#f8fafd;border-radius:8px;border:1px solid #eef2f7}
+.pt-tab{padding:9px 18px;font-size:14px;font-weight:600;border-radius:8px;cursor:pointer;transition:.2s;display:inline-flex;align-items:center;gap:8px;border:1px solid transparent;white-space:nowrap}
+.pt-tab .pt-cnt{padding:1px 7px;font-size:11px;border-radius:8px;font-weight:600}
 .pc{background:#fff;border:1px solid #e4e9f0;border-radius:10px;padding:18px 18px 16px;cursor:pointer;transition:.2s;display:flex;flex-direction:column}
 .pc:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(22,119,255,.1)}
 .pc.urg{border-left:4px solid #f5222d}
@@ -718,7 +721,8 @@ details[open] .nc-ended-sum::before{transform:rotate(90deg)}
 
       <!-- 2.1 专项卡 -->
       <div class="card">
-        <div class="ct"><span class="ind"></span>专项卡<span class="cs"><a href="https://doc.weixin.qq.com/sheet/e3_AOQALQY-AEkCNm8moA15DQNK9IBXt?scode=AJEAIQdfAAoFHR5ry5AcMAVgawADc&tab=6mn0mw" target="_blank" rel="noopener" style="color:#1677ff;text-decoration:none;border-bottom:1px dashed rgba(22,119,255,.4)">📄 数据来源：sheet2 · 数据进展原文（点击跳转）</a> · 弹窗内含「近期需关注事项」「数据看板链接」</span></div>
+        <div class="ct"><span class="ind"></span>专项卡<span class="cs"><a href="https://doc.weixin.qq.com/sheet/e3_AOQALQY-AEkCNm8moA15DQNK9IBXt?scode=AJEAIQdfAAoFHR5ry5AcMAVgawADc&tab=6mn0mw" target="_blank" rel="noopener" style="color:#1677ff;text-decoration:none;border-bottom:1px dashed rgba(22,119,255,.4)">📄 数据来源：sheet2 · 数据进展原文（点击跳转）</a> · 切换下方按钮查看不同类型专项</span></div>
+        <div class="pt-tabs" id="projTabs"></div>
         <div class="pg" id="projGrid" style="display:block;gap:0"></div>
       </div>
     </div>
@@ -1261,64 +1265,74 @@ function renderLanes(){
     </div>`).join('');
 }
 
+let currentProjType = '提消耗';
+
+function switchProjType(t){
+  currentProjType = t;
+  renderProj();
+}
+
 function renderProj(){
   const grid = document.getElementById('projGrid');
+  const tabsBox = document.getElementById('projTabs');
   // 按业务类型分组（提消耗 / 基础必备 / 组织发展 / 新机会测试）
   const TYPE_ORDER = ['提消耗','基础必备','组织发展','新机会测试'];
   const TYPE_COLOR = {'提消耗':'#f5222d','基础必备':'#1677ff','组织发展':'#722ed1','新机会测试':'#13c2c2'};
   const TYPE_BG    = {'提消耗':'#fff1f0','基础必备':'#e6f4ff','组织发展':'#f9f0ff','新机会测试':'#e6fffb'};
-  // 数据进展摘要（取前 60 字 + 省略号，可指定长度）
-  const summarize = (s, n=60) => {
-    if (!s) return '';
-    const first = s.split('\n')[0];
-    return first.length > n ? first.slice(0,n) + '…' : first;
-  };
-  // focus 摘要 · 多行合并为单行 · 长度可控
-  const focusBrief = (s, n=120) => {
-    if (!s) return '';
-    const oneLine = s.replace(/\n+/g,' / ').replace(/\s+/g,' ').trim();
-    return oneLine.length > n ? oneLine.slice(0,n) + '…' : oneLine;
-  };
-  let list = PROJ;
-  let html = '';
-  TYPE_ORDER.forEach(t => {
-    const items = list.filter(p => p.type === t);
-    if (!items.length) return;
-    html += `<div class="proj-type-h" style="margin:24px 0 14px;display:flex;align-items:center;gap:10px;font-size:18px;font-weight:700;color:${TYPE_COLOR[t]}">
-      <span style="display:inline-block;width:6px;height:22px;background:${TYPE_COLOR[t]};border-radius:3px"></span>
+  const TYPE_ICON  = {'提消耗':'🔥','基础必备':'📌','组织发展':'🚀','新机会测试':'🧪'};
+  const escNL = s => (s||'').replace(/\n/g,'<br>');
+
+  // ====== 渲染按钮 ======
+  tabsBox.innerHTML = TYPE_ORDER.map(t => {
+    const cnt = PROJ.filter(p => p.type === t).length;
+    if (!cnt) return '';
+    const isActive = (t === currentProjType);
+    const style = isActive
+      ? `background:linear-gradient(135deg,${TYPE_COLOR[t]},${TYPE_COLOR[t]}cc);color:#fff;border-color:${TYPE_COLOR[t]};box-shadow:0 4px 12px ${TYPE_COLOR[t]}33`
+      : `background:#fff;color:${TYPE_COLOR[t]};border-color:${TYPE_COLOR[t]}55`;
+    const cntStyle = isActive
+      ? `background:rgba(255,255,255,.25);color:#fff`
+      : `background:${TYPE_BG[t]};color:${TYPE_COLOR[t]}`;
+    return `<div class="pt-tab" onclick="switchProjType('${t}')" style="${style}">
+      <span style="font-size:15px">${TYPE_ICON[t]}</span>
       <span>${t}</span>
-      <span style="display:inline-flex;align-items:center;padding:2px 10px;background:${TYPE_BG[t]};border:1px solid ${TYPE_COLOR[t]}33;border-radius:10px;font-size:12px;color:${TYPE_COLOR[t]};font-weight:600">${items.length} 个专项</span>
+      <span class="pt-cnt" style="${cntStyle}">${cnt}</span>
     </div>`;
-    html += '<div class="pg">' + items.map((p) => {
-      const idx = PROJ.indexOf(p);
-      const links = [];
-      if (p.docLink) links.push(`<a class="doc" href="${p.docLink}" target="_blank" rel="noopener" onclick="event.stopPropagation()" title="${p.docLinkText||'腾讯文档'}">📋 ${p.docLinkText||'腾讯文档'}</a>`);
-      if (p.dataLink) {
-        const isJiejin = p.dataLink.indexOf('jiejin903') >= 0;
-        const txt = isJiejin ? '跃迁监控看板' : 'adata 监控';
-        links.push(`<a href="${p.dataLink}" target="_blank" rel="noopener" onclick="event.stopPropagation()" title="${p.dataLink}">📊 ${txt}</a>`);
-      }
-      return `<div class="pc ${p.cls}" style="border-left:4px solid ${TYPE_COLOR[t]}" onclick="showProj(${idx})">
-        <div class="ph">
-          <span class="pn">${p.name}</span>
-          <span class="ps" style="background:${TYPE_BG[t]};color:${TYPE_COLOR[t]};border:1px solid ${TYPE_COLOR[t]}33;padding:3px 9px;border-radius:10px;font-size:11px;font-weight:600;white-space:nowrap">${t}</span>
-        </div>
-        <div class="pd" style="font-size:13px;color:#5a6b7e;line-height:1.6;margin:6px 0 10px">${p.desc}</div>
-        <div style="padding:10px 12px;background:#fafbfc;border-radius:6px;font-size:12px;color:#5a6b7e;line-height:1.7">
-          <div style="margin-bottom:6px"><span style="color:#8a9aae">🎯 核心目标 </span><strong style="color:#1a2332">${p.target}</strong></div>
-          <div><span style="color:#8a9aae">📊 数据进展 </span><span style="color:#1a2332">${summarize(p.progress)}</span></div>
-        </div>
-        ${p.focus ? `<div style="margin-top:8px;padding:10px 12px;background:#fffbe6;border:1px solid #ffe58f;border-radius:6px;font-size:12px;line-height:1.7">
-          <div style="font-weight:700;color:#d48806;margin-bottom:4px;display:flex;align-items:center;gap:6px"><span>⚠️</span><span>近期需关注</span></div>
-          <div style="color:#874d00">${focusBrief(p.focus, 130)}</div>
-        </div>` : ''}
-        <div class="pc-link">
-          <span style="display:inline-flex;align-items:center;padding:5px 10px;background:#f4f6fa;border-radius:14px;color:#5a6b7e;font-size:11px">👤 ${p.owner}</span>
-          ${links.join('')}
-        </div>
-      </div>`;
-    }).join('') + '</div>';
-  });
+  }).join('');
+
+  // ====== 渲染当前类型卡片 ======
+  const t = currentProjType;
+  const items = PROJ.filter(p => p.type === t);
+
+  let html = '<div class="pg">' + items.map((p) => {
+    const links = [];
+    if (p.docLink) links.push(`<a class="doc" href="${p.docLink}" target="_blank" rel="noopener" title="${p.docLinkText||'腾讯文档'}">📋 ${p.docLinkText||'腾讯文档'}</a>`);
+    if (p.dataLink) {
+      const isJiejin = p.dataLink.indexOf('jiejin903') >= 0;
+      const txt = isJiejin ? '跃迁监控看板' : 'adata 监控';
+      links.push(`<a href="${p.dataLink}" target="_blank" rel="noopener" title="${p.dataLink}">📊 ${txt}</a>`);
+    }
+    return `<div class="pc ${p.cls}" style="border-left:4px solid ${TYPE_COLOR[t]};cursor:default">
+      <div class="ph">
+        <span class="pn">${p.name}</span>
+        <span class="ps" style="background:${TYPE_BG[t]};color:${TYPE_COLOR[t]};border:1px solid ${TYPE_COLOR[t]}33;padding:3px 9px;border-radius:10px;font-size:11px;font-weight:600;white-space:nowrap">${t}</span>
+      </div>
+      <div class="pd" style="font-size:13px;color:#5a6b7e;line-height:1.6;margin:6px 0 10px">${p.desc}</div>
+      <div style="padding:10px 12px;background:#fafbfc;border-radius:6px;font-size:12px;color:#5a6b7e;line-height:1.7">
+        <div style="margin-bottom:8px"><span style="color:#8a9aae">🎯 核心目标 </span><strong style="color:#1a2332">${p.target}</strong></div>
+        <div><span style="color:#8a9aae">📊 数据进展</span><br><span style="color:#1a2332">${escNL(p.progress)}</span></div>
+        ${p.dataNote ? `<div style="margin-top:8px;padding:6px 8px;background:#fff7e6;border-left:2px solid #fa8c16;color:#d46b08;font-size:11px;border-radius:3px">⚠️ ${p.dataNote}</div>` : ''}
+      </div>
+      ${p.focus ? `<div style="margin-top:8px;padding:10px 12px;background:#fffbe6;border:1px solid #ffe58f;border-radius:6px;font-size:12px;line-height:1.7">
+        <div style="font-weight:700;color:#d48806;margin-bottom:6px;display:flex;align-items:center;gap:6px"><span>⚠️</span><span>近期需关注</span></div>
+        <div style="color:#874d00">${escNL(p.focus)}</div>
+      </div>` : ''}
+      <div class="pc-link">
+        <span style="display:inline-flex;align-items:center;padding:5px 10px;background:#f4f6fa;border-radius:14px;color:#5a6b7e;font-size:11px">👤 ${p.owner}</span>
+        ${links.join('')}
+      </div>
+    </div>`;
+  }).join('') + '</div>';
   grid.innerHTML = html;
 }
 
