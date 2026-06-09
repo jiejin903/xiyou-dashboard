@@ -268,7 +268,14 @@ details[open] .nc-ended-sum::before{transform:rotate(90deg)}
 .nc-group-h .nc-cnt{font-size:11px;color:#8a9aae;font-weight:400}
 /* 总览数据卡 */
 .nc-sum{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:10px}
-.nc-sum-c{background:#fff;border:1px solid #e4e9f0;border-radius:10px;padding:14px;text-align:center;border-top:3px solid #1677ff}
+.nc-sum-c{background:#fff;border:1px solid #e4e9f0;border-radius:10px;padding:14px;text-align:center;border-top:3px solid #1677ff;transition:all .2s}
+.nc-sum-c.clickable{cursor:pointer}
+.nc-sum-c.clickable:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(22,119,255,.12)}
+.nc-sum-c.active{background:#f0f5ff;border-color:#1677ff;box-shadow:0 4px 12px rgba(22,119,255,.18);transform:translateY(-2px)}
+.nc-sum-c.active.or{background:#fff7e6;border-color:#fa8c16;box-shadow:0 4px 12px rgba(250,140,22,.18)}
+.nc-sum-c.active.gn{background:#f6ffed;border-color:#52c41a;box-shadow:0 4px 12px rgba(82,196,26,.18)}
+.nc-sum-c.active.pp{background:#f9f0ff;border-color:#722ed1;box-shadow:0 4px 12px rgba(114,46,209,.18)}
+.nc-sum-c.active.cy{background:#e6fffb;border-color:#13c2c2;box-shadow:0 4px 12px rgba(19,194,194,.18)}
 .nc-sum-c.or{border-top-color:#fa8c16}
 .nc-sum-c.bl{border-top-color:#1677ff}
 .nc-sum-c.gn{border-top-color:#52c41a}
@@ -1431,6 +1438,13 @@ function renderFuchi(){
   if (srcEl) srcEl.innerHTML = `<a href="${INFO_FUCHI_SRC}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">📄 数据来源：扶持信息汇总（点击跳转）</a>`;
 }
 
+// 产品能力筛选状态（null = 全部）
+let CAPA_FILTER = null;
+function filterCapa(g){
+  CAPA_FILTER = (g === null) ? null : (CAPA_FILTER === g ? null : g);
+  renderCapa();
+}
+
 function renderCapa(){
   const list = document.getElementById('capaList');
   const sumEl = document.getElementById('capa-sum');
@@ -1439,13 +1453,13 @@ function renderCapa(){
   const groupCntMap = {};
   INFO_CAPA.forEach(i => groupCntMap[i.group] = (groupCntMap[i.group]||0)+1);
 
-  // 总览：5 个分类卡
+  // 总览：5 个分类卡（可点击筛选）
   sumEl.innerHTML = groups.map(g => {
     const cls = CAT_COLOR_MAP[g] || 'bl';
-    return `<div class="nc-sum-c ${cls}">
+    const active = (CAPA_FILTER === g) ? ' active' : '';
+    return `<div class="nc-sum-c clickable ${cls}${active}" onclick="filterCapa('${g}')" title="点击筛选 ${g}（再次点击恢复全部）">
       <div class="lab">${g}</div>
       <div class="v" style="color:${groupColor[g]}">${groupCntMap[g]||0}</div>
-      <div class="sub">sheet 项数</div>
     </div>`;
   }).join('');
   document.getElementById('cnt-capa').textContent = INFO_CAPA.length;
@@ -1472,18 +1486,27 @@ function renderCapa(){
     </div>`;
   };
 
-  // 列表
+  // 列表（支持按分类筛选）
   let html = '';
 
-  // 置顶项优先（pin:true）
-  const pinnedItems = INFO_CAPA.filter(i => i.pin);
+  // 当前筛选状态提示
+  if (CAPA_FILTER){
+    html += `<div style="margin-bottom:10px;padding:8px 14px;background:#f0f5ff;border:1px solid #d6e4ff;border-radius:8px;font-size:12px;color:#1677ff">
+      🔍 当前筛选：<strong>${CAPA_FILTER}</strong> · <span style="color:#5a6b7e">点击上方分类卡可切换 / 再次点击恢复全部</span>
+      <span onclick="filterCapa(null)" style="float:right;cursor:pointer;color:#1677ff;font-weight:600">✕ 取消筛选</span>
+    </div>`;
+  }
+
+  // 置顶项优先（pin:true，按筛选过滤）
+  const pinnedItems = INFO_CAPA.filter(i => i.pin && (!CAPA_FILTER || i.group === CAPA_FILTER));
   if (pinnedItems.length){
     html += `<div class="nc-pin-h">📌 置顶 · 重点关注 <span style="font-weight:400;color:#8a9aae;font-size:11px">· ${pinnedItems.length} 项</span></div>`;
     html += pinnedItems.map(i => renderItem(i, {pinned:true})).join('');
   }
 
-  // 按分组渲染（保持完整性，置顶项也保留在原分组中）
+  // 按分组渲染（按筛选过滤；置顶项也保留在原分组中）
   groups.forEach(g => {
+    if (CAPA_FILTER && g !== CAPA_FILTER) return;
     const items = INFO_CAPA.filter(i => i.group === g);
     if (!items.length) return;
     html += `<div class="nc-group-h">
