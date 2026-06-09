@@ -650,7 +650,7 @@ body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;backgr
       </div>
 
       <div class="card" style="margin-bottom:14px">
-        <div class="ct"><span class="ind"></span>七大赛道 · 核心3件事进展<span class="cs">女装 / 男装 / 珠宝配饰 / 箱包鞋靴 / 潮奢跑品 / 贴身衣物 / 其他</span></div>
+        <div class="ct"><span class="ind"></span>七大赛道 · 核心3件事进展<span class="cs">👗 女装 / 👔 男装 / 💎 珠宝配饰 / 👜 箱包鞋靴 / ✨ 潮奢跑品 / 👙 贴身衣物 / 🏃 其他</span></div>
         <div class="lg" id="laneGrid"></div>
       </div>
     </div>
@@ -790,13 +790,13 @@ body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;backgr
 <script>
 const LANES = [
   // 数据来源：作战地图 sheet1「3、各赛道核心三件事」· daily/status/lead 仍为占位，待补对应日耗
-  {name:'女装',daily:184,status:'r',three:['标品提收','ADQ-全域通双投','腰尾部客户跃迁'],lead:'张三'},
-  {name:'男装',daily:138,status:'y',three:['和KA销售一起做好头部客户服务，做大存量盘','腰部客户跃迁','联动拓新组拓新（小店直购链路提收）'],lead:'李四'},
-  {name:'珠宝配饰',daily:96,status:'r',three:['标品 · 品类拓展','ADQ和QYT双投率','腰尾部商家运营'],lead:'王五'},
-  {name:'箱包鞋靴',daily:118,status:'y',three:['客户拓展（抖音高付费100 + 全域通高消耗100）','节点营销','腰尾部客户跃迁'],lead:'赵六'},
-  {name:'潮奢跑品',daily:142,status:'g',three:['潮奢珠宝腕表：小店闭环 / 直购&导购提收 / 品宣&加粉提收','潮奢鞋服：直购推动 / 事件营销 / 流量版位覆盖','本土&运动品牌：闭环提收 + 高GMV低TR投流引入'],lead:'孙七'},
-  {name:'贴身衣物',daily:78,status:'g',three:['头部客户挽回和提收','腰尾部客户跃迁和服务','袜子 / 睡衣类目拓品拓客'],lead:'周八'},
-  {name:'其他',daily:36,status:'y',three:['运动户外：头客收入挽回','运动户外：腰尾部客户跃迁到头部','运动户外：运动用品产业带拓客'],lead:'吴九'},
+  {name:'👗 女装',daily:184,status:'r',three:['标品提收','ADQ-全域通双投','腰尾部客户跃迁'],lead:'张三'},
+  {name:'👔 男装',daily:138,status:'y',three:['和KA销售一起做好头部客户服务，做大存量盘','腰部客户跃迁','联动拓新组拓新（小店直购链路提收）'],lead:'李四'},
+  {name:'💎 珠宝配饰',daily:96,status:'r',three:['标品 · 品类拓展','ADQ和QYT双投率','腰尾部商家运营'],lead:'王五'},
+  {name:'👜 箱包鞋靴',daily:118,status:'y',three:['客户拓展（抖音高付费100 + 全域通高消耗100）','节点营销','腰尾部客户跃迁'],lead:'赵六'},
+  {name:'✨ 潮奢跑品',daily:142,status:'g',three:['潮奢珠宝腕表：小店闭环 / 直购&导购提收 / 品宣&加粉提收','潮奢鞋服：直购推动 / 事件营销 / 流量版位覆盖','本土&运动品牌：闭环提收 + 高GMV低TR投流引入'],lead:'孙七'},
+  {name:'👙 贴身衣物',daily:78,status:'g',three:['头部客户挽回和提收','腰尾部客户跃迁和服务','袜子 / 睡衣类目拓品拓客'],lead:'周八'},
+  {name:'🏃 其他',daily:36,status:'y',three:['运动户外：头客收入挽回','运动户外：腰尾部客户跃迁到头部','运动户外：运动用品产业带拓客'],lead:'吴九'},
 ];
 /* 专项数据 · 数据来源：服饰运营作战地图信息汇总 sheet2「关键项目」 · 复核更新于 2026-06-08
    字段口径全部对齐 sheet2 原文，已删除编造的"推进度数字" */
@@ -1194,7 +1194,6 @@ function renderLanes(){
     <div class="lc" onclick="showLane('${l.name}')">
       <div class="lh"><span class="ln">${l.name}</span><span class="pill ${l.status}">${l.status==='r'?'红':l.status==='y'?'黄':'绿'} · 日耗 ${l.daily}万</span></div>
       <div class="lt">${l.three.map((x,i)=>`<div class="it"><span class="num">${i+1}</span><span>${x}</span></div>`).join('')}</div>
-      <div class="lm"><span>负责人 <strong>${l.lead}</strong></span></div>
     </div>`).join('');
 }
 
@@ -1431,7 +1430,7 @@ function closeModal(){ document.getElementById('modalMask').classList.remove('sh
 function showLane(name){
   const l = LANES.find(x => x.name === name);
   showModal(l.name + ' 赛道作战室', `
-    <p><strong>负责人：</strong>${l.lead} · <strong>今日日耗：</strong>${l.daily}万 · <span class="pill ${l.status}">${l.status==='r'?'红色预警':l.status==='y'?'黄色关注':'绿色健康'}</span></p>
+    <p><strong>今日日耗：</strong>${l.daily}万 · <span class="pill ${l.status}">${l.status==='r'?'红色预警':l.status==='y'?'黄色关注':'绿色健康'}</span></p>
     <p style="margin-top:10px"><strong>核心三件事：</strong></p>
     ${l.three.map((x,i) => `<p style="margin:6px 0;color:#5a6b7e">${i+1}. ${x}</p>`).join('')}
     <p style="margin-top:14px;color:#8a9aae;font-size:12px">💡 该赛道数据每日 09:00 自动刷新；点击预警条目可跳转对应作战室。</p>
