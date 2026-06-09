@@ -1288,21 +1288,15 @@ function recordLogin(user){
   }
 }
 
-// 深度访问监听器（B 方案 · 2026-06-09）
-// 规则：用户在页面有动作（鼠标/键盘/滚轮/点击/触摸），累计满 5 分钟"活跃秒数" → +1 一次"深度访问"
-//      每天每人最多 +1 次，重复刷新/多标签页不重复计算
+// 停留时长监听器（A 方案升级 · 2026-06-09 15:21）
+// 规则：用户在页面有动作（鼠标/键盘/滚轮/点击/触摸），累计满 5 分钟"活跃秒数" → +1 一个"5分钟桶"
+//      不去重，每满 5 分钟就 +1，活跃秒数清零继续累计下一段
+//      时长 ≈ deep_count × 5 分钟
 //      "活跃秒数" 定义：每秒 tick 时，60s 内有过任一动作即算 1 秒活跃
 let __deepTracker = null;
 function startDeepActivityTracker(user){
   // 已经有 tracker 在跑就别启第二个
   if (__deepTracker) return;
-
-  // 今日已 +1 过 → 直接跳过
-  const now = new Date();
-  const pad = n => String(n).padStart(2,'0');
-  const todayKey = `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}`;
-  const lastDeepKey = `zfops_deep_last_v2_${user.u}`; // v2: 与命名空间绑定
-  if (localStorage.getItem(lastDeepKey) === todayKey) return;
 
   const REQUIRE_SEC = 300;   // 5 分钟
   const ACTIVE_WINDOW = 60000; // 60s 内有动作 = 算活跃
@@ -1322,14 +1316,11 @@ function startDeepActivityTracker(user){
 
     activeSec++;
     if (activeSec >= REQUIRE_SEC){
-      // 上报 +1 一次
+      // 上报 +1 一个 5 分钟桶，不停 tracker，清零继续累计下一段
       fetch(`${CLOUD_API}/${CLOUD_NS}/${encodeURIComponent(user.u)}_deep/up`, {
         method:'GET', mode:'cors', cache:'no-store'
-      }).then(r => {
-        if (r && r.ok) localStorage.setItem(lastDeepKey, todayKey);
       }).catch(()=>{});
-      // 当日任务完成，清理监听
-      stopDeepActivityTracker();
+      activeSec = 0;
     }
   }, 1000);
 
@@ -1416,7 +1407,7 @@ async function showLoginStats(){
   const now = Date.now();
   const recent7d = rows.filter(r => r.last && (now - r.last < 7*24*3600*1000)).length;
 
-  // 排序：深度访问降序 → 活跃天数降序 → 最近活跃时间降序 → 从未访问放最后
+  // 排序：停留时长降序 → 活跃天数降序 → 最近活跃时间降序 → 从未访问放最后
   const sorted = [...rows].sort((a,b)=>{
     if (a.never && !b.never) return 1;
     if (!a.never && b.never) return -1;
@@ -1425,14 +1416,29 @@ async function showLoginStats(){
     return (b.last||0) - (a.last||0);
   });
 
+  // 时长格式化（分钟 → 友好文案）
+  const fmtDur = m => {
+    if (!m) return '—';
+    if (m < 60) return `${m} 分钟`;
+    const h = Math.floor(m/60), mm = m%60;
+    return mm ? `${h} 小时 ${mm} 分` : `${h} 小时`;
+  };
+  const totalMin = totalDeep * 5;
+  const avgMin = activeAccounts ? Math.round(totalMin / activeAccounts) : 0;
+  const activeNames = active.map(r => r.n).join('、') || '（暂无）';
+
   body.innerHTML = `
     <div class="ls-summary">
-      <div class="ls-sum-c"><div class="lab">已活跃账号</div><div class="v">${activeAccounts}<span style="font-size:13px;color:#8a9aae">/${totalAccounts}</span></div></div>
-      <div class="ls-sum-c"><div class="lab">累计活跃人天</div><div class="v">${totalLogins}</div></div>
-      <div class="ls-sum-c"><div class="lab">累计深度访问</div><div class="v">${totalDeep}<span style="font-size:11px;color:#8a9aae;font-weight:400">次</span></div></div>
-      <div class="ls-sum-c"><div class="lab">近7天活跃</div><div class="v">${recent7d}<span style="font-size:13px;color:#8a9aae">人</span></div></div>
+      <div class="ls-sum-c"><div class="lab">总账号数</div><div class="v">${totalAccounts}<span style="font-size:13px;color:#8a9aae">人</span></div></div>
+      <div class="ls-sum-c"><div class="lab">已登录</div><div class="v">${activeAccounts}<span style="font-size:13px;color:#8a9aae">人</span></div></div>
+      <div class="ls-sum-c"><div class="lab">累计停留时长</div><div class="v" style="font-size:18px">${fmtDur(totalMin)}</div></div>
+      <div class="ls-sum-c"><div class="lab">人均停留时长</div><div class="v" style="font-size:18px">${fmtDur(avgMin)}</div></div>
     </div>
-    <div style="font-size:12px;color:#5a6b7e;margin:10px 0 6px;font-weight:600">🏆 全员活跃排行榜（按深度访问次数排序）</div>
+    <div style="margin:0 0 12px;padding:10px 12px;background:#eaf5ff;border:1px solid #c7e0ff;border-radius:8px">
+      <div style="font-size:12px;color:#1a4ea0;margin-bottom:4px;font-weight:600">✅ 已登录名单（${activeAccounts}人）</div>
+      <div style="font-size:12px;color:#2c4a6e;line-height:1.7">${activeNames}</div>
+    </div>
+    <div style="font-size:12px;color:#5a6b7e;margin:10px 0 6px;font-weight:600">🏆 全员活跃排行榜（按停留时长排序）</div>
     <table class="ls-table">
       <thead>
         <tr>
@@ -1441,7 +1447,7 @@ async function showLoginStats(){
           <th>角色</th>
           <th>最近活跃</th>
           <th style="text-align:right">活跃天数</th>
-          <th style="text-align:right" title="单次停留 ≥5 分钟且有动作 = 1 次深度访问，每天去重">深度访问</th>
+          <th style="text-align:right" title="累计停留时长 = 5分钟桶数 × 5（每满5分钟有动作 +1，颗粒度5min）">停留时长</th>
         </tr>
       </thead>
       <tbody>
@@ -1457,12 +1463,12 @@ async function showLoginStats(){
               `${fmtLoginRelative(r.last)}<div style="font-size:11px;color:#8a9aae">${fmtLoginTime(r.last)}</div>`}
             </td>
             <td style="text-align:right"><span class="ls-cnt" style="background:#f5f6fa;color:#5a6b7e">${r.count}</span></td>
-            <td style="text-align:right"><span class="ls-cnt">${r.deep||0}</span></td>
+            <td style="text-align:right"><span class="ls-cnt">${fmtDur((r.deep||0)*5)}</span></td>
           </tr>`).join('')}
       </tbody>
     </table>
     <div style="margin-top:10px;font-size:11px;color:#bfbfbf;text-align:center">
-      统计口径：活跃天数 = 每人每天首次访问 +1 · 深度访问 = 单次停留 ≥5 分钟且有动作 +1（每天去重）
+      统计口径：活跃天数 = 每人每天首次访问 +1 · 停留时长 = 用户在页面持续有动作每满 5 分钟 +1（颗粒度 5min · 隐藏标签页 / 离开页面不计）
     </div>`;
 }
 
