@@ -275,6 +275,31 @@ body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;backgr
 .mc{cursor:pointer;color:#8a9aae;font-size:20px}
 
 .lock{padding:60px 20px;text-align:center;background:#fff;border:1px dashed #ffd591;border-radius:12px;color:#d48806}
+/* 登录页 */
+.login-mask{position:fixed;inset:0;background:linear-gradient(135deg,#0c1c3a 0%,#1a3a6e 60%,#1677ff 100%);display:flex;align-items:center;justify-content:center;z-index:9999;padding:20px}
+.login-mask.hide{display:none}
+.login-box{width:100%;max-width:420px;background:#fff;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.3);overflow:hidden}
+.login-hd{padding:28px 28px 18px;background:linear-gradient(135deg,#1677ff,#0958d9);color:#fff;text-align:center}
+.login-hd .logo-icon{display:inline-flex;width:48px;height:48px;align-items:center;justify-content:center;background:rgba(255,255,255,.18);border-radius:12px;font-size:24px;margin-bottom:10px}
+.login-hd h2{font-size:18px;font-weight:700;margin:0 0 4px}
+.login-hd p{font-size:12px;color:rgba(255,255,255,.85);margin:0}
+.login-body{padding:24px 28px 28px}
+.login-body label{display:block;font-size:12px;color:#5a6b7e;margin-bottom:6px;font-weight:600}
+.login-body select,.login-body input{width:100%;padding:11px 14px;font-size:14px;border:1px solid #d6e4ff;border-radius:8px;background:#fafbff;outline:none;transition:.2s;box-sizing:border-box;font-family:inherit}
+.login-body select:focus,.login-body input:focus{border-color:#1677ff;background:#fff;box-shadow:0 0 0 3px rgba(22,119,255,.1)}
+.login-body .field{margin-bottom:14px}
+.login-btn{width:100%;padding:12px;font-size:14px;font-weight:700;background:linear-gradient(135deg,#1677ff,#0958d9);color:#fff;border:none;border-radius:8px;cursor:pointer;transition:.2s;margin-top:6px}
+.login-btn:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(22,119,255,.3)}
+.login-err{font-size:12px;color:#f5222d;background:#fff1f0;border:1px solid #ffccc7;padding:8px 12px;border-radius:6px;margin-top:10px;display:none}
+.login-err.show{display:block}
+.login-tip{font-size:11px;color:#8a9aae;text-align:center;margin-top:14px;line-height:1.6}
+.user-menu{position:absolute;top:54px;right:24px;background:#fff;border:1px solid #e4e9f0;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.12);min-width:180px;z-index:1500;display:none;overflow:hidden}
+.user-menu.show{display:block}
+.user-menu .um-i{padding:14px 16px;border-bottom:1px solid #f0f2f5}
+.user-menu .um-i .nm{font-weight:700;color:#1a2332;font-size:13px}
+.user-menu .um-i .role{font-size:11px;color:#8a9aae;margin-top:2px}
+.user-menu .um-a{padding:10px 16px;font-size:13px;color:#5a6b7e;cursor:pointer;transition:.15s}
+.user-menu .um-a:hover{background:#f5f8ff;color:#1677ff}
 .lock .li{font-size:48px;margin-bottom:16px}
 .lock h3{color:#1a2332;font-size:18px;margin-bottom:8px}
 .lock p{font-size:13px;color:#5a6b7e;line-height:1.7}
@@ -366,6 +391,38 @@ body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;backgr
 </head>
 <body>
 
+<!-- 登录页 -->
+<div class="login-mask" id="loginMask">
+  <div class="login-box">
+    <div class="login-hd">
+      <div class="logo-icon">⚔</div>
+      <h2>服饰运营作战指挥中心</h2>
+      <p>请选择您的账号并输入密码登录</p>
+    </div>
+    <div class="login-body">
+      <div class="field">
+        <label>👤 选择运营账号</label>
+        <select id="loginUser">
+          <option value="">— 请选择 —</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>🔑 密码</label>
+        <input type="password" id="loginPwd" placeholder="请输入密码" onkeydown="if(event.key==='Enter')doLogin()" autocomplete="current-password">
+      </div>
+      <button class="login-btn" onclick="doLogin()">登录</button>
+      <div class="login-err" id="loginErr"></div>
+      <div class="login-tip">忘记密码？请联系运营负责人 <strong>edcchen（陈冠宏）</strong></div>
+    </div>
+  </div>
+</div>
+
+<!-- 用户菜单 -->
+<div class="user-menu" id="userMenu">
+  <div class="um-i"><div class="nm" id="umName">—</div><div class="role" id="umRole">—</div></div>
+  <div class="um-a" onclick="doLogout()">🚪 退出登录</div>
+</div>
+
 <header class="header">
   <div class="h-l">
     <button class="menu-toggle" onclick="toggleSb()">☰</button>
@@ -373,12 +430,8 @@ body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;backgr
     <span class="live">实时数据 · 同步中</span>
   </div>
   <div class="h-r">
-    <div class="role-sw">
-      <button class="role-btn active" data-role="leader" onclick="switchRole('leader')">运营负责人</button>
-      <button class="role-btn" data-role="lane" onclick="switchRole('lane')">赛道运营</button>
-    </div>
     <button class="bs-btn" onclick="toggleFs()">⛶ 大屏</button>
-    <div class="uinfo"><div class="av" id="avatar">橘</div><div class="un" id="uname">金洁 · 运营负责人</div></div>
+    <div class="uinfo" id="uinfo" style="cursor:pointer" onclick="showUserMenu(event)" title="点击切换账号"><div class="av" id="avatar">橘</div><div class="un" id="uname">未登录</div><span style="margin-left:6px;color:#8a9aae;font-size:11px">▾</span></div>
   </div>
 </header>
 
@@ -677,7 +730,7 @@ body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;backgr
     <!-- Tab 5: 系统使用情况（简化版） -->
     <div class="page" id="page-audit">
       <div class="page-title">
-        <div><h2>系统使用情况</h2><div class="bcb">登录情况 · 使用时长 · 仅运营负责人可见</div></div>
+        <div><h2>系统使用情况</h2><div class="bcb">登录情况 · 使用时长</div></div>
         <div class="fbar"><span class="ftag active">今日</span><span class="ftag">近7天</span><span class="ftag">近30天</span></div>
       </div>
       <div class="kg">
@@ -1005,6 +1058,97 @@ const INFO_CAPA = [
 ];
 
 let curRole = 'leader';
+
+/* ============ 用户账号清单（服饰运营组）============ */
+/* 密码规则：英文名前4个字母 + 2026 · 运营负责人 = edcchen（陈冠宏）*/
+const USERS = [
+  {u:'edcchen',     n:'陈冠宏', pwd:'edcc2026', role:'运营负责人', icon:'陈'},
+  {u:'elinorjiang', n:'蒋炜怡', pwd:'elin2026', role:'运营',       icon:'蒋'},
+  {u:'haiyouli',    n:'李海友', pwd:'haiy2026', role:'运营',       icon:'李'},
+  {u:'harvihuang',  n:'黄麒文', pwd:'harv2026', role:'运营',       icon:'黄'},
+  {u:'ivyxchen',    n:'陈小美', pwd:'ivyx2026', role:'运营',       icon:'陈'},
+  {u:'jaronxie',    n:'谢嘉润', pwd:'jaro2026', role:'运营',       icon:'谢'},
+  {u:'johnsywang',  n:'王俊昊', pwd:'john2026', role:'运营',       icon:'王'},
+  {u:'kerenwu',     n:'吴彤',   pwd:'kere2026', role:'运营',       icon:'吴'},
+  {u:'kirrazhang',  n:'张钰昕', pwd:'kirr2026', role:'运营',       icon:'张'},
+  {u:'meganyao',    n:'姚敏琦', pwd:'mega2026', role:'运营',       icon:'姚'},
+  {u:'rickyozhang', n:'张玛瑶', pwd:'rick2026', role:'运营',       icon:'张'},
+  {u:'rileyqian',   n:'钱丽炜', pwd:'rile2026', role:'运营',       icon:'钱'},
+  {u:'sekishi',     n:'石婷',   pwd:'seki2026', role:'运营',       icon:'石'},
+  {u:'ziqingdu',    n:'杜子青', pwd:'ziqi2026', role:'运营',       icon:'杜'},
+];
+
+const SESSION_KEY = 'zfops_user';
+let CURRENT_USER = null;
+
+function initLoginSelect(){
+  const sel = document.getElementById('loginUser');
+  sel.innerHTML = '<option value="">— 请选择 —</option>' + USERS.map(u =>
+    `<option value="${u.u}">${u.u}（${u.n}）${u.role==='运营负责人'?' · 运营负责人':''}</option>`
+  ).join('');
+}
+
+function doLogin(){
+  const uid = document.getElementById('loginUser').value;
+  const pwd = document.getElementById('loginPwd').value;
+  const err = document.getElementById('loginErr');
+  if (!uid){ err.textContent='请先选择账号'; err.classList.add('show'); return; }
+  const user = USERS.find(x => x.u === uid);
+  if (!user || user.pwd !== pwd){
+    err.textContent = '账号或密码错误，请重试';
+    err.classList.add('show');
+    return;
+  }
+  err.classList.remove('show');
+  sessionStorage.setItem(SESSION_KEY, JSON.stringify({u:user.u, n:user.n, role:user.role, icon:user.icon, t:Date.now()}));
+  CURRENT_USER = user;
+  applyUser(user);
+  document.getElementById('loginMask').classList.add('hide');
+}
+
+function doLogout(){
+  sessionStorage.removeItem(SESSION_KEY);
+  document.getElementById('userMenu').classList.remove('show');
+  document.getElementById('loginMask').classList.remove('hide');
+  document.getElementById('loginPwd').value = '';
+  document.getElementById('loginUser').value = '';
+  CURRENT_USER = null;
+}
+
+function applyUser(u){
+  document.getElementById('uname').textContent = `${u.n} · ${u.role}`;
+  document.getElementById('avatar').textContent = u.icon;
+  document.getElementById('umName').textContent = `${u.n}（${u.u}）`;
+  document.getElementById('umRole').textContent = u.role;
+}
+
+function showUserMenu(e){
+  e.stopPropagation();
+  document.getElementById('userMenu').classList.toggle('show');
+}
+
+document.addEventListener('click', () => {
+  document.getElementById('userMenu').classList.remove('show');
+});
+
+function checkLogin(){
+  initLoginSelect();
+  const raw = sessionStorage.getItem(SESSION_KEY);
+  if (raw){
+    try{
+      const s = JSON.parse(raw);
+      const user = USERS.find(x => x.u === s.u);
+      if (user){
+        CURRENT_USER = user;
+        applyUser(user);
+        document.getElementById('loginMask').classList.add('hide');
+        return;
+      }
+    }catch(e){}
+  }
+  // 未登录 → 显示登录页
+  document.getElementById('loginMask').classList.remove('hide');
+}
 const TODAY = new Date('2026-06-08');
 
 function getExpireStatus(expire){
@@ -1019,8 +1163,7 @@ function getExpireStatus(expire){
 
 function renderLanes(){
   const grid = document.getElementById('laneGrid');
-  let lanes = LANES;
-  if (curRole === 'lane') lanes = LANES.filter(l => l.name === '女装');
+  const lanes = LANES;
   grid.innerHTML = lanes.map(l => `
     <div class="lc" onclick="showLane('${l.name}')">
       <div class="lh"><span class="ln">${l.name}</span><span class="pill ${l.status}">${l.status==='r'?'红':l.status==='y'?'黄':'绿'} · 日耗 ${l.daily}万</span></div>
@@ -1249,26 +1392,12 @@ function switchPage(p){
   document.querySelector(`.nav-item[data-page="${p}"]`).classList.add('active');
   document.querySelectorAll('.page').forEach(pg => pg.classList.remove('active'));
   const target = document.getElementById('page-' + p);
-  if (curRole === 'lane' && p === 'audit') {
-    target.classList.add('active');
-    target.innerHTML = `<div class="lock"><div class="li">🔒</div><h3>权限不足</h3><p>「系统使用情况」仅运营负责人可访问<br>当前角色：赛道运营专员（女装赛道）<br><br>如有疑问请联系 运营负责人 金洁</p></div>`;
-  } else {
-    target.classList.add('active');
-    if (p === 'dashboard') renderTrend();
-  }
+  target.classList.add('active');
+  if (p === 'dashboard') renderTrend();
   document.getElementById('sidebar').classList.remove('open');
 }
 
-function switchRole(r){
-  curRole = r;
-  document.querySelectorAll('.role-btn').forEach(b => b.classList.toggle('active', b.dataset.role === r));
-  document.getElementById('uname').textContent = r==='leader'?'金洁 · 运营负责人':'张三 · 女装赛道运营';
-  document.getElementById('avatar').textContent = r==='leader'?'橘':'张';
-  document.getElementById('myLanes').innerHTML = r==='leader'?'全量数据 · 7赛道':'仅 <strong style="color:#1677ff">女装赛道</strong> 数据可见';
-  renderLanes(); renderProj(); renderFuchi(); renderCapa();
-  const cur = document.querySelector('.nav-item.active')?.dataset.page;
-  if (cur === 'audit') switchPage('audit');
-}
+function switchRole(r){ /* deprecated */ }
 
 function showModal(t,b){ document.getElementById('modalTitle').textContent = t; document.getElementById('modalBody').innerHTML = b; document.getElementById('modalMask').classList.add('show'); }
 function closeModal(){ document.getElementById('modalMask').classList.remove('show'); }
@@ -1364,6 +1493,7 @@ function renderTrend(){
 }
 
 // 初始化
+checkLogin();
 renderLanes();
 renderProj();
 renderFuchi();
