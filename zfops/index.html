@@ -129,13 +129,14 @@ body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;backgr
 .okr-kr-name{font-size:15px;font-weight:700;color:#1a2332;flex:1}
 .okr-kr-sum{font-size:11px;color:#8a9aae}
 .okr-kr-body{padding:6px 14px 10px}
+.okr-kr-desc{padding:10px 14px;font-size:12.5px;color:#3a4858;line-height:1.7;background:#fafbfc;border-bottom:1px dashed #eef0f3}
 .okr-row{display:grid;grid-template-columns:1fr 220px 70px;gap:16px;align-items:center;padding:10px 0;font-size:13px}
 .okr-row + .okr-row{border-top:1px dashed #f0f2f5}
 .okr-row .lab{color:#1a2332;line-height:1.5;font-weight:500}
 .okr-row .lab small{display:block;color:#8a9aae;font-size:11px;margin-top:2px;font-weight:400}
 .okr-row .bar{height:10px;background:#f0f2f5;border-radius:5px;overflow:hidden;position:relative}
-.okr-row .bar > div{height:100%;border-radius:5px;transition:width .6s}
-.okr-row .pct{font-size:18px;font-weight:700;font-family:'SF Mono','Menlo',monospace;text-align:right;letter-spacing:-.5px}
+.okr-row .bar > div{height:100%;border-radius:5px;transition:width .6s;background:linear-gradient(90deg,#1677ff,#69c0ff)}
+.okr-row .pct{font-size:18px;font-weight:700;font-family:'SF Mono','Menlo',monospace;text-align:right;letter-spacing:-.5px;color:#1677ff}
 .okr-row .pct small{display:block;font-size:10px;color:#8a9aae;font-weight:400;font-family:inherit;letter-spacing:0}
 @media (max-width: 768px){
   .okr-row{grid-template-columns:1fr;gap:6px;padding:10px 0}
@@ -539,60 +540,66 @@ details[open] .nc-ended-sum::before{transform:rotate(90deg)}
         <div class="ct"><span class="ind"></span>整体OKR进展<span class="cs">2个O · 6个KR · 数据来源：作战地图 sheet1「消耗及OKR」</span></div>
 
         <!-- O1 · 服饰中心 -->
-        <div style="border-left:3px solid #1677ff;padding:12px 14px;background:#f6f9ff;border-radius:6px;margin-bottom:14px">
+        <div style="border-left:3px solid #f5222d;padding:12px 14px;background:#fff5f5;border-radius:6px;margin-bottom:14px">
           <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;gap:10px;flex-wrap:wrap">
-            <div style="font-weight:700;font-size:14px;color:#1a2332;flex:1;min-width:240px">O1 · 服饰中心竞价业绩消耗提升 <span style="font-size:12px;color:#5a6b7e;font-weight:500">· H1 目标 <span style="color:#f5222d;font-weight:800">1330w/d</span> · 年同比保持 <span style="color:#f5222d;font-weight:800">10%+</span> 增长</span></div>
+            <div style="font-weight:700;font-size:14px;color:#1a2332;flex:1;min-width:240px">O1 · 服饰中心竞价业绩消耗提升 <span style="font-size:12px;color:#5a6b7e;font-weight:500">· H1 目标 <span style="color:#f5222d;font-weight:800">1330 w/d</span> · 年同比保持 <span style="color:#f5222d;font-weight:800">10%</span> 增长</span></div>
             <div style="display:flex;align-items:center;gap:8px"><span style="font-size:18px;font-weight:700;color:#f5222d">90%</span><span style="font-size:11px;color:#f5222d">完成度</span></div>
           </div>
-          <div class="prog" style="margin-bottom:10px"><div class="fill r" style="width:90%"></div></div>
+          <div class="prog" style="margin-bottom:10px;background:#ffe7e7"><div class="fill" style="width:90%;background:linear-gradient(90deg,#f5222d,#ff7875)"></div></div>
           <div class="okr-tbl">
             <div class="okr-kr">
               <div class="okr-kr-h"><span class="okr-kr-tag">KR1</span><span class="okr-kr-name">闭环提收</span><span class="okr-kr-sum">1 项</span></div>
+              <div class="okr-kr-desc">直播链路通过"新锐及产业带开拓"+"品牌闭环专项"+"子赛道分行业直播解决方案"升级，实现闭环 H1 目标 720w/d，年同比 +64%。</div>
               <div class="okr-kr-body">
-                <div class="okr-row"><div class="lab">直播链路<small>H1 720w/d · 同比 +64%</small></div><div class="bar"><div style="width:87%;background:linear-gradient(90deg,#52c41a,#95de64)"></div></div><div class="pct" style="color:#52c41a">87%</div></div>
+                <div class="okr-row"><div class="lab">直播链路<small>H1 720w/d · 同比 +64%</small></div><div class="bar"><div style="width:87%"></div></div><div class="pct">87%</div></div>
               </div>
             </div>
             <div class="okr-kr">
               <div class="okr-kr-h"><span class="okr-kr-tag">KR2</span><span class="okr-kr-name">非闭环稳盘</span><span class="okr-kr-sum">2 项 · 综合 92%</span></div>
+              <div class="okr-kr-desc">CID 链路，通过"客户引入"+"PA 链路"+"创意基建提升"，目标 H1 200w/d，环比 25 年 H2 提升 15%；品牌小程序直购链路，通过服务提效及节点，对客户预算应收尽收，H1 目标 185w/d，保持年同比 +10% 增速。</div>
               <div class="okr-kr-body">
-                <div class="okr-row"><div class="lab">CID 链路<small>200w/d</small></div><div class="bar"><div style="width:83%;background:linear-gradient(90deg,#faad14,#ffc53d)"></div></div><div class="pct" style="color:#faad14">83%</div></div>
-                <div class="okr-row"><div class="lab">品牌小程序直购<small>185w/d</small></div><div class="bar"><div style="width:100%;background:linear-gradient(90deg,#52c41a,#95de64)"></div></div><div class="pct" style="color:#52c41a">102%</div></div>
+                <div class="okr-row"><div class="lab">CID 链路<small>200w/d</small></div><div class="bar"><div style="width:83%"></div></div><div class="pct">83%</div></div>
+                <div class="okr-row"><div class="lab">品牌小程序直购<small>185w/d</small></div><div class="bar"><div style="width:100%"></div></div><div class="pct">102%</div></div>
               </div>
             </div>
             <div class="okr-kr">
-              <div class="okr-kr-h"><span class="okr-kr-tag">KR3</span><span class="okr-kr-name">分赛道客户运营</span><span class="okr-kr-sum">1 项</span></div>
+              <div class="okr-kr-h"><span class="okr-kr-tag">KR3</span><span class="okr-kr-name">分赛道客户运营及跃迁</span><span class="okr-kr-sum">1 项</span></div>
+              <div class="okr-kr-desc">基于"成熟型"、"半成熟型"、"未成熟型"三类赛道打造不同的增长策略；通过客户分层运营策略，推动闭环腰部跃迁客户提升到 30+（日耗 1w）。</div>
               <div class="okr-kr-body">
-                <div class="okr-row"><div class="lab">闭环腰部跃迁 30+<small>日耗 1w · Q1→Q2</small></div><div class="bar"><div style="width:100%;background:linear-gradient(90deg,#52c41a,#95de64)"></div></div><div class="pct" style="color:#52c41a">173%</div></div>
+                <div class="okr-row"><div class="lab">闭环腰部跃迁 30+<small>日耗 1w · Q1→Q2</small></div><div class="bar"><div style="width:100%"></div></div><div class="pct">173%</div></div>
               </div>
             </div>
             <div class="okr-kr">
-              <div class="okr-kr-h"><span class="okr-kr-tag">KR4</span><span class="okr-kr-name">AIGC &amp; 创意</span><span class="okr-kr-sum">2 项 · 综合 100%</span></div>
+              <div class="okr-kr-h"><span class="okr-kr-tag">KR4</span><span class="okr-kr-name">AIGC 及创意基建提升</span><span class="okr-kr-sum">2 项 · 综合 100%</span></div>
+              <div class="okr-kr-desc">AIGC 消耗提升到 80w/d，曝光创意唯一性 ID 数提升到 48w/day。</div>
               <div class="okr-kr-body">
-                <div class="okr-row"><div class="lab">AIGC 消耗<small>80w/d</small></div><div class="bar"><div style="width:85%;background:linear-gradient(90deg,#faad14,#ffc53d)"></div></div><div class="pct" style="color:#faad14">85%</div></div>
-                <div class="okr-row"><div class="lab">曝光创意唯一性 ID 数<small>48w/day</small></div><div class="bar"><div style="width:100%;background:linear-gradient(90deg,#52c41a,#95de64)"></div></div><div class="pct" style="color:#52c41a">115%</div></div>
+                <div class="okr-row"><div class="lab">AIGC 消耗<small>80w/d</small></div><div class="bar"><div style="width:85%"></div></div><div class="pct">85%</div></div>
+                <div class="okr-row"><div class="lab">曝光创意唯一性 ID 数<small>48w/day</small></div><div class="bar"><div style="width:100%"></div></div><div class="pct">115%</div></div>
               </div>
             </div>
           </div>
         </div>
 
         <!-- O2 · 珠宝配饰 -->
-        <div style="border-left:3px solid #722ed1;padding:12px 14px;background:#f9f5ff;border-radius:6px">
+        <div style="border-left:3px solid #f5222d;padding:12px 14px;background:#fff5f5;border-radius:6px">
           <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;gap:10px;flex-wrap:wrap">
-            <div style="font-weight:700;font-size:14px;color:#1a2332;flex:1;min-width:240px">O2 · 珠宝配饰行业总业绩追击<div style="font-size:11px;color:#5a6b7e;font-weight:400;margin-top:3px">H1 目标 173w/d · 同比从 Q1 -38% 追到 H1 -10% · Q2 同比 +36% · 增长 58w/d</div></div>
-            <div style="display:flex;align-items:center;gap:8px"><span style="font-size:18px;font-weight:700;color:#52c41a">91%</span><span style="font-size:11px;color:#8a9aae">完成度</span></div>
+            <div style="font-weight:700;font-size:14px;color:#1a2332;flex:1;min-width:240px">O2 · 珠宝配饰行业总业绩追击<div style="font-size:11px;color:#5a6b7e;font-weight:400;margin-top:3px">H1 目标 <span style="color:#f5222d;font-weight:800">173w/d</span> · 同比从 Q1 的 -38% 追到 H1 -10% · Q2 同比 +36% · 增长 58w/d</div></div>
+            <div style="display:flex;align-items:center;gap:8px"><span style="font-size:18px;font-weight:700;color:#f5222d">91%</span><span style="font-size:11px;color:#f5222d">完成度</span></div>
           </div>
-          <div class="prog" style="margin-bottom:10px"><div class="fill g" style="width:91%"></div></div>
+          <div class="prog" style="margin-bottom:10px;background:#ffe7e7"><div class="fill" style="width:91%;background:linear-gradient(90deg,#f5222d,#ff7875)"></div></div>
           <div class="okr-tbl">
-            <div class="okr-kr purple">
+            <div class="okr-kr">
               <div class="okr-kr-h"><span class="okr-kr-tag">KR1</span><span class="okr-kr-name">闭环提升</span><span class="okr-kr-sum">1 项</span></div>
+              <div class="okr-kr-desc">"标品类目攻坚" + "非标客户大场" + "ADQ 全域通双投"，H2 目标 70w/d，年同比 +85%。</div>
               <div class="okr-kr-body">
-                <div class="okr-row"><div class="lab">标品攻坚 + 大场 + ADQ 全域通双投<small>H2 70w/d</small></div><div class="bar"><div style="width:84%;background:linear-gradient(90deg,#52c41a,#95de64)"></div></div><div class="pct" style="color:#52c41a">84%</div></div>
+                <div class="okr-row"><div class="lab">标品攻坚 + 大场 + ADQ 全域通双投<small>H2 70w/d</small></div><div class="bar"><div style="width:84%"></div></div><div class="pct">84%</div></div>
               </div>
             </div>
-            <div class="okr-kr purple">
+            <div class="okr-kr">
               <div class="okr-kr-h"><span class="okr-kr-tag">KR2</span><span class="okr-kr-name">加粉维稳</span><span class="okr-kr-sum">1 项</span></div>
+              <div class="okr-kr-desc">在保证风险可控的基础上，H1 目标 70w，保持 100% 增长。</div>
               <div class="okr-kr-body">
-                <div class="okr-row"><div class="lab">加粉投放<small>H1 70w · 100% 增长</small></div><div class="bar"><div style="width:100%;background:linear-gradient(90deg,#52c41a,#95de64)"></div></div><div class="pct" style="color:#52c41a">106%</div></div>
+                <div class="okr-row"><div class="lab">加粉投放<small>H1 70w · 100% 增长</small></div><div class="bar"><div style="width:100%"></div></div><div class="pct">106%</div></div>
               </div>
             </div>
           </div>
