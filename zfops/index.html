@@ -275,6 +275,7 @@ body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;backgr
 .trend-grid{position:absolute;inset:0;background-image:linear-gradient(to top,transparent 24%,#f0f2f5 25%,transparent 26%),linear-gradient(to top,transparent 49%,#f0f2f5 50%,transparent 51%),linear-gradient(to top,transparent 74%,#f0f2f5 75%,transparent 76%)}
 .trend-bar{position:absolute;bottom:0;width:2.5%;background:linear-gradient(to top,#1677ff,#69b1ff);border-radius:2px 2px 0 0;transition:height .6s;cursor:pointer}
 .trend-bar:hover{background:linear-gradient(to top,#52c41a,#95de64)}
+.trend-bar .bar-label{position:absolute;left:50%;transform:translateX(-50%);top:-16px;font-size:10px;font-weight:600;color:#1677ff;white-space:nowrap;line-height:1}
 .trend-line{position:absolute;left:0;right:0;border-top:2px dashed #f5222d;top:0}
 .trend-line::after{content:'OKR目标 1000万';position:absolute;right:6px;top:-18px;font-size:10px;color:#f5222d;background:#fff;padding:2px 6px;border-radius:3px;border:1px solid #ffa39e}
 .trend-x{position:absolute;left:46px;right:0;bottom:0;display:flex;justify-content:space-between;font-size:10px;color:#8a9aae}
@@ -1494,7 +1495,7 @@ function renderTrend(){
   const bars = data.map((v,i) => {
     const h = (v/max) * 100;
     const left = (i / (data.length - 1)) * 96;
-    return `<div class="trend-bar" style="left:${left}%;height:${h}%" title="${dates[i]}: ${v}万"></div>`;
+    return `<div class="trend-bar" style="left:${left}%;height:${h}%" title="${dates[i]}: ${v}万"><span class="bar-label">${v}</span></div>`;
   }).join('');
   const xLabels = dates.filter((_,i)=>i%2===0||i===dates.length-1).map(d => `<span>${d}</span>`).join('');
   wrap.innerHTML = `${yAxis}<div class="trend-area"><div class="trend-grid"></div>${bars}</div><div class="trend-x">${xLabels}</div>`;
