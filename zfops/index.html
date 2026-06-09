@@ -696,7 +696,7 @@ details[open] .nc-ended-sum::before{transform:rotate(90deg)}
         <div class="ct"><span class="ind"></span>四类专项分布<span class="cs">按业务类型 · 主要看点对齐 sheet2 数据进展原文</span></div>
         <div class="lane-rank" style="grid-template-columns:1.1fr 0.8fr 2fr 2fr">
           <div class="lane-rank-h"><div>专项类型</div><div>在战专项</div><div>主要看点</div><div>核心专项</div></div>
-          <div class="lane-rank-r"><div><span class="dot y" style="background:#fa8c16"></span><strong>提消耗</strong></div><div>4</div><div><span style="color:#5a6b7e">提ARPU · 审核 · 腾飞撬动 · 创意基建</span></div><div><span style="color:#1a2332">4+m · 审核 · 腾飞 · 创意基建</span></div></div>
+          <div class="lane-rank-r"><div><span class="dot y" style="background:#f5222d"></span><strong>提消耗</strong></div><div>4</div><div><span style="color:#5a6b7e">提ARPU · 审核 · 腾飞撬动 · 创意基建</span></div><div><span style="color:#1a2332">4+m · 审核 · 腾飞 · 创意基建</span></div></div>
           <div class="lane-rank-r"><div><span class="dot b" style="background:#1677ff"></span><strong>基础必备</strong></div><div>5</div><div><span style="color:#5a6b7e">CID/直播/小店三大链路 + AIGC + 回传质量</span></div><div><span style="color:#1a2332">CID · 直播 · 小店 · AIGC · 回传质量</span></div></div>
           <div class="lane-rank-r"><div><span class="dot p" style="background:#722ed1"></span><strong>组织发展</strong></div><div>1</div><div><span style="color:#5a6b7e">闭环腰部→头部跃迁 · Q2 30个目标</span></div><div><span style="color:#1a2332">腰尾部跃迁</span></div></div>
           <div class="lane-rank-r"><div><span class="dot c" style="background:#13c2c2"></span><strong>新机会测试</strong></div><div>2</div><div><span style="color:#5a6b7e">全店托管客户数 · 达人素材加热待启动</span></div><div><span style="color:#1a2332">全店托管 · 互选联投·达人素材加热</span></div></div>
@@ -1264,8 +1264,8 @@ function renderProj(){
   const grid = document.getElementById('projGrid');
   // 按业务类型分组（提消耗 / 基础必备 / 组织发展 / 新机会测试）
   const TYPE_ORDER = ['提消耗','基础必备','组织发展','新机会测试'];
-  const TYPE_COLOR = {'提消耗':'#fa8c16','基础必备':'#1677ff','组织发展':'#722ed1','新机会测试':'#13c2c2'};
-  const TYPE_BG    = {'提消耗':'#fff7e6','基础必备':'#e6f4ff','组织发展':'#f9f0ff','新机会测试':'#e6fffb'};
+  const TYPE_COLOR = {'提消耗':'#f5222d','基础必备':'#1677ff','组织发展':'#722ed1','新机会测试':'#13c2c2'};
+  const TYPE_BG    = {'提消耗':'#fff1f0','基础必备':'#e6f4ff','组织发展':'#f9f0ff','新机会测试':'#e6fffb'};
   // 数据进展摘要（取前 60 字 + 省略号，可指定长度）
   const summarize = (s, n=60) => {
     if (!s) return '';
@@ -1283,10 +1283,10 @@ function renderProj(){
   TYPE_ORDER.forEach(t => {
     const items = list.filter(p => p.type === t);
     if (!items.length) return;
-    html += `<div class="proj-type-h" style="margin:18px 0 10px;display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:${TYPE_COLOR[t]}">
-      <span style="display:inline-block;width:4px;height:16px;background:${TYPE_COLOR[t]};border-radius:2px"></span>
-      ${t}
-      <span style="font-size:11px;color:#8a9aae;font-weight:400">· ${items.length}个专项</span>
+    html += `<div class="proj-type-h" style="margin:24px 0 14px;display:flex;align-items:center;gap:10px;font-size:18px;font-weight:700;color:${TYPE_COLOR[t]}">
+      <span style="display:inline-block;width:6px;height:22px;background:${TYPE_COLOR[t]};border-radius:3px"></span>
+      <span>${t}</span>
+      <span style="display:inline-flex;align-items:center;padding:2px 10px;background:${TYPE_BG[t]};border:1px solid ${TYPE_COLOR[t]}33;border-radius:10px;font-size:12px;color:${TYPE_COLOR[t]};font-weight:600">${items.length} 个专项</span>
     </div>`;
     html += '<div class="pg">' + items.map((p) => {
       const idx = PROJ.indexOf(p);
@@ -1297,7 +1297,7 @@ function renderProj(){
         const txt = isJiejin ? '跃迁监控看板' : 'adata 监控';
         links.push(`<a href="${p.dataLink}" target="_blank" rel="noopener" onclick="event.stopPropagation()" title="${p.dataLink}">📊 ${txt}</a>`);
       }
-      return `<div class="pc ${p.cls}" onclick="showProj(${idx})">
+      return `<div class="pc ${p.cls}" style="border-left:4px solid ${TYPE_COLOR[t]}" onclick="showProj(${idx})">
         <div class="ph">
           <span class="pn">${p.name}</span>
           <span class="ps" style="background:${TYPE_BG[t]};color:${TYPE_COLOR[t]};border:1px solid ${TYPE_COLOR[t]}33;padding:3px 9px;border-radius:10px;font-size:11px;font-weight:600;white-space:nowrap">${t}</span>
