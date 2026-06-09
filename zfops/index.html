@@ -1261,7 +1261,7 @@ function recordLogin(user){
   const now = new Date();
   const pad = n => String(n).padStart(2,'0');
   const todayKey = `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}`;
-  const lastDateKey = `zfops_dau_last_${user.u}`;
+  const lastDateKey = `zfops_dau_last_v2_${user.u}`; // v2: 与命名空间绑定，避免老 key 误判
   const lastDate = localStorage.getItem(lastDateKey);
 
   if (lastDate !== todayKey){
@@ -1301,7 +1301,7 @@ function startDeepActivityTracker(user){
   const now = new Date();
   const pad = n => String(n).padStart(2,'0');
   const todayKey = `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}`;
-  const lastDeepKey = `zfops_deep_last_${user.u}`;
+  const lastDeepKey = `zfops_deep_last_v2_${user.u}`; // v2: 与命名空间绑定
   if (localStorage.getItem(lastDeepKey) === todayKey) return;
 
   const REQUIRE_SEC = 300;   // 5 分钟
