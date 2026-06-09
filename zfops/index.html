@@ -511,7 +511,6 @@ details[open] .nc-ended-sum::before{transform:rotate(90deg)}
       <span class="ls-tip">⚠️ 这里只展示<strong>本浏览器</strong>登录过的账号记录。要查看全员登录情况请联系金洁。</span>
       <div class="ls-actions">
         <button class="ls-btn ls-btn-ghost" onclick="exportLoginStats()">⬇ 导出 JSON</button>
-        <button class="ls-btn ls-btn-ghost" onclick="clearLoginStats()">🗑 清空记录</button>
       </div>
     </div>
   </div>
@@ -1418,12 +1417,6 @@ function exportLoginStats(){
   a.download = `zfops_login_log_${now.getFullYear()}${pad(now.getMonth()+1)}${pad(now.getDate())}_${pad(now.getHours())}${pad(now.getMinutes())}.json`;
   a.click();
   URL.revokeObjectURL(url);
-}
-
-function clearLoginStats(){
-  if (!confirm('确定清空本机所有登录记录？此操作不可恢复。')) return;
-  localStorage.removeItem(LOGIN_LOG_KEY);
-  showLoginStats();
 }
 
 function initLoginSelect(){
