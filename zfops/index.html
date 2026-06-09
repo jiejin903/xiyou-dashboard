@@ -504,7 +504,7 @@ details[open] .nc-ended-sum::before{transform:rotate(90deg)}
 <div class="ls-mask" id="lsMask" onclick="if(event.target===this)closeLoginStats()">
   <div class="ls-box">
     <div class="ls-hd">
-      <h3>📊 登录统计 <span class="ls-hd-tag" id="lsHdTag">全员云端数据</span> <span class="ls-hd-since">数据统计开始时间：6月9日 15:00</span></h3>
+      <h3>📊 登录统计 <span class="ls-hd-tag" id="lsHdTag">全员云端数据</span> <span class="ls-hd-since">数据统计开始时间：6月9日 15:08（DAU模型·已清零）</span></h3>
       <span class="ls-close" onclick="closeLoginStats()">✕</span>
     </div>
     <div class="ls-body" id="lsBody"></div>
@@ -1243,7 +1243,7 @@ const LOGIN_WEBHOOK_URL = '';
 
 // 云端统计：counterapi.dev 公共计数器（0 注册、0 部署、0 运维）
 // 命名空间锁定到本系统专属，每个账号一个独立计数器
-const CLOUD_NS = 'zfops_warmap_2026h1';
+const CLOUD_NS = 'zfops_warmap_2026h1_v2'; // 2026-06-09 15:08 清零换新命名空间，启用 DAU 模型
 const CLOUD_API = 'https://api.counterapi.dev/v1';
 
 let CURRENT_USER = null;
@@ -1396,13 +1396,6 @@ async function showLoginStats(){
           </tr>`).join('')}
       </tbody>
     </table>
-    ${sleepList.length ? `
-    <div style="margin-top:14px;padding:10px 12px;background:#fff7e6;border:1px solid #ffe1a8;border-radius:8px">
-      <div style="font-size:12px;color:#a05a00;margin-bottom:4px;font-weight:600">😴 沉睡名单（${sleepList.length}人 · 7天未活跃或从未访问）</div>
-      <div style="font-size:12px;color:#5a6b7e;line-height:1.7">
-        ${sleepList.map(r => `<span style="display:inline-block;margin-right:10px">${r.n}（${r.u}）${r.never?'<span style="color:#c43e3e">·从未</span>':''}</span>`).join('')}
-      </div>
-    </div>` : ''}
     <div style="margin-top:10px;font-size:11px;color:#bfbfbf;text-align:center">
       统计口径：每人每天首次访问 +1（DAU 模型）· 数据来源 counterapi.dev · 命名空间 ${CLOUD_NS}
     </div>`;
