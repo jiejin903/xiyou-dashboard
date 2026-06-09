@@ -750,7 +750,7 @@ details[open] .nc-ended-sum::before{transform:rotate(90deg)}
           <span class="sec-num">01</span>
           <div class="sec-info">
             <h3>扶持信息总览</h3>
-            <p>同步自《扶持信息汇总》文档 · 流量扶持 + 产品扶持 · 共 15 项</p>
+            <p>同步自《扶持信息汇总》文档 · 流量扶持 + 产品扶持 · 共 16 项</p>
           </div>
           <span class="sec-tag" id="fuchi-src">📄 数据来源：扶持信息汇总</span>
         </div>
@@ -970,9 +970,14 @@ const PROJ = [
 const INFO_FUCHI_SRC = 'https://doc.weixin.qq.com/sheet/e3_AAoArgYoACgCNFKi5PTbjSfu2XUlb?scode=AJEAIQdfAAopErVx0CAOQALQY-AEk&tab=gfbi14';
 const INFO_CAPA_SRC  = 'https://doc.weixin.qq.com/sheet/e3_AAoArgYoACgCNcirNtLAVTR65Z2p8?scode=AJEAIQdfAAohrdktfYAOQALQY-AEk&tab=jpzegm';
 
-/* 扶持信息 · 2 类（流量扶持 / 产品扶持）· 共 15 项 */
+/* 扶持信息 · 2 类（流量扶持 / 产品扶持）· 共 16 项 */
 const INFO_FUCHI = [
-  // ===== 流量扶持（10）=====
+  // ===== 流量扶持（11）=====
+  {group:'流量扶持',name:'小店直播 × 商品聚合页扶持',isNew:true,period:'6.10 – 6.30',start:'2026-06-10',end:'2026-06-30',
+    target:'已开通 4+m 商品聚合页白名单的账户id（上限1500个，每周三可新增）',
+    require:'生效范围：直播链路 × 推广产品库类型 64 商品聚合页；周期内每账户使用【商品聚合页】广告 ≥ 5 条，每周三巡查不达标即清退',
+    extra:'21天扶持周期',
+    links:[{t:'扶持方案',u:'https://doc.weixin.qq.com/sheet/e3_AZ0AAQbUAOMCNzKAi651lQbadXwwq?tab=BB08J2'},{t:'测试白名单',u:'https://doc.weixin.qq.com/sheet/e3_AN0ARwawACgCNzHrDcRr3SJy3upbe'}]},
   {group:'流量扶持',name:'朋友圈非闭环 9 图扶持',period:'6.4 – 6.18',start:'2026-06-04',end:'2026-06-18',
     target:'商消非闭环 5 月朋友圈竞价日耗 > 1w 的客户',
     require:'6.11 巡查清退；消耗/基建/多图智拼三者满足其一即可保留',
