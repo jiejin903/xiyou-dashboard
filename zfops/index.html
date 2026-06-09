@@ -118,6 +118,29 @@ body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;backgr
 .prog{height:8px;background:#f0f2f5;border-radius:4px;overflow:hidden}
 .fill{height:100%;border-radius:4px;background:linear-gradient(90deg,#1677ff,#69b1ff);transition:width .6s}
 .fill.g{background:linear-gradient(90deg,#52c41a,#95de64)}
+/* OKR 表格样式（KR聚合 + 重点突出）*/
+.okr-tbl{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.okr-kr{border:1px solid #e4e9f0;border-radius:8px;background:#fff;overflow:hidden}
+.okr-kr-h{display:flex;align-items:center;gap:10px;padding:10px 14px;background:linear-gradient(90deg,#f0f5ff,#fff);border-bottom:1px solid #e8eef7}
+.okr-kr.purple .okr-kr-h{background:linear-gradient(90deg,#f4ebff,#fff);border-bottom-color:#efe2ff}
+.okr-kr-tag{display:inline-flex;align-items:center;justify-content:center;min-width:34px;padding:3px 8px;background:#1677ff;color:#fff;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:.5px}
+.okr-kr.purple .okr-kr-tag{background:#722ed1}
+.okr-kr-name{font-size:15px;font-weight:700;color:#1a2332;flex:1}
+.okr-kr-sum{font-size:11px;color:#8a9aae}
+.okr-kr-body{padding:6px 14px 10px}
+.okr-row{display:grid;grid-template-columns:1fr 220px 70px;gap:16px;align-items:center;padding:10px 0;font-size:13px}
+.okr-row + .okr-row{border-top:1px dashed #f0f2f5}
+.okr-row .lab{color:#1a2332;line-height:1.5;font-weight:500}
+.okr-row .lab small{display:block;color:#8a9aae;font-size:11px;margin-top:2px;font-weight:400}
+.okr-row .bar{height:10px;background:#f0f2f5;border-radius:5px;overflow:hidden;position:relative}
+.okr-row .bar > div{height:100%;border-radius:5px;transition:width .6s}
+.okr-row .pct{font-size:18px;font-weight:700;font-family:'SF Mono','Menlo',monospace;text-align:right;letter-spacing:-.5px}
+.okr-row .pct small{display:block;font-size:10px;color:#8a9aae;font-weight:400;font-family:inherit;letter-spacing:0}
+@media (max-width: 768px){
+  .okr-row{grid-template-columns:1fr;gap:6px;padding:10px 0}
+  .okr-row .pct{text-align:left;font-size:16px}
+  .okr-kr-name{font-size:14px}
+}
 .fill.y{background:linear-gradient(90deg,#faad14,#ffd666)}
 .fill.r{background:linear-gradient(90deg,#f5222d,#ff7875)}
 
@@ -515,13 +538,33 @@ body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;backgr
             <div style="display:flex;align-items:center;gap:8px"><span style="font-size:18px;font-weight:700;color:#52c41a">90%</span><span style="font-size:11px;color:#8a9aae">完成度</span></div>
           </div>
           <div class="prog" style="margin-bottom:10px"><div class="fill g" style="width:90%"></div></div>
-          <div class="okr-grid">
-            <div class="okr"><div class="okr-r"><span class="lab">KR1 闭环提收 · 直播链路 H1 720w/d · 同比+64%</span><span class="pct" style="color:#52c41a">87%</span></div><div class="prog"><div class="fill g" style="width:87%"></div></div></div>
-            <div class="okr"><div class="okr-r"><span class="lab">KR2 非闭环稳盘 · CID 200w/d</span><span class="pct" style="color:#faad14">83%</span></div><div class="prog"><div class="fill" style="width:83%;background:linear-gradient(90deg,#faad14,#ffc53d)"></div></div></div>
-            <div class="okr"><div class="okr-r"><span class="lab">KR2 非闭环稳盘 · 品牌小程序直购 185w/d</span><span class="pct" style="color:#52c41a">102%</span></div><div class="prog"><div class="fill g" style="width:100%"></div></div></div>
-            <div class="okr"><div class="okr-r"><span class="lab">KR3 分赛道客户运营 · 闭环腰部跃迁 30+（日耗1w）</span><span class="pct" style="color:#52c41a">Q1→Q2 173%</span></div><div class="prog"><div class="fill g" style="width:100%"></div></div></div>
-            <div class="okr"><div class="okr-r"><span class="lab">KR4 AIGC消耗 · 80w/d</span><span class="pct" style="color:#faad14">85%</span></div><div class="prog"><div class="fill" style="width:85%;background:linear-gradient(90deg,#faad14,#ffc53d)"></div></div></div>
-            <div class="okr"><div class="okr-r"><span class="lab">KR4 曝光创意唯一性ID数 · 48w/day</span><span class="pct" style="color:#52c41a">115%</span></div><div class="prog"><div class="fill g" style="width:100%"></div></div></div>
+          <div class="okr-tbl">
+            <div class="okr-kr">
+              <div class="okr-kr-h"><span class="okr-kr-tag">KR1</span><span class="okr-kr-name">闭环提收</span><span class="okr-kr-sum">1 项</span></div>
+              <div class="okr-kr-body">
+                <div class="okr-row"><div class="lab">直播链路<small>H1 720w/d · 同比 +64%</small></div><div class="bar"><div style="width:87%;background:linear-gradient(90deg,#52c41a,#95de64)"></div></div><div class="pct" style="color:#52c41a">87%</div></div>
+              </div>
+            </div>
+            <div class="okr-kr">
+              <div class="okr-kr-h"><span class="okr-kr-tag">KR2</span><span class="okr-kr-name">非闭环稳盘</span><span class="okr-kr-sum">2 项 · 综合 92%</span></div>
+              <div class="okr-kr-body">
+                <div class="okr-row"><div class="lab">CID 链路<small>200w/d</small></div><div class="bar"><div style="width:83%;background:linear-gradient(90deg,#faad14,#ffc53d)"></div></div><div class="pct" style="color:#faad14">83%</div></div>
+                <div class="okr-row"><div class="lab">品牌小程序直购<small>185w/d</small></div><div class="bar"><div style="width:100%;background:linear-gradient(90deg,#52c41a,#95de64)"></div></div><div class="pct" style="color:#52c41a">102%</div></div>
+              </div>
+            </div>
+            <div class="okr-kr">
+              <div class="okr-kr-h"><span class="okr-kr-tag">KR3</span><span class="okr-kr-name">分赛道客户运营</span><span class="okr-kr-sum">1 项</span></div>
+              <div class="okr-kr-body">
+                <div class="okr-row"><div class="lab">闭环腰部跃迁 30+<small>日耗 1w · Q1→Q2</small></div><div class="bar"><div style="width:100%;background:linear-gradient(90deg,#52c41a,#95de64)"></div></div><div class="pct" style="color:#52c41a">173%</div></div>
+              </div>
+            </div>
+            <div class="okr-kr">
+              <div class="okr-kr-h"><span class="okr-kr-tag">KR4</span><span class="okr-kr-name">AIGC &amp; 创意</span><span class="okr-kr-sum">2 项 · 综合 100%</span></div>
+              <div class="okr-kr-body">
+                <div class="okr-row"><div class="lab">AIGC 消耗<small>80w/d</small></div><div class="bar"><div style="width:85%;background:linear-gradient(90deg,#faad14,#ffc53d)"></div></div><div class="pct" style="color:#faad14">85%</div></div>
+                <div class="okr-row"><div class="lab">曝光创意唯一性 ID 数<small>48w/day</small></div><div class="bar"><div style="width:100%;background:linear-gradient(90deg,#52c41a,#95de64)"></div></div><div class="pct" style="color:#52c41a">115%</div></div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -532,9 +575,19 @@ body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;backgr
             <div style="display:flex;align-items:center;gap:8px"><span style="font-size:18px;font-weight:700;color:#52c41a">91%</span><span style="font-size:11px;color:#8a9aae">完成度</span></div>
           </div>
           <div class="prog" style="margin-bottom:10px"><div class="fill g" style="width:91%"></div></div>
-          <div class="okr-grid">
-            <div class="okr"><div class="okr-r"><span class="lab">KR1 闭环提升 · 标品攻坚+大场+ADQ全域通双投 · H2 70w/d</span><span class="pct" style="color:#52c41a">84%</span></div><div class="prog"><div class="fill g" style="width:84%"></div></div></div>
-            <div class="okr"><div class="okr-r"><span class="lab">KR2 加粉维稳 · H1 70w · 100% 增长</span><span class="pct" style="color:#52c41a">106%</span></div><div class="prog"><div class="fill g" style="width:100%"></div></div></div>
+          <div class="okr-tbl">
+            <div class="okr-kr purple">
+              <div class="okr-kr-h"><span class="okr-kr-tag">KR1</span><span class="okr-kr-name">闭环提升</span><span class="okr-kr-sum">1 项</span></div>
+              <div class="okr-kr-body">
+                <div class="okr-row"><div class="lab">标品攻坚 + 大场 + ADQ 全域通双投<small>H2 70w/d</small></div><div class="bar"><div style="width:84%;background:linear-gradient(90deg,#52c41a,#95de64)"></div></div><div class="pct" style="color:#52c41a">84%</div></div>
+              </div>
+            </div>
+            <div class="okr-kr purple">
+              <div class="okr-kr-h"><span class="okr-kr-tag">KR2</span><span class="okr-kr-name">加粉维稳</span><span class="okr-kr-sum">1 项</span></div>
+              <div class="okr-kr-body">
+                <div class="okr-row"><div class="lab">加粉投放<small>H1 70w · 100% 增长</small></div><div class="bar"><div style="width:100%;background:linear-gradient(90deg,#52c41a,#95de64)"></div></div><div class="pct" style="color:#52c41a">106%</div></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
