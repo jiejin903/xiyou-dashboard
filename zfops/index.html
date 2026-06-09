@@ -288,7 +288,8 @@ details[open] .nc-ended-sum::before{transform:rotate(90deg)}
 .trend-bar .bar-label{position:absolute;left:50%;transform:translateX(-50%);top:-16px;font-size:10px;font-weight:600;color:#1677ff;white-space:nowrap;line-height:1}
 .trend-line{position:absolute;left:0;right:0;border-top:2px dashed #f5222d;top:0}
 .trend-line::after{content:'OKR目标 1000万';position:absolute;right:6px;top:-18px;font-size:10px;color:#f5222d;background:#fff;padding:2px 6px;border-radius:3px;border:1px solid #ffa39e}
-.trend-x{position:absolute;left:46px;right:0;bottom:0;display:flex;justify-content:space-between;font-size:10px;color:#8a9aae}
+.trend-x{position:absolute;left:46px;right:0;bottom:0;height:14px;font-size:10px;color:#8a9aae}
+.trend-x .x-tick{position:absolute;transform:translateX(-50%);white-space:nowrap;font-variant-numeric:tabular-nums;line-height:14px}
 
 /* 饼图 */
 .pie-wrap{display:flex;align-items:center;gap:24px;padding:12px 0}
@@ -1561,7 +1562,11 @@ function renderTrend(){
     const left = (i / (data.length - 1)) * 96;
     return `<div class="trend-bar" style="left:${left}%;height:${h}%" title="${dates[i]}: ${v}万"><span class="bar-label">${v}</span></div>`;
   }).join('');
-  const xLabels = dates.filter((_,i)=>i%2===0||i===dates.length-1).map(d => `<span>${d}</span>`).join('');
+  const xLabels = dates.map((d,i) => {
+    // 柱子left=(i/(n-1))*96，宽2.5%，所以柱子中心=left+1.25%；让日期标签中心对齐柱子中心
+    const center = (i / (dates.length - 1)) * 96 + 1.25;
+    return `<span class="x-tick" style="left:${center}%">${d}</span>`;
+  }).join('');
   wrap.innerHTML = `${yAxis}<div class="trend-area"><div class="trend-grid"></div>${bars}</div><div class="trend-x">${xLabels}</div>`;
 }
 
