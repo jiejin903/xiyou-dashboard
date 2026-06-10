@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>拓新销售小红点系统 × 客户全生命周期系统 · 拓新业务流应用分享</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: #f5f7fa;
+    color: #1f2329;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ========= 头部 ========= */
+  .hero {
+    background: linear-gradient(135deg, #0a2540 0%, #1a3a6c 50%, #0052d9 100%);
+    color: #fff;
+    padding: 64px 48px 56px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -50%; right: -10%;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(255,125,75,0.18) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-tag {
+    display: inline-block;
+    padding: 4px 14px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 100px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-size: 38px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 14px;
+    line-height: 1.3;
+  }
+  .hero h1 .accent { color: #ff8d4d; }
+  .hero-sub {
+    font-size: 16px;
+    color: rgba(255,255,255,0.75);
+    max-width: 760px;
+  }
+  .hero-meta {
+    margin-top: 28px;
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+  }
+  .hero-meta span::before {
+    content: "·";
+    margin-right: 8px;
+    color: #ff8d4d;
+  }
+
+  /* ========= 容器 ========= */
+  .container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 48px 40px;
+  }
+  section { margin-bottom: 56px; }
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 28px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid #e7e9ed;
+  }
+  .section-num {
+    font-size: 14px;
+    color: #ff8d4d;
+    font-weight: 600;
+    letter-spacing: 2px;
+  }
+  .section-head h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1f2329;
+  }
+  .section-head .desc {
+    margin-left: auto;
+    font-size: 13px;
+    color: #86909c;
+  }
+
+  /* ========= 痛点卡片 ========= */
+  .pain-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 28px;
+  }
+  .pain-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 28px 28px 24px;
+    border-left: 4px solid #e34d59;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    position: relative;
+  }
+  .pain-card .pain-tag {
+    display: inline-block;
+    padding: 3px 10px;
+    background: #fef2f3;
+    color: #e34d59;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 4px;
+    margin-bottom: 14px;
+  }
+  .pain-card h3 {
+    font-size: 17px;
+    margin-bottom: 14px;
+    color: #1f2329;
+    font-weight: 600;
+  }
+  .pain-card p {
+    font-size: 14px;
+    color: #4e5969;
+    line-height: 1.8;
+  }
+
+  /* 数字高亮 */
+  .num {
+    color: #e34d59;
+    font-weight: 700;
+    font-size: 17px;
+    font-family: "SF Pro Display", -apple-system, sans-serif;
+  }
+
+  /* 思路框 */
+  .idea-box {
+    background: linear-gradient(135deg, #fff7f0 0%, #fff 100%);
+    border-radius: 12px;
+    padding: 28px 32px;
+    border: 1px dashed #ff8d4d;
+    position: relative;
+  }
+  .idea-box .idea-tag {
+    position: absolute;
+    top: -12px;
+    left: 24px;
+    background: #ff8d4d;
+    color: #fff;
+    padding: 4px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 4px;
+    letter-spacing: 1px;
+  }
+  .idea-box p {
+    font-size: 15px;
+    color: #1f2329;
+    line-height: 1.9;
+  }
+  .idea-box p .key {
+    color: #0052d9;
+    font-weight: 600;
+    background: linear-gradient(transparent 60%, #fff0e0 60%);
+    padding: 0 2px;
+  }
+
+  /* ========= 对比流程图 ========= */
+  .compare {
+    background: #fff;
+    border-radius: 16px;
+    padding: 32px 28px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+  }
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 60px 1fr;
+    gap: 24px;
+    align-items: stretch;
+  }
+  .compare-col {
+    border-radius: 12px;
+    padding: 24px 22px;
+    display: flex;
+    flex-direction: column;
+  }
+  .compare-col.past {
+    background: #f7f8fa;
+    border: 1px solid #e7e9ed;
+  }
+  .compare-col.now {
+    background: linear-gradient(135deg, #f0f7ff 0%, #fff 100%);
+    border: 1px solid #c0d6ff;
+  }
+  .compare-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .compare-col.past .compare-title { color: #86909c; }
+  .compare-col.now .compare-title { color: #0052d9; }
+  .compare-title .dot {
+    width: 10px; height: 10px; border-radius: 50%;
+  }
+  .compare-col.past .dot { background: #c9cdd4; }
+  .compare-col.now .dot { background: #0052d9; }
+
+  .flow-step {
+    background: #fff;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    font-size: 13.5px;
+    border: 1px solid #e7e9ed;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    line-height: 1.6;
+  }
+  .compare-col.past .flow-step {
+    color: #86909c;
+  }
+  .compare-col.now .flow-step {
+    border-color: #c0d6ff;
+    background: #fff;
+    color: #1f2329;
+    box-shadow: 0 1px 3px rgba(0,82,217,0.06);
+  }
+  .flow-step .step-no {
+    flex-shrink: 0;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: #f2f3f5;
+    color: #86909c;
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .compare-col.now .step-no {
+    background: #0052d9;
+    color: #fff;
+  }
+  .flow-step .step-text { flex: 1; }
+  .flow-step .step-text strong {
+    display: inline-block;
+    margin-bottom: 2px;
+    color: inherit;
+  }
+  .compare-col.now .flow-step .step-text strong { color: #1f2329; font-weight: 600; }
+  .flow-step .red-dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    background: #e34d59;
+    border-radius: 50%;
+    margin: 0 4px;
+    box-shadow: 0 0 0 3px rgba(227,77,89,0.2);
+    vertical-align: middle;
+  }
+
+  .arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ff8d4d;
+    font-size: 32px;
+    font-weight: 700;
+  }
+
+  /* 对比小结 */
+  .compare-summary {
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .summary-card {
+    background: #fafbfc;
+    border-radius: 10px;
+    padding: 18px 20px;
+    text-align: center;
+    border: 1px solid #e7e9ed;
+  }
+  .summary-card .label {
+    font-size: 12px;
+    color: #86909c;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+  }
+  .summary-card .value {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1f2329;
+  }
+  .summary-card .value .past { color: #86909c; text-decoration: line-through; text-decoration-color: #c9cdd4; margin-right: 8px; font-weight: 400; font-size: 13px; }
+  .summary-card .value .arrow-mini { color: #ff8d4d; margin: 0 6px; }
+  .summary-card .value .now { color: #0052d9; }
+
+  /* ========= 价值落点 ========= */
+  .outcome-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .outcome-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 28px;
+    border-top: 3px solid #00a870;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .outcome-card .outcome-no {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px; height: 32px;
+    background: #00a870;
+    color: #fff;
+    border-radius: 8px;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .outcome-card h3 {
+    font-size: 17px;
+    margin-bottom: 10px;
+    color: #1f2329;
+  }
+  .outcome-card p {
+    font-size: 13.5px;
+    color: #4e5969;
+    line-height: 1.8;
+  }
+
+  /* ========= 客户全生命周期表格 ========= */
+  .lifecycle {
+    background: #fff;
+    border-radius: 16px;
+    padding: 4px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+    overflow: hidden;
+  }
+  .lc-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: fixed;
+  }
+  .lc-table th, .lc-table td {
+    vertical-align: top;
+    padding: 20px 18px;
+    border-bottom: 1px solid #eef0f3;
+  }
+  .lc-table thead th {
+    background: linear-gradient(180deg, #f7f9fc 0%, #fff 100%);
+    color: #1f2329;
+    font-weight: 700;
+    font-size: 15px;
+    text-align: left;
+    padding: 22px 18px 18px;
+    position: relative;
+  }
+  .lc-table thead th.axis {
+    width: 11%;
+    background: #fafbfc;
+    color: #86909c;
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: 600;
+  }
+  .lc-table thead th .stage-tag {
+    display: inline-block;
+    padding: 5px 16px;
+    border-radius: 100px;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+  }
+  .lc-table thead th.s1 .stage-tag { background:#fff1e8; color:#d46b08; }
+  .lc-table thead th.s2 .stage-tag { background:#e6f4ff; color:#0958d9; }
+  .lc-table thead th.s3 .stage-tag { background:#f6ffed; color:#389e0d; }
+  .lc-table thead th .stage-name { font-size: 17px; font-weight: 700; display:block; margin-bottom:4px; }
+  .lc-table thead th .stage-time { font-size: 12px; color:#86909c; font-weight: 500; }
+  .lc-table thead th .stage-meta {
+    margin-top: 10px;
+    padding: 8px 10px;
+    background: #fff;
+    border: 1px dashed #e7e9ed;
+    border-radius: 6px;
+    font-size: 11.5px;
+    color: #4e5969;
+    line-height: 1.6;
+    font-weight: 400;
+  }
+  .lc-table thead th .stage-meta b { color: #1f2329; font-weight: 600; }
+  .lc-table thead th .stage-meta .retention {
+    color: #00a870;
+    font-weight: 700;
+  }
+
+  .lc-table tbody td.dim {
+    background: #fafbfc;
+    color: #86909c;
+    font-size: 12px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .lc-table tbody td.dim .dim-zh {
+    display: block;
+    color: #1f2329;
+    font-size: 14px;
+    letter-spacing: 0;
+    margin-top: 4px;
+  }
+
+  .lc-cell { font-size: 13px; line-height: 1.75; color:#4e5969; }
+  .lc-cell ul { list-style: none; padding: 0; margin: 0; }
+  .lc-cell li {
+    position: relative;
+    padding-left: 14px;
+    margin-bottom: 6px;
+  }
+  .lc-cell li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 9px;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: #c9cdd4;
+  }
+  .lc-cell li b { color: #1f2329; font-weight: 600; }
+
+  .lc-row-pain td .lc-cell li::before { background:#e34d59; }
+  .lc-row-service td .lc-cell li::before { background:#0052d9; }
+  .lc-row-ability td .lc-cell li::before { background:#00a870; }
+
+  .who-tag, .form-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-right: 6px;
+    margin-bottom: 4px;
+    line-height: 1.5;
+  }
+  .who-tag { background:#fff1e8; color:#d46b08; border:1px solid #ffd8a8; }
+  .form-tag { background:#e6f4ff; color:#0958d9; border:1px solid #91caff; }
+  .form-tag.live { background:#fff0f0; color:#cf1322; border:1px solid #ffccc7; }
+  .form-tag.ai { background:#f0f5ff; color:#1d39c4; border:1px solid #adc6ff; }
+  .form-tag.t2t { background:#f6ffed; color:#389e0d; border:1px solid #b7eb8f; }
+
+  .service-block {
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #eef0f3;
+  }
+  .service-block:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+  .service-block .sb-label {
+    font-size: 11px;
+    color: #86909c;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+
+  /* ========= 小红点任务示例卡片 ========= */
+  .red-dot-block {
+    margin-top: 14px;
+    background: linear-gradient(135deg, #fff5f5 0%, #fff 100%);
+    border: 1px solid #ffccc7;
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+  .red-dot-block .rd-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #cf1322;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    letter-spacing: 0.5px;
+  }
+  .red-dot-block .rd-title::before {
+    content: "";
+    display: inline-block;
+    width: 8px; height: 8px;
+    background: #e34d59;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(227,77,89,0.2);
+  }
+  .rd-task {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 8px;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px dashed #ffe4e0;
+    font-size: 12px;
+    line-height: 1.55;
+  }
+  .rd-task:last-child { border-bottom: none; }
+  .rd-task .rd-trigger {
+    color: #4e5969;
+  }
+  .rd-task .rd-trigger b { color: #cf1322; font-weight: 600; }
+  .rd-task .rd-arrow {
+    color: #ff8d4d;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .rd-task .rd-action {
+    color: #1f2329;
+    font-weight: 500;
+  }
+  .rd-task .rd-action .role {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 10.5px;
+    font-weight: 600;
+    margin-right: 4px;
+    line-height: 1.5;
+  }
+  .rd-task .rd-action .role.sale { background:#e6f4ff; color:#0958d9; border:1px solid #91caff; }
+  .rd-task .rd-action .role.ops { background:#fff7e6; color:#d46b08; border:1px solid #ffd591; }
+  .rd-task .rd-action .role.ka { background:#f9f0ff; color:#722ed1; border:1px solid #d3adf7; }
+  .rd-task .rd-action .role.svc { background:#f6ffed; color:#389e0d; border:1px solid #b7eb8f; }
+
+  /* 标杆期权益折叠卡 */
+  .vip-box {
+    margin-top: 14px;
+    background: linear-gradient(135deg, #fff8e6 0%, #fff 100%);
+    border: 1px solid #ffd591;
+    border-radius: 8px;
+    padding: 10px 14px;
+    cursor: pointer;
+  }
+  .vip-box summary {
+    list-style: none;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #d46b08;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+  }
+  .vip-box summary::-webkit-details-marker { display: none; }
+  .vip-box summary::before {
+    content: "▸";
+    transition: transform 0.2s;
+    font-size: 10px;
+  }
+  .vip-box[open] summary::before { transform: rotate(90deg); }
+  .vip-box .vip-content {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed #ffd591;
+    font-size: 12px;
+    color:#4e5969;
+    line-height: 1.8;
+  }
+  .vip-box .vip-content b { color:#d46b08; }
+
+  /* 表格顶部条形进度（视觉装饰：留存率） */
+  .ret-bar { display: flex; align-items: center; gap: 6px; margin-top: 6px; }
+  .ret-bar .bar-bg {
+    flex: 1; height: 4px; background: #eef0f3; border-radius: 100px; overflow: hidden;
+  }
+  .ret-bar .bar-fill {
+    height: 100%; border-radius: 100px;
+    background: linear-gradient(90deg, #00a870, #20c997);
+  }
+  .ret-bar .ret-text { font-size: 11px; color:#00a870; font-weight: 700; }
+
+  /* footer */
+  .footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 12px;
+    color: #86909c;
+    border-top: 1px solid #e7e9ed;
+    background: #fff;
+  }
+
+  /* ========= 移动端适配 ========= */
+  @media (max-width: 768px) {
+    .hero { padding: 40px 20px 36px; }
+    .hero h1 { font-size: 24px; }
+    .hero-sub { font-size: 14px; }
+    .hero-meta { gap: 16px; font-size: 12px; }
+
+    .container { padding: 28px 16px; }
+    section { margin-bottom: 36px; }
+    .section-head { flex-wrap: wrap; gap: 8px; }
+    .section-head h2 { font-size: 19px; }
+    .section-head .desc { margin-left: 0; width: 100%; font-size: 12px; }
+
+    .pain-grid { grid-template-columns: 1fr; gap: 14px; }
+    .pain-card { padding: 22px 20px; }
+    .pain-card h3 { font-size: 15px; }
+    .pain-card p { font-size: 13.5px; }
+
+    .idea-box { padding: 26px 20px 22px; }
+    .idea-box p { font-size: 14px; }
+
+    .compare { padding: 24px 16px; }
+    .compare-grid {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    .arrow {
+      transform: rotate(90deg);
+      font-size: 24px;
+      padding: 4px 0;
+    }
+    .compare-col { padding: 20px 16px; }
+    .compare-title { font-size: 16px; }
+    .flow-step { font-size: 13px; padding: 12px 14px; }
+
+    .compare-summary { grid-template-columns: 1fr; gap: 10px; }
+    .summary-card { padding: 14px 16px; text-align: left; }
+
+    .outcome-grid { grid-template-columns: 1fr; gap: 14px; }
+    .outcome-card { padding: 22px 20px; }
+
+    /* 生命周期表格手机端：表格转卡片栈 */
+    .lifecycle { padding: 12px; box-shadow: none; }
+    .lc-table, .lc-table thead, .lc-table tbody, .lc-table tr, .lc-table th, .lc-table td {
+      display: block;
+      width: 100%;
+    }
+    .lc-table thead { display: none; }
+    .lc-table tbody tr {
+      background: #fff;
+      border-radius: 12px;
+      margin-bottom: 14px;
+      border: 1px solid #eef0f3;
+      padding: 4px 0;
+    }
+    .lc-table tbody td {
+      border-bottom: 1px solid #f2f3f5;
+      padding: 16px 18px;
+    }
+    .lc-table tbody td:last-child { border-bottom: none; }
+    .lc-table tbody td.dim {
+      background: linear-gradient(90deg, #f7f9fc 0%, #fff 100%);
+      border-radius: 12px 12px 0 0;
+      padding: 14px 18px;
+    }
+    .lc-table tbody td.dim .dim-zh { font-size: 16px; }
+    .lc-table tbody td::before {
+      content: attr(data-stage);
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      color: #86909c;
+    }
+    .lc-table tbody td.dim::before { display: none; }
+    .lc-table tbody td.s1::before { color:#d46b08; }
+    .lc-table tbody td.s2::before { color:#0958d9; }
+    .lc-table tbody td.s3::before { color:#389e0d; }
+  }
+
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 21px; }
+    .hero-tag { font-size: 11px; }
+    .num { font-size: 15px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ========= 头部 ========= -->
+<div class="hero">
+  <div style="max-width:1200px; margin:0 auto;">
+    <div class="hero-tag">26 H1 · 业务流程优化分享</div>
+    <h1>拓新销售小红点系统 × 客户全生命周期系统<br>
+      <span class="accent">在拓新业务流的应用分享</span>
+    </h1>
+    <p class="hero-sub">
+      把"客户的需要"转化为"销售的daily work"——化销售被动为主动，做到客户不漏球。
+    </p>
+    <div class="hero-meta">
+      <span>分享主题：拓新业务流 × 系统化运营</span>
+      <span>更新时间：2026 H1</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ========= 业务痛点 ========= -->
+  <section>
+    <div class="section-head">
+      <div class="section-num">01</div>
+      <h2>业务痛点</h2>
+      <div class="desc">从规模和视角两个维度看真实问题</div>
+    </div>
+
+    <div class="pain-grid">
+      <!-- 痛点1 -->
+      <div class="pain-card">
+        <span class="pain-tag">痛点 01 · 销售视角</span>
+        <h3>"销售偏被动服务，客户体感不好"</h3>
+        <p>
+          一个季度引入新客数 <span class="num">4000+</span>，人均服务客户数 <span class="num">200–500</span>。
+          过往靠客户找销售，销售偏被动响应，客户体感不好。<br><br>
+          对销售而言：<strong>如何识别出有价值的客户？如何主动触达提供客户需要的服务？</strong> 本质上是要帮销售及时抓住业务的机会，做到不漏球。
+        </p>
+      </div>
+
+      <!-- 痛点2 -->
+      <div class="pain-card">
+        <span class="pain-tag">痛点 02 · 客户视角</span>
+        <h3>"问题离散解决，错过起量机会"</h3>
+        <p>
+          站在客户的视角，<strong>客户在不同阶段会有不同的问题</strong>。<br><br>
+          过往都是<strong>离散的解决</strong>——开户问题归销售、起量问题归运营、ROI问题归优化师，没有一个端到端的视角串起来，会造成<strong>错过一些起量机会</strong>。
+        </p>
+      </div>
+    </div>
+
+    <!-- 思路 -->
+    <div class="idea-box">
+      <span class="idea-tag">解 决 思 路</span>
+      <p>
+        面对客户的不同阶段，匹配不同的服务，把这些客户的需要，
+        <span class="key">通过程序化转化为销售每天的 daily work</span>，
+        不依赖销售的个人分析，
+        <span class="key">直接转化成任务体系</span>。<br>
+        做到——化销售被动为主动，以及面对客户不漏球。
+      </p>
+    </div>
+  </section>
+
+  <!-- ========= 过去 vs 现在 对比 ========= -->
+  <section>
+    <div class="section-head">
+      <div class="section-num">02</div>
+      <h2>过去 vs 现在 · 工作流对比</h2>
+      <div class="desc">同一个客户机会，两种处理路径</div>
+    </div>
+
+    <div class="compare">
+      <div class="compare-grid">
+
+        <!-- 过去 -->
+        <div class="compare-col past">
+          <div class="compare-title">
+            <span class="dot"></span>
+            <span>过去 · 被动模式</span>
+          </div>
+
+          <div class="flow-step">
+            <span class="step-no">1</span>
+            <div class="step-text">
+              <strong>客户主动找销售</strong><br>
+              客户遇到问题/需求，自己来找销售，销售响应式服务
+            </div>
+          </div>
+          <div class="flow-step">
+            <span class="step-no">2</span>
+            <div class="step-text">
+              <strong>销售凭经验判断</strong><br>
+              依赖销售个人分析能力，识别客户价值与下一步动作
+            </div>
+          </div>
+          <div class="flow-step">
+            <span class="step-no">3</span>
+            <div class="step-text">
+              <strong>各环节离散处理</strong><br>
+              开户、起量、ROI 等问题分别由不同角色解决，缺乏全局视角
+            </div>
+          </div>
+          <div class="flow-step">
+            <span class="step-no">4</span>
+            <div class="step-text">
+              <strong>结果：漏球 + 错过起量窗口</strong><br>
+              人均服务 200–500 客户，靠人脑覆盖必然有遗漏
+            </div>
+          </div>
+        </div>
+
+        <!-- 中间箭头 -->
+        <div class="arrow">→</div>
+
+        <!-- 现在 -->
+        <div class="compare-col now">
+          <div class="compare-title">
+            <span class="dot"></span>
+            <span>现在 · 主动模式</span>
+          </div>
+
+          <div class="flow-step">
+            <span class="step-no">1</span>
+            <div class="step-text">
+              <strong>系统识别客户需要<span class="red-dot"></span></strong><br>
+              客户全生命周期系统监控每个客户的阶段与异常，自动推出小红点
+            </div>
+          </div>
+          <div class="flow-step">
+            <span class="step-no">2</span>
+            <div class="step-text">
+              <strong>程序化转 daily work</strong><br>
+              不依赖销售个人分析，每天系统自动派发当日任务清单
+            </div>
+          </div>
+          <div class="flow-step">
+            <span class="step-no">3</span>
+            <div class="step-text">
+              <strong>全生命周期视角串联</strong><br>
+              客户问题在哪个阶段都能被及时暴露、统一跟进
+            </div>
+          </div>
+          <div class="flow-step">
+            <span class="step-no">4</span>
+            <div class="step-text">
+              <strong>结果：主动触达 + 不漏球</strong><br>
+              销售任务固定化、主动化，客户体感与起量机会双提升
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 对比小结 -->
+      <div class="compare-summary">
+        <div class="summary-card">
+          <div class="label">服 务 模 式</div>
+          <div class="value">
+            <span class="past">客户找销售</span>
+            <span class="arrow-mini">→</span>
+            <span class="now">销售找客户</span>
+          </div>
+        </div>
+        <div class="summary-card">
+          <div class="label">机 会 识 别</div>
+          <div class="value">
+            <span class="past">个人经验</span>
+            <span class="arrow-mini">→</span>
+            <span class="now">系统程序化</span>
+          </div>
+        </div>
+        <div class="summary-card">
+          <div class="label">客 户 视 角</div>
+          <div class="value">
+            <span class="past">离散解决</span>
+            <span class="arrow-mini">→</span>
+            <span class="now">全生命周期</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========= 当前能力落点 ========= -->
+  <section>
+    <div class="section-head">
+      <div class="section-num">03</div>
+      <h2>当前的能力落点</h2>
+      <div class="desc">两个系统在拓新业务流中的核心价值</div>
+    </div>
+
+    <div class="outcome-grid">
+      <div class="outcome-card">
+        <div class="outcome-no">1</div>
+        <h3>客户全生命周期视角，有问题能及时暴露，不漏球</h3>
+        <p>
+          以"客户"为单元，串联开户、首充、起量、提消耗等关键阶段。
+          任一阶段出现异常或机会信号，系统自动暴露给对应销售，
+          解决过去"离散解决、看不到全貌"的问题。
+        </p>
+      </div>
+
+      <div class="outcome-card">
+        <div class="outcome-no">2</div>
+        <h3>销售任务固定化，主动化</h3>
+        <p>
+          通过小红点系统，把客户的需要程序化转化为销售每天的 daily work。
+          销售不需要再凭经验大海捞针，每天打开系统即知道
+          "今天要服务哪些客户、做什么动作"——化被动响应为主动经营。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========= 客户全生命周期解决方案 ========= -->
+  <section>
+    <div class="section-head">
+      <div class="section-num">04</div>
+      <h2>客户全生命周期 · 阶段化解决方案</h2>
+      <div class="desc">基于服饰客户成长体系（V1）整理</div>
+    </div>
+
+    <div class="lifecycle">
+      <table class="lc-table">
+        <thead>
+          <tr>
+            <th class="axis">维度 \ 阶段</th>
+            <th class="s1">
+              <span class="stage-tag">新 手 期</span>
+              <span class="stage-name">降门槛 + 强引导</span>
+              <span class="stage-time">首投 0-30 天</span>
+              <div class="stage-meta">
+                <b>入池客户 5,543 家</b>（基准 100%）<br>
+                总消耗 <span class="retention">2,572.2 万</span>
+                <div class="ret-bar"><div class="bar-bg"><div class="bar-fill" style="width:100%"></div></div><span class="ret-text">100%</span></div>
+                <div style="margin-top:6px; color:#cf1322; font-size:11px;">↓ 流失 1,192 家（21.5%）</div>
+              </div>
+            </th>
+            <th class="s2">
+              <span class="stage-tag">生 长 期</span>
+              <span class="stage-name">冲消耗 + 建能力</span>
+              <span class="stage-time">31-90 天</span>
+              <div class="stage-meta">
+                <b>存活客户 4,351 家</b>（vs 新手 78.5%）<br>
+                总消耗 <span class="retention">6,526.0 万</span>
+                <div class="ret-bar"><div class="bar-bg"><div class="bar-fill" style="width:78.5%"></div></div><span class="ret-text">78.5%</span></div>
+                <div style="margin-top:6px; color:#cf1322; font-size:11px;">↓ 流失 2,974 家（68.4%）</div>
+              </div>
+            </th>
+            <th class="s3">
+              <span class="stage-tag">成 熟 期</span>
+              <span class="stage-name">稳投放 + 促增长</span>
+              <span class="stage-time">90 天后</span>
+              <div class="stage-meta">
+                <b>存活客户 1,377 家</b>（vs 新手 24.8%）<br>
+                总消耗 <span class="retention">1,823.5 万</span>
+                <div class="ret-bar"><div class="bar-bg"><div class="bar-fill" style="width:24.8%"></div></div><span class="ret-text">24.8%</span></div>
+                <div style="margin-top:6px; color:#cf1322; font-size:11px;">↓ 跃迁到头部 0 家（0.0%）</div>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <!-- 行1：客户的问题 -->
+          <tr class="lc-row-pain">
+            <td class="dim">PAIN<span class="dim-zh">客户的问题</span></td>
+            <td class="s1" data-stage="新手期">
+              <div class="lc-cell">
+                <ul>
+                  <li><b>开户 / 工作台认证 / 生态账户授权</b> 流程不熟，操作门槛高</li>
+                  <li><b>不会创建广告</b>，竞价工具 / 一键起量 / 优化目标怎么用</li>
+                  <li><b>素材准备不足</b>，每天投不出量、跑不出转化</li>
+                  <li>无系统的投放方法论，<b>容易首投失败 → 流失</b></li>
+                </ul>
+              </div>
+            </td>
+            <td class="s2" data-stage="生长期">
+              <div class="lc-cell">
+                <ul>
+                  <li><b>消耗卡在瓶颈</b>，单一优化目标 / 单一链路跑不出更大量</li>
+                  <li><b>素材生产效率低</b>，AIGC / 数字人 / 工具不会用</li>
+                  <li><b>跑量不稳定</b>，需异常告警与诊断支持</li>
+                  <li>对赛道进阶方法论不了解，<b>放量信心不足</b></li>
+                </ul>
+              </div>
+            </td>
+            <td class="s3" data-stage="成熟期">
+              <div class="lc-cell">
+                <ul>
+                  <li><b>多链路 / 多直播间 / 多品扩张</b>，账户基建跟不上</li>
+                  <li><b>大促节点放量</b>需要库存、预算、出价综合策划</li>
+                  <li>需<b>人货场深度优化</b>（直播间画面、人群洞察）</li>
+                  <li>追求<b>规模化稳定经营</b>+成为行业标杆</li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+
+          <!-- 行2：匹配的服务 -->
+          <tr class="lc-row-service">
+            <td class="dim">SERVICE<span class="dim-zh">匹配的服务</span></td>
+            <td class="s1" data-stage="新手期">
+              <div class="lc-cell">
+                <div class="service-block">
+                  <div class="sb-label">谁来服务</div>
+                  <span class="who-tag" style="background:#fff1e8;color:#d46b08;border-color:#ffd9b8;font-weight:700;">拓新销售</span>
+                  <span class="who-tag">服务商</span>
+                </div>
+                <div class="service-block">
+                  <div class="sb-label">服务形式</div>
+                  <span class="form-tag">行业群运营</span>
+                  <span class="form-tag live">新手培训直播课</span>
+                  <span class="form-tag ai">游戏化教学</span>
+                </div>
+              </div>
+            </td>
+
+            <td class="s2" data-stage="生长期">
+              <div class="lc-cell">
+                <div class="service-block">
+                  <div class="sb-label">谁来服务</div>
+                  <span class="who-tag" style="background:#fff1e8;color:#d46b08;border-color:#ffd9b8;font-weight:700;">拓新销售</span>
+                  <span class="who-tag" style="background:#e6f4ff;color:#0958d9;border-color:#bae0ff;font-weight:700;">行业运营</span>
+                  <span class="who-tag">服务商</span>
+                  <div style="margin-top:6px;font-size:11px;color:#cf1322;">⭐ 重点新客 · KA销售加入</div>
+                </div>
+                <div class="service-block">
+                  <div class="sb-label">服务形式</div>
+                  <span class="form-tag live">小班直播课</span>
+                  <span class="form-tag">群运营答疑</span>
+                  <span class="form-tag ai">AI诊断 quota</span>
+                </div>
+              </div>
+            </td>
+
+            <td class="s3" data-stage="成熟期">
+              <div class="lc-cell">
+                <div class="service-block">
+                  <div class="sb-label">谁来服务</div>
+                  <span class="who-tag" style="background:#e6f4ff;color:#0958d9;border-color:#bae0ff;font-weight:700;">行业运营</span>
+                  <span class="who-tag" style="background:#f6ffed;color:#389e0d;border-color:#b7eb8f;font-weight:700;">KA销售</span>
+                </div>
+                <div class="service-block">
+                  <div class="sb-label">服务形式</div>
+                  <span class="form-tag t2t">1V1 经营深耕</span>
+                  <span class="form-tag t2t">季度 T2T 拜访</span>
+                  <span class="form-tag">投放周期复盘</span>
+                  <span class="form-tag live">私享会 / 沙龙</span>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 表底说明 -->
+    <div style="margin-top:14px; font-size:12px; color:#86909c; line-height:1.7;">
+      <b style="color:#4e5969;">说明：</b>客户阶段划分以服饰 ADQ 客户成长体系（V1）为蓝本；客户数 / 留存率口径为 <b>客户存活漏斗</b>（样本 N=5,543，新手期入池 → 跃迁路径）。
+      <b>最终留存率 24.8%</b>（1,377 / 5,543），<b>跃迁到头部率 0.0%</b>（本季度无客户突破到头部），户均日耗从 155 元提升至 441 元（2.9 倍）。
+    </div>
+  </section>
+
+  <!-- ========= Section 05 小红点任务系统·触发逻辑 ========= -->
+  <section>
+    <div class="section-head">
+      <div class="section-num">05</div>
+      <h2>小红点任务系统 · 触发逻辑</h2>
+      <div class="desc">基于客户当前状态的程序化派单 · 4 类客户对应 4 套销售动作</div>
+    </div>
+
+    <!-- 表头 -->
+    <div style="display:grid; grid-template-columns: 1.4fr 1fr; gap:24px; margin-bottom:16px; padding:0 8px;">
+      <div style="text-align:center; font-size:14px; font-weight:700; color:#4e5969; letter-spacing:1px;">客户定义 · 监控信号</div>
+      <div style="text-align:center; font-size:14px; font-weight:700; color:#4e5969; letter-spacing:1px;">销售对应动作</div>
+    </div>
+
+    <!-- 4层金字塔 -->
+    <div style="display:flex; flex-direction:column; gap:14px;">
+
+      <!-- 行1：头部稳定客户 -->
+      <div style="display:grid; grid-template-columns: 1.4fr 1fr; gap:24px; align-items:stretch;">
+        <div style="background:linear-gradient(135deg, #15803d 0%, #16a34a 100%); border-radius:14px; padding:24px 28px; color:#fff; box-shadow:0 4px 16px rgba(22,163,74,0.25);">
+          <div style="text-align:center;">
+            <div style="font-size:20px; font-weight:700; margin-bottom:10px;">🛡️ 头部稳定客户</div>
+            <div style="font-size:14px; line-height:1.7; margin-bottom:14px; opacity:0.95;">每位销售季度新客中，累计消耗 Top10 且昨日消耗稳定</div>
+            <div style="display:inline-block; padding:6px 16px; background:rgba(255,255,255,0.2); border-radius:100px; font-size:12.5px; font-weight:600; backdrop-filter:blur(4px);">监控信号：消耗 / ROI 指标稳定</div>
+          </div>
+        </div>
+        <div style="background:#f0fdf4; border:1px dashed #86efac; border-radius:14px; padding:24px 28px; display:flex; align-items:center; justify-content:center; text-align:center;">
+          <div style="font-size:14px; color:#86909c; line-height:1.7;">维持现状 · 无需额外动作</div>
+        </div>
+      </div>
+
+      <!-- 行2：头部掉量客户 -->
+      <div style="display:grid; grid-template-columns: 1.4fr 1fr; gap:24px; align-items:stretch;">
+        <div style="background:linear-gradient(135deg, #b91c1c 0%, #dc2626 100%); border-radius:14px; padding:24px 28px; color:#fff; box-shadow:0 4px 16px rgba(220,38,38,0.25);">
+          <div style="text-align:center;">
+            <div style="font-size:20px; font-weight:700; margin-bottom:10px;">⚠️ 头部掉量客户</div>
+            <div style="font-size:14px; line-height:1.7; margin-bottom:14px; opacity:0.95;">每位销售季度新客中，累计消耗 Top10，昨日关键指标异常</div>
+            <div style="display:inline-block; padding:6px 16px; background:rgba(255,255,255,0.2); border-radius:100px; font-size:12.5px; font-weight:600;">监控信号：昨日消耗↓ / ROI↓ → 防掉量</div>
+          </div>
+        </div>
+        <div style="background:#fef2f2; border:1px solid #fca5a5; border-radius:14px; padding:22px 26px; display:flex; flex-direction:column; justify-content:center;">
+          <div style="font-size:16px; font-weight:700; color:#b91c1c; margin-bottom:10px; text-align:center;">⚡ 今天必须催 · 挽回损失</div>
+          <div style="font-size:13px; color:#4e5969; line-height:1.7; text-align:center;">点 <span style="display:inline-block; padding:1px 6px; background:#fff; border:1px solid #fca5a5; border-radius:4px; font-weight:600; color:#b91c1c;">🩺 诊断</span> 查清掉量原因（基建/投放/素材/模型），<b style="color:#b91c1c;">当天加投补量</b>，把流失在扩大前拦回。</div>
+        </div>
+      </div>
+
+      <!-- 行3：潜力起量客户 -->
+      <div style="display:grid; grid-template-columns: 1.4fr 1fr; gap:24px; align-items:stretch;">
+        <div style="background:linear-gradient(135deg, #c2410c 0%, #ea580c 100%); border-radius:14px; padding:24px 28px; color:#fff; box-shadow:0 4px 16px rgba(234,88,12,0.25);">
+          <div style="text-align:center;">
+            <div style="font-size:20px; font-weight:700; margin-bottom:10px;">🚀 潜力起量客户</div>
+            <div style="font-size:14px; line-height:1.7; margin-bottom:14px; opacity:0.95;">原消耗较低客户，昨日突然起量，远超近 14 天日均</div>
+            <div style="display:inline-block; padding:6px 16px; background:rgba(255,255,255,0.2); border-radius:100px; font-size:12.5px; font-weight:600;">监控信号：昨日消耗骤增放量 → 抓窗口</div>
+          </div>
+        </div>
+        <div style="background:#fff7ed; border:1px solid #fdba74; border-radius:14px; padding:22px 26px; display:flex; flex-direction:column; justify-content:center;">
+          <div style="font-size:16px; font-weight:700; color:#c2410c; margin-bottom:10px; text-align:center;">🚀 第一时间加投 · 放大</div>
+          <div style="font-size:13px; color:#4e5969; line-height:1.7; text-align:center;">起量窗口往往只有几天，<b style="color:#c2410c;">趁势加投放大消耗</b>，把潜力客户尽快推成头部。</div>
+        </div>
+      </div>
+
+      <!-- 行4：海量长尾客户 -->
+      <div style="display:grid; grid-template-columns: 1.4fr 1fr; gap:24px; align-items:stretch;">
+        <div style="background:linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%); border-radius:14px; padding:24px 28px; color:#fff; box-shadow:0 4px 16px rgba(37,99,235,0.25);">
+          <div style="text-align:center;">
+            <div style="font-size:20px; font-weight:700; margin-bottom:10px;">🐋 海量长尾客户</div>
+            <div style="font-size:14px; line-height:1.7; margin-bottom:14px; opacity:0.95;">长期消耗较低的客户，数量大、单体贡献小</div>
+            <div style="display:inline-block; padding:6px 16px; background:rgba(255,255,255,0.2); border-radius:100px; font-size:12.5px; font-weight:600;">监控信号：长期低消耗 · 批量覆盖</div>
+          </div>
+        </div>
+        <div style="background:#eff6ff; border:1px solid #93c5fd; border-radius:14px; padding:22px 26px; display:flex; flex-direction:column; justify-content:center;">
+          <div style="font-size:16px; font-weight:700; color:#1d4ed8; margin-bottom:10px; text-align:center;">💬 销售群运营服务</div>
+          <div style="font-size:13px; color:#4e5969; line-height:1.7; text-align:center;">通过 <b style="color:#1d4ed8;">销售群批量运营服务</b>，及时响应客户需求，用低成本覆盖人力够不着的长尾。</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 当前挑战卡片 -->
+    <div style="margin-top:36px;">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
+        <span style="display:inline-block; width:4px; height:18px; background:#ff6b35; border-radius:2px;"></span>
+        <h3 style="font-size:18px; font-weight:700; color:#1f2329;">小红点系统 · 当前挑战</h3>
+        <span style="font-size:12px; padding:2px 8px; background:#fff7e6; color:#d46b08; border-radius:4px;">2026 H1 持续优化中</span>
+      </div>
+      <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:18px;">
+        <div style="border:1px solid #e7e9ed; border-radius:10px; overflow:hidden; background:#fff;">
+          <div style="background:linear-gradient(135deg, #6b46c1 0%, #9333ea 100%); padding:14px 18px; color:#fff;">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span style="font-size:18px;">⚙️</span>
+              <span style="font-size:16px; font-weight:700;">运行性能</span>
+            </div>
+          </div>
+          <div style="padding:16px 18px; font-size:13px; color:#4e5969; line-height:1.7;">
+            <div style="display:flex; gap:8px;">
+              <span style="color:#9333ea; flex-shrink:0;">●</span>
+              <div><b style="color:#1f2329;">历史消耗每天回填</b>，数据量过大，运行速度慢</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="border:1px solid #e7e9ed; border-radius:10px; overflow:hidden; background:#fff;">
+          <div style="background:linear-gradient(135deg, #f59e0b 0%, #d97706 100%); padding:14px 18px; color:#fff;">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span style="font-size:18px;">🧠</span>
+              <span style="font-size:16px; font-weight:700;">模型能力</span>
+            </div>
+          </div>
+          <div style="padding:16px 18px; font-size:13px; color:#4e5969; line-height:1.7;">
+            <div style="display:flex; gap:8px;">
+              <span style="color:#d97706; flex-shrink:0;">●</span>
+              <div><b style="color:#1f2329;">模型自身存在的不足</b>，长对话之后容易产生幻觉、忘记前文口径</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="border:1px solid #e7e9ed; border-radius:10px; overflow:hidden; background:#fff;">
+          <div style="background:linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); padding:14px 18px; color:#fff;">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span style="font-size:18px;">💲</span>
+              <span style="font-size:16px; font-weight:700;">成本消耗</span>
+            </div>
+          </div>
+          <div style="padding:16px 18px; font-size:13px; color:#4e5969; line-height:1.7;">
+            <div style="display:flex; gap:8px;">
+              <span style="color:#2563eb; flex-shrink:0;">●</span>
+              <div><b style="color:#1f2329;">token 消耗大</b>，以五月为例，小红点系统已经使用接近 <b style="color:#cf1322;">2000 $</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+</div>
+
+<div class="footer">
+  拓新销售小红点系统 × 客户全生命周期系统 · 2026 H1 业务流分享
+</div>
+
+</body>
+</html>
