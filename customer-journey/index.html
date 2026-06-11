@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>客户投放历程 · B版月度时间轴</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: #f3f4f6;
+    color: #1f2937;
+    padding: 20px;
+    min-height: 100vh;
+  }
+  .container { max-width: 1480px; margin: 0 auto; }
+
+  /* 顶部 */
+  .header {
+    background: linear-gradient(135deg, #1e293b 0%, #312e81 100%);
+    color: #fff;
+    padding: 22px 28px;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+  .header-left h1 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .header-left .meta {
+    font-size: 13px;
+    opacity: 0.85;
+  }
+  .header-left .meta span {
+    margin-right: 14px;
+  }
+  .header-left .badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    background: rgba(255,255,255,0.18);
+  }
+  .header-right { display: flex; gap: 8px; }
+  .back-btn, .search-btn {
+    color: #fff;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+    cursor: pointer;
+  }
+  .back-btn:hover, .search-btn:hover { background: rgba(255,255,255,0.22); }
+
+  /* 概览四宫格 */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .stat-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 14px 18px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    border-left: 4px solid #6d28d9;
+  }
+  .stat-card.alert { border-left-color: #ef4444; }
+  .stat-card.warn { border-left-color: #f59e0b; }
+  .stat-card.ok { border-left-color: #10b981; }
+  .stat-card .label {
+    font-size: 12px;
+    color: #6b7280;
+    margin-bottom: 6px;
+  }
+  .stat-card .value {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1f2937;
+  }
+  .stat-card .sub {
+    font-size: 11px;
+    color: #9ca3af;
+    margin-top: 4px;
+  }
+
+  /* 主区两栏 */
+  .main-grid {
+    display: grid;
+    grid-template-columns: 1fr 460px;
+    gap: 16px;
+  }
+  .panel {
+    background: #fff;
+    border-radius: 10px;
+    padding: 18px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .panel-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .panel-title .hint {
+    font-size: 12px;
+    font-weight: 400;
+    color: #9ca3af;
+    margin-left: auto;
+  }
+
+  /* 月度折线图 */
+  #chart-area {
+    width: 100%;
+    height: 380px;
+  }
+
+  /* 时间轴事件流 */
+  .timeline {
+    position: relative;
+    padding-left: 24px;
+    max-height: 600px;
+    overflow-y: auto;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 6px;
+    bottom: 6px;
+    width: 2px;
+    background: #e5e7eb;
+  }
+  .tl-event {
+    position: relative;
+    padding: 8px 0 14px 0;
+    font-size: 13px;
+  }
+  .tl-event::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 12px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #d1d5db;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px #d1d5db;
+  }
+  .tl-event.first::before { background: #10b981; box-shadow: 0 0 0 2px #10b981; }
+  .tl-event.milestone::before { background: #f59e0b; box-shadow: 0 0 0 2px #f59e0b; }
+  .tl-event.peak::before { background: #6d28d9; box-shadow: 0 0 0 2px #6d28d9; }
+  .tl-event.pause::before { background: #ef4444; box-shadow: 0 0 0 2px #ef4444; }
+  .tl-event.resume::before { background: #06b6d4; box-shadow: 0 0 0 2px #06b6d4; }
+  .tl-event.lost::before { background: #1f2937; box-shadow: 0 0 0 2px #1f2937; }
+  .tl-event .when {
+    color: #6b7280;
+    font-size: 12px;
+    font-weight: 600;
+    margin-right: 6px;
+  }
+  .tl-event .what {
+    font-weight: 600;
+    color: #1f2937;
+  }
+  .tl-event .detail {
+    color: #6b7280;
+    font-size: 12px;
+    margin-top: 2px;
+  }
+  .tl-event.first .what { color: #059669; }
+  .tl-event.milestone .what { color: #b45309; }
+  .tl-event.peak .what { color: #5b21b6; }
+  .tl-event.pause .what { color: #b91c1c; }
+  .tl-event.resume .what { color: #0e7490; }
+  .tl-event.lost .what { color: #1f2937; }
+
+  /* 月度明细表 */
+  .month-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    margin-top: 12px;
+  }
+  .month-table th, .month-table td {
+    border: 1px solid #e5e7eb;
+    padding: 6px 10px;
+    text-align: right;
+  }
+  .month-table th {
+    background: #f9fafb;
+    color: #6b7280;
+    font-weight: 600;
+    text-align: center;
+  }
+  .month-table th:first-child, .month-table td:first-child { text-align: left; }
+  .month-table tr.zero td { background: #fef2f2; color: #b91c1c; }
+  .month-table tr.peak-row td { background: #fef3c7; font-weight: 700; }
+
+  /* 里程碑徽章 */
+  .milestones {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    margin-top: 6px;
+  }
+  .ms-card {
+    text-align: center;
+    padding: 10px 6px;
+    border-radius: 8px;
+    background: #f3f4f6;
+    border: 2px dashed #e5e7eb;
+  }
+  .ms-card.hit {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border: 2px solid #f59e0b;
+  }
+  .ms-card .ms-label {
+    font-size: 11px;
+    color: #6b7280;
+    margin-bottom: 4px;
+  }
+  .ms-card.hit .ms-label { color: #92400e; }
+  .ms-card .ms-value {
+    font-size: 13px;
+    font-weight: 700;
+    color: #9ca3af;
+  }
+  .ms-card.hit .ms-value { color: #b45309; }
+  .ms-card .ms-month {
+    font-size: 11px;
+    margin-top: 4px;
+    color: #6b7280;
+  }
+  .ms-card.hit .ms-month { color: #92400e; font-weight: 600; }
+
+  /* 业务洞察 */
+  .insight {
+    margin-top: 12px;
+    padding: 12px 14px;
+    background: linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 100%);
+    border-left: 4px solid #10b981;
+    border-radius: 6px;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .insight.warn { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border-left-color: #f59e0b; }
+  .insight.alert { background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%); border-left-color: #ef4444; }
+  .insight strong { color: #1f2937; }
+
+  .empty-state {
+    padding: 60px 20px;
+    text-align: center;
+    color: #9ca3af;
+  }
+  .empty-state h2 { color: #6b7280; margin-bottom: 12px; }
+  .empty-state p { font-size: 14px; line-height: 1.7; }
+
+  /* 搜索框 */
+  .search-modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 100;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 80px;
+  }
+  .search-modal.show { display: flex; }
+  .search-box {
+    background: #fff;
+    width: 480px;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  }
+  .search-box input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid #e5e7eb;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  .search-box input:focus { outline: none; border-color: #6d28d9; }
+  .search-results {
+    max-height: 360px;
+    overflow-y: auto;
+    margin-top: 12px;
+  }
+  .search-results .item {
+    padding: 8px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    color: #374151;
+  }
+  .search-results .item:hover { background: #f5f3ff; color: #6d28d9; }
+  .search-results .item .cohort { color: #9ca3af; font-size: 11px; margin-left: 8px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="header-left">
+      <h1>
+        <span id="cust-name">--</span>
+        <span class="badge" id="cohort-badge">--</span>
+      </h1>
+      <div class="meta">
+        <span id="status-meta">--</span>
+        <span id="data-meta">数据范围 · 2025/01 ~ 2026/05（17个月）</span>
+        <span id="version-meta" style="color:#fde68a;">B版 · 月度精度时间轴</span>
+      </div>
+    </div>
+    <div class="header-right">
+      <a href="javascript:openSearch()" class="search-btn">🔍 切换客户</a>
+      <a href="index.html" class="back-btn">← 返回主看板</a>
+    </div>
+  </div>
+
+  <!-- 主体 -->
+  <div id="content"></div>
+
+  <!-- 搜索弹窗 -->
+  <div class="search-modal" id="search-modal" onclick="if(event.target.id==='search-modal') closeSearch()">
+    <div class="search-box">
+      <input type="text" id="search-input" placeholder="输入客户简称（支持模糊匹配）" oninput="onSearch()">
+      <div class="search-results" id="search-results"></div>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+// 里程碑阈值（单位：日均消耗，元）
+const MILESTONES = [
+  { key: '1k',  threshold: 1000,   label: '1千' },
+  { key: '5k',  threshold: 5000,   label: '5千' },
+  { key: '1w',  threshold: 10000,  label: '1万' },
+  { key: '5w',  threshold: 50000,  label: '5万' },
+  { key: '10w', threshold: 100000, label: '10万' },
+];
+// 停投连续月数
+const PAUSE_MONTHS = 2;
+// 流失判定：停投至最新月仍未恢复，且停投 ≥ 3个月
+const LOST_MONTHS = 3;
+
+let CUST_DATA = null;
+
+async function loadData(){
+  try {
+    const resp = await fetch('customer_monthly.json');
+    CUST_DATA = await resp.json();
+  } catch (e) {
+    document.getElementById('content').innerHTML = `<div class="empty-state"><h2>⚠️ 数据加载失败</h2><p>${e.message}</p></div>`;
+    return;
+  }
+  renderPage();
+}
+
+function getCustParam(){
+  const p = new URLSearchParams(location.search);
+  return decodeURIComponent(p.get('cust') || '');
+}
+
+function fmtMoney(v){
+  if (v === 0) return '0';
+  if (Math.abs(v) >= 10000) return (v/10000).toFixed(1) + '万';
+  if (Math.abs(v) >= 1000) return (v/1000).toFixed(1) + 'k';
+  return Math.round(v).toLocaleString();
+}
+
+function fmtMonth(m){
+  // 2025-04 → 25年4月
+  const [y,mo] = m.split('-');
+  return `${y.slice(2)}年${parseInt(mo)}月`;
+}
+
+function analyzeJourney(series){
+  // series: [{month,cost,daily}, ...] 已按月份升序
+  if (!series || series.length === 0) return null;
+
+  const events = [];
+  const milestonesHit = {};
+
+  // 1. 找首投（第一个 cost > 0 的月）
+  const firstIdx = series.findIndex(p => p.cost > 0);
+  if (firstIdx === -1) {
+    // 整段全0 — 全周期未投
+    return {
+      events: [{ type: 'lost', month: series[0].month, what: '全周期未投放', detail: '所有月份消耗均为0' }],
+      milestonesHit: {},
+      peakMonth: null,
+      peakDaily: 0,
+      finalState: 'never',
+      totalCost: 0,
+      activeMonths: 0,
+      pauseEvents: [],
+    };
+  }
+
+  events.push({
+    type: 'first',
+    month: series[firstIdx].month,
+    what: '首次投放',
+    detail: `当月日耗 ${fmtMoney(series[firstIdx].daily)} 元 / 月消耗 ${fmtMoney(series[firstIdx].cost)} 元`,
+  });
+
+  // 2. 遍历 series，按时间顺序记录里程碑触达 + 停投/复投
+  let inPause = false;
+  let pauseStart = null;
+  const pauseEvents = []; // {start, end?, months, resumed?}
+  let peakDaily = 0;
+  let peakMonth = null;
+  let totalCost = 0;
+  let activeMonths = 0;
+
+  for (let i = 0; i < series.length; i++){
+    const p = series[i];
+    totalCost += p.cost;
+    if (p.cost > 0) activeMonths++;
+
+    // 峰值更新
+    if (p.daily > peakDaily) {
+      peakDaily = p.daily;
+      peakMonth = p.month;
+    }
+
+    // 里程碑（首次破阈值）
+    for (const ms of MILESTONES) {
+      if (!milestonesHit[ms.key] && p.daily >= ms.threshold) {
+        milestonesHit[ms.key] = { month: p.month, daily: p.daily };
+        events.push({
+          type: 'milestone',
+          month: p.month,
+          what: `🎯 首破日耗 ${ms.label}`,
+          detail: `当月日耗 ${fmtMoney(p.daily)} 元 / 月消耗 ${fmtMoney(p.cost)} 元`,
+        });
+      }
+    }
+
+    // 停投/复投（必须在已经首投之后才识别）
+    if (i >= firstIdx) {
+      if (p.cost === 0 && !inPause) {
+        // 进入停投态（暂记，后面看连续多少月）
+        inPause = true;
+        pauseStart = p.month;
+      } else if (p.cost > 0 && inPause) {
+        // 复投
+        inPause = false;
+        // 计算停了几个月
+        const startIdx = series.findIndex(x => x.month === pauseStart);
+        const endIdx = i; // 复投这个月
+        const pausedMonths = endIdx - startIdx;
+        if (pausedMonths >= PAUSE_MONTHS) {
+          // 算正式停投+复投
+          events.push({
+            type: 'pause',
+            month: pauseStart,
+            what: `🟡 停投开始`,
+            detail: `连续 ${pausedMonths} 个月零消耗`,
+          });
+          events.push({
+            type: 'resume',
+            month: p.month,
+            what: `🔁 复投`,
+            detail: `中断 ${pausedMonths} 个月后回归 / 当月日耗 ${fmtMoney(p.daily)} 元`,
+          });
+          pauseEvents.push({ start: pauseStart, end: p.month, months: pausedMonths, resumed: true });
+        }
+        pauseStart = null;
+      }
+    }
+  }
+
+  // 末尾仍在停投态 → 看是否流失
+  let finalState = 'active';
+  if (inPause && pauseStart) {
+    const startIdx = series.findIndex(x => x.month === pauseStart);
+    const pausedMonths = series.length - startIdx;
+    if (pausedMonths >= LOST_MONTHS) {
+      events.push({
+        type: 'pause',
+        month: pauseStart,
+        what: `🟡 停投开始`,
+        detail: `已连续 ${pausedMonths} 个月零消耗（至最新月）`,
+      });
+      events.push({
+        type: 'lost',
+        month: series[series.length-1].month,
+        what: `⚫ 完全流失`,
+        detail: `停投至今 ${pausedMonths} 个月，未恢复`,
+      });
+      pauseEvents.push({ start: pauseStart, end: null, months: pausedMonths, resumed: false });
+      finalState = 'lost';
+    } else if (pausedMonths >= PAUSE_MONTHS) {
+      events.push({
+        type: 'pause',
+        month: pauseStart,
+        what: `🟡 停投中`,
+        detail: `已连续 ${pausedMonths} 个月零消耗（观察期，未到流失阈值${LOST_MONTHS}月）`,
+      });
+      pauseEvents.push({ start: pauseStart, end: null, months: pausedMonths, resumed: false });
+      finalState = 'pausing';
+    } else if (pausedMonths >= 1) {
+      finalState = 'recent_zero';
+    }
+  } else {
+    // 看最近一个月有没有消耗
+    const last = series[series.length-1];
+    if (last.cost === 0) finalState = 'recent_zero';
+  }
+
+  // 峰值事件
+  if (peakMonth && peakDaily > 0) {
+    events.push({
+      type: 'peak',
+      month: peakMonth,
+      what: `📈 投放峰值`,
+      detail: `当月日耗 ${fmtMoney(peakDaily)} 元（历史最高）`,
+    });
+  }
+
+  // 按时间排序
+  events.sort((a,b) => a.month.localeCompare(b.month));
+
+  return {
+    events,
+    milestonesHit,
+    peakMonth,
+    peakDaily,
+    finalState,
+    totalCost,
+    activeMonths,
+    pauseEvents,
+  };
+}
+
+function statusText(state){
+  const map = {
+    'active': { txt: '投放中', cls: 'ok' },
+    'pausing': { txt: '停投观察期', cls: 'warn' },
+    'lost': { txt: '完全流失', cls: 'alert' },
+    'recent_zero': { txt: '最近月零消耗', cls: 'warn' },
+    'never': { txt: '全周期未投', cls: 'alert' },
+  };
+  return map[state] || { txt: '--', cls: '' };
+}
+
+function renderInsight(j, info){
+  const { finalState, events, peakDaily, peakMonth, milestonesHit, totalCost, activeMonths, pauseEvents } = j;
+  let cls = 'insight';
+  let html = '';
+  const msKeys = Object.keys(milestonesHit);
+
+  if (finalState === 'never') {
+    cls += ' alert';
+    html = `❌ <strong>全周期未投：</strong>该客户在数据范围内（${info.cohort} 入队后）所有月份消耗均为 0，建议销售跟进激活原因（开户未使用 / 资质问题 / 渠道流失）`;
+  } else if (finalState === 'lost') {
+    cls += ' alert';
+    const lastPause = pauseEvents[pauseEvents.length-1];
+    html = `⚫ <strong>已完全流失：</strong>客户 ${fmtMonth(events[0].month)} 首投，曾达到峰值日耗 <strong>${fmtMoney(peakDaily)}元/天（${fmtMonth(peakMonth)}）</strong>。${lastPause ? `自 ${fmtMonth(lastPause.start)} 起停投 ${lastPause.months} 个月未恢复，` : ''}属于"先涨后跌型"流失。建议复盘流失原因（产品力/服务/三率违规等）。`;
+  } else if (finalState === 'pausing') {
+    cls += ' warn';
+    const lastPause = pauseEvents[pauseEvents.length-1];
+    html = `🟡 <strong>停投观察期：</strong>已连续 <strong>${lastPause.months} 个月</strong>零消耗（未到 ${LOST_MONTHS} 月流失阈值），峰值日耗 ${fmtMoney(peakDaily)}元/天（${fmtMonth(peakMonth)}）。<strong>这是销售必须立刻跟进的客户</strong>，再过 ${LOST_MONTHS - lastPause.months} 个月不恢复就判定流失。`;
+  } else if (finalState === 'recent_zero') {
+    cls += ' warn';
+    html = `⚠️ <strong>最近月零消耗：</strong>最新月（2026/05）消耗为 0，但尚未连续 2 个月停投，需观察下个月走势。峰值日耗 ${fmtMoney(peakDaily)}元/天（${fmtMonth(peakMonth)}）。`;
+  } else {
+    // active
+    if (msKeys.length === 0) {
+      cls += ' warn';
+      html = `📊 <strong>低水位运行：</strong>累计消耗 ${fmtMoney(totalCost)} 元，活跃 ${activeMonths} 个月，未达到任何里程碑（&lt; 日耗1k）。建议销售评估是否值得继续投入服务资源。`;
+    } else if (msKeys.includes('10w')) {
+      html = `🌟 <strong>头部大客：</strong>峰值日耗破 10万元/天（${fmtMonth(peakMonth)}），累计消耗 ${fmtMoney(totalCost)} 元，活跃 ${activeMonths} 个月。优先保留资源、防止流失。`;
+    } else if (msKeys.includes('5w')) {
+      html = `💎 <strong>腰部大客：</strong>峰值日耗破 5万元/天（${fmtMonth(peakMonth)}），累计消耗 ${fmtMoney(totalCost)} 元。重点客户，争取冲击 10万日耗里程碑。`;
+    } else if (msKeys.includes('1w')) {
+      html = `📈 <strong>中坚客户：</strong>峰值日耗破 1万元/天（${fmtMonth(peakMonth)}），累计消耗 ${fmtMoney(totalCost)} 元。已突破 1万门槛，是新锐里的潜力股，建议加大产品/创意支持冲击 5万日耗。`;
+    } else if (msKeys.includes('5k')) {
+      cls += ' warn';
+      html = `🌱 <strong>成长期：</strong>峰值日耗 ${fmtMoney(peakDaily)}元/天（${fmtMonth(peakMonth)}），已破 5k 但未到 1万。需要复盘是产品/创意/团队哪个环节卡住，针对性突破。`;
+    } else {
+      cls += ' warn';
+      html = `🔰 <strong>起步期：</strong>峰值日耗仅 ${fmtMoney(peakDaily)}元/天（${fmtMonth(peakMonth)}），尚未突破 5k 量级。建议用基础培训/标杆案例帮客户提升投放能力。`;
+    }
+    // 加上停复投提醒
+    const resumedCount = pauseEvents.filter(p=>p.resumed).length;
+    if (resumedCount > 0) {
+      html += `<br><span style="color:#0e7490;">🔁 历史曾有 ${resumedCount} 次"停投→复投"经历，说明客户投放节奏波动较大，需关注稳定性。</span>`;
+    }
+  }
+  return `<div class="${cls}">${html}</div>`;
+}
+
+function renderPage(){
+  const cust = getCustParam();
+  const content = document.getElementById('content');
+
+  if (!cust) {
+    content.innerHTML = `
+      <div class="panel empty-state">
+        <h2>请先选择客户</h2>
+        <p>从主看板下钻表点击客户名进入此页面，或点击右上角"切换客户"搜索。</p>
+      </div>`;
+    document.getElementById('cust-name').textContent = '请选择客户';
+    return;
+  }
+
+  const info = CUST_DATA[cust];
+  if (!info) {
+    content.innerHTML = `
+      <div class="panel empty-state">
+        <h2>🔍 客户不存在</h2>
+        <p>未找到客户：<strong>${cust}</strong></p>
+        <p style="margin-top:8px;">该客户可能不在数据范围内（仅含 25Q1-26Q2 期间的新客）。</p>
+      </div>`;
+    document.getElementById('cust-name').textContent = cust;
+    return;
+  }
+
+  // 头部
+  document.getElementById('cust-name').textContent = cust;
+  document.getElementById('cohort-badge').textContent = `${info.cohort} 入队`;
+
+  // 分析
+  const j = analyzeJourney(info.series);
+  const status = statusText(j.finalState);
+  document.getElementById('status-meta').innerHTML = `<span style="color:${status.cls==='ok'?'#86efac':status.cls==='warn'?'#fde68a':'#fca5a5'};">● ${status.txt}</span>`;
+
+  // 顶部5个统计卡
+  const firstMonth = j.events.find(e=>e.type==='first')?.month;
+  const lastActive = [...info.series].reverse().find(p=>p.cost>0)?.month;
+  const investSpan = firstMonth && lastActive ? monthsBetween(firstMonth, lastActive) + 1 : 0;
+  const msCount = Object.keys(j.milestonesHit).length;
+
+  let html = `
+    <div class="stats-row">
+      <div class="stat-card ${j.finalState==='active'?'ok':j.finalState==='lost'?'alert':'warn'}">
+        <div class="label">当前状态</div>
+        <div class="value" style="font-size:18px;">${status.txt}</div>
+        <div class="sub">${j.finalState==='active'?'最近月仍在投':j.finalState==='lost'?'已停投≥3月':'需关注'}</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">首投月份</div>
+        <div class="value" style="font-size:18px;">${firstMonth?fmtMonth(firstMonth):'-'}</div>
+        <div class="sub">投放跨度 ${investSpan} 个月</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">峰值日耗</div>
+        <div class="value">${fmtMoney(j.peakDaily)}</div>
+        <div class="sub">${j.peakMonth?fmtMonth(j.peakMonth):'-'} 达成</div>
+      </div>
+      <div class="stat-card ${msCount>=3?'ok':msCount>=1?'':'warn'}">
+        <div class="label">里程碑达成</div>
+        <div class="value">${msCount}<span style="font-size:14px;color:#9ca3af;"> / 5</span></div>
+        <div class="sub">${msCount===0?'未破1k门槛':Object.keys(j.milestonesHit).join(' · ')}</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">累计消耗</div>
+        <div class="value">${fmtMoney(j.totalCost)}</div>
+        <div class="sub">活跃 ${j.activeMonths} 个月</div>
+      </div>
+    </div>
+
+    <div class="main-grid">
+      <!-- 左：折线图 + 月度明细表 -->
+      <div class="panel">
+        <div class="panel-title">📊 月度日耗趋势 <span class="hint">日耗 = 月消耗 / 30</span></div>
+        <canvas id="chart-area"></canvas>
+
+        <div class="panel-title" style="margin-top:18px;">📋 月度消耗明细 <span class="hint">红底=零消耗 / 黄底=峰值月</span></div>
+        <table class="month-table">
+          <thead><tr><th>月份</th><th>月消耗(元)</th><th>日均(元)</th><th>状态</th><th>触达里程碑</th></tr></thead>
+          <tbody>
+            ${info.series.map(p => {
+              const isPeak = p.month === j.peakMonth;
+              const cls = p.cost === 0 ? 'zero' : (isPeak ? 'peak-row' : '');
+              const msHere = MILESTONES.filter(m => j.milestonesHit[m.key] && j.milestonesHit[m.key].month === p.month).map(m=>m.label).join(' · ');
+              const stateTag = p.cost === 0 ? '🔴 零' : (isPeak ? '👑 峰值' : '✅');
+              return `<tr class="${cls}"><td>${fmtMonth(p.month)}</td><td>${p.cost.toLocaleString()}</td><td>${p.daily.toLocaleString()}</td><td style="text-align:center;">${stateTag}</td><td style="text-align:center;color:#b45309;font-weight:600;">${msHere || '-'}</td></tr>`;
+            }).join('')}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 右：里程碑徽章 + 时间轴事件流 + 业务洞察 -->
+      <div>
+        <div class="panel" style="margin-bottom:12px;">
+          <div class="panel-title">🎯 里程碑达成路径</div>
+          <div class="milestones">
+            ${MILESTONES.map(m => {
+              const hit = j.milestonesHit[m.key];
+              return `
+                <div class="ms-card ${hit?'hit':''}">
+                  <div class="ms-label">日耗 ${m.label}</div>
+                  <div class="ms-value">${hit?'✓':'-'}</div>
+                  <div class="ms-month">${hit?fmtMonth(hit.month):'未达成'}</div>
+                </div>`;
+            }).join('')}
+          </div>
+          ${renderInsight(j, info)}
+        </div>
+
+        <div class="panel">
+          <div class="panel-title">📅 旅程事件流 <span class="hint">${j.events.length} 个关键事件</span></div>
+          <div class="timeline">
+            ${j.events.map(e => `
+              <div class="tl-event ${e.type}">
+                <span class="when">${fmtMonth(e.month)}</span>
+                <span class="what">${e.what}</span>
+                <div class="detail">${e.detail}</div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+  content.innerHTML = html;
+
+  // 渲染折线图
+  drawChart(info.series, j);
+}
+
+function monthsBetween(a, b){
+  const [ay, am] = a.split('-').map(Number);
+  const [by, bm] = b.split('-').map(Number);
+  return (by-ay)*12 + (bm-am);
+}
+
+function drawChart(series, j){
+  const ctx = document.getElementById('chart-area');
+  if (!ctx) return;
+
+  const labels = series.map(p => fmtMonth(p.month));
+  const dailyData = series.map(p => p.daily);
+
+  // 标注里程碑点
+  const pointBgColors = series.map(p => {
+    if (p.month === j.peakMonth) return '#6d28d9';
+    if (p.cost === 0) return '#ef4444';
+    const isMs = MILESTONES.some(m => j.milestonesHit[m.key] && j.milestonesHit[m.key].month === p.month);
+    if (isMs) return '#f59e0b';
+    return '#6366f1';
+  });
+  const pointRadii = series.map(p => {
+    if (p.month === j.peakMonth) return 8;
+    if (p.cost === 0) return 5;
+    const isMs = MILESTONES.some(m => j.milestonesHit[m.key] && j.milestonesHit[m.key].month === p.month);
+    return isMs ? 7 : 4;
+  });
+
+  // 阈值参考线
+  const annotations = MILESTONES.filter(m => j.milestonesHit[m.key]).map(m => ({
+    type: 'line',
+    yMin: m.threshold,
+    yMax: m.threshold,
+    borderColor: '#fde68a',
+    borderWidth: 1,
+    borderDash: [4,4],
+    label: { content: `日耗${m.label}`, display: true, position: 'end', font:{size:10}, color:'#b45309' }
+  }));
+
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [{
+        label: '日均消耗(元)',
+        data: dailyData,
+        borderColor: '#6366f1',
+        backgroundColor: 'rgba(99,102,241,0.1)',
+        borderWidth: 2,
+        fill: true,
+        tension: 0.3,
+        pointBackgroundColor: pointBgColors,
+        pointRadius: pointRadii,
+        pointBorderColor: '#fff',
+        pointBorderWidth: 2,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: (ctx) => {
+              const p = series[ctx.dataIndex];
+              return [
+                `日均消耗: ${p.daily.toLocaleString()} 元`,
+                `月消耗: ${p.cost.toLocaleString()} 元`,
+              ];
+            }
+          }
+        },
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: { callback: v => fmtMoney(v) },
+          title: { display: true, text: '日均消耗(元)' }
+        },
+        x: {
+          ticks: { autoSkip: false, maxRotation: 45, minRotation: 45 }
+        }
+      }
+    }
+  });
+}
+
+// 搜索
+function openSearch(){
+  document.getElementById('search-modal').classList.add('show');
+  document.getElementById('search-input').focus();
+  onSearch();
+}
+function closeSearch(){
+  document.getElementById('search-modal').classList.remove('show');
+}
+function onSearch(){
+  const q = document.getElementById('search-input').value.trim().toLowerCase();
+  const results = document.getElementById('search-results');
+  const all = Object.keys(CUST_DATA||{});
+  let list;
+  if (!q) list = all.slice(0, 30);
+  else list = all.filter(n => n.toLowerCase().includes(q)).slice(0, 50);
+  results.innerHTML = list.map(n => {
+    const c = CUST_DATA[n].cohort;
+    return `<div class="item" onclick="goCust('${n.replace(/'/g,'&#39;')}')">${n} <span class="cohort">${c}</span></div>`;
+  }).join('') || '<div style="padding:12px;color:#9ca3af;">无匹配客户</div>';
+}
+function goCust(name){
+  location.search = '?cust=' + encodeURIComponent(name);
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeSearch();
+  if ((e.metaKey||e.ctrlKey) && e.key === 'k') { e.preventDefault(); openSearch(); }
+});
+
+loadData();
+</script>
+</body>
+</html>
