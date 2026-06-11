@@ -718,66 +718,6 @@
     </div>
   </div>
 
-  <!-- PART 06 · 共性方法 -->
-  <div class="slide">
-    <div class="part-tag">PART 06 · 共性方法</div>
-    <h2>所有功能背后的同一套方法：业务规则翻译器</h2>
-    <p class="lead">无论是对内防漏、抓机会，还是对外赋能，背后都是同一个四步闭环——把"业务规则"翻译成"动作机制"。</p>
-    <div class="dgm">
-      <svg viewBox="0 0 680 360" role="img" aria-label="业务规则翻译器四步闭环">
-        <defs>
-          <linearGradient id="ccore" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f74f5"/><stop offset="1" stop-color="#1B4FC4"/></linearGradient>
-          <marker id="ca" markerWidth="10" markerHeight="10" refX="6" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#6f9bf2"/></marker>
-        </defs>
-        <!-- center circle -->
-        <circle cx="340" cy="180" r="78" fill="url(#ccore)"/>
-        <circle cx="340" cy="180" r="86" fill="none" stroke="#bcd3f9" stroke-width="1.5" stroke-dasharray="3 5"/>
-        <text x="340" y="162" text-anchor="middle" fill="#bcd9ff" font-size="11" font-weight="800" letter-spacing="1">METHODOLOGY</text>
-        <text x="340" y="186" text-anchor="middle" fill="#fff" font-size="17" font-weight="850">业务规则翻译器</text>
-        <text x="340" y="208" text-anchor="middle" fill="#cfe0fb" font-size="12">数据 → 动作机制</text>
-        <!-- curved arrows (clockwise: 01→02→03→04→01) -->
-        <!-- 04→01 顶部弧 左→右 -->
-        <path d="M275,115 A92,92 0 0 1 405,115" fill="none" stroke="#6f9bf2" stroke-width="2.6" marker-end="url(#ca)"/>
-        <!-- 01→02 右侧弧 上→下 -->
-        <path d="M405,115 A92,92 0 0 1 405,245" fill="none" stroke="#6f9bf2" stroke-width="2.6" marker-end="url(#ca)"/>
-        <!-- 02→03 底部弧 右→左 -->
-        <path d="M405,245 A92,92 0 0 1 275,245" fill="none" stroke="#6f9bf2" stroke-width="2.6" marker-end="url(#ca)"/>
-        <!-- 03→04 左侧弧 下→上 -->
-        <path d="M275,245 A92,92 0 0 1 275,115" fill="none" stroke="#6f9bf2" stroke-width="2.6" marker-end="url(#ca)"/>
-        <!-- node 01 top-right -->
-        <g>
-          <rect x="430" y="36" width="236" height="64" rx="13" fill="#fff" stroke="#f0b96b" stroke-width="1.6"/>
-          <circle cx="456" cy="68" r="13" fill="#d97706"/><text x="456" y="72" text-anchor="middle" fill="#fff" font-size="11" font-weight="800">01</text>
-          <text x="478" y="64" fill="#1e293b" font-size="14" font-weight="850">先定义对象</text>
-          <text x="478" y="84" fill="#64748b" font-size="11.5">什么值得被处理（新客/有效/新锐分层）</text>
-        </g>
-        <!-- node 02 bottom-right -->
-        <g>
-          <rect x="430" y="260" width="236" height="64" rx="13" fill="#fff" stroke="#f0b96b" stroke-width="1.6"/>
-          <circle cx="456" cy="292" r="13" fill="#d97706"/><text x="456" y="296" text-anchor="middle" fill="#fff" font-size="11" font-weight="800">02</text>
-          <text x="478" y="288" fill="#1e293b" font-size="14" font-weight="850">再定义触发</text>
-          <text x="478" y="308" fill="#64748b" font-size="11.5">什么变化要提醒（掉量预警/起量觉醒）</text>
-        </g>
-        <!-- node 03 bottom-left -->
-        <g>
-          <rect x="14" y="260" width="236" height="64" rx="13" fill="#fff" stroke="#9ec0f6" stroke-width="1.6"/>
-          <circle cx="40" cy="292" r="13" fill="#296BEF"/><text x="40" y="296" text-anchor="middle" fill="#fff" font-size="11" font-weight="800">03</text>
-          <text x="62" y="288" fill="#1e293b" font-size="14" font-weight="850">再定义输出</text>
-          <text x="62" y="308" fill="#64748b" font-size="11.5">用什么形式给谁（清单/象限/榜单）</text>
-        </g>
-        <!-- node 04 top-left -->
-        <g>
-          <rect x="14" y="36" width="236" height="64" rx="13" fill="#fff" stroke="#9ec0f6" stroke-width="1.6"/>
-          <circle cx="40" cy="68" r="13" fill="#296BEF"/><text x="40" y="72" text-anchor="middle" fill="#fff" font-size="11" font-weight="800">04</text>
-          <text x="62" y="64" fill="#1e293b" font-size="14" font-weight="850">最后定义边界</text>
-          <text x="62" y="84" fill="#64748b" font-size="11.5">哪些自动 · 哪些人兜底（次日结算/人工复核）</text>
-        </g>
-      </svg>
-      <div class="dgm-cap">4 步顺时针闭环：对象 → 触发 → 输出 → 边界 → 回到对象。</div>
-    </div>
-    <div class="note">⚠️ 顺序不能反——必须<b>先决定"该处理什么"，再决定"用什么形式给出去"</b>，否则做出来就只是个 BI 看板。AData 提供原始数据，作战中心把"目标 / 3 千门槛 / 首投季度"这些业务规则翻译成动作。这套方法，对内是"防漏+抓机会"，对外是"信息产品化"。</div>
-  </div>
-
   <!-- PART 07 · 技术框架 -->
   <div class="slide">
     <div class="part-tag">PART 07 · 技术框架</div>
