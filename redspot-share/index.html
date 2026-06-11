@@ -659,42 +659,30 @@
       <div class="impact-cap">实操之变：从"<b>每天翻报表自己找、靠脑子记</b>" → "<b>打开就有待办清单、处理一个消一个红点</b>"，掉量在客户开口前就被拦回。</div>
     </div>
 
-    <!-- 场景一 销售实操 5 步操作截图（3+2 布局） -->
+    <!-- 场景一 销售实操（上下两张超横向长图，等高等宽） -->
     <style>
-      .ops5{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin:16px 0 0 0;}
-      .ops5 figure{margin:0;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:12px;box-shadow:0 2px 10px rgba(15,23,42,.04);display:flex;flex-direction:column;grid-column:span 2;}
-      .ops5 figure.wide{grid-column:span 3;}
-      .ops5 .ops-img{flex:1;height:300px;background:linear-gradient(135deg,#f8fafc,#eef4ff);border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:6px;}
-      .ops5 figure.wide .ops-img{height:200px;}
-      .ops5 .ops-img img{max-width:100%;max-height:100%;object-fit:contain;display:block;}
-      .ops5 .ops-step{font-size:12px;font-weight:850;color:#1B4FC4;letter-spacing:1px;margin-top:10px;}
-      .ops5 .ops-cap{font-size:13px;color:#334155;font-weight:700;margin-top:4px;line-height:1.45;}
-                </style>
-    <div class="ops5">
+      .ops-stack{display:grid;grid-template-columns:1fr;gap:14px;margin:16px 0 0 0;}
+      .ops-stack figure{margin:0;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:12px;box-shadow:0 2px 10px rgba(15,23,42,.04);display:flex;flex-direction:column;}
+      .ops-stack .ops-img{flex:1;width:100%;background:linear-gradient(135deg,#f8fafc,#eef4ff);border-radius:8px;overflow:hidden;}
+      .ops-stack .ops-img img{display:block;width:100%;height:auto;}
+      .ops-stack .ops-meta{display:flex;align-items:center;gap:12px;margin-top:10px;}
+      .ops-stack .ops-step{font-size:12px;font-weight:850;color:#fff;background:linear-gradient(135deg,#1B4FC4,#2f74f5);padding:4px 12px;border-radius:14px;letter-spacing:1.2px;flex-shrink:0;}
+      .ops-stack .ops-cap{font-size:13.5px;color:#334155;font-weight:700;line-height:1.45;}
+    </style>
+    <div class="ops-stack">
       <figure>
-        <div class="ops-img"><img src="assets/scene1_op_1.png" alt="看板一键定位"></div>
-        <div class="ops-step">STEP 01</div>
-        <div class="ops-cap">看板一键定位 · 异动客户标红</div>
-      </figure>
-      <figure>
-        <div class="ops-img"><img src="assets/scene1_op_2.png" alt="联动小A出诊断"></div>
-        <div class="ops-step">STEP 02</div>
-        <div class="ops-cap">联动小 A 出诊断 · 3-5 分钟出报告</div>
+        <div class="ops-img"><img src="assets/scene1_op_top.jpg?v=20260611c" alt="销售实操 · 上：看板定位 → 联动小A诊断 → 闭环留痕"></div>
+        <div class="ops-meta">
+          <span class="ops-step">STEP 01-03</span>
+          <span class="ops-cap">看板一键定位 → 联动小 A 出诊断（3-5 分钟出报告）→ 处理完打状态标签闭环留痕</span>
+        </div>
       </figure>
       <figure>
-        <div class="ops-img"><img src="assets/scene1_op_3.png" alt="闭环留痕"></div>
-        <div class="ops-step">STEP 03</div>
-        <div class="ops-cap">闭环留痕 · 处理完打状态标签</div>
-      </figure>
-      <figure class="wide">
-        <div class="ops-img"><img src="assets/scene1_op_4.png" alt="同步给客户"></div>
-        <div class="ops-step">STEP 04</div>
-        <div class="ops-cap">同步给客户 · 截图诊断结果直接发</div>
-      </figure>
-      <figure class="wide">
-        <div class="ops-img"><img src="assets/scene1_op_5.png?v=20260611b" alt="监控回收 · 全员清零 100%"></div>
-        <div class="ops-step">STEP 05</div>
-        <div class="ops-cap">监控回收 · 全员清零、当日闭环 100%</div>
+        <div class="ops-img"><img src="assets/scene1_op_bottom.jpg?v=20260611c" alt="销售实操 · 下：诊断报告分享 → 全员清零 100%"></div>
+        <div class="ops-meta">
+          <span class="ops-step">STEP 04-05</span>
+          <span class="ops-cap">把诊断结果同步给客户 → 全员当日清零、监控回收 100%</span>
+        </div>
       </figure>
     </div>
 
