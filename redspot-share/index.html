@@ -138,6 +138,10 @@
   .shot{border:2px dashed #c7d2e8;background:repeating-linear-gradient(45deg,#f8fafc,#f8fafc 12px,#eef2fb 12px,#eef2fb 24px);
     border-radius:14px;min-height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#94a3b8;font-size:13px;text-align:center;margin:16px 0;padding:24px;}
   .shot .si{font-size:30px;margin-bottom:8px;opacity:.7;} .shot .sl{font-weight:800;color:#7c8aa5;font-size:14px;} .shot .sd{font-size:12px;margin-top:5px;}
+  /* 场景下双截图占位（横向并排，比例≈2:1） */
+  .shotpair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0;}
+  .shotpair .shot{margin:0;aspect-ratio: 2 / 1;min-height:0;}
+  @media(max-width:720px){.shotpair{grid-template-columns:1fr;}}
   .win{background:var(--green-l);border:1px solid #6ee7b7;border-radius:12px;padding:18px 20px;margin:16px 0;}
   .win .wh{font-size:13px;font-weight:850;color:var(--green);letter-spacing:1px;margin-bottom:8px;display:flex;align-items:center;gap:7px;}
   .win .wb{font-size:14.5px;color:var(--text);} .win .wb b{color:#047857;}
@@ -438,6 +442,10 @@
         <tr><td class="sc">团队季度 KPI 进度</td><td class="now">季度新锐数 / 新客季度日耗，91 天倒计时算缺口</td><td class="fut" style="background:#dcfce7;color:#15803d;">✅ 已上线</td></tr>
       </tbody>
     </table>
+    <div class="shotpair">
+      <div class="shot"><div class="si">📷</div><div class="sl">场景一 · 截图位 1</div><div class="sd">待主人提供</div></div>
+      <div class="shot"><div class="si">📷</div><div class="sl">场景一 · 截图位 2</div><div class="sd">待主人提供</div></div>
+    </div>
       </div>
     </details>
 
@@ -454,6 +462,10 @@
         <tr><td class="sc">客户生命周期全视</td><td class="now">客户流失 / 跃迁 / 掉量的全周期状态流转</td><td class="fut" style="background:#e2e8f0;color:#475569;">⏳ 待建设</td></tr>
       </tbody>
     </table>
+    <div class="shotpair">
+      <div class="shot"><div class="si">📷</div><div class="sl">场景二 · 截图位 1</div><div class="sd">待主人提供</div></div>
+      <div class="shot"><div class="si">📷</div><div class="sl">场景二 · 截图位 2</div><div class="sd">待主人提供</div></div>
+    </div>
       </div>
     </details>
 
@@ -469,6 +481,10 @@
         <tr><td class="sc">产品能力</td><td class="now">ADQ 服饰投放产品矩阵介绍 & 对外文档</td><td class="fut" style="background:#e2e8f0;color:#475569;">⏳ 待建设</td></tr>
       </tbody>
     </table>
+    <div class="shotpair">
+      <div class="shot"><div class="si">📷</div><div class="sl">场景三 · 截图位 1</div><div class="sd">待主人提供</div></div>
+      <div class="shot"><div class="si">📷</div><div class="sl">场景三 · 截图位 2</div><div class="sd">待主人提供</div></div>
+    </div>
       </div>
     </details>
     <div class="note">三个场景从"<b>每天处理任务</b>"（今日待办小红点）到"<b>管好客户生命周期</b>"（销售拓客作战中心）再到"<b>建立专业度对外赋能</b>"（销售弹药库），覆盖销售一天的完整动线。</div>
