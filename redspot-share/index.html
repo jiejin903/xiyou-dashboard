@@ -808,10 +808,12 @@
     <div class="note">💡 一句话概括技术选型：<b>把"重"放在 Python 脚本里（口径计算一次算准），把"前端"做到最轻（静态文件人人能开、随时能改）</b>。复杂度集中在数据处理，展示层保持简单，所以迭代快、好维护、可独立交付。</div>
   </div>
 
-  <!-- PART 08 · 当前卡点全景 -->
+  <!-- PART 08 · 当前的问题和下一步优化的方向（合并PART 08 当前卡点 + PART 10 下一步） -->
   <div class="slide">
-    <div class="part-tag">PART 08 · 当前卡点</div>
-    <h2>把话说透：现在我们仍卡在哪里</h2>
+    <div class="part-tag">PART 08 · 当前的问题和下一步优化的方向</div>
+    <h2>当前的问题和下一步优化的方向</h2>
+
+    <h3>一、当前的问题</h3>
     <div class="role" style="grid-template-columns:repeat(3,1fr);">
       <div class="rolebox ai">
         <div class="rh">⚙️ 运行性能</div>
@@ -832,31 +834,8 @@
         </ul></div>
       </div>
     </div>
-  </div>
 
-  <!-- PART 09 · 希望的资源与支持 -->
-  <div class="slide">
-    <div class="part-tag">PART 09 · 资源与支持</div>
-    <h2>基于卡点，我们希望给予的支持</h2>
-    <p class="lead">不是要更多人手堆活，而是把几个"卡住规模化"的关键点打通——让这套已经验证有效的机制，能稳定服务整个团队。</p>
-    <div class="support">
-      <div class="supbox">
-        <div class="sh">① 开发部门技术支持，系统敏捷轻量化</div>
-        <div class="ssd">目前代码冗杂、历史消耗每天全量回填导致运行偏慢。希望开发部门同事提供技术支持，把系统从"个人脚本拼装"升级为<b>敏捷、轻量、可增量更新</b>的正式产品，提升运行与加载性能。</div>
-        <div class="who">解决：代码冗杂、数据量大、运行慢</div>
-      </div>
-      <div class="supbox">
-        <div class="sh">② 企业级模型额度与更强模型支持</div>
-        <div class="ssd">五月小红点系统 token 消耗已接近 <b>2000＄</b>，且长对话后模型易产生幻觉、忘记前文口径。希望申请<b>团队级大模型额度 / 企业账号</b>，并用<b>更强的长上下文模型</b>覆盖 token 成本、减少口径漂移。</div>
-        <div class="who">解决：token 消耗大、模型幻觉/忘口径</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PART 10 · 下一步 -->
-  <div class="slide">
-    <div class="part-tag">PART 10 · 下一步</div>
-    <h2>看板的下一步：把"发现"和"归因"做得更自动、更闭环</h2>
+    <h3 style="margin-top:28px;">二、下一步优化的方向</h3>
     <p class="lead">沿着现有的三个 Tab，往"少一步人工、多一步自动"的方向迭代——</p>
     <div class="grid2">
       <div class="card" style="border-color:#fca5a5;">
