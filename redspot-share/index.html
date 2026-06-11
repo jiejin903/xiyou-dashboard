@@ -5,14 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>服饰拓新销售作战中心 · 实践案例分享 — 从"数据洞察"到"业务动作"</title>
 <style>
+  /* 腾讯体字体嵌入（公网部署，仅内部汇报使用） */
+  @font-face{
+    font-family:"TencentSans";
+    src:url("assets/fonts/TencentSans-W3.ttf") format("truetype");
+    font-weight:300 500;
+    font-style:normal;
+    font-display:swap;
+  }
+  @font-face{
+    font-family:"TencentSans";
+    src:url("assets/fonts/TencentSans-W7.ttf") format("truetype");
+    font-weight:600 900;
+    font-style:normal;
+    font-display:swap;
+  }
   :root{
     --blue:#296BEF; --blue-d:#1B4FC4; --blue-l:#E8EEFA;
     --red:#dc2626; --red-l:#fef3f3; --green:#059669; --green-l:#eefbf4;
     --gold:#d97706; --gold-l:#fffaef; --gray:#64748b; --gray-l:#f8fafc;
     --text:#1e293b; --text-2:#64748b; --line:#e2e8f0; --bg:#f1f5f9;
   }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  body{font-family:"Tencent Sans W7","TencentSans W7","TencentSans-W7","Tencent Sans","腾讯体","TencentSans",
+  *{margin:0;padding:0;box-sizing:border-box;font-family:inherit;}
+  body{font-family:"TencentSans","Tencent Sans","腾讯体",
     -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
     background:
       radial-gradient(1100px 460px at 12% -4%,rgba(41,107,239,.10),transparent 60%),
