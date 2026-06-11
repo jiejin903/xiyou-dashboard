@@ -913,24 +913,31 @@
     </div>
 
     <h3 style="margin-top:28px;">二、下一步优化的方向</h3>
-    <div class="role" style="grid-template-columns:repeat(3,1fr);">
-      <div class="rolebox sale" style="border-color:#93c5fd;">
-        <div class="rh" style="color:#1B4FC4;">🔄 ① 客户生命周期管理</div>
-        <div class="rb">
-          提供客户的<b>全生命周期管理能力</b>，针对客户<b>不同阶段</b>（新手期 / 生长期 / 成熟期）匹配不同的服务策略。
-        </div>
+    <style>
+      .next-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px;}
+      .next-card{border-radius:14px;padding:18px 20px;border:1px solid;}
+      .next-card .nh{font-size:15px;font-weight:850;margin-bottom:10px;display:flex;align-items:center;gap:7px;}
+      .next-card .nb{font-size:13.5px;line-height:1.85;color:var(--text);}
+      .next-card .nb b{color:#0f172a;}
+      .next-card.c1{background:linear-gradient(160deg,#eff6ff,#dbeafe);border-color:#93c5fd;}
+      .next-card.c1 .nh{color:#1B4FC4;}
+      .next-card.c2{background:linear-gradient(160deg,#fffbf2,#fdf3df);border-color:#f3d79a;}
+      .next-card.c2 .nh{color:#a16207;}
+      .next-card.c3{background:linear-gradient(160deg,#f0fdf4,#dcfce7);border-color:#86efac;}
+      .next-card.c3 .nh{color:#047857;}
+    </style>
+    <div class="next-grid">
+      <div class="next-card c1">
+        <div class="nh">🔄 ① 客户生命周期管理</div>
+        <div class="nb">提供客户的<b>全生命周期管理能力</b>，针对客户<b>不同阶段</b>（新手期 / 生长期 / 成熟期）匹配不同的服务策略。</div>
       </div>
-      <div class="rolebox ai" style="border-color:#fcd34d;">
-        <div class="rh" style="color:#a16207;">🤖 ② 处理建议丰富化</div>
-        <div class="rb">
-          增加销售处理客户小红点任务的<b>更多建议</b>——除 AdataClaw 之外，提供<b>多元化处理建议</b>，让销售决策更有抓手。
-        </div>
+      <div class="next-card c2">
+        <div class="nh">🤖 ② 处理建议丰富化</div>
+        <div class="nb">增加销售处理客户小红点任务的<b>更多建议</b>——除 AdataClaw 之外，提供<b>多元化处理建议</b>，让销售决策更有抓手。</div>
       </div>
-      <div class="rolebox me" style="border-color:#6ee7b7;">
-        <div class="rh" style="color:#15803d;">⚙️ ③ 系统性能优化</div>
-        <div class="rb">
-          优化整体系统性能，提升数据加载速度与稳定性，让<b>每天的运行更轻、更快、更稳</b>。
-        </div>
+      <div class="next-card c3">
+        <div class="nh">⚙️ ③ 系统性能优化</div>
+        <div class="nb">优化整体系统性能，提升数据加载速度与稳定性，让<b>每天的运行更轻、更快、更稳</b>。</div>
       </div>
     </div>
   </div>
