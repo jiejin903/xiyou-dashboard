@@ -436,9 +436,9 @@
     <table class="evo">
       <thead><tr><th>子模块</th><th>能力 / 内容</th><th>状态</th></tr></thead>
       <tbody>
-        <tr><td class="sc">今日待办清理进度</td><td class="now">头部掉量客户拢成一条可清零待办，已处理/总数，云端实时</td><td class="fut" style="background:#fef9c3;color:#a16207;">🆕 本期新增</td></tr>
+        <tr><td class="sc" style="color:#dc2626;font-weight:850;">今日待办清理进度</td><td class="now">头部掉量客户拢成一条可清零待办，已处理/总数，云端实时</td><td class="fut" style="background:#dcfce7;color:#15803d;">✅ 已上线</td></tr>
         <tr><td class="sc">关键客户作战台</td><td class="now">生命周期视角（新手/培育/成熟期）+ 考核追赶视角（潜在新锐/重点客户监控）</td><td class="fut" style="background:#fef9c3;color:#a16207;">🆕 本期新增</td></tr>
-        <tr><td class="sc">客户明细清单</td><td class="now">多维筛选（分组/类目/战役）+ 一键诊断 + 标记已处理闭环留痕</td><td class="fut" style="background:#dcfce7;color:#15803d;">✅ 已上线</td></tr>
+        <tr><td class="sc" style="color:#dc2626;font-weight:850;">待办小红点任务明细</td><td class="now">多维筛选（分组/类目/战役）+ 一键诊断 + 标记已处理闭环留痕</td><td class="fut" style="background:#dcfce7;color:#15803d;">✅ 已上线</td></tr>
         <tr><td class="sc">团队季度 KPI 进度</td><td class="now">季度新锐数 / 新客季度日耗，91 天倒计时算缺口</td><td class="fut" style="background:#dcfce7;color:#15803d;">✅ 已上线</td></tr>
       </tbody>
     </table>
@@ -455,11 +455,11 @@
     <table class="evo">
       <thead><tr><th>子模块</th><th>能力 / 内容</th><th>状态</th></tr></thead>
       <tbody>
+        <tr><td class="sc" style="color:#dc2626;font-weight:850;">客户生命周期全视</td><td class="now">客户流失 / 跃迁 / 掉量的全周期状态流转</td><td class="fut" style="background:#e2e8f0;color:#475569;">⏳ 待建设</td></tr>
         <tr><td class="sc">新客录入</td><td class="now">统一登记入口 + 系统自动识别简称/打标 + 归属变更留痕</td><td class="fut" style="background:#dcfce7;color:#15803d;">✅ 已上线</td></tr>
         <tr><td class="sc">拓客来源分布</td><td class="now">类目 / 客户来源 / 投放端 / 链路画像（按数量或消耗占比）</td><td class="fut" style="background:#dcfce7;color:#15803d;">✅ 已上线</td></tr>
         <tr><td class="sc">客户消耗分布</td><td class="now">KPI 进度盘 + 7 销售明细横向对比</td><td class="fut" style="background:#dcfce7;color:#15803d;">✅ 已上线</td></tr>
         <tr><td class="sc">客户明细 · 投放走势</td><td class="now">单客户消耗趋势曲线、逐日走势</td><td class="fut" style="background:#e2e8f0;color:#475569;">⏳ 待建设</td></tr>
-        <tr><td class="sc">客户生命周期全视</td><td class="now">客户流失 / 跃迁 / 掉量的全周期状态流转</td><td class="fut" style="background:#e2e8f0;color:#475569;">⏳ 待建设</td></tr>
       </tbody>
     </table>
     <div class="shotpair">
@@ -488,6 +488,102 @@
       </div>
     </details>
     <div class="note">三个场景从"<b>每天处理任务</b>"（今日待办小红点）到"<b>管好客户生命周期</b>"（销售拓客作战中心）再到"<b>建立专业度对外赋能</b>"（销售弹药库），覆盖销售一天的完整动线。</div>
+  </div>
+
+  <!-- PART 03.5 · 核心功能 · 小红点系统如何作用业务 -->
+  <style>
+    .biz-loop{width:100%;border-collapse:separate;border-spacing:0;margin:18px 0;border-radius:14px;overflow:hidden;border:1px solid #e2e8f0;font-size:13.5px;background:#fff;}
+    .biz-loop thead th{background:#1B4FC4;color:#fff;font-weight:850;font-size:13px;padding:14px 14px;text-align:left;letter-spacing:.5px;}
+    .biz-loop tbody td{padding:18px 16px;vertical-align:top;border-top:1px solid #e2e8f0;line-height:1.7;}
+    .biz-loop tbody tr td:first-child{background:#f8fafc;font-weight:850;color:#1B4FC4;font-size:14.5px;width:14%;}
+    .biz-loop tbody tr td:nth-child(2){background:#fbfdff;color:#334155;font-weight:700;width:18%;}
+    .biz-loop tbody tr td:nth-child(3){width:46%;color:#1e293b;}
+    .biz-loop tbody tr td:nth-child(4){width:22%;background:#fafbfd;}
+    .biz-loop .lk{color:#dc2626;font-weight:850;}
+    .biz-loop .ll{color:#15803d;font-weight:850;}
+    .biz-loop .hl{background:#fef9c3;padding:1px 5px;border-radius:4px;font-weight:850;color:#a16207;}
+    .biz-loop ul{margin:6px 0 0 0;padding-left:18px;}
+    .biz-loop li{margin-bottom:6px;}
+    .biz-loop .img-shot{border:2px dashed #c7d2e8;background:repeating-linear-gradient(45deg,#f8fafc,#f8fafc 12px,#eef2fb 12px,#eef2fb 24px);border-radius:10px;min-height:140px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#94a3b8;font-size:12px;text-align:center;padding:14px;}
+    .biz-loop .img-shot .si{font-size:26px;margin-bottom:6px;opacity:.7;}
+    .biz-loop .img-shot .sl{font-weight:800;color:#7c8aa5;font-size:12.5px;}
+    .biz-loop .img-shot .sd{font-size:11px;margin-top:4px;color:#a3aec3;}
+    @media(max-width:720px){
+      .biz-loop, .biz-loop tbody, .biz-loop tr, .biz-loop td, .biz-loop thead{display:block;width:100%;}
+      .biz-loop thead{display:none;}
+      .biz-loop tbody tr{border-bottom:8px solid #f1f5f9;}
+      .biz-loop tbody tr td{width:100%!important;border-top:1px solid #e2e8f0;}
+      .biz-loop tbody tr td:first-child{background:#1B4FC4;color:#fff;}
+      .biz-loop tbody tr td:before{content:attr(data-label);display:block;font-size:11px;color:#94a3b8;font-weight:800;margin-bottom:4px;letter-spacing:.5px;}
+      .biz-loop tbody tr td:first-child:before{display:none;}
+    }
+  </style>
+  <div class="slide">
+    <div class="part-tag">PART 03.5 · 核心功能</div>
+    <h2>小红点系统是如何作用在业务中的？</h2>
+    <p class="lead">系统目前已形成 <b class="lk">精准识别</b> → <b class="hl">及时介入</b> → <b class="ll">有效执行</b> → <b style="color:#1B4FC4;">监控回收</b> 的业务闭环——把"看到信号"变成"做对动作"。</p>
+    <table class="biz-loop">
+      <thead>
+        <tr>
+          <th>核心问题</th>
+          <th>能力逻辑</th>
+          <th>逻辑说明</th>
+          <th>图示</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="核心问题">如何识别客户？</td>
+          <td data-label="能力逻辑"><span class="lk">精准识别</span><br>触发任务逻辑</td>
+          <td data-label="逻辑说明">
+            按投放表现把客户分成<b>四档</b>，每档对应不同的消耗节奏和动作：
+            <ul>
+              <li><b>头部稳定</b>：消耗和 ROI 都在正常水位，保持观察</li>
+              <li><b>头部掉量</b>：指标异常，<b class="lk">今天必须复盘诊断</b></li>
+              <li><b>潜力起量</b>：消耗突然涨起来，<b class="lk">第一时间跟上投放放大</b>，窗口很短</li>
+              <li><b>海量长尾</b>：单个消耗小，适合群批量运营，不逐个盯</li>
+            </ul>
+            <div style="margin-top:10px;"><span class="hl">触发规则</span></div>
+            <ul>
+              <li><b>掉量预警</b>：头部客户消耗或 ROI 较前日下降<b class="lk">超过 20%</b>，系统即时标红</li>
+              <li><b>起量抢窗口</b>：消耗突然放大，系统即时提醒——<b class="lk">机会窗就那两三天</b></li>
+            </ul>
+          </td>
+          <td data-label="图示">
+            <div class="img-shot"><div class="si">📷</div><div class="sl">客户分档图</div><div class="sd">待主人提供</div></div>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="核心问题">销售怎么处理？</td>
+          <td data-label="能力逻辑"><span class="hl">及时介入</span></td>
+          <td data-label="逻辑说明">
+            <ul>
+              <li><b class="lk">看板一键定位</b>：异动客户在看板上以气泡标红显示，点进去就能看到所有关键指标变化，相当于把待办清单列好了</li>
+              <li><b class="lk">联动小 A 出诊断</b>：直接从红点任务跳到小 A 诊断，等 <b>3-5 分钟</b>出一份完整报告——主要问题在哪、亮点在哪、数据怎么变、建议怎么调，不用销售自己对着报表猜</li>
+              <li><b class="lk">资源自动匹配</b>：根据客户标签（行业/链路/阶段），系统自动把能用的资源推过来——当前有什么政策扶持、哪些爆品信息能参考、同类客户怎么跑出来的标杆案例，帮客户快速回正</li>
+            </ul>
+          </td>
+          <td data-label="图示">
+            <div class="img-shot"><div class="si">📷</div><div class="sl">销售操作截图</div><div class="sd">待主人提供</div></div>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="核心问题">如何监控？</td>
+          <td data-label="能力逻辑"><span class="ll">执行监控和数据回收</span></td>
+          <td data-label="逻辑说明">
+            动作落地之后，关键是要把"做了什么、效果如何"沉淀下来，<b class="ll">形成闭环</b>：
+            <ul>
+              <li><b class="ll">清除即留痕</b>：销售处理完一个客户，点清除并打上状态标签（已处理 / 无效 / 需升级），实时回传云端，处理进度对 Leader 和管理层透明可见</li>
+              <li><b class="ll">权限隔离合规</b>：销售只看自己名下的客户和任务，Leader 能看组员全量动作进度，管理层看团队聚合数据——<b>不同层级各取所需，也各守边界</b></li>
+              <li><b class="ll">反馈存档</b>：每次清除时的反馈不是"清完就设了"，而是<b class="ll">实时回写拓客模型</b>。长期积累下来，每个客户都有一份服务档案，系统推荐的精准度也在持续提升</li>
+            </ul>
+          </td>
+          <td data-label="图示">
+            <div class="img-shot"><div class="si">📷</div><div class="sl">监控大盘截图</div><div class="sd">待主人提供</div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
   <!-- PART 04 · 三个 Tab 详解（销售实操之变 · 图例） -->
