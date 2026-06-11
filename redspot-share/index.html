@@ -20,6 +20,16 @@
     --text:#1e293b; --text-2:#64748b; --line:#e2e8f0; --bg:#f1f5f9;
   }
   *{margin:0;padding:0;box-sizing:border-box;font-family:inherit;}
+  /* 字体方案B：默认W7,但正文段落降低字重保持层次 */
+  body p, body li, body td, body .pd, body .opdef, body .opcap, body .impact-cap,
+  body .biz3-col ul, body .impact-box ul, body .legacy-d, body .ops-cap{
+    font-weight:500 !important;
+  }
+  body h1, body h2, body h3, body .ph, body .ib-h, body .col-q,
+  body .biz3-h, body .impact-h, body .biz3-step .bs-name, body .ops-step,
+  body .part-tag, body .legacy-h, body .ls-h, body .ls-step .ls-name{
+    font-weight:850 !important;
+  }
   body{font-family:"TencentSans","Tencent Sans","腾讯体",
     -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
     background:
@@ -657,18 +667,18 @@
       <div class="impact-cap">实操之变：从"<b>每天翻报表自己找、靠脑子记</b>" → "<b>打开就有待办清单、处理一个消一个红点</b>"，掉量在客户开口前就被拦回。</div>
     </div>
 
-    <!-- 场景一 销售实操 4 步操作截图 -->
+    <!-- 场景一 销售实操 5 步操作截图（3+2 布局） -->
     <style>
-      .ops4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0 0 0;}
-      .ops4 figure{margin:0;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:10px;box-shadow:0 2px 10px rgba(15,23,42,.04);display:flex;flex-direction:column;}
-      .ops4 .ops-img{flex:1;height:200px;background:linear-gradient(135deg,#f8fafc,#eef4ff);border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;}
-      .ops4 .ops-img img{max-width:100%;max-height:100%;object-fit:contain;display:block;}
-      .ops4 .ops-step{font-size:11px;font-weight:850;color:#1B4FC4;letter-spacing:1px;margin-top:8px;}
-      .ops4 .ops-cap{font-size:12px;color:#334155;font-weight:700;margin-top:3px;line-height:1.45;}
-      @media(max-width:900px){.ops4{grid-template-columns:1fr 1fr;}}
-      @media(max-width:520px){.ops4{grid-template-columns:1fr;}}
+      .ops5{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:16px 0 0 0;}
+      .ops5 figure{margin:0;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:12px;box-shadow:0 2px 10px rgba(15,23,42,.04);display:flex;flex-direction:column;}
+      .ops5 .ops-img{flex:1;height:300px;background:linear-gradient(135deg,#f8fafc,#eef4ff);border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:6px;}
+      .ops5 .ops-img img{max-width:100%;max-height:100%;object-fit:contain;display:block;}
+      .ops5 .ops-step{font-size:12px;font-weight:850;color:#1B4FC4;letter-spacing:1px;margin-top:10px;}
+      .ops5 .ops-cap{font-size:13px;color:#334155;font-weight:700;margin-top:4px;line-height:1.45;}
+      @media(max-width:900px){.ops5{grid-template-columns:1fr 1fr;}}
+      @media(max-width:520px){.ops5{grid-template-columns:1fr;}}
     </style>
-    <div class="ops4">
+    <div class="ops5">
       <figure>
         <div class="ops-img"><img src="assets/scene1_op_1.png" alt="看板一键定位"></div>
         <div class="ops-step">STEP 01</div>
@@ -688,6 +698,11 @@
         <div class="ops-img"><img src="assets/scene1_op_4.png" alt="同步给客户"></div>
         <div class="ops-step">STEP 04</div>
         <div class="ops-cap">同步给客户 · 截图诊断结果直接发</div>
+      </figure>
+      <figure>
+        <div class="ops-img"><img src="assets/scene1_op_5.png" alt="监控回收"></div>
+        <div class="ops-step">STEP 05</div>
+        <div class="ops-cap">监控回收 · 全员进度透明可见</div>
       </figure>
     </div>
 
