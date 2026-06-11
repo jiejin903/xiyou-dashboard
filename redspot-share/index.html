@@ -139,8 +139,12 @@
     border-radius:14px;min-height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#94a3b8;font-size:13px;text-align:center;margin:16px 0;padding:24px;}
   .shot .si{font-size:30px;margin-bottom:8px;opacity:.7;} .shot .sl{font-weight:800;color:#7c8aa5;font-size:14px;} .shot .sd{font-size:12px;margin-top:5px;}
   /* 场景下双截图占位（横向并排，比例≈2:1） */
-  .shotpair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0;}
+  .shotpair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0;align-items:start;}
   .shotpair .shot{margin:0;aspect-ratio: 2 / 1;min-height:0;}
+  /* 真实截图卡片 */
+  .shotpair .shot-img{margin:0;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:10px;box-shadow:0 2px 10px rgba(15,23,42,.04);}
+  .shotpair .shot-img img{width:100%;display:block;border-radius:8px;background:#f8fafc;}
+  .shotpair .shot-img figcaption{font-size:12px;color:#64748b;margin-top:8px;text-align:center;font-weight:700;line-height:1.5;}
   @media(max-width:720px){.shotpair{grid-template-columns:1fr;}}
   .win{background:var(--green-l);border:1px solid #6ee7b7;border-radius:12px;padding:18px 20px;margin:16px 0;}
   .win .wh{font-size:13px;font-weight:850;color:var(--green);letter-spacing:1px;margin-bottom:8px;display:flex;align-items:center;gap:7px;}
@@ -475,8 +479,8 @@
       </tbody>
     </table>
     <div class="shotpair">
-      <div class="shot"><div class="si">📷</div><div class="sl">场景一 · 截图位 1</div><div class="sd">待主人提供</div></div>
-      <div class="shot"><div class="si">📷</div><div class="sl">场景一 · 截图位 2</div><div class="sd">待主人提供</div></div>
+      <figure class="shot-img"><img src="assets/scene1_1.png" alt="场景一 · 今日待办 PC 端"><figcaption>📌 PC 端：今日待办清理进度 + 销售作战中心</figcaption></figure>
+      <figure class="shot-img"><img src="assets/scene1_2.png" alt="场景一 · 今日待办 移动端"><figcaption>📱 移动端：路上随手处理潜力客户起量</figcaption></figure>
     </div>
       </div>
     </details>
@@ -495,8 +499,8 @@
       </tbody>
     </table>
     <div class="shotpair">
-      <div class="shot"><div class="si">📷</div><div class="sl">场景二 · 截图位 1</div><div class="sd">待主人提供</div></div>
-      <div class="shot"><div class="si">📷</div><div class="sl">场景二 · 截图位 2</div><div class="sd">待主人提供</div></div>
+      <figure class="shot-img"><img src="assets/scene2_1.png" alt="场景二 · 客户生命周期视角"><figcaption>🔄 客户生命周期：新手期 / 生长期 / 成熟期分阶段服务</figcaption></figure>
+      <figure class="shot-img"><img src="assets/scene2_2.png" alt="场景二 · 销售拓客模型画像"><figcaption>📊 销售拓客模型画像：类目 / 来源 / 投放端 / 链路四维分布</figcaption></figure>
     </div>
       </div>
     </details>
@@ -514,8 +518,8 @@
       </tbody>
     </table>
     <div class="shotpair">
-      <div class="shot"><div class="si">📷</div><div class="sl">场景三 · 截图位 1</div><div class="sd">待主人提供</div></div>
-      <div class="shot"><div class="si">📷</div><div class="sl">场景三 · 截图位 2</div><div class="sd">待主人提供</div></div>
+      <figure class="shot-img"><img src="assets/scene3_1.png" alt="场景三 · 信息同步库"><figcaption>📚 信息同步库：政策活动 + 行业大盘指标实时同步</figcaption></figure>
+      <figure class="shot-img"><img src="assets/scene3_2.png" alt="场景三 · 标杆案例库"><figcaption>🏆 标杆案例库：优秀新客起量打法、按类目检索</figcaption></figure>
     </div>
       </div>
     </details>
