@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=992, user-scalable=yes">
 <title>服饰拓新销售作战中心 · 实践案例分享 — 从"数据洞察"到"业务动作"</title>
 <style>
   /* 腾讯体字体嵌入（全站统一使用 W7 粗体，公网部署，仅内部汇报使用） */
@@ -38,7 +38,9 @@
       linear-gradient(180deg,#eef2f8 0%,#f1f5f9 100%);
     background-attachment:fixed;
     color:var(--text);line-height:1.75;-webkit-font-smoothing:antialiased;}
-  .wrap{max-width:960px;margin:0 auto;padding:0 16px 90px;}
+  /* 全端固定桌面端宽度，小屏自动横向滚动以保持视觉一致 */
+  html,body{min-width:992px;overflow-x:auto;}
+  .wrap{width:960px;max-width:960px;margin:0 auto;padding:0 16px 90px;}
   .slide{position:relative;background:#fff;border-radius:18px;margin:22px 0;padding:38px 40px 40px;
     box-shadow:0 1px 2px rgba(15,23,42,.04),0 8px 28px -12px rgba(15,23,42,.14);
     border:1px solid #eef1f6;overflow:hidden;
@@ -140,8 +142,7 @@
     box-shadow:0 4px 10px -3px rgba(27,79,196,.5);}
   .shiftbox .to{color:#15803d;font-size:17px;}
   .shiftbox .sdesc{font-size:12.5px;color:var(--text-2);margin-top:9px;line-height:1.6;}
-  @media(max-width:720px){.shift{grid-template-columns:1fr;}}
-  ul.clean{list-style:none;margin:10px 0;}
+    ul.clean{list-style:none;margin:10px 0;}
   ul.clean li{padding:9px 0 9px 26px;position:relative;font-size:14.5px;border-bottom:1px solid #f1f5f9;}
   ul.clean li:before{content:"";position:absolute;left:7px;top:16px;width:7px;height:7px;border-radius:2px;
     background:linear-gradient(135deg,var(--blue),#6f9bf2);transform:rotate(45deg);}
@@ -163,8 +164,7 @@
   .shotpair .shot-img{margin:0;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:10px;box-shadow:0 2px 10px rgba(15,23,42,.04);}
   .shotpair .shot-img img{width:100%;display:block;border-radius:8px;background:#f8fafc;}
   .shotpair .shot-img figcaption{font-size:12px;color:#64748b;margin-top:8px;text-align:center;font-weight:700;line-height:1.5;}
-  @media(max-width:720px){.shotpair{grid-template-columns:1fr;}}
-  .win{background:var(--green-l);border:1px solid #6ee7b7;border-radius:12px;padding:18px 20px;margin:16px 0;}
+    .win{background:var(--green-l);border:1px solid #6ee7b7;border-radius:12px;padding:18px 20px;margin:16px 0;}
   .win .wh{font-size:13px;font-weight:850;color:var(--green);letter-spacing:1px;margin-bottom:8px;display:flex;align-items:center;gap:7px;}
   .win .wb{font-size:14.5px;color:var(--text);} .win .wb b{color:#047857;}
   .meaning{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0;}
@@ -357,12 +357,7 @@
   .ts-deploy b{color:var(--blue-d);}
   .ts-deploy .dchip{background:#fff;border:1px solid #cfe0fb;color:var(--blue-d);font-weight:700;
     font-size:12px;padding:4px 10px;border-radius:7px;}
-  @media(max-width:720px){
-    .grid2,.grid3,.kpi-row,.compare,.meaning,.tabrow,.qgrid,.pain,.role,.support{grid-template-columns:1fr;}
-    .slide{padding:28px 22px;} h1{font-size:24px;} .hero h1{font-size:25px;}
-    .evo{font-size:11.5px;} .btnitem{flex-direction:column;gap:6px;}
-  }
-</style>
+  </style>
 </head>
 <body>
 <div class="wrap">
@@ -430,8 +425,7 @@
       .legacy-imgs figure{margin:0;background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:10px;text-align:center;}
       .legacy-imgs img{width:100%;max-height:200px;object-fit:contain;border-radius:6px;display:block;margin:0 auto;}
       .legacy-imgs figcaption{font-size:11.5px;color:#64748b;margin-top:8px;font-weight:700;}
-      @media(max-width:720px){.legacy-imgs{grid-template-columns:1fr;}}
-    </style>
+          </style>
     <div class="legacy">
       <div class="legacy-h">从"手搓 Excel + 微信群推送" 走到 "用 AI 做产品"</div>
       <div class="legacy-d">
@@ -497,12 +491,7 @@
       .dual-screen .img-wrap{flex:1;height:340px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#f8fafc,#eef2fb);border-radius:10px;overflow:hidden;}
       .dual-screen .img-wrap img{max-height:100%;max-width:100%;object-fit:contain;display:block;}
       .dual-screen figcaption{font-size:12.5px;color:#64748b;margin-top:10px;text-align:center;font-weight:800;line-height:1.5;}
-      @media(max-width:720px){
-        .dual-screen{grid-template-columns:1fr;}
-        .dual-screen .img-wrap{height:auto;min-height:200px;}
-        .dual-screen .img-wrap img{max-height:380px;}
-      }
-    </style>
+          </style>
     <div class="dual-screen">
       <figure>
         <div class="img-wrap"><img src="assets/scene1_1.png" alt="PC 端 · 今日待办清理进度 + 销售作战中心"></div>
@@ -561,12 +550,7 @@
       .biz3-col .lk{color:#dc2626;font-weight:850;}
       .biz3-col .ll{color:#15803d;font-weight:850;}
       .biz3-col .hl{background:#fef9c3;padding:0 4px;border-radius:3px;font-weight:850;color:#a16207;}
-      @media(max-width:720px){
-        .biz3-steps{grid-template-columns:1fr;}
-        .biz3-arr{transform:rotate(90deg);}
-        .biz3-cols{grid-template-columns:1fr;}
-      }
-    </style>
+          </style>
     <div class="biz3">
       <div class="biz3-h">小红点的运行逻辑 · 一图看懂</div>
       <div class="biz3-steps">
@@ -636,11 +620,7 @@
       .impact-arr{color:#a16207;font-size:24px;font-weight:300;display:flex;align-items:center;justify-content:center;}
       .impact-cap{margin-top:14px;font-size:12.5px;color:#92400e;line-height:1.6;padding:10px 14px;background:rgba(255,255,255,.6);border-radius:8px;border-left:3px solid #f59e0b;}
       .impact-cap b{color:#a16207;}
-      @media(max-width:720px){
-        .impact-grid{grid-template-columns:1fr;}
-        .impact-arr{transform:rotate(90deg);}
-      }
-    </style>
+          </style>
     <div class="impact">
       <div class="impact-h">销售实操 · 之前 vs 现在</div>
       <div class="impact-grid">
@@ -677,9 +657,7 @@
       .ops5 .ops-img img{max-width:100%;max-height:100%;object-fit:contain;display:block;}
       .ops5 .ops-step{font-size:12px;font-weight:850;color:#1B4FC4;letter-spacing:1px;margin-top:10px;}
       .ops5 .ops-cap{font-size:13px;color:#334155;font-weight:700;margin-top:4px;line-height:1.45;}
-      @media(max-width:900px){.ops5{grid-template-columns:repeat(2,1fr);}.ops5 figure,.ops5 figure.wide{grid-column:span 1;}}
-      @media(max-width:520px){.ops5{grid-template-columns:1fr;}}
-    </style>
+                </style>
     <div class="ops5">
       <figure>
         <div class="ops-img"><img src="assets/scene1_op_1.png" alt="看板一键定位"></div>
