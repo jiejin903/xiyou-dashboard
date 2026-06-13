@@ -626,6 +626,31 @@
       /* 第四列 截图占位 */
       .lt-shot{display:flex;align-items:center;justify-content:center;min-height:100px;background:linear-gradient(135deg,#f8fafc,#eef4ff);border:2px dashed #cbd5e1;border-radius:10px;padding:18px 12px;text-align:center;color:#64748b;font-size:12px;font-weight:700;line-height:1.55;}
       .lt-shot img{display:block;width:100%;height:auto;border-radius:8px;}
+      /* 场景2/3/4 主题色变体 */
+      .logic-tbl.scene-blue tr.row-s1 .lt-step{background:#eff6ff;border-right:3px solid #93c5fd;}
+      .logic-tbl.scene-blue tr.row-s1 .lt-num,.logic-tbl.scene-blue tr.row-s1 .lt-name{color:#1B4FC4;}
+      .logic-tbl.scene-blue tr.row-s2 .lt-step{background:#eff6ff;border-right:3px solid #60a5fa;}
+      .logic-tbl.scene-blue tr.row-s2 .lt-num,.logic-tbl.scene-blue tr.row-s2 .lt-name{color:#1d4ed8;}
+      .logic-tbl.scene-blue tr.row-s3 .lt-step{background:#eff6ff;border-right:3px solid #3b82f6;}
+      .logic-tbl.scene-blue tr.row-s3 .lt-num,.logic-tbl.scene-blue tr.row-s3 .lt-name{color:#1e40af;}
+      .logic-tbl.scene-blue thead th.col-impact{background:linear-gradient(135deg,#eff6ff 0%,#dbeafe 100%);}
+      .logic-tbl.scene-blue thead th.col-impact .col-impact-pill{background:linear-gradient(135deg,#3b82f6,#1B4FC4);box-shadow:0 4px 12px -3px rgba(27,79,196,.4);}
+      .logic-tbl.scene-green tr.row-s1 .lt-step{background:#f0fdf4;border-right:3px solid #86efac;}
+      .logic-tbl.scene-green tr.row-s1 .lt-num,.logic-tbl.scene-green tr.row-s1 .lt-name{color:#047857;}
+      .logic-tbl.scene-green tr.row-s2 .lt-step{background:#ecfdf5;border-right:3px solid #6ee7b7;}
+      .logic-tbl.scene-green tr.row-s2 .lt-num,.logic-tbl.scene-green tr.row-s2 .lt-name{color:#059669;}
+      .logic-tbl.scene-green tr.row-s3 .lt-step{background:#dcfce7;border-right:3px solid #34d399;}
+      .logic-tbl.scene-green tr.row-s3 .lt-num,.logic-tbl.scene-green tr.row-s3 .lt-name{color:#065f46;}
+      .logic-tbl.scene-green thead th.col-impact{background:linear-gradient(135deg,#f0fdf4 0%,#dcfce7 100%);}
+      .logic-tbl.scene-green thead th.col-impact .col-impact-pill{background:linear-gradient(135deg,#10b981,#047857);box-shadow:0 4px 12px -3px rgba(4,120,87,.4);}
+      .logic-tbl.scene-orange tr.row-s1 .lt-step{background:#fff7ed;border-right:3px solid #fdba74;}
+      .logic-tbl.scene-orange tr.row-s1 .lt-num,.logic-tbl.scene-orange tr.row-s1 .lt-name{color:#c2410c;}
+      .logic-tbl.scene-orange tr.row-s2 .lt-step{background:#ffedd5;border-right:3px solid #fb923c;}
+      .logic-tbl.scene-orange tr.row-s2 .lt-num,.logic-tbl.scene-orange tr.row-s2 .lt-name{color:#9a3412;}
+      .logic-tbl.scene-orange tr.row-s3 .lt-step{background:#fed7aa;border-right:3px solid #f97316;}
+      .logic-tbl.scene-orange tr.row-s3 .lt-num,.logic-tbl.scene-orange tr.row-s3 .lt-name{color:#7c2d12;}
+      .logic-tbl.scene-orange thead th.col-impact{background:linear-gradient(135deg,#fff7ed 0%,#fed7aa 100%);}
+      .logic-tbl.scene-orange thead th.col-impact .col-impact-pill{background:linear-gradient(135deg,#f97316,#c2410c);box-shadow:0 4px 12px -3px rgba(194,65,12,.4);}
     </style>
     <div style="margin-top:22px;font-size:14px;font-weight:850;color:#1B4FC4;display:flex;align-items:center;gap:8px;margin-bottom:10px;"><span style="font-size:18px;">🔁</span>小红点的运行逻辑 · 销售实操之变</div>
     <table class="logic-tbl">
@@ -769,11 +794,12 @@
       </div>
     </details>
 
+    <!-- ========== 场景二 · 🚀 销售拓客作战中心（蓝色） ========== -->
     <details class="fold">
       <summary><span class="fold-ico">+</span>场景二 · KPI 进展 + 销售完成情况 + 两大专项 → 🚀 销售拓客作战中心<span class="fold-hint">点击展开</span></summary>
       <div class="fold-body">
 
-    <!-- ① 子模块一览 -->
+    <!-- 子模块一览 -->
     <table class="evo">
       <thead><tr><th>子模块</th><th>能力 / 内容</th><th>状态</th></tr></thead>
       <tbody>
@@ -785,172 +811,382 @@
       </tbody>
     </table>
 
-    <!-- ② 两大专项亮点功能（双卡） -->
-    <style>
-      .focus-pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px;}
-      .focus-card{background:#fff;border:1.5px solid #cbd5e1;border-radius:14px;padding:16px 18px;box-shadow:0 6px 18px -10px rgba(15,23,42,.15);}
-      .focus-card.f1{border-color:#93c5fd;background:linear-gradient(135deg,#eff6ff,#fff);}
-      .focus-card.f2{border-color:#c4b5fd;background:linear-gradient(135deg,#faf5ff,#fff);}
-      .focus-card .fc-h{font-size:14.5px;font-weight:850;letter-spacing:.5px;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
-      .focus-card.f1 .fc-h{color:#1B4FC4;}
-      .focus-card.f2 .fc-h{color:#7c3aed;}
-      .focus-card .fc-sub{font-size:11.5px;color:#64748b;font-weight:700;margin-bottom:10px;padding-bottom:8px;border-bottom:1px dashed #cbd5e1;}
-      .focus-card ul{margin:0;padding-left:16px;font-size:12.5px;line-height:1.7;color:#334155;}
-      .focus-card li{margin-bottom:6px;}
-      .focus-card li b{color:#0f172a;}
-      .focus-card.f1 li b{color:#1e3a8a;}
-      .focus-card.f2 li b{color:#581c87;}
-      .focus-card .num{font-size:13px;font-weight:850;}
-      .focus-card.f1 .num{color:#1B4FC4;}
-      .focus-card.f2 .num{color:#7c3aed;}
-    </style>
-    <div class="focus-pair">
-      <div class="focus-card f1">
-        <div class="fc-h">🎯 专项一 · 靶向品牌跟进看板</div>
-        <div class="fc-sub">销售拓客全链路渗透漏斗 + By 销售实时跟踪</div>
-        <ul>
-          <li><b>整体渗透漏斗 4 段</b>：待引入 <span class="num">1,349</span> → 已认领 <span class="num">569</span>（42.2%）→ 已开户 <span class="num">294</span> → 已投放 <span class="num">198</span>（投放转化率 <span class="num">14.7%</span>）</li>
-          <li><b>By 销售排行</b>：7 销售认领 / 投放转化率横向比，<b>差距一目了然</b>（如 lijunwu 83% vs ruilingzhan 3%）</li>
-          <li><b>4 类名单分级管理</b>：竞媒P序列 / 竞媒千万+ / 行业补充 / 销售补充，每类独立漏斗 + 独立明细</li>
-          <li><b>阶段药丸快速更新</b>：点客户卡药丸（建联中 / 开户中 / 已投放）下拉切换 → <b>实时回算上方漏斗</b></li>
-        </ul>
-      </div>
-      <div class="focus-card f2">
-        <div class="fc-h">🧵 专项二 · 靶向产业带进展看板</div>
-        <div class="fc-sub">产业带集群作战地图 + 客户起量进展</div>
-        <ul>
-          <li><b>整体规模一屏看</b>：目标 <span class="num">2,173</span> 个客户 · <span class="num">76</span> 个产业带 · 新客 <span class="num">1,276</span> · 有效新客 <span class="num">531</span> · 新锐 <span class="num">25</span> · 昨日总耗 <span class="num">74.4w</span></li>
-          <li><b>28 省地理分布气泡图</b>：气泡大小=客户数、颜色深浅=昨耗（浙江 526 / 广东 499 / 福建 299 领跑）</li>
-          <li><b>Top3 核心产业带集群</b>：广州-男装 <span class="num">191</span> 客户 / 泉州-男装 <span class="num">156</span> / 桐乡-男装 <span class="num">125</span>（含主销+昨耗+季累）</li>
-          <li><b>76 产业带 × 9 类目矩阵</b>：男装 32 个产业带 1162 客户 / 女装 8 个 248 / 箱包鞋靴 6 个 187……</li>
-        </ul>
-      </div>
-    </div>
+    <!-- 4列表格：STEP / 运行逻辑 / 销售实操之前vs现在 / 截图 -->
+    <div style="margin-top:22px;font-size:14px;font-weight:850;color:#1B4FC4;display:flex;align-items:center;gap:8px;margin-bottom:10px;"><span style="font-size:18px;">🔁</span>作战中心运行逻辑 · 销售实操之变</div>
+    <table class="logic-tbl scene-blue">
+      <thead>
+        <tr>
+          <th class="col-step">STEP</th>
+          <th class="col-logic">运行逻辑</th>
+          <th class="col-impact"><span class="col-impact-pill">销售实操 · 之前 vs 现在</span></th>
+          <th class="col-shot">截图</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="row-s1">
+          <td class="lt-step">
+            <div class="lt-step-inner">
+              <div class="lt-num">STEP 01</div>
+              <div class="lt-name">看进度<br>对齐 KPI</div>
+            </div>
+          </td>
+          <td class="lt-logic">
+            <ul>
+              <li><b>4 大核心指标看板</b>：服饰中心日耗 / 本季度新客 / 有效新客 / 新锐客户</li>
+              <li><b>91 天倒计时</b>：按季度目标自动算缺口和追赶节奏</li>
+              <li><b>7 销售横向对比</b>：销售个人 KPI 完成率 + 拓客画像（类目/来源/投放端/链路四维）</li>
+            </ul>
+          </td>
+          <td>
+            <div class="lt-impact">
+              <div class="lt-imp-box before">
+                <div class="lt-imp-tag">之前 · 各算各的</div>
+                <p>KPI 进度靠人工汇总，<b>隔天才知道</b>；销售之间数据不透明，对数不一致先吵半天</p>
+              </div>
+              <div class="lt-imp-arr">↓</div>
+              <div class="lt-imp-box after">
+                <div class="lt-imp-tag">现在 · 一屏看</div>
+                <p>4 大指标实时刷新，<b>91 天缺口自动算</b>；销售明细横向比，差距看得见</p>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="lt-shot">📷 截图 1<br><span style="font-size:11px;font-weight:500;color:#94a3b8;">（待主人提供）</span></div>
+          </td>
+        </tr>
+        <tr class="row-s2">
+          <td class="lt-step">
+            <div class="lt-step-inner">
+              <div class="lt-num">STEP 02</div>
+              <div class="lt-name">拓专项<br>突破爆点</div>
+            </div>
+          </td>
+          <td class="lt-logic">
+            <ul>
+              <li><b>🎯 靶向品牌跟进</b>：整体渗透漏斗 1349→569→294→198 + By 销售投放转化率 + 4 类名单分级 + 阶段药丸快速更新</li>
+              <li><b>🧵 靶向产业带进展</b>：28 省气泡图 + Top3 核心集群（广州-男装 191 / 泉州-男装 156 / 桐乡-男装 125）+ 76 产业带 × 9 类目矩阵</li>
+              <li><b>专项数据 T-1 实时回写</b>：拓新组台账 + 客户生命周期日耗自动归类</li>
+            </ul>
+          </td>
+          <td>
+            <div class="lt-impact">
+              <div class="lt-imp-box before">
+                <div class="lt-imp-tag">之前 · 散在 Excel</div>
+                <p>靶向名单 / 产业带散在 Excel + 微信群；不知道哪个产业带、哪个销售要重点突破</p>
+              </div>
+              <div class="lt-imp-arr">↓</div>
+              <div class="lt-imp-box after">
+                <div class="lt-imp-tag">现在 · 看突破口</div>
+                <p>渗透漏斗 + By 销售榜实时跟踪；产业带 Top3 集群一图清，<b>作战节奏跟得上</b></p>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="lt-shot">📷 截图 2<br><span style="font-size:11px;font-weight:500;color:#94a3b8;">（待主人提供）</span></div>
+          </td>
+        </tr>
+        <tr class="row-s3">
+          <td class="lt-step">
+            <div class="lt-step-inner">
+              <div class="lt-num">STEP 03</div>
+              <div class="lt-name">复结构<br>调整策略</div>
+            </div>
+          </td>
+          <td class="lt-logic">
+            <ul>
+              <li><b>销售拓客模型画像</b>：类目 / 客户来源 / 投放端 / 链路四维分布</li>
+              <li><b>切换维度</b>：按客户数量占比 / 按季度消耗占比双视角</li>
+              <li><b>结构性归因</b>：哪个销售强在哪、弱在哪，下一步该补什么、哪个产业带该深耕</li>
+            </ul>
+          </td>
+          <td>
+            <div class="lt-impact">
+              <div class="lt-imp-box before">
+                <div class="lt-imp-tag">之前 · 经验拍</div>
+                <p>不知道自己的拓客结构，<b>下一步靠经验拍</b>；老板看不到团队结构差异</p>
+              </div>
+              <div class="lt-imp-arr">↓</div>
+              <div class="lt-imp-box after">
+                <div class="lt-imp-tag">现在 · 数据驱动</div>
+                <p>4 维拓客画像 + 数量/消耗双视角，<b>清楚自己强弱项</b>；老板看团队结构调资源</p>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="lt-shot">📷 截图 3<br><span style="font-size:11px;font-weight:500;color:#94a3b8;">（待主人提供）</span></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
-    <!-- ③ 两张专项截图 -->
-    <div class="shotpair" style="margin-top:18px;">
-      <figure class="shot-img"><img src="assets/scene_靶向品牌.png?v=20260613" alt="场景二 · 靶向品牌跟进看板"><figcaption>🎯 靶向品牌跟进看板：渗透漏斗 + By 销售跟踪 + 4 类名单分级</figcaption></figure>
-      <figure class="shot-img"><img src="assets/scene_靶向产业带.png?v=20260613" alt="场景二 · 靶向产业带进展看板"><figcaption>🧵 靶向产业带进展看板：地理气泡图 + Top3 集群 + 76 产业带矩阵</figcaption></figure>
-    </div>
-
-    <!-- ④ 销售实操 · 之前 vs 现在（蓝色） -->
-    <div class="impact" style="background:linear-gradient(135deg,#eef4ff 0%,#dbe7ff 100%);border-color:#93c5fd;">
-      <div class="impact-h" style="color:#1B4FC4;">销售实操 · 之前 vs 现在</div>
-      <div class="impact-grid">
-        <div class="impact-box before">
-          <div class="ib-tag">之前 · 进度散落</div>
-          <div class="ib-h">KPI / 专项各算各的</div>
-          <ul>
-            <li>KPI 进度靠人工汇总，<b>隔天才知道</b></li>
-            <li>靶向名单 / 产业带散在 Excel + 微信群，进度不透明</li>
-            <li>不知道哪个产业带、哪个销售要重点突破</li>
-          </ul>
-        </div>
-        <div class="impact-arr" style="color:#1B4FC4;">➜</div>
-        <div class="impact-box after" style="border-color:#93c5fd;background:linear-gradient(135deg,#eff6ff,#fff);">
-          <div class="ib-tag" style="color:#1B4FC4;">现在 · 经营进度一屏看</div>
-          <div class="ib-h" style="color:#1e3a8a;">KPI + 销售完成 + 两大专项集成</div>
-          <ul>
-            <li>KPI 4 大核心指标按 91 天倒计时实时算缺口</li>
-            <li>靶向品牌渗透漏斗 + By 销售投放转化率，<b>突破口看得见</b></li>
-            <li>产业带集群 28 省 76 带 Top3 一图清，作战节奏跟得上</li>
-          </ul>
-        </div>
-      </div>
-      <div class="impact-cap" style="color:#1e3a8a;border-left-color:#1B4FC4;">实操之变：从"<b>KPI 隔天汇、专项散落</b>" → "<b>KPI 进度 + 销售完成 + 两大专项（靶向品牌+产业带）集成在作战中心</b>"，老板看团队、销售看自己、专项看突破，一屏全有。</div>
+    <!-- 实操之变 总结 -->
+    <div style="margin-top:14px;font-size:12.5px;color:#1e3a8a;line-height:1.6;padding:10px 14px;background:linear-gradient(135deg,#eef4ff 0%,#dbe7ff 100%);border-radius:8px;border-left:3px solid #1B4FC4;">
+      实操之变：从"<b style="color:#1B4FC4;">KPI 隔天汇 + 专项散在 Excel</b>" → "<b style="color:#1B4FC4;">KPI 进度 + 销售完成 + 两大专项（靶向品牌+产业带）集成在作战中心</b>"，老板看团队、销售看自己、专项看突破，一屏全有。
     </div>
 
       </div>
     </details>
 
+    <!-- ========== 场景三 · 🔄 客户生命周期管理（绿色） ========== -->
     <details class="fold">
       <summary><span class="fold-ico">+</span>场景三 · 管好客户生命周期 → 🔄 客户生命周期管理<span class="fold-hint">点击展开</span></summary>
       <div class="fold-body">
+
+    <!-- 子模块一览 -->
     <table class="evo">
       <thead><tr><th>子模块</th><th>能力 / 内容</th><th>状态</th></tr></thead>
       <tbody>
-        <tr><td class="sc" style="color:#dc2626;font-weight:850;">拓客登记入口</td><td class="now">登记入口已搬到生命周期模块内，支持单客登记、批量粘贴、简称识别、归属留痕</td><td class="fut" style="background:#dcfce7;color:#15803d;">✅ 已上线</td></tr>
-        <tr><td class="sc" style="color:#dc2626;font-weight:850;">客户阶段识别</td><td class="now">按投放天数、消耗表现、起量稳定性识别新手期 / 生长期 / 成熟期</td><td class="fut" style="background:#dbeafe;color:#1B4FC4;">🚧 上线中</td></tr>
-        <tr><td class="sc" style="color:#dc2626;font-weight:850;">分层服务策略</td><td class="now">不同阶段匹配不同服务动作：新手建基建、生长期促起量、成熟期防掉量</td><td class="fut" style="background:#dbeafe;color:#1B4FC4;">🚧 上线中</td></tr>
-        <tr><td class="sc">拓客全量登记明细</td><td class="now">登记数据和生命周期客户运营放在同一动线，避免“登记在一处、跟进在另一处”</td><td class="fut" style="background:#dcfce7;color:#15803d;">✅ 已上线</td></tr>
+        <tr><td class="sc" style="color:#047857;font-weight:850;">拓客登记入口</td><td class="now">登记入口已搬到生命周期模块内，支持单客登记、批量粘贴、简称识别、归属留痕</td><td class="fut" style="background:#dcfce7;color:#15803d;">✅ 已上线</td></tr>
+        <tr><td class="sc" style="color:#047857;font-weight:850;">客户阶段识别</td><td class="now">按投放天数、消耗表现、起量稳定性识别新手期 / 生长期 / 成熟期</td><td class="fut" style="background:#dbeafe;color:#1B4FC4;">🚧 上线中</td></tr>
+        <tr><td class="sc" style="color:#047857;font-weight:850;">分层服务策略</td><td class="now">不同阶段匹配不同服务动作：新手建基建、生长期促起量、成熟期防掉量</td><td class="fut" style="background:#dbeafe;color:#1B4FC4;">🚧 上线中</td></tr>
+        <tr><td class="sc">拓客全量登记明细</td><td class="now">登记数据和生命周期客户运营放在同一动线，避免"登记在一处、跟进在另一处"</td><td class="fut" style="background:#dcfce7;color:#15803d;">✅ 已上线</td></tr>
       </tbody>
     </table>
-    <div class="shotpair">
-      <figure class="shot-img"><img src="assets/scene2_1.png" alt="场景三 · 客户生命周期视角"><figcaption>🔄 客户生命周期：新手期 / 生长期 / 成熟期分阶段服务</figcaption></figure>
-      <figure class="shot-img"><img src="assets/scene1_1.png" alt="场景三 · 客户阶段与作战视角"><figcaption>🎯 客户阶段管理：把客户从“只看当日表现”推进到“按阶段持续运营”</figcaption></figure>
-    </div>
 
-    <div class="impact" style="background:linear-gradient(135deg,#ecfdf5 0%,#d1fae5 100%);border-color:#86efac;">
-      <div class="impact-h" style="color:#047857;">销售实操 · 之前 vs 现在</div>
-      <div class="impact-grid">
-        <div class="impact-box before">
-          <div class="ib-tag">之前 · 只看单日异动</div>
-          <div class="ib-h">客户服务靠经验判断阶段</div>
-          <ul>
-            <li>登记入口和后续客户运营分开，录入完不等于管起来</li>
-            <li>新手客户不知道先补哪块基建</li>
-            <li>成长客户起量窗口容易错过</li>
-          </ul>
-        </div>
-        <div class="impact-arr" style="color:#047857;">➜</div>
-        <div class="impact-box after" style="border-color:#86efac;background:linear-gradient(135deg,#f0fdf4,#fff);">
-          <div class="ib-tag" style="color:#047857;">现在 · 按阶段运营</div>
-          <div class="ib-h" style="color:#065f46;">登记入口 + 生命周期运营放在一起</div>
-          <ul>
-            <li>新增客户先在生命周期模块内完成登记和归属留痕</li>
-            <li>新手期：看建站、素材、链路是否完整</li>
-            <li>生长期/成熟期：看加预算、扩计划、稳定性和掉量风险</li>
-          </ul>
-        </div>
-      </div>
-      <div class="impact-cap" style="color:#065f46;border-left-color:#10b981;">实操之变：从"<b>登记和运营分散</b>" → "<b>登记入口、客户阶段、后续跟进都放进生命周期</b>"，让新增客户从录入开始就进入持续运营。</div>
+    <!-- 4列表格：STEP / 运行逻辑 / 销售实操之前vs现在 / 截图 -->
+    <div style="margin-top:22px;font-size:14px;font-weight:850;color:#047857;display:flex;align-items:center;gap:8px;margin-bottom:10px;"><span style="font-size:18px;">🔁</span>客户生命周期运行逻辑 · 销售实操之变</div>
+    <table class="logic-tbl scene-green">
+      <thead>
+        <tr>
+          <th class="col-step">STEP</th>
+          <th class="col-logic">运行逻辑</th>
+          <th class="col-impact"><span class="col-impact-pill">销售实操 · 之前 vs 现在</span></th>
+          <th class="col-shot">截图</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="row-s1">
+          <td class="lt-step">
+            <div class="lt-step-inner">
+              <div class="lt-num">STEP 01</div>
+              <div class="lt-name">登记入库<br>归属留痕</div>
+            </div>
+          </td>
+          <td class="lt-logic">
+            <ul>
+              <li><b>统一登记入口</b>：单客登记 / 批量粘贴 / 上传导入三种方式</li>
+              <li><b>简称自动识别 + 链路自动匹配</b>：每日 AData 数据自动校对</li>
+              <li><b>8 字段归属留痕</b>：拓客途径 / 客户来源 / 资源方 / 销售归属……换销售也能追溯</li>
+            </ul>
+          </td>
+          <td>
+            <div class="lt-impact">
+              <div class="lt-imp-box before">
+                <div class="lt-imp-tag">之前 · 口径不一</div>
+                <p>登记口径不一，简称对不上、归属凭记忆；<b>登记入口和后续运营分开</b></p>
+              </div>
+              <div class="lt-imp-arr">↓</div>
+              <div class="lt-imp-box after">
+                <div class="lt-imp-tag">现在 · 即时留痕</div>
+                <p>统一入口 + 自动打标，<b>归属即时留痕</b>；登记完直接进入持续运营</p>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="lt-shot">📷 截图 1<br><span style="font-size:11px;font-weight:500;color:#94a3b8;">（待主人提供）</span></div>
+          </td>
+        </tr>
+        <tr class="row-s2">
+          <td class="lt-step">
+            <div class="lt-step-inner">
+              <div class="lt-num">STEP 02</div>
+              <div class="lt-name">阶段识别<br>3 期分层</div>
+            </div>
+          </td>
+          <td class="lt-logic">
+            <ul>
+              <li><b>🌱 新手期 0-30 天</b>：客户基建是否完整、是否上模型</li>
+              <li><b>🚀 成长期 31-90 天</b>：消耗起量阶段，关注创意丰富度 + 多链路</li>
+              <li><b>👑 成熟期 90+ 天</b>：稳定投放期，防掉量 + 推 ADQ→AD1+全域通</li>
+              <li><b>3 阶段漏斗 + 在投率</b>：新手期在投率 100% / 成长期 56% / 成熟期 50%</li>
+            </ul>
+          </td>
+          <td>
+            <div class="lt-impact">
+              <div class="lt-imp-box before">
+                <div class="lt-imp-tag">之前 · 经验拍</div>
+                <p>客户阶段靠经验判断，<b>所有客户一种服务</b>；不知道客户在哪个阶段</p>
+              </div>
+              <div class="lt-imp-arr">↓</div>
+              <div class="lt-imp-box after">
+                <div class="lt-imp-tag">现在 · 系统识别</div>
+                <p>按投放天数 + 消耗 + 起量稳定性自动识别 3 阶段，<b>客户进入哪个阶段一目了然</b></p>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="lt-shot">📷 截图 2<br><span style="font-size:11px;font-weight:500;color:#94a3b8;">（待主人提供）</span></div>
+          </td>
+        </tr>
+        <tr class="row-s3">
+          <td class="lt-step">
+            <div class="lt-step-inner">
+              <div class="lt-num">STEP 03</div>
+              <div class="lt-name">分层运营<br>动作匹配</div>
+            </div>
+          </td>
+          <td class="lt-logic">
+            <ul>
+              <li><b>🌱 新手期 · 重投入</b>：拓新销售 / 服务商主导，群运营 + 培训直播课，目标"学投放+快上手"</li>
+              <li><b>🚀 成长期 · 深度协同</b>：拓新销售 + 行业运营 + KA销售联合，1v1服务 + AI 诊断复盘，目标"冲消耗+提能力"</li>
+              <li><b>👑 成熟期 · 自助化</b>：行业运营 + KA销售主导，T2T 拜访 + 私享会/沙龙，目标"稳投放+促增长"</li>
+            </ul>
+          </td>
+          <td>
+            <div class="lt-impact">
+              <div class="lt-imp-box before">
+                <div class="lt-imp-tag">之前 · 一刀切</div>
+                <p>新手客户不知道先补哪块基建；<b>成长起量窗口容易错过</b></p>
+              </div>
+              <div class="lt-imp-arr">↓</div>
+              <div class="lt-imp-box after">
+                <div class="lt-imp-tag">现在 · 按阶段运营</div>
+                <p>新手期补基建 / 成长期促起量 / 成熟期防掉量，<b>每阶段配套动作清单</b></p>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="lt-shot">📷 截图 3<br><span style="font-size:11px;font-weight:500;color:#94a3b8;">（待主人提供）</span></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 实操之变 总结 -->
+    <div style="margin-top:14px;font-size:12.5px;color:#065f46;line-height:1.6;padding:10px 14px;background:linear-gradient(135deg,#ecfdf5 0%,#d1fae5 100%);border-radius:8px;border-left:3px solid #10b981;">
+      实操之变：从"<b style="color:#047857;">登记和运营分散、所有客户一种服务</b>" → "<b style="color:#047857;">登记入口 + 阶段识别 + 分层运营都放进生命周期</b>"，让新增客户从录入开始就进入持续运营。
     </div>
 
       </div>
     </details>
 
+    <!-- ========== 场景四 · 📚 销售弹药库（橙色） ========== -->
     <details class="fold">
       <summary><span class="fold-ico">+</span>场景四 · 补充行业知识，建立专业度 → 📚 销售弹药库<span class="fold-hint">点击展开</span></summary>
       <div class="fold-body">
+
+    <!-- 子模块一览 -->
     <table class="evo">
       <thead><tr><th>子模块</th><th>能力 / 内容</th><th>状态</th></tr></thead>
       <tbody>
-        <tr><td class="sc">新客政策</td><td class="now">平台政策 & 营销活动实时同步，缩略图 + 上下线管理</td><td class="fut" style="background:#fef9c3;color:#a16207;">🆕 本期新增</td></tr>
-        <tr><td class="sc">行业信息</td><td class="now">服饰大盘 + 10 个二级行业指标 + Top3 客户参考</td><td class="fut" style="background:#fef9c3;color:#a16207;">🆕 本期新增</td></tr>
-        <tr><td class="sc">活动信息 / 标杆案例</td><td class="now">优秀新客案例 & 起量打法，按类目 / 链路检索</td><td class="fut" style="background:#fef9c3;color:#a16207;">🆕 本期新增</td></tr>
-        <tr><td class="sc">产品能力</td><td class="now">ADQ 服饰投放产品矩阵介绍 & 对外文档</td><td class="fut" style="background:#e2e8f0;color:#475569;">⏳ 待建设</td></tr>
+        <tr><td class="sc" style="color:#c2410c;font-weight:850;">📢 政策活动</td><td class="now">微信小店 618 政策 / 服饰新锐品牌成长计划 / 红包激励活动等 4 条；含图片下载</td><td class="fut" style="background:#fef9c3;color:#a16207;">🆕 本期新增</td></tr>
+        <tr><td class="sc" style="color:#c2410c;font-weight:850;">📊 行业概况</td><td class="now">服饰大盘 + 10 个二级行业指标（日均消耗 / ROI / CTR / CVR / CPM / 客单价 / 7天14天退款率）</td><td class="fut" style="background:#fef9c3;color:#a16207;">🆕 本期新增</td></tr>
+        <tr><td class="sc" style="color:#c2410c;font-weight:850;">🏆 标杆案例</td><td class="now">18 个案例（女装 / 男装 / 男鞋 / 鞋靴 / 贴身衣物 / 配饰 / 童装 / 珠宝文玩），含🔍看大图 + 💾下载</td><td class="fut" style="background:#fef9c3;color:#a16207;">🆕 本期新增</td></tr>
+        <tr><td class="sc">🏗️ 产品能力</td><td class="now">ADQ 服饰投放产品矩阵介绍：ADQ / AQQ / 全域通三大投放端</td><td class="fut" style="background:#e2e8f0;color:#475569;">⏳ 待更新</td></tr>
       </tbody>
     </table>
-    <div class="shotpair">
-      <figure class="shot-img"><img src="assets/scene3_1.png" alt="场景四 · 信息同步库"><figcaption>📚 信息同步库：政策活动 + 行业大盘指标实时同步</figcaption></figure>
-      <figure class="shot-img"><img src="assets/scene3_2.png" alt="场景四 · 标杆案例库"><figcaption>🏆 标杆案例库：优秀新客起量打法、按类目检索</figcaption></figure>
-    </div>
 
-    <!-- 🎬 销售视角的实操之变（场景四 · 销售弹药库 · 橙色） -->
-    <div class="impact" style="background:linear-gradient(135deg,#fff7ed 0%,#fed7aa 100%);border-color:#fdba74;">
-      <div class="impact-h" style="color:#c2410c;">销售实操 · 之前 vs 现在</div>
-      <div class="impact-grid">
-        <div class="impact-box before">
-          <div class="ib-tag">之前 · 现查现猜</div>
-          <div class="ib-h">客户问行情/政策答不上</div>
-          <ul>
-            <li>大盘、竞品要临时到处找数</li>
-            <li>政策一变，<b>传达滞后、说不准</b></li>
-            <li>新销售没积累，开口没底气</li>
-          </ul>
-        </div>
-        <div class="impact-arr" style="color:#c2410c;">➜</div>
-        <div class="impact-box after" style="border-color:#fdba74;background:linear-gradient(135deg,#fff7ed,#fff);">
-          <div class="ib-tag" style="color:#c2410c;">现在 · 随手有弹药</div>
-          <div class="ib-h" style="color:#7c2d12;">脱敏重组好的统一弹药库</div>
-          <ul>
-            <li>行业概况：大盘 + 二级行业 + Top3 参考</li>
-            <li>政策海报实时同步，<b>当天就能讲</b></li>
-            <li>标杆案例点开带「适用客户名单」</li>
-          </ul>
-        </div>
-      </div>
-      <div class="impact-cap" style="color:#7c2d12;border-left-color:#f59e0b;">实操之变：从"<b>客户一问就现查现猜</b>" → "<b>随手调出权威数据/政策/案例截图给客户</b>"，专业度不再靠个人经验。</div>
+    <!-- 4列表格：STEP / 运行逻辑 / 销售实操之前vs现在 / 截图 -->
+    <div style="margin-top:22px;font-size:14px;font-weight:850;color:#c2410c;display:flex;align-items:center;gap:8px;margin-bottom:10px;"><span style="font-size:18px;">🔁</span>销售弹药库运行逻辑 · 销售实操之变</div>
+    <table class="logic-tbl scene-orange">
+      <thead>
+        <tr>
+          <th class="col-step">STEP</th>
+          <th class="col-logic">运行逻辑</th>
+          <th class="col-impact"><span class="col-impact-pill">销售实操 · 之前 vs 现在</span></th>
+          <th class="col-shot">截图</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="row-s1">
+          <td class="lt-step">
+            <div class="lt-step-inner">
+              <div class="lt-num">STEP 01</div>
+              <div class="lt-name">同步信息<br>实时入库</div>
+            </div>
+          </td>
+          <td class="lt-logic">
+            <ul>
+              <li><b>📊 行业概况</b>：服饰大盘 + 10 个二级行业指标（日均消耗 / ROI / CTR / CVR / CPM / 客单价 / 退款率）</li>
+              <li><b>📢 政策活动</b>：微信小店 618 / 新锐品牌成长计划 / 红包激励等，海报 + 报名路径实时同步</li>
+              <li><b>更新机制</b>：行业数据 T-1 / 政策当日发布即同步</li>
+            </ul>
+          </td>
+          <td>
+            <div class="lt-impact">
+              <div class="lt-imp-box before">
+                <div class="lt-imp-tag">之前 · 现查现猜</div>
+                <p>大盘、竞品要临时到处找数；<b>政策一变传达滞后、说不准</b></p>
+              </div>
+              <div class="lt-imp-arr">↓</div>
+              <div class="lt-imp-box after">
+                <div class="lt-imp-tag">现在 · 一处同步</div>
+                <p>10 个二级行业指标实时更新；政策海报当天同步，<b>当天就能跟客户讲</b></p>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="lt-shot">📷 截图 1<br><span style="font-size:11px;font-weight:500;color:#94a3b8;">（待主人提供）</span></div>
+          </td>
+        </tr>
+        <tr class="row-s2">
+          <td class="lt-step">
+            <div class="lt-step-inner">
+              <div class="lt-num">STEP 02</div>
+              <div class="lt-name">调用素材<br>按需检索</div>
+            </div>
+          </td>
+          <td class="lt-logic">
+            <ul>
+              <li><b>🏆 18 个标杆案例</b>：女装 / 男装 / 男鞋 / 鞋靴 / 贴身衣物 / 配饰 / 童装 / 珠宝文玩 8 类目分组</li>
+              <li><b>每个案例含 🔍看大图 + 💾下载</b>：起量打法、ROI、单日 GMV 数据可直接引用</li>
+              <li><b>🏗️ 产品能力</b>：ADQ / AQQ / 全域通三大投放端介绍 + 对外文档</li>
+            </ul>
+          </td>
+          <td>
+            <div class="lt-impact">
+              <div class="lt-imp-box before">
+                <div class="lt-imp-tag">之前 · 没积累</div>
+                <p>新销售没积累，开口没底气；<b>客户问别家怎么打的答不上</b></p>
+              </div>
+              <div class="lt-imp-arr">↓</div>
+              <div class="lt-imp-box after">
+                <div class="lt-imp-tag">现在 · 按类目找</div>
+                <p>18 个标杆案例按类目检索，看大图 + 下载；产品能力一站查询</p>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="lt-shot">📷 截图 2<br><span style="font-size:11px;font-weight:500;color:#94a3b8;">（待主人提供）</span></div>
+          </td>
+        </tr>
+        <tr class="row-s3">
+          <td class="lt-step">
+            <div class="lt-step-inner">
+              <div class="lt-num">STEP 03</div>
+              <div class="lt-name">对客赋能<br>专业输出</div>
+            </div>
+          </td>
+          <td class="lt-logic">
+            <ul>
+              <li><b>截图发客户</b>：行业数据 + 政策海报 + 标杆案例直接截图</li>
+              <li><b>话术沉淀</b>：每个案例含适用客户类型 + 起量打法话术</li>
+              <li><b>专业度对外赋能</b>：客户问到行业问题、新品玩法立刻能回答</li>
+            </ul>
+          </td>
+          <td>
+            <div class="lt-impact">
+              <div class="lt-imp-box before">
+                <div class="lt-imp-tag">之前 · 答不上</div>
+                <p>客户问行情/政策/案例答不上；<b>能力差异看个人经验</b></p>
+              </div>
+              <div class="lt-imp-arr">↓</div>
+              <div class="lt-imp-box after">
+                <div class="lt-imp-tag">现在 · 立刻给</div>
+                <p>权威数据/政策/案例随手调出截图发客户，<b>专业度不再靠个人经验</b></p>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="lt-shot">📷 截图 3<br><span style="font-size:11px;font-weight:500;color:#94a3b8;">（待主人提供）</span></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 实操之变 总结 -->
+    <div style="margin-top:14px;font-size:12.5px;color:#7c2d12;line-height:1.6;padding:10px 14px;background:linear-gradient(135deg,#fff7ed 0%,#fed7aa 100%);border-radius:8px;border-left:3px solid #f59e0b;">
+      实操之变：从"<b style="color:#c2410c;">客户一问就现查现猜</b>" → "<b style="color:#c2410c;">随手调出权威数据/政策/案例截图给客户</b>"，专业度不再靠个人经验。
     </div>
 
       </div>
