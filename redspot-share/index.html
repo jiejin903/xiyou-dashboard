@@ -766,47 +766,94 @@
     </details>
 
     <details class="fold">
-      <summary><span class="fold-ico">+</span>场景二 · 新客引入及客户管理 → 🚀 销售拓客作战中心<span class="fold-hint">点击展开</span></summary>
+      <summary><span class="fold-ico">+</span>场景二 · KPI 进展 + 销售完成情况 + 两大专项 → 🚀 销售拓客作战中心<span class="fold-hint">点击展开</span></summary>
       <div class="fold-body">
+
+    <!-- ① 子模块一览 -->
     <table class="evo">
       <thead><tr><th>子模块</th><th>能力 / 内容</th><th>状态</th></tr></thead>
       <tbody>
-        <tr><td class="sc" style="color:#dc2626;font-weight:850;">KPI 进度情况</td><td class="now">KPI 进度盘 + 7 销售明细横向对比，按季度目标看缺口和追赶节奏</td><td class="fut" style="background:#dcfce7;color:#15803d;">✅ 已上线</td></tr>
-        <tr><td class="sc" style="color:#dc2626;font-weight:850;">销售拓客模型</td><td class="now">类目 / 客户来源 / 投放端 / 链路画像（按数量或消耗占比），用于复盘销售拓客结构</td><td class="fut" style="background:#dcfce7;color:#15803d;">✅ 已上线</td></tr>
-        <tr><td class="sc" style="color:#dc2626;font-weight:850;">专项进展</td><td class="now">新增专项入口：靶向拓客名单（渗透漏斗 + By 销售跟踪 + 名单分类明细）/ 产业带进展（核心城市×类目产业带覆盖、客户新增、消耗起量）</td><td class="fut" style="background:#dcfce7;color:#15803d;">✅ 已上线</td></tr>
+        <tr><td class="sc" style="color:#1B4FC4;font-weight:850;">📊 KPI 进度</td><td class="now">服饰中心日耗 / 本季度新客 / 有效新客 / 新锐客户 4 大核心指标实时看板，按 91 天季度目标自动算缺口和追赶节奏</td><td class="fut" style="background:#dcfce7;color:#15803d;">✅ 已上线</td></tr>
+        <tr><td class="sc" style="color:#1B4FC4;font-weight:850;">👥 销售完成情况</td><td class="now">7 销售明细横向对比：销售个人 KPI 完成率 + 拓客画像（类目 / 客户来源 / 投放端 / 链路四维分布）</td><td class="fut" style="background:#dcfce7;color:#15803d;">✅ 已上线</td></tr>
+        <tr><td class="sc" style="color:#1B4FC4;font-weight:850;">🎯 专项一 · 靶向品牌跟进</td><td class="now"><b>整体渗透漏斗</b>（1349 待引入 → 569 已认领 → 294 已开户 → 198 已投放，认领率 42%、投放转化率 14.7%）+ <b>By 销售跟踪</b>（7 销售认领数/转化率横向比拼）+ <b>4 类名单分级</b>（竞媒P序列 / 竞媒千万+ / 行业补充 / 销售补充）+ <b>阶段药丸快速更新</b>（点客户卡药丸切阶段，实时回算上方漏斗）</td><td class="fut" style="background:#dcfce7;color:#15803d;">✅ 已上线</td></tr>
+        <tr><td class="sc" style="color:#1B4FC4;font-weight:850;">🧵 专项二 · 靶向产业带进展</td><td class="now"><b>整体规模</b>（目标 2173 个客户 · 76 个产业带 · 新客 1276 / 有效新客 531 / 新锐 25）+ <b>地理分布气泡图</b>（28 省 · 气泡=客户数 / 颜色=昨耗）+ <b>Top3 核心产业带集群</b>（广州-男装 191 / 泉州-男装 156 / 桐乡-男装 125）+ <b>76 个产业带 × 9 大类目矩阵</b> + <b>2173 客户明细总表</b>（产业带/类目筛选）</td><td class="fut" style="background:#dcfce7;color:#15803d;">✅ 已上线</td></tr>
         <tr><td class="sc">客户标签管理</td><td class="now">客户消耗波动 / 投放效果 / ADQ / 全域通 / 引入资源来源等</td><td class="fut" style="background:#e2e8f0;color:#475569;">⏳ 待建设</td></tr>
       </tbody>
     </table>
-    <div class="shotpair">
-      <figure class="shot-img"><img src="assets/scene2_2.png" alt="场景二 · 销售拓客模型画像"><figcaption>📊 销售拓客模型画像：类目 / 来源 / 投放端 / 链路四维分布</figcaption></figure>
-      <figure class="shot-img"><img src="special_progress.png" alt="场景二 · 专项进展：靶向拓客名单与产业带进展"><figcaption>🎯 专项进展：靶向拓客名单 + 产业带进展，点击卡片进入专项作战页</figcaption></figure>
+
+    <!-- ② 两大专项亮点功能（双卡） -->
+    <style>
+      .focus-pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px;}
+      .focus-card{background:#fff;border:1.5px solid #cbd5e1;border-radius:14px;padding:16px 18px;box-shadow:0 6px 18px -10px rgba(15,23,42,.15);}
+      .focus-card.f1{border-color:#93c5fd;background:linear-gradient(135deg,#eff6ff,#fff);}
+      .focus-card.f2{border-color:#c4b5fd;background:linear-gradient(135deg,#faf5ff,#fff);}
+      .focus-card .fc-h{font-size:14.5px;font-weight:850;letter-spacing:.5px;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+      .focus-card.f1 .fc-h{color:#1B4FC4;}
+      .focus-card.f2 .fc-h{color:#7c3aed;}
+      .focus-card .fc-sub{font-size:11.5px;color:#64748b;font-weight:700;margin-bottom:10px;padding-bottom:8px;border-bottom:1px dashed #cbd5e1;}
+      .focus-card ul{margin:0;padding-left:16px;font-size:12.5px;line-height:1.7;color:#334155;}
+      .focus-card li{margin-bottom:6px;}
+      .focus-card li b{color:#0f172a;}
+      .focus-card.f1 li b{color:#1e3a8a;}
+      .focus-card.f2 li b{color:#581c87;}
+      .focus-card .num{font-size:13px;font-weight:850;}
+      .focus-card.f1 .num{color:#1B4FC4;}
+      .focus-card.f2 .num{color:#7c3aed;}
+    </style>
+    <div class="focus-pair">
+      <div class="focus-card f1">
+        <div class="fc-h">🎯 专项一 · 靶向品牌跟进看板</div>
+        <div class="fc-sub">销售拓客全链路渗透漏斗 + By 销售实时跟踪</div>
+        <ul>
+          <li><b>整体渗透漏斗 4 段</b>：待引入 <span class="num">1,349</span> → 已认领 <span class="num">569</span>（42.2%）→ 已开户 <span class="num">294</span> → 已投放 <span class="num">198</span>（投放转化率 <span class="num">14.7%</span>）</li>
+          <li><b>By 销售排行</b>：7 销售认领 / 投放转化率横向比，<b>差距一目了然</b>（如 lijunwu 83% vs ruilingzhan 3%）</li>
+          <li><b>4 类名单分级管理</b>：竞媒P序列 / 竞媒千万+ / 行业补充 / 销售补充，每类独立漏斗 + 独立明细</li>
+          <li><b>阶段药丸快速更新</b>：点客户卡药丸（建联中 / 开户中 / 已投放）下拉切换 → <b>实时回算上方漏斗</b></li>
+        </ul>
+      </div>
+      <div class="focus-card f2">
+        <div class="fc-h">🧵 专项二 · 靶向产业带进展看板</div>
+        <div class="fc-sub">产业带集群作战地图 + 客户起量进展</div>
+        <ul>
+          <li><b>整体规模一屏看</b>：目标 <span class="num">2,173</span> 个客户 · <span class="num">76</span> 个产业带 · 新客 <span class="num">1,276</span> · 有效新客 <span class="num">531</span> · 新锐 <span class="num">25</span> · 昨日总耗 <span class="num">74.4w</span></li>
+          <li><b>28 省地理分布气泡图</b>：气泡大小=客户数、颜色深浅=昨耗（浙江 526 / 广东 499 / 福建 299 领跑）</li>
+          <li><b>Top3 核心产业带集群</b>：广州-男装 <span class="num">191</span> 客户 / 泉州-男装 <span class="num">156</span> / 桐乡-男装 <span class="num">125</span>（含主销+昨耗+季累）</li>
+          <li><b>76 产业带 × 9 类目矩阵</b>：男装 32 个产业带 1162 客户 / 女装 8 个 248 / 箱包鞋靴 6 个 187……</li>
+        </ul>
+      </div>
     </div>
 
-    <!-- 🎬 销售视角的实操之变（场景二 · 拓客作战中心 · 蓝色） -->
+    <!-- ③ 两张专项截图 -->
+    <div class="shotpair" style="margin-top:18px;">
+      <figure class="shot-img"><img src="assets/scene_靶向品牌.png?v=20260613" alt="场景二 · 靶向品牌跟进看板"><figcaption>🎯 靶向品牌跟进看板：渗透漏斗 + By 销售跟踪 + 4 类名单分级</figcaption></figure>
+      <figure class="shot-img"><img src="assets/scene_靶向产业带.png?v=20260613" alt="场景二 · 靶向产业带进展看板"><figcaption>🧵 靶向产业带进展看板：地理气泡图 + Top3 集群 + 76 产业带矩阵</figcaption></figure>
+    </div>
+
+    <!-- ④ 销售实操 · 之前 vs 现在（蓝色） -->
     <div class="impact" style="background:linear-gradient(135deg,#eef4ff 0%,#dbe7ff 100%);border-color:#93c5fd;">
       <div class="impact-h" style="color:#1B4FC4;">销售实操 · 之前 vs 现在</div>
       <div class="impact-grid">
         <div class="impact-box before">
-          <div class="ib-tag">之前 · 各算各的</div>
-          <div class="ib-h">进度、画像、专项分散看</div>
+          <div class="ib-tag">之前 · 进度散落</div>
+          <div class="ib-h">KPI / 专项各算各的</div>
           <ul>
             <li>KPI 进度靠人工汇总，<b>隔天才知道</b></li>
-            <li>拓客画像、专项名单、产业带进度散在不同材料</li>
-            <li>销售之间数据不透明，<b>对数据先吵半天</b></li>
+            <li>靶向名单 / 产业带散在 Excel + 微信群，进度不透明</li>
+            <li>不知道哪个产业带、哪个销售要重点突破</li>
           </ul>
         </div>
         <div class="impact-arr" style="color:#1B4FC4;">➜</div>
         <div class="impact-box after" style="border-color:#93c5fd;background:linear-gradient(135deg,#eff6ff,#fff);">
           <div class="ib-tag" style="color:#1B4FC4;">现在 · 经营进度一屏看</div>
-          <div class="ib-h" style="color:#1e3a8a;">KPI + 画像 + 专项进展并在作战中心</div>
+          <div class="ib-h" style="color:#1e3a8a;">KPI + 销售完成 + 两大专项集成</div>
           <ul>
-            <li>KPI 进度按 91 天倒计时实时算缺口</li>
-            <li>销售拓客模型直接看结构，知道新客从哪里来</li>
-            <li>专项进展卡片直达靶向拓客名单和产业带看板</li>
+            <li>KPI 4 大核心指标按 91 天倒计时实时算缺口</li>
+            <li>靶向品牌渗透漏斗 + By 销售投放转化率，<b>突破口看得见</b></li>
+            <li>产业带集群 28 省 76 带 Top3 一图清，作战节奏跟得上</li>
           </ul>
         </div>
       </div>
-      <div class="impact-cap" style="color:#1e3a8a;border-left-color:#1B4FC4;">实操之变：从"<b>隔天汇总、专项散落</b>" → "<b>KPI、拓客模型、专项进展集中在作战中心</b>"，管理层和销售都能一眼看到进度、结构和专项突破口。</div>
+      <div class="impact-cap" style="color:#1e3a8a;border-left-color:#1B4FC4;">实操之变：从"<b>KPI 隔天汇、专项散落</b>" → "<b>KPI 进度 + 销售完成 + 两大专项（靶向品牌+产业带）集成在作战中心</b>"，老板看团队、销售看自己、专项看突破，一屏全有。</div>
     </div>
 
       </div>
