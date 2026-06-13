@@ -578,100 +578,152 @@
       .biz3-col .ll{color:#15803d;font-weight:850;}
       .biz3-col .hl{background:#fef9c3;padding:0 4px;border-radius:3px;font-weight:850;color:#a16207;}
           </style>
-    <div class="biz3">
-      <div class="biz3-h">小红点的运行逻辑</div>
-      <div class="biz3-steps">
-        <div class="biz3-step s1">
-          <div class="bs-num">STEP 01</div>
-          <div class="bs-name">精准识别</div>
-        </div>
-        <div class="biz3-arr">➜</div>
-        <div class="biz3-step s2">
-          <div class="bs-num">STEP 02</div>
-          <div class="bs-name">及时介入</div>
-        </div>
-        <div class="biz3-arr">➜</div>
-        <div class="biz3-step s3">
-          <div class="bs-num">STEP 03</div>
-          <div class="bs-name">监控回收</div>
-        </div>
-      </div>
-      <div class="biz3-cols">
-        <div class="biz3-col c1">
-          <div class="col-q">如何识别客户？</div>
-          <div class="col-tag">客户分档 · 触发任务</div>
-          <ul>
-            <li>按投放表现分<b>四档</b>：头部稳定 / 头部掉量 / 潜力起量 / 海量长尾</li>
-            <li><b>掉量预警</b>：消耗或 ROI 较前日下降<span class="lk">超过 20%</span>，系统即时标红</li>
-            <li><b>起量抢窗口</b>：消耗突然放大即提醒，<span class="lk">机会窗就两三天</span></li>
-          </ul>
-        </div>
-        <div class="biz3-col c2">
-          <div class="col-q">销售怎么处理？</div>
-          <div class="col-tag">看板定位 · AI 诊断 · 资源匹配</div>
-          <ul>
-            <li><b>看板一键定位</b>：异动客户气泡标红，待办清单自动生成</li>
-            <li><b>AI 诊断建议</b>：基于客户多维数据生成针对性诊断结论 + 具体改进动作</li>
-            <li><b>联动小 A 出诊断</b>：3-5 分钟出报告，<span class="hl">不用销售自己看报表猜</span></li>
-          </ul>
-        </div>
-        <div class="biz3-col c3">
-          <div class="col-q">如何监控？</div>
-          <div class="col-tag">数据留痕 · 模型沉淀</div>
-          <ul>
-            <li><b>清除即留痕</b>：处理完打状态标签（已处理 / 无效 / 需升级），实时回传云端</li>
-            <li><b>权限隔离合规</b>：销售看自己、Leader 看组员、管理层看团队</li>
-            <li><b>反馈存档</b>：每次反馈<span class="ll">实时回写拓客模型</span>，精准度持续提升</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- 🎬 销售视角的实操之变（从原Tab① 挪过来 + 简化） -->
+    <!-- 🔁 小红点运行逻辑 + 销售实操之前vs现在（合并为3行表格，按STEP纵向展开） -->
     <style>
-      .impact{margin-top:22px;background:linear-gradient(135deg,#fff7ed 0%,#fef3c7 100%);border-radius:14px;padding:18px;border:1px solid #fcd34d;}
-      .impact-h{font-size:14px;font-weight:850;color:#a16207;letter-spacing:.5px;display:flex;align-items:center;gap:8px;margin-bottom:14px;}
-      .impact-h::before{content:"🎬";font-size:18px;}
-      .impact-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:stretch;}
-      .impact-box{background:#fff;border-radius:10px;padding:14px 16px;}
-      .impact-box.before{border:2px solid #fca5a5;}
-      .impact-box.after{border:2px solid #6ee7b7;background:linear-gradient(135deg,#f0fdf4,#fff);}
-      .impact-box .ib-tag{font-size:11px;font-weight:850;letter-spacing:1.5px;margin-bottom:6px;}
-      .impact-box.before .ib-tag{color:#dc2626;}
-      .impact-box.after .ib-tag{color:#15803d;}
-      .impact-box .ib-h{font-size:14.5px;font-weight:850;margin-bottom:8px;line-height:1.4;}
-      .impact-box.before .ib-h{color:#7f1d1d;}
-      .impact-box.after .ib-h{color:#065f46;}
-      .impact-box ul{margin:0;padding-left:16px;font-size:12.5px;line-height:1.7;color:#334155;}
-      .impact-box li{margin-bottom:4px;}
-      .impact-arr{color:#a16207;font-size:24px;font-weight:300;display:flex;align-items:center;justify-content:center;}
-      .impact-cap{margin-top:14px;font-size:12.5px;color:#92400e;line-height:1.6;padding:10px 14px;background:rgba(255,255,255,.6);border-radius:8px;border-left:3px solid #f59e0b;}
-      .impact-cap b{color:#a16207;}
-          </style>
-    <div class="impact">
-      <div class="impact-h">销售实操 · 之前 vs 现在</div>
-      <div class="impact-grid">
-        <div class="impact-box before">
-          <div class="ib-tag">之前 · 被动</div>
-          <div class="ib-h">每天翻 7 份报表自己找</div>
-          <ul>
-            <li>没有今日概况，先翻明细才知道今天哪里异常</li>
-            <li>掉量靠脑子记，重点之外照顾不到</li>
-            <li>等客户主动找，掉量已经几天</li>
-          </ul>
-        </div>
-        <div class="impact-arr">➜</div>
-        <div class="impact-box after">
-          <div class="ib-tag">现在 · 主动 + 不漏球</div>
-          <div class="ib-h">先看今日概况，再处理待办清单</div>
-          <ul>
-            <li>上方今日概况预览先判断今日压力</li>
-            <li>系统自动顶出掉量客户，红点提醒</li>
-            <li>点 🩺 一键诊断查因，处理一个消一个红点</li>
-          </ul>
-        </div>
-      </div>
-      <div class="impact-cap">实操之变：从"<b>每天翻报表自己找、靠脑子记</b>" → "<b>先看今日概况、再清待办红点</b>"，掉量在客户开口前就被拦回。</div>
+      .logic-tbl{margin-top:22px;border-collapse:separate;border-spacing:0;width:100%;background:#fff;border:1px solid #e2e8f0;border-radius:14px;overflow:hidden;table-layout:fixed;}
+      .logic-tbl thead th{font-size:13px;font-weight:850;letter-spacing:.5px;padding:14px 16px;background:#f8fafc;color:#475569;border-bottom:2px solid #e2e8f0;text-align:left;}
+      .logic-tbl thead th.col-step{width:148px;text-align:center;background:#f1f5f9;}
+      .logic-tbl thead th.col-logic{width:auto;}
+      .logic-tbl thead th.col-impact{width:42%;}
+      .logic-tbl tbody td{padding:18px 16px;vertical-align:top;line-height:1.65;border-top:1px solid #eef2f7;}
+      .logic-tbl tbody tr:first-child td{border-top:none;}
+      /* 第一列 STEP 徽章 */
+      .lt-step{display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px 8px !important;text-align:center;}
+      .lt-step .lt-num{font-size:11px;font-weight:850;letter-spacing:1.3px;opacity:.7;}
+      .lt-step .lt-name{font-size:15px;font-weight:850;line-height:1.3;}
+      .lt-step .lt-tag{font-size:11px;font-weight:700;color:#64748b;margin-top:2px;}
+      /* 三色行 */
+      .logic-tbl tr.row-s1 .lt-step{background:#fef2f2;border-right:3px solid #fca5a5;}
+      .logic-tbl tr.row-s1 .lt-num,.logic-tbl tr.row-s1 .lt-name{color:#dc2626;}
+      .logic-tbl tr.row-s2 .lt-step{background:#fffbeb;border-right:3px solid #fcd34d;}
+      .logic-tbl tr.row-s2 .lt-num,.logic-tbl tr.row-s2 .lt-name{color:#a16207;}
+      .logic-tbl tr.row-s3 .lt-step{background:#eff6ff;border-right:3px solid #93c5fd;}
+      .logic-tbl tr.row-s3 .lt-num,.logic-tbl tr.row-s3 .lt-name{color:#1B4FC4;}
+      /* 第二列 运行逻辑 */
+      .lt-logic .lt-q{font-size:13px;font-weight:850;margin-bottom:8px;}
+      .lt-logic .lt-q-tag{font-size:11px;color:#64748b;font-weight:700;margin-bottom:8px;padding-bottom:8px;border-bottom:1px dashed #e2e8f0;}
+      .logic-tbl tr.row-s1 .lt-logic .lt-q{color:#dc2626;}
+      .logic-tbl tr.row-s2 .lt-logic .lt-q{color:#a16207;}
+      .logic-tbl tr.row-s3 .lt-logic .lt-q{color:#1B4FC4;}
+      .lt-logic ul{margin:0;padding-left:16px;font-size:12.5px;line-height:1.65;color:#334155;}
+      .lt-logic li{margin-bottom:6px;}
+      .lt-logic li b{color:#0f172a;}
+      .lt-logic .lk{color:#dc2626;font-weight:850;}
+      .lt-logic .ll{color:#15803d;font-weight:850;}
+      .lt-logic .hl{background:#fef9c3;padding:0 4px;border-radius:3px;font-weight:850;color:#a16207;}
+      /* 第三列 之前vs现在 */
+      .lt-impact{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:stretch;}
+      .lt-imp-box{background:#fff;border-radius:8px;padding:10px 12px;font-size:11.5px;line-height:1.55;}
+      .lt-imp-box.before{border:1.5px solid #fca5a5;background:#fef2f2;}
+      .lt-imp-box.after{border:1.5px solid #6ee7b7;background:linear-gradient(135deg,#f0fdf4,#fff);}
+      .lt-imp-box .lt-imp-tag{font-size:10px;font-weight:850;letter-spacing:1px;margin-bottom:4px;}
+      .lt-imp-box.before .lt-imp-tag{color:#dc2626;}
+      .lt-imp-box.after .lt-imp-tag{color:#15803d;}
+      .lt-imp-box p{margin:0;color:#334155;}
+      .lt-imp-box.before p{color:#7f1d1d;}
+      .lt-imp-box.after p{color:#065f46;font-weight:700;}
+      .lt-imp-arr{display:flex;align-items:center;justify-content:center;color:#a16207;font-size:18px;font-weight:300;}
+    </style>
+    <div style="margin-top:22px;font-size:14px;font-weight:850;color:#1B4FC4;display:flex;align-items:center;gap:8px;margin-bottom:10px;"><span style="font-size:18px;">🔁</span>小红点的运行逻辑 · 销售实操之变</div>
+    <table class="logic-tbl">
+      <thead>
+        <tr>
+          <th class="col-step">STEP</th>
+          <th class="col-logic">运行逻辑</th>
+          <th class="col-impact">销售实操 · 之前 vs 现在</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="row-s1">
+          <td class="lt-step">
+            <div class="lt-num">STEP 01</div>
+            <div class="lt-name">精准识别<br>客户</div>
+          </td>
+          <td class="lt-logic">
+            <div class="lt-q">如何识别客户？</div>
+            <div class="lt-q-tag">客户分档 · 触发任务</div>
+            <ul>
+              <li>按投放表现分<b>四档</b>：头部稳定 / 头部掉量 / 潜力起量 / 海量长尾</li>
+              <li><b>掉量预警</b>：消耗或 ROI 较前日下降<span class="lk">超过 20%</span>，系统即时标红</li>
+              <li><b>起量抢窗口</b>：消耗突然放大即提醒，<span class="lk">机会窗就两三天</span></li>
+            </ul>
+          </td>
+          <td>
+            <div class="lt-impact">
+              <div class="lt-imp-box before">
+                <div class="lt-imp-tag">之前 · 被动</div>
+                <p>没有今日概况，先翻明细才知道今天哪里异常；掉量靠脑子记，重点之外照顾不到</p>
+              </div>
+              <div class="lt-imp-arr">➜</div>
+              <div class="lt-imp-box after">
+                <div class="lt-imp-tag">现在 · 主动</div>
+                <p>上方今日概况先判断今日压力；系统自动顶出掉量客户，红点提醒</p>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr class="row-s2">
+          <td class="lt-step">
+            <div class="lt-num">STEP 02</div>
+            <div class="lt-name">销售及时<br>介入</div>
+          </td>
+          <td class="lt-logic">
+            <div class="lt-q">销售怎么处理？</div>
+            <div class="lt-q-tag">看板定位 · AI 诊断 · 资源匹配</div>
+            <ul>
+              <li><b>看板一键定位</b>：异动客户气泡标红，待办清单自动生成</li>
+              <li><b>AI 诊断建议</b>：基于客户多维数据生成针对性诊断结论 + 具体改进动作</li>
+              <li><b>联动小 A 出诊断</b>：3-5 分钟出报告，<span class="hl">不用销售自己看报表猜</span></li>
+            </ul>
+          </td>
+          <td>
+            <div class="lt-impact">
+              <div class="lt-imp-box before">
+                <div class="lt-imp-tag">之前 · 等</div>
+                <p>等客户主动找，掉量已经几天；自己翻报表猜原因，效率低</p>
+              </div>
+              <div class="lt-imp-arr">➜</div>
+              <div class="lt-imp-box after">
+                <div class="lt-imp-tag">现在 · 不漏球</div>
+                <p>点 🩺 一键诊断查因，AI 给具体改进动作；处理一个消一个红点</p>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr class="row-s3">
+          <td class="lt-step">
+            <div class="lt-num">STEP 03</div>
+            <div class="lt-name">动作监控<br>回收</div>
+          </td>
+          <td class="lt-logic">
+            <div class="lt-q">如何监控？</div>
+            <div class="lt-q-tag">数据留痕 · 模型沉淀</div>
+            <ul>
+              <li><b>清除即留痕</b>：处理完打状态标签（已处理 / 无效 / 需升级），实时回传云端</li>
+              <li><b>权限隔离合规</b>：销售看自己、Leader 看组员、管理层看团队</li>
+              <li><b>反馈存档</b>：每次反馈<span class="ll">实时回写拓客模型</span>，精准度持续提升</li>
+            </ul>
+          </td>
+          <td>
+            <div class="lt-impact">
+              <div class="lt-imp-box before">
+                <div class="lt-imp-tag">之前 · 没沉淀</div>
+                <p>处理完没记录，<b>换人就断</b>；进度看不到，同事之间互不透明</p>
+              </div>
+              <div class="lt-imp-arr">➜</div>
+              <div class="lt-imp-box after">
+                <div class="lt-imp-tag">现在 · 闭环</div>
+                <p>处理一个消一个红点，全员清零进度可视化；反馈实时回写模型</p>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 实操之变 总结 -->
+    <div style="margin-top:14px;font-size:12.5px;color:#92400e;line-height:1.6;padding:10px 14px;background:linear-gradient(135deg,#fff7ed 0%,#fef3c7 100%);border-radius:8px;border-left:3px solid #f59e0b;">
+      实操之变：从"<b style="color:#a16207;">每天翻报表自己找、靠脑子记</b>" → "<b style="color:#a16207;">先看今日概况、再清待办红点</b>"，掉量在客户开口前就被拦回。
     </div>
 
     <!-- 场景一 销售实操（上下两张超横向长图，等高等宽） -->
