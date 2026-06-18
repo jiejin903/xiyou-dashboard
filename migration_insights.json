@@ -1,5 +1,5 @@
 {
-  "gen_time": "2026-06-18 11:37:48",
+  "gen_time": "2026-06-18 11:42:26",
   "period": "0.611-0.617",
   "module_a_top3": [
     {
@@ -11,7 +11,7 @@
         "obs_spend": 14556.0,
         "spend_lift": 0.77,
         "driver": "基建增加",
-        "driver_detail": "广告数44→94(+113%) + 创意ID210→605(+188%)"
+        "driver_detail": "账户数6.0→7.0(+17%) + 广告数44→94(+113%) + 创意ID210→605(+188%)"
       }
     },
     {
@@ -82,7 +82,7 @@
     {
       "track": "女装",
       "head_count": 8,
-      "avg_accounts": 0.0,
+      "avg_accounts": 12.4,
       "avg_ads_per_day": 288.0,
       "avg_cids_per_day": 1662.0,
       "avg_spend": 3.3,
@@ -91,7 +91,7 @@
     {
       "track": "男装",
       "head_count": 13,
-      "avg_accounts": 0.0,
+      "avg_accounts": 11.8,
       "avg_ads_per_day": 373.0,
       "avg_cids_per_day": 2126.0,
       "avg_spend": 3.39,
@@ -100,7 +100,7 @@
     {
       "track": "箱包鞋靴",
       "head_count": 10,
-      "avg_accounts": 0.0,
+      "avg_accounts": 17.7,
       "avg_ads_per_day": 170.0,
       "avg_cids_per_day": 965.0,
       "avg_spend": 2.19,
@@ -109,7 +109,7 @@
     {
       "track": "贴身衣物",
       "head_count": 26,
-      "avg_accounts": 0.0,
+      "avg_accounts": 24.2,
       "avg_ads_per_day": 536.0,
       "avg_cids_per_day": 2379.0,
       "avg_spend": 5.32,
@@ -118,7 +118,7 @@
     {
       "track": "服饰鞋包其他",
       "head_count": 5,
-      "avg_accounts": 0.0,
+      "avg_accounts": 9.4,
       "avg_ads_per_day": 57.0,
       "avg_cids_per_day": 438.0,
       "avg_spend": 1.4,
@@ -127,7 +127,7 @@
     {
       "track": "珠宝配饰",
       "head_count": 8,
-      "avg_accounts": 0.0,
+      "avg_accounts": 7.6,
       "avg_ads_per_day": 179.0,
       "avg_cids_per_day": 807.0,
       "avg_spend": 2.36,
@@ -136,7 +136,7 @@
     {
       "track": "运动户外",
       "head_count": 2,
-      "avg_accounts": 0.0,
+      "avg_accounts": 58.0,
       "avg_ads_per_day": 762.0,
       "avg_cids_per_day": 3273.0,
       "avg_spend": 9.73,
@@ -145,7 +145,7 @@
     {
       "track": "综合服饰",
       "head_count": 12,
-      "avg_accounts": 0.0,
+      "avg_accounts": 31.2,
       "avg_ads_per_day": 164.0,
       "avg_cids_per_day": 536.0,
       "avg_spend": 2.69,
@@ -154,7 +154,7 @@
     {
       "track": "服饰奢品",
       "head_count": 7,
-      "avg_accounts": 0.0,
+      "avg_accounts": 20.0,
       "avg_ads_per_day": 378.0,
       "avg_cids_per_day": 1520.0,
       "avg_spend": 4.47,
