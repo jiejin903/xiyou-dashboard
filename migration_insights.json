@@ -1,163 +1,163 @@
 {
-  "gen_time": "2026-06-04 15:23:40",
-  "period": "0.527-0.602",
+  "gen_time": "2026-06-18 11:25:54",
+  "period": "0.611-0.617",
   "module_a_top3": [
     {
-      "track": "珠宝配饰",
-      "up_count": 5,
+      "track": "综合服饰",
+      "up_count": 3,
       "rep_customer": {
-        "name": "江苏白岚品牌发展有限公司",
-        "base_spend": 9584.0,
-        "obs_spend": 25979.0,
-        "spend_lift": 1.64,
+        "name": "湖南奥讯网络科技有限公司",
+        "base_spend": 6845.0,
+        "obs_spend": 14556.0,
+        "spend_lift": 0.77,
         "driver": "基建增加",
-        "driver_detail": "广告数136→230(+70%) + 创意ID1151→1338(+16%)"
+        "driver_detail": "创意ID210→605(+188%)"
       }
     },
     {
-      "track": "贴身衣物",
-      "up_count": 5,
+      "track": "女装",
+      "up_count": 2,
       "rep_customer": {
-        "name": "草本初色天一",
-        "base_spend": 8582.0,
-        "obs_spend": 38968.0,
-        "spend_lift": 3.04,
-        "driver": "ROI提升",
-        "driver_detail": "ROI 1.65→1.96(+19%)"
+        "name": "常熟市虞山街道雍容阁服饰商行(个体工商户)",
+        "base_spend": 6503.0,
+        "obs_spend": 14180.0,
+        "spend_lift": 0.77,
+        "driver": "基建增加",
+        "driver_detail": "创意ID158→265(+68%)"
       }
     },
     {
       "track": "服饰鞋包其他",
-      "up_count": 3,
+      "up_count": 2,
       "rep_customer": {
-        "name": "南宁安悦服饰有限公司",
-        "base_spend": 4301.0,
-        "obs_spend": 13534.0,
-        "spend_lift": 0.92,
-        "driver": "自然回升",
-        "driver_detail": "基建/ROI均无显著环比变化"
+        "name": "桐乡赢迪贸易有限公司",
+        "base_spend": 4322.0,
+        "obs_spend": 10278.0,
+        "spend_lift": 0.6,
+        "driver": "双驱动",
+        "driver_detail": "创意ID443→602(+36%) + ROI 3.33→3.68(+10%)"
       }
     }
   ],
   "module_b_common": {
-    "total_up": 23,
+    "total_up": 14,
     "drivers": [
       {
         "name": "基建增加",
         "count": 8,
-        "pct": 34.8
+        "pct": 57.1
       },
       {
         "name": "自然回升",
-        "count": 8,
-        "pct": 34.8
+        "count": 4,
+        "pct": 28.6
       },
       {
         "name": "链路新增",
-        "count": 3,
-        "pct": 13.0
-      },
-      {
-        "name": "ROI提升",
-        "count": 2,
-        "pct": 8.7
-      },
-      {
-        "name": "投放端新增",
         "count": 1,
-        "pct": 4.3
+        "pct": 7.1
       },
       {
         "name": "双驱动",
         "count": 1,
-        "pct": 4.3
+        "pct": 7.1
+      },
+      {
+        "name": "投放端新增",
+        "count": 0,
+        "pct": 0.0
+      },
+      {
+        "name": "ROI提升",
+        "count": 0,
+        "pct": 0.0
       }
     ],
     "main_driver": "基建增加",
-    "main_driver_pct": 34.8,
-    "show_main": false,
-    "verdict": "跃迁原因分散，无明显共性驱动力。"
+    "main_driver_pct": 57.1,
+    "show_main": true,
+    "verdict": "主驱动 = 基建增加（占57.1%）。基建扩张是主要驱动力，建议推动其他客户对齐基建标准。"
   },
   "module_c_head_baseline": [
     {
       "track": "女装",
-      "head_count": 14,
+      "head_count": 8,
       "avg_accounts": 0.0,
-      "avg_ads_per_day": 157.0,
-      "avg_cids_per_day": 740.0,
-      "avg_spend": 2.34,
+      "avg_ads_per_day": 0.0,
+      "avg_cids_per_day": 1662.0,
+      "avg_spend": 3.3,
       "note": ""
     },
     {
       "track": "男装",
-      "head_count": 16,
+      "head_count": 13,
       "avg_accounts": 0.0,
-      "avg_ads_per_day": 285.0,
-      "avg_cids_per_day": 1252.0,
-      "avg_spend": 3.04,
+      "avg_ads_per_day": 0.0,
+      "avg_cids_per_day": 2126.0,
+      "avg_spend": 3.39,
       "note": ""
     },
     {
       "track": "箱包鞋靴",
-      "head_count": 9,
+      "head_count": 10,
       "avg_accounts": 0.0,
-      "avg_ads_per_day": 172.0,
-      "avg_cids_per_day": 745.0,
-      "avg_spend": 2.21,
+      "avg_ads_per_day": 0.0,
+      "avg_cids_per_day": 965.0,
+      "avg_spend": 2.19,
       "note": ""
     },
     {
       "track": "贴身衣物",
-      "head_count": 36,
+      "head_count": 26,
       "avg_accounts": 0.0,
-      "avg_ads_per_day": 416.0,
-      "avg_cids_per_day": 1535.0,
-      "avg_spend": 4.24,
+      "avg_ads_per_day": 0.0,
+      "avg_cids_per_day": 2379.0,
+      "avg_spend": 5.32,
       "note": ""
     },
     {
       "track": "服饰鞋包其他",
-      "head_count": 7,
+      "head_count": 5,
       "avg_accounts": 0.0,
-      "avg_ads_per_day": 30.0,
-      "avg_cids_per_day": 126.0,
-      "avg_spend": 2.11,
+      "avg_ads_per_day": 0.0,
+      "avg_cids_per_day": 438.0,
+      "avg_spend": 1.4,
       "note": ""
     },
     {
       "track": "珠宝配饰",
-      "head_count": 11,
+      "head_count": 8,
       "avg_accounts": 0.0,
-      "avg_ads_per_day": 125.0,
-      "avg_cids_per_day": 742.0,
-      "avg_spend": 1.69,
+      "avg_ads_per_day": 0.0,
+      "avg_cids_per_day": 807.0,
+      "avg_spend": 2.36,
       "note": ""
     },
     {
       "track": "运动户外",
-      "head_count": 6,
+      "head_count": 2,
       "avg_accounts": 0.0,
-      "avg_ads_per_day": 246.0,
-      "avg_cids_per_day": 973.0,
-      "avg_spend": 2.92,
+      "avg_ads_per_day": 0.0,
+      "avg_cids_per_day": 3273.0,
+      "avg_spend": 9.73,
       "note": ""
     },
     {
       "track": "综合服饰",
-      "head_count": 19,
+      "head_count": 12,
       "avg_accounts": 0.0,
-      "avg_ads_per_day": 120.0,
-      "avg_cids_per_day": 458.0,
-      "avg_spend": 2.47,
+      "avg_ads_per_day": 0.0,
+      "avg_cids_per_day": 536.0,
+      "avg_spend": 2.69,
       "note": ""
     },
     {
       "track": "服饰奢品",
-      "head_count": 9,
+      "head_count": 7,
       "avg_accounts": 0.0,
-      "avg_ads_per_day": 324.0,
-      "avg_cids_per_day": 1010.0,
-      "avg_spend": 3.75,
+      "avg_ads_per_day": 0.0,
+      "avg_cids_per_day": 1520.0,
+      "avg_spend": 4.47,
       "note": ""
     }
   ],
