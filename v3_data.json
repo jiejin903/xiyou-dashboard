@@ -1,6 +1,6 @@
 {
  "ver": "v3",
- "gen_time": "2026-06-18 11:27:38",
+ "gen_time": "2026-06-18 11:37:35",
  "long": {
   "label": "长周期 · Q2 QTD (4.1-5.18) vs Q1 (1.1-3.31)",
   "base": "Q1 (1.1-3.31)",
@@ -151043,15 +151043,18 @@
     }
    },
    "overall": {
-    "spend_day": 6437973,
-    "spend_day_prev": 4918742,
-    "delta_abs": 1519231,
-    "delta_rate": 30.89,
+    "spend_day": 6983061,
+    "spend_day_prev": 5670805,
+    "delta_abs": 1312256,
+    "delta_rate": 23.14,
     "cnt": 5996,
     "cnt_obs": 5962,
     "cnt_base": 3638,
     "cnt_delta_abs": 2324,
-    "cnt_delta_rate": 63.88
+    "cnt_delta_rate": 63.88,
+    "spend_day_aggregated": 6437973,
+    "spend_day_prev_aggregated": 4918742,
+    "source": "CSV整体行真值"
    },
    "dashboard_diag": {
     "total_delta": 1519231,
@@ -151165,15 +151168,18 @@
      }
     },
     "overall": {
-     "spend_day": 6437973,
-     "spend_day_prev": 4918742,
-     "delta_abs": 1519231,
-     "delta_rate": 30.89,
+     "spend_day": 6983061,
+     "spend_day_prev": 5670805,
+     "delta_abs": 1312256,
+     "delta_rate": 23.14,
      "cnt": 5996,
      "cnt_obs": 5962,
      "cnt_base": 3638,
      "cnt_delta_abs": 2324,
-     "cnt_delta_rate": 63.88
+     "cnt_delta_rate": 63.88,
+     "spend_day_aggregated": 6437973,
+     "spend_day_prev_aggregated": 4918742,
+     "source": "CSV整体行真值"
     },
     "dashboard_diag": {
      "total_delta": 1519231,
