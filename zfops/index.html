@@ -748,12 +748,12 @@ details[open] .nc-ended-sum::before{transform:rotate(90deg)}
           <h3>数据监控</h3>
           <p>4个提收重点专项 · 整体表现 + 分赛道追踪 · 数据T+1更新</p>
         </div>
-        <span class="sec-tag">截止 6/4 双周</span>
+        <span class="sec-tag">更新至 6/21</span>
       </div>
 
       <!-- 1.1 提收重点专项 · 核心指标监控 -->
       <div class="card" style="margin-bottom:14px">
-        <div class="ct"><span class="ind"></span>提收重点专项 · 核心指标监控<span class="cs">4+m / 创意基建 / 腰尾部跃迁 / 多品聚合页 · 整体值取自 sheet2 数据进展原文 · 分赛道待运营补充</span></div>
+        <div class="ct"><span class="ind"></span>提收重点专项 · 核心指标监控<span class="cs">4+m / 创意基建 / 腰尾部跃迁 / 多品聚合页</span></div>
         <div id="monitorGrid"></div>
       </div>
 
@@ -1847,16 +1847,19 @@ function renderMonitor(){
           <div style="display:flex;flex-wrap:wrap;gap:6px">${custChips}</div>
         </div>`;
       }).join('');
+      // 取数短链（紧凑样式，挂在头部嘉润旁）
+      const adataLink = m.dataLink ? `<a href="${m.dataLink}" target="_blank" rel="noopener" title="${m.dataLink}" style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;background:#e6f4ff;color:#1677ff;border:1px solid #91caff;border-radius:10px;font-size:11px;text-decoration:none;font-weight:600">📊 adata 取数</a>` : '';
       return `<div style="margin-bottom:14px;padding:14px 16px;background:#fff;border:1px solid #eef1f5;border-left:4px solid ${c};border-radius:8px">
         <div style="display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:8px">
           <span style="font-size:15px;font-weight:700;color:#1a2332">${m.name}</span>
           <span style="padding:2px 8px;background:${c}11;color:${c};border-radius:10px;font-size:11px">👤 ${m.owner}</span>
+          ${adataLink}
           <span style="margin-left:auto;font-size:12px;color:#8a9aae">整体日耗</span>
           <span style="font-size:22px;font-weight:800;color:${c}">${d.overall.cost.toFixed(1)}<span style="font-size:13px">万</span></span>
           <span style="font-size:11px">${deltaTxt(d.overall.cost, d.overall.cost_pct)}</span>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1.5fr;gap:10px;padding:8px 10px;background:#fafbfc;border-radius:6px;margin-bottom:10px;font-size:12px;align-items:center">
-          <div><span style="color:#8a9aae">投放客户 </span><strong>${d.overall.cust}家</strong> ${custDeltaTxt(d.overall.cust, d.overall.cust_pct)}${link.replace(' · ','&nbsp;·&nbsp;')}</div>
+          <div><span style="color:#8a9aae">投放客户 </span><strong>${d.overall.cust}家</strong> ${custDeltaTxt(d.overall.cust, d.overall.cust_pct)}</div>
           <div style="display:flex;align-items:center;gap:8px"><span style="color:#8a9aae;white-space:nowrap">覆盖进度</span>
             <div style="flex:1;height:14px;background:#fff1f0;border-radius:7px;overflow:hidden;position:relative">
               <div style="height:100%;background:linear-gradient(90deg,#52c41a,#73d13d);width:${coverRate}%"></div>
