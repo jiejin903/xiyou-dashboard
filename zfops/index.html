@@ -1724,6 +1724,46 @@ function renderProj(){
   grid.innerHTML = html;
 }
 
+/* ====== 4+m 待覆盖客户清单 · 点击交互（展开/收起） ====== */
+function toggleUncovInd(key){
+  const panel = document.querySelector(`[data-uncov-panel="${key}"]`);
+  const tab = document.querySelector(`[data-uncov-tab="${key}"]`);
+  if (!panel || !tab) return;
+  const isOpen = panel.style.display !== 'none';
+  // 先关闭所有面板和tab高亮
+  document.querySelectorAll('[data-uncov-panel]').forEach(p => p.style.display = 'none');
+  document.querySelectorAll('[data-uncov-tab]').forEach(t => {
+    t.classList.remove('on');
+    t.style.background = '#fffbe6';
+    t.style.borderColor = '#ffe58f';
+    t.style.color = '#874d00';
+    const arr = t.querySelector('.uncov-arr');
+    if (arr) arr.style.transform = 'rotate(0deg)';
+  });
+  // 如果刚才是关闭状态，则打开当前
+  if (!isOpen){
+    panel.style.display = 'block';
+    tab.classList.add('on');
+    tab.style.background = '#fa8c16';
+    tab.style.borderColor = '#fa8c16';
+    tab.style.color = '#fff';
+    const arr = tab.querySelector('.uncov-arr');
+    if (arr) { arr.style.color = '#fff'; arr.style.transform = 'rotate(90deg)'; }
+  }
+}
+
+function copyUncovList(list, indName){
+  const text = list.join('\n');
+  navigator.clipboard.writeText(text).then(() => {
+    // 简单 toast 提示
+    const toast = document.createElement('div');
+    toast.textContent = `✅ 已复制「${indName}」${list.length}家客户清单到剪贴板`;
+    toast.style.cssText = 'position:fixed;top:80px;left:50%;transform:translateX(-50%);padding:10px 18px;background:#52c41a;color:#fff;border-radius:6px;font-size:13px;z-index:9999;box-shadow:0 4px 12px rgba(0,0,0,.15)';
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 2000);
+  }).catch(() => alert('复制失败：'+text));
+}
+
 /* ====== 数据监控 · 提收重点专项 整体+分赛道 渲染 ====== */
 function renderMonitor(){
   const box = document.getElementById('monitorGrid');
@@ -1780,9 +1820,27 @@ function renderMonitor(){
         </div>`;
       }).join('');
       const uncovByInd = Object.entries(cv.uncovered_by_industry).sort((a,b)=>b[1].length-a[1].length);
-      const uncovHtml = uncovByInd.map(([ind, lst]) => 
-        `<span style="font-size:11px;color:#874d00;background:#fffbe6;border:1px solid #ffe58f;padding:2px 8px;border-radius:10px;white-space:nowrap;cursor:help" title="${lst.join(', ')}">${ind||'未标注'} <strong>${lst.length}</strong></span>`
-      ).join(' ');
+      // 每个行业标签 + 对应的（默认隐藏）客户清单面板
+      const uncovHtml = uncovByInd.map(([ind, lst], idx) => {
+        const key = `uncov_${idx}`;
+        const label = ind || '未标注';
+        return `<div style="display:inline-block;margin:0">
+          <span data-uncov-tab="${key}" onclick="toggleUncovInd('${key}')" style="display:inline-flex;align-items:center;gap:4px;font-size:11px;color:#874d00;background:#fffbe6;border:1px solid #ffe58f;padding:3px 10px;border-radius:12px;white-space:nowrap;cursor:pointer;user-select:none;transition:all .15s" onmouseover="this.style.background='#fff1b8'" onmouseout="if(!this.classList.contains('on'))this.style.background='#fffbe6'">${label} <strong>${lst.length}</strong><span class="uncov-arr" style="font-size:9px;color:#d48806;transition:transform .2s">▶</span></span>
+        </div>`;
+      }).join(' ');
+      // 客户清单面板（横向铺，默认隐藏）
+      const uncovPanels = uncovByInd.map(([ind, lst], idx) => {
+        const key = `uncov_${idx}`;
+        const label = ind || '未标注';
+        const custChips = lst.map(c => `<span style="font-size:11px;color:#874d00;background:#fff;border:1px solid #ffe58f;padding:2px 9px;border-radius:10px;white-space:nowrap">${c}</span>`).join(' ');
+        return `<div data-uncov-panel="${key}" style="display:none;margin-top:8px;padding:10px 12px;background:#fffbe6;border:1px dashed #ffd591;border-radius:6px">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;flex-wrap:wrap;gap:8px">
+            <div style="font-size:12px;color:#d48806;font-weight:700">${label} · 待覆盖 ${lst.length}家</div>
+            <button onclick="copyUncovList(${JSON.stringify(lst).replace(/"/g,'&quot;')}, '${label}')" style="font-size:11px;padding:3px 10px;background:#fff;border:1px solid #ffd591;border-radius:10px;color:#d48806;cursor:pointer;font-family:inherit">📋 复制清单</button>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">${custChips}</div>
+        </div>`;
+      }).join('');
       return `<div style="margin-bottom:14px;padding:14px 16px;background:#fff;border:1px solid #eef1f5;border-left:4px solid ${c};border-radius:8px">
         <div style="display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:8px">
           <span style="font-size:15px;font-weight:700;color:#1a2332">${m.name}</span>
@@ -1807,10 +1865,12 @@ function renderMonitor(){
           </div>
           ${indRows}
         </div>
-        <details style="font-size:12px"><summary style="cursor:pointer;color:#d48806;padding:6px 0;font-weight:600;outline:none;list-style:none">📋 待覆盖客户清单 · ${cv.uncovered_count}家（点击展开按行业）</summary>
-          <div style="padding:8px 0;display:flex;flex-wrap:wrap;gap:6px">${uncovHtml}</div>
-          <div style="margin-top:4px;font-size:10px;color:#8a9aae">📍 hover 标签可查看该行业完整客户清单 · 分母 ${cv.total}家=《直播4+m需覆盖名单》全表 · 分子=已出现在4+m消耗表</div>
-        </details>
+        <div style="font-size:12px">
+          <div style="color:#d48806;padding:6px 0;font-weight:600">📋 待覆盖客户清单 · ${cv.uncovered_count}家 <span style="font-weight:500;color:#8a9aae;font-size:11px">（点击行业标签展开客户名，再次点击收起）</span></div>
+          <div style="padding:4px 0;display:flex;flex-wrap:wrap;gap:6px">${uncovHtml}</div>
+          ${uncovPanels}
+          <div style="margin-top:6px;font-size:10px;color:#8a9aae">📍 分母 ${cv.total}家=《直播4+m需覆盖名单》全表 · 分子=已出现在 6/20 4+m消耗表的客户</div>
+        </div>
       </div>`;
     }
     // === 其他专项卡：保留赛道占位渲染 ===
