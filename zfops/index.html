@@ -4,9 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>服饰中心运营统一作战地图</title>
+<!-- 腾讯体 · 公网 CDN（腾讯云字体服务） -->
+<link rel="stylesheet" href="https://cdn-go.cn/cdn-fonts/0.2.1/tencent-sans/tencent-sans.css">
 <style>
+/* 腾讯体兜底 @font-face（CDN失败时仍走本地系统名） */
+@font-face{font-family:'TencentSansW7';src:local('Tencent Sans W7'),local('TencentSans-W7'),local('Tencent Sans');font-weight:700;font-display:swap}
+@font-face{font-family:'TencentSans';src:local('Tencent Sans'),local('TencentSans-W3'),local('Tencent Sans W3');font-weight:400;font-display:swap}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:#f4f6fa;color:#1a2332;font-size:14px;min-height:100vh}
+body{font-family:'Tencent Sans','TencentSans','TencentSansW7',-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:#f4f6fa;color:#1a2332;font-size:14px;min-height:100vh}
 /* Header */
 .header{height:60px;padding:0 24px;background:#fff;border-bottom:1px solid #e4e9f0;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 1px 4px rgba(0,21,41,.06)}
 .h-l,.h-r{display:flex;align-items:center;gap:12px}
@@ -23,14 +28,14 @@ body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;backgr
 .av{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#ff7a45,#fa541c);display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:600}
 .menu-toggle{display:none;padding:6px 10px;background:#f0f5ff;border:1px solid #d6e4ff;color:#1677ff;border-radius:6px;cursor:pointer;font-size:16px}
 
-/* Layout */
-.layout{display:flex;min-height:calc(100vh - 60px)}
-.sidebar{width:220px;background:#fff;border-right:1px solid #e4e9f0;padding:16px 0}
-.nav-item{display:flex;align-items:center;gap:12px;padding:12px 20px;cursor:pointer;color:#5a6b7e;border-left:3px solid transparent;transition:.2s;font-size:14px}
-.nav-item:hover{background:#f4f6fa;color:#1677ff}
-.nav-item.active{background:#e6f4ff;border-left-color:#1677ff;color:#1677ff;font-weight:600}
-.nav-icon{font-size:18px}
-.nav-badge{margin-left:auto;padding:1px 6px;font-size:10px;background:#f5222d;color:#fff;border-radius:10px}
+/* Layout · 顶部横向 Tab（置顶在header正下方） */
+.layout{display:flex;flex-direction:column;min-height:calc(100vh - 60px)}
+.topnav{display:flex;align-items:stretch;background:#fff;border-bottom:1px solid #e4e9f0;padding:0 24px;gap:0;position:sticky;top:60px;z-index:90;box-shadow:0 2px 8px rgba(0,21,41,.04);overflow-x:auto;flex-wrap:nowrap}
+.nav-item{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;cursor:pointer;color:#5a6b7e;border-bottom:3px solid transparent;transition:.2s;font-size:14px;white-space:nowrap;flex-shrink:0;font-weight:500}
+.nav-item:hover{color:#1677ff;background:#fafbff}
+.nav-item.active{border-bottom-color:#1677ff;color:#1677ff;font-weight:700;background:linear-gradient(180deg,#fafbff 0%,#fff 100%)}
+.nav-icon{font-size:16px}
+.nav-badge{margin-left:4px;padding:1px 6px;font-size:10px;background:#f5222d;color:#fff;border-radius:10px}
 .main{flex:1;padding:24px;overflow-x:hidden}
 .page{display:none}.page.active{display:block}
 
@@ -412,10 +417,11 @@ details[open] .nc-ended-sum::before{transform:rotate(90deg)}
   .role-sw{transform:scale(.85)}
   .uinfo{padding:4px 8px;font-size:11px}
   .uinfo .un{display:none}
-  .menu-toggle{display:block}
-  .layout{flex-direction:column}
-  .sidebar{position:fixed;top:54px;left:-100%;width:75%;height:calc(100vh - 54px);z-index:99;transition:left .3s;overflow-y:auto;box-shadow:4px 0 20px rgba(0,21,41,.1)}
-  .sidebar.open{left:0}
+  .menu-toggle{display:none}
+  /* 移动端：顶部 tab 改为更紧凑横向滚动 */
+  .topnav{padding:0 8px;top:54px;gap:0}
+  .nav-item{padding:11px 14px;font-size:13px;gap:6px}
+  .nav-icon{font-size:14px}
   .main{padding:14px}
   .page-title{flex-direction:column;align-items:flex-start;gap:12px}
   .page-title h2{font-size:18px}
@@ -520,7 +526,7 @@ details[open] .nc-ended-sum::before{transform:rotate(90deg)}
   <div class="h-l">
     <button class="menu-toggle" onclick="toggleSb()">☰</button>
     <div class="logo"><div class="logo-icon">⚔</div><span class="ltf">服饰中心运营统一作战地图</span></div>
-    <span class="live">数据更新至 6月8日</span>
+    <span class="live">数据更新至 6月21日</span>
   </div>
   <div class="h-r">
     <button class="bs-btn" onclick="toggleFs()">⛶ 大屏</button>
@@ -529,7 +535,7 @@ details[open] .nc-ended-sum::before{transform:rotate(90deg)}
 </header>
 
 <div class="layout">
-  <nav class="sidebar" id="sidebar">
+  <nav class="topnav" id="topnav">
     <div class="nav-item active" data-page="dashboard" onclick="switchPage('dashboard')"><span class="nav-icon">📊</span><span>消耗及OKR</span></div>
     <div class="nav-item" data-page="project" onclick="switchPage('project')"><span class="nav-icon">🎯</span><span>核心专项</span></div>
     <div class="nav-item" data-page="info" onclick="switchPage('info')"><span class="nav-icon">📡</span><span>信息通知</span></div>
@@ -552,24 +558,24 @@ details[open] .nc-ended-sum::before{transform:rotate(90deg)}
           <h3>消耗概览</h3>
           <p>近14天消耗及环比 · 昨日消耗及环比 · 分天消耗走势</p>
         </div>
-        <span class="sec-tag">数据区间 6/1 ~ 6/14</span>
+        <span class="sec-tag">数据区间 6/7 ~ 6/20</span>
       </div>
 
       <!-- 1.1 核心指标 KPI -->
       <div class="card" style="margin-bottom:14px">
         <div class="ct"><span class="ind"></span>核心指标<span class="cs">近14天日耗 · 昨日消耗 · 闭环/非闭环链路 · ADQ/全域通拆解</span></div>
         <div class="kg" style="margin-bottom:0">
-          <div class="kpi"><div class="k-l">近14天日均消耗(万元)</div><div class="k-v">1,261</div><div class="k-t down">▼ 1.03% vs 上一14天 · 日均-13万</div></div>
-          <div class="kpi"><div class="k-l">昨日 6/14 消耗(万元)</div><div class="k-v">1,384</div><div class="k-t up">▲ 6.8% vs 6/13 · 环比前一日</div></div>
-          <div class="kpi kpi-dual"><div class="k-l">链路构成 · 昨日 6/14 日耗(万元)</div>
-            <div class="dual-row"><span class="dr-tag closed">闭环</span><span class="dr-v">753.4</span><span class="dr-t up">▲ 12.5% vs 6/13</span></div>
-            <div class="dual-row"><span class="dr-tag open">非闭环</span><span class="dr-v">626.1</span><span class="dr-t up">▲ 0.8% vs 6/13</span></div>
+          <div class="kpi"><div class="k-l">近14天日均消耗(万元)</div><div class="k-v">1,221</div><div class="k-t down">▼ 5.40% vs 上一14天 · 日均-70万</div></div>
+          <div class="kpi"><div class="k-l">昨日 6/20 消耗(万元)</div><div class="k-v">1,196</div><div class="k-t down">▼ 2.8% vs 6/19 · 环比前一日</div></div>
+          <div class="kpi kpi-dual"><div class="k-l">链路构成 · 昨日 6/20 日耗(万元)</div>
+            <div class="dual-row"><span class="dr-tag closed">闭环</span><span class="dr-v">647.4</span><span class="dr-t up">▲ 1.3% vs 6/19</span></div>
+            <div class="dual-row"><span class="dr-tag open">非闭环</span><span class="dr-v">545.6</span><span class="dr-t down">▼ 7.1% vs 6/19</span></div>
             <div class="k-t" style="margin-top:6px;color:#8a9aae">闭环=直播+小店 · 非闭环=CID/加粉/品宣/直购/其他</div>
           </div>
-          <div class="kpi kpi-dual"><div class="k-l">闭环链路拆解 · 昨日 6/14 (万元)</div>
-            <div class="dual-row"><span class="dr-tag adq">ADQ</span><span class="dr-v">594.9</span><span class="dr-t up">占比 79.0%</span></div>
-            <div class="dual-row"><span class="dr-tag qyt">全域通</span><span class="dr-v">158.5</span><span class="dr-t up">占比 21.0%</span></div>
-            <div class="k-t" style="margin-top:6px;color:#8a9aae">闭环合计 753.4万 · 主消耗 ADQ 主导</div>
+          <div class="kpi kpi-dual"><div class="k-l">闭环链路拆解 · 昨日 6/20 (万元)</div>
+            <div class="dual-row"><span class="dr-tag adq">ADQ</span><span class="dr-v">485.7</span><span class="dr-t up">占比 75.0%</span></div>
+            <div class="dual-row"><span class="dr-tag qyt">全域通</span><span class="dr-v">161.7</span><span class="dr-t up">占比 25.0%</span></div>
+            <div class="k-t" style="margin-top:6px;color:#8a9aae">闭环合计 647.4万 · 主消耗 ADQ 主导</div>
           </div>
         </div>
         <div style="margin-top:14px;padding-top:12px;border-top:1px dashed #e6ecf5;text-align:right">
@@ -743,22 +749,16 @@ details[open] .nc-ended-sum::before{transform:rotate(90deg)}
       <div class="sec-title">
         <span class="sec-num">01</span>
         <div class="sec-info">
-          <h3>专项类型概览</h3>
-          <p>提消耗 · 基础必备 · 组织发展 · 新机会测试 · 共12个关键专项</p>
+          <h3>数据监控</h3>
+          <p>4个提收重点专项 · 整体表现 + 分赛道追踪 · 数据T+1更新</p>
         </div>
-        <span class="sec-tag"><a href="https://doc.weixin.qq.com/sheet/e3_AOQALQY-AEkCNm8moA15DQNK9IBXt?scode=AJEAIQdfAAoFHR5ry5AcMAVgawADc&tab=6mn0mw" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">📄 专项文档（点击跳转）</a></span>
+        <span class="sec-tag">截止 6/4 双周</span>
       </div>
 
-      <!-- 1.1 类型分布 -->
+      <!-- 1.1 提收重点专项 · 核心指标监控 -->
       <div class="card" style="margin-bottom:14px">
-        <div class="ct"><span class="ind"></span>四类专项分布</div>
-        <div class="lane-rank" style="grid-template-columns:1.1fr 0.8fr 2fr 2fr">
-          <div class="lane-rank-h"><div>专项类型</div><div>在战专项</div><div>主要看点</div><div>核心专项</div></div>
-          <div class="lane-rank-r"><div><span class="dot y" style="background:#f5222d"></span><strong>提消耗</strong></div><div>4</div><div><span style="color:#5a6b7e">提ARPU · 审核 · 腾飞撬动 · 创意基建</span></div><div><span style="color:#1a2332">4+m · 审核 · 腾飞 · 创意基建</span></div></div>
-          <div class="lane-rank-r"><div><span class="dot b" style="background:#1677ff"></span><strong>基础必备</strong></div><div>5</div><div><span style="color:#5a6b7e">CID/直播/小店三大链路 + AIGC + 回传质量</span></div><div><span style="color:#1a2332">CID · 直播 · 小店 · AIGC · 回传质量</span></div></div>
-          <div class="lane-rank-r"><div><span class="dot p" style="background:#722ed1"></span><strong>组织发展</strong></div><div>1</div><div><span style="color:#5a6b7e">闭环腰部→头部跃迁 · Q2 30个目标</span></div><div><span style="color:#1a2332">腰尾部跃迁</span></div></div>
-          <div class="lane-rank-r"><div><span class="dot c" style="background:#13c2c2"></span><strong>新机会测试</strong></div><div>2</div><div><span style="color:#5a6b7e">全店托管客户数 · 达人素材加热待启动</span></div><div><span style="color:#1a2332">全店托管 · 互选联投·达人素材加热</span></div></div>
-        </div>
+        <div class="ct"><span class="ind"></span>提收重点专项 · 核心指标监控<span class="cs">4+m / 创意基建 / 腰尾部跃迁 / 多品聚合页 · 整体值取自 sheet2 数据进展原文 · 分赛道待运营补充</span></div>
+        <div id="monitorGrid"></div>
       </div>
 
       <!-- ====================================== -->
@@ -767,8 +767,8 @@ details[open] .nc-ended-sum::before{transform:rotate(90deg)}
       <div class="sec-title">
         <span class="sec-num">02</span>
         <div class="sec-info">
-          <h3>当前专项</h3>
-          <p>12个关键专项 · 按业务类型分组 · 点击卡片查看完整数据进展</p>
+          <h3>专项进展</h3>
+          <p>12个关键专项 · 按业务类型分组（提收重点 / 链路 / 基础）· 点击切换查看完整数据进展</p>
         </div>
         <span class="sec-tag">同步频率：双周</span>
       </div>
@@ -831,7 +831,7 @@ details[open] .nc-ended-sum::before{transform:rotate(90deg)}
           <span class="sec-num">01</span>
           <div class="sec-info">
             <h3>产品能力总览</h3>
-            <p>同步自《产品能力汇总》文档 · 5 大分类 · 共 29 项产品能力</p>
+            <p>同步自《产品能力汇总》文档 · 4 大分类 · 共 29 项产品能力</p>
           </div>
           <span class="sec-tag" id="capa-src">📄 数据来源：产品能力汇总</span>
         </div>
@@ -841,8 +841,8 @@ details[open] .nc-ended-sum::before{transform:rotate(90deg)}
         <div class="sec-title">
           <span class="sec-num">02</span>
           <div class="sec-info">
-            <h3>产品能力明细 · 按 5 个 sheet 分类</h3>
-            <p>产品形态 · 智投 · 小店 · AIGC · 人群tag</p>
+            <h3>产品能力明细 · 按 4 个 tab 分类</h3>
+            <p>外层广告形态 · 投放端产品 · 创意AIGC · 模型和人群</p>
           </div>
           <span class="sec-tag">原文链接已挂在每张卡片右侧</span>
         </div>
@@ -922,77 +922,23 @@ const LANES = [
 /* 专项数据 · 数据来源：服饰运营作战地图信息汇总 sheet2「关键项目」 · 复核更新于 2026-06-08
    字段口径全部对齐 sheet2 原文，已删除编造的"推进度数字" */
 const PROJ = [
-  // ========== 提消耗（4） ==========
-  {name:'4+m',type:'提消耗',cls:'wrn',owner:'嘉润',
+  // ========== 提收重点专项（5）· 运营负责人都推，需监控数据，对赛道负责 ==========
+  // ★ 其中 4+m / 创意基建 / 腰尾部跃迁 / 多品聚合页 纳入「数据监控」模块（monitor:true）
+  {name:'4+m',type:'提收重点专项',cls:'wrn',owner:'嘉润',monitor:true,
     desc:'提高客户ARPU',
     target:'消耗、消耗占直播消耗比例',
     progress:'截止 6/4 双周，服饰直播 4+m 日耗 61万，环比 -6%，投放客户数 99家，4+m 消耗占比直播消耗 14%。',
     focus:'',
     docLink:'',docLinkText:'',
     dataLink:'',dataNote:''},
-  {name:'审核',type:'提消耗',cls:'ok',owner:'ricky',
-    desc:'监控服饰审核问题',
-    target:'sheet2 原表此项未填',
-    progress:'近14日服饰提报审核放宽需求共计 3条，均为品牌类客户的单 case 需求。其中 1条已支持放宽 / 1条等待运营补充信息 / 1条待审核反馈。',
-    focus:'',
-    docLink:'https://doc.weixin.qq.com/sheet/e3_AKcAPgaIAE0CNhZudjzqIRt0yfeGT?scode=AJEAIQdfAAomaUAAPDAKcAPgaIAE0&tab=BB08J2',
-    docLinkText:'服饰审核放宽提报记录',
-    dataLink:'',dataNote:''},
-  {name:'腾飞',type:'提消耗',cls:'ok',owner:'嘉润',
-    desc:'行业腾飞扶持',
-    target:'扶持带来消耗、撬动比',
-    progress:'截止 5/31，Q2TD 累计腾飞花费 243.65万，带来消耗 1266万，扶持撬动比 5.20。',
-    focus:'',
-    docLink:'https://doc.weixin.qq.com/sheet/e3_ABcA0gbtACgCNVhKJLQ15RlCx4B3Y?scode=AJEAIQdfAAop5inPc0ABcA0gbtACg&tab=BB08J2',
-    docLinkText:'服饰腾飞复盘',
-    dataLink:'',dataNote:''},
-  {name:'创意基建',type:'提消耗',cls:'ok',owner:'俊昊',
+  {name:'创意基建',type:'提收重点专项',cls:'ok',owner:'俊昊',monitor:true,
     desc:'通过提升创意量供给，提升消耗',
     target:'曝光创意唯一性ID数 / 全新创意唯一性ID数 / 在线创意唯一性ID数 提升',
     progress:'视频号：近双周日均曝光创意唯一性ID数 177,182，对比基准期日均提升 16.9%；\n朋友圈9图：近双周日均曝光创意唯一性ID数 20,920，对比基准期日均提升 77.9%。',
     focus:'每日关注数据，将提升创意基建融入客户服务',
     docLink:'',docLinkText:'',
     dataLink:'',dataNote:''},
-  // ========== 基础必备（5） ==========
-  {name:'CID 专项',type:'基础必备',cls:'ok',owner:'小美',
-    desc:'CID 链路消耗增长',
-    target:'H1 日耗 185w',
-    progress:'双周日耗 233w，环比 -3.01%。',
-    focus:'测试 paa-官方pa链路',
-    docLink:'',docLinkText:'',
-    dataLink:'https://adata.woa.com/bi/view/new/g:biz_main_multiple:log_time?s=3AD3qP',
-    dataNote:''},
-  {name:'直播专项',type:'基础必备',cls:'ok',owner:'嘉润',
-    desc:'闭环直播链路消耗增长及能力应用',
-    target:'H1 日耗 480w',
-    progress:'截止 6/4 双周，服饰直播日耗 427w，年同比 +28%，服饰直播消耗占比行一直播 20%。',
-    focus:'',
-    docLink:'',docLinkText:'',
-    dataLink:'',dataNote:''},
-  {name:'小店专项',type:'基础必备',cls:'wrn',owner:'俊昊',
-    desc:'闭环小店直购链路消耗增长',
-    target:'H1 日耗 240w',
-    progress:'双周日耗 249w，环比 -12%（绝对值 -12w）。\n分投放端：ADQ 日耗 162w（占比 65%）环比 -11% / 全域通日耗 86w（占比 35%）环比 -14%；ADQ 下跌主要来自跑品客户的休闲裤持续衰退。\n分类目：本周期 ADQ 掉量主要来自男装 -21%。\n① 男装 同比 -21%，男装夏季品（短袖T恤、冰丝裤等）生命周期进入衰退期，头部客户（合肥邦鑫、广州后时代等）主力产品大幅衰减；\n② 男鞋 同比 +26%，夏季凉鞋/洞洞鞋/一脚蹬旺季效应明显，瓯海鸿星、花花公子等品牌新品放量；\n③ 女装 同比 +20%，主曼（+27%）等客户拉动，整体回暖；\n④ 时尚饰品 同比 -19%（绝对值 -1.2w），貔貅手串、胸针衰退。',
-    focus:'1、流量盖帽策略；2、潜客优投能力测试，再营销支路配合种草人群提价竞争。',
-    docLink:'',docLinkText:'',
-    dataLink:'',dataNote:''},
-  {name:'AIGC',type:'基础必备',cls:'wrn',owner:'ricky',
-    desc:'监控服饰 AIGC 消耗，优化产品能力适配客户实际素材使用需求，推进客户 AI 素材生产 & 消耗提升',
-    target:'消耗达到 80w/d',
-    progress:'sheet2 原表此项填「可以和周报内容一致」，未给出具体双周日耗数字。',
-    focus:'消耗持续持平，辛苦各赛道关注 AIGC 消耗，push 客户打开衍生开关 & 使用妙思平台自主创作 AI 素材投放',
-    docLink:'',docLinkText:'',
-    dataLink:'https://adata.woa.com/bi/view/10140?s=pk750',
-    dataNote:'数据进展具体数值待运营补充'},
-  {name:'回传质量',type:'基础必备',cls:'ok',owner:'megan',
-    desc:'数据回传异常 case 跟进、推动客户提升回传质量。',
-    target:'回传质量 case 2 个工作日内跟进 + 反馈结论。',
-    progress:'按节奏跟进中，case 2 个工作日内闭环。',
-    focus:'',
-    docLink:'',docLinkText:'',
-    dataLink:'',dataNote:''},
-  // ========== 组织发展（1） ==========
-  {name:'腰尾部跃迁',type:'组织发展',cls:'ok',owner:'橘子',
+  {name:'腰尾部跃迁',type:'提收重点专项',cls:'ok',owner:'橘子',monitor:true,
     desc:'监控赛道客户分层构成，挖掘潜在跃迁客户，并总结有效的促跃迁动作，通过跃迁专项培训营等形式，提升赛道腰尾向头部跃迁的客户数。',
     target:'与 OKR 对齐：Q2 推动闭环腰部跃迁到头部客户，数量 30个',
     progress:'Q2TD 跃迁客户数 52个（vs 目标 30个，达成 173%）。',
@@ -1000,21 +946,91 @@ const PROJ = [
     docLink:'',docLinkText:'',
     dataLink:'https://jiejin903.github.io/xiyou-dashboard/?v=20260520-fix',
     dataNote:''},
-  // ========== 新机会测试（2） ==========
-  {name:'全店托管',type:'新机会测试',cls:'wrn',owner:'海友',
+  {name:'多品聚合页',type:'提收重点专项',cls:'ok',owner:'嘉润',monitor:true,
+    desc:'多品 4+m 商品聚合页上线与扶持，提升多品消耗。',
+    target:'sheet2 原表此项未填，待补充',
+    progress:'sheet2 原表数据进展暂未填写，待运营补充。',
+    focus:'多品 4+m 上线与扶持',
+    docLink:'https://doc.weixin.qq.com/doc/w3_AN0ARwawACgCNgNOzKDrjR00Ewj0F?scode=AJEAIQdfAAowxTbCVcAN0ARwawACg',
+    docLinkText:'多品聚合页创编流程SOP',
+    dataLink:'',dataNote:'核心目标 / 数据进展待补充'},
+  {name:'CID 专项',type:'链路专项',cls:'ok',owner:'小美',
+    desc:'CID 链路消耗增长',
+    target:'H1 日耗 185w',
+    progress:'双周日耗 233w，环比 -3.01%。',
+    focus:'测试 paa-官方pa链路',
+    docLink:'',docLinkText:'',
+    dataLink:'https://adata.woa.com/bi/view/new/g:biz_main_multiple:log_time?s=3AD3qP',
+    dataNote:''},
+  // ========== 链路专项（2）· 链路负责人推进，对链路负责 ==========
+  {name:'直播专项',type:'链路专项',cls:'ok',owner:'嘉润',
+    desc:'闭环直播链路消耗增长及能力应用',
+    target:'H1 日耗 480w',
+    progress:'截止 6/4 双周，服饰直播日耗 427w，年同比 +28%，服饰直播消耗占比行一直播 20%。',
+    focus:'',
+    docLink:'',docLinkText:'',
+    dataLink:'',dataNote:''},
+  {name:'小店专项',type:'链路专项',cls:'wrn',owner:'俊昊',
+    desc:'闭环小店直购链路消耗增长',
+    target:'H1 日耗 240w',
+    progress:'双周日耗 249w，环比 -12%（绝对值 -12w）。\n分投放端：ADQ 日耗 162w（占比 65%）环比 -11% / 全域通日耗 86w（占比 35%）环比 -14%；ADQ 下跌主要来自跑品客户的休闲裤持续衰退。\n分类目：本周期 ADQ 掉量主要来自男装 -21%。\n① 男装 同比 -21%，男装夏季品（短袖T恤、冰丝裤等）生命周期进入衰退期，头部客户（合肥邦鑫、广州后时代等）主力产品大幅衰减；\n② 男鞋 同比 +26%，夏季凉鞋/洞洞鞋/一脚蹬旺季效应明显，瓯海鸿星、花花公子等品牌新品放量；\n③ 女装 同比 +20%，主曼（+27%）等客户拉动，整体回暖；\n④ 时尚饰品 同比 -19%（绝对值 -1.2w），貔貅手串、胸针衰退。',
+    focus:'1、流量盖帽策略；2、潜客优投能力测试，再营销支路配合种草人群提价竞争。',
+    docLink:'',docLinkText:'',
+    dataLink:'',dataNote:''},
+  // ========== 基础专项（5）· 基石类服务、信息获取 ==========
+  {name:'AIGC',type:'基础专项',cls:'wrn',owner:'ricky',
+    desc:'监控服饰 AIGC 消耗，优化产品能力适配客户实际素材使用需求，推进客户 AI 素材生产 & 消耗提升',
+    target:'消耗达到 80w/d',
+    progress:'sheet2 原表此项填「可以和周报内容一致」，未给出具体双周日耗数字。',
+    focus:'消耗持续持平，辛苦各赛道关注 AIGC 消耗，push 客户打开衍生开关 & 使用妙思平台自主创作 AI 素材投放',
+    docLink:'',docLinkText:'',
+    dataLink:'https://adata.woa.com/bi/view/10140?s=pk750',
+    dataNote:'数据进展具体数值待运营补充'},
+  {name:'数据回传质量',type:'基础专项',cls:'ok',owner:'megan',
+    desc:'数据回传异常 case 跟进、推动客户提升回传质量。',
+    target:'回传质量 case 2 个工作日内跟进 + 反馈结论。',
+    progress:'按节奏跟进中，case 2 个工作日内闭环。',
+    focus:'',
+    docLink:'',docLinkText:'',
+    dataLink:'',dataNote:''},
+  {name:'审核',type:'基础专项',cls:'ok',owner:'ricky',
+    desc:'监控服饰审核问题',
+    target:'sheet2 原表此项未填',
+    progress:'近14日服饰提报审核放宽需求共计 3条，均为品牌类客户的单 case 需求。其中 1条已支持放宽 / 1条等待运营补充信息 / 1条待审核反馈。',
+    focus:'',
+    docLink:'https://doc.weixin.qq.com/sheet/e3_AKcAPgaIAE0CNhZudjzqIRt0yfeGT?scode=AJEAIQdfAAomaUAAPDAKcAPgaIAE0&tab=BB08J2',
+    docLinkText:'服饰审核放宽提报记录',
+    dataLink:'',dataNote:''},
+  {name:'腾飞',type:'基础专项',cls:'ok',owner:'嘉润',
+    desc:'行业腾飞扶持',
+    target:'扶持带来消耗、撬动比',
+    progress:'截止 5/31，Q2TD 累计腾飞花费 243.65万，带来消耗 1266万，扶持撬动比 5.20。',
+    focus:'',
+    docLink:'https://doc.weixin.qq.com/sheet/e3_ABcA0gbtACgCNVhKJLQ15RlCx4B3Y?scode=AJEAIQdfAAop5inPc0ABcA0gbtACg&tab=BB08J2',
+    docLinkText:'服饰腾飞复盘',
+    dataLink:'',dataNote:''},
+  {name:'全店托管',type:'基础专项',cls:'wrn',owner:'海友',
     desc:'提升全店托管消耗',
     target:'全店托管客户数提升至 120家',
     progress:'sheet2 原表此项填「可以和周报内容一致」，未给出当前家数。',
     focus:'关注全店托管中新品起量率和消耗情况',
     docLink:'',docLinkText:'',
-    dataLink:'',dataNote:'当前客户家数待运营补充'},
-  {name:'互选联投·达人素材加热',type:'新机会测试',cls:'urg',owner:'待定',
-    desc:'sheet2 原表此项未填',
-    target:'sheet2 原表此项未填',
-    progress:'sheet2 原表此项填「可以和周报内容一致」。',
-    focus:'',
-    docLink:'',docLinkText:'',
-    dataLink:'',dataNote:'负责人 / 核心目标 / 具体内容待补充'},
+    dataLink:'',    dataNote:'当前客户家数待运营补充'},
+];
+
+/* ========== 数据监控 · 4个提收重点专项 · 整体 + 分赛道 ==========
+   监控范围：4+m / 创意基建 / 腰尾部跃迁 / 多品聚合页
+   整体值取自 sheet2 数据进展原文（截止 6/4 双周）· 分赛道数据待运营补充 */
+const MONITOR_LANES = ['女装','男装','珠宝配饰','运动户外','潮奢跑品','箱包鞋靴','贴身衣物','其他'];
+const MONITOR = [
+  {name:'4+m',owner:'嘉润',metric:'4+m 日耗',total:'61万',sub:'环比 -6% · 投放99家 · 占直播消耗14%',
+    lanes:{},dataLink:''},
+  {name:'创意基建',owner:'俊昊',metric:'日均曝光创意唯一性ID数',total:'177,182',sub:'视频号 +16.9% · 朋友圈9图 +77.9%',
+    lanes:{},dataLink:''},
+  {name:'腰尾部跃迁',owner:'橘子',metric:'Q2TD 跃迁客户数',total:'52个',sub:'目标30 · 达成173%',
+    lanes:{},dataLink:'https://jiejin903.github.io/xiyou-dashboard/?v=20260520-fix'},
+  {name:'多品聚合页',owner:'嘉润',metric:'多品消耗',total:'—',sub:'sheet2 待运营补充',
+    lanes:{},dataLink:''},
 ];
 
 /* ========== 信息通知中心 · 数据来源 · 同步 2026-06-08 ==========
@@ -1109,125 +1125,120 @@ const INFO_FUCHI = [
     links:[{t:'对内方案',u:'https://doc.weixin.qq.com/doc/w3_AH0AYga-ACcCNXGynOh35Tge2buC4?scode=AJEAIQdfAAoxqPkQ52AAoArgYoACg'},{t:'AIM+艾米激励',u:'https://doc.weixin.qq.com/doc/w3_AH0AYga-ACcCN7bHwEvEzRze8jWFi?scode=AJEAIQdfAAo6Nkcs7kAOQALQY-AEk'}]},
 ];
 
-/* 产品能力 · 5 个 sheet 分组 · 共 29 项（严格按 sheet 名命名）· 2026-06-15 同步运营文档新增6条 */
+/* 产品能力 · 4 个 tab 分组(外层广告形态8/投放端产品10/创意AIGC3/模型和人群8) · 共 29 项 · 2026-06-15 与运营《产品能力汇总》文档完全对齐 */
 const INFO_CAPA = [
-  // ===== 产品形态（11）=====
-  {group:'产品形态',name:'潜客优投能力上线',pin:true,isNew:true,
+  {group:'投放端产品',name:'潜客优投能力上线',pin:true,isNew:true,
     desc:'智能触达高潜力用户。',
     range:'AIM+ 智能投放 & 竞价投放的小店客户；白名单制，需前置加白',
     links:[{t:'白名单申请',u:'https://doc.weixin.qq.com/sheet/e3_ARoAPgaoANUCNxLovmKxkQwyjsEGZ?scode=AJEAIQdfAAol7Md060AeEAsQb6APs&tab=7ng1a9'},{t:'能力说明（对内）',u:'https://doc.weixin.qq.com/doc/w3_ARoAPgaoANUCNDF1i7Ki0QrOLiaoU?scode=AJEAIQdfAAoqbhFWWVAeEAsQb6APs'},{t:'能力说明（对外）',u:'https://doc.weixin.qq.com/doc/w3_ARoAPgaoANUCNtB1LB501QBW0Ij24?scode=AJEAIQdfAAoL3W56a8AAoArgYoACg'},{t:'看数链接',u:'https://adata.woa.com/bi/view/new/g:biz_main_multiple:log_time?s=9wuAp'}]},
-  {group:'产品形态',name:'朋友圈竞价轮播三图 / 三视频形态（白名单测试）',
+  {group:'外层广告形态',name:'朋友圈竞价轮播三图 / 三视频形态（白名单测试）',
     desc:'朋友圈竞价新增"轮播三图、轮播三视频"创意形态，支持自然停留与手动轮播，提升创意沉浸感与互动效果。',
     range:'ADQ + AIM 智投 / 竞价 + 含朋友圈版位',
     links:[{t:'对客投放指引',u:'https://docs.qq.com/doc/DUFhjYXFNV2dvVXBw'},{t:'白名单提报',u:'https://doc.weixin.qq.com/sheet/e3_Ae8AGwbgAKwCNHfmtu450RXiqgBB0'}]},
-  {group:'产品形态',name:'小店聚合页广告（春日焕新）',
+  {group:'外层广告形态',name:'小店聚合页广告（春日焕新）',
     desc:'单次曝光聚合多商品：朋友圈外层 9 图展示 9 个商品，点击进入聚合页商品卡清单，再跳商详。',
     range:'小店链路 + 朋友圈 + 图片创意，好店标签且品牌自营/授权店，类目=服饰鞋包/运动户外的春日焕新子类',
     links:[{t:'屏蔽名单',u:'https://doc.weixin.qq.com/sheet/e3_AOQALQY-AEkCNLFLSkrOOQmShPWV5?scode=AJEAIQdfAAoOfsQ3D9AOQALQY-AEk&tab=BB08J2'},{t:'方案介绍（仅内）',u:'https://doc.weixin.qq.com/doc/w3_ALwAjAaFABECN4CzSK9tRS3Orllgl?scode=AJEAIQdfAAoP2G35CJAOQALQY-AEk'}]},
-  {group:'产品形态',name:'视频号图文：支持多预算投放',
+  {group:'外层广告形态',name:'视频号图文：支持多预算投放',
     desc:'支持多图组合（3图/4图/6图/9图）+ 背景音乐，强化沉浸感，优化转化效果。',
     range:'支持预算类型：小店 / 小游戏 / 线索 / 应用下载 / 直播 / 视频号动态推广 等',
     links:[{t:'对外投放指引',u:'https://doc.weixin.qq.com/doc/w3_ACYACgZ4ACcCNxQ0FR5FQRnmNITlW?scode=AJEAIQdfAAomct4SHtACYACgZ4ACc'}]},
-  {group:'产品形态',name:'组件形态增加 618 氛围',
+  {group:'外层广告形态',name:'组件形态增加 618 氛围',
     desc:'不涉及主视觉变动，仅在大促满减活动商品广告上增加 618 氛围组件。',
     range:'直购广告：5.28 上线 / 直播广告：6.2 上线；敏感客户屏蔽提报 5.27 下班前截止',
     links:[{t:'屏蔽客户提报',u:'https://doc.weixin.qq.com/sheet/e3_AcgApAY1AC8CNBWRINTz7Qwm8YW6c?scode=AJEAIQdfAAomzg6Kl1AcgApAY1AC8&tab=BB08J2'}]},
-  {group:'产品形态',name:'创意主视觉增加 618 氛围',
+  {group:'外层广告形态',name:'创意主视觉增加 618 氛围',
     desc:'在广告主视觉基础上自动 / 手动增加 618 氛围。',
     range:'支持 9 图、竖转横、方转横（竖版视频不支持）；3.0+ 智投 MAX 通路自动衍生，不提供屏蔽',
     links:[{t:'618 形态&创意能力介绍',u:'https://doc.weixin.qq.com/doc/w3_ADEA4AaOACcCNcfjbGdUmSAeZyf4K?scode=AJEAIQdfAAoD1PAxWYAcgApAY1AC8'}]},
-  {group:'产品形态',name:'小程序激励版位蒙层',
+  {group:'外层广告形态',name:'小程序激励版位蒙层',
     desc:'进播前增加缓冲页，提升进播人群质量，减少恶意评价。',
     range:'加白生效',links:[]},
-  {group:'产品形态',name:'聚合页表达商品组合',
+  {group:'外层广告形态',name:'聚合页表达商品组合',
     desc:'闭环链路下，官方落地页支持小店商品聚合表达，实现商品聚合页呈现。',
     range:'预计 6.4 上线（区分直播 / 直购）',
     links:[{t:'方案文档',u:'https://doc.weixin.qq.com/doc/w3_AN0ARwawACgCN0VtO7SoLSNeOZQ1g'}]},
-  {group:'产品形态',name:'全库智选扩素材供给',
+  {group:'投放端产品',name:'全库智选扩素材供给',
     desc:'引用客户优质历史组件自动创编，高效补充创意。',
     range:'拓展可拉取范围 5.22 快捷授权上线；全库创意汰换迭代 5.20 实验已推全',
     links:[]},
-  {group:'产品形态',name:'相似创意指纹口径优化',
+  {group:'投放端产品',name:'相似创意指纹口径优化',
     desc:'视频相似指纹口径优化：消费品单客单品 / 白达客户特性下，重点识别脚本框架差异，推动视频指纹增加脚本差异化识别。',
     range:'预计 5.29 上线',
     links:[]},
-  {group:'产品形态',name:'直购链路-广告形态组件外显最低优惠券面额（问题排查）',
+  {group:'外层广告形态',name:'直购链路-广告形态组件外显最低优惠券面额（问题排查）',
     desc:'平台优惠接口仅披露可用券列表，无最高满减面额识别逻辑，导致仅能外显最低券面额（如满 80 减 10）。短期：技术 618 前难支持；长期：推动接口透传最优券面额。',
     range:'直购场景（高客单价点击吸引力受影响）；直播场景本身不外显满减金额，预估不受影响',
     links:[]},
-  // ===== 智投（5）=====
-  {group:'智投',name:'腾讯如翼小店版',isNew:true,
+  {group:'投放端产品',name:'腾讯如翼小店版',isNew:true,
     desc:'618 大盘人群画像 + 跨店流转分析：查看大促人群特征甄别人群差异，分析本店与竞品在种草/转化的攻防得失。数据每日更新，支持客户即时调整投放、避免被 benchmark 分流。',
     range:'新模块数据回溯至 6.1，预计下周回溯至 4.1',
     links:[{t:'产品手册',u:'https://doc.weixin.qq.com/doc/w3_AeIAlQayAOoCNiii91L1GSXigGBy1?scode=AJEAIQdfAAoXLzC911AeIAlQayAOo'},{t:'开白/反馈',u:'https://doc.weixin.qq.com/smartsheet/s3_AdgAdQbgACkCNPqqqWO5TSI2V0VtJ?scode=AJEAIQdfAAoWpcCTGqAdgAdQbgACk%3FnewPad%3D1&newPadType=clone&tab=tvaoKU&viewId=v5UTqS'}]},
-  {group:'智投',name:'多品 4+m（商品聚合页）',isNew:true,
+  {group:'投放端产品',name:'多品 4+m（商品聚合页）',isNew:true,
     desc:'支持在闭环链路（一期直播、二期小店）使用新推广产品【商品聚合页】进行多品表达，更好承接营销活动期投放，实现聚合商品呈现。',
     range:'有配套扶持：直播 4+m 商品聚合页能力扶持方案',
     links:[{t:'创编流程 SOP',u:'https://doc.weixin.qq.com/doc/w3_AN0ARwawACgCNgNOzKDrjR00Ewj0F?scode=AJEAIQdfAAoeNJnmbsABcA0gbtACg'},{t:'测试白名单',u:'https://doc.weixin.qq.com/sheet/e3_AN0ARwawACgCNzHrDcRr3SJy3upbe?scode=AJEAIQdfAAoAsYP0j0ABcA0gbtACg&tab=BB08J2'},{t:'扶持方案',u:'https://doc.weixin.qq.com/sheet/e3_AZ0AAQbUAOMCNzKAi651lQbadXwwq?tab=BB08J2'}]},
-  {group:'智投',name:'智投「直播快推」批量操作功能全量',
+  {group:'投放端产品',name:'智投「直播快推」批量操作功能全量',
     desc:'智投"直播快推"的批量操作能力已正式全量，提升广告批处理效率。',
     range:'',
     links:[{t:'对外能力指南',u:'https://doc.weixin.qq.com/doc/w3_AKIApgbdAFwCNF4Igxc9lT9e1L6yr?scode=AJEAIQdfAAoc00TOlQAN0ARwawACg'}]},
-  {group:'智投',name:'智投功能一览',
+  {group:'投放端产品',name:'智投功能一览',
     desc:'短直双开、小店单链路、全店托管等详细介绍。',
     range:'',
     links:[{t:'对客功能指南',u:'https://doc.weixin.qq.com/doc/w3_AN0ARwawACgCNrMSgvto1QbaRTUCL?scode=AJEAIQdfAAo7HH04CiAN0ARwawACg&isEnterEdit=1'}]},
-  {group:'智投',name:'智投非闭环链路冲量宝',
+  {group:'投放端产品',name:'智投非闭环链路冲量宝',
     desc:'智投非闭环链路的一键起量。',
     range:'',
     links:[{t:'内版功能指南',u:'https://doc.weixin.qq.com/doc/w3_AN0ARwawACgCN9AP8jO7TSdeg9uk0?scode=AJEAIQdfAAoynHsB2kAN0ARwawACg'},{t:'对外冲量宝介绍',u:'https://doc.weixin.qq.com/doc/w3_AasArQY_ADoCNZRbiElh9Qw00a688?scode=AJEAIQdfAAoL8EMvyOAN0ARwawACg'}]},
-  // ===== 小店（4）=====
-  {group:'小店',name:'再营销-潜客优投（白名单测试）',
-    desc:'再营销出价表达，支持对再营销人群单独提价。',
-    range:'预计 5/26 上线',
-    links:[{t:'白名单申请',u:'https://doc.weixin.qq.com/sheet/e3_ARoAPgaoANUCNxLovmKxkQwyjsEGZ?scode=AJEAIQdfAAoWwtyjkPAeEAsQb6APs&tab=BB08J2'},{t:'能力说明（对内）',u:'https://doc.weixin.qq.com/doc/w3_ARoAPgaoANUCNDF1i7Ki0QrOLiaoU?scode=AJEAIQdfAAoIvtvE6yAeEAsQb6APs'}]},
-  {group:'小店',name:'小店联盟「双佣金」（白名单测试）',
+  {group:'投放端产品',name:'小店联盟「双佣金」（白名单测试）',
     desc:'联盟"双佣金"投放表达，帮助商家与达人做投流撮合。',
     range:'预计本月上线；测试客户要求：历史用过原生广告或对双佣金有需求；可与产品组建群预沟通',
     links:[]},
-  {group:'小店',name:'速推权限开通（618 大促）',
+  {group:'投放端产品',name:'速推权限开通（618 大促）',
     desc:'统一收集 618 大促期间需开通"速推"权限的客户名单。',
     range:'',
     links:[{t:'权限申请表',u:'https://doc.weixin.qq.com/sheet/e3_AVgAVQb0AAwCNCp0WqSaeT4maS295?scode=AJEAIQdfAAo307ClgzAMQA1QYhACo&tab=BB08J2'},{t:'速推经验分享',u:'https://doc.weixin.qq.com/doc/w3_AYAANAYEAMECNfuCQVcStQOikLGzh?scode=AJEAIQdfAAoqHzVcSWAKsAyAaCACc'}]},
-  {group:'小店',name:'520 节日商品策略加码',
+  {group:'模型和人群',name:'520 节日商品策略加码',
     desc:'为 520 相关商品提供更多模型支持：509 个走"场景推荐"支路探索潜在人群；707 个非支路品需补节日元素以进入支路扶持。',
     range:'',
     links:[{t:'520 商品策略（对外）',u:'https://doc.weixin.qq.com/doc/w3_AeAAeQZMAIACNGELVjjF1TgC6f8sq?scode=AJEAIQdfAAoYlxNWnyAeAAeQZMAIA'},{t:'2.0 场景支路测试',u:'https://doc.weixin.qq.com/sheet/e3_AeEAsQb6APsCNnu28Z5BoTIyg2zlh?scode=AJEAIQdfAAouu3hvKgAeEAsQb6APs&tab=BB08J2'},{t:'商品力推进表',u:'https://doc.weixin.qq.com/sheet/e3_AeEAsQb6APsCNDyfgzV8ISI2sWdVE?scode=AJEAIQdfAAon8Ixv0oAeEAsQb6APs&tab=BB08J2'}]},
-  // ===== AIGC（3）=====
-  {group:'AIGC',name:'妙思 AI 2.0 上线',isNew:true,
+  {group:'创意AIGC',name:'妙思 AI 2.0 上线',isNew:true,
     desc:'① 灵感广场：一键跟拍复刻爆款素材（找灵感→做同款→下载/直接投）；② 视频生成 2.0 接入 seedance 2.0，效果大幅提升——商品图生视频、首尾帧生成（镜头衔接/剧情/长视频拼接）。',
     range:'',
     links:[{t:'妙思产品手册 Y26',u:'https://doc.weixin.qq.com/doc/w3_APcA6QbrACkxvXp1n11TqyLuZm6Jr?scode=AJEAIQdfAAogdvPRS9AKcAPgaIAE0'}]},
-  {group:'AIGC',name:'3.0 MAX 多品直播间-衍生 9 图屏蔽名单 review',
+  {group:'创意AIGC',name:'3.0 MAX 多品直播间-衍生 9 图屏蔽名单 review',
     desc:'多品直播间因品多变化易出 badcase，按 adata【直播间TOP1商品分位线 < 80】对涉及主体做衍生 9 图屏蔽。',
     range:'有退出和新增可沟通',
     links:[{t:'屏蔽名单',u:'https://doc.weixin.qq.com/sheet/e3_AcgApAY1AC8CNHuhrt2A0T00os2f6?scode=AJEAIQdfAAoM91Rr1PAcgApAY1AC8&tab=BB08J2'},{t:'衍生开关黑名单',u:'https://doc.weixin.qq.com/sheet/e3_AcgApAY1AC8CNMGuMGZ8XQl2aQCKp?scode=AJEAIQdfAAoXShAJKeAcgApAY1AC8&tab=BB08J2'}]},
-  {group:'AIGC',name:'3.0 MAX 衍生开关批量开启',
+  {group:'创意AIGC',name:'3.0 MAX 衍生开关批量开启',
     desc:'投放端支持批量选中广告，一键打开衍生开关——助力客户高效堆创意唯一性 ID。',
     range:'',
     links:[]},
-  // ===== 人群tag（6）=====
-  {group:'人群tag',name:'618 大促人群上新',isNew:true,
+  {group:'模型和人群',name:'618 大促人群上新',isNew:true,
     desc:'分行业历史大促人群、商业概念节点内容兴趣人群（618 / 端午 / 父亲节）。大促期需拿量冲 GMV、能接受成本波动且有人货场升级的品牌客户，建议应用做分人群出价配置。',
     range:'',
     links:[{t:'节点人群支持-618、520',u:'https://doc.weixin.qq.com/sheet/e3_AeAAeQZMAIACNsp7PMbOPT5mvU0fn?scode=AJEAIQdfAAoz5sT8jJAeAAeQZMAIA&tab=6e9pmw'}]},
-  {group:'人群tag',name:'618 和父亲节兴趣人群',isNew:true,
+  {group:'模型和人群',name:'618 和父亲节兴趣人群',isNew:true,
     desc:'节点兴趣人群（二方人群），供运营提取使用。',
     range:'',
     links:[{t:'节点人群支持-618、520',u:'https://doc.weixin.qq.com/sheet/e3_AeAAeQZMAIACNsp7PMbOPT5mvU0fn?scode=AJEAIQdfAAoz5sT8jJAeAAeQZMAIA&tab=6e9pmw'}]},
-  {group:'人群tag',name:'520 优质人群复用',
+  {group:'模型和人群',name:'520 优质人群复用',
     desc:'之前 520 营销中计价率达标且转化表现好的 5 个人群可复用：防晒场景需求、情侣礼赠内容兴趣、眉眼妆兴趣、悦己消费内容兴趣、护肤美容需求。',
     range:'',
     links:[{t:'520 节点人群支持',u:'https://doc.weixin.qq.com/sheet/e3_AeAAeQZMAIACNsp7PMbOPT5mvU0fn?scode=AJEAIQdfAAoyauiLGGAeAAeQZMAIA&tab=BB08J2'}]},
-  {group:'人群tag',name:'种草 agent 上线',
+  {group:'模型和人群',name:'520 行业兴趣人群测试',
+    desc:'520 上线的行业兴趣人群（来源商业概念挖掘，不受礼赠心智影响），可用于分人群出价配置测试。',
+    range:'',
+    links:[]},
+  {group:'模型和人群',name:'种草 agent 上线',
     desc:'支持"直播间 / 商品类目 / 名人兴趣"三大种草人群 leveltag 的自助查询与挖掘。',
     range:'',
     links:[{t:'产品入口',u:'https://ecom-ads.woa.com/conversation'},{t:'使用指南（对内）',u:'https://doc.weixin.qq.com/doc/w3_AKIApgbdAFwCNI19zuW1TTXu42Ikn?scode=AJEAIQdfAAovw8P0UKAMQA1QYhACo'},{t:'问题反馈',u:'https://doc.weixin.qq.com/sheet/e3_AKIApgbdAFw1EHZoNCJRgCs1zi45G?scode=AJEAIQdfAAoS0OIzGX'}]},
-  {group:'人群tag',name:'京东 CID · 一方人群助攻测试',
+  {group:'模型和人群',name:'京东 CID · 一方人群助攻测试',
     desc:'京东提供一方转化人群扩量回传至腾讯，加强模型学习能力，提升投放 ROI 和消耗规模（大健康曝光归因客户消耗 +12%~20%）。',
     range:'加白条件：使用京东 CIDPro 监测链接 + 提报账户加白 + 客户开「一方数据跑量加强」',
     links:[{t:'监控链接',u:'https://adata.woa.com/bi/view/new/g:biz_main_multiple:log_time?s=zLnc7'},{t:'白名单',u:'https://doc.weixin.qq.com/sheet/e3_AMQA1QYhACoCNBuKGN03TQz0sNvMB?scode=AJEAIQdfAAoBupp15gAMQA1QYhACo&tab=BB08J2'}]},
-  {group:'人群tag',name:'520 礼赠 / 行业热点兴趣 leveltag 上线',
+  {group:'模型和人群',name:'520 礼赠 / 行业热点兴趣 leveltag 上线',
     desc:'「520 礼赠人群」「行业热点兴趣人群」leveltag 已上线，可用于分人群出价配置。',
     range:'',
     links:[{t:'520 节点人群支持',u:'https://doc.weixin.qq.com/sheet/e3_AeAAeQZMAIACNsp7PMbOPT5mvU0fn?scode=AJEAIQdfAAoyauiLGGAeAAeQZMAIA&tab=BB08J2'}]},
@@ -1618,7 +1629,9 @@ function checkLogin(){
   // 未登录 → 显示登录页
   document.getElementById('loginMask').classList.remove('hide');
 }
-const TODAY = new Date('2026-06-08');
+// 用系统当前日期，确保扶持/产品能力的"进行中/已结束/已失效"状态自动跟随今天判断
+const TODAY = new Date();
+TODAY.setHours(0,0,0,0); // 归零到当天0点，避免时分秒导致的边界误判
 
 function getExpireStatus(expire){
   if (expire === '长期有效') return {cls:'long',text:'⏳ 长期有效'};
@@ -1640,7 +1653,7 @@ function renderLanes(){
     </div>`).join('');
 }
 
-let currentProjType = '提消耗';
+let currentProjType = '提收重点专项';
 
 function switchProjType(t){
   currentProjType = t;
@@ -1650,11 +1663,12 @@ function switchProjType(t){
 function renderProj(){
   const grid = document.getElementById('projGrid');
   const tabsBox = document.getElementById('projTabs');
-  // 按业务类型分组（提消耗 / 基础必备 / 组织发展 / 新机会测试）
-  const TYPE_ORDER = ['提消耗','基础必备','组织发展','新机会测试'];
-  const TYPE_COLOR = {'提消耗':'#f5222d','基础必备':'#1677ff','组织发展':'#722ed1','新机会测试':'#13c2c2'};
-  const TYPE_BG    = {'提消耗':'#fff1f0','基础必备':'#e6f4ff','组织发展':'#f9f0ff','新机会测试':'#e6fffb'};
-  const TYPE_ICON  = {'提消耗':'🔥','基础必备':'📌','组织发展':'🚀','新机会测试':'🧪'};
+  // 按业务类型分组（提收重点专项 / 链路专项 / 基础专项）— 对齐 sheet2 新口径
+  const TYPE_ORDER = ['提收重点专项','链路专项','基础专项'];
+  const TYPE_COLOR = {'提收重点专项':'#f5222d','链路专项':'#1677ff','基础专项':'#722ed1'};
+  const TYPE_BG    = {'提收重点专项':'#fff1f0','链路专项':'#e6f4ff','基础专项':'#f9f0ff'};
+  const TYPE_ICON  = {'提收重点专项':'🔥','链路专项':'🔗','基础专项':'📌'};
+  const TYPE_DESC  = {'提收重点专项':'运营负责人都推，需监控数据，对赛道负责','链路专项':'链路负责人推进，对链路负责','基础专项':'基石类服务、信息获取'};
   const escNL = s => (s||'').replace(/\n/g,'<br>');
 
   // ====== 渲染按钮 ======
@@ -1711,6 +1725,34 @@ function renderProj(){
   grid.innerHTML = html;
 }
 
+/* ====== 数据监控 · 提收重点专项 整体+分赛道 渲染 ====== */
+function renderMonitor(){
+  const box = document.getElementById('monitorGrid');
+  if(!box) return;
+  const COLORS = ['#f5222d','#1677ff','#722ed1','#13c2c2'];
+  box.innerHTML = MONITOR.map((m,i)=>{
+    const c = COLORS[i % COLORS.length];
+    const lanes = MONITOR_LANES.map(ln=>{
+      const v = m.lanes[ln];
+      return `<div style="flex:1;min-width:84px;padding:8px 6px;background:#fafbfc;border-radius:6px;text-align:center">
+        <div style="font-size:11px;color:#8a9aae;margin-bottom:3px">${ln}</div>
+        <div style="font-size:13px;font-weight:600;color:${v?'#1a2332':'#c0c8d4'}">${v||'待补充'}</div>
+      </div>`;
+    }).join('');
+    const link = m.dataLink ? ` · <a href="${m.dataLink}" target="_blank" rel="noopener" style="color:${c};text-decoration:none;border-bottom:1px dashed ${c}66">📊 监控看板</a>` : '';
+    return `<div style="margin-bottom:14px;padding:14px 16px;background:#fff;border:1px solid #eef1f5;border-left:4px solid ${c};border-radius:8px">
+      <div style="display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:10px">
+        <span style="font-size:15px;font-weight:700;color:#1a2332">${m.name}</span>
+        <span style="padding:2px 8px;background:${c}11;color:${c};border-radius:10px;font-size:11px">👤 ${m.owner}</span>
+        <span style="margin-left:auto;font-size:12px;color:#8a9aae">${m.metric}</span>
+        <span style="font-size:20px;font-weight:800;color:${c}">${m.total}</span>
+      </div>
+      <div style="font-size:12px;color:#5a6b7e;margin-bottom:10px">${m.sub}${link}</div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px">${lanes}</div>
+    </div>`;
+  }).join('');
+}
+
 /* ====== 信息通知中心 · 渲染逻辑 ====== */
 function getFuchiStatus(item){
   // 状态：进行中 / 即将开始 / 已结束 / 长期有效
@@ -1727,7 +1769,7 @@ function getFuchiStatus(item){
 }
 
 const CAT_COLOR_MAP = {
-  '产品形态':'bl','智投':'pp','小店':'or','AIGC':'cy','人群tag':'gn',
+  '外层广告形态':'bl','投放端产品':'pp','创意AIGC':'cy','模型和人群':'gn',
   '流量扶持':'or','产品扶持':'pp'
 };
 
@@ -1850,8 +1892,8 @@ function filterCapa(g){
 function renderCapa(){
   const list = document.getElementById('capaList');
   const sumEl = document.getElementById('capa-sum');
-  const groups = ['产品形态','智投','小店','AIGC','人群tag'];
-  const groupColor = {'产品形态':'#1677ff','智投':'#722ed1','小店':'#fa8c16','AIGC':'#13c2c2','人群tag':'#52c41a'};
+  const groups = ['外层广告形态','投放端产品','创意AIGC','模型和人群'];
+  const groupColor = {'外层广告形态':'#1677ff','投放端产品':'#722ed1','创意AIGC':'#13c2c2','模型和人群':'#52c41a'};
   const groupCntMap = {};
   INFO_CAPA.forEach(i => groupCntMap[i.group] = (groupCntMap[i.group]||0)+1);
 
@@ -1999,9 +2041,9 @@ function renderTrend(){
   const wrap = document.getElementById('trendChart');
   if (!wrap || wrap.dataset.rendered) return;
   wrap.dataset.rendered = '1';
-  // 6/1-6/14 真实日均消耗（万元，按日期升序，源：601-614by天数据.csv 整体行）
-  const data = [1233,1255,1237,1274,1290,1399,1284,1163,1143,1156,1242,1305,1296,1384];
-  const dates = ['6/1','6/2','6/3','6/4','6/5','6/6','6/7','6/8','6/9','6/10','6/11','6/12','6/13','6/14'];
+  // 6/7-6/20 真实日均消耗（万元，按日期升序，源：607-620.csv 整体行）
+  const data = [1286,1165,1145,1158,1245,1307,1300,1389,1169,1170,1168,1161,1231,1196];
+  const dates = ['6/7','6/8','6/9','6/10','6/11','6/12','6/13','6/14','6/15','6/16','6/17','6/18','6/19','6/20'];
   const target = 1000;
   const max = 1500;
   const yAxis = `<div class="trend-y"><span>${max}</span><span>${Math.round(max*0.75)}</span><span>${Math.round(max*0.5)}</span><span>${Math.round(max*0.25)}</span><span>0</span></div>`;
@@ -2023,6 +2065,7 @@ function renderTrend(){
 checkLogin();
 renderLanes();
 renderProj();
+renderMonitor();
 renderFuchi();
 renderCapa();
 renderTrend();
