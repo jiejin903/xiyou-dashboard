@@ -1932,9 +1932,9 @@ function renderMonitor(){
         return `<div style="display:grid;grid-template-columns:0.9fr 0.6fr 1.2fr 0.7fr 2.4fr;padding:6px 10px;font-size:12px;border-bottom:1px solid #f7f9fc;align-items:center;background:${rowBg}">
           <div style="font-weight:600;color:#1a2332">${ind.name}</div>
           <div style="text-align:right;color:#1a2332;font-weight:600">${ind.cost.toFixed(1)}万</div>
-          <div style="text-align:right">${deltaTxt(ind.cost, undefined, '万')}</div>
+          <div style="text-align:right"><span style="color:#c0c8d4;font-weight:500">—</span></div>
           <div style="text-align:right;color:#5a6b7e">${ind.cust}家</div>
-          <div style="padding-left:12px;border-left:1px solid #eef1f5;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${topHtml||'<span style=\"color:#c0c8d4\">—</span>'}</div>
+          <div style="padding-left:12px;border-left:1px solid #eef1f5;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${topHtml||'<span style="color:#c0c8d4">—</span>'}</div>
         </div>`;
       }).join('');
       return `<div style="margin-bottom:14px;padding:14px 16px;background:#fff;border:1px solid #eef1f5;border-left:4px solid ${c};border-radius:8px">
