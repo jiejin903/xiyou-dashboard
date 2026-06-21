@@ -1812,10 +1812,11 @@ function renderMonitor(){
       const d = FOURM_DATA;
       const cv = d.cover;
       const coverRate = (cv.covered_count / cv.total * 100);
-      const indRows = d.industries.map(ind => {
+      const indRows = d.industries.map((ind, ri) => {
         const tops = d.top3[ind.name] || [];
         const topHtml = tops.map(t => `<span style="font-size:11px;color:#5a6b7e;white-space:nowrap"><strong style="color:#1a2332">${t.name.length>8?t.name.slice(0,8)+'…':t.name}</strong> ${costTxt(t.cost)}/${pctTxt(t.pct)}</span>`).join(' · ');
-        return `<div style="display:grid;grid-template-columns:0.9fr 0.6fr 1.2fr 0.7fr 1fr 2.4fr;padding:6px 10px;font-size:12px;border-bottom:1px solid #f7f9fc;align-items:center">
+        const rowBg = ri % 2 === 1 ? '#fafbfc' : '#fff';
+        return `<div style="display:grid;grid-template-columns:0.9fr 0.6fr 1.2fr 0.7fr 1fr 2.4fr;padding:6px 10px;font-size:12px;border-bottom:1px solid #f7f9fc;align-items:center;background:${rowBg}">
           <div style="font-weight:600;color:#1a2332">${ind.name}</div>
           <div style="text-align:right;color:#1a2332;font-weight:600">${ind.cost.toFixed(1)}万</div>
           <div style="text-align:right">${deltaTxt(ind.cost, ind.cost_pct)}</div>
