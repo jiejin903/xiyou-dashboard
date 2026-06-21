@@ -1024,11 +1024,11 @@ const MONITOR = [
   {name:'4+m',owner:'嘉润',metric:'4+m 日耗',total:'61万',sub:'环比 -6% · 投放99家 · 占直播消耗14%',
     lanes:{},dataLink:'https://adata.woa.com/bi/view/16063?s=1luiz0'},
   {name:'创意基建',owner:'俊昊',metric:'日均曝光创意唯一性ID数',total:'177,182',sub:'视频号 +16.9% · 朋友圈9图 +77.9%',
-    lanes:{},dataLink:''},
+    lanes:{},dataLink:'https://adata.woa.com/bi/view/new/g:biz_main_multiple:log_time?s=3Hcg6L'},
   {name:'腰尾部跃迁',owner:'橘子',metric:'Q2TD 跃迁客户数',total:'52个',sub:'目标30 · 达成173%',
     lanes:{},dataLink:'https://jiejin903.github.io/xiyou-dashboard/?v=20260520-fix'},
   {name:'多品聚合页',owner:'嘉润',metric:'多品消耗',total:'—',sub:'sheet2 待运营补充',
-    lanes:{},dataLink:''},
+    lanes:{},dataLink:'https://adata.woa.com/bi/view/16063?s=3g7lx7'},
 ];
 
 /* ========== 信息通知中心 · 数据来源 · 同步 2026-06-08 ==========
@@ -1767,6 +1767,8 @@ function copyUncovList(list, indName){
   }).catch(() => alert('复制失败：'+text));
 }
 
+const MIGRATION_DATA = {"short":{"label":"短周期","period_label":"短周期 · 近一周 (6.11-6.17) vs 上一周 (6.4-6.10)","up_count":15,"up_mid2head":15,"up_tail2head":0,"total_delta_spend":197107.0,"top3":[{"name":"阿迪达斯","ind":"服饰奢品","base":4390.6,"obs":115233.44,"delta":110842.84,"lift_pct":2524.5,"from_tier":"腰部"},{"name":"湛江市云云启电子商务有限公司","ind":"珠宝配饰","base":3424.97,"obs":22020.55,"delta":18595.579999999998,"lift_pct":542.9,"from_tier":"腰部"},{"name":"苍南县明依电子商务商行","ind":"箱包鞋靴","base":1367.32,"obs":15497.9,"delta":14130.58,"lift_pct":1033.5,"from_tier":"腰部"}]},"long":{"label":"长周期","period_label":"长周期 · Q2 QTD (4.1-6.17) vs Q1 (1.1-3.31)","up_count":48,"up_mid2head":40,"up_tail2head":8,"total_delta_spend":600731.0,"top3":[{"name":"草本初色总部","ind":"贴身衣物","base":4615.14,"obs":46687.01,"delta":42071.87,"lift_pct":911.6,"from_tier":"腰部"},{"name":"广东很久文化传播有限公司","ind":"珠宝配饰","base":220.15,"obs":31116.54,"delta":30896.39,"lift_pct":14034.2,"from_tier":"尾部"},{"name":"贴牌王怀","ind":"男装","base":6787.05,"obs":36564.22,"delta":29777.170000000002,"lift_pct":438.7,"from_tier":"腰部"}]}};
+
 /* ====== 数据监控 · 提收重点专项 整体+分赛道 渲染 ====== */
 function renderMonitor(){
   const box = document.getElementById('monitorGrid');
@@ -1953,6 +1955,47 @@ function renderMonitor(){
             <div>二级行业</div><div style="text-align:right">日耗</div><div style="text-align:right">消耗环比</div><div style="text-align:right">客户</div><div style="padding-left:12px">TOP3 客户(日耗/环比)</div>
           </div>
           ${indRows}
+        </div>
+      </div>`;
+    }
+    // === 腰尾部跃迁 卡：双周期数据(短/长周期)，每周期: 跃迁数+消耗增长+TOP3客户 ===
+    if (m.name === '腰尾部跃迁') {
+      const d = MIGRATION_DATA;
+      const dashLink = m.dataLink ? `<a href="${m.dataLink}" target="_blank" rel="noopener" title="${m.dataLink}" style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;background:#e6f4ff;color:#1677ff;border:1px solid #91caff;border-radius:10px;font-size:11px;text-decoration:none;font-weight:600">📊 跃迁监控看板</a>` : '';
+      const buildBlock = (p, accent) => {
+        const tops = p.top3.map(t => 
+          `<div style="display:flex;align-items:center;gap:6px;padding:5px 8px;background:#fff;border-radius:5px;font-size:11px;border-left:2px solid ${accent}">
+            <span style="color:${accent};font-weight:700;font-size:10px">${p.top3.indexOf(t)+1}</span>
+            <span style="font-weight:600;color:#1a2332;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${t.name}">${t.name.length>9?t.name.slice(0,9)+'…':t.name}</span>
+            <span style="color:#8a9aae;font-size:10px;white-space:nowrap">${t.ind}</span>
+            <span style="font-weight:700;color:#52c41a;white-space:nowrap">+${(t.delta/10000).toFixed(2)}万</span>
+          </div>`
+        ).join('');
+        const periodShort = p.period_label.replace(/^[短长]周期 · /, '');
+        return `<div style="flex:1;padding:10px 12px;background:#fafbfc;border-radius:6px;border-top:3px solid ${accent}">
+          <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:6px">
+            <span style="font-size:12px;font-weight:700;color:${accent}">${p.label}</span>
+            <span style="font-size:10px;color:#8a9aae">${periodShort}</span>
+          </div>
+          <div style="display:flex;gap:14px;margin-bottom:8px;font-size:12px">
+            <div><span style="color:#8a9aae">跃迁客户 </span><strong style="color:#1a2332;font-size:15px">${p.up_count}</strong><span style="font-size:10px;color:#8a9aae">家</span></div>
+            <div><span style="color:#8a9aae">带动消耗 </span><strong style="color:#52c41a;font-size:15px">+${(p.total_delta_spend/10000).toFixed(1)}</strong><span style="font-size:10px;color:#52c41a">万</span></div>
+          </div>
+          <div style="font-size:10px;color:#8a9aae;margin-bottom:4px">TOP3 跃迁后消耗增幅最大客户</div>
+          <div style="display:flex;flex-direction:column;gap:4px">${tops}</div>
+        </div>`;
+      };
+      return `<div style="margin-bottom:14px;padding:14px 16px;background:#fff;border:1px solid #eef1f5;border-left:4px solid ${c};border-radius:8px">
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:10px">
+          <span style="font-size:18px;font-weight:700;color:#1a2332;letter-spacing:0.5px;line-height:1">${m.name}</span>
+          <span style="font-size:14px;color:#8a9aae;font-weight:500;line-height:1">Q2 跃迁客户</span>
+          <span style="font-size:24px;font-weight:800;color:${c};line-height:1">${d.long.up_count}<span style="font-size:14px">家</span></span>
+          <span style="font-size:11px;color:#8a9aae">目标 30 · 达成 <strong style="color:${c}">${Math.round(d.long.up_count/30*100)}%</strong></span>
+          ${dashLink}
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          ${buildBlock(d.short, '#1677ff')}
+          ${buildBlock(d.long, '#722ed1')}
         </div>
       </div>`;
     }
