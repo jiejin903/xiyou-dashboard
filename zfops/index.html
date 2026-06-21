@@ -1022,7 +1022,7 @@ const PROJ = [
 const MONITOR_LANES = ['女装','男装','珠宝配饰','运动户外','潮奢跑品','箱包鞋靴','贴身衣物','其他'];
 const MONITOR = [
   {name:'4+m',owner:'嘉润',metric:'4+m 日耗',total:'61万',sub:'环比 -6% · 投放99家 · 占直播消耗14%',
-    lanes:{},dataLink:''},
+    lanes:{},dataLink:'https://adata.woa.com/bi/view/16063?s=1luiz0'},
   {name:'创意基建',owner:'俊昊',metric:'日均曝光创意唯一性ID数',total:'177,182',sub:'视频号 +16.9% · 朋友圈9图 +77.9%',
     lanes:{},dataLink:''},
   {name:'腰尾部跃迁',owner:'橘子',metric:'Q2TD 跃迁客户数',total:'52个',sub:'目标30 · 达成173%',
@@ -1878,7 +1878,7 @@ function renderMonitor(){
           <div style="color:#d48806;padding:6px 0;font-weight:600">📋 待覆盖客户清单 · ${cv.uncovered_count}家 <span style="font-weight:500;color:#8a9aae;font-size:11px">（点击行业标签展开客户名，再次点击收起）</span></div>
           <div style="padding:4px 0;display:flex;flex-wrap:wrap;gap:6px">${uncovHtml}</div>
           ${uncovPanels}
-          <div style="margin-top:6px;font-size:10px;color:#8a9aae">📍 分母 ${cv.total}家=《直播4+m需覆盖名单》全表 · 分子=已出现在 6/20 4+m消耗表的客户</div>
+          <div style="margin-top:6px;font-size:10px;color:#8a9aae">📍 分母 ${cv.total}家=<a href="https://doc.weixin.qq.com/sheet/e3_AOQALQY-AEkCNh1pnW0KTTsaQCF2D?scode=AJEAIQdfAAoQ8TCCKEAcMAVgawADc&tab=BB08J2" target="_blank" rel="noopener" style="color:#1677ff;text-decoration:none;border-bottom:1px dashed rgba(22,119,255,.5)">《直播4+m覆盖名单》<span style="font-size:9px">📄</span></a>全表 · 分子=已出现在 6/20 4+m消耗表的客户</div>
         </div>
       </div>`;
     }
