@@ -1847,16 +1847,15 @@ function renderMonitor(){
           <div style="display:flex;flex-wrap:wrap;gap:6px">${custChips}</div>
         </div>`;
       }).join('');
-      // 取数短链（紧凑样式，挂在头部嘉润旁）
+      // 取数短链（紧凑样式，挂在消耗数据右侧）
       const adataLink = m.dataLink ? `<a href="${m.dataLink}" target="_blank" rel="noopener" title="${m.dataLink}" style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;background:#e6f4ff;color:#1677ff;border:1px solid #91caff;border-radius:10px;font-size:11px;text-decoration:none;font-weight:600">📊 adata 取数</a>` : '';
       return `<div style="margin-bottom:14px;padding:14px 16px;background:#fff;border:1px solid #eef1f5;border-left:4px solid ${c};border-radius:8px">
         <div style="display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:8px">
           <span style="font-size:15px;font-weight:700;color:#1a2332">${m.name}</span>
-          <span style="padding:2px 8px;background:${c}11;color:${c};border-radius:10px;font-size:11px">👤 ${m.owner}</span>
-          ${adataLink}
-          <span style="margin-left:auto;font-size:12px;color:#8a9aae">整体日耗</span>
+          <span style="font-size:12px;color:#8a9aae">整体日耗</span>
           <span style="font-size:22px;font-weight:800;color:${c}">${d.overall.cost.toFixed(1)}<span style="font-size:13px">万</span></span>
           <span style="font-size:11px">${deltaTxt(d.overall.cost, d.overall.cost_pct)}</span>
+          ${adataLink}
         </div>
         <div style="display:grid;grid-template-columns:1fr 1.5fr;gap:10px;padding:8px 10px;background:#fafbfc;border-radius:6px;margin-bottom:10px;font-size:12px;align-items:center">
           <div><span style="color:#8a9aae">投放客户 </span><strong>${d.overall.cust}家</strong> ${custDeltaTxt(d.overall.cust, d.overall.cust_pct)}</div>
