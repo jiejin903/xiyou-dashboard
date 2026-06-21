@@ -1818,15 +1818,25 @@ function renderMonitor(){
     return `<span style="color:${col};font-weight:600;white-space:nowrap">${dStr}家/${pStr}</span>`;
   };
   const costTxt = c => c < 0.05 ? '<0.1万' : c.toFixed(1)+'万';
+  // 4 个专项的进展总结（数据来源：FOURM_DATA / YDT_DATA / MIGRATION_DATA / JHY_DATA · 截止 6/20）
+  const SUMMARY = {
+    '4+m':'整体日耗 70.9万/+2.3%，投放客户 77家（环比-2.5%）。贴身衣物（33.8万/+3.2%）+ 男装（17.1万/+10.6%）合计占整体 72%，仍是 4+m 主盘；运动鞋服 8.6万/-23.2% 为主要拖累。覆盖率 31.1%（33/106），待覆盖客户 73家集中在贴身衣物（22家）、女装（8家）、鞋靴（7家），需优先抓贴身衣物 + 女装的覆盖度。',
+    '创意基建':'日均曝光创意 52.1万/+0.1% 基本持平；日均消耗 1136.2万/-2.1% 微跌，日均在线创意 373.8万/+1.1%、日均全新创意 17.0万/+5.8%（全新创意为本期最大亮点）。服饰鞋包（354.9万/+1.8%）为主盘且全新创意 +11.7%；综合服饰 -30.4万/-9.9% 是最大拖累，需重点关注。',
+    '腰尾部跃迁':'Q2 累计跃迁 48家（目标 30家、达成 160%），其中腰→头 40家、尾→头 8家，Q2 累计带动消耗 +60.1万；近一周（6.11-6.17）新增跃迁 15家、单周带动 +19.7万，阿迪达斯（+11.1万）、湛江云云启（+1.9万）为单周 TOP。培训营节奏稳定推进，超额完成目标。',
+    '多品聚合页':'整体日耗 11.6万/-0.7%，投放客户 27家。男装（5.3万 · 11家）+ 女装（3.5万 · 4家）合计占 76%，是聚合页主盘；男装中广州伊斯曼贸易（2.7万/+985%）、女装中 kolakola（3.1万/-31.9%）为各自 TOP1。整体盘子较小，需推动更多客户接入聚合页。'
+  };
   box.innerHTML = MONITOR.map((m,i)=>{
     const c = COLORS[i % COLORS.length];
     const link = m.dataLink ? ` · <a href="${m.dataLink}" target="_blank" rel="noopener" style="color:${c};text-decoration:none;border-bottom:1px dashed ${c}66">📊 监控看板</a>` : '';
+    // 进展总结块（4个专项统一样式）
+    const summaryText = SUMMARY[m.name] || '';
+    const summaryBlock = summaryText ? `<div style="margin-bottom:10px;padding:9px 12px;background:${c}0a;border-left:3px solid ${c};border-radius:0 6px 6px 0;font-size:12px;line-height:1.7;color:#1a2332"><span style="display:inline-block;padding:1px 7px;background:${c};color:#fff;border-radius:8px;font-size:10px;font-weight:700;margin-right:6px;vertical-align:1px">📌 进展总结</span>${summaryText}</div>` : '';
     // === 4+m 专项卡：注入紧凑详情 ===
     if (m.name === '4+m') {
       const d = FOURM_DATA;
       const cv = d.cover;
       const coverRate = (cv.covered_count / cv.total * 100);
-      const indRows = d.industries.map((ind, ri) => {
+      const indRows = d.industries.filter(ind => ind.cost > 0).map((ind, ri) => {
         const tops = d.top3[ind.name] || [];
         const topHtml = tops.map(t => `<span style="font-size:11px;color:#5a6b7e;white-space:nowrap"><strong style="color:#1a2332">${t.name.length>8?t.name.slice(0,8)+'…':t.name}</strong> ${costTxt(t.cost)}/${pctTxt(t.pct)}</span>`).join(' · ');
         const rowBg = ri % 2 === 1 ? '#fafbfc' : '#fff';
@@ -1871,6 +1881,7 @@ function renderMonitor(){
           <span style="font-size:12px">${deltaTxt(d.overall.cost, d.overall.cost_pct)}</span>
           ${adataLink}
         </div>
+        ${summaryBlock}
         <div style="display:grid;grid-template-columns:1fr 1.5fr;gap:10px;padding:8px 10px;background:#fafbfc;border-radius:6px;margin-bottom:10px;font-size:12px;align-items:center">
           <div><span style="color:#8a9aae">投放客户 </span><strong>${d.overall.cust}家</strong> ${custDeltaTxt(d.overall.cust, d.overall.cust_pct)}</div>
           <div style="display:flex;align-items:center;gap:8px"><span style="color:#8a9aae;white-space:nowrap">覆盖进度</span>
@@ -1900,7 +1911,11 @@ function renderMonitor(){
       const d = YDT_DATA;
       const adataLink = m.dataLink ? `<a href="${m.dataLink}" target="_blank" rel="noopener" title="${m.dataLink}" style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;background:#e6f4ff;color:#1677ff;border:1px solid #91caff;border-radius:10px;font-size:11px;text-decoration:none;font-weight:600">📊 adata 取数</a>` : '';
       const fmt = n => n.toLocaleString();
-      const indRows = d.industries.map((ind, ri) => {
+      // 过滤掉 日耗=0 的一级行业；对一级保留的，再过滤掉 日耗=0 的二级
+      const indRows = d.industries.filter(ind => ind.cost > 0).map((ind, ri) => {
+        if (ind.children && ind.children.length) {
+          ind = {...ind, children: ind.children.filter(cc => cc.cost > 0)};
+        }
         const rowBg = ri % 2 === 1 ? '#fafbfc' : '#fff';
         const hasChildren = ind.children && ind.children.length > 0;
         const l1Key = `ydt_l1_${ri}`;
@@ -1932,6 +1947,7 @@ function renderMonitor(){
           <span style="font-size:12px">${pctTxt(d.overall.exposure_pct)}</span>
           ${adataLink}
         </div>
+        ${summaryBlock}
         <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:8px 10px;background:#fafbfc;border-radius:6px;margin-bottom:10px;font-size:12px;align-items:center">
           <div><span style="color:#8a9aae">日均消耗 </span><strong>${d.overall.cost.toFixed(1)}万</strong> ${pctTxt(d.overall.cost_pct)}</div>
           <div><span style="color:#8a9aae">日均在线创意 </span><strong>${fmt(d.overall.online)}</strong> ${pctTxt(d.overall.online_pct)}</div>
@@ -1949,7 +1965,7 @@ function renderMonitor(){
     if (m.name === '多品聚合页') {
       const d = JHY_DATA;
       const adataLink = m.dataLink ? `<a href="${m.dataLink}" target="_blank" rel="noopener" title="${m.dataLink}" style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;background:#e6f4ff;color:#1677ff;border:1px solid #91caff;border-radius:10px;font-size:11px;text-decoration:none;font-weight:600">📊 adata 取数</a>` : '';
-      const indRows = d.industries.map((ind, ri) => {
+      const indRows = d.industries.filter(ind => ind.cost > 0).map((ind, ri) => {
         const tops = d.top3[ind.name] || [];
         const topHtml = tops.map(t => `<span style="font-size:11px;color:#5a6b7e;white-space:nowrap"><strong style="color:#1a2332">${t.name.length>8?t.name.slice(0,8)+'…':t.name}</strong> ${costTxt(t.cost)}/${pctTxt(t.pct)}</span>`).join(' · ');
         const rowBg = ri % 2 === 1 ? '#fafbfc' : '#fff';
@@ -1969,6 +1985,7 @@ function renderMonitor(){
           <span style="font-size:12px">${deltaTxt(d.overall.cost, d.overall.cost_pct)}</span>
           ${adataLink}
         </div>
+        ${summaryBlock}
         <div style="padding:8px 10px;background:#fafbfc;border-radius:6px;margin-bottom:10px;font-size:12px">
           <span style="color:#8a9aae">投放客户 </span><strong>${d.overall.cust}家</strong> ${custDeltaTxt(d.overall.cust, d.overall.cust_pct)}
         </div>
@@ -2015,6 +2032,7 @@ function renderMonitor(){
           <span style="font-size:11px;color:#8a9aae">目标 30 · 达成 <strong style="color:${c}">${Math.round(d.long.up_count/30*100)}%</strong></span>
           ${dashLink}
         </div>
+        ${summaryBlock}
         <div style="display:flex;gap:10px;flex-wrap:wrap">
           ${buildBlock(d.short, '#1677ff')}
           ${buildBlock(d.long, '#722ed1')}
