@@ -1769,36 +1769,41 @@ function renderMonitor(){
   const box = document.getElementById('monitorGrid');
   if(!box) return;
   const COLORS = ['#f5222d','#1677ff','#722ed1','#13c2c2'];
-  // 仅显示百分比（用于 TOP3 这种只有 pct 没有绝对值的场景）
+  // 通用：全0时显示 —
+  const ZERO_DASH = '<span style="color:#c0c8d4;font-weight:500">—</span>';
+  // 仅显示百分比（用于 TOP3）
   const pctTxt = p => {
-    if (p > 100000) return '<span style="color:#52c41a;font-weight:600">▲ >1000x</span>';
+    if (p === 0) return ZERO_DASH;
+    if (p > 100000) return '<span style="color:#52c41a;font-weight:600">▲&gt;1000x</span>';
     const arr = p >= 0 ? '▲' : '▼';
     const col = p >= 0 ? '#52c41a' : '#f5222d';
     return `<span style="color:${col};font-weight:600">${arr}${Math.abs(p).toFixed(1)}%</span>`;
   };
-  // 专业写法：+1.58万/+2.3% （绝对值 + 百分比，自动推算前期值反推差值）
+  // 专业写法：+1.6万/+2.3%
   const deltaTxt = (now, pct, unit='万') => {
+    if (pct === 0) return ZERO_DASH;
     if (pct > 100000) return '<span style="color:#52c41a;font-weight:600">新增/&gt;1000x</span>';
     const ratio = 1 + pct/100;
     const delta = ratio === 0 ? 0 : now - now/ratio;
     const sign = delta >= 0 ? '+' : '';
     const col = pct >= 0 ? '#52c41a' : '#f5222d';
-    const dStr = Math.abs(delta) < 0.01 ? '0' : (sign + delta.toFixed(2));
+    const dStr = Math.abs(delta) < 0.05 ? '0' : (sign + delta.toFixed(1));
     const pStr = (pct >= 0 ? '+' : '') + pct.toFixed(1) + '%';
     return `<span style="color:${col};font-weight:600;white-space:nowrap">${dStr}${unit}/${pStr}</span>`;
   };
   // 客户数变化（整数家）：+2家/+10%
   const custDeltaTxt = (now, pct) => {
+    if (pct === 0) return ZERO_DASH;
     if (pct > 100000) return '<span style="color:#52c41a;font-weight:600">新增</span>';
     const ratio = 1 + pct/100;
     const delta = ratio === 0 ? 0 : now - now/ratio;
     const sign = delta >= 0 ? '+' : '';
-    const col = pct >= 0 ? '#52c41a' : (pct === 0 ? '#8a9aae' : '#f5222d');
+    const col = pct >= 0 ? '#52c41a' : '#f5222d';
     const dStr = sign + Math.round(delta);
     const pStr = (pct >= 0 ? '+' : '') + pct.toFixed(1) + '%';
     return `<span style="color:${col};font-weight:600;white-space:nowrap">${dStr}家/${pStr}</span>`;
   };
-  const costTxt = c => c < 0.01 ? '<0.01万' : c.toFixed(2)+'万';
+  const costTxt = c => c < 0.05 ? '<0.1万' : c.toFixed(1)+'万';
   box.innerHTML = MONITOR.map((m,i)=>{
     const c = COLORS[i % COLORS.length];
     const link = m.dataLink ? ` · <a href="${m.dataLink}" target="_blank" rel="noopener" style="color:${c};text-decoration:none;border-bottom:1px dashed ${c}66">📊 监控看板</a>` : '';
@@ -1812,7 +1817,7 @@ function renderMonitor(){
         const topHtml = tops.map(t => `<span style="font-size:11px;color:#5a6b7e;white-space:nowrap"><strong style="color:#1a2332">${t.name.length>8?t.name.slice(0,8)+'…':t.name}</strong> ${costTxt(t.cost)}/${pctTxt(t.pct)}</span>`).join(' · ');
         return `<div style="display:grid;grid-template-columns:0.9fr 0.6fr 1.2fr 0.7fr 1fr 2.4fr;padding:6px 10px;font-size:12px;border-bottom:1px solid #f7f9fc;align-items:center">
           <div style="font-weight:600;color:#1a2332">${ind.name}</div>
-          <div style="text-align:right;color:#1a2332;font-weight:600">${ind.cost.toFixed(2)}万</div>
+          <div style="text-align:right;color:#1a2332;font-weight:600">${ind.cost.toFixed(1)}万</div>
           <div style="text-align:right">${deltaTxt(ind.cost, ind.cost_pct)}</div>
           <div style="text-align:right;color:#5a6b7e">${ind.cust}家</div>
           <div style="text-align:right">${custDeltaTxt(ind.cust, ind.cust_pct)}</div>
@@ -1846,7 +1851,7 @@ function renderMonitor(){
           <span style="font-size:15px;font-weight:700;color:#1a2332">${m.name}</span>
           <span style="padding:2px 8px;background:${c}11;color:${c};border-radius:10px;font-size:11px">👤 ${m.owner}</span>
           <span style="margin-left:auto;font-size:12px;color:#8a9aae">整体日耗</span>
-          <span style="font-size:22px;font-weight:800;color:${c}">${d.overall.cost.toFixed(2)}<span style="font-size:13px">万</span></span>
+          <span style="font-size:22px;font-weight:800;color:${c}">${d.overall.cost.toFixed(1)}<span style="font-size:13px">万</span></span>
           <span style="font-size:11px">${deltaTxt(d.overall.cost, d.overall.cost_pct)}</span>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1.5fr;gap:10px;padding:8px 10px;background:#fafbfc;border-radius:6px;margin-bottom:10px;font-size:12px;align-items:center">
