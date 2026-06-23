@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>抖店千川投流服务商·服装客户匹配看板 v2 | 橘橘有500w</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f5f7fb; color: #1d2129; line-height: 1.6; }
+.header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; padding: 32px 24px; }
+.header h1 { font-size: 24px; margin-bottom: 8px; }
+.header .subtitle { font-size: 13px; opacity: 0.9; }
+.container { max-width: 1280px; margin: 0 auto; padding: 24px; }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+.stat-card { background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+.stat-card .label { font-size: 12px; color: #86909c; margin-bottom: 8px; }
+.stat-card .value { font-size: 28px; font-weight: 700; color: #1d2129; }
+.stat-card .sub { font-size: 12px; color: #4080ff; margin-top: 4px; }
+.section { background: #fff; border-radius: 12px; padding: 20px 24px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+.section h2 { font-size: 18px; margin-bottom: 6px; padding-bottom: 12px; border-bottom: 2px solid #f2f3f5; }
+.section .section-tip { font-size: 12px; color: #86909c; margin-bottom: 16px; }
+.partner-list { display: flex; flex-direction: column; gap: 12px; }
+.partner-card { background: #fff; border: 1px solid #e5e6eb; border-radius: 12px; padding: 16px; transition: all 0.2s; }
+.partner-card:hover { border-color: #4080ff; box-shadow: 0 4px 16px rgba(64,128,255,0.1); }
+.partner-card.apparel { border-left: 4px solid #f53f3f; background: linear-gradient(90deg, #fff5f5 0%, #fff 8%); }
+.partner-card .row1 { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; flex-wrap: wrap; }
+.partner-card .level-badge { padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; color: #fff; }
+.level-钻级 { background: linear-gradient(135deg, #b18aff, #7c5ce7); }
+.level-金牌 { background: linear-gradient(135deg, #f7c948, #ee9b00); }
+.level-银牌 { background: linear-gradient(135deg, #b1c3d0, #8896a6); }
+.partner-card .name { font-size: 15px; font-weight: 600; color: #1d2129; flex: 1; min-width: 200px; }
+.partner-card .seller { font-size: 12px; color: #86909c; background: #f2f3f5; padding: 2px 6px; border-radius: 4px; }
+.partner-card .apparel-tag { font-size: 11px; color: #f53f3f; background: #ffece8; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
+.partner-card .meta { font-size: 12px; color: #86909c; margin-bottom: 8px; }
+.partner-card .hits { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 8px; }
+.partner-card .hit-kw { padding: 2px 8px; border-radius: 3px; font-size: 11px; font-weight: 600; }
+.partner-card .hit-industry { background: #f53f3f; color: #fff; }
+.partner-card .hit-brand { background: #4080ff; color: #fff; }
+.partner-card .summary { font-size: 13px; color: #4e5969; line-height: 1.6; margin: 8px 0; padding: 8px 12px; background: #f8f9fa; border-radius: 6px; }
+.partner-card .snippet { font-size: 12px; color: #4e5969; line-height: 1.7; background: #fffbe6; padding: 8px 10px; border-left: 3px solid #ffb800; border-radius: 4px; margin: 4px 0; }
+.partner-card .snippet mark { background: #fff066; color: #f53f3f; font-weight: 700; padding: 0 2px; }
+.partner-card .snippet-type { display: inline-block; font-size: 10px; padding: 1px 5px; border-radius: 2px; color: #fff; margin-right: 4px; }
+.snippet-行业 { background: #f53f3f; }
+.snippet-品牌 { background: #4080ff; }
+.partner-card .url-link { font-size: 12px; color: #4080ff; text-decoration: none; }
+.partner-card .url-link:hover { text-decoration: underline; }
+.partner-card .qual { font-size: 11px; color: #86909c; margin-top: 4px; }
+.partner-card .qual span { background: #e8f3ff; color: #4080ff; padding: 1px 6px; border-radius: 3px; margin-right: 4px; }
+.legend { background: #fffbe6; border-left: 4px solid #ffb800; padding: 12px 16px; border-radius: 6px; margin-bottom: 16px; font-size: 13px; line-height: 1.8; }
+.legend strong { color: #ee9b00; }
+@media (max-width: 768px) {
+  .header { padding: 20px 16px; }
+  .header h1 { font-size: 18px; }
+  .container { padding: 16px; }
+  .stats { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .stat-card { padding: 12px; }
+  .stat-card .value { font-size: 20px; }
+  .section { padding: 16px; }
+  .section h2 { font-size: 15px; }
+  .partner-card { padding: 12px; }
+  .partner-card .name { font-size: 13px; min-width: auto; }
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>🦞 抖店千川投流服务商 · 服装客户匹配看板 v2</h1>
+  <div class="subtitle">数据来源：抖店服务市场（fuwu.jinritemai.com）| 抓取时间：2026-06-23 | 二级分类：千川投流 | 共 69 家服务商</div>
+</div>
+<div class="container">
+  <div class="legend">
+    <strong>📖 看板说明：</strong>
+    <br>• <span style="color:#f53f3f">红色卡片</span> = 有服装客户的服务商（按行业关键词 + 品牌字典双重匹配，<b>严格版</b>）
+    <br>• <span style="background:#f53f3f;color:#fff;padding:2px 6px;border-radius:3px">红色标签</span> = 行业关键词命中（如"服装""女装""珠宝"）
+    <br>• <span style="background:#4080ff;color:#fff;padding:2px 6px;border-radius:3px">蓝色标签</span> = 知名服装品牌命中（如"adidas""波司登""百丽"）
+    <br>• <b>商家数</b>由抖店脱敏成区间（如"大于1000家"），无法精确排序，仅供参考
+    <br>• 排序：有服装客户优先 → 等级（钻>金>银）→ 商家数下限
+  </div>
+  <div class="stats">
+    <div class="stat-card"><div class="label">服务商总数</div><div class="value">69</div><div class="sub">钻8 金4 银57</div></div>
+    <div class="stat-card"><div class="label">有服装客户</div><div class="value" style="color:#f53f3f">23</div><div class="sub">命中率 33%</div></div>
+    <div class="stat-card"><div class="label">钻级·服装</div><div class="value" style="color:#b18aff">5</div><div class="sub">/ 共8家</div></div>
+    <div class="stat-card"><div class="label">银牌·服装</div><div class="value" style="color:#b1c3d0">18</div><div class="sub">/ 共57家</div></div>
+  </div>
+<div class="section"><h2>🎯 有服装客户的服务商 · 23 家</h2><div class="section-tip">按等级+商家数排序。<b>钻级金牌看品牌字典命中</b>，<b>银牌看行业关键词命中</b>更多。</div><div class="partner-list">
+    <div class="partner-card apparel">
+      <div class="row1">
+        <span class="level-badge level-钻级">钻级</span>
+        <span class="name">杭州扬趣网络科技有限公司</span>
+        <span class="seller">小于30家</span>
+        <span class="apparel-tag">🎯 品牌客户 1个</span>
+      </div>
+      <div class="meta">📍 浙江省杭州市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=352300946425271" target="_blank">查看详情页 ↗</a></div>
+      <div class="hits"><span class="hit-kw hit-brand">百丽</span></div>
+      <div class="summary">杭州碧橙数字技术股份有限公司是国家商务部电子商务示范企业、天猫六星级服务商、阿里妈妈六星级服务商 , 1200人规模，杭州扬趣网络科技有限公司是碧橙数字全资子公司（抖音事业群），抖音电商品牌服务商，巨量全渠道一站式代理商，自有主播、自有短视频内容团队、自有直播团队、自有直播基地、自有拍摄基地，具备抖音全链路服务能力：品牌自播代运营、品牌蓝V内容运营、直播间引流投放、品牌主播孵化、明星艺人及达人带货…</div>
+      <div class="snippet"><span class="snippet-type snippet-品牌">品牌</span> 活动整合营销等全案服务；通过平台大数据，依托精准人群投放策略，结合优质的场景化直播间和专业主播的承接，服务了：北海牧场，素肌良品、元气森林、<mark>百丽</mark>、bibigo希杰、伊利、好欢螺、高露洁等品牌</div>
+      <div class="qual"><span>品牌全案服务</span><span>商城服务</span><span>全店服务</span></div>
+    </div>
+    <div class="partner-card apparel">
+      <div class="row1">
+        <span class="level-badge level-钻级">钻级</span>
+        <span class="name">浙江洛氪迅信息科技有限公司</span>
+        <span class="seller">小于40家</span>
+        <span class="apparel-tag">🎯 品牌客户 4个</span>
+      </div>
+      <div class="meta">📍 浙江省杭州市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=3184642946244311" target="_blank">查看详情页 ↗</a></div>
+      <div class="hits"><span class="hit-kw hit-brand">太平鸟</span><span class="hit-kw hit-brand">维密</span><span class="hit-kw hit-brand">百丽</span><span class="hit-kw hit-brand">潘多拉</span></div>
+      <div class="summary">洛氪迅于2016年成立， 拥有超过7年电商与直播经验，目前在杭州、上海均设有办公室，是抖音优秀品牌服务商、同是也是淘宝直播TOP机构。
+我们致力于为品牌提供一站式抖音内容电商与营销服务，服务包括抖音蓝v账号代运营、品牌自播代运营、媒介营销运营、整合营销、新零售咨询赋能等。
+我们与众多国内、国际知名品牌有着深度合作关系，包括百丽集团旗下多品牌、太平鸟、维密、潘多拉等等，能够为国际及国内一线时尚品牌实…</div>
+      <div class="snippet"><span class="snippet-type snippet-品牌">品牌</span> 号代运营、品牌自播代运营、媒介营销运营、整合营销、新零售咨询赋能等。
+我们与众多国内、国际知名品牌有着深度合作关系，包括百丽集团旗下多品牌、<mark>太平鸟</mark>、维密、潘多拉等等，能够为国际及国内一线时尚品牌实现品牌数字化及新的消费增长。</div><div class="snippet"><span class="snippet-type snippet-品牌">品牌</span> 、品牌自播代运营、媒介营销运营、整合营销、新零售咨询赋能等。
+我们与众多国内、国际知名品牌有着深度合作关系，包括百丽集团旗下多品牌、太平鸟、<mark>维密</mark>、潘多拉等等，能够为国际及国内一线时尚品牌实现品牌数字化及新的消费增长。</div><div class="snippet"><span class="snippet-type snippet-品牌">品牌</span> ，服务包括抖音蓝v账号代运营、品牌自播代运营、媒介营销运营、整合营销、新零售咨询赋能等。
+我们与众多国内、国际知名品牌有着深度合作关系，包括<mark>百丽</mark>集团旗下多品牌、太平鸟、维密、潘多拉等等，能够为国际及国内一线时尚品牌实现品牌数字化及新的消费增长。</div><div class="snippet"><span class="snippet-type snippet-品牌">品牌</span> 自播代运营、媒介营销运营、整合营销、新零售咨询赋能等。
+我们与众多国内、国际知名品牌有着深度合作关系，包括百丽集团旗下多品牌、太平鸟、维密、<mark>潘多拉</mark>等等，能够为国际及国内一线时尚品牌实现品牌数字化及新的消费增长。</div>
+      <div class="qual"><span>品牌全案服务</span><span>商城服务</span><span>全店服务</span></div>
+    </div>
+    <div class="partner-card apparel">
+      <div class="row1">
+        <span class="level-badge level-钻级">钻级</span>
+        <span class="name">杭州祈飞网络科技有限公司</span>
+        <span class="seller">小于60家</span>
+        <span class="apparel-tag">🎯 品牌客户 6个</span>
+      </div>
+      <div class="meta">📍 浙江省杭州市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=1671711714191133" target="_blank">查看详情页 ↗</a></div>
+      <div class="hits"><span class="hit-kw hit-brand">adidas</span><span class="hit-kw hit-brand">Vans</span><span class="hit-kw hit-brand">The North Face</span><span class="hit-kw hit-brand">UNIQLO</span><span class="hit-kw hit-brand">MICHAEL KORS</span><span class="hit-kw hit-brand">周大福</span></div>
+      <div class="summary">祈飞作为钻石认证品牌服务商；为品牌定制化打造“品效销合一”的闭环经营阵地；已服务众多国际知名品牌：adidas、The North Face、Vans、UNIQLO、MICHAEL KORS、周大福等；为合作方提供全案经营服务：包括品牌直播运营、整合营销升级、创意内容制作、蓝V阵地经营、广告投放优化等服务，帮助商家快速抢占抖音兴趣电商生态至高点。</div>
+      <div class="snippet"><span class="snippet-type snippet-品牌">品牌</span> 祈飞作为钻石认证品牌服务商；为品牌定制化打造“品效销合一”的闭环经营阵地；已服务众多国际知名品牌：<mark>adidas</mark>、The North Face、Vans、UNIQLO、MICHAEL KORS、周大福等；为合作方提供全案经营服务：包括品牌直播运营、整合营销升级、创意内容制作、蓝V阵地经营、广告投放优</div><div class="snippet"><span class="snippet-type snippet-品牌">品牌</span> 飞作为钻石认证品牌服务商；为品牌定制化打造“品效销合一”的闭环经营阵地；已服务众多国际知名品牌：adidas、The North Face、<mark>Vans</mark>、UNIQLO、MICHAEL KORS、周大福等；为合作方提供全案经营服务：包括品牌直播运营、整合营销升级、创意内容制作、蓝V阵地经营、广告投放优化等服务，帮助商家快速抢占抖音兴趣电商生态至</div><div class="snippet"><span class="snippet-type snippet-品牌">品牌</span> 祈飞作为钻石认证品牌服务商；为品牌定制化打造“品效销合一”的闭环经营阵地；已服务众多国际知名品牌：adidas、<mark>The North Face</mark>、Vans、UNIQLO、MICHAEL KORS、周大福等；为合作方提供全案经营服务：包括品牌直播运营、整合营销升级、创意内容制作、蓝V阵地经营、广告投放优化等服务，帮助</div><div class="snippet"><span class="snippet-type snippet-品牌">品牌</span> 认证品牌服务商；为品牌定制化打造“品效销合一”的闭环经营阵地；已服务众多国际知名品牌：adidas、The North Face、Vans、<mark>UNIQLO</mark>、MICHAEL KORS、周大福等；为合作方提供全案经营服务：包括品牌直播运营、整合营销升级、创意内容制作、蓝V阵地经营、广告投放优化等服务，帮助商家快速抢占抖音兴趣电商生态至高点。  </div>
+      <div class="qual"><span>品牌全案服务</span><span>短视频服务</span><span>咨询指导服务</span><span>商城服务</span><span>全店服务</span></div>
+    </div>
+    <div class="partner-card apparel">
+      <div class="row1">
+        <span class="level-badge level-钻级">钻级</span>
+        <span class="name">构美(浙江)信息科技有限公司</span>
+        <span class="seller">小于60家</span>
+        <span class="apparel-tag">🎯 品牌客户 1个</span>
+      </div>
+      <div class="meta">📍 浙江省杭州市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=1601345442026728" target="_blank">查看详情页 ↗</a></div>
+      <div class="hits"><span class="hit-kw hit-brand">内外</span></div>
+      <div class="summary">构美成立于2016年，是一家以技术驱动的新流量服务商，我们聚焦数字电商发展与品牌数字化转型，基于数据化运营模式建立庞大的内容流量矩阵。持续为国内外知名品牌、新消费品牌提供STP、DP、OmniMarketing、New Retail等全链路解决方案及专业服务，助力品牌布局和运营高效流量渠道，实现品牌拓新、人群资产活跃及人群长期贡献等真实效益，提升品牌知名度及市场份额。</div>
+      <div class="snippet"><span class="snippet-type snippet-品牌">品牌</span> 美成立于2016年，是一家以技术驱动的新流量服务商，我们聚焦数字电商发展与品牌数字化转型，基于数据化运营模式建立庞大的内容流量矩阵。持续为国<mark>内外</mark>知名品牌、新消费品牌提供STP、DP、OmniMarketing、New Retail等全链路解决方案及专业服务，助力品牌布局和运营高效流量渠道，实现品牌拓新、人群资产活跃及人群长期贡献等真实效益</div>
+      <div class="qual"><span>品牌全案服务</span><span>品牌直播服务</span><span>撮合服务商</span><span>商城服务</span><span>全店服务</span></div>
+    </div>
+    <div class="partner-card apparel">
+      <div class="row1">
+        <span class="level-badge level-钻级">钻级</span>
+        <span class="name">浙江博观瑞思科技有限公司</span>
+        <span class="seller">小于60家</span>
+        <span class="apparel-tag">🎯 品牌客户 4个</span>
+      </div>
+      <div class="meta">📍 浙江省杭州市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=1539732004939998" target="_blank">查看详情页 ↗</a></div>
+      <div class="hits"><span class="hit-kw hit-brand">阿迪达斯</span><span class="hit-kw hit-brand">FILA</span><span class="hit-kw hit-brand">波司登</span><span class="hit-kw hit-brand">内外</span></div>
+      <div class="summary">博观，代表纵览行业的宽度与眼界；
+瑞思，代表专注领域的深度与境界；
+
+【博观瑞思-BORGRISE】：以卓越眼界与深度提供更好更优质更具成长性的品效销服务。
+
+博观瑞思（原安瑞信杰互动）成立于2007年，经过十余年深耕经营，目前已在上海、杭州设立双总部，在深圳、福州、厦门设立分支机构，在职员工已超600人。
+
+多年来，博观瑞思为中国银联、波司登、阿迪达斯、肯德基、花西子等200+个国内外品牌提供营…</div>
+      <div class="snippet"><span class="snippet-type snippet-品牌">品牌</span> 十余年深耕经营，目前已在上海、杭州设立双总部，在深圳、福州、厦门设立分支机构，在职员工已超600人。
+
+多年来，博观瑞思为中国银联、波司登、<mark>阿迪达斯</mark>、肯德基、花西子等200+个国内外品牌提供营销服务，并与多个客户达成近10年的深度合作。
+
+截至目前，博观瑞思已获得21项国家知识产权专利、高新技术企业称号，字节服务商生态资质，斩获100+国</div><div class="snippet"><span class="snippet-type snippet-品牌">品牌</span> 粉丝级新锐娱乐主播摆货小天才进驻肯德基食货局直播间联动直播，与肯德基旗下子账号黑蛋仔连麦制造趣味pgc直播。 其余抖音生态合作品牌：自嗨锅、<mark>FILA</mark> KIDS、AUM、珂莱蒂尔、champion、来伊份、全棉时代、RIO鸡尾酒等</div><div class="snippet"><span class="snippet-type snippet-品牌">品牌</span> 年，经过十余年深耕经营，目前已在上海、杭州设立双总部，在深圳、福州、厦门设立分支机构，在职员工已超600人。
+
+多年来，博观瑞思为中国银联、<mark>波司登</mark>、阿迪达斯、肯德基、花西子等200+个国内外品牌提供营销服务，并与多个客户达成近10年的深度合作。
+
+截至目前，博观瑞思已获得21项国家知识产权专利、高新技术企业称号，字节服务商生态资质，斩获1</div><div class="snippet"><span class="snippet-type snippet-品牌">品牌</span> 双总部，在深圳、福州、厦门设立分支机构，在职员工已超600人。
+
+多年来，博观瑞思为中国银联、波司登、阿迪达斯、肯德基、花西子等200+个国<mark>内外</mark>品牌提供营销服务，并与多个客户达成近10年的深度合作。
+
+截至目前，博观瑞思已获得21项国家知识产权专利、高新技术企业称号，字节服务商生态资质，斩获100+国<mark>内外</mark>行业大奖，成为名副其实的行业佼佼者</div>
+      <div class="qual"><span>商城服务</span><span>全店服务</span><span>跨境电商运营</span><span>品牌全案服务</span><span>品牌直播服务</span><span>咨询指导服务</span></div>
+    </div>
+    <div class="partner-card apparel">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">重庆不贰科技（集团）有限公司</span>
+        <span class="seller">大于1000家</span>
+        <span class="apparel-tag">🎯 行业线索 1个</span>
+      </div>
+      <div class="meta">📍 重庆市重庆市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7346124337956569384" target="_blank">查看详情页 ↗</a></div>
+      <div class="hits"><span class="hit-kw hit-industry">服饰</span></div>
+      <div class="summary">本公司致力于为食饮行业、服饰行业、美妆行业的商家提供店铺托管、直播/短视频卖货、广告投放等服务</div>
+      <div class="snippet"><span class="snippet-type snippet-行业">行业</span> 本公司致力于为食饮行业、<mark>服饰</mark>行业、美妆行业的商家提供店铺托管、直播/短视频卖货、广告投放等服务</div>
+      <div class="qual"><span>全店服务</span></div>
+    </div>
+    <div class="partner-card apparel">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">江苏中服网络科技有限公司</span>
+        <span class="seller">大于1000家</span>
+        <span class="apparel-tag">🎯 行业线索 1个</span>
+      </div>
+      <div class="meta">📍 江苏省苏州市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7011813060797120805" target="_blank">查看详情页 ↗</a></div>
+      <div class="hits"><span class="hit-kw hit-industry">服装</span></div>
+      <div class="summary">江苏中服网络科技有限公司是常熟服装城管委会为赋能市场、服务产业而打造的新零售综合服务平台，公司为抖音电商“2022抖音电商产业带服务商”，业务包括直播陪跑、广告代投、短视频拍摄培训、品牌供应链、企业内训等，立足于产业带，依托多年的行业经验，打造数据运营模式，深挖商家线上直播运营痛点，高效链接流量与品牌，提供一站式直播解决方案。</div>
+      <div class="snippet"><span class="snippet-type snippet-行业">行业</span> 江苏中服网络科技有限公司是常熟<mark>服装</mark>城管委会为赋能市场、服务产业而打造的新零售综合服务平台，公司为抖音电商“2022抖音电商产业带服务商”，业务包括直播陪跑、广告代投、短视频拍摄培训、品牌供应链、企业内训等，立足于产业带，依托多年的</div>
+      <div class="qual"><span>内容服务</span><span>全店服务</span><span>商城服务</span></div>
+    </div>
+    <div class="partner-card apparel">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">广西施福源珠宝首饰有限公司</span>
+        <span class="seller">大于500家</span>
+        <span class="apparel-tag">🎯 行业线索 1个</span>
+      </div>
+      <div class="meta">📍 广西壮族自治区北海市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7426355177210478860" target="_blank">查看详情页 ↗</a></div>
+      <div class="hits"><span class="hit-kw hit-industry">珠宝</span></div>
+      <div class="summary">广西施福源直播基地位于北海市云南路6号中国珍珠城2、3层，总经营面积7581.85平米，施福源公司是做南珠首饰的设计生产从原材料、设计、加工制造到销售的一条龙的珠宝首饰产业链，叠加直播基地和直播运营中心。</div>
+      <div class="snippet"><span class="snippet-type snippet-行业">行业</span> 于北海市云南路6号中国珍珠城2、3层，总经营面积7581.85平米，施福源公司是做南珠首饰的设计生产从原材料、设计、加工制造到销售的一条龙的<mark>珠宝</mark>首饰产业链，叠加直播基地和直播运营中心。 广西施福源直播基地位于北海市云南路6号中国珍珠城2、3层，总经营面积7581.85平米，施福源公司是做南珠首饰的设计生产从原材料、设计、加工制造到销售的一</div>
+      <div class="qual"><span>全店服务</span></div>
+    </div>
+    <div class="partner-card apparel">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">温州宗远文化传媒有限公司</span>
+        <span class="seller">大于400家</span>
+        <span class="apparel-tag">🎯 行业线索 2个</span>
+      </div>
+      <div class="meta">📍 浙江省温州市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7390679654052446491" target="_blank">查看详情页 ↗</a></div>
+      <div class="hits"><span class="hit-kw hit-industry">服装</span><span class="hit-kw hit-industry">配饰</span></div>
+      <div class="summary">温州宗远信息技术服务有限公司成立于2021年，主要从事互联网抖音/快手电商运营，电商直播带货电商短视频带货，内容策划，文案视频编辑制作、直播千川投流等。目前服务温州本土企业 500+家.</div>
+      <div class="snippet"><span class="snippet-type snippet-行业">行业</span> 质的服务技术运营服务，为推动温州市龙湾区产业发展，提升各方产品品牌知名度，于2023年3月15日注册了温州宗远文化传媒有限公司。 服务行业：<mark>服装</mark>配饰、3C电器、食品饮料、水暖洁具等行业 服务内容：千川/AD/快手磁力金牛代运营服务，视频创作及剪辑，鞋类供应链，售前售后外包，自营电商（自打品团队）仓促基地</div><div class="snippet"><span class="snippet-type snippet-行业">行业</span> 服务技术运营服务，为推动温州市龙湾区产业发展，提升各方产品品牌知名度，于2023年3月15日注册了温州宗远文化传媒有限公司。 服务行业：服装<mark>配饰</mark>、3C电器、食品饮料、水暖洁具等行业 服务内容：千川/AD/快手磁力金牛代运营服务，视频创作及剪辑，鞋类供应链，售前售后外包，自营电商（自打品团队）仓促基地</div>
+      <div class="qual"><span>全店服务</span><span>视频拍摄</span></div>
+    </div>
+    <div class="partner-card apparel">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">株洲可真有文化传媒有限公司</span>
+        <span class="seller">大于300家</span>
+        <span class="apparel-tag">🎯 行业线索 1个</span>
+      </div>
+      <div class="meta">📍 湖南省株洲市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7391004485167874338" target="_blank">查看详情页 ↗</a></div>
+      <div class="hits"><span class="hit-kw hit-industry">服饰</span></div>
+      <div class="summary">公司拥有完善的电商运营、培训、投放团队，致力于为中小商家提供一站式孵化服务，帮助商家从零起步、在抖音电商里取得满意的收获。</div>
+      <div class="snippet"><span class="snippet-type snippet-行业">行业</span> 客户信任与支持，未来，我们坚持用开拓创新、忠诚服务的企业精神，继续帮助产业带商家在电商领域不断突破，在政府有关部门的引领下，共同带动整个区域<mark>服饰</mark>产业带的发展升级。</div>
+      <div class="qual"><span>全店服务</span></div>
+    </div>
+    <div class="partner-card apparel">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">嘉兴市濮礼传媒有限公司</span>
+        <span class="seller">大于300家</span>
+        <span class="apparel-tag">🎯 行业线索 2个</span>
+      </div>
+      <div class="meta">📍 浙江省嘉兴市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=880066655697703" target="_blank">查看详情页 ↗</a></div>
+      <div class="hits"><span class="hit-kw hit-industry">服饰</span><span class="hit-kw hit-industry">毛纺</span></div>
+      <div class="summary">为了管理和规范市场，平台与政府深度合作，在政府的指导和扶持下建设和运营濮院电商直播基地。基地运营方严格执行管理细则，三方合力，建设安全且健康发展的毛纺服饰产品直播业务。通过完善的商家和商品等管理机制，建立了毛纺服饰产品直播业务的安全壁垒，充分保障了消费者权益，促进毛纺服饰产品行业的健康发展，濮院电商直播基地由嘉兴市濮礼传媒有限公司落地运营。
+自2020年12月25日基地授牌落地运营，2021年至今…</div>
+      <div class="snippet"><span class="snippet-type snippet-行业">行业</span> 规范市场，平台与政府深度合作，在政府的指导和扶持下建设和运营濮院电商直播基地。基地运营方严格执行管理细则，三方合力，建设安全且健康发展的毛纺<mark>服饰</mark>产品直播业务。通过完善的商家和商品等管理机制，建立了毛纺<mark>服饰</mark>产品直播业务的安全壁垒，充分保障了消费者权益，促进毛纺<mark>服饰</mark>产品行业的健康发展，濮院电商直播基地由嘉兴市濮礼传媒有限公司落地运营。
+自20</div><div class="snippet"><span class="snippet-type snippet-行业">行业</span> 理和规范市场，平台与政府深度合作，在政府的指导和扶持下建设和运营濮院电商直播基地。基地运营方严格执行管理细则，三方合力，建设安全且健康发展的<mark>毛纺</mark>服饰产品直播业务。通过完善的商家和商品等管理机制，建立了<mark>毛纺</mark>服饰产品直播业务的安全壁垒，充分保障了消费者权益，促进<mark>毛纺</mark>服饰产品行业的健康发展，濮院电商直播基地由嘉兴市濮礼传媒有限公司落地运营。
+自</div>
+      <div class="qual"><span>商城服务</span><span>品牌全案服务</span><span>内容服务</span><span>全店服务</span></div>
+    </div>
+    <div class="partner-card apparel">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">江门市虔越教育科技有限公司</span>
+        <span class="seller">大于300家</span>
+        <span class="apparel-tag">🎯 行业线索 1个</span>
+      </div>
+      <div class="meta">📍 广东省江门市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=166773320595255" target="_blank">查看详情页 ↗</a></div>
+      <div class="hits"><span class="hit-kw hit-industry">服装</span></div>
+      <div class="summary">公司主营业务：教育培训
+服务领域：抖音电商
+主营行业：抖店商品卡多类目
+公司基础介绍：公司从事电商行业17年，拥有完整的运营团队与多类目供应链合作，拥有众多品牌旗舰、专营、专卖店；涉及家具、家居日用、食品零食、服装等类目；通过品牌内容化、短视频推广、抖音直播带货，为客户实现新媒体传播与数字营销。月销售额千万+，为合作伙伴覆盖数亿次曝光，帮助企业快速品牌传播，获取精准客户粉丝画像，带来更多订单和效益…</div>
+      <div class="snippet"><span class="snippet-type snippet-行业">行业</span> 
+公司基础介绍：公司从事电商行业17年，拥有完整的运营团队与多类目供应链合作，拥有众多品牌旗舰、专营、专卖店；涉及家具、家居日用、食品零食、<mark>服装</mark>等类目；通过品牌内容化、短视频推广、抖音直播带货，为客户实现新媒体传播与数字营销。月销售额千万+，为合作伙伴覆盖数亿次曝光，帮助企业快速品牌传播，获取精准客户粉丝画像，带来更多订单和效益。
+短视频</div>
+      <div class="qual"><span>全店服务</span></div>
+    </div>
+    <div class="partner-card apparel">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">飞鱼（广州）互动传媒有限公司</span>
+        <span class="seller">大于200家</span>
+        <span class="apparel-tag">🎯 行业线索 1个</span>
+      </div>
+      <div class="meta">📍 广东省广州市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7199626791047151876" target="_blank">查看详情页 ↗</a></div>
+      <div class="hits"><span class="hit-kw hit-industry">服饰</span></div>
+      <div class="summary">飞鱼互动成立于 2016 年，是 “AI + 数字营销” 高新技术企业，抖音电商全链路服务商及全案合作伙伴。公司融合 AI 技术与商业场景，构建 “技术引擎 + 生态协同 + 商业赋能” 三维增长体系，以 “产品 + 人群 + 内容 + 投放” 为核心，依托自研 AI 智能投放、AIGC 内容智造与 AI 决策中台，推动营销从 “经验驱动” 升级为 “数据驱动”。我们提供内容创作、达人营销等一站式…</div>
+      <div class="snippet"><span class="snippet-type snippet-行业">行业</span> 经验驱动” 升级为 “数据驱动”。我们提供内容创作、达人营销等一站式服务，构建流量到用户沉淀闭环。迄今服务超 500 家头部品牌，覆盖美妆、<mark>服饰</mark>、食饮等行业，累计广告营收 30 亿 +，以技术赋能品牌在抖音生态实现流量变现与长效增长，践行 “合作共赢” 理念。</div>
+      <div class="qual"><span>内容服务</span><span>全店服务</span><span>商城服务</span></div>
+    </div>
+    <div class="partner-card apparel">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">厦门商源信息科技有限公司</span>
+        <span class="seller">大于200家</span>
+        <span class="apparel-tag">🎯 品牌客户 1个</span>
+      </div>
+      <div class="meta">📍 福建省厦门市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7404851933439181083" target="_blank">查看详情页 ↗</a></div>
+      <div class="hits"><span class="hit-kw hit-brand">海澜之家</span></div>
+      <div class="summary">商源是一家集广告媒体运营及电商营销策略于一体的服务商。致力于抖音等平台为广大客户提供营销策略、广告投放等多维度运营服务。
+      目前持续探索IP孵化、数字营销、品牌服务三大业务板块，意图成为能为品牌提供全领域定制化营销解决方案的主流代理公司，并源源不断探索新领域、实践新方向、寻找新商机。</div>
+      <div class="snippet"><span class="snippet-type snippet-品牌">品牌</span> 品牌服务三大业务板块，意图成为能为品牌提供全领域定制化营销解决方案的主流代理公司，并源源不断探索新领域、实践新方向、寻找新商机。服务施华蔻、<mark>海澜之家</mark>、海洋至尊、绿源等国内知名品牌也重点深耕福建、广深产业带工贸一体商家，累计合作商家300余家。 拥有四年抖音短视频运营沉淀、六年影视摄影技术、 百万级账号孵化经验、旗下签约主播艺人超50位，通</div>
+      <div class="qual"><span>全店服务</span></div>
+    </div>
+    <div class="partner-card apparel">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">广州飞鱼广告传媒有限公司</span>
+        <span class="seller">大于100家</span>
+        <span class="apparel-tag">🎯 行业线索 1个</span>
+      </div>
+      <div class="meta">📍 广东省广州市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7393177634814918939" target="_blank">查看详情页 ↗</a></div>
+      <div class="hits"><span class="hit-kw hit-industry">服装</span></div>
+      <div class="summary">广州飞鱼广告传媒有限公司简称“飞鱼传媒”是成立于2019年、是一家专注电商；自营，自播，创意视频制作的互联网公司，有专业的运营团队为服装，美妆，食品，家具等等客户进行代运营服务，能助力商家经营达到想要的合作效果，合作共赢。</div>
+      <div class="snippet"><span class="snippet-type snippet-行业">行业</span> 广州飞鱼广告传媒有限公司简称“飞鱼传媒”是成立于2019年、是一家专注电商；自营，自播，创意视频制作的互联网公司，有专业的运营团队为<mark>服装</mark>，美妆，食品，家具等等客户进行代运营服务，能助力商家经营达到想要的合作效果，合作共赢。</div>
+      <div class="qual"><span>全店服务</span></div>
+    </div>
+    <div class="partner-card apparel">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">广州粤理科技有限公司</span>
+        <span class="seller">大于100家</span>
+        <span class="apparel-tag">🎯 行业线索 1个</span>
+      </div>
+      <div class="meta">📍 广东省广州市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7402666981675122981" target="_blank">查看详情页 ↗</a></div>
+      <div class="hits"><span class="hit-kw hit-industry">服饰</span></div>
+      <div class="summary">广州粤理科技有限公司服务客户300+，以字节跳动电商平台为发力点，现已成为服饰、图书、3C行业为主的专业电商运营服务商。
+现有团队28人，有完整的广告运营、直播运营、达人运营、店铺运营等多岗位完整架构。核心骨干都来自于巨量引擎及各大媒体的头部代理商，均有3年以上广告相关工作经验。</div>
+      <div class="snippet"><span class="snippet-type snippet-行业">行业</span> 广州粤理科技有限公司服务客户300+，以字节跳动电商平台为发力点，现已成为<mark>服饰</mark>、图书、3C行业为主的专业电商运营服务商。
+现有团队28人，有完整的广告运营、直播运营、达人运营、店铺运营等多岗位完整架构。核心骨干都来自于巨量引擎及各大媒体的头部代理商，均有3年以上广告相关工作</div>
+      <div class="qual"><span>全店服务</span></div>
+    </div>
+    <div class="partner-card apparel">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">南通喜凡文化传媒有限公司</span>
+        <span class="seller">大于100家</span>
+        <span class="apparel-tag">🎯 行业线索 1个</span>
+      </div>
+      <div class="meta">📍 江苏省南通市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7505028316471050546" target="_blank">查看详情页 ↗</a></div>
+      <div class="hits"><span class="hit-kw hit-industry">家纺</span></div>
+      <div class="summary">本公司致力于家纺产业带直播及抖店商家。我们的服务是个性化定制服务商家，针对小白、中腰部、头部商家自身情况介入不同的代运营，帮商家做千川代投使其gmv增量、做视频增量（拍摄剪辑）、抖店基建和账号基建与代教、做商品卡代运营相关服务，使其账号的短视频带货和直播带货的利润长期增长。代投端：千川代投实时跟播复盘同步优化，相互配合，稳健的同时冲击更高的gmv。直播端：优化通过话术（互动、促单、逼单）协助选品、…</div>
+      <div class="snippet"><span class="snippet-type snippet-行业">行业</span> 本公司致力于<mark>家纺</mark>产业带直播及抖店商家。我们的服务是个性化定制服务商家，针对小白、中腰部、头部商家自身情况介入不同的代运营，帮商家做千川代投使其gmv增量、做视频增量（拍摄剪辑）、抖店基建和账号基建与代教、做商品卡</div>
+      <div class="qual"><span>全店服务</span></div>
+    </div>
+    <div class="partner-card apparel">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">杭州鲸猫文化传播有限公司</span>
+        <span class="seller">小于10家</span>
+        <span class="apparel-tag">🎯 行业线索 2个</span>
+      </div>
+      <div class="meta">📍 浙江省杭州市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=3255026511778606" target="_blank">查看详情页 ↗</a></div>
+      <div class="hits"><span class="hit-kw hit-industry">服饰</span><span class="hit-kw hit-industry">潮牌</span></div>
+      <div class="summary">鲸猫文化致力于为潮流类产品品牌提供直播电商运营服务。包括为潮牌服饰、潮玩、科技数码、体育用品、食品饮料等在抖音提供内容电商、直播电商、潮品空间直播新零售、品牌数字营销等一体化服务等。鲸猫团队目前已完成超过1000场潮牌直播运营服务，累积潮品销售额超过3亿元，积累了丰富的抖音潮牌直播带货运营经验及强大的潮品消费人群数据。</div>
+      <div class="snippet"><span class="snippet-type snippet-行业">行业</span> 鲸猫文化致力于为潮流类产品品牌提供直播电商运营服务。包括为潮牌<mark>服饰</mark>、潮玩、科技数码、体育用品、食品饮料等在抖音提供内容电商、直播电商、潮品空间直播新零售、品牌数字营销等一体化服务等。鲸猫团队目前已完成超过1000场潮牌直播运营服务，累积潮品销售额超过3亿元，积累</div><div class="snippet"><span class="snippet-type snippet-行业">行业</span> 鲸猫文化致力于为潮流类产品品牌提供直播电商运营服务。包括为<mark>潮牌</mark>服饰、潮玩、科技数码、体育用品、食品饮料等在抖音提供内容电商、直播电商、潮品空间直播新零售、品牌数字营销等一体化服务等。鲸猫团队目前已完成超过1000场<mark>潮牌</mark>直播运营服务，累积潮品销售额超过3亿元，</div>
+      <div class="qual"><span>全店服务</span><span>品牌全案服务</span><span>品牌直播服务</span><span>商城服务</span></div>
+    </div>
+    <div class="partner-card apparel">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">上海一新电子商务有限公司</span>
+        <span class="seller">小于10家</span>
+        <span class="apparel-tag">🎯 行业线索 2个</span>
+      </div>
+      <div class="meta">📍 上海市市辖区 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7045170677619360036" target="_blank">查看详情页 ↗</a></div>
+      <div class="hits"><span class="hit-kw hit-industry">服饰</span><span class="hit-kw hit-industry">女装</span></div>
+      <div class="summary">上海一新电子商务有限公司于2020年12月成立，公司位于上海市松江区九亭，业务覆盖了传统电商运包括天猫等淘系代运营和抖音代运营，公司在江苏宿迁有客服子公司，浙江杭州有仓储物流中心。
+    抖音代运营业务发展迅速，合作业务主要覆盖服饰鞋包，以品质新锐女装品牌为主，合作品牌insisfemme,randompiece,keigan,commonscents,73hours,cachecache，公司…</div>
+      <div class="snippet"><span class="snippet-type snippet-行业">行业</span> 商运包括天猫等淘系代运营和抖音代运营，公司在江苏宿迁有客服子公司，浙江杭州有仓储物流中心。
+    抖音代运营业务发展迅速，合作业务主要覆盖<mark>服饰</mark>鞋包，以品质新锐女装品牌为主，合作品牌insisfemme,randompiece,keigan,commonscents,73hours,cachecache，公司秉承坚持以客户为中心，为客户拓</div><div class="snippet"><span class="snippet-type snippet-行业">行业</span> 运营和抖音代运营，公司在江苏宿迁有客服子公司，浙江杭州有仓储物流中心。
+    抖音代运营业务发展迅速，合作业务主要覆盖服饰鞋包，以品质新锐<mark>女装</mark>品牌为主，合作品牌insisfemme,randompiece,keigan,commonscents,73hours,cachecache，公司秉承坚持以客户为中心，为客户拓展抖音渠道并健康良性</div>
+      <div class="qual"><span>全店服务</span><span>品牌全案服务</span></div>
+    </div>
+    <div class="partner-card apparel">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">杭州尽物科技有限公司</span>
+        <span class="seller">小于10家</span>
+        <span class="apparel-tag">🎯 品牌客户 1个</span>
+      </div>
+      <div class="meta">📍 浙江省杭州市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7005074961119363335" target="_blank">查看详情页 ↗</a></div>
+      <div class="hits"><span class="hit-kw hit-brand">内外</span></div>
+      <div class="summary">杭州尽物科技有限公司是抖音电商（DP）的首批官方邀请认证的机构服务商，是 字节跳动一级代理商，巨量千川指定服务商，公司拥有超500名+专业运营人员及 10000+平米的品牌直播基地，已为多家国内外知名品牌提供全案代运营服务，具 备丰富的品牌全案代运营执行能力。</div>
+      <div class="snippet"><span class="snippet-type snippet-品牌">品牌</span> 认证的机构服务商，是 字节跳动一级代理商，巨量千川指定服务商，公司拥有超500名+专业运营人员及 10000+平米的品牌直播基地，已为多家国<mark>内外</mark>知名品牌提供全案代运营服务，具 备丰富的品牌全案代运营执行能力。</div>
+      <div class="qual"><span>全店服务</span><span>品牌全案服务</span><span>品牌直播服务</span><span>商城服务</span></div>
+    </div>
+    <div class="partner-card apparel">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">河南联卡信息技术有限公司</span>
+        <span class="seller">小于30家</span>
+        <span class="apparel-tag">🎯 行业线索 2个</span>
+      </div>
+      <div class="meta">📍 河南省郑州市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=2520518747231032" target="_blank">查看详情页 ↗</a></div>
+      <div class="hits"><span class="hit-kw hit-industry">服饰</span><span class="hit-kw hit-industry">箱包</span></div>
+      <div class="summary">河南联卡信息技术有限公司：成⽴于2018年，是⼀家专注于电商⾏业，致⼒于互联⽹整合营销，有专业运营服务团队以及电商⾏业资源整合能⼒的综合性电商公司
+• 业务涵盖：品牌营销、达⼈孵化、⼴告投放、直播代运营、电商供应链等，致⼒于帮助传统企业、品牌⽅、达⼈、电商客⼾等提供⼀站式的短视频与直播电商⾏业整体解决⽅案</div>
+      <div class="snippet"><span class="snippet-type snippet-行业">行业</span> 量千川初级讲师资格证 一：合作过的历史重点客户 我们深受众多品牌，白牌商家的信任，服务范围涵盖食 食品饮料 ， 个护家清 ， 美妆护肤 ， <mark>服饰</mark>箱包 ， 家居百货 ， 母婴宠物 ， 3c小家电 ， 滋补保健 等各大行业，已有2000+商家，通过我们的优质服务提升了其营销效果及效率 二：产业带服务优势 具备供应链优势： 公司拥有占地 12亩</div><div class="snippet"><span class="snippet-type snippet-行业">行业</span> 川初级讲师资格证 一：合作过的历史重点客户 我们深受众多品牌，白牌商家的信任，服务范围涵盖食 食品饮料 ， 个护家清 ， 美妆护肤 ， 服饰<mark>箱包</mark> ， 家居百货 ， 母婴宠物 ， 3c小家电 ， 滋补保健 等各大行业，已有2000+商家，通过我们的优质服务提升了其营销效果及效率 二：产业带服务优势 具备供应链优势： 公司拥有占地 12亩 的</div>
+      <div class="qual"><span>全店服务</span></div>
+    </div>
+    <div class="partner-card apparel">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">北京美言美语广告有限公司</span>
+        <span class="seller">小于70家</span>
+        <span class="apparel-tag">🎯 品牌客户 1个</span>
+      </div>
+      <div class="meta">📍 北京市北京市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7291900527418573065" target="_blank">查看详情页 ↗</a></div>
+      <div class="hits"><span class="hit-kw hit-brand">361</span></div>
+      <div class="summary">北京美言美语科技有限公司，注册成立于2023年3月份，是北京础瑜广告有限公司的子公司，企业总部位于:北京市丰台区总部基地一区1号楼ABP大厦A座16层
+公司专注抖音广告整合营销，拥有抖音信息流千川二星代理资格。在千川方面有丰富经验。</div>
+      <div class="snippet"><span class="snippet-type snippet-品牌">品牌</span> 提升，用户满意度较之前也有所提高。品牌知名度和销售量都得到了提升。 中三清衣物预洗喷剂商城案例 中三清官方旗舰店(店铺ID: 4344875<mark>361</mark>240046) 如图所示，自合作以来，近30天数据成果展示可得，低额的广告消耗带来了高额的广告成交订单金额，广告支付roi高达1.52%，充发展现了合作效果，以及本公司的营销技巧；达到将近10%</div>
+      <div class="qual"><span>全店服务</span></div>
+    </div>
+    <div class="partner-card apparel">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">广州千尚信息技术有限公司</span>
+        <span class="seller">小于100家</span>
+        <span class="apparel-tag">🎯 行业线索 1个</span>
+      </div>
+      <div class="meta">📍 广东省广州市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7293895511359078708" target="_blank">查看详情页 ↗</a></div>
+      <div class="hits"><span class="hit-kw hit-industry">珠宝</span></div>
+      <div class="summary">广州千尚信息技术有限公司是一家集内容营销，广告效果优化、品牌全案营销于一体的全方位网络营销服务公司，是巨量引擎一级代理商、巨量千川、巨量云图、巨量星图服务商以及快手服务商、有米云经销商、EDX核心代理商。目前在郑州，广州均设有办公点。
+       广州千尚信息技术有限公司以抖音电商，快手电商业务为依托，拥有专业的直播带货团队，平台电商运营团队及培训团队，选品团队，致力于为客户提供一站式电商营销服…</div>
+      <div class="snippet"><span class="snippet-type snippet-行业">行业</span> 间，品牌Daniel Wellington在抖音发起全民任务，定制专属贴纸，发起话题#DW告白练习生，活动周期7天话题累计曝光量1.5亿； <mark>珠宝</mark>品牌周大生在情人节推出以告白为主题的新品项链，结合情人节在抖音发起话题#带着气球去告白，上线当天曝光量破1亿，活动周期7天话题累计曝光量4.8亿； 罗蒙 (ROMON罗蒙)在22年10月由抖音转战</div>
+      <div class="qual"><span>全店服务</span></div>
+    </div></div></div><div class="section"><h2>📋 其他服务商 · 46 家</h2><div class="section-tip">未在自我介绍中明确提到服装行业/服装品牌，不代表完全没服务过服装客户，建议感兴趣的主人手动查看详情页。</div><div class="partner-list">
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-钻级">钻级</span>
+        <span class="name">广州毅播科技有限公司</span>
+        <span class="seller">大于4000家</span>
+        
+      </div>
+      <div class="meta">📍 广东省广州市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=3360556997151678" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">公司致力于扶持/孵化商家更好直播，提供智能直播工具、实战辅助、智能云仓/云客服等服务。</div>
+      
+      <div class="qual"><span>内容服务</span><span>全店服务</span><span>商城服务</span><span>店铺代运营服务</span><span>达人外包客服</span><span>电商ERP</span><span>订单处理</span><span>客服外包</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-钻级">钻级</span>
+        <span class="name">旺兔柏（广州）文化传媒有限公司</span>
+        <span class="seller">小于40家</span>
+        
+      </div>
+      <div class="meta">📍 广东省广州市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=4117028724279559" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">旺兔柏（广州）文化传媒有限公司于2020年成立，为青木科技的全资子公司，以科技和数据为驱动提供一站式零售解决方案。核心成员来自主流电商平台、4A广告公司、科技公司以及知名品牌，公司用敏锐的商业洞察和丰富的经验在电商运营、数字营销、全链路消费者运营、品牌孵化、仓储物流、官网搭建、全渠道融合、消费者运营中台搭建等相关业务上助力品牌思考和践行数字化增长策略。</div>
+      
+      <div class="qual"><span>品牌全案服务</span><span>商城服务</span><span>视频拍摄</span><span>全店服务</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-钻级">钻级</span>
+        <span class="name">上海容么么数字科技有限公司</span>
+        <span class="seller">小于50家</span>
+        
+      </div>
+      <div class="meta">📍 上海市市辖区 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=1319894981549357" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">“容么么”以内容市场为基石为品牌提供：账号运营，抖店运营，短视频创作，品牌咨询，IT服务等。 以全媒体内容生态的团队为班底，以创意为核心，以对零售的理解为基因为品牌提供内容直播服务。
+通过运用大数据和云计算技术，基于品牌线上抖音运营场景，通过采用精细化的营销解决方案进行自动化精准营销及付费推广，降低人力成本，提高工作效率，助力品牌快速实现营销的商业目标。实现在智能投放、精准营销、直播间管理、数字化…</div>
+      
+      <div class="qual"><span>品牌全案服务</span><span>直播管理</span><span>商城服务</span><span>全店服务</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-金牌">金牌</span>
+        <span class="name">蓝微（广州）数字技术有限公司</span>
+        <span class="seller">大于2000家</span>
+        
+      </div>
+      <div class="meta">📍 广东省广州市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7039963125541814565" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">蓝微（广州）数字技术有限公司是抖音电商排名前五的金牌服务商，2015年成立，总部位于广州，在深圳、杭州、湖南设有分公司，同时也是抖音千川二星服务商
+蓝微多年来一直深耕产业带，抖音千川广告年消耗10亿+，产业带服务商家年gmv达到百亿级。蓝微定位于全域全案品牌营销服务商，具备优秀全域服务能力。
+蓝微核心优势：Koc达人短视频推广+千川投流代运营、千川充值走量，短视频投流内容一站式输出、成熟丰富的供应…</div>
+      
+      <div class="qual"><span>内容服务</span><span>全店服务</span><span>商城服务</span><span>视频拍摄</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-金牌">金牌</span>
+        <span class="name">深圳市响当当信息技术有限公司</span>
+        <span class="seller">大于1000家</span>
+        
+      </div>
+      <div class="meta">📍 广东省深圳市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7340892866375467274" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">深圳市响当当公司，一家基于互联网新媒体的数字广告公司。
+公司2016年初成立，先后在深圳，广州，江门成立团队，目前规模200人+，以技术和专业为广告主提供优质服务,持续为广告主提供全面的媒体策略、视频创意、广告投放及优化、数据分析、直播玩法、电商服务等多维服务。在多个行业的创新有着广为人知的成功历史。
+深响，依托于媒体平台，已成为业界知名的数字广告服务商。</div>
+      
+      <div class="qual"><span>全店服务</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-金牌">金牌</span>
+        <span class="name">杭州星河方舟信息科技有限公司</span>
+        <span class="seller">大于800家</span>
+        
+      </div>
+      <div class="meta">📍 浙江省杭州市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7289048386093859130" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">杭州星河方舟是抖音电商产业带金牌服务商，也是优秀的品牌服务商。集团公司业务涉及 “巨量综合服务”“巨量千川代理”“本地生活服务’“达人孵化”国内抖音代 运营”，“海外TIKTOK跨境电商服务””明星达人切片”等，拥有技术开发团 队、直播运营团队、新媒体平台运营团队、策划营销团队,视频策划制作团队、活 动执行团队、设计服务团队,为商家提供直播代运营、商品卡代运营、短视频和培训等服务</div>
+      
+      <div class="qual"><span>全店服务</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-金牌">金牌</span>
+        <span class="name">广州杜鹃传媒科技有限公司</span>
+        <span class="seller">小于20家</span>
+        
+      </div>
+      <div class="meta">📍 广东省广州市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7021369905329225991" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">广州杜鹃隶属于茉莉集团，创办于2019年，总部位于广州，在上海设有分公司，公司规模超过500人。秉持着以数据技术驱动理念，为品牌提供电商内容整合营销服务，包括全域社交媒体整合营销、品牌/效果营销、直播电商服务，是数据技术驱动的品牌商业伙伴。
+使命&amp;愿景:赋能全球品牌，传递美好生活价值观：生命力、快乐力、利他、成长。</div>
+      
+      <div class="qual"><span>千川投放</span><span>全店服务</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">杭州爱搜全域数据科技有限公司</span>
+        <span class="seller">大于2000家</span>
+        
+      </div>
+      <div class="meta">📍 浙江省杭州市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=1900415152561005" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">北京爱盈利旗下全资子公司，以数据分析、流量推广等服务为主营业务。 目前公司主打产品为抖查查数据平台，是以抖音直播电商带货、短视频、千川投放、星图业务的数据分析平台。 拥有主播培养梯队体系、千万GMV直播间操盘经验以及类目头部账号运营实操经验的团队。 帮助品牌和供应链解决电商直播中三大问题的全栈解决方案的官方合作优质服务商。</div>
+      
+      <div class="qual"><span>品牌全案服务</span><span>品牌直播服务</span><span>视频拍摄</span><span>直播代播</span><span>全店服务</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">山东聚合传媒有限公司</span>
+        <span class="seller">大于2000家</span>
+        
+      </div>
+      <div class="meta">📍 山东省菏泽市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7346121103330443570" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">公司成立于2014年，总部位于山东省济南市，并分别在菏泽市/临沂市/武汉市/杭州市设有分公司，现有办公面积7000余平方，在职员工610人。主营抖音电商广告业务以及短视频内容制作与店铺代运营业务。是抖音电商全国服务商，2021年公司总营业收入在25亿以上，山东聚商深耕直播电商广告行业，目前已累积服务数千家电商主；与此同时，为了更好的服务客户，我司针对直播电商业务重点布局，已在菏泽、临沂、济南搭建直…</div>
+      
+      <div class="qual"><span>视频拍摄</span><span>直播代播</span><span>全店服务</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">武汉火蝠电子商务有限公司</span>
+        <span class="seller">大于1000家</span>
+        
+      </div>
+      <div class="meta">📍 湖北省武汉市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=2859152054950302" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">火蝠电商是一家国内优秀数据与技术电商服务公司。始终坚信每个品牌的商业难题都能找到答案，专注为国内品牌提供以电商为核心的一站式商业解决方案，面向未来，致力打造全面融合的生态系统，形成电商运营/数字营销/品牌升级/it解决方案，资源赋能五个生态圈。目前合作的全球优质品牌超60个，包括绿源，马应龙，金龙鱼，金味，科创者等在内的世界知名企业展开深入合作。
+   精准链接，精细运营的数字营销能力，链接品牌，…</div>
+      
+      <div class="qual"><span>店铺代运营服务</span><span>全店服务</span><span>品牌全案服务</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">红犀引擎（重庆）科技有限公司</span>
+        <span class="seller">大于900家</span>
+        
+      </div>
+      <div class="meta">📍 重庆市重庆市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7240146319413690658" target="_blank">查看详情页 ↗</a></div>
+      
+      
+      
+      
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">天丰（南通）新媒体科技有限公司</span>
+        <span class="seller">大于900家</span>
+        
+      </div>
+      <div class="meta">📍 江苏省南通市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7001315156106035469" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">天丰（南通）新媒体科技有限公司，直播、商品卡代运营服务商，提供专业的直播陪跑、培训提升服务。
+公司成立于2021年9月，合作过抖音直播商家200+。为客户提供直播间设计、设备调试、产品定位、主播培训、团队提升、推广投流业务。与客户深度合作，达成营业额稳步增长的目标。</div>
+      
+      <div class="qual"><span>品牌直播服务</span><span>品牌全案服务</span><span>内容服务</span><span>全店服务</span><span>商城服务</span><span>视频拍摄</span><span>直播代播</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">爱创广告(深圳)有限公司</span>
+        <span class="seller">大于400家</span>
+        
+      </div>
+      <div class="meta">📍 广东省深圳市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7021363116424364319" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">爱创广告（深圳）有限公司，移动互联营销与服务提供商。总公司位于深圳中央商务区车公庙天安科技创业园，秉承让营销更省心的经营使命，一直致力于为广告主提供专业的“品牌策划、媒体投放、效果评估”整合营销服务。</div>
+      
+      <div class="qual"><span>千川投放</span><span>全店服务</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">大数法则（杭州）网络科技有限公司</span>
+        <span class="seller">大于400家</span>
+        
+      </div>
+      <div class="meta">📍 浙江省杭州市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7264757636028219707" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">公司一直以“快速孵化好内容，深耕流量后市场”为使命，为电商平台各级别主播提供孵化，自播运营、流量投放、小店客服、供应链搭建等系统性服务，帮助主播快速成为行业领域优质带货达人。</div>
+      
+      <div class="qual"><span>内容服务</span><span>全店服务</span><span>商城服务</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">河北量点科技有限公司</span>
+        <span class="seller">大于200家</span>
+        
+      </div>
+      <div class="meta">📍 河北省石家庄市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=110593223226" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">河北量点科技有限公司是河北聚冀网络科技有限公司全资孵化的子公司，河北聚冀网络科技有限公司的全部资源皆可无条件向河北量点科技有限公司开放对接。注册资本300万，2023-05-08成立，现有员工200余人，年度成交总额6E。母公司聚冀成立于2015年，2016年正式与巨量引擎达成合作，成为巨量引擎河北区域代理合作伙伴。</div>
+      
+      <div class="qual"><span>跨境电商运营</span><span>内容服务</span><span>全店服务</span><span>商城服务</span><span>视频拍摄</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">广州正家文化传播有限公司</span>
+        <span class="seller">大于200家</span>
+        
+      </div>
+      <div class="meta">📍 广东省广州市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7471092634749141302" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">广州正家文化成立2018年，坐落在美丽的“羊城”—广州市番禺区祈福集团中心；
+公司规模100+人，是一家专注于互联网整合营销服务的创新型企业，致力于高时效的营销优化解决方案，集素材文案脚本、短视频拍摄剪辑、达人分发、带货切片授权和投流代运营为一体的服务型公司。</div>
+      
+      <div class="qual"><span>全店服务</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">石家庄爱逛电子商务有限公司</span>
+        <span class="seller">大于200家</span>
+        
+      </div>
+      <div class="meta">📍 河北省石家庄市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7417414711026729256" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">成立于2016年
+合作品牌300+
+主营品牌代拍，代投，代播等全案运营
+速食板块有爆款案例及陪跑能力
+店播案例：程校长旗舰店 三太子旗舰店 食城记旗舰店 吃欢天旗舰店 小香厨旗舰店  
+8年业务规模增长90倍
+全国5家分公司  600+人团队</div>
+      
+      <div class="qual"><span>全店服务</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">江西仟得文化传播有限公司</span>
+        <span class="seller">大于100家</span>
+        
+      </div>
+      <div class="meta">📍 江西省南昌市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=1918009172836013" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">江西仟得文化传播有限公司，是一家以国内领先数字营销服务商作为奋斗目标的现代化企业。为字节跳动“巨量引擎”江西区域独家合作伙伴（“今日头条”“抖音”“西瓜”“火山”）、在线办公软件“飞书”服务商、致力为创新创业者提供认知升级的“混沌大学”南昌分社，为企业提供包含数字营销、在线办公、在线教育等综合解决方案。
+   在发展的路上，仟得也在不断地提升自身实力，吸收社会各界精英人才，同时布局江西，先后成立了…</div>
+      
+      <div class="qual"><span>内容服务</span><span>全店服务</span><span>品牌直播服务</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">浙江金报文化传媒有限公司</span>
+        <span class="seller">大于100家</span>
+        
+      </div>
+      <div class="meta">📍 浙江省金华市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7018077566800118023" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">浙江金报文化传媒有限公司是金华日报报业传媒集团全资子公司，是抖音电商产业带铜牌服务商及巨量千川认证服务商，给商家提供抖音店铺代运营服务、代播、投流等服务，为商家解决店铺运营、直播相关等问题。</div>
+      
+      <div class="qual"><span>内容服务</span><span>全店服务</span><span>视频拍摄</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">武汉众禾科技有限公司</span>
+        <span class="seller">大于100家</span>
+        
+      </div>
+      <div class="meta">📍 湖北省武汉市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7098952163447161119" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">众禾直播，湖北省政府重点扶持的科技创新企业 ，武汉3551重点人才企业。曾荣获巨量引擎年度服务突破合作伙伴、抖音电商自有品牌百应 机构全国第四名 、 多次霸榜食品饮料酒水行业带货第一名 。公司管理团队拥有15年以上的行业经验 ，分别来自阿里、字节、 腾讯， 曾操盘过多款体量过亿的产品运营 ，先后获得业内TOP平台公司的多轮融资。服务品牌有：卧龙食品、良品铺子、蒙牛、宝洁、华帝、舍得酒、rio锐澳、…</div>
+      
+      <div class="qual"><span>视频拍摄</span><span>直播代播</span><span>全店服务</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">广州大麦互动电子商务科技有限公司</span>
+        <span class="seller">大于100家</span>
+        
+      </div>
+      <div class="meta">📍 广东省广州市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7221470461850190138" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">多卖（广州）电子商务有限公司2021年成立，是首批全域运营服务商，专注抖音商城（货架电商）运营，诞生于抖音电商平台发力抖音商城业务的首批团队，已服务广州30多家月销5000万的抖音直播间商家</div>
+      
+      <div class="qual"><span>内容服务</span><span>全店服务</span><span>商城服务</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">天石在线（北京）文化传媒有限公司</span>
+        <span class="seller">大于100家</span>
+        
+      </div>
+      <div class="meta">📍 北京市市辖区 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=1636527333976519" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">天石在线(北京)文化传媒有限公司 配备专属品牌电商营销团队和直播服务团队，在各行业类目均有丰富的优化经验，为品牌客户提供专属项目管理、商务、策划、优化、主播、直播策划运营等专业一体化电商营销服务。
+公司创始人、核心管理层均来自电商贸易公司及互联网广告公司高管及业务负责人，拥有多年的电商实践经验，以及丰富的广告投放经验，近年来，天石在线已成功服务于上千家电商企业！</div>
+      
+      <div class="qual"><span>品牌全案服务</span><span>全店服务</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">河南众鼎星选网络科技有限公司</span>
+        <span class="seller">大于100家</span>
+        
+      </div>
+      <div class="meta">📍 河南省南阳市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7015450559784386846" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">众鼎传媒简称：众鼎。成立于2019年，注册资金100 多万，抖音供应链，达人推广公司，致力主播开发和第三方推广服务，分析能力和媒体矩阵，为抖音平台做一个第三方推广。
+项目从2021年起步经历了1年的摸索创业期，在2022年4月找到了项目核心竞争力的体制架构，从而快速发展。2021年创造GMV已经突破2000万元。2022年4月众鼎团队创造GMV首次突破500万元。从22年4月至今已经突破性超过去年…</div>
+      
+      <div class="qual"><span>视频拍摄</span><span>全店服务</span><span>内容服务</span><span>直播管理</span><span>商家商品推广</span><span>团长商品推广</span><span>商城服务</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">湖北南梦科技有限公司</span>
+        <span class="seller">大于100家</span>
+        
+      </div>
+      <div class="meta">📍 湖北省武汉市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7307451289427624242" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">湖北南梦科技有限公司 成立于2016年，于2023年初获得巨量引擎渠道销售管理中心授予的“综合代理商”与“巨量千川服务商”两项资质，具备专业完善的运营、商务媒介及客服团队。 公司依托于丰富的产业链、供应链资源，利用前沿数字工具和强大的综合运营能力为商户与广告主企业赋能，提供覆盖品牌、店铺、账户、直播等全维度运营的一站式服务。 公司主营抖音、快手电商及各类社媒广告推广业务，并为提供品牌推广与市场营销…</div>
+      
+      <div class="qual"><span>全店服务</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">漳州抖易推文化传媒有限公司</span>
+        <span class="seller">大于100家</span>
+        
+      </div>
+      <div class="meta">📍 福建省漳州市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=387493315740126" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">☆为抖店商家提供一键式店铺管理服务
+☆店铺运营指导/选品上货/商品优化/供应链对接
+☆海量达人资源对接</div>
+      
+      <div class="qual"><span>全店服务</span><span>品牌全案服务</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">厦门龙商网络科技有限公司</span>
+        <span class="seller">大于100家</span>
+        
+      </div>
+      <div class="meta">📍 福建省厦门市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7371282639719907599" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">龙商集团于2006年7月在厦门成立，发展至今有300多人，为行业最具影响力的互联网营销企业之一。目前在厦门、泉州、福州、莆田等地均有分公司，已拥有龙商科技、龙商技术、龙赢投资、云网互动等多家子公司。 
+这18年来，已服务客户的数量约10万家，运营服务了非常多的电商商家。如今龙商已成为抖音、快手、Tik Tok、视频号、小红书、B站、微博、爱奇艺、知乎、支付宝等主流媒体的服务商。
+业务范围包含互联网…</div>
+      
+      <div class="qual"><span>全店服务</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">北京明亮的星文化传媒有限公司</span>
+        <span class="seller">小于10家</span>
+        
+      </div>
+      <div class="meta">📍 北京市市辖区 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=2058743433660158" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">北京明亮的星文化传媒有限公司，成立于2016年4月，旗下拥有「星榜」内容营销公司、「星推严选」直播电商公司、「星榜互娱」MCN公司、「星量数据」大数据平台；是一家为客户提供短视频域内容营销，和电商服务整合解决⽅案的营销科技公司；始终致力于为客户持续创造与实现⽤户价值的全⾯赋能;</div>
+      
+      <div class="qual"><span>直播管理</span><span>商城服务</span><span>品牌全案服务</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">广州未来网络信息有限公司</span>
+        <span class="seller">小于20家</span>
+        
+      </div>
+      <div class="meta">📍 广东省广州市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7337793959231684904" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">本公司专注新媒体广告代运营增值服务，公司是巨量千川代理商+巨量云图代理商+巨量星图代理商+巨量纵横代理商四重身份，现为千川消费品赛道二星服务商；主营业务为直播电商及引流电商客户提供精准新媒体代运营全店整合服务，我司擅长各类店播、达播帐号的投放，以及品牌帐号的全案投放经验。</div>
+      
+      <div class="qual"><span>全店服务</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">苏州今日视界文化传媒有限公司</span>
+        <span class="seller">小于30家</span>
+        
+      </div>
+      <div class="meta">📍 江苏省苏州市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=473788058446" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">苏州今日视界文化传媒有限公司成立于2015年，今日视界文化传媒专注于抖音直播电商：1.全案运营服务 2.店铺代运营服务3.店铺直播服务4.流量服务 5.培训服务6.抖音账号代运营7.短视频服务</div>
+      
+      <div class="qual"><span>品牌直播服务</span><span>内容服务</span><span>全店服务</span><span>商城服务</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">中协策力（北京）文化传媒有限责任公司</span>
+        <span class="seller">小于30家</span>
+        
+      </div>
+      <div class="meta">📍 北京市北京市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7156750443794727182" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">2020年10月开始直播业务，于2021年在北京、苏州两地设立分公司;核心团队均来自字节、网易等企业，有着专业的电商运营经验及行业主播、品牌资源。主营业务围绕全域兴趣电商平台为载体，为品牌客户提供精准专业的商品策略、直播策略、运营策略、推广投放及达人分发服务。帮助品牌商家 快速抢占兴趣电商生态至高点，完成从图文电商向全域兴趣电商转化的全链路生态服务商。</div>
+      
+      <div class="qual"><span>品牌全案服务</span><span>全店服务</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">苏州小棉袄信息技术股份有限公司</span>
+        <span class="seller">小于30家</span>
+        
+      </div>
+      <div class="meta">📍 江苏省苏州市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7229553299500958013" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">苏州小棉袄信息技术股份有限公司是领先的全渠道电子商务运营服务商，总部位于苏州市，员工近500人。拥有中国领先的电商直播基地和运营服务团队，以“做天下网商贴心的小棉袄”为公司使命，为全球品牌进入中国市场提供系统开发、电商咨询、电商培训、电商直播、品牌推广，电商平台搭建、拍摄和页面设计、电商运营，客户服务以及供应链管理、大数据营销等全流程服务。</div>
+      
+      <div class="qual"><span>全店服务</span><span>团长管理</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">厦门超云信息科技有限公司</span>
+        <span class="seller">小于30家</span>
+        
+      </div>
+      <div class="meta">📍 福建省厦门市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7128297439731253540" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">紫云创投集团旗下超云科技,成立于2021年,总部位于厦门市集美区。聚焦互联网产业核心,提供一站式电商营销服务。公司现有员工人数超200位,累计服务客户超3000家,其中知名企业超60家。</div>
+      
+      <div class="qual"><span>全店服务</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">江苏扶楼信息科技有限公司</span>
+        <span class="seller">小于30家</span>
+        
+      </div>
+      <div class="meta">📍 江苏省无锡市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7023288237456179470" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">江苏扶楼信息科技有限公司集巨量引擎平台综合代理和抖音电商服务商等多种身份于一体，拥抱巨量引擎及其产品矩阵。
+企业发展至今，为各大中小型企业在品牌营销、 活动策划、 直播电
+商、 广告效果运营、 短视频拍摄等多维度提供整合营销服务。
+全面构巨量广告、 抖音电商及本地生活服务商等全方位生态</div>
+      
+      <div class="qual"><span>全店服务</span><span>视频拍摄</span><span>直播代播</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">湖北亿玛科技有限公司</span>
+        <span class="seller">小于30家</span>
+        
+      </div>
+      <div class="meta">📍 湖北省鄂州市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7407355520799064357" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">亿玛在线2004年成立，是一家全域智慧营销服务的互联网科技公司。2020年新媒体事业部成立，拥有经纪公司、MCN公司、直播团队、直播引流团队、小店代运营团队提供短视频、直播自播代播等一站式整合营销方案</div>
+      
+      <div class="qual"><span>视频拍摄</span><span>直播代播</span><span>全店服务</span><span>跨境电商运营</span><span>分成结算</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">河南朱颜文化传媒有限公司</span>
+        <span class="seller">小于40家</span>
+        
+      </div>
+      <div class="meta">📍 河南省郑州市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=4239345198836158" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">河南朱颜文化传媒有限公司成立于2017年，是河南最早一批加入字节跳动商业化的代理商，2018年至今主营巨量引擎商业广告投放，及投放衍生的周边业务。</div>
+      
+      <div class="qual"><span>全店服务</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">河南牧唐信息技术有限责任公司</span>
+        <span class="seller">小于40家</span>
+        
+      </div>
+      <div class="meta">📍 河南省洛阳市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7075253421833552159" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">牧唐技术，成立于华夏文明发祥地——洛阳，承袭九朝古都帝王之气宇，浸淫千年历史文化之底蕴，国内领先的互联网整合营销服务提供商。我们的业务模式具备精、全、专等星级服务特点，致力于为各类企业提供信息流广告品效合一的精准营销服务。经过团队的专业运营和精准营销，得到了客户的口碑信赖与长期合作，同时凭借创新的广告产品、先进的投放技术、精准的营销策略，实现全媒体覆盖，构筑营销闭环，倾力为客户创造品牌价值，并提供…</div>
+      
+      <div class="qual"><span>品牌全案服务</span><span>商城服务</span><span>全店服务</span><span>内容服务</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">青岛聚艺星尚科技有限公司</span>
+        <span class="seller">小于40家</span>
+        
+      </div>
+      <div class="meta">📍 山东省青岛市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7361311266876768538" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">青岛聚艺星尚科技有限公司是一家集电商直播及广告媒体运营于一身的多元化综合性服务商，成立于2020年8月，致力于抖音平台，为广大客户提供营销策划、广告投放、效果运营、数据分析等多层次服务，目前年投放金额在20亿左右。聚艺星尚分为三大板块，广告代投、素材代拍、自营电商，设有广州、上海、成都三家分公司，目前团队人数100-200人。未来，聚艺星尚也将不断的在团队配置、运营服务、客户整合等方面优化升级，真…</div>
+      
+      <div class="qual"><span>全店服务</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">厦门众联世纪股份有限公司</span>
+        <span class="seller">小于40家</span>
+        
+      </div>
+      <div class="meta">📍 福建省厦门市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7035852776886321412" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">厦门众联世纪股份有限公司成立于2013年，注册资金3900万元，是一家全国领先的移动互联网高新技术企业。公司团队人员超500人，众联世纪与三大运营商、各大银行等行业头部企业建立了长期稳定的合作关系；并与“巨量引擎”、“腾讯广告”、“磁力引擎”等国内头部信息流媒体建立了深度合作并获得核心代理资质，众联至今荣获超100项产品荣誉。</div>
+      
+      <div class="qual"><span>全店服务</span><span>品牌全案服务</span><span>视频拍摄</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">厦门市致易科技有限公司</span>
+        <span class="seller">小于40家</span>
+        
+      </div>
+      <div class="meta">📍 福建省厦门市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=3834725610830893" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">公司致力于扶持/孵化商家更好直播，提供各式直播服务、实战辅助、货盘优化、智能云仓等服务。</div>
+      
+      <div class="qual"><span>视频拍摄</span><span>全店服务</span><span>电商ERP</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">杭州紫驰网络科技有限公司</span>
+        <span class="seller">小于50家</span>
+        
+      </div>
+      <div class="meta">📍 浙江省杭州市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7405319545839173922" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">紫驰网络成立于2010年10月，致力于为客户提供专业的电子商务咨询和完整的电子商务及新媒体运营解决方案。紫驰系阿里巴巴深度合作的生态公司也是直播电商生态营销全案服务商，业务覆盖阿里集团国际站拍档，阿里集团内贸站渠道及服务业务，蚂蚁集团支付宝码商服务，蚂蚁集团跨境支付等业务，传统电商代运营，新媒体抖音代运营服务商。紫驰网络多次获得阿里巴巴最佳合作伙伴，六星代运营服务商等荣誉，紫驰作为国内领先的代运营…</div>
+      
+      <div class="qual"><span>视频拍摄</span><span>直播代播</span><span>全店服务</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">武汉星河鹭科技有限公司</span>
+        <span class="seller">小于50家</span>
+        
+      </div>
+      <div class="meta">📍 湖北省武汉市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7005022228148388104" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">武汉星河鹭科技科技有限公司-依托万企利集团资源，顺应抖音“内容+消费”融合发展的趋势，围绕商家GMV销售目标，创新开展“娱播/团播+卖货”结合的商业模式，并为商家提供“达播+短视频投流分销”等服务。</div>
+      
+      <div class="qual"><span>全店服务</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">广州风行互动科技有限公司</span>
+        <span class="seller">小于70家</span>
+        
+      </div>
+      <div class="meta">📍 广东省广州市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7100810842035355934" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">广州风行互动科技有限公司成立于2021年，公司主营新媒体运营服务及达人BD服务，团队核心骨干人员均来自字节跳动、快手、百度等互联网一线媒体平台，拥有丰富的内容创作、营销策划及流量运营经验，
+       公司整合过亿粉丝矩阵，拥有经验丰富的视频创作团队，匹配带货类艺人资源、各领域的媒体推广渠道为客户制定个性化全方位服务，致力品宣升级的品效合一模式，协助品牌完成多渠道的全面发展。</div>
+      
+      <div class="qual"><span>内容服务</span><span>全店服务</span><span>商城服务</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">圣蒙（山东）文化传媒有限公司</span>
+        <span class="seller">小于90家</span>
+        
+      </div>
+      <div class="meta">📍 山东省临沂市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7400617694451482891" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">圣蒙（山东）文化传媒有限公司 于2023年2月成立抖音品牌代播项目部。占地面积1000平米，其中500平米为办公场地，500平米为打品以及代播直播间场地。同时也是抖音电商认证产业带服务商、抖音本地生活认证服务商。
+主要经营业务范围：抖音品牌直播代运营代投，巨量千川代理商充值业务，抖音本地生活等。 
+我司擅长对商家直播间人货场的搭建，主播话术优化提升，达人分发，品牌推广等多方位运营需求，提供从短视频…</div>
+      
+      <div class="qual"><span>视频拍摄</span><span>直播代播</span><span>全店服务</span><span>内容服务</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">道有道（成都）数字传媒有限公司</span>
+        <span class="seller">小于90家</span>
+        
+      </div>
+      <div class="meta">📍 四川省成都市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7290570351860089147" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">道有道是中国领先的营销科技集团， 2007年成立，北京，南京、广州、成都四地办公，团队 300 人。
+为客户提供抖音平台全链路服务，包括云图、千川、星图、数字人、懂车云等9项服务，涵盖营销策略、短视频内容、广告投放、数字人、达人等服务板块。
+服务数百家客户，其中央国企及上市公司100 余家；连续4年，规模客户留存率94%；2025年抖音系广告消耗40亿。
+道有道自研dyd-RPA智能投放平台、dy…</div>
+      
+      <div class="qual"><span>内容服务</span><span>全店服务</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">广州天迹浩瀚网络技术有限公司</span>
+        <span class="seller">小于100家</span>
+        
+      </div>
+      <div class="meta">📍 广东省广州市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=7343419220883325184" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">广州天迹浩瀚网络技术有限公司隶属于广州天迹集团，集团成立已有17年，从事于新媒体电商运营、直播、投流三大业务。公司多年一直深耕信息流媒体广告业务，同时也秉承“用心创造效果”的服务理念，整合了抖音、头条、快手、微博、知乎等平台资源，组建了专业运营营销团队为企业提供广告投放策略、互联网营销策划、数字化产品运营等服务，发展至今已服务超过10000家客户，与平台、市场、客户一同成长，实现生意增长。在过去的…</div>
+      
+      <div class="qual"><span>视频拍摄</span><span>全店服务</span></div>
+    </div>
+    <div class="partner-card">
+      <div class="row1">
+        <span class="level-badge level-银牌">银牌</span>
+        <span class="name">热度（杭州）电商科技有限公司</span>
+        <span class="seller">小于100家</span>
+        
+      </div>
+      <div class="meta">📍 浙江省杭州市 | <a class="url-link" href="https://fuwu.jinritemai.com/providerHomepage?id=809713668468952" target="_blank">查看详情页 ↗</a></div>
+      
+      <div class="summary">热度电商成立于2020年8月，是内容电商生态商家链接创作者第一服务商，集商品分发、C2M超级供应链、达人分销SAAS工具、商学苑培训、短视频矩阵的综合性创新型电商企业，致力于打造多元化的电商变现体系。截止目前，已在浙江、河北、江苏、山东、陕西、辽宁、北京等地区 拥有近十家分公司，在职员工1200+。</div>
+      
+      <div class="qual"><span>团长商品推广</span><span>团长管理</span><span>全店服务</span><span>内容服务</span><span>品牌全案服务</span><span>撮合服务商</span><span>商家商品推广</span><span>机构选品</span></div>
+    </div></div></div>
+<div style="text-align:center; padding:20px; color:#86909c; font-size:12px;">
+🦞 橘橘有500w 出品 | 数据真实来源于抖店服务市场公开页面 | 严格遵守"数据真实性铁律"
+</div>
+</div></body></html>
