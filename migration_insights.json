@@ -1,5 +1,5 @@
 {
-  "gen_time": "2026-06-25 11:11:14",
+  "gen_time": "2026-06-25 16:11:46",
   "period": "0.610-0.623",
   "module_a_top3": [
     {
@@ -15,6 +15,18 @@
       }
     },
     {
+      "track": "服饰鞋包其他",
+      "up_count": 3,
+      "rep_customer": {
+        "name": "温州莱拉达鞋业有限公司",
+        "base_spend": 5616.0,
+        "obs_spend": 16540.0,
+        "spend_lift": 1.09,
+        "driver": "投放端新增",
+        "driver_detail": "投放端扩展：单ADQ→ADQ+全域通双端 + 广告数10→39(+314%) + ROI 2.45→2.80(+14%)"
+      }
+    },
+    {
       "track": "箱包鞋靴",
       "up_count": 3,
       "rep_customer": {
@@ -25,47 +37,35 @@
         "driver": "基建增加",
         "driver_detail": "账户数1.0→2.0(+100%) + 广告数6→7(+30%) + 创意ID43→59(+37%)"
       }
-    },
-    {
-      "track": "综合服饰",
-      "up_count": 3,
-      "rep_customer": {
-        "name": "天津伊云商贸有限公司",
-        "base_spend": 495.0,
-        "obs_spend": 12019.0,
-        "spend_lift": 1.15,
-        "driver": "双驱动",
-        "driver_detail": "账户数14.0→20.0(+43%) + 广告数12→125(+902%) + ROI 2.26→2.76(+22%)"
-      }
     }
   ],
   "module_b_common": {
-    "total_up": 20,
+    "total_up": 23,
     "drivers": [
       {
         "name": "基建增加",
-        "count": 13,
-        "pct": 65.0
+        "count": 15,
+        "pct": 65.2
       },
       {
         "name": "链路新增",
         "count": 2,
-        "pct": 10.0
+        "pct": 8.7
+      },
+      {
+        "name": "投放端新增",
+        "count": 2,
+        "pct": 8.7
       },
       {
         "name": "双驱动",
         "count": 2,
-        "pct": 10.0
+        "pct": 8.7
       },
       {
         "name": "自然回升",
         "count": 2,
-        "pct": 10.0
-      },
-      {
-        "name": "投放端新增",
-        "count": 1,
-        "pct": 5.0
+        "pct": 8.7
       },
       {
         "name": "ROI提升",
@@ -74,9 +74,9 @@
       }
     ],
     "main_driver": "基建增加",
-    "main_driver_pct": 65.0,
+    "main_driver_pct": 65.2,
     "show_main": true,
-    "verdict": "主驱动 = 基建增加（占65.0%）。基建扩张是主要驱动力，建议推动其他客户对齐基建标准。"
+    "verdict": "主驱动 = 基建增加（占65.2%）。基建扩张是主要驱动力，建议推动其他客户对齐基建标准。"
   },
   "module_c_head_baseline": [
     {
@@ -117,11 +117,11 @@
     },
     {
       "track": "服饰鞋包其他",
-      "head_count": 3,
-      "avg_accounts": 19.7,
-      "avg_ads_per_day": 91.0,
-      "avg_cids_per_day": 530.0,
-      "avg_spend": 1.67,
+      "head_count": 15,
+      "avg_accounts": 7.3,
+      "avg_ads_per_day": 74.0,
+      "avg_cids_per_day": 673.0,
+      "avg_spend": 2.18,
       "note": ""
     },
     {
