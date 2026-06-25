@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>服饰运营本周数据周报 · 0617-0623</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Segoe UI',Arial,sans-serif;background:linear-gradient(135deg,#f6f9fc 0%,#eef2f8 100%);color:#1a2332;line-height:1.6;padding:24px 16px;min-height:100vh}
+.wrap{max-width:1240px;margin:0 auto}
+
+/* ===== 顶部头条 ===== */
+.hero{background:linear-gradient(135deg,#1677ff 0%,#4096ff 100%);color:#fff;padding:28px 32px;border-radius:14px;margin-bottom:18px;box-shadow:0 8px 24px rgba(22,119,255,.2);position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;background:rgba(255,255,255,.08);border-radius:50%}
+.hero h1{font-size:26px;font-weight:800;letter-spacing:0.5px;margin-bottom:8px;position:relative;z-index:1}
+.hero .sub{font-size:13px;opacity:0.85;position:relative;z-index:1}
+.hero .meta{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;position:relative;z-index:1}
+.hero .meta span{padding:5px 12px;background:rgba(255,255,255,.18);backdrop-filter:blur(8px);border-radius:14px;font-size:12px;font-weight:500}
+.hero .meta a{color:#fff;text-decoration:none;border-bottom:1px dashed rgba(255,255,255,.4)}
+
+/* ===== Section 标题 ===== */
+.sec-h{display:flex;align-items:baseline;gap:10px;margin:24px 4px 12px}
+.sec-h .num{font-size:13px;font-weight:800;color:#fff;background:#1677ff;width:24px;height:24px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center}
+.sec-h .t{font-size:17px;font-weight:700;color:#1a2332}
+.sec-h .cs{font-size:12px;color:#8a9aae;font-weight:500}
+
+/* ===== 大盘核心卡 ===== */
+.kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:14px}
+.kpi{background:#fff;border:1px solid #e6ecf5;border-radius:10px;padding:18px 20px;position:relative;overflow:hidden}
+.kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#1677ff,#4096ff)}
+.kpi .lab{font-size:12px;color:#5a6b7e;margin-bottom:6px;font-weight:500}
+.kpi .val{font-size:30px;font-weight:800;color:#1a2332;letter-spacing:-0.5px;line-height:1.1}
+.kpi .val .u{font-size:14px;color:#5a6b7e;font-weight:600;margin-left:4px}
+.kpi .sub{margin-top:8px;font-size:12px}
+.kpi .sub .down{color:#f5222d;font-weight:700}
+.kpi .sub .up{color:#52c41a;font-weight:700}
+.kpi .sub .ts{color:#8a9aae}
+
+/* ===== 4个专项条 ===== */
+.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:8px}
+.proj{background:#fff;border:1px solid #e6ecf5;border-radius:10px;padding:14px 18px;position:relative;overflow:hidden}
+.proj::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px}
+.proj.p1::before{background:#f5222d}
+.proj.p2::before{background:#1677ff}
+.proj.p3::before{background:#722ed1}
+.proj.p4::before{background:#13c2c2}
+.proj .ph{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:8px}
+.proj .nm{font-size:15px;font-weight:700;color:#1a2332}
+.proj .ow{font-size:11px;color:#8a9aae}
+.proj .pb{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.proj .pb .v{font-size:22px;font-weight:800;color:#1a2332;letter-spacing:-0.3px}
+.proj.p1 .pb .v{color:#f5222d}
+.proj.p2 .pb .v{color:#1677ff}
+.proj.p3 .pb .v{color:#722ed1}
+.proj.p4 .pb .v{color:#13c2c2}
+.proj .pb .u{font-size:12px;color:#5a6b7e;font-weight:500}
+.proj .pb .delta{font-size:13px;font-weight:700}
+.proj .pb .down{color:#f5222d}
+.proj .pb .up{color:#52c41a}
+.proj .pb .neutral{color:#8a9aae}
+.proj .desc{margin-top:8px;font-size:12px;color:#5a6b7e;line-height:1.65}
+
+/* ===== 亮点/关注双栏 ===== */
+.dual{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
+.hl-card{background:#fff;border-radius:12px;padding:18px 20px;border:1px solid #e6ecf5}
+.hl-card.green{background:linear-gradient(135deg,#f6ffed 0%,#fff 100%);border-color:#b7eb8f}
+.hl-card.amber{background:linear-gradient(135deg,#fffbe6 0%,#fff 100%);border-color:#ffe58f}
+.hl-card .h{font-size:14px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.hl-card.green .h{color:#389e0d}
+.hl-card.amber .h{color:#d48806}
+.hl-list{list-style:none;display:flex;flex-direction:column;gap:9px}
+.hl-list li{display:flex;gap:10px;font-size:12.5px;line-height:1.7;padding:8px 12px;background:rgba(255,255,255,.6);border-radius:8px}
+.hl-list li .rank{flex-shrink:0;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;color:#fff;margin-top:2px}
+.hl-card.green .rank{background:#52c41a}
+.hl-card.amber .rank{background:#fa8c16}
+.hl-list li .ct{flex:1;color:#1a2332}
+.hl-list li .ct b{color:#1a2332;font-weight:700}
+.hl-list li .ct .met{color:#5a6b7e;font-size:11.5px}
+
+/* ===== 行动建议 ===== */
+.action-card{background:linear-gradient(135deg,#e6f4ff 0%,#fff 100%);border:1px solid #91caff;border-radius:12px;padding:18px 22px;margin-bottom:18px}
+.action-card .h{font-size:14px;font-weight:700;color:#1677ff;margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.action-list{counter-reset:item;list-style:none}
+.action-list li{counter-increment:item;padding:10px 0 10px 36px;font-size:12.5px;color:#1a2332;line-height:1.75;position:relative;border-bottom:1px dashed rgba(22,119,255,.15)}
+.action-list li:last-child{border-bottom:none}
+.action-list li::before{content:counter(item);position:absolute;left:0;top:11px;width:24px;height:24px;background:#1677ff;color:#fff;border-radius:6px;font-size:11px;font-weight:800;display:inline-flex;align-items:center;justify-content:center}
+.action-list b{color:#1677ff;font-weight:700}
+
+/* ===== 底部 ===== */
+.footer{margin-top:20px;padding:14px 18px;background:#fff;border:1px solid #e6ecf5;border-radius:10px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12px;color:#5a6b7e}
+.footer a{color:#1677ff;text-decoration:none;border-bottom:1px dashed rgba(22,119,255,.4)}
+.footer .lh{display:flex;align-items:center;gap:6px;color:#8a9aae}
+
+/* ===== 手机适配 ===== */
+@media (max-width: 768px){
+  body{padding:14px 10px}
+  .hero{padding:20px 18px}
+  .hero h1{font-size:20px}
+  .kpi-grid{grid-template-columns:1fr;gap:10px}
+  .kpi{padding:14px 16px}
+  .kpi .val{font-size:26px}
+  .proj-grid{grid-template-columns:1fr;gap:8px}
+  .proj{padding:12px 14px}
+  .dual{grid-template-columns:1fr;gap:10px}
+  .hl-card{padding:14px 16px}
+  .action-card{padding:14px 16px}
+  .action-list li{padding-left:32px;font-size:12px}
+  .footer{flex-direction:column;align-items:flex-start;gap:6px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- 顶部头条 -->
+<div class="hero">
+  <h1>📊 服饰运营·本周数据周报</h1>
+  <div class="sub">大盘 + 4 个提收专项 · 一线运营版 · 不增加任何填报任务</div>
+  <div class="meta">
+    <span>📅 数据周期：6/17 – 6/23（近 7 天）</span>
+    <span>📆 发布日期：6/25（每周三更新）</span>
+    <span>🔗 <a href="https://jiejin903.github.io/xiyou-dashboard/zfops/" target="_blank">完整看板入口</a></span>
+  </div>
+</div>
+
+<!-- 一、大盘核心 -->
+<div class="sec-h"><span class="num">1</span><span class="t">大盘核心</span><span class="cs">近 7 天日均 · 链路构成 · 昨日消耗</span></div>
+<div class="kpi-grid">
+  <div class="kpi">
+    <div class="lab">近 7 天日均消耗</div>
+    <div class="val">1,176<span class="u">万元</span></div>
+    <div class="sub"><span class="down">▼ 5.83%</span> <span class="ts">vs 上一周 · 日均 -73 万</span></div>
+  </div>
+  <div class="kpi">
+    <div class="lab">昨日 6/23 消耗</div>
+    <div class="val">1,144<span class="u">万元</span></div>
+    <div class="sub"><span class="up">▲ 2.35%</span> <span class="ts">vs 6/22 · 单日略反弹</span></div>
+  </div>
+  <div class="kpi">
+    <div class="lab">闭环 vs 非闭环 · 近 7 天日均</div>
+    <div class="val">52<span class="u">% : 48%</span></div>
+    <div class="sub"><span class="ts">闭环 607 万 · 非闭环 569 万 · 闭环占比微优</span></div>
+  </div>
+</div>
+
+<!-- 二、4 个提收专项 -->
+<div class="sec-h"><span class="num">2</span><span class="t">4 个提收专项</span><span class="cs">本期数据 · 一行核心结论</span></div>
+<div class="proj-grid">
+  <div class="proj p1">
+    <div class="ph">
+      <span class="nm">4+m</span>
+      <span class="ow">👤 嘉润</span>
+    </div>
+    <div class="pb">
+      <span class="v">59.7</span><span class="u">万 · 日均</span>
+      <span class="delta down">▼ 5.8%</span>
+      <span class="u">· 投放 84 家</span>
+      <span class="delta down">▼ 3.4%</span>
+    </div>
+    <div class="desc">主盘贴身衣物 +10.8% 持续巩固（猫人夏宇 7.5万/日 +13.9%），男装 -25.9% 是本期主要回调（贴牌朱志辉 3.2万/日 -64.2% 需对接）。覆盖率从 31.1% 提升至 34.0%（36/106、新增 3 家）。</div>
+  </div>
+  <div class="proj p2">
+    <div class="ph">
+      <span class="nm">创意基建</span>
+      <span class="ow">👤 俊昊</span>
+    </div>
+    <div class="pb">
+      <span class="v">52.1</span><span class="u">万 · 日均曝光创意</span>
+      <span class="delta neutral">▬ -0.7%</span>
+    </div>
+    <div class="desc">在线创意稳定（+1.5%），全新创意回吐（-13.6%，上期高基数后回落），主要受女装（-35.3%）、箱包（-53.0%）、运动鞋服（-29.2%）拖累；服饰鞋包仍稳健（+2.5%）。</div>
+  </div>
+  <div class="proj p3">
+    <div class="ph">
+      <span class="nm">腰尾部跃迁</span>
+      <span class="ow">👤 橘子</span>
+    </div>
+    <div class="pb">
+      <span class="v">48</span><span class="u">家 · Q2 累计</span>
+      <span class="delta up">▲ 达成 160%</span>
+    </div>
+    <div class="desc">Q2 累计跃迁 48 家（目标 30 家），带动消耗 +60.1 万；近一周新增 15 家，阿迪达斯（+11.1 万）、湛江云云启（+1.9 万）为单周 TOP。</div>
+  </div>
+  <div class="proj p4">
+    <div class="ph">
+      <span class="nm">多品聚合页</span>
+      <span class="ow">👤 嘉润</span>
+    </div>
+    <div class="pb">
+      <span class="v">11.3</span><span class="u">万 · 日均</span>
+      <span class="delta down">▼ 33.7%</span>
+      <span class="u">· 投放 31 家</span>
+    </div>
+    <div class="desc">整体大盘环比明显回调，主盘女装（-41.3%）、其他（-40.2%）、珠宝文玩（-76.1%）三个行业拖累；新版 CSV 缺客户级数据，建议先核对取数口径再启动客户动作。</div>
+  </div>
+</div>
+
+<!-- 三、亮点 vs 关注 -->
+<div class="sec-h"><span class="num">3</span><span class="t">本周亮点 vs 需关注</span><span class="cs">基于真实数据 · 跨专项交叉视角</span></div>
+<div class="dual">
+  <div class="hl-card green">
+    <div class="h">🟢 本周 3 个亮点</div>
+    <ul class="hl-list">
+      <li>
+        <span class="rank">1</span>
+        <div class="ct"><b>贴身衣物·既有体量又有增长</b><br><span class="met">4+m 日耗 26.6 万 / +10.8%、创意全新 +2.5%、占 4+m 整体 45%，TOP1 猫人夏宇（7.5万/日 +13.9%）持续巩固。</span></div>
+      </li>
+      <li>
+        <span class="rank">2</span>
+        <div class="ct"><b>4+m 覆盖率 +3 个百分点</b><br><span class="met">从 31.1% → 34.0%（36/106、新增覆盖 3 家），前期覆盖动作开始见效，本周可继续抓贴身衣物 21 家待覆盖。</span></div>
+      </li>
+      <li>
+        <span class="rank">3</span>
+        <div class="ct"><b>跃迁 Q2 达成 160% 超额</b><br><span class="met">Q2 累计 48 家（目标 30）、带动消耗 60.1 万；近一周阿迪达斯（+11.1 万）、湛江云云启（+1.9 万）为单周 TOP。</span></div>
+      </li>
+    </ul>
+  </div>
+  <div class="hl-card amber">
+    <div class="h">🟡 本周 3 个需关注</div>
+    <ul class="hl-list">
+      <li>
+        <span class="rank">1</span>
+        <div class="ct"><b>男装·4+m 与创意双线回调</b><br><span class="met">4+m 日耗 15.0 万 / -25.9%、创意全新 -35.3%；TOP1 贴牌朱志辉（3.2万/日 -64.2%）需对接核实消耗动因。</span></div>
+      </li>
+      <li>
+        <span class="rank">2</span>
+        <div class="ct"><b>多品聚合页·大盘异常下滑</b><br><span class="met">整体日耗 -33.7%，女装（-41.3%）、其他（-40.2%）、珠宝文玩（-76.1%）拖累；新版 CSV 缺客户级，建议先核对取数口径。</span></div>
+      </li>
+      <li>
+        <span class="rank">3</span>
+        <div class="ct"><b>创意基建·全新创意回吐</b><br><span class="met">全新创意 -13.6%（上期 +5.8% 高基数后回落），女装/箱包/运动鞋服新创意搭建投入明显收缩，需关注后续消耗承接。</span></div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- 四、行动建议 -->
+<div class="action-card">
+  <div class="h">📌 一线运营·本周可落地的 3 件事</div>
+  <ol class="action-list">
+    <li><b>4+m 覆盖优先抓贴身衣物 21 家</b>：本期待覆盖 70 家，集中在贴身衣物（21 家）、鞋靴（7 家）、女装（7 家）。建议本周锁定贴身衣物 21 家做触达，复制上期 +3 家的成功路径；同时持续巩固猫人夏宇、西鸣、宇凡传媒等 TOP 客户的 4+m 投入。</li>
+    <li><b>男装双线回调·锁定 TOP1 贴牌朱志辉对接</b>：男装 4+m 日耗 15.0 万/-25.9%、创意全新 -35.3%，建议运营优先对接贴牌朱志辉（3.2 万/日 -64.2%）核实是消耗自然波动还是物料供给收缩，提前给到产品/创意侧支援。</li>
+    <li><b>多品聚合页先核口径再做客户动作</b>：本期 -33.7% 大幅回调，但新版 CSV 缺客户级数据，建议先与中台核对一下取数口径是否调整（女装/其他/珠宝文玩同时回调存疑），确认后再决定是否启动客户侧动作。</li>
+  </ol>
+</div>
+
+<!-- 底部 -->
+<div class="footer">
+  <div>
+    📊 数据来源：<a href="https://adata.woa.com/bi/view/new/g:biz_main_multiple:log_time?s=4oT5qC" target="_blank">adata 服饰行业大盘</a> · 
+    <a href="https://jiejin903.github.io/xiyou-dashboard/zfops/" target="_blank">完整看板</a> · 
+    <a href="https://jiejin903.github.io/xiyou-dashboard/" target="_blank">腰尾跃迁监控</a>
+  </div>
+  <div class="lh">📅 每周三更新 · 橘橘有 500w 出品 🦞</div>
+</div>
+
+</div>
+</body>
+</html>
