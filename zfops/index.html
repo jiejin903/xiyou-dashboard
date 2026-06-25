@@ -925,7 +925,7 @@ const PROJ = [
   // ★ 其中 4+m / 创意基建 / 腰尾部跃迁 / 多品聚合页 纳入「数据监控」模块（monitor:true）
   {name:'4+m',type:'提收重点专项',cls:'wrn',owner:'嘉润',monitor:true,
     desc:'提高客户ARPU',
-    target:'消耗、消耗占直播消耗比例',
+    target:'消耗目标 60w/d · 当前日耗 59.7w（达成 99.5%）',
     progress:'截止 6/14，Q2TD 累计消耗 3884万，环比 +197%，消耗占比行一 41%；有消耗客户数 129家，环比 +457%，客户数占比行一 40%。当前客户覆盖基本完成，接下来重点推每家在 4+m 的深入度。',
     focus:'',
     docLink:'',docLinkText:'',
@@ -947,7 +947,7 @@ const PROJ = [
     dataNote:''},
   {name:'多品聚合页',type:'提收重点专项',cls:'ok',owner:'嘉润',monitor:true,
     desc:'多品 4+m 商品聚合页上线与扶持，提升多品消耗。',
-    target:'消耗目标 30w/d',
+    target:'消耗目标 30w/d · 当前日耗 11.3w（达成 37.6%）',
     progress:'6/5 上线至今累计消耗 88万，占比行一 28%，近期周末峰值日耗 34万、占比行一 40%。\n广告跑量能力（条均消耗）：商品聚合页显著强于普通直播广告（高 10%~1倍不等）。\n三率限制：商品聚合页受三率限制显著小于单品 4+m。\n综上：不仅适合所有直播客户提 4+m 数量，更尤其适合受三率限制无法投放 4+m 的直播客群。',
     focus:'1、头部客户拉名单推进测试，应投尽投，卷4+m卷广告数；\n2、推进受三率影响无法投放单品4+m的直播客户通过该产品提高广告跑量能力；\n3、所有测试客户提报流量侧扶持。',
     docLink:'https://doc.weixin.qq.com/doc/w3_AN0ARwawACgCNgNOzKDrjR00Ewj0F?scode=AJEAIQdfAAowxTbCVcAN0ARwawACg',
@@ -1022,13 +1022,13 @@ const PROJ = [
    整体值取自 sheet2 数据进展原文（截止 6/4 双周）· 分赛道数据待运营补充 */
 const MONITOR_LANES = ['女装','男装','珠宝配饰','运动户外','潮奢跑品','箱包鞋靴','贴身衣物','其他'];
 const MONITOR = [
-  {name:'4+m',owner:'嘉润',metric:'4+m 日耗',total:'59.7万',sub:'环比 -5.8% · 投放84家 · 覆盖率34.0%',
+  {name:'4+m',owner:'嘉润',metric:'4+m 日耗',total:'59.7万',sub:'目标60w/d · 达成99.5% · 投放84家 · 覆盖率34.0%',
     lanes:{},dataLink:'https://adata.woa.com/bi/view/16063?s=1luiz0'},
   {name:'创意基建',owner:'俊昊',metric:'日均曝光创意唯一性ID数',total:'521,267',sub:'日耗1113万/-7.4% · 新建创意21.9万/-13.6%',
     lanes:{},dataLink:'https://adata.woa.com/bi/view/new/g:biz_main_multiple:log_time?s=3Hcg6L'},
   {name:'腰尾部跃迁',owner:'橘子',metric:'Q2TD 跃迁客户数',total:'48个',sub:'目标30 · 达成160%',
     lanes:{},dataLink:'https://jiejin903.github.io/xiyou-dashboard/?v=20260520-fix'},
-  {name:'多品聚合页',owner:'嘉润',metric:'多品消耗',total:'11.3万',sub:'环比 -33.7% · 投放31家',
+  {name:'多品聚合页',owner:'嘉润',metric:'多品消耗',total:'11.3万',sub:'目标30w/d · 达成37.6% · 投放31家',
     lanes:{},dataLink:'https://adata.woa.com/bi/view/16063?s=3g7lx7'},
 ];
 
@@ -1874,12 +1874,17 @@ function renderMonitor(){
       }).join('');
       // 取数短链（紧凑样式，挂在消耗数据右侧）
       const adataLink = m.dataLink ? `<a href="${m.dataLink}" target="_blank" rel="noopener" title="${m.dataLink}" style="display:inline-flex;align-items:center;gap:3px;padding:2px 8px;background:#e6f4ff;color:#1677ff;border:1px solid #91caff;border-radius:10px;font-size:11px;text-decoration:none;font-weight:600">📊 adata 取数</a>` : '';
+      // 目标日耗（4+m = 60w/d）
+      const target4m = 60;
+      const rate4m = d.overall.cost / target4m * 100;
+      const rateColor4m = rate4m >= 95 ? '#52c41a' : rate4m >= 70 ? '#fa8c16' : '#f5222d';
       return `<div style="margin-bottom:14px;padding:14px 16px;background:#fff;border:1px solid #eef1f5;border-left:4px solid ${c};border-radius:8px">
         <div style="display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:8px">
           <span style="font-size:18px;font-weight:700;color:#1a2332;letter-spacing:0.5px;line-height:1">${m.name}</span>
           <span style="font-size:14px;color:#8a9aae;font-weight:500;line-height:1">整体日耗</span>
           <span style="font-size:24px;font-weight:800;color:${c};line-height:1">${d.overall.cost.toFixed(1)}<span style="font-size:14px">万</span></span>
           <span style="font-size:12px">${deltaTxt(d.overall.cost, d.overall.cost_pct)}</span>
+          <span style="display:inline-flex;align-items:center;gap:4px;padding:3px 9px;background:${rateColor4m}11;color:${rateColor4m};border:1px solid ${rateColor4m}44;border-radius:10px;font-size:11px;font-weight:700">🎯 目标 ${target4m}w/d · 达成 ${rate4m.toFixed(1)}%</span>
           ${adataLink}
         </div>
         ${summaryBlock}
@@ -1978,12 +1983,17 @@ function renderMonitor(){
           <div style="padding-left:12px;border-left:1px solid #eef1f5;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${topHtml||'<span style="color:#c0c8d4">—</span>'}</div>
         </div>`;
       }).join('');
+      // 目标日耗（多品聚合页 = 30w/d）
+      const targetJhy = 30;
+      const rateJhy = d.overall.cost / targetJhy * 100;
+      const rateColorJhy = rateJhy >= 95 ? '#52c41a' : rateJhy >= 70 ? '#fa8c16' : '#f5222d';
       return `<div style="margin-bottom:14px;padding:14px 16px;background:#fff;border:1px solid #eef1f5;border-left:4px solid ${c};border-radius:8px">
         <div style="display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:8px">
           <span style="font-size:18px;font-weight:700;color:#1a2332;letter-spacing:0.5px;line-height:1">${m.name}</span>
           <span style="font-size:14px;color:#8a9aae;font-weight:500;line-height:1">整体日耗</span>
           <span style="font-size:24px;font-weight:800;color:${c};line-height:1">${d.overall.cost.toFixed(1)}<span style="font-size:14px">万</span></span>
           <span style="font-size:12px">${deltaTxt(d.overall.cost, d.overall.cost_pct)}</span>
+          <span style="display:inline-flex;align-items:center;gap:4px;padding:3px 9px;background:${rateColorJhy}11;color:${rateColorJhy};border:1px solid ${rateColorJhy}44;border-radius:10px;font-size:11px;font-weight:700">🎯 目标 ${targetJhy}w/d · 达成 ${rateJhy.toFixed(1)}%</span>
           ${adataLink}
         </div>
         ${summaryBlock}
