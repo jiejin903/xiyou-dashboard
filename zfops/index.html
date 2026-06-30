@@ -522,7 +522,7 @@ details[open] .nc-ended-sum::before{transform:rotate(90deg)}
   <div class="h-l">
     <button class="menu-toggle" onclick="toggleSb()">☰</button>
     <div class="logo"><div class="logo-icon">⚔</div><span class="ltf">服饰中心运营统一作战地图</span></div>
-    <span class="live">数据更新至 6月21日</span>
+    <span class="live" id="dataUpdateTag">数据更新至 ...</span>
   </div>
   <div class="h-r">
     <button class="bs-btn" onclick="toggleFs()">⛶ 大屏</button>
@@ -748,7 +748,7 @@ details[open] .nc-ended-sum::before{transform:rotate(90deg)}
           <h3>数据监控</h3>
           <p>4个提收重点专项 · 整体表现 + 分赛道追踪 · 数据T+1更新</p>
         </div>
-        <span class="sec-tag">更新至 6/30</span>
+        <span class="sec-tag" id="sec2UpdateTag">更新至 ...</span>
       </div>
 
       <!-- 1.1 提收重点专项 · 核心指标监控 -->
@@ -2381,8 +2381,22 @@ function renderTrend(){
   wrap.innerHTML = `${yAxis}<div class="trend-area"><div class="trend-grid"></div>${bars}</div><div class="trend-x">${xLabels}</div>`;
 }
 
+// ===== 数据更新日期（每周更新数据时只需改这一行）=====
+const DATA_END_DATE = '2026-06-29';  // 本期数据截止日（CSV 大盘by天最后一天）
+function renderDataDate(){
+  const d = new Date(DATA_END_DATE);
+  const m = d.getMonth() + 1, day = d.getDate();
+  const cn = `${m}月${day}日`;       // 用于顶部「数据更新至 X月Y日」
+  const slash = `${m}/${day}`;       // 用于「更新至 M/D」
+  const top = document.getElementById('dataUpdateTag');
+  if (top) top.textContent = `数据更新至 ${cn}`;
+  const sec2 = document.getElementById('sec2UpdateTag');
+  if (sec2) sec2.textContent = `更新至 ${slash}`;
+}
+
 // 初始化
 checkLogin();
+renderDataDate();
 renderLanes();
 renderProj();
 renderMonitor();
