@@ -3,210 +3,225 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Q3男装·SPU爆品罗盘</title>
+<title>Q3男装·SPU 爆品罗盘</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html, body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f5f6fa; color: #2c3e50; line-height: 1.5; }
   a { color: inherit; text-decoration: none; }
 
   /* ===== 顶部 ===== */
-  header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; padding: 24px 20px 18px; }
+  header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff; padding: 24px 20px 20px;
+  }
   .header-inner { max-width: 1440px; margin: 0 auto; }
   header h1 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
   .meta { font-size: 12px; opacity: 0.9; }
   .meta span { margin-right: 16px; }
 
-  /* ===== KPI 条 ===== */
-  .kpi-bar { max-width: 1440px; margin: -12px auto 0; padding: 0 20px; }
-  .kpi-grid { background: #fff; border-radius: 12px; padding: 16px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
-  .kpi { text-align: center; padding: 8px 4px; border-right: 1px solid #f0f0f0; }
-  .kpi:last-child { border-right: none; }
-  .kpi-val { font-size: 22px; font-weight: 700; color: #667eea; margin-bottom: 4px; }
-  .kpi-label { font-size: 11px; color: #7f8c8d; }
-  .kpi.highlight .kpi-val { color: #e67e22; }
+  main { max-width: 1440px; margin: 0 auto; padding: 20px; }
 
-  /* ===== 说明区 ===== */
-  .note-bar { max-width: 1440px; margin: 16px auto 0; padding: 0 20px; }
-  .note { background: #fff9e8; border-left: 3px solid #f39c12; padding: 10px 14px; font-size: 12px; color: #7a5c1a; border-radius: 6px; }
-  .note strong { color: #d68910; }
+  /* ===== 品类趋势总结区 ===== */
+  .trend-section {
+    background: #fff; border-radius: 12px;
+    padding: 18px 22px; margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .trend-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid #f0f0f0;
+  }
+  .trend-header h2 { font-size: 16px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+  .trend-header .header-icon { width: 22px; height: 22px; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 13px; }
+  .trend-header .subtitle { font-size: 12px; color: #7f8c8d; font-weight: 400; margin-left: 4px; }
+  .trend-header .kpi-inline { font-size: 12px; color: #7f8c8d; }
+  .trend-header .kpi-inline b { color: #2c3e50; margin: 0 3px; }
 
-  /* ===== SPU 网格 ===== */
-  main { max-width: 1440px; margin: 20px auto; padding: 0 20px 40px; }
-  .section-title { font-size: 15px; font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
-  .section-title::before { content: ""; width: 4px; height: 16px; background: #667eea; border-radius: 2px; }
+  /* 两个颜色的分类卡（视频号绿/抖音橙） */
+  .category-tabs { display: grid; grid-template-columns: 1fr; gap: 12px; }
+  .cat-card {
+    padding: 14px 18px; border-radius: 10px; border: 1px solid;
+    display: flex; align-items: flex-start; gap: 14px;
+  }
+  .cat-card.wechat { background: linear-gradient(135deg, #e8f8f0 0%, #d5f5e3 100%); border-color: #b8e5c8; }
+  .cat-card.douyin { background: linear-gradient(135deg, #fff5eb 0%, #ffe8d0 100%); border-color: #f5d5a3; }
+  .cat-icon-wrap {
+    flex-shrink: 0; width: 36px; height: 36px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center; font-size: 18px;
+  }
+  .cat-card.wechat .cat-icon-wrap { background: #229954; color: #fff; }
+  .cat-card.douyin .cat-icon-wrap { background: #e67e22; color: #fff; }
+  .cat-info { flex: 1; }
+  .cat-title { font-size: 14px; font-weight: 700; margin-bottom: 3px; }
+  .cat-card.wechat .cat-title { color: #229954; }
+  .cat-card.douyin .cat-title { color: #e67e22; }
+  .cat-desc { font-size: 11px; color: #7f8c8d; margin-bottom: 8px; }
+  .cat-spus { display: flex; flex-wrap: wrap; gap: 6px; }
+  .cat-spu-chip {
+    padding: 3px 10px; border-radius: 12px; font-size: 12px; font-weight: 500;
+    background: rgba(255,255,255,0.7); color: #2c3e50; border: 1px solid rgba(0,0,0,0.05);
+  }
+  .cat-card.wechat .cat-spu-chip { color: #229954; }
+  .cat-card.douyin .cat-spu-chip { color: #e67e22; }
+  .cat-spu-chip .rank { opacity: 0.55; font-size: 10px; margin-right: 3px; }
 
-  .spu-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-  .spu-card { background: #fff; border-radius: 10px; overflow: hidden; cursor: pointer; transition: all 0.2s; position: relative; border: 1px solid #eee; }
-  .spu-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(102,126,234,0.15); border-color: #667eea; }
-  .rank-badge { position: absolute; top: 8px; left: 8px; background: rgba(0,0,0,0.7); color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; z-index: 2; }
-  .rank-badge.top3 { background: linear-gradient(135deg, #f39c12, #e67e22); }
-  .new-tag { position: absolute; top: 8px; right: 8px; background: #e74c3c; color: #fff; padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: 600; z-index: 2; }
-  .spu-img-wrap { width: 100%; aspect-ratio: 1/1; background: #fafafa; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-  .spu-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
-  .spu-info { padding: 10px 12px; }
-  .spu-name { font-size: 15px; font-weight: 700; margin-bottom: 6px; color: #2c3e50; }
-  .spu-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 11px; color: #7f8c8d; }
-  .spu-gmv { font-size: 18px; font-weight: 700; color: #e67e22; margin-bottom: 6px; }
-  .spu-gmv .unit { font-size: 11px; font-weight: 400; margin-left: 2px; color: #7f8c8d; }
-  .spu-price { display: inline-block; background: #f0f4ff; color: #667eea; padding: 3px 8px; border-radius: 4px; font-size: 11px; margin-bottom: 8px; }
-  .spu-stats { display: flex; gap: 8px; font-size: 11px; margin-bottom: 8px; }
-  .spu-stat { flex: 1; text-align: center; background: #f8f9fa; padding: 5px 4px; border-radius: 4px; }
-  .spu-stat b { display: block; font-size: 13px; color: #2c3e50; }
-  .spu-stat.new b { color: #e74c3c; }
-  .spu-stat .lbl { color: #95a5a6; font-size: 10px; }
+  /* ===== 折叠 SPU 列表 ===== */
+  .spu-list { display: flex; flex-direction: column; gap: 10px; }
+  .spu-accordion {
+    background: #fff; border-radius: 10px; overflow: hidden;
+    border: 1px solid #eee; transition: all 0.2s;
+  }
+  .spu-accordion.open { border-color: #b8e5c8; box-shadow: 0 4px 16px rgba(34,153,84,0.08); }
+  .acc-head {
+    padding: 14px 18px; display: flex; align-items: center; gap: 14px;
+    cursor: pointer; transition: background 0.15s;
+  }
+  .acc-head:hover { background: #fafbfc; }
+  .acc-rank {
+    flex-shrink: 0; width: 32px; height: 32px; border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 13px; background: #d5f5e3; color: #229954;
+  }
+  .acc-rank.top3 { background: linear-gradient(135deg,#f39c12,#e67e22); color: #fff; }
+  .acc-title { flex: 1; }
+  .acc-spu-name { font-size: 15px; font-weight: 700; margin-bottom: 3px; }
+  .acc-meta { font-size: 11px; color: #7f8c8d; }
+  .acc-meta b { color: #229954; font-weight: 700; }
+  .acc-summary {
+    display: flex; gap: 20px; margin-right: 12px; font-size: 11px; color: #7f8c8d;
+    flex-shrink: 0;
+  }
+  .acc-summary .cell { text-align: center; }
+  .acc-summary .cell b { display: block; font-size: 15px; font-weight: 700; color: #2c3e50; }
+  .acc-summary .cell.roi-high b { color: #229954; }
+  .acc-summary .cell.roi-mid b { color: #f39c12; }
+  .acc-summary .cell.roi-low b { color: #e74c3c; }
+  .acc-summary .cell.refund-low b { color: #229954; }
+  .acc-summary .cell.refund-mid b { color: #f39c12; }
+  .acc-summary .cell.refund-high b { color: #e74c3c; }
+  .acc-arrow { color: #95a5a6; font-size: 14px; transition: transform 0.2s; flex-shrink: 0; }
+  .spu-accordion.open .acc-arrow { transform: rotate(90deg); }
 
-  /* 特征标签 chips */
-  .feature-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 8px; }
-  .feature-tag { display: inline-flex; align-items: center; gap: 2px; padding: 2px 7px; border-radius: 10px; font-size: 10px; font-weight: 500; line-height: 1.5; background: #f0f4ff; color: #667eea; border: 1px solid #dfe6f7; }
+  /* 折叠展开区 */
+  .acc-body {
+    max-height: 0; overflow: hidden; transition: max-height 0.35s ease;
+  }
+  .spu-accordion.open .acc-body { max-height: 2500px; }
+  .acc-body-inner { padding: 4px 18px 18px; border-top: 1px solid #f0f0f0; }
+
+  /* 指标条 */
+  .metric-strip {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+    margin: 14px 0; padding: 14px; background: #fafbfc; border-radius: 8px;
+  }
+  .metric-cell { text-align: center; }
+  .metric-cell .lbl { font-size: 10px; color: #95a5a6; margin-bottom: 4px; }
+  .metric-cell .val { font-size: 18px; font-weight: 700; line-height: 1.2; }
+  .metric-cell .rng { font-size: 10px; color: #7f8c8d; margin-top: 2px; }
+  .val.gmv { color: #229954; }
+  .val.roi-high { color: #229954; }
+  .val.roi-mid { color: #f39c12; }
+  .val.roi-low { color: #e74c3c; }
+  .val.refund-low { color: #229954; }
+  .val.refund-mid { color: #f39c12; }
+  .val.refund-high { color: #e74c3c; }
+
+  /* 特征标签 */
+  .feature-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 12px; }
+  .feature-tag { display: inline-flex; align-items: center; gap: 2px; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 500; background: #f0f4ff; color: #667eea; border: 1px solid #dfe6f7; }
   .feature-tag.hot { background: #fff5eb; color: #e67e22; border-color: #f5d5b3; }
   .feature-tag.func { background: #e8f8f0; color: #229954; border-color: #c9ecd6; }
   .feature-tag.style { background: #fdf0f7; color: #a24da3; border-color: #f0d6e6; }
-  .feature-tag .pct { opacity: 0.7; margin-left: 2px; }
+  .feature-tag .pct { opacity: 0.6; margin-left: 3px; font-size: 10px; }
 
-  /* 查看店铺按钮 */
-  .view-shops-btn {
-    margin-top: 4px;
-    width: 100%;
-    padding: 8px 10px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    font-size: 12px;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    transition: all 0.2s;
-    font-family: inherit;
-  }
-  .view-shops-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(102,126,234,0.3); }
-  .view-shops-btn .btn-count { background: rgba(255,255,255,0.25); padding: 1px 6px; border-radius: 3px; font-size: 10px; }
-  .view-shops-btn .btn-arrow { font-size: 14px; }
-
-  /* ============ Tab 切换 ============ */
-  .tab-bar { max-width: 1440px; margin: 18px auto 0; padding: 0 20px; }
-  .tabs { display: flex; gap: 4px; background: #fff; padding: 6px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
-  .tab { flex: 1; padding: 10px 14px; text-align: center; cursor: pointer; border-radius: 8px; font-size: 13px; font-weight: 600; color: #7f8c8d; transition: all 0.2s; }
-  .tab.active { background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; }
-  .tab-panel { display: none; }
-  .tab-panel.active { display: block; }
-  .tab-desc { font-size: 11px; color: #95a5a6; font-weight: 400; margin-top: 2px; }
-
-  /* ============ 视频号 SPU 卡片（大卡·一屏展示） ============ */
-  .wechat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .wechat-card {
-    background: #fff; border-radius: 12px; overflow: hidden;
-    border: 1px solid #eee; transition: all 0.2s;
-    display: flex; flex-direction: column;
-  }
-  .wechat-card:hover { box-shadow: 0 8px 24px rgba(102,126,234,0.12); border-color: #d5f5e3; }
-
-  /* 卡片顶部：SPU身份 + 消耗大数字 */
-  .w-card-head {
-    padding: 14px 16px 12px;
-    background: linear-gradient(135deg, #e8f8f0 0%, #d5f5e3 100%);
-    border-bottom: 1px solid #edf7f1;
-    position: relative;
-  }
-  .w-card-rank { position: absolute; top: 10px; right: 12px; background: rgba(34,153,84,0.15); color: #229954; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; }
-  .w-card-rank.top3 { background: linear-gradient(135deg,#f39c12,#e67e22); color: #fff; }
-  .w-card-spu { font-size: 16px; font-weight: 700; margin-bottom: 6px; color: #2c3e50; padding-right: 50px; }
-  .w-card-gmv {
-    display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px;
-  }
-  .w-card-gmv .val { font-size: 26px; font-weight: 800; color: #229954; }
-  .w-card-gmv .unit { font-size: 11px; color: #7f8c8d; }
-  .w-card-gmv .trend { font-size: 11px; padding: 1px 6px; border-radius: 4px; }
-  .trend-up { color: #229954; background: #d5f5e3; }
-  .trend-down { color: #e74c3c; background: #fadbd8; }
-  .trend-flat { color: #7f8c8d; background: #f0f0f0; }
-  .w-card-summary { font-size: 11px; color: #7f8c8d; }
-  .w-card-summary b { color: #229954; font-weight: 700; }
-
-  /* 特征标签在卡头 */
-  .w-card-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
-
-  /* 4指标网格 */
-  .w-card-metrics {
-    padding: 12px 16px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;
-    background: #fafbfc; border-bottom: 1px solid #eee;
-  }
-  .w-metric { text-align: center; }
-  .w-metric-label { font-size: 10px; color: #95a5a6; margin-bottom: 3px; }
-  .w-metric-val { font-size: 14px; font-weight: 700; color: #2c3e50; line-height: 1.2; }
-  .w-metric-range { font-size: 9px; color: #95a5a6; margin-top: 2px; }
-  .w-metric-val.roi-high { color: #229954; }
-  .w-metric-val.roi-mid { color: #f39c12; }
-  .w-metric-val.roi-low { color: #e74c3c; }
-  .w-metric-val.refund-low { color: #229954; }
-  .w-metric-val.refund-mid { color: #f39c12; }
-  .w-metric-val.refund-high { color: #e74c3c; }
-
-  /* 直播间列表 - 一屏内展示 TOP3 */
-  .w-lives { padding: 10px 16px 4px; }
-  .w-section-title { font-size: 10px; color: #7f8c8d; font-weight: 600; margin-bottom: 6px; display: flex; align-items: center; gap: 4px; }
-  .w-section-title::before { content: "▸"; color: #229954; }
-  .w-live-row {
-    display: flex; align-items: center; gap: 8px;
-    padding: 6px 0; border-bottom: 1px dashed #f0f0f0; font-size: 11px;
-  }
-  .w-live-row:last-child { border-bottom: none; }
-  .w-live-rank { flex-shrink: 0; width: 18px; height: 18px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 10px; background: #d5f5e3; color: #229954; }
-  .w-live-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600; }
-  .w-live-gmv { color: #229954; font-weight: 700; }
-  .w-live-roi { padding: 1px 5px; border-radius: 3px; font-size: 10px; font-weight: 700; }
-  .roi-high { color: #229954; background: #eafaf1; }
-  .roi-mid { color: #f39c12; background: #fff5eb; }
-  .roi-low { color: #e74c3c; background: #fadbd8; }
-
-  /* 素材 3 缩略图（一屏展示，hover 播放，点击新窗口） */
-  .w-creatives-wrap { padding: 8px 16px 14px; }
-  .w-creatives {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px;
-  }
-  .w-creative {
-    position: relative; aspect-ratio: 3/4; border-radius: 6px; overflow: hidden;
+  /* 素材 5 张（一屏预览） */
+  .sub-title { font-size: 12px; color: #7f8c8d; font-weight: 600; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+  .sub-title::before { content: "▸"; color: #229954; }
+  .creatives-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 16px; }
+  .creative-item {
+    position: relative; aspect-ratio: 3/4; border-radius: 8px; overflow: hidden;
     background: #f0f0f0; cursor: pointer; border: 1px solid #e8e8e8;
   }
-  .w-creative video {
-    width: 100%; height: 100%; object-fit: cover; background: #f0f0f0;
-  }
-  .w-creative .w-c-badge { position: absolute; top: 4px; left: 4px; background: rgba(0,0,0,0.65); color: #fff; padding: 1px 5px; border-radius: 3px; font-size: 9px; font-weight: 700; }
-  .w-creative .w-c-badge.top1 { background: linear-gradient(135deg,#f39c12,#e67e22); }
-  .w-creative .w-c-overlay {
+  .creative-item video { width: 100%; height: 100%; object-fit: cover; background: #000; }
+  .creative-badge { position: absolute; top: 6px; left: 6px; background: rgba(0,0,0,0.7); color: #fff; padding: 2px 7px; border-radius: 4px; font-size: 10px; font-weight: 700; }
+  .creative-badge.top1 { background: linear-gradient(135deg,#f39c12,#e67e22); }
+  .creative-overlay {
     position: absolute; bottom: 0; left: 0; right: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
-    padding: 12px 6px 4px; color: #fff; font-size: 9px;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    padding: 16px 8px 6px; color: #fff; font-size: 10px;
   }
-  .w-creative .w-c-overlay .gmv { font-weight: 700; font-size: 10px; }
-  .w-creative .w-c-overlay .live { opacity: 0.8; margin-top: 1px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .w-creative .w-c-fallback {
+  .creative-overlay .gmv-line { font-weight: 700; font-size: 11px; }
+  .creative-overlay .live-line { opacity: 0.85; margin-top: 1px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .creative-fallback {
     position: absolute; inset: 0; display: flex; flex-direction: column;
-    align-items: center; justify-content: center; padding: 6px;
-    text-align: center; font-size: 9px; color: #95a5a6;
+    align-items: center; justify-content: center; padding: 8px; text-align: center;
+    font-size: 10px; color: #95a5a6; background: linear-gradient(135deg, #f8f9fa, #eceff1);
   }
-  .w-creative .w-c-fallback::before { content: "🎬"; font-size: 24px; margin-bottom: 4px; }
-  .w-creative:hover video { transform: scale(1.02); }
+  .creative-fallback::before { content: "🎬"; font-size: 28px; margin-bottom: 6px; opacity: 0.5; }
 
-  @media (max-width: 1024px) { .wechat-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 640px) { .wechat-grid { grid-template-columns: 1fr; } }
+  /* 直播间列表 */
+  .live-list { }
+  .live-item {
+    display: flex; align-items: center; gap: 10px; padding: 8px 12px;
+    background: #fafbfc; border-radius: 6px; margin-bottom: 6px; font-size: 12px;
+  }
+  .live-item .rk { flex-shrink: 0; width: 20px; height: 20px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 10px; background: #d5f5e3; color: #229954; }
+  .live-item .nm { flex: 1; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .live-item .mx { display: flex; gap: 14px; }
+  .live-item .mx span { color: #95a5a6; }
+  .live-item .mx b { color: #2c3e50; }
 
-  /* ===== 抽屉（店铺明细）===== */
+  /* ===== 抖音 SPU 卡片区（保持原来的） ===== */
+  .spu-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .spu-card { background: #fff; border-radius: 10px; overflow: hidden; cursor: pointer; transition: all 0.2s; position: relative; border: 1px solid #eee; }
+  .spu-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(230,126,34,0.15); border-color: #f5d5a3; }
+  .rank-badge { position: absolute; top: 8px; left: 8px; background: rgba(0,0,0,0.7); color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; z-index: 2; }
+  .rank-badge.top3 { background: linear-gradient(135deg, #f39c12, #e67e22); }
+  .new-tag { position: absolute; top: 8px; right: 8px; background: #e74c3c; color: #fff; padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: 600; z-index: 2; }
+  .invested-tag { position: absolute; top: 32px; right: 8px; background: #229954; color: #fff; padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: 600; z-index: 2; }
+  .spu-img-wrap { width: 100%; aspect-ratio: 1/1; background: #fafafa; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+  .spu-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+  .spu-info { padding: 10px 12px; }
+  .spu-name { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+  .spu-price { display: inline-block; background: #fff5eb; color: #e67e22; padding: 3px 8px; border-radius: 4px; font-size: 11px; margin-bottom: 8px; }
+  .spu-gmv { font-size: 18px; font-weight: 700; color: #e67e22; margin-bottom: 6px; }
+  .spu-gmv .unit { font-size: 11px; font-weight: 400; margin-left: 2px; color: #7f8c8d; }
+  .spu-stats { display: flex; gap: 8px; font-size: 11px; margin-bottom: 8px; }
+  .spu-stat { flex: 1; text-align: center; background: #f8f9fa; padding: 5px 4px; border-radius: 4px; }
+  .spu-stat b { display: block; font-size: 13px; }
+  .spu-stat.new b { color: #e74c3c; }
+  .spu-stat .lbl { color: #95a5a6; font-size: 10px; }
+  .view-shops-btn {
+    width: 100%; padding: 8px 10px;
+    background: linear-gradient(135deg, #e67e22 0%, #f39c12 100%);
+    color: #fff; border: none; border-radius: 6px;
+    font-size: 12px; font-weight: 600; cursor: pointer;
+    display: flex; align-items: center; justify-content: space-between;
+    transition: all 0.2s; font-family: inherit;
+  }
+  .view-shops-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(230,126,34,0.3); }
+  .view-shops-btn .btn-count { background: rgba(255,255,255,0.25); padding: 1px 6px; border-radius: 3px; font-size: 10px; }
+
+  /* ===== 抖音抽屉（保留） ===== */
   .drawer-mask { position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 100; opacity: 0; visibility: hidden; transition: all 0.3s; }
   .drawer-mask.open { opacity: 1; visibility: visible; }
   .drawer { position: fixed; top: 0; right: 0; bottom: 0; width: 640px; max-width: 100%; background: #fff; z-index: 101; transform: translateX(100%); transition: transform 0.3s; display: flex; flex-direction: column; }
   .drawer.open { transform: translateX(0); }
-  .drawer-head { padding: 16px 20px; border-bottom: 1px solid #eee; display: flex; align-items: center; gap: 12px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; }
+  .drawer-head { padding: 16px 20px; border-bottom: 1px solid #eee; display: flex; align-items: center; gap: 12px; background: linear-gradient(135deg, #e67e22, #f39c12); color: #fff; }
   .drawer-close { width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 22px; opacity: 0.9; }
   .drawer-title { flex: 1; }
   .drawer-title h2 { font-size: 16px; font-weight: 700; }
   .drawer-title .drawer-meta { font-size: 12px; opacity: 0.9; margin-top: 3px; }
   .drawer-body { flex: 1; overflow-y: auto; padding: 16px 20px; }
-
-  .shop-list { display: flex; flex-direction: column; gap: 8px; }
-  .shop-item { display: flex; gap: 12px; padding: 10px; border-radius: 8px; border: 1px solid #eee; background: #fff; transition: all 0.15s; }
+  .group-title { display: flex; align-items: center; gap: 8px; margin: 8px 0 10px; font-size: 13px; font-weight: 700; }
+  .group-title:first-child { margin-top: 0; }
+  .group-title .badge { padding: 2px 8px; border-radius: 4px; font-size: 11px; }
+  .group-title .badge.invested { background: #d5f5e3; color: #229954; }
+  .group-title .badge.new { background: #e74c3c; color: #fff; }
+  .group-title .desc { font-size: 11px; color: #95a5a6; font-weight: 400; }
+  .group-section { margin-bottom: 20px; }
+  .group-empty { padding: 12px; text-align: center; color: #95a5a6; font-size: 12px; background: #fafafa; border-radius: 6px; }
+  .shop-item { display: flex; gap: 12px; padding: 10px; border-radius: 8px; border: 1px solid #eee; background: #fff; margin-bottom: 8px; }
   .shop-item.new-cust { background: linear-gradient(135deg, #fff5f0 0%, #ffede0 100%); border-color: #f39c12; }
   .shop-rank { flex-shrink: 0; width: 32px; height: 32px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; background: #f0f4ff; color: #667eea; }
   .shop-item.new-cust .shop-rank { background: #e67e22; color: #fff; }
@@ -214,51 +229,31 @@
   .shop-img img { width: 100%; height: 100%; object-fit: cover; }
   .shop-info { flex: 1; min-width: 0; }
   .shop-name { font-size: 13px; font-weight: 600; margin-bottom: 3px; display: flex; align-items: center; gap: 6px; }
-  .shop-tag { padding: 1px 6px; border-radius: 3px; font-size: 10px; font-weight: 500; }
+  .shop-tag { padding: 1px 6px; border-radius: 3px; font-size: 10px; }
   .shop-tag.invested { background: #d5f5e3; color: #229954; }
   .shop-tag.new { background: #e74c3c; color: #fff; }
-
-  /* 抽屉分组标题 */
-  .group-title { display: flex; align-items: center; gap: 8px; margin: 8px 0 10px; font-size: 13px; font-weight: 700; }
-  .group-title:first-child { margin-top: 0; }
-  .group-title .badge { padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
-  .group-title .badge.invested { background: #d5f5e3; color: #229954; }
-  .group-title .badge.new { background: #e74c3c; color: #fff; }
-  .group-title .desc { font-size: 11px; color: #95a5a6; font-weight: 400; }
-  .group-empty { padding: 12px; text-align: center; color: #95a5a6; font-size: 12px; background: #fafafa; border-radius: 6px; }
-  .group-section { margin-bottom: 20px; }
-  .shop-product { font-size: 11px; color: #7f8c8d; line-height: 1.4; margin-bottom: 4px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; }
+  .shop-product { font-size: 11px; color: #7f8c8d; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; }
   .shop-stats { display: flex; gap: 10px; font-size: 11px; color: #95a5a6; }
-  .shop-stats span b { color: #2c3e50; font-weight: 600; }
+  .shop-stats b { color: #2c3e50; }
   .adq-info { margin-top: 3px; font-size: 10px; color: #999; }
   .adq-info b { color: #7f8c8d; }
 
-  /* ===== 移动端 ===== */
+  /* 移动端 */
   @media (max-width: 768px) {
-    header { padding: 18px 14px 14px; }
+    header { padding: 16px 12px; }
     header h1 { font-size: 17px; }
-    .meta { font-size: 11px; }
-    .meta span { display: block; margin-bottom: 2px; margin-right: 0; }
-    .kpi-bar { padding: 0 12px; }
-    .kpi-grid { grid-template-columns: repeat(3, 1fr); padding: 12px 8px; gap: 6px; }
-    .kpi:nth-child(4), .kpi:nth-child(5) { border-right: none; }
-    .kpi:nth-child(3) { border-right: none; }
-    .kpi-val { font-size: 18px; }
-    .kpi-label { font-size: 10px; }
-    .note-bar { padding: 0 12px; }
-    main { padding: 0 12px 40px; }
-    .spu-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    .spu-name { font-size: 14px; }
-    .spu-gmv { font-size: 16px; }
-    .drawer { width: 100%; height: 100vh; border-radius: 0; }
-    .shop-img { width: 50px; height: 50px; }
-    .shop-name { font-size: 12px; }
+    main { padding: 12px; }
+    .trend-section { padding: 14px; }
+    .acc-summary { display: none; }
+    .metric-strip { grid-template-columns: repeat(2, 1fr); }
+    .creatives-grid { grid-template-columns: repeat(3, 1fr); }
+    .creatives-grid .creative-item:nth-child(n+4) { display: none; }
+    .spu-grid { grid-template-columns: repeat(2, 1fr); }
+    .drawer { width: 100%; }
   }
   @media (max-width: 480px) {
-    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
-    .kpi:nth-child(3), .kpi:nth-child(5) { border-right: none; }
     .spu-grid { grid-template-columns: 1fr; }
-    .spu-img-wrap { aspect-ratio: 16/10; }
+    .creatives-grid { grid-template-columns: repeat(3, 1fr); }
   }
 </style>
 </head>
@@ -268,70 +263,74 @@
   <div class="header-inner">
     <h1>🔥 Q3男装·SPU 爆品罗盘</h1>
     <div class="meta">
-      <span>📅 <b id="period">-</b></span>
-      <span>🎯 SPU = 面料 × 细分类目</span>
+      <span>📅 数据周期：<b id="period">近7天</b></span>
+      <span>🎯 双源交叉：视频号在投 × 抖音爆款</span>
+      <span id="update-time"></span>
     </div>
   </div>
 </header>
 
-<div class="tab-bar">
-  <div class="tabs">
-    <div class="tab active" data-tab="douyin">
-      🔵 抖音竞媒爆品
-      <div class="tab-desc">飞瓜官方导出 · 抖音商品榜周榜</div>
-    </div>
-    <div class="tab" data-tab="wechat">
-      🟢 视频号在投爆品
-      <div class="tab-desc">中台通用分析数据集 · 视频号 SPU 效果</div>
-    </div>
-  </div>
-</div>
+<main>
 
-<!-- ============ Tab 1: 抖音 ============ -->
-<div class="tab-panel active" id="panel-douyin">
-  <div class="kpi-bar">
-    <div class="kpi-grid">
-      <div class="kpi"><div class="kpi-val" id="kpi-spu">-</div><div class="kpi-label">SPU 数量</div></div>
-      <div class="kpi"><div class="kpi-val" id="kpi-product">-</div><div class="kpi-label">聚合商品链接</div></div>
-      <div class="kpi"><div class="kpi-val" id="kpi-gmv">-</div><div class="kpi-label">合计GMV估算</div></div>
-      <div class="kpi"><div class="kpi-val" id="kpi-shop">-</div><div class="kpi-label">涉及店铺</div></div>
-      <div class="kpi highlight"><div class="kpi-val" id="kpi-new">-</div><div class="kpi-label">🔥 待引入潜力新客</div></div>
+  <!-- ============ 区块1：视频号爆款 ============ -->
+  <div class="trend-section">
+    <div class="trend-header">
+      <h2>
+        <span class="header-icon" style="background:#229954;color:#fff;">🟢</span>
+        视频号男装爆款 · TOP10
+        <span class="subtitle">主人视频号大盘高消耗 SPU</span>
+      </h2>
+      <div class="kpi-inline" id="wechat-kpi"></div>
+    </div>
+    <div class="category-tabs">
+      <div class="cat-card wechat">
+        <div class="cat-icon-wrap">🟢</div>
+        <div class="cat-info">
+          <div class="cat-title">视频号在投爆款 TOP10 SPU（按日均消耗）</div>
+          <div class="cat-desc">这些是视频号侧真金白银在跑的 SPU，可参考头部直播间 + 跑量素材加大投入</div>
+          <div class="cat-spus" id="wechat-spu-chips"></div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="note-bar">
-    <div class="note">
-      <strong>💡 抖音商品爆品视角：</strong>把 3000 个抖音爆款商品按"<strong>面料 × 细分类目</strong>"聚合，标签四色分类：<span style="color:#e67e22;">🟠面料</span> / <span style="color:#229954;">🟢功能</span> / <span style="color:#667eea;">🔵版型</span> / <span style="color:#a24da3;">🟣风格</span>。点卡片看 <strong>TOP5 已投 + TOP10 待引入新客</strong>（含 ADQ 与全域通闭环）。<strong>单价</strong>佣金反推、<strong>GMV</strong>档位中点估算。
-    </div>
-  </div>
-  <main>
-    <div class="section-title">抖音爆品 SPU · 按合计GMV排序</div>
-    <div class="spu-grid" id="spu-grid"></div>
-  </main>
-</div>
 
-<!-- ============ Tab 2: 视频号 ============ -->
-<div class="tab-panel" id="panel-wechat">
-  <div class="kpi-bar">
-    <div class="kpi-grid">
-      <div class="kpi"><div class="kpi-val" id="w-kpi-spu">-</div><div class="kpi-label">在投 SPU 数</div></div>
-      <div class="kpi"><div class="kpi-val" id="w-kpi-product">-</div><div class="kpi-label">在投 DPA 商品</div></div>
-      <div class="kpi"><div class="kpi-val" id="w-kpi-gmv">-</div><div class="kpi-label">近7天日耗合计</div></div>
-      <div class="kpi"><div class="kpi-val" id="w-kpi-live">-</div><div class="kpi-label">在投视频号</div></div>
-      <div class="kpi highlight"><div class="kpi-val" id="w-kpi-creative">-</div><div class="kpi-label">🎬 在投素材数</div></div>
-    </div>
-  </div>
-  <div class="note-bar">
-    <div class="note">
-      <strong>💡 视频号在投爆品视角（一屏浏览）：</strong>每张卡片直接展示 SPU 的<strong>核心指标</strong>+<strong>TOP3 消耗直播间</strong>+<strong>TOP3 跑量素材</strong>（hover 自动播放、点击新窗口打开原视频）。<strong>ROI/退款率</strong>为消耗加权平均，右侧小字为 P25-P75 分布区间。<strong>消耗趋势</strong>为近7天 vs 上7天环比。
-    </div>
-  </div>
-  <main>
-    <div class="section-title">视频号在投 SPU · 按日均消耗排序</div>
-    <div class="wechat-grid" id="w-spu-grid"></div>
-  </main>
-</div>
+  <div class="spu-list" id="wechat-spu-list"></div>
 
-<!-- 抽屉 -->
+  <!-- ============ 区块2：抖音潜在机会 ============ -->
+  <div class="trend-section" style="margin-top:32px;">
+    <div class="trend-header">
+      <h2>
+        <span class="header-icon" style="background:#e67e22;color:#fff;">🟠</span>
+        抖音竞媒潜在机会 · TOP20
+        <span class="subtitle">抖音大盘高 GMV 爆品 · 找视频号未投的拓品机会</span>
+      </h2>
+      <div class="kpi-inline" id="douyin-kpi"></div>
+    </div>
+    <div class="category-tabs">
+      <div class="cat-card douyin">
+        <div class="cat-icon-wrap">🟠</div>
+        <div class="cat-info">
+          <div class="cat-title">抖音爆但视频号未投 · <span id="potential-count"></span> 个拓品机会</div>
+          <div class="cat-desc">这些 SPU 在抖音是爆款、但视频号侧还没投放，是 Q3 拓品的红利池</div>
+          <div class="cat-spus" id="potential-spu-chips"></div>
+        </div>
+      </div>
+      <div class="cat-card wechat">
+        <div class="cat-icon-wrap">✓</div>
+        <div class="cat-info">
+          <div class="cat-title">抖音 & 视频号都在投的 SPU · <span id="invested-count"></span> 个（双源验证）</div>
+          <div class="cat-desc">两边都爆的品类，说明市场已验证 → 可加大投放拓品源</div>
+          <div class="cat-spus" id="invested-spu-chips"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="spu-grid" id="douyin-spu-grid"></div>
+
+</main>
+
+<!-- 抖音抽屉（点卡片弹出） -->
 <div class="drawer-mask" id="drawer-mask"></div>
 <div class="drawer" id="drawer">
   <div class="drawer-head">
@@ -342,65 +341,188 @@
     </div>
   </div>
   <div class="drawer-body">
-    <div class="shop-list" id="shop-list"></div>
+    <div id="drawer-list"></div>
   </div>
 </div>
 
 <script>
-  let DATA = null;      // 抖音数据
-  let W_DATA = null;    // 视频号数据
+  let DATA = null;
 
   function fmtWan(n) {
+    if (!n) return '0';
     if (n >= 100000000) return (n / 100000000).toFixed(2) + '亿';
     if (n >= 10000) return Math.round(n / 10000) + '万';
-    return n;
-  }
-  function fmtYuan(n) {
-    if (n >= 10000) return (n / 10000).toFixed(1) + '万';
-    if (n >= 1000) return Math.round(n / 100) / 10 + 'k';
     return Math.round(n);
   }
+  function fmtYuan(n) {
+    if (!n) return '0';
+    if (n >= 10000) return (n / 10000).toFixed(1) + '万';
+    if (n >= 1000) return (Math.round(n / 100) / 10) + 'k';
+    return Math.round(n);
+  }
+  function roiLevel(roi) { return roi >= 3 ? 'roi-high' : roi >= 2 ? 'roi-mid' : 'roi-low'; }
+  function refundLevel(r) { return r <= 30 ? 'refund-low' : r <= 50 ? 'refund-mid' : 'refund-high'; }
 
-  function renderKPI() {
-    document.getElementById('period').textContent = DATA.period;
-    document.getElementById('kpi-spu').textContent = DATA.spuCount;
-    document.getElementById('kpi-product').textContent = DATA.actualProducts;
-    document.getElementById('kpi-gmv').innerHTML = DATA.totalGmvYi + '<span style="font-size:12px;color:#7f8c8d;">亿</span>';
-    document.getElementById('kpi-shop').textContent = DATA.totalShops;
-    document.getElementById('kpi-new').textContent = DATA.uniqueNewShops;
+  const TAG_CATEGORY = {
+    '桑蚕丝':'hot','天丝':'hot','莫代尔':'hot','汉麻香云纱':'hot','亚麻':'hot','90/95绒':'hot','260g重磅':'hot',
+    'UPF防晒':'func','抗菌抑菌':'func','速干':'func','透气':'func','抗皱免烫':'func','弹力':'func',
+    '老爹阔腿':'','直筒':'','修身':'','POLO/翻领':'','圆领':'','海鸥领':'','工装':'',
+    '老钱风':'style','松弛感':'style','新中式':'style','美式复古':'style','潮牌街头':'style','通勤商务':'style','户外山系':'style',
+    '明星同款':'style','爆款':'style'
+  };
+
+  function renderFeatureTags(tags) {
+    if (!tags || tags.length === 0) return '';
+    return `<div class="feature-tags">${tags.map(t => {
+      const cat = TAG_CATEGORY[t.label] || '';
+      const pct = Math.min(t.pct, 100);
+      return `<span class="feature-tag ${cat}">${t.label}<span class="pct">${pct}%</span></span>`;
+    }).join('')}</div>`;
   }
 
+  // ============ 区块1：视频号 ============
   function renderWechatKPI() {
-    document.getElementById('w-kpi-spu').textContent = W_DATA.spuCount;
-    document.getElementById('w-kpi-product').textContent = W_DATA.totalProducts;
-    document.getElementById('w-kpi-gmv').innerHTML = W_DATA.totalDailyGmvWan + '<span style="font-size:12px;color:#7f8c8d;">万/日</span>';
-    document.getElementById('w-kpi-live').textContent = W_DATA.totalLives;
-    document.getElementById('w-kpi-creative').textContent = W_DATA.totalCreatives;
+    const k = DATA.wechat.kpi;
+    document.getElementById('wechat-kpi').innerHTML =
+      `<b>${k.spuCount}</b>个SPU · <b>${k.totalDailyGmvWan}</b>万日耗 · <b>${k.totalLives}</b>个视频号 · <b>${k.totalCreatives}</b>条素材`;
   }
 
-  // 分档颜色：ROI 高中低、退款率 高中低
-  function roiLevel(roi) {
-    if (roi >= 3) return 'high';
-    if (roi >= 2) return 'mid';
-    return 'low';
-  }
-  function refundLevel(r) {
-    if (r <= 30) return 'low';
-    if (r <= 50) return 'mid';
-    return 'high';
-  }
-  function trendArrow(pct) {
-    if (pct > 5) return `<span class="trend-arrow trend-up">↑${Math.round(pct)}%</span>`;
-    if (pct < -5) return `<span class="trend-arrow trend-down">↓${Math.round(Math.abs(pct))}%</span>`;
-    return `<span class="trend-arrow" style="color:#95a5a6">→${Math.round(pct)}%</span>`;
+  function renderWechatChips() {
+    const chips = DATA.wechat.spus.map(s =>
+      `<span class="cat-spu-chip"><span class="rank">#${s.rank}</span>${s.spu}</span>`
+    ).join('');
+    document.getElementById('wechat-spu-chips').innerHTML = chips;
   }
 
-  function renderSPU() {
-    const grid = document.getElementById('spu-grid');
-    grid.innerHTML = DATA.spus.map(s => `
-      <div class="spu-card" onclick="openDrawer(${s.rank - 1})">
+  function renderWechatList() {
+    const list = document.getElementById('wechat-spu-list');
+    list.innerHTML = DATA.wechat.spus.map(s => {
+      const creativeCells = renderCreatives(s.topCreatives.slice(0, 5));
+      const liveRows = s.topLives.slice(0, 3).map((l, i) => `
+        <div class="live-item">
+          <div class="rk">${i + 1}</div>
+          <div class="nm" title="${l.name}">${l.name}</div>
+          <div class="mx">
+            <span>日耗 <b>${fmtYuan(l.gmv)}</b></span>
+            <span>ROI <b class="${roiLevel(l.roi).replace('roi-','val roi-')}" style="color:${l.roi>=3?'#229954':l.roi>=2?'#f39c12':'#e74c3c'};">${l.roi}</b></span>
+            <span>退款 <b style="color:${l.refund<=30?'#229954':l.refund<=50?'#f39c12':'#e74c3c'};">${l.refund}%</b></span>
+          </div>
+        </div>
+      `).join('');
+
+      return `
+        <div class="spu-accordion" onclick="toggleAcc(this)">
+          <div class="acc-head">
+            <div class="acc-rank${s.rank <= 3 ? ' top3' : ''}">#${s.rank}</div>
+            <div class="acc-title">
+              <div class="acc-spu-name">${s.spu}</div>
+              <div class="acc-meta"><b>${fmtYuan(s.dailyGmv)}</b> 日均消耗 · ${s.liveCount} 家直播间 · ${s.creativeCount} 条素材</div>
+            </div>
+            <div class="acc-summary">
+              <div class="cell"><b>${fmtYuan(s.dailyGmv)}</b><span>日耗</span></div>
+              <div class="cell ${roiLevel(s.roiAvg)}"><b>${s.roiAvg}</b><span>下单ROI</span></div>
+              <div class="cell ${refundLevel(s.refundAvg)}"><b>${s.refundAvg}%</b><span>退款率</span></div>
+              <div class="cell"><b>¥${s.priceAvg}</b><span>客单价</span></div>
+            </div>
+            <div class="acc-arrow">›</div>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body-inner" onclick="event.stopPropagation()">
+              ${renderFeatureTags(s.featureTags)}
+              <div class="metric-strip">
+                <div class="metric-cell">
+                  <div class="lbl">日均消耗</div>
+                  <div class="val gmv">${fmtYuan(s.dailyGmv)}</div>
+                  <div class="rng">${s.creativeCount}条素材投入</div>
+                </div>
+                <div class="metric-cell">
+                  <div class="lbl">下单 ROI</div>
+                  <div class="val ${roiLevel(s.roiAvg)}">${s.roiAvg}</div>
+                  <div class="rng">P25~P75: ${s.roiP25}~${s.roiP75}</div>
+                </div>
+                <div class="metric-cell">
+                  <div class="lbl">7日退款率</div>
+                  <div class="val ${refundLevel(s.refundAvg)}">${s.refundAvg}%</div>
+                  <div class="rng">P25~P75: ${s.refundP25}~${s.refundP75}%</div>
+                </div>
+                <div class="metric-cell">
+                  <div class="lbl">客单价（加权）</div>
+                  <div class="val">¥${s.priceAvg}</div>
+                  <div class="rng">P25~P75: ¥${s.priceP25}~¥${s.priceP75}</div>
+                </div>
+              </div>
+              <div class="sub-title">🎬 跑量 TOP5 素材 · 悬停播放 · 点击新窗口打开原视频</div>
+              <div class="creatives-grid">${creativeCells}</div>
+              <div class="sub-title">📺 消耗 TOP3 直播间</div>
+              <div class="live-list">${liveRows}</div>
+            </div>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  function renderCreatives(creatives) {
+    const cells = creatives.map((c, i) => {
+      const hasUrl = c.url && c.url.startsWith('http');
+      return `
+        <div class="creative-item"
+             ${hasUrl ? `onclick="window.open('${c.url}', '_blank')"` : ''}
+             onmouseenter="const v=this.querySelector('video'); v && v.play().catch(()=>{})"
+             onmouseleave="const v=this.querySelector('video'); if(v){v.pause();v.currentTime=0}">
+          <div class="creative-badge${i === 0 ? ' top1' : ''}">TOP${i + 1}</div>
+          ${hasUrl ?
+            `<video src="${c.url}" muted loop preload="metadata" playsinline
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"></video>
+             <div class="creative-fallback" style="display:none">素材加载失败<br>点击可打开原视频</div>` :
+            `<div class="creative-fallback">素材链接<br>已失效</div>`}
+          <div class="creative-overlay">
+            <div class="gmv-line">${fmtYuan(c.gmv)}/日 · ROI ${c.roi}</div>
+            <div class="live-line" title="${c.live}">${c.live}</div>
+          </div>
+        </div>
+      `;
+    }).join('');
+    // 补空位到 5 格
+    const pad = Array(Math.max(0, 5 - creatives.length)).fill(0).map(() =>
+      `<div class="creative-item" style="opacity:.4"><div class="creative-fallback">无素材</div></div>`
+    ).join('');
+    return cells + pad;
+  }
+
+  function toggleAcc(el) {
+    el.classList.toggle('open');
+  }
+
+  // ============ 区块2：抖音 ============
+  function renderDouyinKPI() {
+    const k = DATA.douyin.kpi;
+    document.getElementById('douyin-kpi').innerHTML =
+      `<b>${k.spuCount}</b>个SPU · <b>${k.totalGmvYi}</b>亿 GMV · <b>${k.totalShops}</b>家店铺 · <b>${k.uniqueNewShops}</b>家潜在新客`;
+  }
+
+  function renderCategoryChips() {
+    const potential = DATA.douyin.spus.filter(s => !s.wechatInvested);
+    const invested = DATA.douyin.spus.filter(s => s.wechatInvested);
+
+    document.getElementById('potential-count').textContent = potential.length;
+    document.getElementById('invested-count').textContent = invested.length;
+
+    document.getElementById('potential-spu-chips').innerHTML = potential.map(s =>
+      `<span class="cat-spu-chip"><span class="rank">#${s.rank}</span>${s.spu}</span>`
+    ).join('');
+    document.getElementById('invested-spu-chips').innerHTML = invested.map(s =>
+      `<span class="cat-spu-chip"><span class="rank">#${s.rank}</span>${s.spu}</span>`
+    ).join('');
+  }
+
+  function renderDouyinGrid() {
+    const grid = document.getElementById('douyin-spu-grid');
+    grid.innerHTML = DATA.douyin.spus.map(s => `
+      <div class="spu-card" onclick="openDouyinDrawer(${s.rank - 1})">
         <div class="rank-badge${s.rank <= 3 ? ' top3' : ''}">#${s.rank}</div>
         ${s.newShopCount > 0 ? `<div class="new-tag">🔥 ${s.newShopCount}家潜力新客</div>` : ''}
+        ${s.wechatInvested ? `<div class="invested-tag">✓ 视频号已投</div>` : ''}
         <div class="spu-img-wrap">
           <img src="${s.topProductImg}" alt="${s.spu}" onerror="this.style.display='none'">
         </div>
@@ -414,227 +536,13 @@
             <div class="spu-stat"><b>${s.investedCount}</b><span class="lbl">已投客户</span></div>
             <div class="spu-stat new"><b>${s.newShopCount}</b><span class="lbl">待引入新客</span></div>
           </div>
-          <button class="view-shops-btn" onclick="event.stopPropagation(); openDrawer(${s.rank - 1})">
+          <button class="view-shops-btn" onclick="event.stopPropagation(); openDouyinDrawer(${s.rank - 1})">
             <span>👉 点击查看店铺列表</span>
-            <span><span class="btn-count">${s.investedCount + s.newShopCount}家</span> <span class="btn-arrow">›</span></span>
+            <span><span class="btn-count">${s.investedCount + s.newShopCount}家</span> ›</span>
           </button>
         </div>
       </div>
     `).join('');
-  }
-
-  // ============ 视频号 SPU 卡片（一屏展示 · 无跳转） ============
-  function trendPill(pct) {
-    if (pct > 5) return `<span class="trend trend-up">↑ ${Math.round(pct)}%</span>`;
-    if (pct < -5) return `<span class="trend trend-down">↓ ${Math.round(Math.abs(pct))}%</span>`;
-    return `<span class="trend trend-flat">→ ${Math.round(pct)}%</span>`;
-  }
-
-  function renderWechatSPU() {
-    const grid = document.getElementById('w-spu-grid');
-    grid.innerHTML = W_DATA.spus.map(s => {
-      // TOP3 直播间
-      const top3Lives = s.topLives.slice(0, 3);
-      const liveRows = top3Lives.map((l, i) => `
-        <div class="w-live-row">
-          <div class="w-live-rank">${i + 1}</div>
-          <div class="w-live-name" title="${l.name}">${l.name}</div>
-          <div class="w-live-gmv">${fmtYuan(l.gmv)}</div>
-          <div class="w-live-roi ${roiLevel(l.roi)}">ROI ${l.roi}</div>
-        </div>
-      `).join('');
-
-      // TOP3 素材（缩到 3 个，参考 landing 的做法）
-      const creatives = s.topCreatives.slice(0, 3);
-      const creativeCells = creatives.map((c, i) => {
-        const hasUrl = c.url && c.url.startsWith('http');
-        return `
-          <div class="w-creative"
-               ${hasUrl ? `onclick="window.open('${c.url}', '_blank')"` : ''}
-               onmouseenter="this.querySelector('video') && this.querySelector('video').play().catch(()=>{})"
-               onmouseleave="const v=this.querySelector('video'); v && (v.pause(), v.currentTime=0)">
-            <div class="w-c-badge ${i === 0 ? 'top1' : ''}">TOP${i + 1}</div>
-            ${hasUrl ?
-              `<video src="${c.url}" muted loop preload="metadata" playsinline
-                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"></video>
-               <div class="w-c-fallback" style="display:none">跨域限制<br>无法预览</div>` :
-              `<div class="w-c-fallback">素材链接<br>已失效</div>`}
-            <div class="w-c-overlay">
-              <div class="gmv">${fmtYuan(c.gmv)}/日 · ROI ${c.roi}</div>
-              <div class="live" title="${c.live}">${c.live}</div>
-            </div>
-          </div>
-        `;
-      }).join('');
-
-      // 兜底填充空位到 3 格
-      const padCells = Array(Math.max(0, 3 - creatives.length)).fill(0).map(() =>
-        `<div class="w-creative" style="opacity:0.4"><div class="w-c-fallback">无素材</div></div>`
-      ).join('');
-
-      return `
-        <div class="wechat-card">
-          <!-- 段1：SPU身份 + 消耗大数字 + 特征标签 -->
-          <div class="w-card-head">
-            <div class="w-card-rank${s.rank <= 3 ? ' top3' : ''}">#${s.rank}</div>
-            <div class="w-card-spu">${s.spu}</div>
-            <div class="w-card-gmv">
-              <span class="val">${fmtYuan(s.dailyGmv)}</span>
-              <span class="unit">日均消耗</span>
-              ${trendPill(s.gmvTrend)}
-            </div>
-            <div class="w-card-summary">
-              <b>${s.liveCount}</b> 家直播间 · <b>${s.creativeCount}</b> 条素材 · <b>${s.productCount}</b> 款 DPA 商品
-            </div>
-            ${s.featureTags && s.featureTags.length ? `<div class="w-card-tags">${renderFeatureTagsInline(s.featureTags.slice(0, 4))}</div>` : ''}
-          </div>
-
-          <!-- 段2：4 个核心指标 -->
-          <div class="w-card-metrics">
-            <div class="w-metric">
-              <div class="w-metric-label">日均消耗</div>
-              <div class="w-metric-val">${fmtYuan(s.dailyGmv)}</div>
-              <div class="w-metric-range">${trendPill(s.gmvTrend).replace(/<[^>]+>/g, '')}</div>
-            </div>
-            <div class="w-metric">
-              <div class="w-metric-label">下单 ROI</div>
-              <div class="w-metric-val roi-${roiLevel(s.roiAvg)}">${s.roiAvg}</div>
-              <div class="w-metric-range">P25-75: ${s.roiP25}~${s.roiP75}</div>
-            </div>
-            <div class="w-metric">
-              <div class="w-metric-label">7日退款率</div>
-              <div class="w-metric-val refund-${refundLevel(s.refundAvg)}">${s.refundAvg}%</div>
-              <div class="w-metric-range">P25-75: ${s.refundP25}~${s.refundP75}%</div>
-            </div>
-            <div class="w-metric">
-              <div class="w-metric-label">在投规模</div>
-              <div class="w-metric-val">${s.liveCount}</div>
-              <div class="w-metric-range">${s.creativeCount}条素材</div>
-            </div>
-          </div>
-
-          <!-- 段3：TOP3 直播间 -->
-          <div class="w-lives">
-            <div class="w-section-title">📺 消耗 TOP3 直播间</div>
-            ${liveRows || '<div style="padding:8px 0;color:#95a5a6;font-size:11px;">暂无直播间数据</div>'}
-          </div>
-
-          <!-- 段4：TOP3 素材（hover 播放） -->
-          <div class="w-creatives-wrap">
-            <div class="w-section-title">🎬 跑量 TOP3 素材（悬停播放 · 点击打开）</div>
-            <div class="w-creatives">${creativeCells}${padCells}</div>
-          </div>
-        </div>
-      `;
-    }).join('');
-  }
-
-  // 内联版特征标签（更紧凑）
-  function renderFeatureTagsInline(tags) {
-    return tags.map(t => {
-      const cat = TAG_CATEGORY[t.label] || '';
-      const pct = Math.min(t.pct, 100);
-      return `<span class="feature-tag ${cat}" style="font-size:9px;padding:1px 6px;">${t.label} ${pct}%</span>`;
-    }).join('');
-  }
-
-  // 视频号抽屉：直播间TOP5 + 素材TOP3
-  function openWechatDrawer(idx) {
-    const spu = W_DATA.spus[idx];
-    document.getElementById('drawer-spu').textContent = `#${spu.rank}  ${spu.spu}`;
-    document.getElementById('drawer-meta').textContent =
-      `日耗≈${fmtYuan(spu.dailyGmv)} · ROI ${spu.roiAvg}(${spu.roiP25}~${spu.roiP75}) · 退款 ${spu.refundAvg}% · ${spu.liveCount}家直播间`;
-
-    const liveHtml = spu.topLives.map((l, i) => `
-      <div class="live-item">
-        <div class="live-rank">${i + 1}</div>
-        <div class="live-info">
-          <div class="live-name">${l.name}</div>
-          <div class="live-metrics">
-            <span>日耗 <b>${fmtYuan(l.gmv)}</b></span>
-            <span>ROI <b style="color:${l.roi >= 3 ? '#229954' : l.roi >= 2 ? '#f39c12' : '#e74c3c'}">${l.roi}</b></span>
-            <span>退款 <b style="color:${l.refund <= 30 ? '#229954' : l.refund <= 50 ? '#f39c12' : '#e74c3c'}">${l.refund}%</b></span>
-            <span>素材 <b>${l.creatives}</b>条</span>
-          </div>
-        </div>
-      </div>
-    `).join('');
-
-    const creativeHtml = spu.topCreatives.length > 0 ? `
-      <div class="group-section">
-        <div class="group-title">
-          <span class="badge new" style="background:#a24da3;">🎬 跑量素材 TOP${spu.topCreatives.length}</span>
-          <span class="desc">该 SPU 下消耗最高的素材（点击预览）</span>
-        </div>
-        <div class="creative-grid">
-          ${spu.topCreatives.map(c => `
-            <div class="creative-item" onclick="previewCreative('${c.url}')">
-              ${c.url && c.url.startsWith('http') ?
-                `<video src="${c.url}" muted preload="metadata" onerror="this.parentElement.innerHTML='<div style=\\'padding:20px;text-align:center;color:#95a5a6;font-size:11px;\\'>素材预览不可用<br><br>${c.live}<br>日耗 ${fmtYuan(c.gmv)}</div>'"></video>
-                 <div class="creative-play">▶</div>` :
-                `<div style="padding:20px;text-align:center;color:#95a5a6;font-size:11px;">素材链接不可用</div>`}
-              <div class="creative-overlay">
-                <div><b>${fmtYuan(c.gmv)}/日</b> · ROI ${c.roi}</div>
-                <div style="opacity:.8;margin-top:2px;">${c.live}</div>
-              </div>
-            </div>
-          `).join('')}
-        </div>
-      </div>
-    ` : '';
-
-    document.getElementById('shop-list').innerHTML = `
-      <div class="group-section">
-        <div class="group-title">
-          <span class="badge invested" style="background:#d5f5e3;color:#229954;">📺 消耗直播间 TOP${spu.topLives.length}</span>
-          <span class="desc">该 SPU 下日均消耗最高的视频号</span>
-        </div>
-        ${liveHtml}
-      </div>
-      ${creativeHtml}
-    `;
-
-    document.getElementById('drawer-mask').classList.add('open');
-    document.getElementById('drawer').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function previewCreative(url) {
-    if (url && url.startsWith('http')) window.open(url, '_blank');
-  }
-
-  // ============ Tab 切换 ============
-  document.querySelectorAll('.tab').forEach(t => {
-    t.onclick = () => {
-      document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
-      document.querySelectorAll('.tab-panel').forEach(x => x.classList.remove('active'));
-      t.classList.add('active');
-      document.getElementById('panel-' + t.dataset.tab).classList.add('active');
-    };
-  });
-
-  // 按标签所属类别分色：面料=橙、功能=绿、版型=蓝、风格=紫
-  const TAG_CATEGORY = {
-    // 面料（橙）
-    '桑蚕丝':'hot','天丝':'hot','莫代尔':'hot','汉麻香云纱':'hot','亚麻':'hot','90/95绒':'hot','260g重磅':'hot',
-    // 功能（绿）
-    'UPF防晒':'func','抗菌抑菌':'func','速干':'func','透气':'func','抗皱免烫':'func','弹力':'func',
-    // 版型（蓝，默认色）
-    '老爹阔腿':'','直筒':'','修身':'','POLO/翻领':'','圆领':'','海鸥领':'','工装':'',
-    // 风格（紫）
-    '老钱风':'style','松弛感':'style','新中式':'style','美式复古':'style','潮牌街头':'style','通勤商务':'style','户外山系':'style',
-    // 售卖点（紫）
-    '明星同款':'style','爆款':'style'
-  };
-
-  function renderFeatureTags(tags) {
-    if (!tags || tags.length === 0) return '';
-    const chips = tags.map(t => {
-      const cat = TAG_CATEGORY[t.label] || '';
-      const pct = Math.min(t.pct, 100);
-      return `<span class="feature-tag ${cat}" title="${t.label} 覆盖率 ${pct}%">${t.label}<span class="pct">${pct}%</span></span>`;
-    }).join('');
-    return `<div class="feature-tags">${chips}</div>`;
   }
 
   function renderShopItem(s) {
@@ -660,13 +568,12 @@
       </div>`;
   }
 
-  function openDrawer(idx) {
-    const spu = DATA.spus[idx];
+  function openDouyinDrawer(idx) {
+    const spu = DATA.douyin.spus[idx];
     document.getElementById('drawer-spu').textContent = `#${spu.rank}  ${spu.spu}`;
     document.getElementById('drawer-meta').textContent =
       `${spu.productCount}个商品 · ${spu.shopCount}家店铺 · 合计GMV≈${fmtWan(spu.totalGmv)} · 单价 ${spu.priceRange}`;
 
-    const list = document.getElementById('shop-list');
     const investedHtml = spu.invested && spu.invested.length > 0
       ? spu.invested.map(renderShopItem).join('')
       : '<div class="group-empty">该 SPU 下暂无已投放的头部店铺</div>';
@@ -674,7 +581,7 @@
       ? spu.newCust.map(renderShopItem).join('')
       : '<div class="group-empty">该 SPU 下暂无待引入的潜力新客</div>';
 
-    list.innerHTML = `
+    document.getElementById('drawer-list').innerHTML = `
       <div class="group-section">
         <div class="group-title">
           <span class="badge invested">✓ 已投放 TOP${spu.invested.length}</span>
@@ -695,32 +602,32 @@
     document.getElementById('drawer').classList.add('open');
     document.body.style.overflow = 'hidden';
   }
-
   function closeDrawer() {
     document.getElementById('drawer-mask').classList.remove('open');
     document.getElementById('drawer').classList.remove('open');
     document.body.style.overflow = '';
   }
-
   document.getElementById('drawer-close').onclick = closeDrawer;
   document.getElementById('drawer-mask').onclick = closeDrawer;
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
 
-  // 加载数据（两个 JSON 并行）
-  Promise.all([
-    fetch('spu_dashboard_data.json').then(r => r.json()).catch(() => null),
-    fetch('wechat_spu_data.json').then(r => r.json()).catch(() => null),
-  ]).then(([douyin, wechat]) => {
-    if (douyin) { DATA = douyin; renderKPI(); renderSPU(); }
-    if (wechat) { W_DATA = wechat; renderWechatKPI(); renderWechatSPU(); }
-    if (!douyin && !wechat) {
-      document.getElementById('spu-grid').innerHTML =
-        '<div style="grid-column:1/-1;padding:40px;text-align:center;color:#e74c3c;">' +
-        '❌ 加载数据失败，请通过HTTP服务打开：<br>' +
-        '<code style="background:#f0f0f0;padding:6px 10px;border-radius:4px;margin-top:8px;display:inline-block;">' +
-        'python3 -m http.server 8899</code></div>';
-    }
-  });
+  // 加载数据
+  fetch('final_dashboard_data.json')
+    .then(r => r.json())
+    .then(data => {
+      DATA = data;
+      document.getElementById('update-time').textContent = '🔄 生成于 ' + data.generatedAt;
+      renderWechatKPI();
+      renderWechatChips();
+      renderWechatList();
+      renderDouyinKPI();
+      renderCategoryChips();
+      renderDouyinGrid();
+    })
+    .catch(err => {
+      document.querySelector('main').innerHTML =
+        '<div style="padding:40px;text-align:center;color:#e74c3c;">❌ 数据加载失败：' + err + '</div>';
+    });
 </script>
 
 </body>
