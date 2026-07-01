@@ -63,19 +63,27 @@
   .feature-tag.style { background: #fdf0f7; color: #a24da3; border-color: #f0d6e6; }
   .feature-tag .pct { opacity: 0.7; margin-left: 2px; }
 
-  /* 版型分布小 bar */
-  .style-dist { border-top: 1px dashed #eee; padding-top: 8px; }
-  .style-dist-title { font-size: 10px; color: #95a5a6; margin-bottom: 5px; }
-  .style-bar { display: flex; width: 100%; height: 6px; border-radius: 3px; overflow: hidden; background: #f0f0f0; margin-bottom: 5px; }
-  .style-seg { height: 100%; }
-  .style-seg-0 { background: #667eea; }
-  .style-seg-1 { background: #f39c12; }
-  .style-seg-2 { background: #1abc9c; }
-  .style-seg-3 { background: #e74c3c; }
-  .style-seg-4 { background: #95a5a6; }
-  .style-legend { font-size: 10px; color: #7f8c8d; display: flex; flex-wrap: wrap; gap: 6px; }
-  .style-legend-item { display: inline-flex; align-items: center; gap: 3px; }
-  .style-legend-dot { width: 6px; height: 6px; border-radius: 50%; display: inline-block; }
+  /* 查看店铺按钮 */
+  .view-shops-btn {
+    margin-top: 4px;
+    width: 100%;
+    padding: 8px 10px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.2s;
+    font-family: inherit;
+  }
+  .view-shops-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(102,126,234,0.3); }
+  .view-shops-btn .btn-count { background: rgba(255,255,255,0.25); padding: 1px 6px; border-radius: 3px; font-size: 10px; }
+  .view-shops-btn .btn-arrow { font-size: 14px; }
 
   /* ===== 抽屉（店铺明细）===== */
   .drawer-mask { position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 100; opacity: 0; visibility: hidden; transition: all 0.3s; }
@@ -155,7 +163,6 @@
       <span>📅 数据周期：<b id="period">-</b></span>
       <span>📊 数据源：<b id="source">-</b></span>
       <span>🎯 SPU 聚合：细分类目 × 面料</span>
-      <span>📐 版型作为详情属性展示</span>
     </div>
   </div>
 </header>
@@ -235,7 +242,10 @@
             <div class="spu-stat"><b>${s.investedCount}</b><span class="lbl">已投客户</span></div>
             <div class="spu-stat new"><b>${s.newShopCount}</b><span class="lbl">待引入新客</span></div>
           </div>
-          ${renderStyleDist(s.styleDist)}
+          <button class="view-shops-btn" onclick="event.stopPropagation(); openDrawer(${s.rank - 1})">
+            <span>👉 点击查看店铺列表</span>
+            <span><span class="btn-count">${s.investedCount + s.newShopCount}家</span> <span class="btn-arrow">›</span></span>
+          </button>
         </div>
       </div>
     `).join('');
@@ -263,20 +273,6 @@
       return `<span class="feature-tag ${cat}" title="${t.label} 覆盖率 ${pct}%">${t.label}<span class="pct">${pct}%</span></span>`;
     }).join('');
     return `<div class="feature-tags">${chips}</div>`;
-  }
-
-  function renderStyleDist(styleDist) {
-    if (!styleDist || styleDist.length === 0) return '';
-    const top = styleDist.slice(0, 4);
-    const bars = top.map((d, i) => `<div class="style-seg style-seg-${i}" style="width:${d.pct}%" title="${d.label} ${d.pct}%"></div>`).join('');
-    const legend = top.map((d, i) => `<span class="style-legend-item"><span class="style-legend-dot" style="background:${['#667eea','#f39c12','#1abc9c','#e74c3c'][i]}"></span>${d.label} ${d.pct}%</span>`).join('');
-    return `
-      <div class="style-dist">
-        <div class="style-dist-title">📐 版型分布</div>
-        <div class="style-bar">${bars}</div>
-        <div class="style-legend">${legend}</div>
-      </div>
-    `;
   }
 
   function renderShopItem(s) {
