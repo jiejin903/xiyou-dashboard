@@ -6,31 +6,87 @@
 <title>Q3男装·SPU 爆品罗盘</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-  html, body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f5f7fb; color: #2c3e50; line-height: 1.5; font-size: 14px; }
+  html, body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; background: #fafbfc; color: #2c3e50; line-height: 1.5; font-size: 14px; }
   a { color: inherit; text-decoration: none; }
 
-  /* ============ 顶部 Hero ============ */
-  header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #667eea 100%);
-    color: #fff; padding: 30px 20px 24px;
-    position: relative; overflow: hidden;
+  /* ============ 顶部 Hero（参考消电日百样式：浅橙背景） ============ */
+  .hero {
+    background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 60%, #fed7aa 100%);
+    padding: 44px 24px 100px;
+    position: relative;
+    overflow: hidden;
   }
-  header::before {
-    content: ""; position: absolute; top: -50px; right: -50px;
-    width: 240px; height: 240px; border-radius: 50%;
-    background: rgba(255,255,255,0.08); z-index: 0;
+  .hero::before {
+    content: ""; position: absolute; top: -60px; right: -50px;
+    width: 260px; height: 260px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.6) 0%, transparent 70%);
   }
-  header::after {
-    content: ""; position: absolute; bottom: -80px; right: 200px;
-    width: 180px; height: 180px; border-radius: 50%;
-    background: rgba(255,255,255,0.05); z-index: 0;
+  .hero-inner { max-width: 1440px; margin: 0 auto; position: relative; z-index: 1; }
+  .hero-top { display: flex; justify-content: space-between; align-items: flex-start; }
+  .hero-title {
+    font-size: 32px; font-weight: 800; color: #1f2937;
+    letter-spacing: -0.5px; margin-bottom: 8px;
   }
-  .header-inner { max-width: 1440px; margin: 0 auto; position: relative; z-index: 1; }
-  header h1 { font-size: 24px; font-weight: 700; margin-bottom: 8px; letter-spacing: 0.5px; }
-  header h1 .emoji { margin-right: 6px; font-size: 22px; }
-  .meta { display: flex; gap: 12px; flex-wrap: wrap; font-size: 12px; }
-  .meta .pill { background: rgba(255,255,255,0.15); padding: 4px 12px; border-radius: 20px; backdrop-filter: blur(6px); }
-  .meta .pill b { font-weight: 700; margin-left: 3px; }
+  .hero-subtitle {
+    font-size: 13px; color: #78716c; font-weight: 500;
+  }
+  .hero-subtitle .divider { margin: 0 8px; opacity: 0.4; }
+  .hero-meta {
+    display: flex; flex-direction: column; gap: 6px;
+    background: rgba(255,255,255,0.55); padding: 12px 16px; border-radius: 10px;
+    backdrop-filter: blur(6px); font-size: 12px; color: #78716c;
+    border: 1px solid rgba(255,255,255,0.5);
+  }
+  .hero-meta .row { display: flex; align-items: center; gap: 10px; }
+  .hero-meta .label { color: #a8a29e; }
+  .hero-meta b { color: #57534e; font-weight: 700; }
+
+  /* Hero 里的描述性文字 */
+  .hero-desc {
+    margin: 18px 0 20px; max-width: 800px;
+    font-size: 13px; color: #78716c; line-height: 1.7;
+  }
+  .hero-desc .hi { background: linear-gradient(180deg, transparent 60%, #fed7aa 60%); padding: 0 3px; font-weight: 700; color: #57534e; }
+
+  /* ============ 标杆案例卡（Hero 底部叠加） ============ */
+  .hero-cases {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    max-width: 1440px; margin: -80px auto 0; padding: 0 24px 24px;
+    position: relative; z-index: 2;
+  }
+  .case-card {
+    background: #fff; border-radius: 14px; padding: 20px 22px;
+    box-shadow: 0 8px 24px rgba(120, 113, 108, 0.1);
+    border: 1px solid rgba(0,0,0,0.03);
+  }
+  .case-tag {
+    display: inline-block; padding: 4px 12px; border-radius: 6px;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.3px;
+    margin-bottom: 12px;
+  }
+  .case-tag.wechat { background: #d1fae5; color: #059669; }
+  .case-tag.douyin { background: #fed7aa; color: #c2410c; }
+  .case-body { display: flex; gap: 16px; align-items: center; }
+  .case-avatar {
+    flex-shrink: 0; width: 82px; height: 82px; border-radius: 10px;
+    overflow: hidden; background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 30px;
+  }
+  .case-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .case-info { flex: 1; min-width: 0; }
+  .case-title { font-size: 15px; font-weight: 700; color: #1f2937; margin-bottom: 4px; }
+  .case-desc { font-size: 12px; color: #78716c; line-height: 1.5; margin-bottom: 10px; }
+  .case-metrics { display: flex; gap: 18px; flex-wrap: wrap; }
+  .case-metric { }
+  .case-metric .lbl {
+    display: inline-block; padding: 2px 8px; border-radius: 4px;
+    font-size: 10px; font-weight: 600; margin-right: 4px;
+    background: #fef3c7; color: #92400e;
+  }
+  .case-card.wechat .case-metric .lbl { background: #d1fae5; color: #059669; }
+  .case-metric .val { font-size: 15px; font-weight: 800; color: #ea580c; }
+  .case-card.wechat .case-metric .val { color: #059669; }
 
   main { max-width: 1440px; margin: 0 auto; padding: 20px; }
 
@@ -347,9 +403,19 @@
     .kpi-hero { grid-template-columns: repeat(2, 1fr); }
     .spu-grid { grid-template-columns: repeat(3, 1fr); }
   }
+  @media (max-width: 1024px) {
+    .hero-cases { grid-template-columns: 1fr; }
+  }
   @media (max-width: 768px) {
-    header { padding: 20px 14px 18px; }
-    header h1 { font-size: 18px; }
+    .hero { padding: 24px 16px 80px; }
+    .hero-title { font-size: 22px; }
+    .hero-top { flex-direction: column; gap: 14px; }
+    .hero-meta { width: 100%; }
+    .hero-cases { padding: 0 14px 20px; gap: 12px; margin-top: -70px; }
+    .case-card { padding: 16px; }
+    .case-avatar { width: 60px; height: 60px; }
+    .case-title { font-size: 14px; }
+    .case-metrics { gap: 12px; }
     main { padding: 14px; }
     .kpi-hero { grid-template-columns: repeat(2, 1fr); gap: 10px; }
     .kpi-hero-card { padding: 14px 16px; min-height: 90px; }
@@ -373,16 +439,27 @@
 </head>
 <body>
 
-<header>
-  <div class="header-inner">
-    <h1><span class="emoji">🔥</span>Q3 男装·SPU 爆品罗盘</h1>
-    <div class="meta">
-      <span class="pill">📅 数据周期 <b id="period">近7天</b></span>
-      <span class="pill">🎯 双源交叉洞察</span>
-      <span class="pill">🔄 <span id="update-time">-</span></span>
+<!-- Hero + 标杆案例 -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-top">
+      <div>
+        <div class="hero-title">服饰拓客拓品指南（男装版）</div>
+        <div class="hero-subtitle">服饰增长组 出品<span class="divider">·</span>仅内部使用</div>
+      </div>
+      <div class="hero-meta">
+        <div class="row"><span class="label">数据周期：</span><b id="period">2026-06-22 ~ 2026-06-28</b></div>
+        <div class="row"><span class="label">更新时间：</span><b id="update-time">2026-07-01</b></div>
+      </div>
+    </div>
+    <div class="hero-desc">
+      基于<span class="hi">视频号大盘在投数据</span>与<span class="hi">抖音竞媒爆品榜</span>的双源交叉洞察，帮助销售一屏锁定「视频号已跑通的爆款 SPU + 抖音爆但视频号未布局的拓品机会」，供选品决策与新客引入参考。
     </div>
   </div>
-</header>
+</div>
+
+<!-- 顶部标杆案例（两卡） -->
+<div class="hero-cases" id="hero-cases"></div>
 
 <main>
 
@@ -498,6 +575,57 @@
       const pct = Math.min(t.pct, 100);
       return `<span class="feature-tag ${cat}">${t.label}<span class="pct">${pct}%</span></span>`;
     }).join('')}</div>`;
+  }
+
+  // ============ 顶部标杆案例卡 ============
+  function renderHeroCases() {
+    // 视频号 TOP1 SPU 及其最爆直播间
+    const topWechat = DATA.wechat.spus[0];
+    const topLive = topWechat && topWechat.topLives && topWechat.topLives[0];
+    // 抖音 TOP1（潜在机会：视频号未投的第1个）
+    const topDouyinPotential = DATA.douyin.spus.find(s => !s.wechatInvested) || DATA.douyin.spus[0];
+
+    document.getElementById('hero-cases').innerHTML = `
+      <!-- 视频号案例 -->
+      <div class="case-card wechat">
+        <span class="case-tag wechat">🟢 视频号案例·爆款 SPU</span>
+        <div class="case-body">
+          <div class="case-avatar">👔</div>
+          <div class="case-info">
+            <div class="case-title">${topWechat ? topWechat.spu : '-'}</div>
+            <div class="case-desc">
+              ${topLive ? `<b>${topLive.name}</b> 通过 ADQ × 视频号直播实现规模化跑量` : '暂无数据'}${topWechat && topWechat.gmvTrend != null ? ' · ' + (topWechat.gmvTrend >= 0 ? '环比 +' : '环比 ') + topWechat.gmvTrend.toFixed(1) + '%' : ''}
+            </div>
+            <div class="case-metrics">
+              ${topLive ? `<div class="case-metric"><span class="lbl">直播间日耗</span><span class="val">${fmtYuan(topLive.gmv)}</span></div>` : ''}
+              ${topLive ? `<div class="case-metric"><span class="lbl">下单ROI</span><span class="val">${topLive.roi}</span></div>` : ''}
+              ${topWechat ? `<div class="case-metric"><span class="lbl">客单价</span><span class="val">¥${topWechat.priceAvg}</span></div>` : ''}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 抖音案例 -->
+      <div class="case-card douyin">
+        <span class="case-tag douyin">🟠 抖音案例·潜在拓品</span>
+        <div class="case-body">
+          <div class="case-avatar">
+            ${topDouyinPotential && topDouyinPotential.topProductImg ? `<img src="${topDouyinPotential.topProductImg}" onerror="this.style.display='none';this.parentElement.textContent='🔥'">` : '🔥'}
+          </div>
+          <div class="case-info">
+            <div class="case-title">${topDouyinPotential ? topDouyinPotential.spu : '-'}</div>
+            <div class="case-desc">
+              ${topDouyinPotential ? `抖音大盘 ${topDouyinPotential.productCount} 款商品在跑、${topDouyinPotential.shopCount} 家店铺竞逐 · 视频号${topDouyinPotential.wechatInvested ? '已布局' : '尚未布局'}的拓品机会` : ''}
+            </div>
+            <div class="case-metrics">
+              ${topDouyinPotential ? `<div class="case-metric"><span class="lbl">合计GMV</span><span class="val">${fmtWan(topDouyinPotential.totalGmv)}</span></div>` : ''}
+              ${topDouyinPotential ? `<div class="case-metric"><span class="lbl">单价</span><span class="val">${topDouyinPotential.priceRange}</span></div>` : ''}
+              ${topDouyinPotential ? `<div class="case-metric"><span class="lbl">待引入店铺</span><span class="val">${topDouyinPotential.newShopCount}家</span></div>` : ''}
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
   }
 
   // ============ 顶部 KPI 大卡片 ============
@@ -873,7 +1001,14 @@
     .then(r => r.json())
     .then(data => {
       DATA = data;
-      document.getElementById('update-time').textContent = '生成于 ' + data.generatedAt;
+      // 更新数据周期 + 时间
+      if (data.wechat && data.wechat.period) {
+        // 从「2026-06-22 ~ 2026-06-28（近7天）」提取日期区间
+        const p = data.wechat.period.replace(/（.*）/, '').trim();
+        document.getElementById('period').textContent = p || data.wechat.period;
+      }
+      document.getElementById('update-time').textContent = data.generatedAt;
+      renderHeroCases();      // ⭐ 新增：顶部标杆案例
       renderKPIHero();
       renderWechatInsight();
       renderWechatList();
