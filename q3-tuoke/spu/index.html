@@ -411,12 +411,21 @@
         </div>
       `).join('');
 
+      // 消耗趋势：反推法真实环比
+      let trendChip = '';
+      if (s.gmvTrend !== null && s.gmvTrend !== undefined) {
+        const t = s.gmvTrend;
+        if (t > 5) trendChip = `<span style="color:#229954;background:#d5f5e3;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700;margin-left:6px;">📈 +${t.toFixed(1)}%</span>`;
+        else if (t < -5) trendChip = `<span style="color:#e74c3c;background:#fadbd8;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700;margin-left:6px;">📉 ${t.toFixed(1)}%</span>`;
+        else trendChip = `<span style="color:#7f8c8d;background:#eceff1;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700;margin-left:6px;">➡️ ${t >= 0 ? '+' : ''}${t.toFixed(1)}%</span>`;
+      }
+
       return `
         <div class="spu-accordion" onclick="toggleAcc(this)">
           <div class="acc-head">
             <div class="acc-rank${s.rank <= 3 ? ' top3' : ''}">#${s.rank}</div>
             <div class="acc-title">
-              <div class="acc-spu-name">${s.spu}</div>
+              <div class="acc-spu-name">${s.spu}${trendChip}</div>
               <div class="acc-meta"><b>${fmtYuan(s.dailyGmv)}</b> 日均消耗 · ${s.liveCount} 家直播间 · ${s.creativeCount} 条素材</div>
             </div>
             <div class="acc-summary">
@@ -434,7 +443,7 @@
                 <div class="metric-cell">
                   <div class="lbl">日均消耗</div>
                   <div class="val gmv">${fmtYuan(s.dailyGmv)}</div>
-                  <div class="rng">${s.creativeCount}条素材投入</div>
+                  <div class="rng">${s.gmvTrend !== null && s.gmvTrend !== undefined ? '环比 ' + (s.gmvTrend >= 0 ? '+' : '') + s.gmvTrend.toFixed(1) + '%' : s.creativeCount + '条素材投入'}</div>
                 </div>
                 <div class="metric-cell">
                   <div class="lbl">下单 ROI 范围</div>
