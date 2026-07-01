@@ -91,8 +91,18 @@
   .shop-info { flex: 1; min-width: 0; }
   .shop-name { font-size: 13px; font-weight: 600; margin-bottom: 3px; display: flex; align-items: center; gap: 6px; }
   .shop-tag { padding: 1px 6px; border-radius: 3px; font-size: 10px; font-weight: 500; }
-  .shop-tag.invested { background: #eef2f7; color: #7f8c8d; }
+  .shop-tag.invested { background: #d5f5e3; color: #229954; }
   .shop-tag.new { background: #e74c3c; color: #fff; }
+
+  /* 抽屉分组标题 */
+  .group-title { display: flex; align-items: center; gap: 8px; margin: 8px 0 10px; font-size: 13px; font-weight: 700; }
+  .group-title:first-child { margin-top: 0; }
+  .group-title .badge { padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+  .group-title .badge.invested { background: #d5f5e3; color: #229954; }
+  .group-title .badge.new { background: #e74c3c; color: #fff; }
+  .group-title .desc { font-size: 11px; color: #95a5a6; font-weight: 400; }
+  .group-empty { padding: 12px; text-align: center; color: #95a5a6; font-size: 12px; background: #fafafa; border-radius: 6px; }
+  .group-section { margin-bottom: 20px; }
   .shop-product { font-size: 11px; color: #7f8c8d; line-height: 1.4; margin-bottom: 4px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; }
   .shop-stats { display: flex; gap: 10px; font-size: 11px; color: #95a5a6; }
   .shop-stats span b { color: #2c3e50; font-weight: 600; }
@@ -148,13 +158,13 @@
     <div class="kpi"><div class="kpi-val" id="kpi-product">-</div><div class="kpi-label">聚合商品链接</div></div>
     <div class="kpi"><div class="kpi-val" id="kpi-gmv">-</div><div class="kpi-label">合计GMV估算</div></div>
     <div class="kpi"><div class="kpi-val" id="kpi-shop">-</div><div class="kpi-label">涉及店铺</div></div>
-    <div class="kpi highlight"><div class="kpi-val" id="kpi-new">-</div><div class="kpi-label">潜在新客店铺</div></div>
+    <div class="kpi highlight"><div class="kpi-val" id="kpi-new">-</div><div class="kpi-label">🔥 待引入潜力新客</div></div>
   </div>
 </div>
 
 <div class="note-bar">
   <div class="note">
-    <strong>💡 SPU 视角看爆品：</strong>把 3000 个商品按"<strong>面料 × 细分类目</strong>"聚合（冰丝T恤/亚麻休闲裤等），版型（POLO/直筒/老爹...）作为详情属性以进度条形式展示。<strong>点卡片</strong>看该SPU下的 TOP20 店铺，🔥红色标签=ADQ潜在新客。
+    <strong>💡 SPU 视角看爆品：</strong>把 3000 个商品按"<strong>面料 × 细分类目</strong>"聚合（冰丝T恤/亚麻休闲裤等），版型（POLO/直筒/老爹...）作为详情属性以进度条形式展示。<strong>点卡片</strong>看该 SPU 下 <strong>TOP5 已投客户</strong>（含 ADQ 与全域通闭环）+ <strong>TOP10 待引入潜力新客</strong>。
     <strong>单价</strong>由佣金反推（佣金÷佣金率），<strong>GMV</strong>按销售额档位中点估算，仅作数量级参考。
   </div>
 </div>
@@ -203,7 +213,7 @@
     grid.innerHTML = DATA.spus.map(s => `
       <div class="spu-card" onclick="openDrawer(${s.rank - 1})">
         <div class="rank-badge${s.rank <= 3 ? ' top3' : ''}">#${s.rank}</div>
-        ${s.newShopCount > 0 ? `<div class="new-tag">🔥 ${s.newShopCount}家新客</div>` : ''}
+        ${s.newShopCount > 0 ? `<div class="new-tag">🔥 ${s.newShopCount}家潜力新客</div>` : ''}
         <div class="spu-img-wrap">
           <img src="${s.topProductImg}" alt="${s.spu}" onerror="this.style.display='none'">
         </div>
@@ -213,8 +223,8 @@
           <div class="spu-gmv">${fmtWan(s.totalGmv)}<span class="unit">合计GMV</span></div>
           <div class="spu-stats">
             <div class="spu-stat"><b>${s.productCount}</b><span class="lbl">商品链接</span></div>
-            <div class="spu-stat"><b>${s.shopCount}</b><span class="lbl">涉及店铺</span></div>
-            <div class="spu-stat new"><b>${s.newShopCount}</b><span class="lbl">潜在新客</span></div>
+            <div class="spu-stat"><b>${s.investedCount}</b><span class="lbl">已投客户</span></div>
+            <div class="spu-stat new"><b>${s.newShopCount}</b><span class="lbl">待引入新客</span></div>
           </div>
           ${renderStyleDist(s.styleDist)}
         </div>
@@ -236,21 +246,15 @@
     `;
   }
 
-  function openDrawer(idx) {
-    const spu = DATA.spus[idx];
-    document.getElementById('drawer-spu').textContent = `#${spu.rank}  ${spu.spu}`;
-    document.getElementById('drawer-meta').textContent =
-      `${spu.productCount}个商品 · ${spu.shopCount}家店铺 · 合计GMV≈${fmtWan(spu.totalGmv)} · 单价 ${spu.priceRange}`;
-
-    const list = document.getElementById('shop-list');
-    list.innerHTML = spu.shops.map(s => `
+  function renderShopItem(s) {
+    return `
       <div class="shop-item ${s.isNew ? 'new-cust' : ''}">
         <div class="shop-rank">${s.rank}</div>
         <div class="shop-img"><img src="${s.topProductImg}" alt="" onerror="this.style.display='none'"></div>
         <div class="shop-info">
           <div class="shop-name">
             ${s.shop}
-            <span class="shop-tag ${s.isNew ? 'new' : 'invested'}">${s.isNew ? '🔥 潜在新客' : '✓ 已投ADQ'}</span>
+            <span class="shop-tag ${s.isNew ? 'new' : 'invested'}">${s.isNew ? '🔥 待引入' : '✓ 已投放'}</span>
           </div>
           <div class="shop-product">${s.topProduct}</div>
           <div class="shop-stats">
@@ -259,11 +263,42 @@
             <span>TOP商品：<b>${s.topGmvBucket}</b></span>
           </div>
           ${s.isNew
-            ? `<div class="adq-info"><b>ADQ未投放</b> · 品牌词：${s.brand || '-'}</div>`
-            : `<div class="adq-info"><b>已投ADQ客户：</b>${s.adqCust}</div>`}
+            ? `<div class="adq-info"><b>ADQ/全域通均未投放</b> · 品牌词：${s.brand || '-'}</div>`
+            : `<div class="adq-info"><b>已投ADQ/全域通客户：</b>${s.matchedCust}</div>`}
         </div>
+      </div>`;
+  }
+
+  function openDrawer(idx) {
+    const spu = DATA.spus[idx];
+    document.getElementById('drawer-spu').textContent = `#${spu.rank}  ${spu.spu}`;
+    document.getElementById('drawer-meta').textContent =
+      `${spu.productCount}个商品 · ${spu.shopCount}家店铺 · 合计GMV≈${fmtWan(spu.totalGmv)} · 单价 ${spu.priceRange}`;
+
+    const list = document.getElementById('shop-list');
+    const investedHtml = spu.invested && spu.invested.length > 0
+      ? spu.invested.map(renderShopItem).join('')
+      : '<div class="group-empty">该 SPU 下暂无已投放的头部店铺</div>';
+    const newHtml = spu.newCust && spu.newCust.length > 0
+      ? spu.newCust.map(renderShopItem).join('')
+      : '<div class="group-empty">该 SPU 下暂无待引入的潜力新客</div>';
+
+    list.innerHTML = `
+      <div class="group-section">
+        <div class="group-title">
+          <span class="badge invested">✓ 已投放 TOP${spu.invested.length}</span>
+          <span class="desc">该 SPU 下已投 ADQ/全域通闭环的头部店铺</span>
+        </div>
+        ${investedHtml}
       </div>
-    `).join('');
+      <div class="group-section">
+        <div class="group-title">
+          <span class="badge new">🔥 待引入 TOP${spu.newCust.length}</span>
+          <span class="desc">飞瓜销量在榜、ADQ/全域通均未投放，可优先拓客</span>
+        </div>
+        ${newHtml}
+      </div>
+    `;
 
     document.getElementById('drawer-mask').classList.add('open');
     document.getElementById('drawer').classList.add('open');
