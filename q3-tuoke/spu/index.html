@@ -403,8 +403,9 @@
           <div class="rk">${i + 1}</div>
           <div class="nm" title="${l.name}">${l.name}</div>
           <div class="mx">
-            <span>日耗 <b>${fmtYuan(l.gmv)}</b></span>
-            <span>ROI <b class="${roiLevel(l.roi).replace('roi-','val roi-')}" style="color:${l.roi>=3?'#229954':l.roi>=2?'#f39c12':'#e74c3c'};">${l.roi}</b></span>
+            <span>男装日耗 <b>${fmtYuan(l.gmv)}</b></span>
+            <span>该SPU占比 <b>${l.spuPct}%</b></span>
+            <span>ROI <b style="color:${l.roi>=3?'#229954':l.roi>=2?'#f39c12':'#e74c3c'};">${l.roi}</b></span>
             <span>退款 <b style="color:${l.refund<=30?'#229954':l.refund<=50?'#f39c12':'#e74c3c'};">${l.refund}%</b></span>
           </div>
         </div>
@@ -453,7 +454,7 @@
               </div>
               <div class="sub-title">🎬 跑量 TOP5 素材 · 悬停播放 · 点击新窗口打开原视频</div>
               <div class="creatives-grid">${creativeCells}</div>
-              <div class="sub-title">📺 消耗 TOP3 直播间</div>
+              <div class="sub-title">📺 该SPU下 TOP3 直播间（男装日耗=该直播间男装大盘总日耗，说明直播间整体量级；该SPU占比说明这个SPU对直播间的贡献度）</div>
               <div class="live-list">${liveRows}</div>
             </div>
           </div>
@@ -477,7 +478,7 @@
              <div class="creative-fallback" style="display:none">素材加载失败<br>点击可打开原视频</div>` :
             `<div class="creative-fallback">素材链接<br>已失效</div>`}
           <div class="creative-overlay">
-            <div class="gmv-line">${fmtYuan(c.gmv)}/日 · ROI ${c.roi}</div>
+            <div class="gmv-line">素材日耗 ${fmtYuan(c.gmv)} · ROI ${c.roi}</div>
             <div class="live-line" title="${c.live}">${c.live}</div>
           </div>
         </div>

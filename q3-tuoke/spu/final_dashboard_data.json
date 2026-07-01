@@ -57,21 +57,27 @@
         "topLives": [
           {
             "name": "新随衣品牌特卖",
-            "gmv": 15495.0,
+            "gmv": 29154.0,
+            "spuGmv": 15495.0,
+            "spuPct": 53.1,
             "roi": 2.19,
             "refund": 48.45,
             "creatives": 429
           },
           {
             "name": "罗蒙Romon男装服饰店",
-            "gmv": 8931.0,
+            "gmv": 9138.0,
+            "spuGmv": 8931.0,
+            "spuPct": 97.7,
             "roi": 2.85,
             "refund": 37.11,
             "creatives": 1153
           },
           {
             "name": "霞湖世家官方旗舰店",
-            "gmv": 8775.0,
+            "gmv": 30598.0,
+            "spuGmv": 8775.0,
+            "spuPct": 28.7,
             "roi": 12.86,
             "refund": 34.38,
             "creatives": 229
@@ -166,13 +172,17 @@
           {
             "name": "麦雅男装",
             "gmv": 13937.0,
+            "spuGmv": 13937.0,
+            "spuPct": 100.0,
             "roi": 3.55,
             "refund": 46.71,
             "creatives": 262
           },
           {
             "name": "顾木森辰夕黑标店",
-            "gmv": 8748.0,
+            "gmv": 12948.0,
+            "spuGmv": 8748.0,
+            "spuPct": 67.6,
             "roi": 5.36,
             "refund": 32.91,
             "creatives": 415
@@ -180,6 +190,8 @@
           {
             "name": "梵莎甄选",
             "gmv": 1744.0,
+            "spuGmv": 1744.0,
+            "spuPct": 100.0,
             "roi": 2.66,
             "refund": 25.78,
             "creatives": 108
@@ -273,21 +285,27 @@
         "topLives": [
           {
             "name": "霞湖世家官方旗舰店",
-            "gmv": 14990.0,
+            "gmv": 30598.0,
+            "spuGmv": 14990.0,
+            "spuPct": 49.0,
             "roi": 13.47,
             "refund": 34.62,
             "creatives": 283
           },
           {
             "name": "皮尔卡丹男装服饰配件",
-            "gmv": 3677.0,
+            "gmv": 6216.0,
+            "spuGmv": 3677.0,
+            "spuPct": 59.2,
             "roi": 3.63,
             "refund": 46.29,
             "creatives": 316
           },
           {
             "name": "皮尔卡丹品牌特卖",
-            "gmv": 2903.0,
+            "gmv": 2907.0,
+            "spuGmv": 2903.0,
+            "spuPct": 99.9,
             "roi": 2.82,
             "refund": 45.12,
             "creatives": 234
@@ -382,20 +400,26 @@
           {
             "name": "启哲君伊男装",
             "gmv": 6198.0,
+            "spuGmv": 6198.0,
+            "spuPct": 100.0,
             "roi": 3.66,
             "refund": 34.21,
             "creatives": 220
           },
           {
             "name": "威猛哥哥时尚穿搭",
-            "gmv": 2975.0,
+            "gmv": 3441.0,
+            "spuGmv": 2975.0,
+            "spuPct": 86.4,
             "roi": 3.45,
             "refund": 51.7,
             "creatives": 170
           },
           {
             "name": "锦裕轩男装",
-            "gmv": 2872.0,
+            "gmv": 2889.0,
+            "spuGmv": 2872.0,
+            "spuPct": 99.4,
             "roi": 1.75,
             "refund": 20.66,
             "creatives": 199
@@ -484,7 +508,9 @@
         "topLives": [
           {
             "name": "Jeep吉普男装服饰",
-            "gmv": 21151.0,
+            "gmv": 42504.0,
+            "spuGmv": 21151.0,
+            "spuPct": 49.8,
             "roi": 3.33,
             "refund": 59.04,
             "creatives": 1047
@@ -492,6 +518,8 @@
           {
             "name": "卡丹路休闲男装",
             "gmv": 4159.0,
+            "spuGmv": 4159.0,
+            "spuPct": 100.0,
             "roi": 2.71,
             "refund": 41.61,
             "creatives": 160
@@ -499,6 +527,8 @@
           {
             "name": "总裁休闲男装",
             "gmv": 640.0,
+            "spuGmv": 640.0,
+            "spuPct": 100.0,
             "roi": 2.44,
             "refund": 56.31,
             "creatives": 109
@@ -566,14 +596,18 @@
         "topLives": [
           {
             "name": "啄木鸟行望男装店",
-            "gmv": 16525.0,
+            "gmv": 17329.0,
+            "spuGmv": 16525.0,
+            "spuPct": 95.4,
             "roi": 2.49,
             "refund": 30.0,
             "creatives": 310
           },
           {
             "name": "空",
-            "gmv": 1.0,
+            "gmv": 1343.0,
+            "spuGmv": 1.0,
+            "spuPct": 0.1,
             "roi": 0.0,
             "refund": 0.0,
             "creatives": 4
@@ -581,6 +615,8 @@
           {
             "name": "嘉美珊工厂店",
             "gmv": 0.0,
+            "spuGmv": 0.0,
+            "spuPct": 100.0,
             "roi": 0.0,
             "refund": 0.0,
             "creatives": 1
@@ -659,7 +695,9 @@
         "topLives": [
           {
             "name": "思小简短袖T恤",
-            "gmv": 12325.0,
+            "gmv": 13076.0,
+            "spuGmv": 12325.0,
+            "spuPct": 94.3,
             "roi": 1.86,
             "refund": 36.52,
             "creatives": 1140
@@ -667,6 +705,8 @@
           {
             "name": "思小简1号背心店",
             "gmv": 424.0,
+            "spuGmv": 424.0,
+            "spuPct": 100.0,
             "roi": 2.76,
             "refund": 34.3,
             "creatives": 36
@@ -674,6 +714,8 @@
           {
             "name": "潮序背心",
             "gmv": 304.0,
+            "spuGmv": 304.0,
+            "spuPct": 100.0,
             "roi": 1.59,
             "refund": 45.57,
             "creatives": 20
@@ -762,14 +804,18 @@
         "topLives": [
           {
             "name": "十如仕DETERMINANT",
-            "gmv": 7792.0,
+            "gmv": 8819.0,
+            "spuGmv": 7792.0,
+            "spuPct": 88.4,
             "roi": 3.37,
             "refund": 38.77,
             "creatives": 1246
           },
           {
             "name": "拇指白小T官方旗舰店",
-            "gmv": 2220.0,
+            "gmv": 13021.0,
+            "spuGmv": 2220.0,
+            "spuPct": 17.1,
             "roi": 3.37,
             "refund": 30.05,
             "creatives": 267
@@ -777,6 +823,8 @@
           {
             "name": "U.S.POLOASSN.森旗服饰",
             "gmv": 431.0,
+            "spuGmv": 431.0,
+            "spuPct": 100.0,
             "roi": 3.72,
             "refund": 60.82,
             "creatives": 17
@@ -871,20 +919,26 @@
           {
             "name": "老爷车壹鑫购男装",
             "gmv": 3879.0,
+            "spuGmv": 3879.0,
+            "spuPct": 100.0,
             "roi": 2.83,
             "refund": 45.55,
             "creatives": 404
           },
           {
             "name": "霞湖世家官方旗舰店",
-            "gmv": 2392.0,
+            "gmv": 30598.0,
+            "spuGmv": 2392.0,
+            "spuPct": 7.8,
             "roi": 7.26,
             "refund": 61.94,
             "creatives": 326
           },
           {
             "name": "拇指白小T官方旗舰店",
-            "gmv": 1221.0,
+            "gmv": 13021.0,
+            "spuGmv": 1221.0,
+            "spuPct": 9.4,
             "roi": 3.95,
             "refund": 35.53,
             "creatives": 380
@@ -963,7 +1017,9 @@
         "topLives": [
           {
             "name": "拇指白小T官方旗舰店",
-            "gmv": 7784.0,
+            "gmv": 13021.0,
+            "spuGmv": 7784.0,
+            "spuPct": 59.8,
             "roi": 3.03,
             "refund": 32.74,
             "creatives": 886
@@ -971,13 +1027,17 @@
           {
             "name": "凡客依舍直播账号",
             "gmv": 814.0,
+            "spuGmv": 814.0,
+            "spuPct": 100.0,
             "roi": 2.36,
             "refund": 37.43,
             "creatives": 122
           },
           {
             "name": "拇指白小T运动商务",
-            "gmv": 402.0,
+            "gmv": 3339.0,
+            "spuGmv": 402.0,
+            "spuPct": 12.0,
             "roi": 3.83,
             "refund": 65.15,
             "creatives": 108
