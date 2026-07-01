@@ -55,6 +55,14 @@
   .spu-stat.new b { color: #e74c3c; }
   .spu-stat .lbl { color: #95a5a6; font-size: 10px; }
 
+  /* 特征标签 chips */
+  .feature-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 8px; }
+  .feature-tag { display: inline-flex; align-items: center; gap: 2px; padding: 2px 7px; border-radius: 10px; font-size: 10px; font-weight: 500; line-height: 1.5; background: #f0f4ff; color: #667eea; border: 1px solid #dfe6f7; }
+  .feature-tag.hot { background: #fff5eb; color: #e67e22; border-color: #f5d5b3; }
+  .feature-tag.func { background: #e8f8f0; color: #229954; border-color: #c9ecd6; }
+  .feature-tag.style { background: #fdf0f7; color: #a24da3; border-color: #f0d6e6; }
+  .feature-tag .pct { opacity: 0.7; margin-left: 2px; }
+
   /* 版型分布小 bar */
   .style-dist { border-top: 1px dashed #eee; padding-top: 8px; }
   .style-dist-title { font-size: 10px; color: #95a5a6; margin-bottom: 5px; }
@@ -164,8 +172,8 @@
 
 <div class="note-bar">
   <div class="note">
-    <strong>💡 SPU 视角看爆品：</strong>把 3000 个商品按"<strong>面料 × 细分类目</strong>"聚合（冰丝T恤/亚麻休闲裤等），版型（POLO/直筒/老爹...）作为详情属性以进度条形式展示。<strong>点卡片</strong>看该 SPU 下 <strong>TOP5 已投客户</strong>（含 ADQ 与全域通闭环）+ <strong>TOP10 待引入潜力新客</strong>。
-    <strong>单价</strong>由佣金反推（佣金÷佣金率），<strong>GMV</strong>按销售额档位中点估算，仅作数量级参考。
+    <strong>💡 SPU 视角看爆品：</strong>按"<strong>面料 × 细分类目</strong>"聚合，卡片标签分四类：<span style="color:#e67e22;">🟠 面料细节</span> / <span style="color:#229954;">🟢 功能特性</span> / <span style="color:#667eea;">🔵 版型</span> / <span style="color:#a24da3;">🟣 风格与场景</span>。<strong>点卡片</strong>看该 SPU 下 <strong>TOP5 已投客户</strong>（含 ADQ 与全域通闭环）+ <strong>TOP10 待引入潜力新客</strong>。
+    <strong>单价</strong>由佣金反推，<strong>GMV</strong>按销售额档位中点估算，仅作数量级参考。
   </div>
 </div>
 
@@ -221,6 +229,7 @@
           <div class="spu-name">${s.spu}</div>
           <div class="spu-price">💰 单价 ${s.priceRange}</div>
           <div class="spu-gmv">${fmtWan(s.totalGmv)}<span class="unit">合计GMV</span></div>
+          ${renderFeatureTags(s.featureTags)}
           <div class="spu-stats">
             <div class="spu-stat"><b>${s.productCount}</b><span class="lbl">商品链接</span></div>
             <div class="spu-stat"><b>${s.investedCount}</b><span class="lbl">已投客户</span></div>
@@ -230,6 +239,30 @@
         </div>
       </div>
     `).join('');
+  }
+
+  // 按标签所属类别分色：面料=橙、功能=绿、版型=蓝、风格=紫
+  const TAG_CATEGORY = {
+    // 面料（橙）
+    '桑蚕丝':'hot','天丝':'hot','莫代尔':'hot','汉麻香云纱':'hot','亚麻':'hot','90/95绒':'hot','260g重磅':'hot',
+    // 功能（绿）
+    'UPF防晒':'func','抗菌抑菌':'func','速干':'func','透气':'func','抗皱免烫':'func','弹力':'func',
+    // 版型（蓝，默认色）
+    '老爹阔腿':'','直筒':'','修身':'','POLO/翻领':'','圆领':'','海鸥领':'','工装':'',
+    // 风格（紫）
+    '老钱风':'style','松弛感':'style','新中式':'style','美式复古':'style','潮牌街头':'style','通勤商务':'style','户外山系':'style',
+    // 售卖点（紫）
+    '明星同款':'style','爆款':'style'
+  };
+
+  function renderFeatureTags(tags) {
+    if (!tags || tags.length === 0) return '';
+    const chips = tags.map(t => {
+      const cat = TAG_CATEGORY[t.label] || '';
+      const pct = Math.min(t.pct, 100);
+      return `<span class="feature-tag ${cat}" title="${t.label} 覆盖率 ${pct}%">${t.label}<span class="pct">${pct}%</span></span>`;
+    }).join('');
+    return `<div class="feature-tags">${chips}</div>`;
   }
 
   function renderStyleDist(styleDist) {

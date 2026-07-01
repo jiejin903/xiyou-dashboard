@@ -51,6 +51,33 @@
           "pct": 2.3
         }
       ],
+      "featureTags": [
+        {
+          "label": "直筒",
+          "count": 169,
+          "pct": 57.0
+        },
+        {
+          "label": "透气",
+          "count": 147,
+          "pct": 49.0
+        },
+        {
+          "label": "速干",
+          "count": 103,
+          "pct": 35.0
+        },
+        {
+          "label": "弹力",
+          "count": 103,
+          "pct": 35.0
+        },
+        {
+          "label": "户外山系",
+          "count": 36,
+          "pct": 12.0
+        }
+      ],
       "invested": [
         {
           "rank": 1,
@@ -63,7 +90,7 @@
           "topGmvBucket": "100w+",
           "brand": "霞湖世家",
           "isNew": false,
-          "matchedCust": "霞湖世家"
+          "matchedCust": "瑞安市世绩网络科技有限公司"
         },
         {
           "rank": 2,
@@ -76,7 +103,7 @@
           "topGmvBucket": "100w+",
           "brand": "JEEP吉普陌恬",
           "isNew": false,
-          "matchedCust": "义乌市帛纾电子商务有限责任公司 / JEEP吉普"
+          "matchedCust": "广州财盛服饰有限公司 / JEEP吉普"
         },
         {
           "rank": 3,
@@ -102,7 +129,7 @@
           "topGmvBucket": "100w+",
           "brand": "罗蒙Romon休闲",
           "isNew": false,
-          "matchedCust": "桐乡市善虞服饰有限公司 / 贴牌杨志恒"
+          "matchedCust": "义乌市渝途贸易有限公司 / 池州市聚池创联电子商务有限公司 / 杭州聚势数字传媒有限公司"
         },
         {
           "rank": 5,
@@ -115,7 +142,7 @@
           "topGmvBucket": "100w+",
           "brand": "PANG潮流穿搭",
           "isNew": false,
-          "matchedCust": "益阳市赫山区师舒荣百货店(个体工商户) / 揭阳市揭东区锡场镇甄锦艺电子商务经营部(个体工商户) / 莆田市城厢区龙桥街道李仁杰服装商行"
+          "matchedCust": "厦门坤文商贸有限公司"
         }
       ],
       "newCust": [
@@ -291,6 +318,33 @@
           "pct": 0.8
         }
       ],
+      "featureTags": [
+        {
+          "label": "POLO/翻领",
+          "count": 288,
+          "pct": 109.0
+        },
+        {
+          "label": "透气",
+          "count": 90,
+          "pct": 34.0
+        },
+        {
+          "label": "速干",
+          "count": 74,
+          "pct": 28.0
+        },
+        {
+          "label": "圆领",
+          "count": 54,
+          "pct": 20.0
+        },
+        {
+          "label": "抗菌抑菌",
+          "count": 46,
+          "pct": 17.0
+        }
+      ],
       "invested": [
         {
           "rank": 1,
@@ -303,7 +357,7 @@
           "topGmvBucket": "100w+",
           "brand": "霞湖世家",
           "isNew": false,
-          "matchedCust": "霞湖世家"
+          "matchedCust": "瑞安市世绩网络科技有限公司"
         },
         {
           "rank": 2,
@@ -316,7 +370,7 @@
           "topGmvBucket": "100w+",
           "brand": "比音勒芬",
           "isNew": false,
-          "matchedCust": "佛山市禅城区白芸轻奢服装店(个体工商户)"
+          "matchedCust": "比音勒芬"
         },
         {
           "rank": 3,
@@ -329,7 +383,7 @@
           "topGmvBucket": "50w-100w",
           "brand": "比音勒芬",
           "isNew": false,
-          "matchedCust": "佛山市禅城区白芸轻奢服装店(个体工商户)"
+          "matchedCust": "比音勒芬"
         },
         {
           "rank": 4,
@@ -531,6 +585,23 @@
           "pct": 1.9
         }
       ],
+      "featureTags": [
+        {
+          "label": "POLO/翻领",
+          "count": 183,
+          "pct": 86.0
+        },
+        {
+          "label": "圆领",
+          "count": 29,
+          "pct": 14.0
+        },
+        {
+          "label": "明星同款",
+          "count": 29,
+          "pct": 14.0
+        }
+      ],
       "invested": [
         {
           "rank": 1,
@@ -556,7 +627,7 @@
           "topGmvBucket": "50w-100w",
           "brand": "秦磊",
           "isNew": false,
-          "matchedCust": "广州星宸供应链有限公司"
+          "matchedCust": "广州星宸供应链有限公司 / 广州星盟服饰有限公司"
         },
         {
           "rank": 3,
@@ -582,7 +653,7 @@
           "topGmvBucket": "50w-100w",
           "brand": "亚萍国际轻奢",
           "isNew": false,
-          "matchedCust": "桐乡市濮院连德服饰商行 / 重庆爆一爆 / 广州粤文服装有限公司"
+          "matchedCust": "桐乡市濮院连德服饰商行 / 广州粤文服装有限公司 / 重庆爆一爆"
         },
         {
           "rank": 5,
@@ -766,6 +837,33 @@
           "pct": 0.8
         }
       ],
+      "featureTags": [
+        {
+          "label": "POLO/翻领",
+          "count": 113,
+          "pct": 95.0
+        },
+        {
+          "label": "透气",
+          "count": 102,
+          "pct": 86.0
+        },
+        {
+          "label": "圆领",
+          "count": 44,
+          "pct": 37.0
+        },
+        {
+          "label": "老钱风",
+          "count": 40,
+          "pct": 34.0
+        },
+        {
+          "label": "美式复古",
+          "count": 17,
+          "pct": 14.0
+        }
+      ],
       "invested": [
         {
           "rank": 1,
@@ -778,7 +876,7 @@
           "topGmvBucket": "100w+",
           "brand": "霞湖世家",
           "isNew": false,
-          "matchedCust": "霞湖世家"
+          "matchedCust": "瑞安市世绩网络科技有限公司"
         },
         {
           "rank": 2,
@@ -791,7 +889,7 @@
           "topGmvBucket": "100w+",
           "brand": "衬衫老罗",
           "isNew": false,
-          "matchedCust": "衬衫老罗"
+          "matchedCust": "江西省谦许服饰集团有限公司 / 衬衫老罗"
         },
         {
           "rank": 3,
@@ -804,7 +902,7 @@
           "topGmvBucket": "100w+",
           "brand": "梦特娇",
           "isNew": false,
-          "matchedCust": "梦特娇 / 合肥傲娇维尔服饰有限公司 / 新随衣"
+          "matchedCust": "广州正辉电子商务有限公司 / 广州正耀电子商务有限公司"
         },
         {
           "rank": 4,
@@ -1006,6 +1104,33 @@
           "pct": 3.8
         }
       ],
+      "featureTags": [
+        {
+          "label": "直筒",
+          "count": 90,
+          "pct": 69.0
+        },
+        {
+          "label": "美式复古",
+          "count": 80,
+          "pct": 61.0
+        },
+        {
+          "label": "潮牌街头",
+          "count": 44,
+          "pct": 34.0
+        },
+        {
+          "label": "弹力",
+          "count": 25,
+          "pct": 19.0
+        },
+        {
+          "label": "修身",
+          "count": 18,
+          "pct": 14.0
+        }
+      ],
       "invested": [
         {
           "rank": 1,
@@ -1018,7 +1143,7 @@
           "topGmvBucket": "100w+",
           "brand": "Lee",
           "isNew": false,
-          "matchedCust": "浙江多样品牌管理有限公司"
+          "matchedCust": "广州四狂电子商务有限公司"
         },
         {
           "rank": 2,
@@ -1057,7 +1182,7 @@
           "topGmvBucket": "50w-100w",
           "brand": "大麦",
           "isNew": false,
-          "matchedCust": "沣西新城柳哈语百货店(个体工商户)"
+          "matchedCust": "杭州建德穆缇服装店(个体工商户) / 杭州建德穆提服饰店(个体工商户) / 宁波海曙区熙薇电子商务商行"
         },
         {
           "rank": 5,
@@ -1246,6 +1371,33 @@
           "pct": 4.8
         }
       ],
+      "featureTags": [
+        {
+          "label": "直筒",
+          "count": 49,
+          "pct": 47.0
+        },
+        {
+          "label": "老爹阔腿",
+          "count": 17,
+          "pct": 16.0
+        },
+        {
+          "label": "通勤商务",
+          "count": 17,
+          "pct": 16.0
+        },
+        {
+          "label": "弹力",
+          "count": 16,
+          "pct": 15.0
+        },
+        {
+          "label": "户外山系",
+          "count": 14,
+          "pct": 13.0
+        }
+      ],
       "invested": [
         {
           "rank": 1,
@@ -1258,7 +1410,7 @@
           "topGmvBucket": "100w+",
           "brand": "霞湖世家",
           "isNew": false,
-          "matchedCust": "霞湖世家"
+          "matchedCust": "瑞安市世绩网络科技有限公司"
         },
         {
           "rank": 2,
@@ -1271,7 +1423,7 @@
           "topGmvBucket": "50w-100w",
           "brand": "班尼路轻运动",
           "isNew": false,
-          "matchedCust": "广州乐创服装有限公司 / 广州尊耀服装有限公司"
+          "matchedCust": "温州市瓯海仙岩何秋鞋店"
         },
         {
           "rank": 3,
@@ -1284,7 +1436,7 @@
           "topGmvBucket": "50w-100w",
           "brand": "迈特优",
           "isNew": false,
-          "matchedCust": "迈特优 / 岫岩满族自治县晴滴百货店(个体工商户)"
+          "matchedCust": "岫岩满族自治县晴滴百货店(个体工商户) / 迈特优"
         },
         {
           "rank": 4,
@@ -1310,7 +1462,7 @@
           "topGmvBucket": "50w-100w",
           "brand": "秦磊",
           "isNew": false,
-          "matchedCust": "广州星宸供应链有限公司"
+          "matchedCust": "广州星宸供应链有限公司 / 广州星盟服饰有限公司"
         }
       ],
       "newCust": [
@@ -1486,6 +1638,33 @@
           "pct": 1.4
         }
       ],
+      "featureTags": [
+        {
+          "label": "透气",
+          "count": 57,
+          "pct": 80.0
+        },
+        {
+          "label": "直筒",
+          "count": 42,
+          "pct": 59.0
+        },
+        {
+          "label": "通勤商务",
+          "count": 21,
+          "pct": 30.0
+        },
+        {
+          "label": "老钱风",
+          "count": 20,
+          "pct": 28.0
+        },
+        {
+          "label": "弹力",
+          "count": 16,
+          "pct": 23.0
+        }
+      ],
       "invested": [
         {
           "rank": 1,
@@ -1498,7 +1677,7 @@
           "topGmvBucket": "100w+",
           "brand": "V.SHOLIDAY",
           "isNew": false,
-          "matchedCust": "广州裤王老龙裤业有限公司"
+          "matchedCust": "义乌市艺丫电子商务商行(个体工商户)"
         },
         {
           "rank": 2,
@@ -1537,7 +1716,7 @@
           "topGmvBucket": "100w+",
           "brand": "雅鹿",
           "isNew": false,
-          "matchedCust": "安徽杰满商贸有限公司"
+          "matchedCust": "泉州市觅见千行服饰有限公司"
         },
         {
           "rank": 5,
@@ -1726,6 +1905,33 @@
           "pct": 2.3
         }
       ],
+      "featureTags": [
+        {
+          "label": "直筒",
+          "count": 55,
+          "pct": 62.0
+        },
+        {
+          "label": "老钱风",
+          "count": 50,
+          "pct": 57.0
+        },
+        {
+          "label": "透气",
+          "count": 49,
+          "pct": 56.0
+        },
+        {
+          "label": "明星同款",
+          "count": 14,
+          "pct": 16.0
+        },
+        {
+          "label": "通勤商务",
+          "count": 11,
+          "pct": 12.0
+        }
+      ],
       "invested": [
         {
           "rank": 1,
@@ -1738,7 +1944,7 @@
           "topGmvBucket": "100w+",
           "brand": "秦磊",
           "isNew": false,
-          "matchedCust": "广州星宸供应链有限公司"
+          "matchedCust": "广州星宸供应链有限公司 / 广州星盟服饰有限公司"
         },
         {
           "rank": 2,
@@ -1764,7 +1970,7 @@
           "topGmvBucket": "50w-100w",
           "brand": "霞湖世家",
           "isNew": false,
-          "matchedCust": "霞湖世家"
+          "matchedCust": "瑞安市世绩网络科技有限公司"
         },
         {
           "rank": 4,
@@ -1966,6 +2172,33 @@
           "pct": 1.3
         }
       ],
+      "featureTags": [
+        {
+          "label": "透气",
+          "count": 41,
+          "pct": 55.0
+        },
+        {
+          "label": "户外山系",
+          "count": 32,
+          "pct": 43.0
+        },
+        {
+          "label": "圆领",
+          "count": 31,
+          "pct": 41.0
+        },
+        {
+          "label": "POLO/翻领",
+          "count": 26,
+          "pct": 35.0
+        },
+        {
+          "label": "抗菌抑菌",
+          "count": 9,
+          "pct": 12.0
+        }
+      ],
       "invested": [
         {
           "rank": 1,
@@ -1991,7 +2224,7 @@
           "topGmvBucket": "100w+",
           "brand": "龙牙运动户外",
           "isNew": false,
-          "matchedCust": "龙牙"
+          "matchedCust": "温州市瓯海仙岩何秋鞋店"
         },
         {
           "rank": 3,
@@ -2017,7 +2250,7 @@
           "topGmvBucket": "50w-100w",
           "brand": "蕉下",
           "isNew": false,
-          "matchedCust": "石狮市渡芒贸易有限公司 / 石狮市格兰登豹贸易有限公司"
+          "matchedCust": "泉州亿颂品牌管理有限公司"
         },
         {
           "rank": 5,
@@ -2206,6 +2439,33 @@
           "pct": 3.7
         }
       ],
+      "featureTags": [
+        {
+          "label": "透气",
+          "count": 45,
+          "pct": 55.0
+        },
+        {
+          "label": "速干",
+          "count": 34,
+          "pct": 41.0
+        },
+        {
+          "label": "弹力",
+          "count": 20,
+          "pct": 24.0
+        },
+        {
+          "label": "工装",
+          "count": 16,
+          "pct": 20.0
+        },
+        {
+          "label": "直筒",
+          "count": 14,
+          "pct": 17.0
+        }
+      ],
       "invested": [
         {
           "rank": 1,
@@ -2257,7 +2517,7 @@
           "topGmvBucket": "50w-100w",
           "brand": "对你的私语",
           "isNew": false,
-          "matchedCust": "太原慕言贸易有限公司 / 太原蕉柯服装有限公司"
+          "matchedCust": "太原蕉柯服装有限公司 / 太原慕言贸易有限公司"
         },
         {
           "rank": 5,
@@ -2441,6 +2701,33 @@
           "pct": 1.2
         }
       ],
+      "featureTags": [
+        {
+          "label": "POLO/翻领",
+          "count": 138,
+          "pct": 164.0
+        },
+        {
+          "label": "抗皱免烫",
+          "count": 40,
+          "pct": 48.0
+        },
+        {
+          "label": "透气",
+          "count": 22,
+          "pct": 26.0
+        },
+        {
+          "label": "抗菌抑菌",
+          "count": 19,
+          "pct": 23.0
+        },
+        {
+          "label": "通勤商务",
+          "count": 13,
+          "pct": 15.0
+        }
+      ],
       "invested": [
         {
           "rank": 1,
@@ -2466,7 +2753,7 @@
           "topGmvBucket": "50w-100w",
           "brand": "语棠潮流",
           "isNew": false,
-          "matchedCust": "益阳市赫山区师舒荣百货店(个体工商户) / 揭阳市揭东区锡场镇甄锦艺电子商务经营部(个体工商户) / 莆田市城厢区龙桥街道李仁杰服装商行"
+          "matchedCust": "莆田市城厢区龙桥街道李仁杰服装商行 / 揭阳市揭东区锡场镇甄锦艺电子商务经营部(个体工商户) / 合肥市新站区斐捷服装店"
         },
         {
           "rank": 3,
@@ -2492,7 +2779,7 @@
           "topGmvBucket": "50w-100w",
           "brand": "施菲沃SAFAVO",
           "isNew": false,
-          "matchedCust": "东莞市施菲沃服饰有限公司"
+          "matchedCust": "东莞市施菲沃服饰有限公司 / 东莞市正浩服饰有限公司"
         },
         {
           "rank": 5,
@@ -2679,6 +2966,23 @@
           "label": "修身",
           "count": 3,
           "pct": 4.5
+        }
+      ],
+      "featureTags": [
+        {
+          "label": "POLO/翻领",
+          "count": 36,
+          "pct": 54.0
+        },
+        {
+          "label": "圆领",
+          "count": 15,
+          "pct": 22.0
+        },
+        {
+          "label": "通勤商务",
+          "count": 8,
+          "pct": 12.0
         }
       ],
       "invested": [
@@ -2916,6 +3220,33 @@
           "pct": 1.6
         }
       ],
+      "featureTags": [
+        {
+          "label": "POLO/翻领",
+          "count": 27,
+          "pct": 44.0
+        },
+        {
+          "label": "明星同款",
+          "count": 16,
+          "pct": 26.0
+        },
+        {
+          "label": "圆领",
+          "count": 15,
+          "pct": 24.0
+        },
+        {
+          "label": "美式复古",
+          "count": 10,
+          "pct": 16.0
+        },
+        {
+          "label": "潮牌街头",
+          "count": 9,
+          "pct": 15.0
+        }
+      ],
       "invested": [
         {
           "rank": 1,
@@ -2928,7 +3259,7 @@
           "topGmvBucket": "100w+",
           "brand": "霞湖世家",
           "isNew": false,
-          "matchedCust": "霞湖世家"
+          "matchedCust": "瑞安市世绩网络科技有限公司"
         },
         {
           "rank": 2,
@@ -3156,6 +3487,33 @@
           "pct": 3.8
         }
       ],
+      "featureTags": [
+        {
+          "label": "直筒",
+          "count": 37,
+          "pct": 71.0
+        },
+        {
+          "label": "天丝",
+          "count": 22,
+          "pct": 42.0
+        },
+        {
+          "label": "弹力",
+          "count": 21,
+          "pct": 40.0
+        },
+        {
+          "label": "修身",
+          "count": 12,
+          "pct": 23.0
+        },
+        {
+          "label": "透气",
+          "count": 9,
+          "pct": 17.0
+        }
+      ],
       "invested": [
         {
           "rank": 1,
@@ -3168,7 +3526,7 @@
           "topGmvBucket": "100w+",
           "brand": "迈特优",
           "isNew": false,
-          "matchedCust": "迈特优 / 岫岩满族自治县晴滴百货店(个体工商户)"
+          "matchedCust": "岫岩满族自治县晴滴百货店(个体工商户) / 迈特优"
         },
         {
           "rank": 2,
@@ -3181,7 +3539,7 @@
           "topGmvBucket": "100w+",
           "brand": "啄木鸟运动",
           "isNew": false,
-          "matchedCust": "广州市蓝奥传媒科技有限公司 / 贴牌朱志辉 / 啄木鸟"
+          "matchedCust": "温州市瓯海仙岩何秋鞋店"
         },
         {
           "rank": 3,
@@ -3220,7 +3578,7 @@
           "topGmvBucket": "50w-100w",
           "brand": "BOGEDIT",
           "isNew": false,
-          "matchedCust": "嘉兴加宏服饰有限公司 / 杭州逆帆服饰有限公司 / 杭州余杭蒋老叁服装工作室(个体工商户)"
+          "matchedCust": "杭州余杭蒋老叁服装工作室(个体工商户) / 嘉兴加宏服饰有限公司 / 杭州逆帆服饰有限公司"
         }
       ],
       "newCust": [
@@ -3396,6 +3754,33 @@
           "pct": 2.1
         }
       ],
+      "featureTags": [
+        {
+          "label": "老钱风",
+          "count": 31,
+          "pct": 66.0
+        },
+        {
+          "label": "透气",
+          "count": 19,
+          "pct": 40.0
+        },
+        {
+          "label": "松弛感",
+          "count": 9,
+          "pct": 19.0
+        },
+        {
+          "label": "POLO/翻领",
+          "count": 7,
+          "pct": 15.0
+        },
+        {
+          "label": "通勤商务",
+          "count": 5,
+          "pct": 11.0
+        }
+      ],
       "invested": [
         {
           "rank": 1,
@@ -3408,7 +3793,7 @@
           "topGmvBucket": "50w-100w",
           "brand": "秦磊",
           "isNew": false,
-          "matchedCust": "广州星宸供应链有限公司"
+          "matchedCust": "广州星宸供应链有限公司 / 广州星盟服饰有限公司"
         },
         {
           "rank": 2,
@@ -3626,6 +4011,13 @@
           "pct": 3.2
         }
       ],
+      "featureTags": [
+        {
+          "label": "户外山系",
+          "count": 7,
+          "pct": 23.0
+        }
+      ],
       "invested": [
         {
           "rank": 1,
@@ -3638,7 +4030,7 @@
           "topGmvBucket": "100w+",
           "brand": "霞湖世家",
           "isNew": false,
-          "matchedCust": "霞湖世家"
+          "matchedCust": "瑞安市世绩网络科技有限公司"
         },
         {
           "rank": 2,
@@ -3690,7 +4082,7 @@
           "topGmvBucket": "50w-100w",
           "brand": "衬衫老罗",
           "isNew": false,
-          "matchedCust": "衬衫老罗"
+          "matchedCust": "江西省谦许服饰集团有限公司 / 衬衫老罗"
         }
       ],
       "newCust": [
@@ -3866,6 +4258,33 @@
           "pct": 3.8
         }
       ],
+      "featureTags": [
+        {
+          "label": "透气",
+          "count": 35,
+          "pct": 67.0
+        },
+        {
+          "label": "直筒",
+          "count": 35,
+          "pct": 67.0
+        },
+        {
+          "label": "户外山系",
+          "count": 19,
+          "pct": 37.0
+        },
+        {
+          "label": "弹力",
+          "count": 9,
+          "pct": 17.0
+        },
+        {
+          "label": "工装",
+          "count": 9,
+          "pct": 17.0
+        }
+      ],
       "invested": [
         {
           "rank": 1,
@@ -3878,7 +4297,7 @@
           "topGmvBucket": "50w-100w",
           "brand": "衬衫老罗",
           "isNew": false,
-          "matchedCust": "衬衫老罗"
+          "matchedCust": "江西省谦许服饰集团有限公司 / 衬衫老罗"
         },
         {
           "rank": 2,
@@ -3891,7 +4310,7 @@
           "topGmvBucket": "50w-100w",
           "brand": "JEEPSPIRIT智成行",
           "isNew": false,
-          "matchedCust": "合肥市新站区清融百货商行 / 合肥徽枫阁商贸有限公司 / 石狮市麦格里德服饰有限公司"
+          "matchedCust": "泉州齐众传媒有限公司"
         },
         {
           "rank": 3,
@@ -3917,7 +4336,7 @@
           "topGmvBucket": "50w-100w",
           "brand": "雅鹿男装芙曳",
           "isNew": false,
-          "matchedCust": "贴牌李中美 / 合肥市多丽娅服饰有限公司 / 常熟原桐电子商务有限公司"
+          "matchedCust": "合肥多莉娅服饰有限公司 / 合肥市多丽娅服饰有限公司 / 贴牌李中美"
         },
         {
           "rank": 5,
@@ -4101,6 +4520,33 @@
           "pct": 5.1
         }
       ],
+      "featureTags": [
+        {
+          "label": "POLO/翻领",
+          "count": 28,
+          "pct": 72.0
+        },
+        {
+          "label": "透气",
+          "count": 14,
+          "pct": 36.0
+        },
+        {
+          "label": "老钱风",
+          "count": 14,
+          "pct": 36.0
+        },
+        {
+          "label": "天丝",
+          "count": 6,
+          "pct": 15.0
+        },
+        {
+          "label": "弹力",
+          "count": 5,
+          "pct": 13.0
+        }
+      ],
       "invested": [
         {
           "rank": 1,
@@ -4113,7 +4559,7 @@
           "topGmvBucket": "100w+",
           "brand": "HN线上潮牌商",
           "isNew": false,
-          "matchedCust": "石狮市卫睿古鑫网络服装商行(个体工商户) / 泉州市及衫贸易有限公司"
+          "matchedCust": "杭州凡华文化传媒有限公司 / 杭州吉诗科技有限公司"
         },
         {
           "rank": 2,
@@ -4126,7 +4572,7 @@
           "topGmvBucket": "100w+",
           "brand": "啄木鸟",
           "isNew": false,
-          "matchedCust": "苍南施菲奈德电子商务有限公司"
+          "matchedCust": "台州越之淘贸易有限公司"
         },
         {
           "rank": 3,
@@ -4152,7 +4598,7 @@
           "topGmvBucket": "50w-100w",
           "brand": "徐先生",
           "isNew": false,
-          "matchedCust": "西咸新区空港新城联南元百货店(个体工商户) / 嘉兴市耀虹服饰有限公司 / 吴兴织里昌贤童装商行(个体工商户)"
+          "matchedCust": "成都新都区云屿川女鞋店(个体工商户)"
         },
         {
           "rank": 5,
@@ -4165,7 +4611,7 @@
           "topGmvBucket": "25w-50w",
           "brand": "罗蒙",
           "isNew": false,
-          "matchedCust": "杭州梦昊尼服饰有限公司"
+          "matchedCust": "嘉兴财拓电子商务有限公司"
         }
       ],
       "newCust": [
@@ -4341,6 +4787,23 @@
           "pct": 2.7
         }
       ],
+      "featureTags": [
+        {
+          "label": "直筒",
+          "count": 27,
+          "pct": 73.0
+        },
+        {
+          "label": "工装",
+          "count": 14,
+          "pct": 38.0
+        },
+        {
+          "label": "老爹阔腿",
+          "count": 12,
+          "pct": 32.0
+        }
+      ],
       "invested": [
         {
           "rank": 1,
@@ -4379,7 +4842,7 @@
           "topGmvBucket": "50w-100w",
           "brand": "班尼路BanNiLu服饰配件",
           "isNew": false,
-          "matchedCust": "广州乐创服装有限公司 / 广州尊耀服装有限公司"
+          "matchedCust": "义乌市昶昱电子商务商行(个体工商户)"
         },
         {
           "rank": 4,
@@ -4392,7 +4855,7 @@
           "topGmvBucket": "50w-100w",
           "brand": "YIMIN潮流衣铺",
           "isNew": false,
-          "matchedCust": "益阳市赫山区师舒荣百货店(个体工商户) / 揭阳市揭东区锡场镇甄锦艺电子商务经营部(个体工商户) / 莆田市城厢区龙桥街道李仁杰服装商行"
+          "matchedCust": "莆田市城厢区龙桥街道李仁杰服装商行 / 揭阳市揭东区锡场镇甄锦艺电子商务经营部(个体工商户) / 合肥市新站区斐捷服装店"
         },
         {
           "rank": 5,
@@ -4574,6 +5037,33 @@
           "label": "商务通勤",
           "count": 1,
           "pct": 3.8
+        }
+      ],
+      "featureTags": [
+        {
+          "label": "直筒",
+          "count": 18,
+          "pct": 69.0
+        },
+        {
+          "label": "弹力",
+          "count": 12,
+          "pct": 46.0
+        },
+        {
+          "label": "通勤商务",
+          "count": 10,
+          "pct": 38.0
+        },
+        {
+          "label": "透气",
+          "count": 9,
+          "pct": 35.0
+        },
+        {
+          "label": "抗皱免烫",
+          "count": 5,
+          "pct": 19.0
         }
       ],
       "invested": [
