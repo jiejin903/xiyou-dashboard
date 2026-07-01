@@ -23,6 +23,8 @@
         "roiAvg": 4.3,
         "roiP25": 2.32,
         "roiP75": 11.02,
+        "roiRangeTop3": "2.2~12.9",
+        "refundRangeTop3": "34.4%~48.4%",
         "refundAvg": 37.1,
         "refundP25": 28.57,
         "refundP75": 55.82,
@@ -56,22 +58,22 @@
           {
             "name": "新随衣品牌特卖",
             "gmv": 15495.0,
-            "roi": 0.0,
-            "refund": 0.0,
+            "roi": 2.19,
+            "refund": 48.45,
             "creatives": 429
           },
           {
             "name": "罗蒙Romon男装服饰店",
             "gmv": 8931.0,
-            "roi": 0.0,
-            "refund": 0.0,
+            "roi": 2.85,
+            "refund": 37.11,
             "creatives": 1153
           },
           {
             "name": "霞湖世家官方旗舰店",
             "gmv": 8775.0,
-            "roi": 0.0,
-            "refund": 0.0,
+            "roi": 12.86,
+            "refund": 34.38,
             "creatives": 229
           }
         ],
@@ -124,6 +126,8 @@
         "roiAvg": 4.15,
         "roiP25": 3.27,
         "roiP75": 7.23,
+        "roiRangeTop3": "2.7~5.4",
+        "refundRangeTop3": "25.8%~46.7%",
         "refundAvg": 42.19,
         "refundP25": 30.12,
         "refundP75": 65.85,
@@ -162,22 +166,22 @@
           {
             "name": "麦雅男装",
             "gmv": 13937.0,
-            "roi": 0.0,
-            "refund": 0.0,
+            "roi": 3.55,
+            "refund": 46.71,
             "creatives": 262
           },
           {
             "name": "顾木森辰夕黑标店",
             "gmv": 8748.0,
-            "roi": 0.0,
-            "refund": 0.0,
+            "roi": 5.36,
+            "refund": 32.91,
             "creatives": 415
           },
           {
             "name": "梵莎甄选",
             "gmv": 1744.0,
-            "roi": 0.0,
-            "refund": 0.0,
+            "roi": 2.66,
+            "refund": 25.78,
             "creatives": 108
           }
         ],
@@ -230,6 +234,8 @@
         "roiAvg": 8.83,
         "roiP25": 3.68,
         "roiP75": 23.56,
+        "roiRangeTop3": "2.8~13.5",
+        "refundRangeTop3": "34.6%~46.3%",
         "refundAvg": 40.66,
         "refundP25": 31.03,
         "refundP75": 75.0,
@@ -268,22 +274,22 @@
           {
             "name": "霞湖世家官方旗舰店",
             "gmv": 14990.0,
-            "roi": 0.0,
-            "refund": 0.0,
+            "roi": 13.47,
+            "refund": 34.62,
             "creatives": 283
           },
           {
             "name": "皮尔卡丹男装服饰配件",
             "gmv": 3677.0,
-            "roi": 0.0,
-            "refund": 0.0,
+            "roi": 3.63,
+            "refund": 46.29,
             "creatives": 316
           },
           {
             "name": "皮尔卡丹品牌特卖",
             "gmv": 2903.0,
-            "roi": 0.0,
-            "refund": 0.0,
+            "roi": 2.82,
+            "refund": 45.12,
             "creatives": 234
           }
         ],
@@ -336,6 +342,8 @@
         "roiAvg": 3.51,
         "roiP25": 2.79,
         "roiP75": 6.94,
+        "roiRangeTop3": "1.8~3.7",
+        "refundRangeTop3": "20.7%~51.7%",
         "refundAvg": 38.35,
         "refundP25": 32.82,
         "refundP75": 90.81,
@@ -374,22 +382,22 @@
           {
             "name": "启哲君伊男装",
             "gmv": 6198.0,
-            "roi": 0.0,
-            "refund": 0.0,
+            "roi": 3.66,
+            "refund": 34.21,
             "creatives": 220
           },
           {
             "name": "威猛哥哥时尚穿搭",
             "gmv": 2975.0,
-            "roi": 0.0,
-            "refund": 0.0,
+            "roi": 3.45,
+            "refund": 51.7,
             "creatives": 170
           },
           {
             "name": "锦裕轩男装",
             "gmv": 2872.0,
-            "roi": 0.0,
-            "refund": 0.0,
+            "roi": 1.75,
+            "refund": 20.66,
             "creatives": 199
           }
         ],
@@ -442,6 +450,8 @@
         "roiAvg": 3.21,
         "roiP25": 3.32,
         "roiP75": 11.79,
+        "roiRangeTop3": "2.4~3.3",
+        "refundRangeTop3": "41.6%~59.0%",
         "refundAvg": 56.2,
         "refundP25": 41.67,
         "refundP75": 100.0,
@@ -475,22 +485,22 @@
           {
             "name": "Jeep吉普男装服饰",
             "gmv": 21151.0,
-            "roi": 0.0,
-            "refund": 0.0,
+            "roi": 3.33,
+            "refund": 59.04,
             "creatives": 1047
           },
           {
             "name": "卡丹路休闲男装",
             "gmv": 4159.0,
-            "roi": 0.0,
-            "refund": 0.0,
+            "roi": 2.71,
+            "refund": 41.61,
             "creatives": 160
           },
           {
             "name": "总裁休闲男装",
             "gmv": 640.0,
-            "roi": 0.0,
-            "refund": 0.0,
+            "roi": 2.44,
+            "refund": 56.31,
             "creatives": 109
           }
         ],
@@ -543,6 +553,8 @@
         "roiAvg": 2.49,
         "roiP25": 1.66,
         "roiP75": 3.33,
+        "roiRangeTop3": "2.5",
+        "refundRangeTop3": "30.0%",
         "refundAvg": 30.0,
         "refundP25": 26.39,
         "refundP75": 50.0,
@@ -555,8 +567,8 @@
           {
             "name": "啄木鸟行望男装店",
             "gmv": 16525.0,
-            "roi": 0.0,
-            "refund": 0.0,
+            "roi": 2.49,
+            "refund": 30.0,
             "creatives": 310
           },
           {
@@ -623,6 +635,8 @@
         "roiAvg": 1.88,
         "roiP25": 1.68,
         "roiP75": 5.3,
+        "roiRangeTop3": "1.6~2.8",
+        "refundRangeTop3": "34.3%~45.6%",
         "refundAvg": 36.63,
         "refundP25": 30.16,
         "refundP75": 100.0,
@@ -646,22 +660,22 @@
           {
             "name": "思小简短袖T恤",
             "gmv": 12325.0,
-            "roi": 0.0,
-            "refund": 0.0,
+            "roi": 1.86,
+            "refund": 36.52,
             "creatives": 1140
           },
           {
             "name": "思小简1号背心店",
             "gmv": 424.0,
-            "roi": 0.0,
-            "refund": 0.0,
+            "roi": 2.76,
+            "refund": 34.3,
             "creatives": 36
           },
           {
             "name": "潮序背心",
             "gmv": 304.0,
-            "roi": 0.0,
-            "refund": 0.0,
+            "roi": 1.59,
+            "refund": 45.57,
             "creatives": 20
           }
         ],
@@ -714,6 +728,8 @@
         "roiAvg": 3.37,
         "roiP25": 3.08,
         "roiP75": 15.02,
+        "roiRangeTop3": "3.4~3.7",
+        "refundRangeTop3": "30.1%~60.8%",
         "refundAvg": 38.18,
         "refundP25": 33.33,
         "refundP75": 100.0,
@@ -747,22 +763,22 @@
           {
             "name": "十如仕DETERMINANT",
             "gmv": 7792.0,
-            "roi": 0.0,
-            "refund": 0.0,
+            "roi": 3.37,
+            "refund": 38.77,
             "creatives": 1246
           },
           {
             "name": "拇指白小T官方旗舰店",
             "gmv": 2220.0,
-            "roi": 0.0,
-            "refund": 0.0,
+            "roi": 3.37,
+            "refund": 30.05,
             "creatives": 267
           },
           {
             "name": "U.S.POLOASSN.森旗服饰",
             "gmv": 431.0,
-            "roi": 0.0,
-            "refund": 0.0,
+            "roi": 3.72,
+            "refund": 60.82,
             "creatives": 17
           }
         ],
@@ -815,6 +831,8 @@
         "roiAvg": 4.38,
         "roiP25": 2.92,
         "roiP75": 9.55,
+        "roiRangeTop3": "2.8~7.3",
+        "refundRangeTop3": "35.5%~61.9%",
         "refundAvg": 45.86,
         "refundP25": 33.33,
         "refundP75": 100.0,
@@ -853,22 +871,22 @@
           {
             "name": "老爷车壹鑫购男装",
             "gmv": 3879.0,
-            "roi": 0.0,
-            "refund": 0.0,
+            "roi": 2.83,
+            "refund": 45.55,
             "creatives": 404
           },
           {
             "name": "霞湖世家官方旗舰店",
             "gmv": 2392.0,
-            "roi": 0.0,
-            "refund": 0.0,
+            "roi": 7.26,
+            "refund": 61.94,
             "creatives": 326
           },
           {
             "name": "拇指白小T官方旗舰店",
             "gmv": 1221.0,
-            "roi": 0.0,
-            "refund": 0.0,
+            "roi": 3.95,
+            "refund": 35.53,
             "creatives": 380
           }
         ],
@@ -921,6 +939,8 @@
         "roiAvg": 2.98,
         "roiP25": 2.51,
         "roiP75": 6.55,
+        "roiRangeTop3": "2.4~3.8",
+        "refundRangeTop3": "32.7%~65.2%",
         "refundAvg": 34.09,
         "refundP25": 24.04,
         "refundP75": 76.39,
@@ -944,22 +964,22 @@
           {
             "name": "拇指白小T官方旗舰店",
             "gmv": 7784.0,
-            "roi": 0.0,
-            "refund": 0.0,
+            "roi": 3.03,
+            "refund": 32.74,
             "creatives": 886
           },
           {
             "name": "凡客依舍直播账号",
             "gmv": 814.0,
-            "roi": 0.0,
-            "refund": 0.0,
+            "roi": 2.36,
+            "refund": 37.43,
             "creatives": 122
           },
           {
             "name": "拇指白小T运动商务",
             "gmv": 402.0,
-            "roi": 0.0,
-            "refund": 0.0,
+            "roi": 3.83,
+            "refund": 65.15,
             "creatives": 108
           }
         ],

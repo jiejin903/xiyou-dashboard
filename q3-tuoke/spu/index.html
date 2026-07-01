@@ -420,8 +420,8 @@
             </div>
             <div class="acc-summary">
               <div class="cell"><b>${fmtYuan(s.dailyGmv)}</b><span>日耗</span></div>
-              <div class="cell ${roiLevel(s.roiAvg)}"><b>${s.roiAvg}</b><span>下单ROI</span></div>
-              <div class="cell ${refundLevel(s.refundAvg)}"><b>${s.refundAvg}%</b><span>退款率</span></div>
+              <div class="cell"><b style="color:#229954;">${s.roiRangeTop3}</b><span>ROI范围</span></div>
+              <div class="cell"><b style="color:#e67e22;">${s.refundRangeTop3}</b><span>退款率范围</span></div>
               <div class="cell"><b>¥${s.priceAvg}</b><span>客单价</span></div>
             </div>
             <div class="acc-arrow">›</div>
@@ -436,14 +436,14 @@
                   <div class="rng">${s.creativeCount}条素材投入</div>
                 </div>
                 <div class="metric-cell">
-                  <div class="lbl">下单 ROI</div>
-                  <div class="val ${roiLevel(s.roiAvg)}">${s.roiAvg}</div>
-                  <div class="rng">P25~P75: ${s.roiP25}~${s.roiP75}</div>
+                  <div class="lbl">下单 ROI 范围</div>
+                  <div class="val" style="color:#229954;">${s.roiRangeTop3}</div>
+                  <div class="rng">TOP3直播间实测区间</div>
                 </div>
                 <div class="metric-cell">
-                  <div class="lbl">7日退款率</div>
-                  <div class="val ${refundLevel(s.refundAvg)}">${s.refundAvg}%</div>
-                  <div class="rng">P25~P75: ${s.refundP25}~${s.refundP75}%</div>
+                  <div class="lbl">7日退款率范围</div>
+                  <div class="val" style="color:#e67e22;">${s.refundRangeTop3}</div>
+                  <div class="rng">TOP3直播间实测区间</div>
                 </div>
                 <div class="metric-cell">
                   <div class="lbl">客单价（加权）</div>
