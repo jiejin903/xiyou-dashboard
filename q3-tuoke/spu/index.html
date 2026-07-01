@@ -85,6 +85,47 @@
   .view-shops-btn .btn-count { background: rgba(255,255,255,0.25); padding: 1px 6px; border-radius: 3px; font-size: 10px; }
   .view-shops-btn .btn-arrow { font-size: 14px; }
 
+  /* ============ Tab 切换 ============ */
+  .tab-bar { max-width: 1440px; margin: 18px auto 0; padding: 0 20px; }
+  .tabs { display: flex; gap: 4px; background: #fff; padding: 6px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+  .tab { flex: 1; padding: 10px 14px; text-align: center; cursor: pointer; border-radius: 8px; font-size: 13px; font-weight: 600; color: #7f8c8d; transition: all 0.2s; }
+  .tab.active { background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+  .tab-desc { font-size: 11px; color: #95a5a6; font-weight: 400; margin-top: 2px; }
+
+  /* 视频号SPU卡片专属样式 */
+  .metric-row { display: flex; gap: 6px; margin-bottom: 6px; font-size: 11px; }
+  .metric-box { flex: 1; padding: 6px 8px; border-radius: 6px; background: #f8f9fa; }
+  .metric-box .m-label { color: #95a5a6; font-size: 10px; margin-bottom: 2px; }
+  .metric-box .m-val { font-size: 14px; font-weight: 700; color: #2c3e50; }
+  .metric-box .m-range { font-size: 10px; color: #7f8c8d; margin-top: 1px; }
+  .metric-box.gmv .m-val { color: #667eea; font-size: 16px; }
+  .metric-box.roi.high .m-val { color: #229954; }
+  .metric-box.roi.mid .m-val { color: #f39c12; }
+  .metric-box.roi.low .m-val { color: #e74c3c; }
+  .metric-box.refund.low .m-val { color: #229954; }
+  .metric-box.refund.mid .m-val { color: #f39c12; }
+  .metric-box.refund.high .m-val { color: #e74c3c; }
+
+  .trend-arrow { font-size: 10px; margin-left: 4px; }
+  .trend-up { color: #229954; }
+  .trend-down { color: #e74c3c; }
+
+  /* 视频号抽屉 · 直播间列表 & 素材 */
+  .live-item { display: flex; gap: 12px; padding: 10px; border-radius: 8px; border: 1px solid #eee; background: #fff; margin-bottom: 8px; }
+  .live-rank { flex-shrink: 0; width: 30px; height: 30px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 12px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; }
+  .live-info { flex: 1; }
+  .live-name { font-weight: 600; font-size: 13px; margin-bottom: 4px; }
+  .live-metrics { display: flex; gap: 12px; font-size: 11px; color: #7f8c8d; }
+  .live-metrics b { color: #2c3e50; font-size: 12px; }
+  .creative-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 8px; }
+  .creative-item { position: relative; border-radius: 8px; overflow: hidden; border: 1px solid #eee; background: #fafafa; aspect-ratio: 3/4; cursor: pointer; }
+  .creative-item video, .creative-item img { width: 100%; height: 100%; object-fit: cover; }
+  .creative-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); padding: 8px; color: #fff; font-size: 10px; }
+  .creative-overlay b { font-size: 12px; }
+  .creative-play { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 40px; height: 40px; border-radius: 50%; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 20px; pointer-events: none; }
+
   /* ===== 抽屉（店铺明细）===== */
   .drawer-mask { position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 100; opacity: 0; visibility: hidden; transition: all 0.3s; }
   .drawer-mask.open { opacity: 1; visibility: visible; }
@@ -158,36 +199,70 @@
 
 <header>
   <div class="header-inner">
-    <h1>🔥 Q3男装·SPU爆品罗盘</h1>
+    <h1>🔥 Q3男装·SPU 爆品罗盘</h1>
     <div class="meta">
-      <span>📅 数据周期：<b id="period">-</b></span>
-      <span>📊 数据源：<b id="source">-</b></span>
-      <span>🎯 SPU 聚合：细分类目 × 面料</span>
+      <span>📅 <b id="period">-</b></span>
+      <span>🎯 SPU = 面料 × 细分类目</span>
     </div>
   </div>
 </header>
 
-<div class="kpi-bar">
-  <div class="kpi-grid">
-    <div class="kpi"><div class="kpi-val" id="kpi-spu">-</div><div class="kpi-label">SPU 数量</div></div>
-    <div class="kpi"><div class="kpi-val" id="kpi-product">-</div><div class="kpi-label">聚合商品链接</div></div>
-    <div class="kpi"><div class="kpi-val" id="kpi-gmv">-</div><div class="kpi-label">合计GMV估算</div></div>
-    <div class="kpi"><div class="kpi-val" id="kpi-shop">-</div><div class="kpi-label">涉及店铺</div></div>
-    <div class="kpi highlight"><div class="kpi-val" id="kpi-new">-</div><div class="kpi-label">🔥 待引入潜力新客</div></div>
+<div class="tab-bar">
+  <div class="tabs">
+    <div class="tab active" data-tab="douyin">
+      🔵 抖音竞媒爆品
+      <div class="tab-desc">飞瓜官方导出 · 抖音商品榜周榜</div>
+    </div>
+    <div class="tab" data-tab="wechat">
+      🟢 视频号在投爆品
+      <div class="tab-desc">中台通用分析数据集 · 视频号 SPU 效果</div>
+    </div>
   </div>
 </div>
 
-<div class="note-bar">
-  <div class="note">
-    <strong>💡 SPU 视角看爆品：</strong>按"<strong>面料 × 细分类目</strong>"聚合，卡片标签分四类：<span style="color:#e67e22;">🟠 面料细节</span> / <span style="color:#229954;">🟢 功能特性</span> / <span style="color:#667eea;">🔵 版型</span> / <span style="color:#a24da3;">🟣 风格与场景</span>。<strong>点卡片</strong>看该 SPU 下 <strong>TOP5 已投客户</strong>（含 ADQ 与全域通闭环）+ <strong>TOP10 待引入潜力新客</strong>。
-    <strong>单价</strong>由佣金反推，<strong>GMV</strong>按销售额档位中点估算，仅作数量级参考。
+<!-- ============ Tab 1: 抖音 ============ -->
+<div class="tab-panel active" id="panel-douyin">
+  <div class="kpi-bar">
+    <div class="kpi-grid">
+      <div class="kpi"><div class="kpi-val" id="kpi-spu">-</div><div class="kpi-label">SPU 数量</div></div>
+      <div class="kpi"><div class="kpi-val" id="kpi-product">-</div><div class="kpi-label">聚合商品链接</div></div>
+      <div class="kpi"><div class="kpi-val" id="kpi-gmv">-</div><div class="kpi-label">合计GMV估算</div></div>
+      <div class="kpi"><div class="kpi-val" id="kpi-shop">-</div><div class="kpi-label">涉及店铺</div></div>
+      <div class="kpi highlight"><div class="kpi-val" id="kpi-new">-</div><div class="kpi-label">🔥 待引入潜力新客</div></div>
+    </div>
   </div>
+  <div class="note-bar">
+    <div class="note">
+      <strong>💡 抖音商品爆品视角：</strong>把 3000 个抖音爆款商品按"<strong>面料 × 细分类目</strong>"聚合，标签四色分类：<span style="color:#e67e22;">🟠面料</span> / <span style="color:#229954;">🟢功能</span> / <span style="color:#667eea;">🔵版型</span> / <span style="color:#a24da3;">🟣风格</span>。点卡片看 <strong>TOP5 已投 + TOP10 待引入新客</strong>（含 ADQ 与全域通闭环）。<strong>单价</strong>佣金反推、<strong>GMV</strong>档位中点估算。
+    </div>
+  </div>
+  <main>
+    <div class="section-title">抖音爆品 SPU · 按合计GMV排序</div>
+    <div class="spu-grid" id="spu-grid"></div>
+  </main>
 </div>
 
-<main>
-  <div class="section-title">爆品 SPU 榜单 · 按合计GMV排序</div>
-  <div class="spu-grid" id="spu-grid"></div>
-</main>
+<!-- ============ Tab 2: 视频号 ============ -->
+<div class="tab-panel" id="panel-wechat">
+  <div class="kpi-bar">
+    <div class="kpi-grid">
+      <div class="kpi"><div class="kpi-val" id="w-kpi-spu">-</div><div class="kpi-label">在投 SPU 数</div></div>
+      <div class="kpi"><div class="kpi-val" id="w-kpi-product">-</div><div class="kpi-label">在投 DPA 商品</div></div>
+      <div class="kpi"><div class="kpi-val" id="w-kpi-gmv">-</div><div class="kpi-label">近7天日耗合计</div></div>
+      <div class="kpi"><div class="kpi-val" id="w-kpi-live">-</div><div class="kpi-label">在投视频号</div></div>
+      <div class="kpi highlight"><div class="kpi-val" id="w-kpi-creative">-</div><div class="kpi-label">🎬 在投素材数</div></div>
+    </div>
+  </div>
+  <div class="note-bar">
+    <div class="note">
+      <strong>💡 视频号在投爆品视角：</strong>看视频号侧真正在投的男装 SPU、日均消耗、下单 ROI、退款率。<strong>点卡片</strong>看该 SPU 下的 <strong>TOP5 消耗直播间 + TOP3 跑量素材</strong>（可预览）。<strong>ROI/退款率</strong>为消耗加权平均，P25-P75 表示中间50%的分布区间。<strong>消耗趋势 %</strong> 为近7天 vs 上7天环比。
+    </div>
+  </div>
+  <main>
+    <div class="section-title">视频号在投 SPU · 按日均消耗排序</div>
+    <div class="spu-grid" id="w-spu-grid"></div>
+  </main>
+</div>
 
 <!-- 抽屉 -->
 <div class="drawer-mask" id="drawer-mask"></div>
@@ -205,22 +280,52 @@
 </div>
 
 <script>
-  let DATA = null;
+  let DATA = null;      // 抖音数据
+  let W_DATA = null;    // 视频号数据
 
   function fmtWan(n) {
     if (n >= 100000000) return (n / 100000000).toFixed(2) + '亿';
     if (n >= 10000) return Math.round(n / 10000) + '万';
     return n;
   }
+  function fmtYuan(n) {
+    if (n >= 10000) return (n / 10000).toFixed(1) + '万';
+    if (n >= 1000) return Math.round(n / 100) / 10 + 'k';
+    return Math.round(n);
+  }
 
   function renderKPI() {
     document.getElementById('period').textContent = DATA.period;
-    document.getElementById('source').textContent = DATA.source;
     document.getElementById('kpi-spu').textContent = DATA.spuCount;
     document.getElementById('kpi-product').textContent = DATA.actualProducts;
     document.getElementById('kpi-gmv').innerHTML = DATA.totalGmvYi + '<span style="font-size:12px;color:#7f8c8d;">亿</span>';
     document.getElementById('kpi-shop').textContent = DATA.totalShops;
     document.getElementById('kpi-new').textContent = DATA.uniqueNewShops;
+  }
+
+  function renderWechatKPI() {
+    document.getElementById('w-kpi-spu').textContent = W_DATA.spuCount;
+    document.getElementById('w-kpi-product').textContent = W_DATA.totalProducts;
+    document.getElementById('w-kpi-gmv').innerHTML = W_DATA.totalDailyGmvWan + '<span style="font-size:12px;color:#7f8c8d;">万/日</span>';
+    document.getElementById('w-kpi-live').textContent = W_DATA.totalLives;
+    document.getElementById('w-kpi-creative').textContent = W_DATA.totalCreatives;
+  }
+
+  // 分档颜色：ROI 高中低、退款率 高中低
+  function roiLevel(roi) {
+    if (roi >= 3) return 'high';
+    if (roi >= 2) return 'mid';
+    return 'low';
+  }
+  function refundLevel(r) {
+    if (r <= 30) return 'low';
+    if (r <= 50) return 'mid';
+    return 'high';
+  }
+  function trendArrow(pct) {
+    if (pct > 5) return `<span class="trend-arrow trend-up">↑${Math.round(pct)}%</span>`;
+    if (pct < -5) return `<span class="trend-arrow trend-down">↓${Math.round(Math.abs(pct))}%</span>`;
+    return `<span class="trend-arrow" style="color:#95a5a6">→${Math.round(pct)}%</span>`;
   }
 
   function renderSPU() {
@@ -250,6 +355,119 @@
       </div>
     `).join('');
   }
+
+  // ============ 视频号 SPU 卡片渲染 ============
+  function renderWechatSPU() {
+    const grid = document.getElementById('w-spu-grid');
+    grid.innerHTML = W_DATA.spus.map(s => `
+      <div class="spu-card">
+        <div class="rank-badge${s.rank <= 3 ? ' top3' : ''}">#${s.rank}</div>
+        <div class="new-tag" style="background:#229954;">💰 ${fmtYuan(s.dailyGmv)}/日</div>
+        <div class="spu-img-wrap" style="background:linear-gradient(135deg,#e8f8f0,#d5f5e3);aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;">
+          <div style="text-align:center;padding:16px;">
+            <div style="font-size:26px;font-weight:800;color:#229954;">${fmtYuan(s.dailyGmv)}<span style="font-size:12px;font-weight:400;">/日</span></div>
+            <div style="font-size:11px;color:#7f8c8d;margin-top:4px;">${trendArrow(s.gmvTrend)} vs上一周</div>
+            <div style="font-size:10px;color:#95a5a6;margin-top:6px;">${s.liveCount}家直播间 · ${s.creativeCount}条素材</div>
+          </div>
+        </div>
+        <div class="spu-info">
+          <div class="spu-name">${s.spu}</div>
+          ${renderFeatureTags(s.featureTags)}
+          <div class="metric-row">
+            <div class="metric-box roi ${roiLevel(s.roiAvg)}">
+              <div class="m-label">下单ROI</div>
+              <div class="m-val">${s.roiAvg}</div>
+              <div class="m-range">${s.roiP25}-${s.roiP75}</div>
+            </div>
+            <div class="metric-box refund ${refundLevel(s.refundAvg)}">
+              <div class="m-label">7日退款率</div>
+              <div class="m-val">${s.refundAvg}%</div>
+              <div class="m-range">${s.refundP25}%-${s.refundP75}%</div>
+            </div>
+          </div>
+          <button class="view-shops-btn" style="background:linear-gradient(135deg,#229954,#1abc9c);" onclick="openWechatDrawer(${s.rank - 1})">
+            <span>🎥 查看直播间 + 跑量素材</span>
+            <span><span class="btn-count">${s.liveCount}+${s.topCreatives.length}</span> <span class="btn-arrow">›</span></span>
+          </button>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // 视频号抽屉：直播间TOP5 + 素材TOP3
+  function openWechatDrawer(idx) {
+    const spu = W_DATA.spus[idx];
+    document.getElementById('drawer-spu').textContent = `#${spu.rank}  ${spu.spu}`;
+    document.getElementById('drawer-meta').textContent =
+      `日耗≈${fmtYuan(spu.dailyGmv)} · ROI ${spu.roiAvg}(${spu.roiP25}~${spu.roiP75}) · 退款 ${spu.refundAvg}% · ${spu.liveCount}家直播间`;
+
+    const liveHtml = spu.topLives.map((l, i) => `
+      <div class="live-item">
+        <div class="live-rank">${i + 1}</div>
+        <div class="live-info">
+          <div class="live-name">${l.name}</div>
+          <div class="live-metrics">
+            <span>日耗 <b>${fmtYuan(l.gmv)}</b></span>
+            <span>ROI <b style="color:${l.roi >= 3 ? '#229954' : l.roi >= 2 ? '#f39c12' : '#e74c3c'}">${l.roi}</b></span>
+            <span>退款 <b style="color:${l.refund <= 30 ? '#229954' : l.refund <= 50 ? '#f39c12' : '#e74c3c'}">${l.refund}%</b></span>
+            <span>素材 <b>${l.creatives}</b>条</span>
+          </div>
+        </div>
+      </div>
+    `).join('');
+
+    const creativeHtml = spu.topCreatives.length > 0 ? `
+      <div class="group-section">
+        <div class="group-title">
+          <span class="badge new" style="background:#a24da3;">🎬 跑量素材 TOP${spu.topCreatives.length}</span>
+          <span class="desc">该 SPU 下消耗最高的素材（点击预览）</span>
+        </div>
+        <div class="creative-grid">
+          ${spu.topCreatives.map(c => `
+            <div class="creative-item" onclick="previewCreative('${c.url}')">
+              ${c.url && c.url.startsWith('http') ?
+                `<video src="${c.url}" muted preload="metadata" onerror="this.parentElement.innerHTML='<div style=\\'padding:20px;text-align:center;color:#95a5a6;font-size:11px;\\'>素材预览不可用<br><br>${c.live}<br>日耗 ${fmtYuan(c.gmv)}</div>'"></video>
+                 <div class="creative-play">▶</div>` :
+                `<div style="padding:20px;text-align:center;color:#95a5a6;font-size:11px;">素材链接不可用</div>`}
+              <div class="creative-overlay">
+                <div><b>${fmtYuan(c.gmv)}/日</b> · ROI ${c.roi}</div>
+                <div style="opacity:.8;margin-top:2px;">${c.live}</div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    ` : '';
+
+    document.getElementById('shop-list').innerHTML = `
+      <div class="group-section">
+        <div class="group-title">
+          <span class="badge invested" style="background:#d5f5e3;color:#229954;">📺 消耗直播间 TOP${spu.topLives.length}</span>
+          <span class="desc">该 SPU 下日均消耗最高的视频号</span>
+        </div>
+        ${liveHtml}
+      </div>
+      ${creativeHtml}
+    `;
+
+    document.getElementById('drawer-mask').classList.add('open');
+    document.getElementById('drawer').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function previewCreative(url) {
+    if (url && url.startsWith('http')) window.open(url, '_blank');
+  }
+
+  // ============ Tab 切换 ============
+  document.querySelectorAll('.tab').forEach(t => {
+    t.onclick = () => {
+      document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(x => x.classList.remove('active'));
+      t.classList.add('active');
+      document.getElementById('panel-' + t.dataset.tab).classList.add('active');
+    };
+  });
 
   // 按标签所属类别分色：面料=橙、功能=绿、版型=蓝、风格=紫
   const TAG_CATEGORY = {
@@ -344,17 +562,21 @@
   document.getElementById('drawer-mask').onclick = closeDrawer;
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
 
-  // 加载数据
-  fetch('spu_dashboard_data.json')
-    .then(r => r.json())
-    .then(data => { DATA = data; renderKPI(); renderSPU(); })
-    .catch(err => {
+  // 加载数据（两个 JSON 并行）
+  Promise.all([
+    fetch('spu_dashboard_data.json').then(r => r.json()).catch(() => null),
+    fetch('wechat_spu_data.json').then(r => r.json()).catch(() => null),
+  ]).then(([douyin, wechat]) => {
+    if (douyin) { DATA = douyin; renderKPI(); renderSPU(); }
+    if (wechat) { W_DATA = wechat; renderWechatKPI(); renderWechatSPU(); }
+    if (!douyin && !wechat) {
       document.getElementById('spu-grid').innerHTML =
         '<div style="grid-column:1/-1;padding:40px;text-align:center;color:#e74c3c;">' +
-        '❌ 加载数据失败，请通过HTTP服务打开（不能直接双击HTML）：<br>' +
+        '❌ 加载数据失败，请通过HTTP服务打开：<br>' +
         '<code style="background:#f0f0f0;padding:6px 10px;border-radius:4px;margin-top:8px;display:inline-block;">' +
-        'cd 目录 && python3 -m http.server 8899</code></div>';
-    });
+        'python3 -m http.server 8899</code></div>';
+    }
+  });
 </script>
 
 </body>
