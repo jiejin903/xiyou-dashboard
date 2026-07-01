@@ -134,10 +134,19 @@
   .feature-tag.style { background: #fdf0f7; color: #a24da3; border-color: #f0d6e6; }
   .feature-tag .pct { opacity: 0.6; margin-left: 3px; font-size: 10px; }
 
-  /* 素材 5 张（一屏预览） */
+  /* 左右分栏（素材3 + 直播间TOP3） */
+  .split-row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 8px;
+  }
+  .split-col-title { font-size: 12px; color: #7f8c8d; font-weight: 600; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+  .split-col-title::before { content: "▸"; color: #229954; }
+  .split-col-note { font-size: 10px; color: #95a5a6; font-weight: 400; margin-left: 6px; }
+
+  /* 素材 3 张 */
+  .creatives-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  /* 老 sub-title 兜底样式 */
   .sub-title { font-size: 12px; color: #7f8c8d; font-weight: 600; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
   .sub-title::before { content: "▸"; color: #229954; }
-  .creatives-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 16px; }
   .creative-item {
     position: relative; aspect-ratio: 3/4; border-radius: 8px; overflow: hidden;
     background: #f0f0f0; cursor: pointer; border: 1px solid #e8e8e8;
@@ -159,7 +168,26 @@
   }
   .creative-fallback::before { content: "🎬"; font-size: 28px; margin-bottom: 6px; opacity: 0.5; }
 
-  /* 直播间列表 */
+  /* 直播间列表（竖排卡片，跟素材等宽等高） */
+  .live-list-vertical { display: flex; flex-direction: column; gap: 8px; }
+  .live-card {
+    padding: 12px 14px; background: linear-gradient(135deg, #f8fbf9 0%, #eef7f1 100%);
+    border-radius: 8px; border: 1px solid #dfece5;
+    flex: 1; display: flex; flex-direction: column; justify-content: center;
+    min-height: 0;
+  }
+  .live-card-head { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .live-card-rank { flex-shrink: 0; width: 22px; height: 22px; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 11px; background: #229954; color: #fff; }
+  .live-card-rank.top1 { background: linear-gradient(135deg,#f39c12,#e67e22); }
+  .live-card-name { flex: 1; font-weight: 700; font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #2c3e50; }
+  .live-card-gmv { display: flex; align-items: baseline; gap: 4px; margin-bottom: 4px; }
+  .live-card-gmv .val { font-size: 20px; font-weight: 800; color: #229954; }
+  .live-card-gmv .unit { font-size: 11px; color: #7f8c8d; }
+  .live-card-metrics { display: flex; gap: 12px; font-size: 11px; }
+  .live-card-metrics span { color: #7f8c8d; }
+  .live-card-metrics b { color: #2c3e50; margin-left: 2px; }
+
+  /* 保留老样式兜底 */
   .live-list { }
   .live-item {
     display: flex; align-items: center; gap: 10px; padding: 8px 12px;
@@ -247,13 +275,12 @@
     .acc-summary { display: none; }
     .metric-strip { grid-template-columns: repeat(2, 1fr); }
     .creatives-grid { grid-template-columns: repeat(3, 1fr); }
-    .creatives-grid .creative-item:nth-child(n+4) { display: none; }
     .spu-grid { grid-template-columns: repeat(2, 1fr); }
     .drawer { width: 100%; }
+    .split-row { grid-template-columns: 1fr; }
   }
   @media (max-width: 480px) {
     .spu-grid { grid-template-columns: 1fr; }
-    .creatives-grid { grid-template-columns: repeat(3, 1fr); }
   }
 </style>
 </head>
@@ -397,16 +424,21 @@
   function renderWechatList() {
     const list = document.getElementById('wechat-spu-list');
     list.innerHTML = DATA.wechat.spus.map(s => {
-      const creativeCells = renderCreatives(s.topCreatives.slice(0, 5));
-      const liveRows = s.topLives.slice(0, 3).map((l, i) => `
-        <div class="live-item">
-          <div class="rk">${i + 1}</div>
-          <div class="nm" title="${l.name}">${l.name}</div>
-          <div class="mx">
-            <span>男装日耗 <b>${fmtYuan(l.gmv)}</b></span>
-            <span>该SPU占比 <b>${l.spuPct}%</b></span>
+      const creativeCells = renderCreatives(s.topCreatives.slice(0, 3));
+      const liveCards = s.topLives.slice(0, 3).map((l, i) => `
+        <div class="live-card">
+          <div class="live-card-head">
+            <div class="live-card-rank${i === 0 ? ' top1' : ''}">${i + 1}</div>
+            <div class="live-card-name" title="${l.name}">${l.name}</div>
+          </div>
+          <div class="live-card-gmv">
+            <span class="val">${fmtYuan(l.gmv)}</span>
+            <span class="unit">/日 · 直播间男装总消耗</span>
+          </div>
+          <div class="live-card-metrics">
             <span>ROI <b style="color:${l.roi>=3?'#229954':l.roi>=2?'#f39c12':'#e74c3c'};">${l.roi}</b></span>
-            <span>退款 <b style="color:${l.refund<=30?'#229954':l.refund<=50?'#f39c12':'#e74c3c'};">${l.refund}%</b></span>
+            <span>退款率 <b style="color:${l.refund<=30?'#229954':l.refund<=50?'#f39c12':'#e74c3c'};">${l.refund}%</b></span>
+            <span>素材 <b>${l.creatives}</b>条</span>
           </div>
         </div>
       `).join('');
@@ -461,10 +493,16 @@
                   <div class="rng">P25~P75: ¥${s.priceP25}~¥${s.priceP75}</div>
                 </div>
               </div>
-              <div class="sub-title">🎬 跑量 TOP5 素材 · 悬停播放 · 点击新窗口打开原视频</div>
-              <div class="creatives-grid">${creativeCells}</div>
-              <div class="sub-title">📺 该SPU下 TOP3 直播间（男装日耗=该直播间男装大盘总日耗，说明直播间整体量级；该SPU占比说明这个SPU对直播间的贡献度）</div>
-              <div class="live-list">${liveRows}</div>
+              <div class="split-row">
+                <div>
+                  <div class="split-col-title">🎬 跑量 TOP3 素材<span class="split-col-note">悬停播放 · 点击新窗口打开原视频</span></div>
+                  <div class="creatives-grid">${creativeCells}</div>
+                </div>
+                <div style="display:flex;flex-direction:column;">
+                  <div class="split-col-title">📺 消耗 TOP3 直播间<span class="split-col-note">数字为该直播间男装总日耗（跨全部SPU）</span></div>
+                  <div class="live-list-vertical" style="flex:1;">${liveCards}</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -493,8 +531,8 @@
         </div>
       `;
     }).join('');
-    // 补空位到 5 格
-    const pad = Array(Math.max(0, 5 - creatives.length)).fill(0).map(() =>
+    // 补空位到 3 格
+    const pad = Array(Math.max(0, 3 - creatives.length)).fill(0).map(() =>
       `<div class="creative-item" style="opacity:.4"><div class="creative-fallback">无素材</div></div>`
     ).join('');
     return cells + pad;
