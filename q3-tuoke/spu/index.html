@@ -633,8 +633,8 @@
     // 视频号 TOP1 SPU 及其最爆直播间
     const topWechat = DATA.wechat.spus[0];
     const topLive = topWechat && topWechat.topLives && topWechat.topLives[0];
-    // 抖音 TOP1（潜在机会：视频号未投的第1个）
-    const topDouyinPotential = DATA.douyin.spus.find(s => !s.wechatInvested) || DATA.douyin.spus[0];
+    // 抖音 TOP1 = 直接用 GMV 最大的（不做视频号已投筛选）
+    const topDouyin = DATA.douyin.spus[0];
 
     document.getElementById('hero-cases').innerHTML = `
       <!-- 视频号案例 -->
@@ -658,20 +658,20 @@
 
       <!-- 抖音案例 -->
       <div class="case-card douyin">
-        <span class="case-tag douyin">🟠 抖音案例·潜在拓品</span>
+        <span class="case-tag douyin">🟠 抖音案例·爆品 SPU</span>
         <div class="case-body">
           <div class="case-avatar">
-            ${topDouyinPotential && topDouyinPotential.topProductImg ? `<img src="${topDouyinPotential.topProductImg}" onerror="this.style.display='none';this.parentElement.textContent='🔥'">` : '🔥'}
+            ${topDouyin && topDouyin.topProductImg ? `<img src="${topDouyin.topProductImg}" onerror="this.style.display='none';this.parentElement.textContent='🔥'">` : '🔥'}
           </div>
           <div class="case-info">
-            <div class="case-title">${topDouyinPotential ? topDouyinPotential.spu : '-'}</div>
+            <div class="case-title">${topDouyin ? topDouyin.spu : '-'}</div>
             <div class="case-desc">
-              ${topDouyinPotential ? `抖音大盘 ${topDouyinPotential.productCount} 款商品在跑、${topDouyinPotential.shopCount} 家店铺竞逐 · 视频号${topDouyinPotential.wechatInvested ? '已布局' : '尚未布局'}的拓品机会` : ''}
+              ${topDouyin ? `抖音大盘 ${topDouyin.productCount} 款商品在跑、${topDouyin.shopCount} 家店铺竞逐${topDouyin.wechatInvested ? ' · 视频号已布局' : ' · 视频号尚未布局'}` : ''}
             </div>
             <div class="case-metrics">
-              ${topDouyinPotential ? `<div class="case-metric"><span class="lbl">合计GMV</span><span class="val">${fmtWan(topDouyinPotential.totalGmv)}</span></div>` : ''}
-              ${topDouyinPotential ? `<div class="case-metric"><span class="lbl">单价</span><span class="val">${topDouyinPotential.priceRange}</span></div>` : ''}
-              ${topDouyinPotential ? `<div class="case-metric"><span class="lbl">待引入店铺</span><span class="val">${topDouyinPotential.newShopCount}家</span></div>` : ''}
+              ${topDouyin ? `<div class="case-metric"><span class="lbl">合计GMV</span><span class="val">${fmtWan(topDouyin.totalGmv)}</span></div>` : ''}
+              ${topDouyin ? `<div class="case-metric"><span class="lbl">单价</span><span class="val">${topDouyin.priceRange}</span></div>` : ''}
+              ${topDouyin ? `<div class="case-metric"><span class="lbl">待引入店铺</span><span class="val">${topDouyin.newShopCount}家</span></div>` : ''}
             </div>
           </div>
         </div>
