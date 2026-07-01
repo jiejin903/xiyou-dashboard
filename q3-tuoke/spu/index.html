@@ -214,6 +214,55 @@
   .highlight-card .h-desc { font-size: 11px; color: #b45309; margin-top: 2px; }
   .highlight-card .h-num { font-size: 24px; font-weight: 800; color: #d97706; }
 
+  /* ============ 高亮总结两行 ============ */
+  .insight-groups { display: block; }
+  .hl-row {
+    padding: 16px 20px; border-radius: 12px; margin-bottom: 12px;
+    display: flex; gap: 16px; align-items: flex-start;
+    border: 1px solid;
+  }
+  .hl-row:last-child { margin-bottom: 0; }
+  .hl-row-spu {
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    border-color: #a7f3d0;
+  }
+  .hl-row-live {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border-color: #fcd34d;
+  }
+  .hl-icon { font-size: 28px; flex-shrink: 0; }
+  .hl-body { flex: 1; min-width: 0; }
+  .hl-title { font-size: 14px; font-weight: 700; color: #1f2937; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .hl-row-spu .hl-title { color: #064e3b; }
+  .hl-row-live .hl-title { color: #78350f; }
+  .hl-title b { color: inherit; }
+  .hl-tag {
+    display: inline-block; padding: 2px 8px; border-radius: 4px;
+    font-size: 12px; font-weight: 800; letter-spacing: 0.3px;
+    background: #f59e0b; color: #fff;
+  }
+  .hl-desc { font-size: 12px; color: #4b5563; line-height: 1.8; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .hl-row-spu .hl-desc { color: #065f46; }
+  .hl-row-live .hl-desc { color: #92400e; }
+  .hl-desc b { color: inherit; font-weight: 800; }
+
+  .hl-spu-chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,0.75); padding: 5px 10px; border-radius: 8px;
+    border: 1px solid rgba(16,185,129,0.2);
+  }
+  .hl-rank { color: #10b981; font-weight: 800; font-size: 12px; }
+  .hl-spu-name { font-weight: 700; font-size: 12px; color: #064e3b; }
+  .hl-spu-gmv { color: #059669; font-weight: 800; font-size: 12px; }
+  .hl-spu-roi { color: #78716c; font-size: 11px; }
+
+  .hl-live-spu {
+    display: inline-block; padding: 3px 9px; border-radius: 6px;
+    background: rgba(255,255,255,0.7); border: 1px solid rgba(245,158,11,0.3);
+    font-size: 12px; font-weight: 700; color: #92400e;
+  }
+  .hl-live-spu .pct { color: #d97706; font-weight: 800; margin-left: 2px; }
+
   /* ============ SPU 折叠列表（视频号） ============ */
   .spu-list { display: flex; flex-direction: column; gap: 10px; }
   .spu-accordion {
@@ -251,10 +300,12 @@
   .acc-arrow { color: #9ca3af; font-size: 16px; transition: transform 0.2s; flex-shrink: 0; }
   .spu-accordion.open .acc-arrow { transform: rotate(90deg); color: #10b981; }
 
-  /* 折叠体 */
-  .acc-body { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
-  .spu-accordion.open .acc-body { max-height: 2500px; }
+  /* 展开区（默认全部展开，不折叠） */
+  .acc-body { overflow: visible; }
   .acc-body-inner { padding: 4px 20px 20px; border-top: 1px solid #f0f0f0; }
+  /* 去掉 hover 效果，因为不再是可点击的 */
+  .acc-head { cursor: default; }
+  .acc-head:hover { background: transparent; }
 
   /* 指标条 */
   .metric-strip {
@@ -656,7 +707,7 @@
     `;
   }
 
-  // ============ 视频号洞察面板 ============
+  // ============ 视频号洞察面板（高亮总结·两行） ============
   function renderWechatInsight() {
     const w = DATA.wechat;
     document.getElementById('wechat-big-num').textContent = (w.kpi.top10SpuGmv/10000).toFixed(1) + '万';
@@ -672,56 +723,43 @@
       <div class="insight-badge" style="background:#f3f4f6;color:#6b7280;">➡️ ${flatSpus.length} 个持平</div>
     `;
 
-    // SPU 分组卡（按客单价段分3组）
-    const highPrice = w.spus.filter(s => s.priceAvg >= 200);
-    const midPrice = w.spus.filter(s => s.priceAvg >= 100 && s.priceAvg < 200);
-    const lowPrice = w.spus.filter(s => s.priceAvg < 100);
-    const chip = (s) => {
-      const trend = s.gmvTrend != null && s.gmvTrend > 5 ? `<span style="color:#059669;font-size:10px;">↑${Math.round(s.gmvTrend)}</span>` :
-                    s.gmvTrend != null && s.gmvTrend < -5 ? `<span style="color:#dc2626;font-size:10px;">↓${Math.round(Math.abs(s.gmvTrend))}</span>` : '';
-      return `<span class="group-card-chip"><span class="rank">#${s.rank}</span>${s.spu} ${trend}</span>`;
-    };
+    // 高亮总结（两行）
+    // 第一行：当前爆款 SPU TOP3
+    const top3Spu = w.spus.slice(0, 3);
+    // 第二行：增长最大的直播间
+    const growLive = w.topGrowthLive;
+
     document.getElementById('wechat-groups').innerHTML = `
-      ${highPrice.length ? `
-      <div class="insight-group-card">
-        <div class="group-card-head">
-          <div class="group-card-title">💎 高单价段 ¥200+</div>
-          <div class="group-card-count green">${highPrice.length}</div>
+      <div class="hl-row hl-row-spu">
+        <div class="hl-icon">🏆</div>
+        <div class="hl-body">
+          <div class="hl-title">当前视频号爆款 SPU TOP3</div>
+          <div class="hl-desc">
+            ${top3Spu.map((s, i) => `
+              <span class="hl-spu-chip">
+                <span class="hl-rank">#${i + 1}</span>
+                <span class="hl-spu-name">${s.spu}</span>
+                <span class="hl-spu-gmv">${fmtYuan(s.dailyGmv)}/日</span>
+                <span class="hl-spu-roi">ROI ${s.roiRangeTop3}</span>
+              </span>
+            `).join('')}
+          </div>
         </div>
-        <div class="group-card-items">${highPrice.map(chip).join('')}</div>
-      </div>` : ''}
-      ${midPrice.length ? `
-      <div class="insight-group-card">
-        <div class="group-card-head">
-          <div class="group-card-title">🎯 中价主力 ¥100-200</div>
-          <div class="group-card-count green">${midPrice.length}</div>
+      </div>
+      ${growLive ? `
+      <div class="hl-row hl-row-live">
+        <div class="hl-icon">🚀</div>
+        <div class="hl-body">
+          <div class="hl-title">消耗增长最大的直播间 · <b>${growLive.name}</b> <span class="hl-tag">+${growLive.env.toFixed(1)}%</span></div>
+          <div class="hl-desc">
+            日耗 <b>${fmtYuan(growLive.gmv)}</b>（上期 ${fmtYuan(growLive.lastGmv)}） · 主要投放 SPU：
+            ${growLive.mainSpus.map(s => `<span class="hl-live-spu">${s.name} <span class="pct">${s.pct}%</span></span>`).join('')}
+          </div>
         </div>
-        <div class="group-card-items">${midPrice.map(chip).join('')}</div>
-      </div>` : ''}
-      ${lowPrice.length ? `
-      <div class="insight-group-card">
-        <div class="group-card-head">
-          <div class="group-card-title">💰 低价流量 <¥100</div>
-          <div class="group-card-count green">${lowPrice.length}</div>
-        </div>
-        <div class="group-card-items">${lowPrice.map(chip).join('')}</div>
       </div>` : ''}
     `;
 
-    // 最亮眼SPU
-    if (upSpus.length > 0) {
-      const top = upSpus.sort((a, b) => b.gmvTrend - a.gmvTrend)[0];
-      document.getElementById('wechat-highlight-box').innerHTML = `
-        <div class="highlight-card">
-          <div class="h-icon">🚀</div>
-          <div class="h-txt">
-            <div class="h-title">${top.spu} · 逆势暴涨</div>
-            <div class="h-desc">日耗 ${fmtYuan(top.dailyGmv)} · ${top.liveCount} 家直播间在投 · 客单价 ¥${top.priceAvg} · 值得复用打法到其他 SPU</div>
-          </div>
-          <div class="h-num">+${top.gmvTrend.toFixed(0)}%</div>
-        </div>
-      `;
-    }
+    document.getElementById('wechat-highlight-box').innerHTML = '';
   }
 
   // ============ 抖音洞察面板 ============
@@ -815,7 +853,7 @@
       `).join('');
 
       return `
-        <div class="spu-accordion" onclick="toggleAcc(this)">
+        <div class="spu-accordion open">
           <div class="acc-head">
             <div class="acc-rank${s.rank <= 3 ? ' top3' : ''}">#${s.rank}</div>
             <div class="acc-title">
@@ -828,10 +866,9 @@
               <div class="cell"><b style="color:#ea580c;">${s.refundRangeTop3}</b><span>退款率范围</span></div>
               <div class="cell"><b>¥${s.priceAvg}</b><span>客单价</span></div>
             </div>
-            <div class="acc-arrow">›</div>
           </div>
           <div class="acc-body">
-            <div class="acc-body-inner" onclick="event.stopPropagation()">
+            <div class="acc-body-inner">
               ${renderFeatureTags(s.featureTags)}
               <div class="metric-strip">
                 <div class="metric-cell">

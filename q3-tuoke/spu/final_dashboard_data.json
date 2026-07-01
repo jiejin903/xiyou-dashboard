@@ -13,6 +13,22 @@
       "totalLives": 178,
       "totalCreatives": 27556
     },
+    "topGrowthLive": {
+      "name": "啄木鸟行望男装店",
+      "gmv": 17328,
+      "env": 51.6,
+      "lastGmv": 6279,
+      "mainSpus": [
+        {
+          "name": "其他背心",
+          "pct": 95.0
+        },
+        {
+          "name": "其他衬衫",
+          "pct": 3.0
+        }
+      ]
+    },
     "spus": [
       {
         "rank": 1,
