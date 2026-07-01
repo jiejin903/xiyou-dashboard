@@ -384,7 +384,7 @@
   function renderWechatKPI() {
     const k = DATA.wechat.kpi;
     document.getElementById('wechat-kpi').innerHTML =
-      `<b>${k.spuCount}</b>个SPU · <b>${k.totalDailyGmvWan}</b>万日耗 · <b>${k.totalLives}</b>个视频号 · <b>${k.totalCreatives}</b>条素材`;
+      `男装大盘 <b>${k.totalDailyGmvWan}</b>万日耗 · TOP${k.spuCount} SPU 占 <b>${k.top10SpuCoverage}%</b> · <b>${k.totalLives}</b>个视频号 · <b>${k.totalCreatives}</b>条素材`;
   }
 
   function renderWechatChips() {

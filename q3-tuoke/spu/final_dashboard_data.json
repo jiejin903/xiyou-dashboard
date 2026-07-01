@@ -6,8 +6,10 @@
     "period": "视频号近7天",
     "kpi": {
       "spuCount": 10,
-      "totalDailyGmv": 218851,
-      "totalDailyGmvWan": 22.0,
+      "totalDailyGmv": 372809,
+      "totalDailyGmvWan": 37.3,
+      "top10SpuGmv": 218851,
+      "top10SpuCoverage": 58.7,
       "totalLives": 178,
       "totalCreatives": 27556
     },
