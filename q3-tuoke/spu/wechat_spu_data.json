@@ -2,12 +2,32 @@
   "category": "男装",
   "period": "视频号近7天",
   "source": "中台『通用分析数据集』· 视频号 SPU 在投效果",
-  "spuCount": 20,
-  "totalDailyGmv": 281041,
-  "totalDailyGmvWan": 28.0,
+  "spuCount": 10,
+  "totalDailyGmv": 372809,
+  "totalDailyGmvWan": 37.3,
+  "marketEnv": -32.0,
+  "top10SpuGmv": 218851,
+  "top10SpuCoverage": 58.7,
+  "top10Env": -26.2,
   "totalLives": 178,
   "totalCreatives": 27556,
   "totalProducts": 482,
+  "topGrowthLive": {
+    "name": "啄木鸟行望男装店",
+    "gmv": 17328,
+    "env": 51.6,
+    "lastGmv": 6279,
+    "mainSpus": [
+      {
+        "name": "其他背心",
+        "pct": 95.0
+      },
+      {
+        "name": "其他衬衫",
+        "pct": 3.0
+      }
+    ]
+  },
   "spus": [
     {
       "rank": 1,
@@ -17,13 +37,18 @@
       "creativeCount": 3520,
       "dailyGmv": 49960.0,
       "dailyGmvWan": 5.0,
-      "gmvTrend": 48354.5,
       "roiAvg": 4.3,
       "roiP25": 2.32,
       "roiP75": 11.02,
+      "roiRangeTop3": "2.2~12.9",
+      "refundRangeTop3": "34.4%~48.4%",
       "refundAvg": 37.1,
       "refundP25": 28.57,
       "refundP75": 55.82,
+      "priceAvg": 136.0,
+      "priceP25": 99.0,
+      "priceP75": 148.0,
+      "gmvTrend": -9.4,
       "topProduct": "梦特娇 官方正品，10A抗菌，蚕丝蛋白男士圆领短袖纯色打底衫",
       "featureTags": [
         {
@@ -50,38 +75,33 @@
       "topLives": [
         {
           "name": "新随衣品牌特卖",
-          "gmv": 15495.0,
-          "roi": 0.0,
-          "refund": 0.0,
+          "gmv": 29154.0,
+          "spuGmv": 15495.0,
+          "spuPct": 53.1,
+          "env": -20.1,
+          "roi": 2.19,
+          "refund": 48.45,
           "creatives": 429
         },
         {
           "name": "罗蒙Romon男装服饰店",
-          "gmv": 8931.0,
-          "roi": 0.0,
-          "refund": 0.0,
+          "gmv": 9138.0,
+          "spuGmv": 8931.0,
+          "spuPct": 97.7,
+          "env": -6.2,
+          "roi": 2.85,
+          "refund": 37.11,
           "creatives": 1153
         },
         {
           "name": "霞湖世家官方旗舰店",
-          "gmv": 8775.0,
-          "roi": 0.0,
-          "refund": 0.0,
+          "gmv": 30598.0,
+          "spuGmv": 8775.0,
+          "spuPct": 28.7,
+          "env": 1.0,
+          "roi": 12.86,
+          "refund": 34.38,
           "creatives": 229
-        },
-        {
-          "name": "思小简纯棉T恤",
-          "gmv": 5551.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 683
-        },
-        {
-          "name": "耀磊服饰",
-          "gmv": 2996.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 380
         }
       ],
       "topCreatives": [
@@ -105,6 +125,20 @@
           "gmv": 1707.0,
           "roi": 3.04,
           "live": "罗蒙Romon男装服饰店"
+        },
+        {
+          "url": "http://adsmind.gdtimg.com/ads_svp_video__0b535ubfoaac3aamhsjarvvbr3iek7wqev2a.f0.mp4?dis_k=d473c495c5fc7efb725d01983ac9d284&dis_t=1780651074&m=32a9026a3e823faad904455d16d25af8&sha256=dfcd2c6874f2d5f39aee22f12da7379c5bc9070817cdb547e052dced227c4e1e",
+          "md5": "32a9026a3e823faad904455d16d25af8",
+          "gmv": 1660.0,
+          "roi": 1.06,
+          "live": "新随衣品牌特卖"
+        },
+        {
+          "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53dmciyaae6uamlewjyrur4gyerqnqjdca.f0.mp4?dis_k=322b5896b29421af5e2a92988cd3e497&dis_t=1775061548&m=c91c2a0d3fa099a6e5464954d76a6e7c&sha256=f62fadc9a815cbf05a8eac38fb0b63208965a3389af02cc99c5ae3eaad131630",
+          "md5": "c91c2a0d3fa099a6e5464954d76a6e7c",
+          "gmv": 1531.0,
+          "roi": 1.33,
+          "live": "新随衣品牌特卖"
         }
       ]
     },
@@ -116,13 +150,18 @@
       "creativeCount": 1523,
       "dailyGmv": 28783.0,
       "dailyGmvWan": 2.88,
-      "gmvTrend": 8328.1,
       "roiAvg": 4.15,
       "roiP25": 3.27,
       "roiP75": 7.23,
+      "roiRangeTop3": "2.7~5.4",
+      "refundRangeTop3": "25.8%~46.7%",
       "refundAvg": 42.19,
       "refundP25": 30.12,
       "refundP75": 65.85,
+      "priceAvg": 100.0,
+      "priceP25": 70.0,
+      "priceP75": 100.0,
+      "gmvTrend": -26.9,
       "topProduct": "天丝亚麻休闲裤男士直筒宽松夏季新款青年时尚薄款弹力垂顺长裤",
       "featureTags": [
         {
@@ -155,37 +194,32 @@
         {
           "name": "麦雅男装",
           "gmv": 13937.0,
-          "roi": 0.0,
-          "refund": 0.0,
+          "spuGmv": 13937.0,
+          "spuPct": 100.0,
+          "env": -14.4,
+          "roi": 3.55,
+          "refund": 46.71,
           "creatives": 262
         },
         {
           "name": "顾木森辰夕黑标店",
-          "gmv": 8748.0,
-          "roi": 0.0,
-          "refund": 0.0,
+          "gmv": 12948.0,
+          "spuGmv": 8748.0,
+          "spuPct": 67.6,
+          "env": -38.2,
+          "roi": 5.36,
+          "refund": 32.91,
           "creatives": 415
         },
         {
           "name": "梵莎甄选",
           "gmv": 1744.0,
-          "roi": 0.0,
-          "refund": 0.0,
+          "spuGmv": 1744.0,
+          "spuPct": 100.0,
+          "env": 85.0,
+          "roi": 2.66,
+          "refund": 25.78,
           "creatives": 108
-        },
-        {
-          "name": "黑标男装广州店",
-          "gmv": 904.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 203
-        },
-        {
-          "name": "保萝男装",
-          "gmv": 851.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 130
         }
       ],
       "topCreatives": [
@@ -209,6 +243,20 @@
           "gmv": 1722.0,
           "roi": 3.19,
           "live": "麦雅男装"
+        },
+        {
+          "url": "http://adsmind.gdtimg.com/ads_svp_video__0b5364ad4aaareahecqh4jvbv5yeh33qapsa.f0.mp4?dis_k=10a8e5094f008562865054076600ec84&dis_t=1778863246&m=59003b3e3fd190575f2e1c3840eecd17&sha256=084abf4d1881deab38ded78b9cd7a8759c40e96d5c3b0e32a0c45c0bc4f36afd",
+          "md5": "59003b3e3fd190575f2e1c3840eecd17",
+          "gmv": 1447.0,
+          "roi": 3.42,
+          "live": "麦雅男装"
+        },
+        {
+          "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc33ea26aabb4ao25qynzvbxwiev7mqdl2a.f0.mp4?dis_k=19358cd2931c84c0ab0adb1c2b105e42&dis_t=1780040421&m=3e938c401523c02af7e7be214e05c0a2&sha256=aaa2bc8f035dc1ad53dab68aa77cca3e7c1156860f264c6fd1c988c7e90b1fec",
+          "md5": "3e938c401523c02af7e7be214e05c0a2",
+          "gmv": 1205.0,
+          "roi": 5.81,
+          "live": "顾木森辰夕黑标店"
         }
       ]
     },
@@ -220,13 +268,18 @@
       "creativeCount": 1906,
       "dailyGmv": 27744.0,
       "dailyGmvWan": 2.77,
-      "gmvTrend": 12714.4,
       "roiAvg": 8.83,
       "roiP25": 3.68,
       "roiP75": 23.56,
+      "roiRangeTop3": "2.8~13.5",
+      "refundRangeTop3": "34.6%~46.3%",
       "refundAvg": 40.66,
       "refundP25": 31.03,
       "refundP75": 75.0,
+      "priceAvg": 173.0,
+      "priceP25": 99.0,
+      "priceP75": 200.0,
+      "gmvTrend": -29.1,
       "topProduct": "【80支液氨POLO衫】霞湖世家 高支棉男士夏季丝光凉感抑菌翻领短袖",
       "featureTags": [
         {
@@ -258,38 +311,33 @@
       "topLives": [
         {
           "name": "霞湖世家官方旗舰店",
-          "gmv": 14990.0,
-          "roi": 0.0,
-          "refund": 0.0,
+          "gmv": 30598.0,
+          "spuGmv": 14990.0,
+          "spuPct": 49.0,
+          "env": 1.0,
+          "roi": 13.47,
+          "refund": 34.62,
           "creatives": 283
         },
         {
           "name": "皮尔卡丹男装服饰配件",
-          "gmv": 3677.0,
-          "roi": 0.0,
-          "refund": 0.0,
+          "gmv": 6216.0,
+          "spuGmv": 3677.0,
+          "spuPct": 59.2,
+          "env": -42.6,
+          "roi": 3.63,
+          "refund": 46.29,
           "creatives": 316
         },
         {
           "name": "皮尔卡丹品牌特卖",
-          "gmv": 2903.0,
-          "roi": 0.0,
-          "refund": 0.0,
+          "gmv": 2907.0,
+          "spuGmv": 2903.0,
+          "spuPct": 99.9,
+          "env": -34.3,
+          "roi": 2.82,
+          "refund": 45.12,
           "creatives": 234
-        },
-        {
-          "name": "拇指白小T运动商务",
-          "gmv": 2560.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 181
-        },
-        {
-          "name": "花花公子正多男装服饰店",
-          "gmv": 1542.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 409
         }
       ],
       "topCreatives": [
@@ -313,6 +361,20 @@
           "gmv": 1472.0,
           "roi": 3.1,
           "live": "皮尔卡丹男装服饰配件"
+        },
+        {
+          "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53a4d7iaahouamjaagwfvb2bye6qdqp5ca.f0.mp4?dis_k=a8d285e316525bd29747d7e89fb7d297&dis_t=1778462884&m=be73ffd681938b5870c3090c9f9c15ae&sha256=10e4c719159a5acb6a487107e3eb2422edb4ba4b6ece8b7399c8e4300c4877eb",
+          "md5": "be73ffd681938b5870c3090c9f9c15ae",
+          "gmv": 1379.0,
+          "roi": 3.23,
+          "live": "皮尔卡丹品牌特卖"
+        },
+        {
+          "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53gyaaoaaa4iajqaybtjvbwnqea43aab2a.f0.mp4?dis_k=fb97d9f381677521201a78b746260d8a&dis_t=1779960629&m=1b2b00b8cc248ef15cbbb610cbd06104&sha256=1800c919ad9a50d5151641ff9617c031d651fd7cc4597493f9d094e512c6489a",
+          "md5": "1b2b00b8cc248ef15cbbb610cbd06104",
+          "gmv": 960.0,
+          "roi": 13.32,
+          "live": "霞湖世家官方旗舰店"
         }
       ]
     },
@@ -324,13 +386,18 @@
       "creativeCount": 2415,
       "dailyGmv": 26379.0,
       "dailyGmvWan": 2.64,
-      "gmvTrend": 69287.6,
       "roiAvg": 3.51,
       "roiP25": 2.79,
       "roiP75": 6.94,
+      "roiRangeTop3": "1.8~3.7",
+      "refundRangeTop3": "20.7%~51.7%",
       "refundAvg": 38.35,
       "refundP25": 32.82,
       "refundP75": 90.81,
+      "priceAvg": 111.0,
+      "priceP25": 63.0,
+      "priceP75": 150.0,
+      "gmvTrend": -24.5,
       "topProduct": "2026新款冰丝休闲裤男士款夏季薄款弹力宽松长裤凉感透气裤子891",
       "featureTags": [
         {
@@ -363,37 +430,32 @@
         {
           "name": "启哲君伊男装",
           "gmv": 6198.0,
-          "roi": 0.0,
-          "refund": 0.0,
+          "spuGmv": 6198.0,
+          "spuPct": 100.0,
+          "env": -16.5,
+          "roi": 3.66,
+          "refund": 34.21,
           "creatives": 220
         },
         {
           "name": "威猛哥哥时尚穿搭",
-          "gmv": 2975.0,
-          "roi": 0.0,
-          "refund": 0.0,
+          "gmv": 3441.0,
+          "spuGmv": 2975.0,
+          "spuPct": 86.4,
+          "env": -47.6,
+          "roi": 3.45,
+          "refund": 51.7,
           "creatives": 170
         },
         {
           "name": "锦裕轩男装",
-          "gmv": 2872.0,
-          "roi": 0.0,
-          "refund": 0.0,
+          "gmv": 2889.0,
+          "spuGmv": 2872.0,
+          "spuPct": 99.4,
+          "env": 0.0,
+          "roi": 1.75,
+          "refund": 20.66,
           "creatives": 199
-        },
-        {
-          "name": "星图米品牌特卖",
-          "gmv": 2158.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 238
-        },
-        {
-          "name": "啄木鸟衣饰",
-          "gmv": 1659.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 42
         }
       ],
       "topCreatives": [
@@ -417,6 +479,20 @@
           "gmv": 1587.0,
           "roi": 3.64,
           "live": "启哲君伊男装"
+        },
+        {
+          "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53radlkaaghaaoofhpxvurzcaewweannka.f0.mp4?dis_k=b941e116ebe670433f965f7c6ee21498&dis_t=1776898765&m=5885ee2e7ccc5cdfed50a2a006cc9ccc&sha256=b397fcc0981bd2be67f7c1604e1697faa9b226dc7c97ba03a9b9593d6fcc23a3",
+          "md5": "5885ee2e7ccc5cdfed50a2a006cc9ccc",
+          "gmv": 1014.0,
+          "roi": 3.32,
+          "live": "威猛哥哥时尚穿搭"
+        },
+        {
+          "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc344bvuaad7uagfxzosfvbtzyelltqgwsa.f0.mp4?dis_k=466fa4e8fe4c671fc07302ca49fed1b8&dis_t=1781348415&m=03e0b05eba25e01d994ebd7e239cbf59&sha256=2c3d40b53f89af680d8249973a01864de02373830b353a9317a15386c0c2f469",
+          "md5": "03e0b05eba25e01d994ebd7e239cbf59",
+          "gmv": 829.0,
+          "roi": 3.25,
+          "live": "裁月男装"
         }
       ]
     },
@@ -428,13 +504,18 @@
       "creativeCount": 1345,
       "dailyGmv": 25999.0,
       "dailyGmvWan": 2.6,
-      "gmvTrend": 5125.7,
       "roiAvg": 3.21,
       "roiP25": 3.32,
       "roiP75": 11.79,
+      "roiRangeTop3": "2.4~3.3",
+      "refundRangeTop3": "41.6%~59.0%",
       "refundAvg": 56.2,
       "refundP25": 41.67,
       "refundP75": 100.0,
+      "priceAvg": 164.0,
+      "priceP25": 139.0,
+      "priceP75": 160.0,
+      "gmvTrend": -33.5,
       "topProduct": "JEEP/吉普夏季速干防水工装裤冰丝透气轻薄宽松男女同款休闲裤",
       "featureTags": [
         {
@@ -461,38 +542,33 @@
       "topLives": [
         {
           "name": "Jeep吉普男装服饰",
-          "gmv": 21151.0,
-          "roi": 0.0,
-          "refund": 0.0,
+          "gmv": 42504.0,
+          "spuGmv": 21151.0,
+          "spuPct": 49.8,
+          "env": -27.2,
+          "roi": 3.33,
+          "refund": 59.04,
           "creatives": 1047
         },
         {
           "name": "卡丹路休闲男装",
           "gmv": 4159.0,
-          "roi": 0.0,
-          "refund": 0.0,
+          "spuGmv": 4159.0,
+          "spuPct": 100.0,
+          "env": 106.9,
+          "roi": 2.71,
+          "refund": 41.61,
           "creatives": 160
         },
         {
           "name": "总裁休闲男装",
           "gmv": 640.0,
-          "roi": 0.0,
-          "refund": 0.0,
+          "spuGmv": 640.0,
+          "spuPct": 100.0,
+          "env": 15.9,
+          "roi": 2.44,
+          "refund": 56.31,
           "creatives": 109
-        },
-        {
-          "name": "空",
-          "gmv": 18.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 71
-        },
-        {
-          "name": "裁月男装",
-          "gmv": 16.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 21
         }
       ],
       "topCreatives": [
@@ -516,6 +592,20 @@
           "gmv": 1747.0,
           "roi": 1.17,
           "live": "卡丹路休闲男装"
+        },
+        {
+          "url": "http://adsmind.gdtimg.com/ads_svp_video__0b537mcmkaaevean6hxyzzur56yeyx5qjrka.f0.mp4?dis_k=1811dd170596b3977f9a63fb1a71dbdc&dis_t=1778291331&m=4e5d5e9a1915582bb00eeb75b0c475ff&sha256=e7d69d08d25371d5cfb68b080b89b64dd6c96d6c7f0e6637a1d238bec72f4d2e",
+          "md5": "4e5d5e9a1915582bb00eeb75b0c475ff",
+          "gmv": 1459.0,
+          "roi": 2.45,
+          "live": "Jeep吉普男装服饰"
+        },
+        {
+          "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53tmcwcaafcmablhxyxzur7gyemgnqkyka.f0.mp4?dis_k=fe25a0a9d17e56516fd09a7bd190380a&dis_t=1778291414&m=a75bb483c499b782914f24e9131d7fcf&sha256=a97036d3ea97b3e0c6b51ce5b9d91fb0804d8eeb78dc8e48d748a934cd6e23db",
+          "md5": "a75bb483c499b782914f24e9131d7fcf",
+          "gmv": 892.0,
+          "roi": 1.7,
+          "live": "Jeep吉普男装服饰"
         }
       ]
     },
@@ -527,26 +617,37 @@
       "creativeCount": 310,
       "dailyGmv": 16526.0,
       "dailyGmvWan": 1.65,
-      "gmvTrend": 33165002.3,
       "roiAvg": 2.49,
       "roiP25": 1.66,
       "roiP75": 3.33,
+      "roiRangeTop3": "2.5",
+      "refundRangeTop3": "30.0%",
       "refundAvg": 30.0,
       "refundP25": 26.39,
       "refundP75": 50.0,
+      "priceAvg": 71.0,
+      "priceP25": 70.0,
+      "priceP75": 70.0,
+      "gmvTrend": 64.6,
       "topProduct": "啄木鸟正品男士设计感2026夏季啄木鸟logo背心时尚舒适设计感潮流",
       "featureTags": [],
       "topLives": [
         {
           "name": "啄木鸟行望男装店",
-          "gmv": 16525.0,
-          "roi": 0.0,
-          "refund": 0.0,
+          "gmv": 17329.0,
+          "spuGmv": 16525.0,
+          "spuPct": 95.4,
+          "env": 51.6,
+          "roi": 2.49,
+          "refund": 30.0,
           "creatives": 310
         },
         {
           "name": "空",
-          "gmv": 1.0,
+          "gmv": 1343.0,
+          "spuGmv": 1.0,
+          "spuPct": 0.1,
+          "env": -8.5,
           "roi": 0.0,
           "refund": 0.0,
           "creatives": 4
@@ -554,6 +655,9 @@
         {
           "name": "嘉美珊工厂店",
           "gmv": 0.0,
+          "spuGmv": 0.0,
+          "spuPct": 100.0,
+          "env": 0.0,
           "roi": 0.0,
           "refund": 0.0,
           "creatives": 1
@@ -580,6 +684,20 @@
           "gmv": 1109.0,
           "roi": 1.22,
           "live": "啄木鸟行望男装店"
+        },
+        {
+          "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53bedfuaagkmapimpoxfurycielieqmwsa.f0.mp4?dis_k=bfa50ab0f03a532ca77e6f2fc9998398&dis_t=1776856703&m=c7a66b49089c2a86581a4ffa798e476e&sha256=800f1c6aebf0cd4f93761eb6d33c6e8d528c3b7232d5a0f0a781c8efd14be385",
+          "md5": "c7a66b49089c2a86581a4ffa798e476e",
+          "gmv": 912.0,
+          "roi": 2.63,
+          "live": "啄木鸟行望男装店"
+        },
+        {
+          "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3raadkaaalyamkaadizvbvcaegweaanka.f0.mp4?dis_k=06e29952d1418347c16219aebed08880&dis_t=1778643244&m=fd49d29469744136492742f1d715d0d9&sha256=e408b0ec42a78d97e52a5cde7601c44de8c80797c151652e1629612b5a438c42",
+          "md5": "fd49d29469744136492742f1d715d0d9",
+          "gmv": 910.0,
+          "roi": 2.43,
+          "live": "啄木鸟行望男装店"
         }
       ]
     },
@@ -591,13 +709,18 @@
       "creativeCount": 1233,
       "dailyGmv": 13103.0,
       "dailyGmvWan": 1.31,
-      "gmvTrend": 10205.8,
       "roiAvg": 1.88,
       "roiP25": 1.68,
       "roiP75": 5.3,
+      "roiRangeTop3": "1.6~2.8",
+      "refundRangeTop3": "34.3%~45.6%",
       "refundAvg": 36.63,
       "refundP25": 30.16,
       "refundP75": 100.0,
+      "priceAvg": 100.0,
+      "priceP25": 99.0,
+      "priceP75": 99.0,
+      "gmvTrend": -40.6,
       "topProduct": "【拍一发二】升级240g无袖背心10A抗菌纯棉圆领T恤坎肩健身显瘦男士",
       "featureTags": [
         {
@@ -614,38 +737,33 @@
       "topLives": [
         {
           "name": "思小简短袖T恤",
-          "gmv": 12325.0,
-          "roi": 0.0,
-          "refund": 0.0,
+          "gmv": 13076.0,
+          "spuGmv": 12325.0,
+          "spuPct": 94.3,
+          "env": -40.7,
+          "roi": 1.86,
+          "refund": 36.52,
           "creatives": 1140
         },
         {
           "name": "思小简1号背心店",
           "gmv": 424.0,
-          "roi": 0.0,
-          "refund": 0.0,
+          "spuGmv": 424.0,
+          "spuPct": 100.0,
+          "env": -21.9,
+          "roi": 2.76,
+          "refund": 34.3,
           "creatives": 36
         },
         {
           "name": "潮序背心",
           "gmv": 304.0,
-          "roi": 0.0,
-          "refund": 0.0,
+          "spuGmv": 304.0,
+          "spuPct": 100.0,
+          "env": -13.0,
+          "roi": 1.59,
+          "refund": 45.57,
           "creatives": 20
-        },
-        {
-          "name": "空",
-          "gmv": 28.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 85
-        },
-        {
-          "name": "思小简纯棉T恤",
-          "gmv": 22.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 11
         }
       ],
       "topCreatives": [
@@ -669,6 +787,20 @@
           "gmv": 1689.0,
           "roi": 1.07,
           "live": "思小简短袖T恤"
+        },
+        {
+          "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3p4abgaaalaaejddgojubu7yecn7qae2a.f0.mp4?dis_k=5d95ba686d338425c4420244083cefd1&dis_t=1779267223&m=4b0fd5d1650963b8e130c15d7435d044&sha256=edf20813e84f0864d548bc6048af6b7774bb5ac7d7afafadd75badf143663fd9",
+          "md5": "4b0fd5d1650963b8e130c15d7435d044",
+          "gmv": 865.0,
+          "roi": 0.99,
+          "live": "潮序背心"
+        },
+        {
+          "url": "http://adsmind.gdtimg.com/ads_svp_video__0b535uabgaaaq4aklfqwr5vbv3iecpwqae2a.f0.mp4?dis_k=5cde2caec5ceec268729098bcbb260bd&dis_t=1780382776&m=7f39271c824abfb70ce1ea8775fc3525&sha256=cf156b25daf4c967d3f30a1ed73984682a24b0903b92d52dd3d2c306a1476563",
+          "md5": "7f39271c824abfb70ce1ea8775fc3525",
+          "gmv": 712.0,
+          "roi": 2.53,
+          "live": "思小简短袖T恤"
         }
       ]
     },
@@ -680,13 +812,18 @@
       "creativeCount": 1798,
       "dailyGmv": 11216.0,
       "dailyGmvWan": 1.12,
-      "gmvTrend": 49912.8,
       "roiAvg": 3.37,
       "roiP25": 3.08,
       "roiP75": 15.02,
+      "roiRangeTop3": "3.4~3.7",
+      "refundRangeTop3": "30.1%~60.8%",
       "refundAvg": 38.18,
       "refundP25": 33.33,
       "refundP75": 100.0,
+      "priceAvg": 312.0,
+      "priceP25": 149.0,
+      "priceP75": 306.0,
+      "gmvTrend": -48.4,
       "topProduct": "【谢霆锋同款】十如仕出汗无痕升级款高尔夫高智风短袖polo衫P21-01",
       "featureTags": [
         {
@@ -713,38 +850,33 @@
       "topLives": [
         {
           "name": "十如仕DETERMINANT",
-          "gmv": 7792.0,
-          "roi": 0.0,
-          "refund": 0.0,
+          "gmv": 8819.0,
+          "spuGmv": 7792.0,
+          "spuPct": 88.4,
+          "env": -53.2,
+          "roi": 3.37,
+          "refund": 38.77,
           "creatives": 1246
         },
         {
           "name": "拇指白小T官方旗舰店",
-          "gmv": 2220.0,
-          "roi": 0.0,
-          "refund": 0.0,
+          "gmv": 13021.0,
+          "spuGmv": 2220.0,
+          "spuPct": 17.1,
+          "env": -52.0,
+          "roi": 3.37,
+          "refund": 30.05,
           "creatives": 267
         },
         {
           "name": "U.S.POLOASSN.森旗服饰",
           "gmv": 431.0,
-          "roi": 0.0,
-          "refund": 0.0,
+          "spuGmv": 431.0,
+          "spuPct": 100.0,
+          "env": -41.2,
+          "roi": 3.72,
+          "refund": 60.82,
           "creatives": 17
-        },
-        {
-          "name": "皮尔卡丹男装服饰配件",
-          "gmv": 410.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 124
-        },
-        {
-          "name": "路司登经典POLO",
-          "gmv": 274.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 27
         }
       ],
       "topCreatives": [
@@ -768,6 +900,20 @@
           "gmv": 748.0,
           "roi": 2.69,
           "live": "十如仕DETERMINANT"
+        },
+        {
+          "url": "",
+          "md5": "空",
+          "gmv": 647.0,
+          "roi": 1.34,
+          "live": "路司登极致服饰优选"
+        },
+        {
+          "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3w4afyaaateadycyitjvbvnyels3qaxca.f0.mp4?dis_k=acb04e94e8b65a0610abbd4aad4b3f80&dis_t=1780022345&m=43d46d8aab99eaf7868293e8644f7c4d&sha256=d719013ca6004eeb8354072d5fcb6c36ecf81a7b521d2f7206f0d623321c8b8f",
+          "md5": "43d46d8aab99eaf7868293e8644f7c4d",
+          "gmv": 546.0,
+          "roi": 3.12,
+          "live": "拇指白小T官方旗舰店"
         }
       ]
     },
@@ -779,13 +925,18 @@
       "creativeCount": 1365,
       "dailyGmv": 9869.0,
       "dailyGmvWan": 0.99,
-      "gmvTrend": 5479.3,
       "roiAvg": 4.38,
       "roiP25": 2.92,
       "roiP75": 9.55,
+      "roiRangeTop3": "2.8~7.3",
+      "refundRangeTop3": "35.5%~61.9%",
       "refundAvg": 45.86,
       "refundP25": 33.33,
       "refundP75": 100.0,
+      "priceAvg": 150.0,
+      "priceP25": 80.0,
+      "priceP75": 196.0,
+      "gmvTrend": -17.1,
       "topProduct": "老爷车纯棉短袖休闲T恤夏季圆领四季通用透气冰感百搭上衣纯色",
       "featureTags": [
         {
@@ -818,37 +969,32 @@
         {
           "name": "老爷车壹鑫购男装",
           "gmv": 3879.0,
-          "roi": 0.0,
-          "refund": 0.0,
+          "spuGmv": 3879.0,
+          "spuPct": 100.0,
+          "env": -11.5,
+          "roi": 2.83,
+          "refund": 45.55,
           "creatives": 404
         },
         {
           "name": "霞湖世家官方旗舰店",
-          "gmv": 2392.0,
-          "roi": 0.0,
-          "refund": 0.0,
+          "gmv": 30598.0,
+          "spuGmv": 2392.0,
+          "spuPct": 7.8,
+          "env": 1.0,
+          "roi": 7.26,
+          "refund": 61.94,
           "creatives": 326
         },
         {
           "name": "拇指白小T官方旗舰店",
-          "gmv": 1221.0,
-          "roi": 0.0,
-          "refund": 0.0,
+          "gmv": 13021.0,
+          "spuGmv": 1221.0,
+          "spuPct": 9.4,
+          "env": -52.0,
+          "roi": 3.95,
+          "refund": 35.53,
           "creatives": 380
-        },
-        {
-          "name": "Mr.Bu服饰企业店",
-          "gmv": 897.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 55
-        },
-        {
-          "name": "布先生官方店",
-          "gmv": 794.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 35
         }
       ],
       "topCreatives": [
@@ -872,6 +1018,20 @@
           "gmv": 450.0,
           "roi": 2.53,
           "live": "Mr.Bu服饰企业店"
+        },
+        {
+          "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3webdsaacwqamrfy57nvbrmiehgyqeoka.f0.mp4?dis_k=6072278fc1b26a75e074b404d8d13acb&dis_t=1781675600&m=f035c8bdbf8a1116c7dee24c846359f0&sha256=d6593f70f9ca97e0daadea5f2e5eda38f4513c64fdac7b2ca3f96614ddbb7116",
+          "md5": "f035c8bdbf8a1116c7dee24c846359f0",
+          "gmv": 321.0,
+          "roi": 1.69,
+          "live": "白小T服饰店"
+        },
+        {
+          "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53baahyaaayiacu33pefubucaepqeaa7ca.f0.mp4?dis_k=b65208d8e55c7ff898fa9ede8c4a6ad2&dis_t=1775872367&m=ef85909498ba23be87830813a5e2ae9b&sha256=7e6490588033ef04732a36218e8c47b630f15167c200aaa34a91c7fc66baf36f",
+          "md5": "ef85909498ba23be87830813a5e2ae9b",
+          "gmv": 283.0,
+          "roi": 3.0,
+          "live": "老爷车壹鑫购男装"
         }
       ]
     },
@@ -883,13 +1043,18 @@
       "creativeCount": 1201,
       "dailyGmv": 9272.0,
       "dailyGmvWan": 0.93,
-      "gmvTrend": 1593.3,
       "roiAvg": 2.98,
       "roiP25": 2.51,
       "roiP75": 6.55,
+      "roiRangeTop3": "2.4~3.8",
+      "refundRangeTop3": "32.7%~65.2%",
       "refundAvg": 34.09,
       "refundP25": 24.04,
       "refundP75": 76.39,
+      "priceAvg": 234.0,
+      "priceP25": 60.0,
+      "priceP75": 257.0,
+      "gmvTrend": -46.6,
       "topProduct": "【李小冉同款】白小T水光魔术T恤短袖男女款纯棉短袖2026年圆领短袖情侣百搭舒适显瘦",
       "featureTags": [
         {
@@ -906,38 +1071,33 @@
       "topLives": [
         {
           "name": "拇指白小T官方旗舰店",
-          "gmv": 7784.0,
-          "roi": 0.0,
-          "refund": 0.0,
+          "gmv": 13021.0,
+          "spuGmv": 7784.0,
+          "spuPct": 59.8,
+          "env": -52.0,
+          "roi": 3.03,
+          "refund": 32.74,
           "creatives": 886
         },
         {
           "name": "凡客依舍直播账号",
           "gmv": 814.0,
-          "roi": 0.0,
-          "refund": 0.0,
+          "spuGmv": 814.0,
+          "spuPct": 100.0,
+          "env": -22.0,
+          "roi": 2.36,
+          "refund": 37.43,
           "creatives": 122
         },
         {
           "name": "拇指白小T运动商务",
-          "gmv": 402.0,
-          "roi": 0.0,
-          "refund": 0.0,
+          "gmv": 3339.0,
+          "spuGmv": 402.0,
+          "spuPct": 12.0,
+          "env": -55.7,
+          "roi": 3.83,
+          "refund": 65.15,
           "creatives": 108
-        },
-        {
-          "name": "凡客依舍品牌服饰",
-          "gmv": 240.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 76
-        },
-        {
-          "name": "空",
-          "gmv": 31.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 33
         }
       ],
       "topCreatives": [
@@ -961,926 +1121,20 @@
           "gmv": 480.0,
           "roi": 3.23,
           "live": "拇指白小T官方旗舰店"
-        }
-      ]
-    },
-    {
-      "rank": 11,
-      "spu": "其他Polo衫",
-      "productCount": 16,
-      "liveCount": 10,
-      "creativeCount": 841,
-      "dailyGmv": 8321.0,
-      "dailyGmvWan": 0.83,
-      "gmvTrend": 4894.9,
-      "roiAvg": 4.8,
-      "roiP25": 3.14,
-      "roiP75": 11.27,
-      "refundAvg": 46.03,
-      "refundP25": 33.33,
-      "refundP75": 69.78,
-      "topProduct": "布先生佟大为同款海鸥领短袖t恤棉丝针织T春夏Polo衫男AT10918",
-      "featureTags": [
-        {
-          "label": "POLO/翻领",
-          "count": 1934,
-          "pct": 212.0
-        },
-        {
-          "label": "明星同款",
-          "count": 661,
-          "pct": 72.0
-        },
-        {
-          "label": "海鸥领",
-          "count": 555,
-          "pct": 61.0
-        },
-        {
-          "label": "通勤商务",
-          "count": 143,
-          "pct": 16.0
-        }
-      ],
-      "topLives": [
-        {
-          "name": "布先生官方店",
-          "gmv": 7138.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 621
-        },
-        {
-          "name": "雅鹿男装相信光服饰",
-          "gmv": 474.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 47
-        },
-        {
-          "name": "白小T男装店",
-          "gmv": 261.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 22
-        },
-        {
-          "name": "佳凯男装",
-          "gmv": 202.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 58
-        },
-        {
-          "name": "报喜鸟",
-          "gmv": 111.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 1
-        }
-      ],
-      "topCreatives": [
-        {
-          "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3omajcaaa2yacfcimxbubu4yesfzqbeka.f0.mp4?dis_k=a9c17e97852d5309f0b84eadb463709c&dis_t=1776484081&m=a481fceaf7e167f64a0c6a1478cedc63&sha256=c526fc67e9bc063764392c68586d1e8352302c930358487a8b78e22e3dfb8d86",
-          "md5": "a481fceaf7e167f64a0c6a1478cedc63",
-          "gmv": 1287.0,
-          "roi": 4.47,
-          "live": "布先生官方店"
-        },
-        {
-          "url": "",
-          "md5": "空",
-          "gmv": 957.0,
-          "roi": 17.96,
-          "live": "白小T男装店"
-        },
-        {
-          "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3eebw6aad3uaeubhenvursiien4qqg32a.f0.mp4?dis_k=1dfc6c91b9746378d135592530acfa0f&dis_t=1776756231&m=ee848fdb1303b9e8e991b29b4f5b320d&sha256=6355f9a01e427edff18480b71d24a15303445f088b7e3d84b420438606ef3437",
-          "md5": "ee848fdb1303b9e8e991b29b4f5b320d",
-          "gmv": 430.0,
-          "roi": 4.36,
-          "live": "布先生官方店"
-        }
-      ]
-    },
-    {
-      "rank": 12,
-      "spu": "其他休闲裤",
-      "productCount": 30,
-      "liveCount": 19,
-      "creativeCount": 1163,
-      "dailyGmv": 7650.0,
-      "dailyGmvWan": 0.76,
-      "gmvTrend": 41036.3,
-      "roiAvg": 4.6,
-      "roiP25": 3.52,
-      "roiP75": 10.69,
-      "refundAvg": 45.8,
-      "refundP25": 33.33,
-      "refundP75": 100.0,
-      "topProduct": "【龙牙】二代隐之轻涛四代爆款烈刃轻量外勤长裤男士休闲夏日穿搭男时尚休闲裤",
-      "featureTags": [
-        {
-          "label": "爆款",
-          "count": 1136,
-          "pct": 69.0
-        },
-        {
-          "label": "通勤商务",
-          "count": 179,
-          "pct": 11.0
-        }
-      ],
-      "topLives": [
-        {
-          "name": "龙牙战术-铁血李大方",
-          "gmv": 5451.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 816
-        },
-        {
-          "name": "HiPanda潮流服饰",
-          "gmv": 456.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 55
-        },
-        {
-          "name": "十如仕DETERMINANT",
-          "gmv": 365.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 50
-        },
-        {
-          "name": "追梦少年服饰",
-          "gmv": 285.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 1
-        },
-        {
-          "name": "鸿哲男装",
-          "gmv": 256.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 101
-        }
-      ],
-      "topCreatives": [
-        {
-          "url": "",
-          "md5": "空",
-          "gmv": 712.0,
-          "roi": 1.99,
-          "live": "大雄外贸服饰店"
-        },
-        {
-          "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53eycleaaenuaamgb7brvb4jqewitajmsa.f0.mp4?dis_k=4e1900c3ed503a18db53f4ef1cdee777&dis_t=1782297684&m=088c58a0df800ef9c019d8c4bc0e77fd&sha256=a9f4ad11cd40bf0ce020397e45abc9838d34ad3f33a590e4ea45a6dc72fcfe8b",
-          "md5": "088c58a0df800ef9c019d8c4bc0e77fd",
-          "gmv": 576.0,
-          "roi": 4.11,
-          "live": "龙牙战术-铁血李大方"
-        },
-        {
-          "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3qudkqaagv4agg6xp7nurzbievccqnkca.f0.mp4?dis_k=09952ef654a8117b11504f5188f4dc0e&dis_t=1778488809&m=a6a5ea5747a5ead5a16fe7f846231171&sha256=c353b385018b17164f990f4bd0488242c1d8603df0fb5b4bf74b46946bd397e5",
-          "md5": "a6a5ea5747a5ead5a16fe7f846231171",
-          "gmv": 425.0,
-          "roi": 2.98,
-          "live": "龙牙战术-铁血李大方"
-        }
-      ]
-    },
-    {
-      "rank": 13,
-      "spu": "冰丝凉感背心",
-      "productCount": 5,
-      "liveCount": 4,
-      "creativeCount": 289,
-      "dailyGmv": 7411.0,
-      "dailyGmvWan": 0.74,
-      "gmvTrend": 1382.3,
-      "roiAvg": 2.56,
-      "roiP25": 2.2,
-      "roiP75": 3.9,
-      "refundAvg": 27.86,
-      "refundP25": 21.89,
-      "refundP75": 50.0,
-      "topProduct": "男士冰丝背心夏季新款潮流休闲运动健身坎肩男装无袖冰丝男背心",
-      "featureTags": [
-        {
-          "label": "透气",
-          "count": 189,
-          "pct": 63.0
-        },
-        {
-          "label": "速干",
-          "count": 89,
-          "pct": 30.0
-        }
-      ],
-      "topLives": [
-        {
-          "name": "倾刻欧货名品",
-          "gmv": 4758.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 112
-        },
-        {
-          "name": "啄木鸟森钰男装店",
-          "gmv": 2099.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 91
-        },
-        {
-          "name": "老爷车服饰男装店",
-          "gmv": 548.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 82
-        },
-        {
-          "name": "空",
-          "gmv": 5.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 11
-        }
-      ],
-      "topCreatives": [
-        {
-          "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53kqbbcaacnmadwuon45urqvaecfkaeeka.f0.mp4?dis_k=de4a9f7103e52f413539a8ec79f204e9&dis_t=1775184460&m=fb4967856c883d0c7ebc4040b0256eb4&sha256=aa3fe61287224d1972954ae87b728b706a6f0803c8800c99bf80768623c30061",
-          "md5": "fb4967856c883d0c7ebc4040b0256eb4",
-          "gmv": 949.0,
-          "roi": 2.75,
-          "live": "倾刻欧货名品"
-        },
-        {
-          "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53v4a4iaabc4ai2sizw5vbxlyeysxqdrca.f0.mp4?dis_k=52269b4f90988ece485ae54e903572f8&dis_t=1779976648&m=9de4f583eb99341c649fa7ab0b80afb4&sha256=a003888a5d5e3eaaee2d9148ac2f3225dc9ad822c483c28f9360b9c050f9b08b",
-          "md5": "9de4f583eb99341c649fa7ab0b80afb4",
-          "gmv": 919.0,
-          "roi": 2.25,
-          "live": "啄木鸟森钰男装店"
-        },
-        {
-          "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3hmabcaaaqeabcryapzvbuoyece5qaeka.f0.mp4?dis_k=0049f27f32173aaf2da1987b7d744277&dis_t=1778385088&m=779c10c4d45bf52f58d4011ea3aad7f6&sha256=919adb5432028e9019dda9aec3591e34ecbf37ed20d4877169af289c007072bd",
-          "md5": "779c10c4d45bf52f58d4011ea3aad7f6",
-          "gmv": 863.0,
-          "roi": 3.02,
-          "live": "倾刻欧货名品"
-        }
-      ]
-    },
-    {
-      "rank": 14,
-      "spu": "天丝铜氨牛仔裤",
-      "productCount": 6,
-      "liveCount": 7,
-      "creativeCount": 494,
-      "dailyGmv": 5941.0,
-      "dailyGmvWan": 0.59,
-      "gmvTrend": 102122.8,
-      "roiAvg": 3.27,
-      "roiP25": 3.08,
-      "roiP75": 7.3,
-      "refundAvg": 35.25,
-      "refundP25": 29.97,
-      "refundP75": 94.23,
-      "topProduct": "天丝莱赛尔男士牛仔短裤夏季轻薄透气垂感宽松五分裤休闲中裤男",
-      "featureTags": [
-        {
-          "label": "直筒",
-          "count": 472,
-          "pct": 94.0
-        },
-        {
-          "label": "透气",
-          "count": 304,
-          "pct": 61.0
-        },
-        {
-          "label": "通勤商务",
-          "count": 301,
-          "pct": 60.0
-        },
-        {
-          "label": "弹力",
-          "count": 171,
-          "pct": 34.0
-        }
-      ],
-      "topLives": [
-        {
-          "name": "顾木森辰夕黑标店",
-          "gmv": 4201.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 27
-        },
-        {
-          "name": "黑标欣玉广州店",
-          "gmv": 1325.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 272
-        },
-        {
-          "name": "老爷车品质男装",
-          "gmv": 305.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 171
-        },
-        {
-          "name": "金盾男装创俊服饰店",
-          "gmv": 56.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 24
-        },
-        {
-          "name": "驼鸟男装衣品轩",
-          "gmv": 44.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 1
-        }
-      ],
-      "topCreatives": [
-        {
-          "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53mmafmaaakualfljxxbvbuyyekzrqavsa.f0.mp4?dis_k=07ab0de19e4e6ca60badfb66ee8277a0&dis_t=1782356141&m=fa60bdae5735797a731633bb34b45740&sha256=ff74293b0454645535dac6fcfed96362b1747c426284a5ac24a1c8e2cbb45663",
-          "md5": "fa60bdae5735797a731633bb34b45740",
-          "gmv": 4057.0,
-          "roi": 3.02,
-          "live": "顾木森辰夕黑标店"
-        },
-        {
-          "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53mucr2aafxiaeqooxqjur6ziedvsqkhka.f0.mp4?dis_k=4d83c109fc4b2bec0da68ed66ec30bdc&dis_t=1775392252&m=62d32486d7a1c9641da7fba7f974341d&sha256=25b8f779e2e2fc79f7ed6341b71893e0562849a6ce82492316044d0f7b877f17",
-          "md5": "62d32486d7a1c9641da7fba7f974341d",
-          "gmv": 290.0,
-          "roi": 3.97,
-          "live": "黑标欣玉广州店"
-        },
-        {
-          "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc32mbyoaadayak5ihtufurtuyeq7jqhb2a.f0.mp4?dis_k=d7e87956f90fcede96e60c7df45f76a8&dis_t=1777347116&m=803ac0b855a210f886b251225ef600ac&sha256=b8b6c1723be2ddacf5ed91929b66b871af77524684630a59ffd31b0dadc13bf1",
-          "md5": "803ac0b855a210f886b251225ef600ac",
-          "gmv": 209.0,
-          "roi": 3.44,
-          "live": "黑标欣玉广州店"
-        }
-      ]
-    },
-    {
-      "rank": 15,
-      "spu": "桑蚕丝真丝Polo衫",
-      "productCount": 6,
-      "liveCount": 5,
-      "creativeCount": 347,
-      "dailyGmv": 5656.0,
-      "dailyGmvWan": 0.57,
-      "gmvTrend": 7900.1,
-      "roiAvg": 2.45,
-      "roiP25": 2.0,
-      "roiP75": 5.81,
-      "refundAvg": 32.79,
-      "refundP25": 27.08,
-      "refundP75": 100.0,
-      "topProduct": "品质专柜·[甄选农养桑蚕丝]轻奢男士刺绣短袖polo衫亲肤透气休闲百搭T恤",
-      "featureTags": [
-        {
-          "label": "POLO/翻领",
-          "count": 805,
-          "pct": 203.0
-        },
-        {
-          "label": "透气",
-          "count": 229,
-          "pct": 58.0
-        },
-        {
-          "label": "亚麻",
-          "count": 180,
-          "pct": 45.0
-        },
-        {
-          "label": "通勤商务",
-          "count": 167,
-          "pct": 42.0
-        }
-      ],
-      "topLives": [
-        {
-          "name": "佳凯男装",
-          "gmv": 4665.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 168
-        },
-        {
-          "name": "皮尔卡丹威猫专卖店",
-          "gmv": 828.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 156
-        },
-        {
-          "name": "浪登集团男装",
-          "gmv": 163.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 11
-        },
-        {
-          "name": "空",
-          "gmv": 0.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 13
-        },
-        {
-          "name": "杉杉FIRS品质男装店",
-          "gmv": 0.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 1
-        }
-      ],
-      "topCreatives": [
-        {
-          "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc35ic7gaafgiakk27gwjur72qe6pval42a.f0.mp4?dis_k=5dfee28bffce12f113190cb73b32238c&dis_t=1776506604&m=89416ad16c9240e676a7155bff5a7aaf&sha256=7a622496fd147f50ce9ec096719ca24da96f437e0f314f3f1854e62cef44265a",
-          "md5": "89416ad16c9240e676a7155bff5a7aaf",
-          "gmv": 1301.0,
-          "roi": 2.09,
-          "live": "佳凯男装"
-        },
-        {
-          "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc364aasaaaxuapzfi7wjvbv5yebh3qacka.f0.mp4?dis_k=208b8d54a0a836ca6b6d4c096b3604c8&dis_t=1780542026&m=9b8e4d6caa14e902b5debc0a0945570c&sha256=48fba03d42d6ae5f7461b9757ad3e50fe34d063688d5d3810073784eefd1cc8f",
-          "md5": "9b8e4d6caa14e902b5debc0a0945570c",
-          "gmv": 1268.0,
-          "roi": 6.65,
-          "live": "佳凯男装"
-        },
-        {
-          "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53saa6eaabviaiehop4jurxeae4kiadysa.f0.mp4?dis_k=e4cf9b73822e10a3fb71eaeb8e096be6&dis_t=1780048764&m=2a9938729e6c9f1dac2e06ef7ecb7802&sha256=30afc2cc10ab711acab646af0ae5de205a2009425dd791789cf56691d53dc1e3",
-          "md5": "2a9938729e6c9f1dac2e06ef7ecb7802",
-          "gmv": 719.0,
-          "roi": 1.6,
-          "live": "佳凯男装"
-        }
-      ]
-    },
-    {
-      "rank": 16,
-      "spu": "桑蚕丝真丝休闲裤",
-      "productCount": 5,
-      "liveCount": 6,
-      "creativeCount": 300,
-      "dailyGmv": 5587.0,
-      "dailyGmvWan": 0.56,
-      "gmvTrend": 1400.0,
-      "roiAvg": 5.27,
-      "roiP25": 4.77,
-      "roiP75": 6.25,
-      "refundAvg": 47.85,
-      "refundP25": 37.5,
-      "refundP75": 71.43,
-      "topProduct": "BIAOKINGPAUL/镖王保罗夏季亚麻桑蚕丝混纺男士透气直筒休闲男裤",
-      "featureTags": [
-        {
-          "label": "透气",
-          "count": 295,
-          "pct": 97.0
-        },
-        {
-          "label": "直筒",
-          "count": 292,
-          "pct": 96.0
-        },
-        {
-          "label": "亚麻",
-          "count": 279,
-          "pct": 91.0
-        }
-      ],
-      "topLives": [
-        {
-          "name": "镖王保罗男装服饰店",
-          "gmv": 4753.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 277
-        },
-        {
-          "name": "镖王保罗BIAOKINGPAUL男装店",
-          "gmv": 420.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 12
-        },
-        {
-          "name": "柒牌誉流商务男装",
-          "gmv": 359.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 8
-        },
-        {
-          "name": "空",
-          "gmv": 51.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 4
-        },
-        {
-          "name": "罗蒙勇往男装店",
-          "gmv": 5.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 1
-        }
-      ],
-      "topCreatives": [
-        {
-          "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53tmahiaaaneacvss6izubvgyeosnqa5ca.f0.mp4?dis_k=46dd7d235af01aa659919ddce0450cf5&dis_t=1780498746&m=b7dc03485b95fb3ae6843547f4147166&sha256=ed36eba8d5bdd0fe735f204d59d23befb4fe59392ce8b959b17d31f717a79919",
-          "md5": "b7dc03485b95fb3ae6843547f4147166",
-          "gmv": 604.0,
-          "roi": 6.37,
-          "live": "镖王保罗男装服饰店"
-        },
-        {
-          "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53r4awcaabpmal2pq4kfubxdyemghqcyka.f0.mp4?dis_k=526ef8c4480d78ebe78f980ec24c3505&dis_t=1780498657&m=2e40e64a956d951a3de4c7bc78fd7e23&sha256=d8c49f62c08ccfeafef7e9e6262c293b86afb2555e7b79a9a56f5d6751e11f6c",
-          "md5": "2e40e64a956d951a3de4c7bc78fd7e23",
-          "gmv": 545.0,
-          "roi": 6.85,
-          "live": "镖王保罗男装服饰店"
-        },
-        {
-          "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3rmabsaaaayallai5vjvbvcyedgfqagka.f0.mp4?dis_k=7da57f6d8c55a4f2260d4af9225a1539&dis_t=1780329621&m=29ab284d0328fc1e7694fd097a8ba82e",
-          "md5": "29ab284d0328fc1e7694fd097a8ba82e",
-          "gmv": 524.0,
-          "roi": 4.8,
-          "live": "镖王保罗男装服饰店"
-        }
-      ]
-    },
-    {
-      "rank": 17,
-      "spu": "牛仔牛仔裤",
-      "productCount": 19,
-      "liveCount": 11,
-      "creativeCount": 555,
-      "dailyGmv": 5479.0,
-      "dailyGmvWan": 0.55,
-      "gmvTrend": 1803.4,
-      "roiAvg": 4.52,
-      "roiP25": 4.1,
-      "roiP75": 6.68,
-      "refundAvg": 45.14,
-      "refundP25": 33.33,
-      "refundP75": 100.0,
-      "topProduct": "NHNE/竹节纹理/夏季复古潮流薄款直筒牛仔裤宽松休闲百搭加长裤子",
-      "featureTags": [
-        {
-          "label": "直筒",
-          "count": 518,
-          "pct": 90.0
-        },
-        {
-          "label": "美式复古",
-          "count": 404,
-          "pct": 70.0
-        },
-        {
-          "label": "弹力",
-          "count": 152,
-          "pct": 26.0
-        },
-        {
-          "label": "爆款",
-          "count": 97,
-          "pct": 17.0
-        },
-        {
-          "label": "通勤商务",
-          "count": 80,
-          "pct": 14.0
-        }
-      ],
-      "topLives": [
-        {
-          "name": "NHNE服饰",
-          "gmv": 2813.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 363
-        },
-        {
-          "name": "龙牙战术-铁血李大方",
-          "gmv": 1841.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 56
-        },
-        {
-          "name": "莫先森男装",
-          "gmv": 407.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 16
-        },
-        {
-          "name": "金盾百育品质男装",
-          "gmv": 212.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 97
-        },
-        {
-          "name": "空",
-          "gmv": 96.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 16
-        }
-      ],
-      "topCreatives": [
-        {
-          "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53t4bxeaadhiajqwri5jvbthyeokpqg4sa.f0.mp4?dis_k=6cb5a02ba94b3173f0956772abc65a1d&dis_t=1781263283&m=9b2afe8bb25683299abab079824cfffe&sha256=2be6781c13aa7d3245456a019ed06da1ce2556de2dd5a3de774d365a054bfe52",
-          "md5": "9b2afe8bb25683299abab079824cfffe",
-          "gmv": 1241.0,
-          "roi": 3.08,
-          "live": "NHNE服饰"
-        },
-        {
-          "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53uqbvcaadhyalw5bi55vbtjaekgsaguka.f0.mp4?dis_k=af95bade9e10eed43f02feda967db724&dis_t=1781263075&m=0047186774944082f47de4fee92c3a0a&sha256=8e7e3ec3223eac6823a7f7bf6aead98a7c37bf5d834430175a2bf387d273f5a5",
-          "md5": "0047186774944082f47de4fee92c3a0a",
-          "gmv": 726.0,
-          "roi": 1.73,
-          "live": "NHNE服饰"
-        },
-        {
-          "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3tqadcaaahianxuzl4nvbvhaeggoaamka.f0.mp4?dis_k=b5fd8eb122c19047d536f6f45d61cfe2&dis_t=1781637160&m=4fc2c862bc6fa65b35debffede0b8862&sha256=97e94c40b6e36ed660bfb832c094b08359ac6ee2eab8edf1b1522ab3ccd664f1",
-          "md5": "4fc2c862bc6fa65b35debffede0b8862",
-          "gmv": 491.0,
-          "roi": 1.34,
-          "live": "NHNE服饰"
-        }
-      ]
-    },
-    {
-      "rank": 18,
-      "spu": "重磅棉T恤",
-      "productCount": 6,
-      "liveCount": 4,
-      "creativeCount": 675,
-      "dailyGmv": 5448.0,
-      "dailyGmvWan": 0.54,
-      "gmvTrend": 11367.2,
-      "roiAvg": 4.88,
-      "roiP25": 4.03,
-      "roiP75": 8.7,
-      "refundAvg": 51.09,
-      "refundP25": 33.33,
-      "refundP75": 66.48,
-      "topProduct": "【买一送三 到手4件】真维斯重磅百搭男士短袖印花情侣纯棉t恤WH",
-      "featureTags": [],
-      "topLives": [
-        {
-          "name": "真维斯男子服饰小店",
-          "gmv": 5438.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 656
-        },
-        {
-          "name": "空",
-          "gmv": 7.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 28
-        },
-        {
-          "name": "杭曼HamonTaille",
-          "gmv": 3.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 8
-        },
-        {
-          "name": "思小简短袖T恤",
-          "gmv": 0.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 6
-        }
-      ],
-      "topCreatives": [
-        {
-          "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3hicu2aafw4ane265rrur6oqeju5aktka.f0.mp4?dis_k=30b04e88decbfe00e9191a955b6effa9&dis_t=1775804454&m=d7efb65b3892a3691db0a4aeef332ab3&sha256=31dbe2d717722cc09ef6a6cbc1cca6e9c3f52349ef581f232cf707d1ea818abb",
-          "md5": "d7efb65b3892a3691db0a4aeef332ab3",
-          "gmv": 2001.0,
-          "roi": 3.05,
-          "live": "真维斯男子服饰小店"
-        },
-        {
-          "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3nuah6aaa4iaoaaoypzuru3iep5wqa72a.f0.mp4?dis_k=f177ca96f593a972623ae0495a8cbd4d&dis_t=1775804450&m=01ddac650adb5ababa631be4f4bdc345&sha256=7d10970d5fc8c441610b65f359fac48ac583be81e10ff2f5f009cdc864cc2e1e",
-          "md5": "01ddac650adb5ababa631be4f4bdc345",
-          "gmv": 694.0,
-          "roi": 4.61,
-          "live": "真维斯男子服饰小店"
-        },
-        {
-          "url": "",
-          "md5": "空",
-          "gmv": 502.0,
-          "roi": 2.04,
-          "live": "真维斯男子服饰小店"
-        }
-      ]
-    },
-    {
-      "rank": 19,
-      "spu": "冰丝凉感休闲套装",
-      "productCount": 31,
-      "liveCount": 9,
-      "creativeCount": 2423,
-      "dailyGmv": 5356.0,
-      "dailyGmvWan": 0.54,
-      "gmvTrend": 129172.1,
-      "roiAvg": 2.77,
-      "roiP25": 2.59,
-      "roiP75": 20.32,
-      "refundAvg": 60.34,
-      "refundP25": 46.58,
-      "refundP75": 100.0,
-      "topProduct": "【冰感套装】啄木鸟夏季新款中老年爸爸装休闲POLO衫冰丝裤套装",
-      "featureTags": [
-        {
-          "label": "POLO/翻领",
-          "count": 5133,
-          "pct": 186.0
-        },
-        {
-          "label": "透气",
-          "count": 898,
-          "pct": 33.0
-        },
-        {
-          "label": "通勤商务",
-          "count": 387,
-          "pct": 14.0
-        }
-      ],
-      "topLives": [
-        {
-          "name": "啄木鸟雷祯男装店",
-          "gmv": 4347.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 1693
-        },
-        {
-          "name": "老爷车赢迪男装",
-          "gmv": 606.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 317
-        },
-        {
-          "name": "老爷车服饰男装店",
-          "gmv": 221.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 69
-        },
-        {
-          "name": "啄木鸟TUCANO男装服饰",
-          "gmv": 109.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 141
-        },
-        {
-          "name": "罗蒙官方店",
-          "gmv": 53.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 128
-        }
-      ],
-      "topCreatives": [
-        {
-          "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53peby2aadu4alwsoyvrurs6ierv4qhdka.f0.mp4?dis_k=2cab8a9ecd62895ba2baa72166859349&dis_t=1778737552&m=7cd4745e7db8f9ada2db80fcb028abc8&sha256=8f2f43bb0e4d1859256ac84be818e6bd0bd3cd576d19a7a9839b5ad91828ec0e",
-          "md5": "7cd4745e7db8f9ada2db80fcb028abc8",
-          "gmv": 1662.0,
-          "roi": 9.25,
-          "live": "啄木鸟雷祯男装店"
-        },
-        {
-          "url": "http://adsmind.gdtimg.com/ads_svp_video__0b533qccoaaeiuamgxgemrur5xaee7oaij2a.f0.mp4?dis_k=aa6d8abecac6b8fe6bc4452f0828c36f&dis_t=1774249140&m=11f998ffd6efc6d83550279a7b0cc7a8&sha256=153d31bd49bcf24e1d4adae2ed48b9a6279669d52b4d4c3f3b85466a89a08d42",
-          "md5": "11f998ffd6efc6d83550279a7b0cc7a8",
-          "gmv": 538.0,
-          "roi": 1.67,
-          "live": "啄木鸟雷祯男装店"
-        },
-        {
-          "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc33eaw4aabiaaiuyob3burxwien3mqc3sa.f0.mp4?dis_k=6a48d7616a2b8bcf1880be8054af965f&dis_t=1774249146&m=acfb005c67587be44e409240f2fa435e&sha256=407afbe5111170af5e1ecb5679933d7cdc15764eccbe6453ae708ba6f402d0a3",
-          "md5": "acfb005c67587be44e409240f2fa435e",
-          "gmv": 447.0,
-          "roi": 20.1,
-          "live": "啄木鸟雷祯男装店"
-        }
-      ]
-    },
-    {
-      "rank": 20,
-      "spu": "其他衬衫",
-      "productCount": 7,
-      "liveCount": 5,
-      "creativeCount": 108,
-      "dailyGmv": 5341.0,
-      "dailyGmvWan": 0.53,
-      "gmvTrend": 3670987.7,
-      "roiAvg": 3.48,
-      "roiP25": 3.07,
-      "roiP75": 5.22,
-      "refundAvg": 13.87,
-      "refundP25": 14.29,
-      "refundP75": 47.12,
-      "topProduct": "【大肚遮肉】【竖纹】罗蒙夏季男士竹纤维衬衫白色商务短袖衬衣正装",
-      "featureTags": [
-        {
-          "label": "通勤商务",
-          "count": 88,
-          "pct": 76.0
-        },
-        {
-          "label": "POLO/翻领",
-          "count": 17,
-          "pct": 15.0
-        }
-      ],
-      "topLives": [
-        {
-          "name": "罗蒙昌航衣饰",
-          "gmv": 4445.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 41
-        },
-        {
-          "name": "啄木鸟行望男装店",
-          "gmv": 451.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 12
-        },
-        {
-          "name": "培蒙男装奥莱旗舰店",
-          "gmv": 332.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 26
-        },
-        {
-          "name": "十如仕DETERMINANT",
-          "gmv": 112.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 29
-        },
-        {
-          "name": "空",
-          "gmv": 1.0,
-          "roi": 0.0,
-          "refund": 0.0,
-          "creatives": 5
-        }
-      ],
-      "topCreatives": [
-        {
-          "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53sybq4aadvuadpbjrmvvbtfqeb2lagdsa.f0.mp4?dis_k=18a066c2ddfb8d131c39f383287e07e2&dis_t=1781676366&m=9a9c9fe3bd9edba6cd6eea552280efd5&sha256=0b2d55ca15a12eafdf966d4d95f371d4dc858f73912bcfa2cee896730ce47da3",
-          "md5": "9a9c9fe3bd9edba6cd6eea552280efd5",
-          "gmv": 4029.0,
-          "roi": 3.47,
-          "live": "罗蒙昌航衣饰"
         },
         {
-          "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53p4bloaacciakmm7wb5urq7yew57qfn2a.f0.mp4?dis_k=ec2a02fe05870d345661f83af03c2920&dis_t=1777602960&m=bc873d585e6744a6b1a514384a949f39&sha256=57911e5030d19ffe69d9a92d57d82ccd63ba05db32be0bb46e850b34d8beecaf",
-          "md5": "bc873d585e6744a6b1a514384a949f39",
-          "gmv": 365.0,
-          "roi": 2.62,
-          "live": "啄木鸟行望男装店"
+          "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3riamwaaagyakbqiyxrubvcqezofabs2a.f0.mp4?dis_k=c212bc4a95003e320aea748ada120e78&dis_t=1747979107&sha256=a1dba7d27680a227ae7530aeb5e9456871f7aefe90640d61b1680e8919c0ff9c&m=f42dae690602fecf28ff40431371c343",
+          "md5": "f42dae690602fecf28ff40431371c343",
+          "gmv": 450.0,
+          "roi": 2.2,
+          "live": "凡客依舍直播账号"
         },
         {
-          "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3d4c7maaf6makv6hf6fur6hye6ypql5sa.f0.mp4?dis_k=f327ae95cf9f39a0dfcb6f8b51c0f9e4&dis_t=1776317564&m=047600908b83f8284846c865ebb38d23&sha256=11380dc2b709081e008ca3b77f409518c3c77aa4efa9579b9e6bee65ca1c06b5",
-          "md5": "047600908b83f8284846c865ebb38d23",
-          "gmv": 146.0,
-          "roi": 3.12,
-          "live": "培蒙男装奥莱旗舰店"
+          "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc33uaiwaaa2qafxmvxrfurvxierpoqbc2a.f0.mp4?dis_k=dd42f560927561f91a2ab932b05aefae&dis_t=1776157955&m=4362ac7937367b7f0a3774888e23ff9e&sha256=bfe353abb04dbeb3ab44a689edc991918273fa9f19a1000c7a0ed5f4aebb9000",
+          "md5": "4362ac7937367b7f0a3774888e23ff9e",
+          "gmv": 435.0,
+          "roi": 2.93,
+          "live": "拇指白小T官方旗舰店"
         }
       ]
     }

@@ -592,6 +592,22 @@
   .trend-pill.down { color: var(--danger);   background: #fee2e2; }
   .trend-pill.flat { color: var(--ink-500);  background: var(--ink-100); }
 
+  /* ⭐ 上涨专用 pill（只在涨时展示，脱敏后主视觉之一） */
+  .up-pill {
+    display: inline-flex; align-items: center; gap: 3px;
+    padding: 3px 10px; border-radius: var(--radius-full);
+    font-size: var(--fs-xs); font-weight: var(--fw-black);
+    background: linear-gradient(135deg, var(--mint-100), var(--mint-200));
+    color: var(--mint-700);
+    border: 1px solid var(--mint-300);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.2px;
+  }
+  .up-pill-lg {
+    padding: 4px 12px; font-size: var(--fs-sm);
+    box-shadow: 0 2px 6px rgba(16,185,129,0.2);
+  }
+
   .acc-meta { font-size: var(--fs-xs); color: var(--ink-500); }
   .acc-meta b { color: var(--mint-600); font-weight: var(--fw-bold); font-variant-numeric: tabular-nums; }
 
@@ -646,6 +662,7 @@
     color: var(--ink-900);
   }
   .metric-cell .val.gmv { color: var(--mint-600); }
+  .metric-cell .val.muted { color: var(--ink-400); }
   .metric-cell .rng {
     font-size: var(--fs-2xs); color: var(--ink-500); margin-top: 5px;
   }
@@ -1203,7 +1220,7 @@
       <div class="insight-header">
         <div>
           <div class="insight-big-num" id="wechat-big-num">-</div>
-          <div class="insight-big-lbl">TOP10 SPU 合计日均消耗（占男装大盘 <b id="wechat-coverage">-</b>%）</div>
+          <div class="insight-big-lbl">TOP10 SPU 合计消耗占男装大盘比例 · 共 <b id="wechat-spu-count">-</b> 个爆款 SPU</div>
         </div>
         <div class="insight-badges" id="wechat-trend-badges"></div>
       </div>
@@ -1276,6 +1293,27 @@
     return `<span class="trend-pill flat">➡️ ${t >= 0 ? '+' : ''}${t.toFixed(1)}%</span>`;
   }
 
+  /* ⭐ 脱敏规则（对外·服务商/销售视角）：
+   *   - 视频号消耗金额不对外展示，仅用「涨幅%」体现健康度
+   *   - 只展示上涨（>0），下跌或持平不展示涨幅（避免负面信息外泄）
+   *   - 投放主体（直播间名/客户名）不对外，匿名化为「TOP1 直播间 / 某跑量直播间」
+   */
+  function upPill(t, size='sm') {
+    // 只在涨才显示 pill；跌/持平/无数据 都返回空串
+    if (t == null || t <= 0) return '';
+    const cls = size === 'lg' ? 'up-pill up-pill-lg' : 'up-pill';
+    return `<span class="${cls}">📈 +${t.toFixed(1)}%</span>`;
+  }
+  function upBig(t) {
+    // 大数字位置：涨则显示 +X%；跌/无数据 显示 —
+    if (t == null || t <= 0) return '—';
+    return `+${t.toFixed(1)}%`;
+  }
+  function anonLive(i) {
+    // 直播间脱敏：按排名匿名化
+    return `TOP${i + 1} 直播间`;
+  }
+
   const TAG_CATEGORY = {
     '桑蚕丝':'hot','天丝':'hot','莫代尔':'hot','汉麻香云纱':'hot','亚麻':'hot','90/95绒':'hot','260g重磅':'hot',
     'UPF防晒':'func','抗菌抑菌':'func','速干':'func','透气':'func','抗皱免烫':'func','弹力':'func',
@@ -1307,12 +1345,12 @@
           <div class="case-info">
             <div class="case-title">${topWechat ? topWechat.spu : '-'}</div>
             <div class="case-desc">
-              ${topLive ? `<b>${topLive.name}</b> 通过 ADQ × 视频号直播实现规模化跑量` : '暂无数据'}${topWechat && topWechat.gmvTrend != null ? ' · ' + (topWechat.gmvTrend >= 0 ? '环比 +' : '环比 ') + topWechat.gmvTrend.toFixed(1) + '%' : ''}
+              视频号大盘 <b>${topWechat ? topWechat.liveCount : '-'}</b> 家直播间在投 · 通过 ADQ × 视频号直播实现规模化跑量${topWechat && topWechat.gmvTrend != null && topWechat.gmvTrend > 0 ? ' · 消耗环比 +' + topWechat.gmvTrend.toFixed(1) + '%' : ''}
             </div>
             <div class="case-metrics">
-              ${topLive ? `<div class="case-metric"><span class="lbl">直播间日耗</span><span class="val">${fmtYuan(topLive.gmv)}</span></div>` : ''}
-              ${topLive ? `<div class="case-metric"><span class="lbl">下单ROI</span><span class="val">${topLive.roi}</span></div>` : ''}
+              ${topLive ? `<div class="case-metric"><span class="lbl">TOP1 直播间 ROI</span><span class="val">${topLive.roi}</span></div>` : ''}
               ${topWechat ? `<div class="case-metric"><span class="lbl">客单价</span><span class="val">¥${topWechat.priceAvg}</span></div>` : ''}
+              ${topWechat ? `<div class="case-metric"><span class="lbl">TOP3 直播间 ROI 范围</span><span class="val">${topWechat.roiRangeTop3}</span></div>` : ''}
             </div>
           </div>
         </div>
@@ -1345,14 +1383,14 @@
     const d = DATA.douyin.kpi;
     document.getElementById('kpi-hero').innerHTML = `
       <div class="kpi-hero-card mint">
-        <div class="kpi-hero-lbl"><span class="icon">🟢</span>视频号男装大盘日耗</div>
-        <div class="kpi-hero-val u-num">${w.totalDailyGmvWan}<span class="unit">万/日</span></div>
-        <div class="kpi-hero-note">${w.totalLives} 家在投直播间</div>
+        <div class="kpi-hero-lbl"><span class="icon">🟢</span>视频号男装在投直播间</div>
+        <div class="kpi-hero-val u-num">${w.totalLives}<span class="unit">家</span></div>
+        <div class="kpi-hero-note">合计 ${w.totalCreatives >= 10000 ? (w.totalCreatives/10000).toFixed(1) + '万' : w.totalCreatives} 条素材在跑</div>
       </div>
       <div class="kpi-hero-card blue">
-        <div class="kpi-hero-lbl"><span class="icon">📊</span>TOP10 SPU 日耗</div>
-        <div class="kpi-hero-val u-num">${(w.top10SpuGmv/10000).toFixed(1)}<span class="unit">万/日</span></div>
-        <div class="kpi-hero-note">占大盘 ${w.top10SpuCoverage}%</div>
+        <div class="kpi-hero-lbl"><span class="icon">📊</span>TOP10 SPU 覆盖率</div>
+        <div class="kpi-hero-val u-num">${w.top10SpuCoverage}<span class="unit">%</span></div>
+        <div class="kpi-hero-note">占男装大盘消耗比例</div>
       </div>
       <div class="kpi-hero-card brand">
         <div class="kpi-hero-lbl"><span class="icon">🟠</span>抖音爆款 GMV（TOP20）</div>
@@ -1367,19 +1405,20 @@
     `;
   }
 
-  /* ========== 视频号洞察 · 高亮总结 ========== */
+  /* ========== 视频号洞察 · 高亮总结（脱敏版·对外） ========== */
   function renderWechatInsight() {
     const w = DATA.wechat;
-    document.getElementById('wechat-big-num').textContent = (w.kpi.top10SpuGmv/10000).toFixed(1) + '万';
-    document.getElementById('wechat-coverage').textContent = w.kpi.top10SpuCoverage;
+    // ⭐ 主数字改为「TOP10 SPU 覆盖率」百分比（不透出金额）
+    document.getElementById('wechat-big-num').textContent = w.kpi.top10SpuCoverage + '%';
+    document.getElementById('wechat-spu-count').textContent = w.spus.length;
 
     const upSpus = w.spus.filter(s => s.gmvTrend != null && s.gmvTrend > 5);
     const downSpus = w.spus.filter(s => s.gmvTrend != null && s.gmvTrend < -5);
     const flatSpus = w.spus.filter(s => s.gmvTrend == null || (s.gmvTrend >= -5 && s.gmvTrend <= 5));
     document.getElementById('wechat-trend-badges').innerHTML = `
-      <div class="insight-badge" style="background:#fee2e2;color:#dc2626;">📉 ${downSpus.length} 个下滑</div>
       <div class="insight-badge">📈 ${upSpus.length} 个上涨</div>
       <div class="insight-badge" style="background:#f1f5f9;color:#64748b;">➡️ ${flatSpus.length} 个持平</div>
+      <div class="insight-badge" style="background:#fee2e2;color:#dc2626;">📉 ${downSpus.length} 个待优化</div>
     `;
 
     const top3Spu = w.spus.slice(0, 3);
@@ -1395,20 +1434,20 @@
               <span class="hl-spu-chip">
                 <span class="hl-rank">#${i + 1}</span>
                 <span class="hl-spu-name">${s.spu}</span>
-                <span class="hl-spu-gmv">${fmtYuan(s.dailyGmv)}/日</span>
                 <span class="hl-spu-roi">ROI ${s.roiRangeTop3}</span>
+                ${upPill(s.gmvTrend)}
               </span>
             `).join('')}
           </div>
         </div>
       </div>
-      ${growLive ? `
+      ${growLive && growLive.env != null && growLive.env > 0 ? `
       <div class="hl-row hl-row-live">
         <div class="hl-icon">🚀</div>
         <div class="hl-body">
-          <div class="hl-title">消耗增长最大的直播间 · <b>${growLive.name}</b> <span class="hl-tag">+${growLive.env.toFixed(1)}%</span></div>
+          <div class="hl-title">消耗增长最快的跑量直播间 <span class="hl-tag">+${growLive.env.toFixed(1)}%</span></div>
           <div class="hl-desc">
-            日耗 <b>${fmtYuan(growLive.gmv)}</b>（上期 ${fmtYuan(growLive.lastGmv)}） · 主要投放 SPU：
+            主要投放 SPU：
             ${growLive.mainSpus.map(s => `<span class="hl-live-spu">${s.name} <span class="pct">${s.pct}%</span></span>`).join('')}
           </div>
         </div>
@@ -1482,42 +1521,49 @@
     `;
   }
 
-  /* ========== 视频号 SPU 列表 ========== */
+  /* ========== 视频号 SPU 列表（脱敏版·对外） ========== */
   function renderWechatList() {
     const list = document.getElementById('wechat-spu-list');
     list.innerHTML = DATA.wechat.spus.map(s => {
       const creativeCells = renderCreatives(s.topCreatives.slice(0, 3));
+      // ⭐ 直播间卡：匿名化 + 主视觉改为 ROI（不透金额），涨才显示环比 pill
       const liveCards = s.topLives.slice(0, 3).map((l, i) => `
         <div class="live-card">
           <div class="live-card-head">
             <div class="live-card-rank${i === 0 ? ' top1' : ''}">${i + 1}</div>
-            <div class="live-card-name" title="${l.name}">${l.name}</div>
+            <div class="live-card-name">${anonLive(i)}</div>
+            ${upPill(l.env)}
           </div>
           <div class="live-card-gmv">
-            <span class="val">${fmtYuan(l.gmv)}</span>
-            <span class="unit">/日 · 直播间男装总消耗</span>
+            <span class="val">${l.roi}</span>
+            <span class="unit">下单 ROI（TOP${i + 1} 直播间）</span>
           </div>
           <div class="live-card-metrics">
-            <span>ROI <b style="color:${l.roi>=3?'var(--mint-600)':l.roi>=2?'var(--brand-400)':'var(--danger)'};">${l.roi}</b></span>
             <span>退款 <b style="color:${l.refund<=30?'var(--mint-600)':l.refund<=50?'var(--brand-400)':'var(--danger)'};">${l.refund}%</b></span>
             <span>素材 <b>${l.creatives}</b>条</span>
+            <span>SPU占比 <b>${l.spuPct}%</b></span>
           </div>
         </div>
       `).join('');
+
+      // ⭐ acc-meta 脱敏：去掉「日均消耗」金额，改为「环比涨幅（涨才显示）· 直播间数 · 素材数」
+      const metaEnv = (s.gmvTrend != null && s.gmvTrend > 0)
+        ? `<b style="color:var(--mint-600);">环比 +${s.gmvTrend.toFixed(1)}%</b> · `
+        : '';
 
       return `
         <div class="spu-accordion open">
           <div class="acc-head">
             <div class="acc-rank${s.rank <= 3 ? ' top3' : ''}">#${s.rank}</div>
             <div class="acc-title">
-              <div class="acc-spu-name">${s.spu}${trendPill(s.gmvTrend)}</div>
-              <div class="acc-meta"><b>${fmtYuan(s.dailyGmv)}</b> 日均消耗 · ${s.liveCount} 家直播间 · ${s.creativeCount} 条素材</div>
+              <div class="acc-spu-name">${s.spu}${upPill(s.gmvTrend)}</div>
+              <div class="acc-meta">${metaEnv}${s.liveCount} 家在投直播间 · ${s.creativeCount} 条素材</div>
             </div>
             <div class="acc-summary">
-              <div class="cell"><b>${fmtYuan(s.dailyGmv)}</b><span>日耗</span></div>
               <div class="cell"><b style="color:var(--mint-600);">${s.roiRangeTop3}</b><span>ROI 范围</span></div>
               <div class="cell"><b style="color:var(--brand-500);">${s.refundRangeTop3}</b><span>退款率范围</span></div>
               <div class="cell"><b>¥${s.priceAvg}</b><span>客单价</span></div>
+              <div class="cell"><b>${s.liveCount}</b><span>在投直播间</span></div>
             </div>
           </div>
           <div class="acc-body">
@@ -1525,9 +1571,9 @@
               ${renderFeatureTags(s.featureTags)}
               <div class="metric-strip">
                 <div class="metric-cell">
-                  <div class="lbl">日均消耗</div>
-                  <div class="val gmv">${fmtYuan(s.dailyGmv)}</div>
-                  <div class="rng">${s.gmvTrend != null ? '环比 ' + (s.gmvTrend >= 0 ? '+' : '') + s.gmvTrend.toFixed(1) + '%' : s.creativeCount + '条素材'}</div>
+                  <div class="lbl">消耗环比</div>
+                  <div class="val ${s.gmvTrend != null && s.gmvTrend > 0 ? 'gmv' : 'muted'}">${upBig(s.gmvTrend)}</div>
+                  <div class="rng">${s.gmvTrend != null && s.gmvTrend > 0 ? '近7天 vs 前7天' : '本期消耗保持观察'}</div>
                 </div>
                 <div class="metric-cell">
                   <div class="lbl">下单 ROI 范围</div>
@@ -1551,7 +1597,7 @@
                   <div class="creatives-grid">${creativeCells}</div>
                 </div>
                 <div style="display:flex;flex-direction:column;">
-                  <div class="split-col-title">📺 消耗 TOP3 直播间<span class="split-col-note">直播间男装总日耗</span></div>
+                  <div class="split-col-title">📺 消耗 TOP3 直播间<span class="split-col-note">已匿名化 · ROI/退款率为直播间实测值</span></div>
                   <div class="live-list-vertical" style="flex:1;">${liveCards}</div>
                 </div>
               </div>
@@ -1577,8 +1623,8 @@
              <div class="creative-fallback" style="display:none">素材加载失败<br>点击打开原视频</div>` :
             `<div class="creative-fallback">素材链接<br>已失效</div>`}
           <div class="creative-overlay">
-            <div class="gmv-line">素材日耗 ${fmtYuan(c.gmv)} · ROI ${c.roi}</div>
-            <div class="live-line" title="${c.live}">${c.live}</div>
+            <div class="gmv-line">ROI ${c.roi}</div>
+            <div class="live-line">TOP${i + 1} 跑量素材</div>
           </div>
         </div>
       `;

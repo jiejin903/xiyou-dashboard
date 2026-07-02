@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-01",
+  "generatedAt": "2026-07-02",
   "wechat": {
     "title": "🟢 视频号男装爆款 TOP10",
     "subtitle": "近7天视频号大盘高消耗 SPU · 数据源：中台通用分析数据集",
@@ -8,8 +8,10 @@
       "spuCount": 10,
       "totalDailyGmv": 372809,
       "totalDailyGmvWan": 37.3,
+      "marketEnv": -32.0,
       "top10SpuGmv": 218851,
       "top10SpuCoverage": 58.7,
+      "top10Env": -26.2,
       "totalLives": 178,
       "totalCreatives": 27556
     },
@@ -79,6 +81,7 @@
             "gmv": 29154.0,
             "spuGmv": 15495.0,
             "spuPct": 53.1,
+            "env": -20.1,
             "roi": 2.19,
             "refund": 48.45,
             "creatives": 429
@@ -88,6 +91,7 @@
             "gmv": 9138.0,
             "spuGmv": 8931.0,
             "spuPct": 97.7,
+            "env": -6.2,
             "roi": 2.85,
             "refund": 37.11,
             "creatives": 1153
@@ -97,6 +101,7 @@
             "gmv": 30598.0,
             "spuGmv": 8775.0,
             "spuPct": 28.7,
+            "env": 1.0,
             "roi": 12.86,
             "refund": 34.38,
             "creatives": 229
@@ -194,6 +199,7 @@
             "gmv": 13937.0,
             "spuGmv": 13937.0,
             "spuPct": 100.0,
+            "env": -14.4,
             "roi": 3.55,
             "refund": 46.71,
             "creatives": 262
@@ -203,6 +209,7 @@
             "gmv": 12948.0,
             "spuGmv": 8748.0,
             "spuPct": 67.6,
+            "env": -38.2,
             "roi": 5.36,
             "refund": 32.91,
             "creatives": 415
@@ -212,6 +219,7 @@
             "gmv": 1744.0,
             "spuGmv": 1744.0,
             "spuPct": 100.0,
+            "env": 85.0,
             "roi": 2.66,
             "refund": 25.78,
             "creatives": 108
@@ -309,6 +317,7 @@
             "gmv": 30598.0,
             "spuGmv": 14990.0,
             "spuPct": 49.0,
+            "env": 1.0,
             "roi": 13.47,
             "refund": 34.62,
             "creatives": 283
@@ -318,6 +327,7 @@
             "gmv": 6216.0,
             "spuGmv": 3677.0,
             "spuPct": 59.2,
+            "env": -42.6,
             "roi": 3.63,
             "refund": 46.29,
             "creatives": 316
@@ -327,6 +337,7 @@
             "gmv": 2907.0,
             "spuGmv": 2903.0,
             "spuPct": 99.9,
+            "env": -34.3,
             "roi": 2.82,
             "refund": 45.12,
             "creatives": 234
@@ -424,6 +435,7 @@
             "gmv": 6198.0,
             "spuGmv": 6198.0,
             "spuPct": 100.0,
+            "env": -16.5,
             "roi": 3.66,
             "refund": 34.21,
             "creatives": 220
@@ -433,6 +445,7 @@
             "gmv": 3441.0,
             "spuGmv": 2975.0,
             "spuPct": 86.4,
+            "env": -47.6,
             "roi": 3.45,
             "refund": 51.7,
             "creatives": 170
@@ -442,6 +455,7 @@
             "gmv": 2889.0,
             "spuGmv": 2872.0,
             "spuPct": 99.4,
+            "env": 0.0,
             "roi": 1.75,
             "refund": 20.66,
             "creatives": 199
@@ -534,6 +548,7 @@
             "gmv": 42504.0,
             "spuGmv": 21151.0,
             "spuPct": 49.8,
+            "env": -27.2,
             "roi": 3.33,
             "refund": 59.04,
             "creatives": 1047
@@ -543,6 +558,7 @@
             "gmv": 4159.0,
             "spuGmv": 4159.0,
             "spuPct": 100.0,
+            "env": 106.9,
             "roi": 2.71,
             "refund": 41.61,
             "creatives": 160
@@ -552,6 +568,7 @@
             "gmv": 640.0,
             "spuGmv": 640.0,
             "spuPct": 100.0,
+            "env": 15.9,
             "roi": 2.44,
             "refund": 56.31,
             "creatives": 109
@@ -623,6 +640,7 @@
             "gmv": 17329.0,
             "spuGmv": 16525.0,
             "spuPct": 95.4,
+            "env": 51.6,
             "roi": 2.49,
             "refund": 30.0,
             "creatives": 310
@@ -632,6 +650,7 @@
             "gmv": 1343.0,
             "spuGmv": 1.0,
             "spuPct": 0.1,
+            "env": -8.5,
             "roi": 0.0,
             "refund": 0.0,
             "creatives": 4
@@ -641,6 +660,7 @@
             "gmv": 0.0,
             "spuGmv": 0.0,
             "spuPct": 100.0,
+            "env": 0.0,
             "roi": 0.0,
             "refund": 0.0,
             "creatives": 1
@@ -723,6 +743,7 @@
             "gmv": 13076.0,
             "spuGmv": 12325.0,
             "spuPct": 94.3,
+            "env": -40.7,
             "roi": 1.86,
             "refund": 36.52,
             "creatives": 1140
@@ -732,6 +753,7 @@
             "gmv": 424.0,
             "spuGmv": 424.0,
             "spuPct": 100.0,
+            "env": -21.9,
             "roi": 2.76,
             "refund": 34.3,
             "creatives": 36
@@ -741,6 +763,7 @@
             "gmv": 304.0,
             "spuGmv": 304.0,
             "spuPct": 100.0,
+            "env": -13.0,
             "roi": 1.59,
             "refund": 45.57,
             "creatives": 20
@@ -833,6 +856,7 @@
             "gmv": 8819.0,
             "spuGmv": 7792.0,
             "spuPct": 88.4,
+            "env": -53.2,
             "roi": 3.37,
             "refund": 38.77,
             "creatives": 1246
@@ -842,6 +866,7 @@
             "gmv": 13021.0,
             "spuGmv": 2220.0,
             "spuPct": 17.1,
+            "env": -52.0,
             "roi": 3.37,
             "refund": 30.05,
             "creatives": 267
@@ -851,6 +876,7 @@
             "gmv": 431.0,
             "spuGmv": 431.0,
             "spuPct": 100.0,
+            "env": -41.2,
             "roi": 3.72,
             "refund": 60.82,
             "creatives": 17
@@ -948,6 +974,7 @@
             "gmv": 3879.0,
             "spuGmv": 3879.0,
             "spuPct": 100.0,
+            "env": -11.5,
             "roi": 2.83,
             "refund": 45.55,
             "creatives": 404
@@ -957,6 +984,7 @@
             "gmv": 30598.0,
             "spuGmv": 2392.0,
             "spuPct": 7.8,
+            "env": 1.0,
             "roi": 7.26,
             "refund": 61.94,
             "creatives": 326
@@ -966,6 +994,7 @@
             "gmv": 13021.0,
             "spuGmv": 1221.0,
             "spuPct": 9.4,
+            "env": -52.0,
             "roi": 3.95,
             "refund": 35.53,
             "creatives": 380
@@ -1048,6 +1077,7 @@
             "gmv": 13021.0,
             "spuGmv": 7784.0,
             "spuPct": 59.8,
+            "env": -52.0,
             "roi": 3.03,
             "refund": 32.74,
             "creatives": 886
@@ -1057,6 +1087,7 @@
             "gmv": 814.0,
             "spuGmv": 814.0,
             "spuPct": 100.0,
+            "env": -22.0,
             "roi": 2.36,
             "refund": 37.43,
             "creatives": 122
@@ -1066,6 +1097,7 @@
             "gmv": 3339.0,
             "spuGmv": 402.0,
             "spuPct": 12.0,
+            "env": -55.7,
             "roi": 3.83,
             "refund": 65.15,
             "creatives": 108
