@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>服饰拓客拓品指南（男装版）</title>
+<title>服饰拓客拓品指南 · 全赛道</title>
 <style>
   /* ============================================================
      🎨 设计系统 · Design Tokens
@@ -1176,6 +1176,102 @@
     .spu-grid { grid-template-columns: 1fr; }
     .live-card-metrics { flex-wrap: wrap; gap: 8px; }
   }
+
+  /* ============================================================
+     🏷️ 赛道 Tab 栏
+     ============================================================ */
+  .track-tabs {
+    background: var(--bg-surface);
+    border-bottom: 1px solid var(--ink-200);
+    position: sticky; top: 0; z-index: 50;
+    box-shadow: 0 2px 8px rgba(15,23,42,0.04);
+  }
+  .track-tabs-inner {
+    max-width: var(--max-w); margin: 0 auto;
+    display: flex; gap: 4px; padding: 8px var(--space-6);
+    overflow-x: auto; scrollbar-width: none;
+  }
+  .track-tabs-inner::-webkit-scrollbar { display: none; }
+  .track-tab {
+    padding: 10px 20px; border-radius: var(--radius-sm);
+    font-size: var(--fs-h4); font-weight: var(--fw-semi);
+    color: var(--ink-500); cursor: pointer;
+    transition: all var(--dur) var(--ease);
+    white-space: nowrap;
+    display: flex; align-items: center; gap: 6px;
+    border: 1px solid transparent;
+  }
+  .track-tab:hover { color: var(--brand-500); background: var(--brand-50); }
+  .track-tab.active {
+    background: linear-gradient(135deg, var(--brand-400), var(--brand-500));
+    color: #fff; font-weight: var(--fw-bold);
+    box-shadow: 0 2px 8px rgba(234,88,12,0.25);
+  }
+  .track-tab .tab-count {
+    font-size: var(--fs-2xs); font-weight: var(--fw-bold);
+    padding: 2px 6px; border-radius: var(--radius-full);
+    background: rgba(0,0,0,0.06);
+  }
+  .track-tab.active .tab-count { background: rgba(255,255,255,0.28); color: #fff; }
+
+  /* Hero 6 卡布局（3 视频号 + 3 抖音） */
+  .hero-cases.six {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    gap: 12px;
+  }
+  .hero-cases.six .case-card {
+    padding: 14px 16px;
+  }
+  .hero-cases.six .case-body { gap: 10px; }
+  .hero-cases.six .case-avatar { width: 56px; height: 56px; font-size: 22px; }
+  .hero-cases.six .case-title { font-size: var(--fs-h4); }
+  .hero-cases.six .case-metrics { gap: 10px; }
+  .hero-cases.six .case-metric .val { font-size: var(--fs-h4); }
+  @media (max-width: 1024px) {
+    .hero-cases.six { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .hero-cases.six { grid-template-columns: 1fr; }
+  }
+
+  /* 潜力商品跳外部看板占位 */
+  .external-jump-card {
+    padding: 40px 32px; text-align: center;
+    background: linear-gradient(135deg, var(--brand-50), var(--brand-100));
+    border-radius: var(--radius-lg);
+    border: 2px dashed var(--brand-300);
+  }
+  .external-jump-card h3 {
+    font-size: var(--fs-h3); font-weight: var(--fw-bold);
+    color: var(--brand-700); margin-bottom: 8px;
+  }
+  .external-jump-card p {
+    font-size: var(--fs-body); color: var(--ink-600);
+    margin-bottom: 16px;
+  }
+  .external-jump-btn {
+    display: inline-block;
+    padding: 10px 24px; border-radius: var(--radius-sm);
+    background: linear-gradient(135deg, var(--brand-400), var(--brand-500));
+    color: #fff; font-weight: var(--fw-bold);
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(234,88,12,0.3);
+    transition: all var(--dur) var(--ease);
+  }
+  .external-jump-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(234,88,12,0.4); }
+  .external-jump-btn.disabled { background: var(--ink-300); cursor: not-allowed; box-shadow: none; }
+  .external-jump-btn.disabled:hover { transform: none; }
+
+  /* 无数据占位 */
+  .no-data-placeholder {
+    padding: 32px; text-align: center;
+    background: var(--bg-surface-2); border-radius: var(--radius-md);
+    border: 1px dashed var(--ink-300); color: var(--ink-500);
+    font-size: var(--fs-body);
+  }
+  .no-data-placeholder .icon { font-size: 32px; margin-bottom: 8px; opacity: 0.5; }
+
 </style>
 </head>
 <body>
@@ -1185,34 +1281,39 @@
   <div class="hero-inner">
     <div class="hero-top">
       <div>
-        <div class="hero-title">服饰拓客拓品指南（男装版）</div>
-        <div class="hero-subtitle">服饰增长组 出品<span class="divider">·</span>仅内部使用</div>
+        <div class="hero-title">服饰拓客拓品指南</div>
+        <div class="hero-subtitle">服饰增长组 出品<span class="divider">·</span>仅内部使用<span class="divider">·</span><span id="current-track-title">全赛道</span></div>
       </div>
       <div class="hero-meta">
         <div class="row"><span class="label">数据周期</span><b id="period">2026-06-22 ~ 2026-06-28</b></div>
-        <div class="row"><span class="label">更新时间</span><b id="update-time">2026-07-01</b></div>
+        <div class="row"><span class="label">更新时间</span><b id="update-time">-</b></div>
       </div>
     </div>
     <div class="hero-desc">
-      基于<span class="hi">视频号大盘在投数据</span>与<span class="hi">抖音竞媒爆品榜</span>的双源交叉洞察，帮助销售一屏锁定「视频号已跑通的爆款 SPU + 抖音爆但视频号未布局的拓品机会」，供选品决策与新客引入参考。
+      基于<span class="hi">视频号大盘在投数据</span>与<span class="hi">抖音竞媒爆品榜</span>的双源交叉洞察，帮助销售一屏锁定「视频号已跑通的爆款 SPU + 抖音爆但视频号未布局的拓品机会」，覆盖<span class="hi">男装/女装/贴身衣物/珠宝配饰/箱包鞋靴/运动户外</span>六大赛道。
     </div>
   </div>
 </div>
 
-<!-- 标杆案例 -->
-<div class="hero-cases" id="hero-cases"></div>
+<!-- 标杆案例 6 卡（3 视频号 + 3 抖音） -->
+<div class="hero-cases six" id="hero-cases"></div>
+
+<!-- 赛道 Tab 栏 -->
+<div class="track-tabs">
+  <div class="track-tabs-inner" id="track-tabs"></div>
+</div>
 
 <main>
   <!-- KPI 大卡片 -->
   <div class="kpi-hero" id="kpi-hero"></div>
 
-  <!-- 区块1：视频号爆款 -->
+  <!-- 区块1：视频号爆款（大盘爆品） -->
   <div class="section-block">
     <div class="section-title-bar">
       <div class="section-emoji mint">🟢</div>
       <div class="section-title-txt">
-        <h2>视频号男装爆款 · TOP10</h2>
-        <div class="sub">主人视频号大盘高消耗 SPU · 参考头部直播间 + 跑量素材复用打法</div>
+        <h2>🏆 <span id="wechat-section-title">大盘爆品</span> · TOP10</h2>
+        <div class="sub">视频号大盘高消耗 SPU · 参考头部直播间 + 跑量素材复用打法</div>
       </div>
     </div>
 
@@ -1220,7 +1321,7 @@
       <div class="insight-header">
         <div>
           <div class="insight-big-num" id="wechat-big-num">-</div>
-          <div class="insight-big-lbl">TOP10 SPU 合计消耗占男装大盘比例 · 共 <b id="wechat-spu-count">-</b> 个爆款 SPU</div>
+          <div class="insight-big-lbl">TOP10 SPU 合计消耗占赛道大盘比例 · 共 <b id="wechat-spu-count">-</b> 个爆款 SPU</div>
         </div>
         <div class="insight-badges" id="wechat-trend-badges"></div>
       </div>
@@ -1230,28 +1331,29 @@
     <div class="spu-list" id="wechat-spu-list"></div>
   </div>
 
-  <!-- 区块2：抖音潜在机会 -->
+  <!-- 区块2：抖音潜在商品 -->
   <div class="section-block">
     <div class="section-title-bar">
       <div class="section-emoji brand">🟠</div>
       <div class="section-title-txt">
-        <h2>抖音竞媒潜在机会 · TOP20</h2>
+        <h2>🔥 潜力商品 · <span id="douyin-section-title">抖音竞媒 TOP10</span></h2>
         <div class="sub">抖音大盘高 GMV 爆品 · 找视频号未投的拓品机会</div>
       </div>
     </div>
 
-    <div class="insight-panel brand">
-      <div class="insight-header">
-        <div>
-          <div class="insight-big-num" id="douyin-big-num">-</div>
-          <div class="insight-big-lbl">抖音爆款合计 GMV · 其中 <b id="douyin-potential-count">-</b> 个视频号未投（拓品机会）</div>
+    <div id="douyin-section-body">
+      <div class="insight-panel brand">
+        <div class="insight-header">
+          <div>
+            <div class="insight-big-num" id="douyin-big-num">-</div>
+            <div class="insight-big-lbl">抖音爆款合计 GMV · 涉及 <b id="douyin-shop-count">-</b> 家店铺竞逐</div>
+          </div>
+          <div class="insight-badges" id="douyin-badges"></div>
         </div>
-        <div class="insight-badges" id="douyin-badges"></div>
+        <div class="insight-groups" id="douyin-groups"></div>
       </div>
-      <div class="insight-groups" id="douyin-groups"></div>
+      <div class="spu-grid" id="douyin-spu-grid"></div>
     </div>
-
-    <div class="spu-grid" id="douyin-spu-grid"></div>
   </div>
 </main>
 
@@ -1272,6 +1374,7 @@
 
 <script>
   let DATA = null;
+  let CURRENT_TRACK = null;
 
   /* ========== 工具函数 ========== */
   function fmtWan(n) {
@@ -1286,31 +1389,16 @@
     if (n >= 1000) return (Math.round(n / 100) / 10) + 'k';
     return Math.round(n);
   }
-  function trendPill(t) {
-    if (t == null) return '';
-    if (t > 5) return `<span class="trend-pill up">📈 +${t.toFixed(1)}%</span>`;
-    if (t < -5) return `<span class="trend-pill down">📉 ${t.toFixed(1)}%</span>`;
-    return `<span class="trend-pill flat">➡️ ${t >= 0 ? '+' : ''}${t.toFixed(1)}%</span>`;
-  }
-
-  /* ⭐ 脱敏规则（对外·服务商/销售视角）：
-   *   - 视频号消耗金额不对外展示，仅用「涨幅%」体现健康度
-   *   - 只展示上涨（>0），下跌或持平不展示涨幅（避免负面信息外泄）
-   *   - 投放主体（直播间名/客户名）不对外，匿名化为「TOP1 直播间 / 某跑量直播间」
-   */
   function upPill(t, size='sm') {
-    // 只在涨才显示 pill；跌/持平/无数据 都返回空串
     if (t == null || t <= 0) return '';
     const cls = size === 'lg' ? 'up-pill up-pill-lg' : 'up-pill';
     return `<span class="${cls}">📈 +${t.toFixed(1)}%</span>`;
   }
   function upBig(t) {
-    // 大数字位置：涨则显示 +X%；跌/无数据 显示 —
     if (t == null || t <= 0) return '—';
     return `+${t.toFixed(1)}%`;
   }
   function anonLive(i) {
-    // 直播间脱敏：按排名匿名化
     return `TOP${i + 1} 直播间`;
   }
 
@@ -1331,264 +1419,304 @@
     }).join('')}</div>`;
   }
 
-  /* ========== 顶部标杆案例 ========== */
-  function renderHeroCases() {
-    const topWechat = DATA.wechat.spus[0];
-    const topLive = topWechat && topWechat.topLives && topWechat.topLives[0];
-    const topDouyin = DATA.douyin.spus[0];
+  /* ==============================
+     🏷️ 赛道 Tab
+     ============================== */
+  const TRACK_META = {
+    "男装":     { icon: "👔", color: "brand" },
+    "女装":     { icon: "👗", color: "brand" },
+    "贴身衣物": { icon: "🌸", color: "brand" },
+    "珠宝配饰": { icon: "💎", color: "brand" },
+    "箱包鞋靴": { icon: "👜", color: "brand" },
+    "运动户外": { icon: "🏃", color: "brand" },
+  };
 
-    document.getElementById('hero-cases').innerHTML = `
-      <div class="case-card wechat">
-        <span class="case-tag wechat">🟢 视频号案例·爆款 SPU</span>
-        <div class="case-body">
-          <div class="case-avatar">👔</div>
-          <div class="case-info">
-            <div class="case-title">${topWechat ? topWechat.spu : '-'}</div>
-            <div class="case-desc">
-              视频号大盘 <b>${topWechat ? topWechat.liveCount : '-'}</b> 家直播间在投 · 通过 ADQ × 视频号直播实现规模化跑量${topWechat && topWechat.gmvTrend != null && topWechat.gmvTrend > 0 ? ' · 消耗环比 +' + topWechat.gmvTrend.toFixed(1) + '%' : ''}
-            </div>
-            <div class="case-metrics">
-              ${topLive ? `<div class="case-metric"><span class="lbl">TOP1 直播间 ROI</span><span class="val">${topLive.roi}</span></div>` : ''}
-              ${topWechat ? `<div class="case-metric"><span class="lbl">客单价</span><span class="val">¥${topWechat.priceAvg}</span></div>` : ''}
-              ${topWechat ? `<div class="case-metric"><span class="lbl">TOP3 直播间 ROI 范围</span><span class="val">${topWechat.roiRangeTop3}</span></div>` : ''}
-            </div>
-          </div>
+  function renderTabs() {
+    const bar = document.getElementById('track-tabs');
+    bar.innerHTML = DATA.trackOrder.map(track => {
+      const meta = TRACK_META[track] || { icon: '📦' };
+      const data = DATA.tracks[track];
+      const hasWechat = data && data.wechat;
+      return `
+        <div class="track-tab${track === CURRENT_TRACK ? ' active' : ''}"
+             data-track="${track}"
+             onclick="switchTrack('${track}')">
+          <span>${meta.icon}</span>
+          <span>${track}</span>
+          ${hasWechat ? `<span class="tab-count">${data.wechat.spus.length}</span>` : ''}
         </div>
-      </div>
-      <div class="case-card douyin">
-        <span class="case-tag douyin">🟠 抖音案例·爆品 SPU</span>
-        <div class="case-body">
-          <div class="case-avatar">
-            ${topDouyin && topDouyin.topProductImg ? `<img src="${topDouyin.topProductImg}" onerror="this.style.display='none';this.parentElement.textContent='🔥'">` : '🔥'}
-          </div>
-          <div class="case-info">
-            <div class="case-title">${topDouyin ? topDouyin.spu : '-'}</div>
-            <div class="case-desc">
-              ${topDouyin ? `抖音大盘 ${topDouyin.productCount} 款商品在跑、${topDouyin.shopCount} 家店铺竞逐${topDouyin.wechatInvested ? ' · 视频号已布局' : ' · 视频号尚未布局'}` : ''}
-            </div>
-            <div class="case-metrics">
-              ${topDouyin ? `<div class="case-metric"><span class="lbl">合计GMV</span><span class="val">${fmtWan(topDouyin.totalGmv)}</span></div>` : ''}
-              ${topDouyin ? `<div class="case-metric"><span class="lbl">单价</span><span class="val">${topDouyin.priceRange}</span></div>` : ''}
-              ${topDouyin ? `<div class="case-metric"><span class="lbl">待引入店铺</span><span class="val">${topDouyin.newShopCount}家</span></div>` : ''}
-            </div>
-          </div>
-        </div>
-      </div>
-    `;
+      `;
+    }).join('');
   }
 
-  /* ========== KPI 大卡片 ========== */
+  function switchTrack(track) {
+    if (track === CURRENT_TRACK) return;
+    CURRENT_TRACK = track;
+    document.getElementById('current-track-title').textContent = track + ' 赛道';
+    renderTabs();
+    renderAll();
+    // 滚动到 KPI 区
+    window.scrollTo({ top: document.querySelector('main').offsetTop - 60, behavior: 'smooth' });
+  }
+
+  /* ==============================
+     🎯 顶部 6 卡 Hero 案例
+     3 视频号大盘爆品 + 3 抖音潜力爆品
+     ============================== */
+  function renderHeroCases() {
+    // 从"当前赛道"取 top3 SPU 做案例卡（不是全站）
+    const data = DATA.tracks[CURRENT_TRACK];
+    if (!data) return;
+    const w = data.wechat, d = data.douyin;
+    const wTop3 = w ? w.spus.slice(0, 3) : [];
+    const dTop3 = d ? d.spus.slice(0, 3) : [];
+
+    let html = '';
+    // 3 视频号
+    wTop3.forEach((s, i) => {
+      html += `
+        <div class="case-card wechat">
+          <span class="case-tag wechat">🟢 视频号爆品 · #${i+1}</span>
+          <div class="case-body">
+            <div class="case-avatar">${TRACK_META[CURRENT_TRACK]?.icon || '👔'}</div>
+            <div class="case-info">
+              <div class="case-title">${s.spu} ${upPill(s.env)}</div>
+              <div class="case-desc">${s.liveCount} 家直播间 · ${s.creativeCount >= 1000 ? (s.creativeCount/1000).toFixed(1)+'k' : s.creativeCount} 条素材</div>
+              <div class="case-metrics">
+                <div class="case-metric"><span class="lbl">ROI</span><span class="val">${s.roi}</span></div>
+                <div class="case-metric"><span class="lbl">客单价</span><span class="val">¥${s.price}</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+    // 3 抖音（如果有）
+    if (d) {
+      dTop3.forEach((s, i) => {
+        html += `
+          <div class="case-card douyin">
+            <span class="case-tag douyin">🟠 抖音爆品 · #${i+1}</span>
+            <div class="case-body">
+              <div class="case-avatar">
+                ${s.topProductImg ? `<img src="${s.topProductImg}" onerror="this.style.display='none';this.parentElement.textContent='🔥'">` : '🔥'}
+              </div>
+              <div class="case-info">
+                <div class="case-title">${s.spu}</div>
+                <div class="case-desc">${s.productCount} 商品 · ${s.shopCount} 店铺 · ${s.newShopCount} 潜在新客</div>
+                <div class="case-metrics">
+                  <div class="case-metric"><span class="lbl">合计GMV</span><span class="val">${fmtWan(s.totalGmv)}</span></div>
+                  <div class="case-metric"><span class="lbl">单价</span><span class="val">¥${s.priceRange}</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+    } else {
+      // 抖音无数据，用占位卡片凑够 3 个
+      for (let i = 0; i < 3; i++) {
+        html += `
+          <div class="case-card douyin" style="opacity:0.4;">
+            <span class="case-tag douyin">🟠 抖音爆品</span>
+            <div class="case-body">
+              <div class="case-avatar">📦</div>
+              <div class="case-info">
+                <div class="case-title">${CURRENT_TRACK} · 抖音榜数据待补充</div>
+                <div class="case-desc">尚未导入抖音竞媒榜单</div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+    }
+    document.getElementById('hero-cases').innerHTML = html;
+  }
+
+  /* ==============================
+     📊 KPI 大卡片
+     ============================== */
   function renderKPIHero() {
-    const w = DATA.wechat.kpi;
-    const d = DATA.douyin.kpi;
-    document.getElementById('kpi-hero').innerHTML = `
+    const data = DATA.tracks[CURRENT_TRACK];
+    if (!data) return;
+    const w = data.wechat, d = data.douyin;
+    const wLives = w ? w.totalLives : 0;
+    const wCreatives = w ? w.totalCreatives : 0;
+    const wCoverage = w ? w.top10Coverage : 0;
+
+    let html = '';
+    // 视频号在投直播间
+    html += `
       <div class="kpi-hero-card mint">
-        <div class="kpi-hero-lbl"><span class="icon">🟢</span>视频号男装在投直播间</div>
-        <div class="kpi-hero-val u-num">${w.totalLives}<span class="unit">家</span></div>
-        <div class="kpi-hero-note">合计 ${w.totalCreatives >= 10000 ? (w.totalCreatives/10000).toFixed(1) + '万' : w.totalCreatives} 条素材在跑</div>
+        <div class="kpi-hero-lbl"><span class="icon">🟢</span>视频号${CURRENT_TRACK}在投直播间</div>
+        <div class="kpi-hero-val u-num">${wLives}<span class="unit">家</span></div>
+        <div class="kpi-hero-note">合计 ${wCreatives >= 10000 ? (wCreatives/10000).toFixed(1) + '万' : wCreatives} 条素材在跑</div>
       </div>
+    `;
+    // TOP10 覆盖率
+    html += `
       <div class="kpi-hero-card blue">
         <div class="kpi-hero-lbl"><span class="icon">📊</span>TOP10 SPU 覆盖率</div>
-        <div class="kpi-hero-val u-num">${w.top10SpuCoverage}<span class="unit">%</span></div>
-        <div class="kpi-hero-note">占男装大盘消耗比例</div>
-      </div>
-      <div class="kpi-hero-card brand">
-        <div class="kpi-hero-lbl"><span class="icon">🟠</span>抖音爆款 GMV（TOP20）</div>
-        <div class="kpi-hero-val u-num">${d.totalGmvYi}<span class="unit">亿</span></div>
-        <div class="kpi-hero-note">${d.potentialCount} 个视频号未投·拓品机会</div>
-      </div>
-      <div class="kpi-hero-card violet">
-        <div class="kpi-hero-lbl"><span class="icon">🔥</span>ADQ 待引入新客</div>
-        <div class="kpi-hero-val u-num">${d.uniqueNewShops}<span class="unit">家</span></div>
-        <div class="kpi-hero-note">抖音在榜·ADQ/全域通未投</div>
+        <div class="kpi-hero-val u-num">${wCoverage}<span class="unit">%</span></div>
+        <div class="kpi-hero-note">占${CURRENT_TRACK}大盘消耗比例</div>
       </div>
     `;
+    // 抖音爆款
+    if (d) {
+      html += `
+        <div class="kpi-hero-card brand">
+          <div class="kpi-hero-lbl"><span class="icon">🟠</span>抖音爆款 GMV（TOP10）</div>
+          <div class="kpi-hero-val u-num">${(d.top10Gmv/100000000).toFixed(2)}<span class="unit">亿</span></div>
+          <div class="kpi-hero-note">覆盖率 ${d.top10Coverage}% · ${d.productCount} 商品</div>
+        </div>
+        <div class="kpi-hero-card violet">
+          <div class="kpi-hero-lbl"><span class="icon">🔥</span>ADQ 待引入店铺</div>
+          <div class="kpi-hero-val u-num">${d.spus.reduce((a,s) => a + s.newShopCount, 0)}<span class="unit">家</span></div>
+          <div class="kpi-hero-note">抖音在榜·ADQ/全域通未投</div>
+        </div>
+      `;
+    } else {
+      html += `
+        <div class="kpi-hero-card brand" style="opacity:0.5;">
+          <div class="kpi-hero-lbl"><span class="icon">🟠</span>抖音爆款 GMV</div>
+          <div class="kpi-hero-val u-num">—</div>
+          <div class="kpi-hero-note">数据待补充</div>
+        </div>
+        <div class="kpi-hero-card violet" style="opacity:0.5;">
+          <div class="kpi-hero-lbl"><span class="icon">🔥</span>ADQ 待引入店铺</div>
+          <div class="kpi-hero-val u-num">—</div>
+          <div class="kpi-hero-note">数据待补充</div>
+        </div>
+      `;
+    }
+    document.getElementById('kpi-hero').innerHTML = html;
   }
 
-  /* ========== 视频号洞察 · 高亮总结（脱敏版·对外） ========== */
-  function renderWechatInsight() {
-    const w = DATA.wechat;
-    // ⭐ 主数字改为「TOP10 SPU 覆盖率」百分比（不透出金额）
-    document.getElementById('wechat-big-num').textContent = w.kpi.top10SpuCoverage + '%';
+  /* ==============================
+     🟢 视频号大盘爆品 · TOP10
+     ============================== */
+  function renderWechatSection() {
+    const data = DATA.tracks[CURRENT_TRACK];
+    const w = data ? data.wechat : null;
+    document.getElementById('wechat-section-title').textContent = `${CURRENT_TRACK}大盘爆品`;
+
+    if (!w) {
+      // 无数据占位
+      document.querySelector('#wechat-big-num').parentElement.parentElement.parentElement.innerHTML =
+        '<div class="no-data-placeholder"><div class="icon">📊</div>该赛道视频号数据待补充</div>';
+      document.getElementById('wechat-spu-list').innerHTML = '';
+      return;
+    }
+
+    // 洞察面板
+    document.getElementById('wechat-big-num').textContent = w.top10Coverage + '%';
     document.getElementById('wechat-spu-count').textContent = w.spus.length;
 
-    const upSpus = w.spus.filter(s => s.gmvTrend != null && s.gmvTrend > 5);
-    const downSpus = w.spus.filter(s => s.gmvTrend != null && s.gmvTrend < -5);
-    const flatSpus = w.spus.filter(s => s.gmvTrend == null || (s.gmvTrend >= -5 && s.gmvTrend <= 5));
+    const upSpus = w.spus.filter(s => s.env != null && s.env > 5);
+    const downSpus = w.spus.filter(s => s.env != null && s.env < -5);
+    const flatSpus = w.spus.filter(s => s.env == null || (s.env >= -5 && s.env <= 5));
     document.getElementById('wechat-trend-badges').innerHTML = `
       <div class="insight-badge">📈 ${upSpus.length} 个上涨</div>
-      <div class="insight-badge" style="background:#f1f5f9;color:#64748b;">➡️ ${flatSpus.length} 个持平</div>
+      <div class="insight-badge" style="background:#f1f5f9;color:#64748b;">➡️ ${flatSpus.length} 个持平/无数据</div>
       <div class="insight-badge" style="background:#fee2e2;color:#dc2626;">📉 ${downSpus.length} 个待优化</div>
     `;
 
+    // 高亮总结（只列 TOP3 SPU；直播间不再暴露名字）
     const top3Spu = w.spus.slice(0, 3);
-    const growLive = w.topGrowthLive;
-
     document.getElementById('wechat-groups').innerHTML = `
       <div class="hl-row hl-row-spu">
         <div class="hl-icon">🏆</div>
         <div class="hl-body">
-          <div class="hl-title">当前视频号爆款 SPU TOP3</div>
+          <div class="hl-title">${CURRENT_TRACK}爆款 SPU TOP3</div>
           <div class="hl-desc">
             ${top3Spu.map((s, i) => `
               <span class="hl-spu-chip">
                 <span class="hl-rank">#${i + 1}</span>
                 <span class="hl-spu-name">${s.spu}</span>
-                <span class="hl-spu-roi">ROI ${s.roiRangeTop3}</span>
-                ${upPill(s.gmvTrend)}
+                <span class="hl-spu-roi">ROI ${s.roi}</span>
+                ${upPill(s.env)}
               </span>
             `).join('')}
           </div>
         </div>
       </div>
-      ${growLive && growLive.env != null && growLive.env > 0 ? `
-      <div class="hl-row hl-row-live">
-        <div class="hl-icon">🚀</div>
-        <div class="hl-body">
-          <div class="hl-title">消耗增长最快的跑量直播间 <span class="hl-tag">+${growLive.env.toFixed(1)}%</span></div>
-          <div class="hl-desc">
-            主要投放 SPU：
-            ${growLive.mainSpus.map(s => `<span class="hl-live-spu">${s.name} <span class="pct">${s.pct}%</span></span>`).join('')}
-          </div>
-        </div>
-      </div>` : ''}
     `;
+
+    // SPU 列表
+    renderWechatList(w);
   }
 
-  /* ========== 抖音洞察 ========== */
-  function renderDouyinInsight() {
-    const d = DATA.douyin;
-    document.getElementById('douyin-big-num').textContent = d.kpi.totalGmvYi + '亿';
-    document.getElementById('douyin-potential-count').textContent = d.kpi.potentialCount;
-
-    const potential = d.spus.filter(s => !s.wechatInvested);
-    const invested = d.spus.filter(s => s.wechatInvested);
-
-    document.getElementById('douyin-badges').innerHTML = `
-      <div class="insight-badge">🔥 ${potential.length} 个拓品机会</div>
-      <div class="insight-badge" style="background:var(--mint-100);color:var(--mint-600);">✓ ${invested.length} 个双源验证</div>
-    `;
-
-    const parseLo = (r) => parseInt(r.priceRange.split('~')[0]) || 0;
-    const highPrice = potential.filter(s => parseLo(s) >= 150);
-    const summerHot = potential.filter(s => parseLo(s) < 150 && (s.spu.includes('冰丝') || s.spu.includes('短裤') || s.spu.includes('速干')));
-    const trendStyle = potential.filter(s => s.spu.includes('美式') || s.spu.includes('潮牌') || s.spu.includes('牛仔'));
-    const rest = potential.filter(s => !highPrice.includes(s) && !summerHot.includes(s) && !trendStyle.includes(s));
-
-    const chip = (s, hot=false) => `<span class="group-card-chip${hot?' hot':''}"><span class="rank">#${s.rank}</span>${s.spu} <span style="color:var(--brand-500);font-size:var(--fs-2xs);font-weight:var(--fw-bold);">${fmtWan(s.totalGmv)}</span></span>`;
-
-    document.getElementById('douyin-groups').innerHTML = `
-      ${highPrice.length ? `
-      <div class="insight-group-card">
-        <div class="group-card-head">
-          <div class="group-card-title">💎 高单价拓品 ≥¥150</div>
-          <div class="group-card-count">${highPrice.length}</div>
-        </div>
-        <div class="group-card-items">${highPrice.map(s => chip(s, true)).join('')}</div>
-      </div>` : ''}
-      ${summerHot.length ? `
-      <div class="insight-group-card">
-        <div class="group-card-head">
-          <div class="group-card-title">❄️ 夏季凉感爆品</div>
-          <div class="group-card-count">${summerHot.length}</div>
-        </div>
-        <div class="group-card-items">${summerHot.map(s => chip(s)).join('')}</div>
-      </div>` : ''}
-      ${trendStyle.length ? `
-      <div class="insight-group-card">
-        <div class="group-card-head">
-          <div class="group-card-title">🏃 潮流风格系</div>
-          <div class="group-card-count">${trendStyle.length}</div>
-        </div>
-        <div class="group-card-items">${trendStyle.map(s => chip(s)).join('')}</div>
-      </div>` : ''}
-      ${rest.length ? `
-      <div class="insight-group-card">
-        <div class="group-card-head">
-          <div class="group-card-title">🌿 中价面料主力</div>
-          <div class="group-card-count">${rest.length}</div>
-        </div>
-        <div class="group-card-items">${rest.map(s => chip(s)).join('')}</div>
-      </div>` : ''}
-      ${invested.length ? `
-      <div class="insight-group-card" style="background:linear-gradient(135deg,var(--mint-50) 0%,var(--mint-100) 100%);border-color:var(--mint-200);">
-        <div class="group-card-head">
-          <div class="group-card-title" style="color:var(--mint-600);">✓ 双源验证（已投）</div>
-          <div class="group-card-count" style="background:var(--mint-500);">${invested.length}</div>
-        </div>
-        <div class="group-card-items">${invested.map(chip).join('')}</div>
-      </div>` : ''}
-    `;
-  }
-
-  /* ========== 视频号 SPU 列表（脱敏版·对外） ========== */
-  function renderWechatList() {
+  function renderWechatList(w) {
     const list = document.getElementById('wechat-spu-list');
-    list.innerHTML = DATA.wechat.spus.map(s => {
-      const creativeCells = renderCreatives(s.topCreatives.slice(0, 3));
-      // ⭐ 直播间卡：匿名化 + 主视觉改为 ROI（不透金额），涨才显示环比 pill
-      const liveCards = s.topLives.slice(0, 3).map((l, i) => `
+    list.innerHTML = w.spus.map(s => {
+      const creativeCells = renderCreatives((s.topCreatives || []).slice(0, 3));
+      const lives = s.topLives || [];
+      const liveCards = lives.slice(0, 3).map((l, i) => `
         <div class="live-card">
           <div class="live-card-head">
             <div class="live-card-rank${i === 0 ? ' top1' : ''}">${i + 1}</div>
-            <div class="live-card-name">${anonLive(i)}</div>
-            ${upPill(l.env)}
+            <div class="live-card-name">${l.anon_name || anonLive(i)}</div>
           </div>
           <div class="live-card-gmv">
             <span class="val">${l.roi}</span>
-            <span class="unit">下单 ROI（TOP${i + 1} 直播间）</span>
+            <span class="unit">下单 ROI</span>
           </div>
           <div class="live-card-metrics">
-            <span>退款 <b style="color:${l.refund<=30?'var(--mint-600)':l.refund<=50?'var(--brand-400)':'var(--danger)'};">${l.refund}%</b></span>
             <span>素材 <b>${l.creatives}</b>条</span>
-            <span>SPU占比 <b>${l.spuPct}%</b></span>
           </div>
         </div>
       `).join('');
+      // 用占位补齐
+      let liveHtml = liveCards;
+      if (lives.length < 3) {
+        for (let i = lives.length; i < 3; i++) {
+          liveHtml += `<div class="live-card" style="opacity:0.4;"><div class="live-card-name">TOP${i+1} 直播间</div><div class="live-card-metrics">无数据</div></div>`;
+        }
+      }
 
-      // ⭐ acc-meta 脱敏：去掉「日均消耗」金额，改为「环比涨幅（涨才显示）· 直播间数 · 素材数」
-      const metaEnv = (s.gmvTrend != null && s.gmvTrend > 0)
-        ? `<b style="color:var(--mint-600);">环比 +${s.gmvTrend.toFixed(1)}%</b> · `
+      const metaEnv = (s.env != null && s.env > 0)
+        ? `<b style="color:var(--mint-600);">环比 +${s.env.toFixed(1)}%</b> · `
         : '';
+
+      // 典型商品关键词
+      const keywords = (s.typicalNames || []).slice(0, 3).join(' · ');
 
       return `
         <div class="spu-accordion open">
           <div class="acc-head">
             <div class="acc-rank${s.rank <= 3 ? ' top3' : ''}">#${s.rank}</div>
             <div class="acc-title">
-              <div class="acc-spu-name">${s.spu}${upPill(s.gmvTrend)}</div>
-              <div class="acc-meta">${metaEnv}${s.liveCount} 家在投直播间 · ${s.creativeCount} 条素材</div>
+              <div class="acc-spu-name">${s.spu}${upPill(s.env)}</div>
+              <div class="acc-meta">${metaEnv}${s.liveCount} 家在投直播间 · ${s.creativeCount} 条素材${keywords ? ' · 典型：' + keywords : ''}</div>
             </div>
             <div class="acc-summary">
-              <div class="cell"><b style="color:var(--mint-600);">${s.roiRangeTop3}</b><span>ROI 范围</span></div>
-              <div class="cell"><b style="color:var(--brand-500);">${s.refundRangeTop3}</b><span>退款率范围</span></div>
-              <div class="cell"><b>¥${s.priceAvg}</b><span>客单价</span></div>
+              <div class="cell"><b style="color:var(--mint-600);">${s.roi}</b><span>加权 ROI</span></div>
+              <div class="cell"><b>¥${s.price}</b><span>客单价</span></div>
               <div class="cell"><b>${s.liveCount}</b><span>在投直播间</span></div>
             </div>
           </div>
           <div class="acc-body">
             <div class="acc-body-inner">
-              ${renderFeatureTags(s.featureTags)}
               <div class="metric-strip">
                 <div class="metric-cell">
                   <div class="lbl">消耗环比</div>
-                  <div class="val ${s.gmvTrend != null && s.gmvTrend > 0 ? 'gmv' : 'muted'}">${upBig(s.gmvTrend)}</div>
-                  <div class="rng">${s.gmvTrend != null && s.gmvTrend > 0 ? '近7天 vs 前7天' : '本期消耗保持观察'}</div>
+                  <div class="val ${s.env != null && s.env > 0 ? 'gmv' : 'muted'}">${upBig(s.env)}</div>
+                  <div class="rng">${s.env != null && s.env > 0 ? '近7天 vs 前7天' : '本期消耗保持观察'}</div>
                 </div>
                 <div class="metric-cell">
-                  <div class="lbl">下单 ROI 范围</div>
-                  <div class="val" style="color:var(--mint-600);">${s.roiRangeTop3}</div>
-                  <div class="rng">TOP3 直播间实测</div>
-                </div>
-                <div class="metric-cell">
-                  <div class="lbl">7 日退款率范围</div>
-                  <div class="val" style="color:var(--brand-500);">${s.refundRangeTop3}</div>
-                  <div class="rng">TOP3 直播间实测</div>
+                  <div class="lbl">下单 ROI（加权）</div>
+                  <div class="val" style="color:var(--mint-600);">${s.roi}</div>
+                  <div class="rng">按日耗加权平均</div>
                 </div>
                 <div class="metric-cell">
                   <div class="lbl">客单价（加权）</div>
-                  <div class="val">¥${s.priceAvg}</div>
-                  <div class="rng">P25~P75: ¥${s.priceP25}~¥${s.priceP75}</div>
+                  <div class="val">¥${s.price}</div>
+                  <div class="rng">按日耗加权平均</div>
+                </div>
+                <div class="metric-cell">
+                  <div class="lbl">SPU 商品条数</div>
+                  <div class="val">${s.productCount}</div>
+                  <div class="rng">条数 = 视频号×SPU 组合</div>
                 </div>
               </div>
               <div class="split-row">
@@ -1597,8 +1725,8 @@
                   <div class="creatives-grid">${creativeCells}</div>
                 </div>
                 <div style="display:flex;flex-direction:column;">
-                  <div class="split-col-title">📺 消耗 TOP3 直播间<span class="split-col-note">已匿名化 · ROI/退款率为直播间实测值</span></div>
-                  <div class="live-list-vertical" style="flex:1;">${liveCards}</div>
+                  <div class="split-col-title">📺 消耗 TOP3 直播间<span class="split-col-note">已匿名化 · ROI 为直播间实测</span></div>
+                  <div class="live-list-vertical" style="flex:1;">${liveHtml}</div>
                 </div>
               </div>
             </div>
@@ -1635,22 +1763,71 @@
     return cells + pad;
   }
 
-  /* ========== 抖音 SPU 网格 ========== */
-  function renderDouyinGrid() {
+  /* ==============================
+     🟠 抖音潜力商品 · TOP10
+     ============================== */
+  function renderDouyinSection() {
+    const data = DATA.tracks[CURRENT_TRACK];
+    const d = data ? data.douyin : null;
+    const externalUrl = data ? data.externalDouyinUrl : "";
+
+    document.getElementById('douyin-section-title').textContent = `抖音竞媒 · ${CURRENT_TRACK} TOP10`;
+    const bodyEl = document.getElementById('douyin-section-body');
+
+    // 珠宝配饰 → 跳外部看板
+    if (CURRENT_TRACK === '珠宝配饰') {
+      bodyEl.innerHTML = `
+        <div class="external-jump-card">
+          <div style="font-size:40px;margin-bottom:12px;">💎</div>
+          <h3>珠宝配饰 · 独立看板</h3>
+          <p>珠宝配饰赛道商品结构与其他赛道差异较大，已独立成看板供销售拓客使用</p>
+          ${externalUrl
+            ? `<a href="${externalUrl}" target="_blank" class="external-jump-btn">🚀 跳转到珠宝配饰看板</a>`
+            : `<span class="external-jump-btn disabled">🚧 看板链接建设中·敬请期待</span>`}
+        </div>
+      `;
+      return;
+    }
+
+    // 无抖音数据（如男装）
+    if (!d) {
+      bodyEl.innerHTML = `
+        <div class="no-data-placeholder">
+          <div class="icon">📦</div>
+          该赛道抖音竞媒榜单数据待补充
+        </div>
+      `;
+      return;
+    }
+
+    // 有数据：重建 insight-panel + spu-grid
+    bodyEl.innerHTML = `
+      <div class="insight-panel brand">
+        <div class="insight-header">
+          <div>
+            <div class="insight-big-num">${(d.top10Gmv/100000000).toFixed(2)}亿</div>
+            <div class="insight-big-lbl">抖音爆款合计 GMV · 涉及 <b>${d.totalShops}</b> 家店铺竞逐</div>
+          </div>
+          <div class="insight-badges">
+            <div class="insight-badge">🔥 ${d.spus.reduce((a,s)=>a+s.newShopCount,0)} 家待引入</div>
+            <div class="insight-badge" style="background:var(--mint-100);color:var(--mint-600);">✓ ${d.spus.reduce((a,s)=>a+s.investedCount,0)} 家已投</div>
+          </div>
+        </div>
+      </div>
+      <div class="spu-grid" id="douyin-spu-grid"></div>
+    `;
     const grid = document.getElementById('douyin-spu-grid');
-    grid.innerHTML = DATA.douyin.spus.map(s => `
+    grid.innerHTML = d.spus.map(s => `
       <div class="spu-card" onclick="openDouyinDrawer(${s.rank - 1})">
         <div class="rank-badge${s.rank <= 3 ? ' top3' : ''}">#${s.rank}</div>
         ${s.newShopCount > 0 ? `<div class="new-tag">🔥 ${s.newShopCount}家潜力新客</div>` : ''}
-        ${s.wechatInvested ? `<div class="invested-tag">✓ 视频号已投</div>` : ''}
         <div class="spu-img-wrap">
           <img src="${s.topProductImg}" alt="${s.spu}" onerror="this.style.display='none'">
         </div>
         <div class="spu-info">
           <div class="spu-name">${s.spu}</div>
-          <div class="spu-price">💰 ${s.priceRange}</div>
+          <div class="spu-price">💰 ¥${s.priceRange}</div>
           <div class="spu-gmv">${fmtWan(s.totalGmv)}<span class="unit">合计 GMV</span></div>
-          ${renderFeatureTags((s.featureTags || []).slice(0, 4))}
           <div class="spu-stats">
             <div class="spu-stat"><b>${s.productCount}</b><span class="lbl">商品</span></div>
             <div class="spu-stat"><b>${s.investedCount}</b><span class="lbl">已投</span></div>
@@ -1689,10 +1866,12 @@
   }
 
   function openDouyinDrawer(idx) {
-    const spu = DATA.douyin.spus[idx];
+    const data = DATA.tracks[CURRENT_TRACK];
+    if (!data || !data.douyin) return;
+    const spu = data.douyin.spus[idx];
     document.getElementById('drawer-spu').textContent = `#${spu.rank}  ${spu.spu}`;
     document.getElementById('drawer-meta').textContent =
-      `${spu.productCount} 个商品 · ${spu.shopCount} 家店铺 · 合计 GMV≈${fmtWan(spu.totalGmv)} · 单价 ${spu.priceRange}`;
+      `${spu.productCount} 个商品 · ${spu.shopCount} 家店铺 · 合计 GMV≈${fmtWan(spu.totalGmv)} · 单价 ¥${spu.priceRange}`;
 
     const investedHtml = spu.invested && spu.invested.length > 0
       ? spu.invested.map(renderShopItem).join('')
@@ -1731,27 +1910,33 @@
   document.getElementById('drawer-mask').onclick = closeDrawer;
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
 
-  fetch('final_dashboard_data.json')
+  /* ==============================
+     🎬 主渲染
+     ============================== */
+  function renderAll() {
+    renderHeroCases();
+    renderKPIHero();
+    renderWechatSection();
+    renderDouyinSection();
+  }
+
+  fetch('track_dashboard_data.json')
     .then(r => r.json())
     .then(data => {
       DATA = data;
-      if (data.wechat && data.wechat.period) {
-        const p = data.wechat.period.replace(/（.*）/, '').trim();
-        document.getElementById('period').textContent = p || data.wechat.period;
-      }
+      // 找第一个有数据的赛道作为默认
+      CURRENT_TRACK = data.trackOrder.find(t => data.tracks[t] && data.tracks[t].wechat) || data.trackOrder[0];
+      document.getElementById('current-track-title').textContent = CURRENT_TRACK + ' 赛道';
       document.getElementById('update-time').textContent = data.generatedAt;
-      renderHeroCases();
-      renderKPIHero();
-      renderWechatInsight();
-      renderWechatList();
-      renderDouyinInsight();
-      renderDouyinGrid();
+      renderTabs();
+      renderAll();
     })
     .catch(err => {
       document.querySelector('main').innerHTML =
         '<div style="padding:40px;text-align:center;color:#dc2626;">❌ 数据加载失败：' + err + '</div>';
     });
 </script>
+
 
 </body>
 </html>
