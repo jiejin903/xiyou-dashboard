@@ -288,6 +288,41 @@
   @media (max-width: 640px) {
     .hero-contact { margin-left: 14px; font-size: var(--fs-sm); padding: 8px 12px; }
   }
+  /* 联系二维码卡片（Hero 底部） */
+  .hero-qr {
+    margin: 12px 0 8px 18px;
+    display: inline-flex; align-items: center; gap: 14px;
+    padding: 12px 18px 12px 12px;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid var(--brand-200);
+    border-radius: var(--radius-md);
+    box-shadow: 0 3px 10px rgba(234, 88, 12, 0.10);
+    backdrop-filter: blur(6px);
+  }
+  .hero-qr-img {
+    width: 90px; height: 90px; flex-shrink: 0;
+    background: #fff; padding: 4px; border-radius: var(--radius-sm);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  }
+  .hero-qr-img img { width: 100%; height: 100%; display: block; }
+  .hero-qr-tip { display: flex; flex-direction: column; gap: 2px; }
+  .hero-qr-title {
+    font-size: var(--fs-h4); font-weight: var(--fw-bold);
+    color: var(--brand-700);
+  }
+  .hero-qr-desc {
+    font-size: var(--fs-body); color: var(--ink-700); font-weight: var(--fw-semi);
+  }
+  .hero-qr-sub {
+    font-size: var(--fs-sm); color: var(--ink-500); margin-top: 2px;
+  }
+  @media (max-width: 640px) {
+    .hero-qr { margin-left: 14px; padding: 10px 14px 10px 10px; gap: 10px; }
+    .hero-qr-img { width: 72px; height: 72px; }
+    .hero-qr-title { font-size: var(--fs-body); }
+    .hero-qr-desc { font-size: var(--fs-sm); }
+    .hero-qr-sub { font-size: var(--fs-xs); }
+  }
 
   /* ============================================================
      🎯 标杆案例卡（叠在 Hero 底部）
@@ -1427,6 +1462,16 @@
     <div class="hero-contact">
       <span class="hero-contact-icon">📮</span>
       <span>如有客户资源，请联系<b>服饰增长组直客销售</b></span>
+    </div>
+    <div class="hero-qr">
+      <div class="hero-qr-img">
+        <img src="qrcode_contact.png" alt="服饰行业拓客指南 联系二维码" />
+      </div>
+      <div class="hero-qr-tip">
+        <div class="hero-qr-title">📱 扫码添加</div>
+        <div class="hero-qr-desc">服饰增长组直客销售</div>
+        <div class="hero-qr-sub">拓客资源 · 素材参考 · 投放咨询</div>
+      </div>
     </div>
   </div>
 </div>
