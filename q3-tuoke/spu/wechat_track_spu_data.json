@@ -5,10 +5,10 @@
   "tracks": {
     "男装": {
       "track": "男装",
-      "totalDailyGmv": 327976,
-      "totalDailyGmvWan": 32.8,
+      "totalDailyGmv": 0,
+      "totalDailyGmvWan": 0,
       "top10Coverage": 97.4,
-      "top10DailyGmv": 319504,
+      "top10DailyGmv": 0,
       "totalLives": 198,
       "totalCreatives": 0,
       "spuCount": 36,
@@ -17,11 +17,13 @@
           "rank": 1,
           "spu": "男士T恤/Polo衫",
           "productCount": 292,
-          "dailyGmv": 131808,
-          "dailyGmvWan": 13.2,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 40.2,
+          "heatLevel": "🔥🔥🔥 极热",
           "liveCount": 63,
           "creativeCount": 80,
-          "roi": 5.46,
+          "roi": 0,
           "roiRange": "5.4-5.7",
           "price": 175,
           "typicalNames": [
@@ -37,38 +39,59 @@
               "rank": 1,
               "name": "霞湖世家官方旗舰店",
               "anon_name": "TOP1 直播间",
-              "gmv": 34444,
-              "roi": 12.17,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 3
             },
             {
               "rank": 2,
               "name": "拇指白小T官方旗舰店",
               "anon_name": "TOP2 直播间",
-              "gmv": 13391,
-              "roi": 3.04,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 8
             },
             {
               "rank": 3,
               "name": "思小简纯棉T恤",
               "anon_name": "TOP3 直播间",
-              "gmv": 11578,
-              "roi": 1.84,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 3
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b533iazsaabbmakv6gabnubxwqethnadgka.f0.mp4?dis_k=251d23ebe9921793de83767d49990057&dis_t=1775872368&m=bc9e9067ab551a8705e248b455cd9f6a&sha256=2d4fc39c11b2c96b17d361699106c3d85375e1211175186ef9a60aec76c73af3",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53ziaccaaanqal47ibkfvbvsqeehfaaika.f0.mp4?dis_k=b677bae69b7cd8f522c6d61d9bea744c&dis_t=1779669450&m=d3b792009509bfc192c2bf6e0c31a48a&sha256=54ddef624205091d813263fa0fe9e59d7e2baa3f80b4585641d3b636d9ff38b2",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3nmagkaaasaacjlcuxrubu2yemvvqazka.f0.mp4?dis_k=1517d0a870eeb857f4dbd64169ef1c97&dis_t=1781543173&m=07d04adc6ecfaae7d5504bc485f5e081&sha256=8a3a3285d43e5581977c20aeea32a3aac081ac3ed27308be08893386246bf3d0",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 2,
           "spu": "男士休闲裤",
           "productCount": 257,
-          "dailyGmv": 79772,
-          "dailyGmvWan": 8.0,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 24.3,
+          "heatLevel": "🔥🔥🔥 极热",
           "liveCount": 72,
           "creativeCount": 64,
-          "roi": 3.98,
+          "roi": 0,
           "roiRange": "3.9-4.2",
           "price": 144,
           "typicalNames": [
@@ -84,38 +107,59 @@
               "rank": 1,
               "name": "麦雅男装",
               "anon_name": "TOP1 直播间",
-              "gmv": 18983,
-              "roi": 3.51,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 2,
               "name": "广州精品男装8.",
               "anon_name": "TOP2 直播间",
-              "gmv": 7751,
-              "roi": 2.78,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 3
             },
             {
               "rank": 3,
               "name": "镖王保罗男装服饰店",
               "anon_name": "TOP3 直播间",
-              "gmv": 6762,
-              "roi": 5.22,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53niaf4aaayqabsyah5fvbu2qelzvaaxsa.f0.mp4?dis_k=50fc73a6fcb4c083878a175d30d39ec4&dis_t=1778862006&m=d06ab20b8da6f0a4df64c131ddbe90f6&sha256=61d5bbcaa2062680b57c55560eed493ca10d1d02cd9836c74394cf392aab3b09",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53nqcayaae6eagoahubbur43aebrwaidca.f0.mp4?dis_k=31b808ba207e0b89391d6b5852de22aa&dis_t=1777363874&m=1be67ae84ebce51c06d736334d0f26d1&sha256=67e83bd4bab631c84fb162b1b945bf5f5e5f9c610803ee94e111c9f7df05f9ce",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53lianqaaab4ap63ylvjvbuwqe3bnabwca.f0.mp4?dis_k=d063273265579bc7cebe9c61acbabae7&dis_t=1779115879&m=821afd64b86f8226c3e8ca58dfa75599&sha256=c5637abd7d764b89c56e584d54d0c554942596bb1393cbc69c6afd9f9b90b766",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 3,
           "spu": "男士速干T恤/Polo衫",
           "productCount": 59,
-          "dailyGmv": 24245,
-          "dailyGmvWan": 2.4,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 7.4,
+          "heatLevel": "🔥 中热",
           "liveCount": 20,
           "creativeCount": 21,
-          "roi": 2.75,
+          "roi": 0,
           "roiRange": "2.7-3.0",
           "price": 141,
           "typicalNames": [
@@ -131,38 +175,59 @@
               "rank": 1,
               "name": "JEEP吉普冠领男装店",
               "anon_name": "TOP1 直播间",
-              "gmv": 7342,
-              "roi": 2.51,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 2,
               "name": "卡丹路休闲男装",
               "anon_name": "TOP2 直播间",
-              "gmv": 6458,
-              "roi": 2.3,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 3,
               "name": "简廓速干T",
               "anon_name": "TOP3 直播间",
-              "gmv": 2151,
-              "roi": 2.22,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53i4afuaaa4uapzkklsnvburyeljdqawsa.f0.mp4?dis_k=567120e72cc0a1aa5b1a60b0f61a984e&dis_t=1783344505&m=d6f036a50fb26d0c9a9ad158fad7d5b0&sha256=0d93f9b3d496b36d964ccc3911bb906cb26f1146d31f1caed458b73a3af555f0",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53euabuaaa7yanms2fizvbujiedisqagsa.f0.mp4?dis_k=e4eacea8942206ad4996e146b9e2f35b&dis_t=1782959369&m=3200bec4121fafc0b69647a93d86285e&sha256=4f361246440cb44b0b87cb6e27e50f902e52f17b9df2b59157c2605309aff5b6",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc33qa5uaab4eajzcyyvzvbxxae3loadwsa.f0.mp4?dis_k=ea7fe1f19ea5fb3b0e31b152cc445346&dis_t=1780041284&m=1987ad69f1e06680d06e752cca77b613&sha256=a9dbd7b7dca6296da2700459a11653e51c0be4219b914e83fdf56a9c04a3b858",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 4,
           "spu": "男士背心/吊带",
           "productCount": 24,
-          "dailyGmv": 19002,
-          "dailyGmvWan": 1.9,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 5.8,
+          "heatLevel": "🔥 中热",
           "liveCount": 13,
           "creativeCount": 8,
-          "roi": 3.05,
+          "roi": 0,
           "roiRange": "3.0-3.3",
           "price": 72,
           "typicalNames": [
@@ -178,38 +243,59 @@
               "rank": 1,
               "name": "啄木鸟行望男装店",
               "anon_name": "TOP1 直播间",
-              "gmv": 4319,
-              "roi": 3.67,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 2,
               "name": "俞兆林男士速干精品背心",
               "anon_name": "TOP2 直播间",
-              "gmv": 4029,
-              "roi": 3.01,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 3,
               "name": "倾刻欧货名品",
               "anon_name": "TOP3 直播间",
-              "gmv": 3999,
-              "roi": 3.54,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53qidzuaaheyalfyp4xjur3aqetkbapgsa.f0.mp4?dis_k=b0eb856eb0a061969ef89f7d04195224&dis_t=1778067690&m=6dc112b29e5805f7bb257b6aadeef601&sha256=c281c286550e72cad1f0bc325704c14333d617e27ccaa910efd4bd345adc9aad",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53vqafkaaafuaa2eshcnvbvlaekwwaavka.f0.mp4?dis_k=507fbc83a6413c6ff920fdd3e4d5e160&dis_t=1783060622&m=0d5981c79489a2257948f112db2e59ee&sha256=98af41e0b9ee0e7793061dfcf4b79e831e8e187df659ec82f7bca74c028208bf",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc34mcgaaae44an55r4u5vb5yyemdrqiyca.f0.mp4?dis_k=114600e0259ed26c20d01631117a6155&dis_t=1782103562&m=18d8f4840393683495fd988eb70e50b1&sha256=e88e154d238e016b721413a732823becf2781143c7136e00ad586eab56a2c1e8",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 5,
           "spu": "男士速干裤",
           "productCount": 19,
-          "dailyGmv": 14932,
-          "dailyGmvWan": 1.5,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 4.6,
+          "heatLevel": "· 低热",
           "liveCount": 8,
           "creativeCount": 7,
-          "roi": 2.96,
+          "roi": 0,
           "roiRange": "2.9-3.2",
           "price": 168,
           "typicalNames": [
@@ -225,38 +311,59 @@
               "rank": 1,
               "name": "Jeep吉普男装服饰",
               "anon_name": "TOP1 直播间",
-              "gmv": 13761,
-              "roi": 2.97,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 3
             },
             {
               "rank": 2,
               "name": "马克华菲正品号",
               "anon_name": "TOP2 直播间",
-              "gmv": 688,
-              "roi": 2.68,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 3,
               "name": "总裁休闲男装",
               "anon_name": "TOP3 直播间",
-              "gmv": 341,
-              "roi": 2.12,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53duaa6aaaiyacnjif2jvbuhieb4oqad2a.f0.mp4?dis_k=45edb00b65b2312ec5542b3e9ca1d506&dis_t=1780368819&m=8535d108a11a04fb79f504481949d4ef&sha256=b0aff8c86162a76082b477668bd7ce27af822fdfe77db72b6b6acbd6aab8db5d",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53tmcwcaafcmablhxyxzur7gyemgnqkyka.f0.mp4?dis_k=fe25a0a9d17e56516fd09a7bd190380a&dis_t=1778291414&m=a75bb483c499b782914f24e9131d7fcf&sha256=a97036d3ea97b3e0c6b51ce5b9d91fb0804d8eeb78dc8e48d748a934cd6e23db",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b534iahwaaa4eafadklczvbvyqeppraa62a.f0.mp4?dis_k=2111dd1e7937fc2638020b4d47591ef8&dis_t=1783317650&m=23554b869cf507e90966b3037491356b&sha256=2c3c7c0ff83e0ec87a372d40786dad6b2504edd4bf86c8dd88da23577fe43e21",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 6,
           "spu": "男士牛仔裤",
           "productCount": 47,
-          "dailyGmv": 14832,
-          "dailyGmvWan": 1.5,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 4.5,
+          "heatLevel": "· 低热",
           "liveCount": 26,
           "creativeCount": 19,
-          "roi": 3.28,
+          "roi": 0,
           "roiRange": "3.2-3.5",
           "price": 149,
           "typicalNames": [
@@ -272,38 +379,59 @@
               "rank": 1,
               "name": "NHNE服饰",
               "anon_name": "TOP1 直播间",
-              "gmv": 4086,
-              "roi": 3.1,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 2,
               "name": "佳翼黑标广州店",
               "anon_name": "TOP2 直播间",
-              "gmv": 2755,
-              "roi": 2.53,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 3,
               "name": "老爷车卓越品质男装",
               "anon_name": "TOP3 直播间",
-              "gmv": 1917,
-              "roi": 2.51,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53t4bxeaadhiajqwri5jvbthyeokpqg4sa.f0.mp4?dis_k=6cb5a02ba94b3173f0956772abc65a1d&dis_t=1781263283&m=9b2afe8bb25683299abab079824cfffe&sha256=2be6781c13aa7d3245456a019ed06da1ce2556de2dd5a3de774d365a054bfe52",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53ueamaaaaxeafidgycfurviieycqqbqca.f0.mp4?dis_k=a3db9fdad8c3995adc2a46355e41a10d&dis_t=1775801409&m=fb2f2bf54aac596092c03f97373954d7&sha256=304342a2e32506b43f6e72ce0b83d95de539e303aabbf6cf43d24262f5551a4d",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53uqbvcaadhyalw5bi55vbtjaekgsaguka.f0.mp4?dis_k=af95bade9e10eed43f02feda967db724&dis_t=1781263075&m=0047186774944082f47de4fee92c3a0a&sha256=8e7e3ec3223eac6823a7f7bf6aead98a7c37bf5d834430175a2bf387d273f5a5",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 7,
           "spu": "男士打底衫",
           "productCount": 3,
-          "dailyGmv": 14633,
-          "dailyGmvWan": 1.5,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 4.5,
+          "heatLevel": "· 低热",
           "liveCount": 2,
           "creativeCount": 2,
-          "roi": 2.01,
+          "roi": 0,
           "roiRange": "2.0-2.3",
           "price": 134,
           "typicalNames": [
@@ -316,8 +444,8 @@
               "rank": 1,
               "name": "新随衣品牌特卖",
               "anon_name": "TOP1 直播间",
-              "gmv": 14633,
-              "roi": 2.01,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             },
             {
@@ -325,21 +453,42 @@
               "name": "0",
               "anon_name": "TOP2 直播间",
               "gmv": 0,
-              "roi": 0.0,
+              "roi": 0,
               "creatives": 1
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b535qcewaaejqapxsz7lvvb53aejpwais2a.f0.mp4?dis_k=263c2b9fb589228097114b8898ff4139&dis_t=1782296748&m=9334ad0c660f72dec2c6fc6aa5694167&sha256=6e5bb9a00f6dafb083e0b6bf7da78674e5babf75fdcde2986a3d5d04dfea2347",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3cya4iaabk4afaerd5nvbwfqeyqladrca.f0.mp4?dis_k=f4dc266d12d99c562279bf04c8ab9065&dis_t=1780651076&m=51d41725faf958c47ed763ef94f7ac02&sha256=0cbdb6c21b944b75367ed1a27401635e556fdd70e33f9c36c9ba22f9df746dbf",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc34mdckaagg4ajpwpot5urzyyeexrqmjka.f0.mp4?dis_k=f01ce0e8a1a837bdf9ecd545ae179c95&dis_t=1780651098&m=167452734403d4496ff0b7402ba62d2c&sha256=d17b1cb66b5890d7a4454547919396b69017df113006dc960b6d2e7d242cf69b",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 8,
           "spu": "男士休闲套装",
           "productCount": 71,
-          "dailyGmv": 13609,
-          "dailyGmvWan": 1.4,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 4.1,
+          "heatLevel": "· 低热",
           "liveCount": 19,
           "creativeCount": 20,
-          "roi": 3.27,
+          "roi": 0,
           "roiRange": "3.2-3.5",
           "price": 144,
           "typicalNames": [
@@ -355,38 +504,59 @@
               "rank": 1,
               "name": "霄桂姿男装",
               "anon_name": "TOP1 直播间",
-              "gmv": 4788,
-              "roi": 3.89,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 2,
               "name": "啄木鸟雷祯男装店",
               "anon_name": "TOP2 直播间",
-              "gmv": 2422,
-              "roi": 2.48,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 5
             },
             {
               "rank": 3,
               "name": "老爷车服饰男装店",
               "anon_name": "TOP3 直播间",
-              "gmv": 2089,
-              "roi": 2.24,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3kqb4oaadc4aeatbqhnvbsvaey5kahr2a.f0.mp4?dis_k=b2ff24d76af831d1dc5889996bba9f04&dis_t=1781761894&m=b61dc049bb5a0b620c148ee399d68942&sha256=b0ff9c912fbf58d424bc58f29bf47a6adcb62fa859688b9102511d3b7ee53097",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3qqa3qaab34aogvayazvbxbaexccadoca.f0.mp4?dis_k=3809b90028773e42bdcf59d004615899&dis_t=1780046689&m=fd1000bdd44a3410be8776fafe659b53",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b533qccoaaeiuamgxgemrur5xaee7oaij2a.f0.mp4?dis_k=aa6d8abecac6b8fe6bc4452f0828c36f&dis_t=1774249140&m=11f998ffd6efc6d83550279a7b0cc7a8&sha256=153d31bd49bcf24e1d4adae2ed48b9a6279669d52b4d4c3f3b85466a89a08d42",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 9,
           "spu": "男士西装裤/正装裤",
           "productCount": 9,
-          "dailyGmv": 3555,
-          "dailyGmvWan": 0.4,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 1.1,
+          "heatLevel": "· 低热",
           "liveCount": 5,
           "creativeCount": 5,
-          "roi": 3.79,
+          "roi": 0,
           "roiRange": "3.7-4.0",
           "price": 223,
           "typicalNames": [
@@ -402,38 +572,59 @@
               "rank": 1,
               "name": "悦福记男装工厂店",
               "anon_name": "TOP1 直播间",
-              "gmv": 2276,
-              "roi": 3.98,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 2,
               "name": "BUCHI布驰品牌男装",
               "anon_name": "TOP2 直播间",
-              "gmv": 1017,
-              "roi": 3.57,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             },
             {
               "rank": 3,
               "name": "云落生花男装店",
               "anon_name": "TOP3 直播间",
-              "gmv": 240,
-              "roi": 3.01,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3jaac2aaay4aeohz32bvbwsaefveaalka.f0.mp4?dis_k=2480450c34c3d252d1e83c2dd5942db4&dis_t=1782278822",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53feafeaaawqadlupyizurukiekiuqausa.f0.mp4?dis_k=d9e0d0527375295d0f1b0a719a2be53d&dis_t=1777887138&m=a0aa98df01f74c6d91a7b65aa1b3bcbd",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53pydwsaahnyalzvhr25ur27qenf7ao2ka.f0.mp4?dis_k=bc7fccdd79937025d19303d636286402&dis_t=1779238411&m=7e61d961b98008ea8d88fecb58a0cb6b&sha256=e830a50aeee52ad6bd737f0ba02881cca49b60e1eb51d898f9b71f5c73da4cfe",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 10,
           "spu": "男士衬衫",
           "productCount": 24,
-          "dailyGmv": 3112,
-          "dailyGmvWan": 0.3,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 0.9,
+          "heatLevel": "· 低热",
           "liveCount": 12,
           "creativeCount": 11,
-          "roi": 3.73,
+          "roi": 0,
           "roiRange": "3.7-4.0",
           "price": 123,
           "typicalNames": [
@@ -449,37 +640,56 @@
               "rank": 1,
               "name": "罗蒙昌航衣饰",
               "anon_name": "TOP1 直播间",
-              "gmv": 1048,
-              "roi": 3.82,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 2,
               "name": "罗蒙扬望服饰店",
               "anon_name": "TOP2 直播间",
-              "gmv": 749,
-              "roi": 3.18,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 3,
               "name": "啄木鸟行望男装店",
               "anon_name": "TOP3 直播间",
-              "gmv": 362,
-              "roi": 2.56,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53sybq4aadvuadpbjrmvvbtfqeb2lagdsa.f0.mp4?dis_k=18a066c2ddfb8d131c39f383287e07e2&dis_t=1781676366&m=9a9c9fe3bd9edba6cd6eea552280efd5&sha256=0b2d55ca15a12eafdf966d4d95f371d4dc858f73912bcfa2cee896730ce47da3",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3ractoaaf2eafinshrnvb7caeg6eakn2a.f0.mp4?dis_k=3851a8760037a93a04f09882d0947934&dis_t=1782735901&m=4963b7031557b48676bda7f37e0e28e9&sha256=ac1ce7016e6515d73bb220a6aa9fde7ff5a91b522093e888fa2f7025b4388642",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53uaauaaabv4aelrosbjurxiaeicqacqca.f0.mp4?dis_k=a1194818befa737736c7cf4f89f8a169&dis_t=1781510385&m=e6598353684ebd5e62614b5cc2e04f96&sha256=0115abdc157466e7db6a88b4c22ae457300986e2ab4ee4ab57a3660aea942f13",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         }
       ]
     },
     "女装": {
       "track": "女装",
-      "totalDailyGmv": 368507,
-      "totalDailyGmvWan": 36.9,
+      "totalDailyGmv": 0,
+      "totalDailyGmvWan": 0,
       "top10Coverage": 76.1,
-      "top10DailyGmv": 280390,
+      "top10DailyGmv": 0,
       "totalLives": 748,
       "totalCreatives": 0,
       "spuCount": 135,
@@ -488,11 +698,13 @@
           "rank": 1,
           "spu": "女士休闲裤",
           "productCount": 363,
-          "dailyGmv": 69669,
-          "dailyGmvWan": 7.0,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 18.9,
+          "heatLevel": "🔥🔥 高热",
           "liveCount": 136,
           "creativeCount": 169,
-          "roi": 6.49,
+          "roi": 0,
           "roiRange": "6.4-6.7",
           "price": 357,
           "typicalNames": [
@@ -508,38 +720,59 @@
               "rank": 1,
               "name": "拉夏贝尔品质女装",
               "anon_name": "TOP1 直播间",
-              "gmv": 12279,
-              "roi": 5.47,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 2,
               "name": "拉夏贝尔女裤优选",
               "anon_name": "TOP2 直播间",
-              "gmv": 11507,
-              "roi": 6.23,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 3,
               "name": "浙锦ZHEJIN",
               "anon_name": "TOP3 直播间",
-              "gmv": 7456,
-              "roi": 7.37,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 3
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3i4cjeaaeeqalznz2tzvb6ryesjdqjesa.f0.mp4?dis_k=4dc6b4dd821c6497ed1037a446d122b7&dis_t=1782460031",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53uqb5saaddyanyzzotjvbtjae3gsahwka.f0.mp4?dis_k=48ba8a19653edbcb1ba99bc46479891b&dis_t=1781335537&m=8861fb678ac22164f599d7e28b02745b&sha256=5dac5578898c59e5f00c6ebcf6e44cba9a74db73f88bf794678f2bd600c76de9",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3peaskaabyaagmrat4jvbu6ieev4qcjka.f0.mp4?dis_k=a47e48c72070bb512162f054b569fbd5&dis_t=1779840043&m=82186eaa4bcbefcbaac112a0cc11e6f6&sha256=e0b8c322211970dd3b57d6c64042e313ea39607f432861c931a88cdbc7c72e26",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 2,
           "spu": "女士T恤/Polo衫",
           "productCount": 519,
-          "dailyGmv": 62677,
-          "dailyGmvWan": 6.3,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 17.0,
+          "heatLevel": "🔥🔥 高热",
           "liveCount": 136,
           "creativeCount": 135,
-          "roi": 4.48,
+          "roi": 0,
           "roiRange": "4.4-4.7",
           "price": 97,
           "typicalNames": [
@@ -555,38 +788,59 @@
               "rank": 1,
               "name": "GQO朴舍尤因",
               "anon_name": "TOP1 直播间",
-              "gmv": 18318,
-              "roi": 2.91,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 2,
               "name": "斯雅芙服饰商行",
               "anon_name": "TOP2 直播间",
-              "gmv": 9536,
-              "roi": 3.9,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 4
             },
             {
               "rank": 3,
               "name": "诗野服饰商行",
               "anon_name": "TOP3 直播间",
-              "gmv": 3507,
-              "roi": 3.78,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 4
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3wubmcaacuyajhorgxbvbrnieyg2qfqka.f0.mp4?dis_k=729d9448a4e33cc4ea907cb8ae9dd18e&dis_t=1780765288&m=70d075f4e61ba7c70690df8847a61a6c&sha256=733ed99002ef32a680e30a2310c195e240692eb9b00da4bc4d3987c7d65ec20f",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53lycpmaae2iaghewkwvur4xqe6zpaj5sa.f0.mp4?dis_k=886db395f31ba0f6830394c40b96043b&dis_t=1775146495&m=c7550e9e407a1566c02ac75ef1616f90&sha256=391fb0d7b2680adad65498ee820a73e4668b36fe8cf48894c9f7b6ec59123f20",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc344argaabiyaag753unurxzyecptqce2a.f0.mp4?dis_k=5c89b850ca641570e0f5a7e02ece4bc6&dis_t=1773801689&m=6ebb1003d998262f9142e04b3b7fe31a&sha256=c62453039e712a0a3aa43b0190c2e91cab4756f99f7d01861acd9e8297b6aed7",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 3,
           "spu": "女士背心/吊带",
           "productCount": 90,
-          "dailyGmv": 47159,
-          "dailyGmvWan": 4.7,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 12.8,
+          "heatLevel": "🔥🔥 高热",
           "liveCount": 42,
           "creativeCount": 35,
-          "roi": 3.03,
+          "roi": 0,
           "roiRange": "3.0-3.3",
           "price": 54,
           "typicalNames": [
@@ -602,38 +856,59 @@
               "rank": 1,
               "name": "小茹家精品服饰",
               "anon_name": "TOP1 直播间",
-              "gmv": 36621,
-              "roi": 2.78,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             },
             {
               "rank": 2,
               "name": "哥弟商元家居服饰",
               "anon_name": "TOP2 直播间",
-              "gmv": 6243,
-              "roi": 3.8,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 3
             },
             {
               "rank": 3,
               "name": "峰爆百货",
               "anon_name": "TOP3 直播间",
-              "gmv": 783,
-              "roi": 2.85,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3taadcaaapuagpeslyfvbvgaeggmaamka.f0.mp4?dis_k=7a37b909d323c483e4571a634f23c6a5&dis_t=1783322464&m=aea7456ccf2745a175620efc7ab565f5&sha256=cdf32c37481d28d0f7c22117c223d2be1ef99d1f72a72d86e44ae105a452d947",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3ciaicaaa7yanx32l5rvbueqeqejabaka.f0.mp4?dis_k=073fcd5a6b58099253ecb307cdf2a823&dis_t=1783323450&m=c4751fe6298e18dd7e03f70bf7413cc7&sha256=8963611382dc60cfbc9f53b61e7994cda90ad3dbdad8cfc96fbdf286f9b05f61",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53fualsaaa34aok6kpf5vbuliexewqboka.f0.mp4?dis_k=60268ce37ab01a11565ad4a3abd6cce8&dis_t=1783586106&m=525fe4095d615ed233c0e65e1bdaed12&sha256=3cd5d59c346a4b38ceff2927b0e54db9ce16d0f5eda4f0c6334b9543b200742d",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 4,
           "spu": "女士打底衫",
           "productCount": 9,
-          "dailyGmv": 29294,
-          "dailyGmvWan": 2.9,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 7.9,
+          "heatLevel": "🔥 中热",
           "liveCount": 5,
           "creativeCount": 5,
-          "roi": 3.97,
+          "roi": 0,
           "roiRange": "3.9-4.2",
           "price": 91,
           "typicalNames": [
@@ -649,38 +924,59 @@
               "rank": 1,
               "name": "哥弟商元贸易有限公司",
               "anon_name": "TOP1 直播间",
-              "gmv": 29254,
-              "roi": 3.97,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 3
             },
             {
               "rank": 2,
               "name": "轩凌子服装",
               "anon_name": "TOP2 直播间",
-              "gmv": 12,
-              "roi": 0.78,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 3,
               "name": "三枪湖北内衣专卖店",
               "anon_name": "TOP3 直播间",
-              "gmv": 12,
-              "roi": 2.0,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53nial2aaajmagc2km5rvbu2qexvvabpka.f0.mp4?dis_k=41fcdd05400ceefae6e7b018d8ff7faa&dis_t=1783421994&m=61060311d91486d27588947264ca4126",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53hiaeeaaa7aakduaf6fvbuoqeii5aaqsa.f0.mp4?dis_k=76638b7fe4934adc92c9a0f183964ad7&dis_t=1778770886&m=1fe6f1ed4630aa223ed9d7dcd7d65dd1",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3aecpcaaereaedbw4qnur4aie6eaqj4ka.f0.mp4?dis_k=6bc6261fa5fe69b3b0dd0309b5d8e565&dis_t=1783593803&m=415d7046b1f0f62749deffd119d91e16&sha256=ed59677d95f009465d4202fa96f554903b86f04853475be50641928c157bc634",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 5,
           "spu": "女士连衣裙",
           "productCount": 346,
-          "dailyGmv": 21997,
-          "dailyGmvWan": 2.2,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 6.0,
+          "heatLevel": "🔥 中热",
           "liveCount": 96,
           "creativeCount": 142,
-          "roi": 12.26,
+          "roi": 0,
           "roiRange": "12.2-12.5",
           "price": 734,
           "typicalNames": [
@@ -696,38 +992,59 @@
               "rank": 1,
               "name": "美洋女装官方商城",
               "anon_name": "TOP1 直播间",
-              "gmv": 2348,
-              "roi": 10.03,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 9
             },
             {
               "rank": 2,
               "name": "梵依娜女装店",
               "anon_name": "TOP2 直播间",
-              "gmv": 2137,
-              "roi": 4.88,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             },
             {
               "rank": 3,
               "name": "浙锦ZHEJIN",
               "anon_name": "TOP3 直播间",
-              "gmv": 1574,
-              "roi": 7.59,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53uiarsaabumah6gkh4vvbxiqedgracgka.f0.mp4?dis_k=aa0fa99dc9fc17e1c3c0fb189ac3effb&dis_t=1782998561&m=bdaf04c75165a276b9e26b6e9d7c6ee3&sha256=9e438a1f522de86521d525d2c080e4bd483193c8f85024fa34bc3ea7ab9c86c7",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3uiajsaaahaacnlj3nfvbviqetgrabgka.f0.mp4?dis_k=c40f21d0c02d581b185d7cabec1f67a4&dis_t=1782300581&m=f6be8bed41aaf015c72bf0a48c8e3330",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53bmabqaaaweaobmkdlnvbucyedafqagca.f0.mp4?dis_k=1833a2a9e5bfdc4cca3ab04bd99abc4b&dis_t=1782839488&m=e407255dbe3c2d5a501966c075e893df",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 6,
           "spu": "女士中式女装/新中式女装",
           "productCount": 55,
-          "dailyGmv": 18112,
-          "dailyGmvWan": 1.8,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 4.9,
+          "heatLevel": "· 低热",
           "liveCount": 34,
           "creativeCount": 33,
-          "roi": 6.8,
+          "roi": 0,
           "roiRange": "6.7-7.0",
           "price": 168,
           "typicalNames": [
@@ -743,38 +1060,59 @@
               "rank": 1,
               "name": "小高精品优选",
               "anon_name": "TOP1 直播间",
-              "gmv": 13185,
-              "roi": 2.74,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             },
             {
               "rank": 2,
               "name": "香夫人新中式女装",
               "anon_name": "TOP2 直播间",
-              "gmv": 1298,
-              "roi": 27.18,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             },
             {
               "rank": 3,
               "name": "沐恩恩选高定",
               "anon_name": "TOP3 直播间",
-              "gmv": 1132,
-              "roi": 12.37,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 3
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53tuabuaaajyacgjsdfvvbvhiedkoqagsa.f0.mp4?dis_k=864b607fe8f54262ef0c1de9ed4d13a0&dis_t=1782790660&m=4fe65432aeecbeeeee0fbfa2b15dc8a6&sha256=a67081ffcd6c6a02457cf84464de53159fb1c19ac4ccc8d058ca34c32f5ca996",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53w4cseaaffmagltz2krvb7nyeek3qkisa.f0.mp4?dis_k=032d218c90252b5a2f82fdb64dc8117a&dis_t=1782532002&m=8b1f9e7bd5f77a70182a426bc6d1ab8a",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53jiblwaaczuapypz5avvbqsqexnfafo2a.f0.mp4?dis_k=f2dea82639426abcc9bc9b9ca98939a1&dis_t=1782703398&m=5b507aa693aeaf5cd28f2dbeddd1ff9f&sha256=0002923dced9d05c640be947d75b8df3e2d780fa4cc40d1357bfbfda928eecfa",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 7,
           "spu": "女士半身裙",
           "productCount": 155,
-          "dailyGmv": 10551,
-          "dailyGmvWan": 1.1,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 2.9,
+          "heatLevel": "· 低热",
           "liveCount": 59,
           "creativeCount": 76,
-          "roi": 8.09,
+          "roi": 0,
           "roiRange": "8.0-8.3",
           "price": 250,
           "typicalNames": [
@@ -790,38 +1128,59 @@
               "rank": 1,
               "name": "拉夏品质服饰",
               "anon_name": "TOP1 直播间",
-              "gmv": 3797,
-              "roi": 4.93,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             },
             {
               "rank": 2,
               "name": "一比Eby",
               "anon_name": "TOP2 直播间",
-              "gmv": 782,
-              "roi": 7.0,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 4
             },
             {
               "rank": 3,
               "name": "袁么么定制女装",
               "anon_name": "TOP3 直播间",
-              "gmv": 735,
-              "roi": 7.54,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 3
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3zmackaaa24ah6icgpbvbxsyeexfqajka.f0.mp4?dis_k=f0dbfa537ab7642297369327850e2d3a&dis_t=1782995507&m=2b0c720fa6ba4353e9715642a78732c4",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3yicgwaaemmapfgr7mzvb7qqenpbai22a.f0.mp4?dis_k=350811e0a6b1082996de73ae15788d50&dis_t=1782290862&m=069612d83aa5da7f8ae98af8919a4fcf",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53xqagkaaa6aapg5r3sbvbxpaemw6aazka.f0.mp4?dis_k=2c596dcb0c00ee4aff81d9f79f621528&dis_t=1782290011&m=4ef4c9c46ca4a2b76ce0849a0c6b3752",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 8,
           "spu": "儿童速干T恤/Polo衫",
           "productCount": 6,
-          "dailyGmv": 8111,
-          "dailyGmvWan": 0.8,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 2.2,
+          "heatLevel": "· 低热",
           "liveCount": 5,
           "creativeCount": 2,
-          "roi": 1.88,
+          "roi": 0,
           "roiRange": "1.8-2.1",
           "price": 71,
           "typicalNames": [
@@ -834,38 +1193,59 @@
               "rank": 1,
               "name": "特际白锦绒服饰",
               "anon_name": "TOP1 直播间",
-              "gmv": 4150,
-              "roi": 2.13,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 2,
               "name": "泮夏儿童服饰",
               "anon_name": "TOP2 直播间",
-              "gmv": 2732,
-              "roi": 1.62,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 3,
               "name": "特际母婴服饰好物精选",
               "anon_name": "TOP3 直播间",
-              "gmv": 884,
-              "roi": 1.6,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53yeb7iaadlmagfzo34zurtqie6taqh5ca.f0.mp4?dis_k=152170d96155701170671c598c1b86ec&dis_t=1775802431&m=057d2c9873971e23b5604ed06eb6e600&sha256=b2574f16de59302d33df6d5ac9a684bd9c5bdd1fd0826d740a0946b9d9d21da7",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b537ebcqaac2ualhvsb7nvbr6iefd4qekca.f0.mp4?dis_k=137567d8b901ad3fcbfd8aff9d5f4521&dis_t=1782815586&m=ed5fdac48201e83e290b86e9f6952f7c&sha256=64f67a10c748be06531e01e009a7596131442140352978114c8deb71ac20018c",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc37acpoaaeheaklkz2invb56ae674aj52a.f0.mp4?dis_k=19097d4441b47649ebadbda6377f5391&dis_t=1782469330&m=c7ba6dbe49c507d2647c2fb9781e4dcc&sha256=3a92d60aad17652c75fafe65c6b576cf74a856c1e6d1c293125f20a3949b4201",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 9,
           "spu": "女士骑行服",
           "productCount": 2,
-          "dailyGmv": 6555,
-          "dailyGmvWan": 0.7,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 1.8,
+          "heatLevel": "· 低热",
           "liveCount": 2,
           "creativeCount": 2,
-          "roi": 3.27,
+          "roi": 0,
           "roiRange": "3.2-3.5",
           "price": 52,
           "typicalNames": [
@@ -878,30 +1258,51 @@
               "rank": 1,
               "name": "敏姐服装好物分享",
               "anon_name": "TOP1 直播间",
-              "gmv": 5136,
-              "roi": 3.32,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 2,
               "name": "夏老师优选好物",
               "anon_name": "TOP2 直播间",
-              "gmv": 1418,
-              "roi": 3.09,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b533aal4aaa2eacxy2pfbvbvwaex3mabpsa.f0.mp4?dis_k=35138aea99a9c69fd6e58b665b6e7020&dis_t=1783600449&m=acdf300d174448cd3a8fdd92ae1b20f4&sha256=06f7dcc44a9e2ad4c4ca407f1207bddfb4279e9169f5d2f3e1024193065ebc0a",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53saa6qaabqiamdvjb7bvbxeae5ciad2ca.f0.mp4?dis_k=56ffd5a10c72bc5472fc8f88123cef31&dis_t=1780492573&m=28e06f0d08b6bb67abf83324de9a4922&sha256=ec287d1bf78a63dffdc2f834383f70ac1b564e5669f0f75027f95c282f8ca9b8",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53hiadiaaawyak32cpnnvbuoqegq5aanca.f0.mp4?dis_k=1a6a24a1fea28e1f5893eb61cad0b7e5&dis_t=1783601570&m=80824725c71bfc012d02d488b5290fa8&sha256=2e45c25849370cd79d05a2e0793afdb21ec9ff6f3073e95ba3d6263d416dabbb",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 10,
           "spu": "女士衬衫",
           "productCount": 124,
-          "dailyGmv": 6261,
-          "dailyGmvWan": 0.6,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 1.7,
+          "heatLevel": "· 低热",
           "liveCount": 67,
           "creativeCount": 75,
-          "roi": 10.68,
+          "roi": 0,
           "roiRange": "10.6-10.9",
           "price": 333,
           "typicalNames": [
@@ -917,37 +1318,56 @@
               "rank": 1,
               "name": "马旭丨Mykey品牌",
               "anon_name": "TOP1 直播间",
-              "gmv": 800,
-              "roi": 7.64,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 3
             },
             {
               "rank": 2,
               "name": "Mykey品牌2号店",
               "anon_name": "TOP2 直播间",
-              "gmv": 711,
-              "roi": 8.12,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 4
             },
             {
               "rank": 3,
               "name": "MAGGIEMA马婧",
               "anon_name": "TOP3 直播间",
-              "gmv": 577,
-              "roi": 17.89,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53qmagaaaamqafvwcbnrvbvayemcbqayca.f0.mp4?dis_k=3f9b12bf62131890648817137c85fefe&dis_t=1782659819&m=85bd58527bdc0f35e4180da38666ee2e",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3kiakiaaajaamcki6hbvbuuqeurjabjca.f0.mp4?dis_k=f1089cb3d354b42a2d39cf821988fc1b&dis_t=1780376866&m=add991a2d8e671ff25035335a9543467",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3zmaziaab7yahwfi2tnvbvsyestfqdfca.f0.mp4?dis_k=ed7d6363e1428b079ee7eff4bc01f15a&dis_t=1781273331&m=f0de7c72b87ab2e47bc648084dc46679&sha256=0ae02c01e07194e0196fd3b55694f3cbc0fbee36f23e2d44507188296d615879",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         }
       ]
     },
     "珠宝配饰": {
       "track": "珠宝配饰",
-      "totalDailyGmv": 175763,
-      "totalDailyGmvWan": 17.6,
+      "totalDailyGmv": 0,
+      "totalDailyGmvWan": 0,
       "top10Coverage": 84.7,
-      "top10DailyGmv": 148823,
+      "top10DailyGmv": 0,
       "totalLives": 336,
       "totalCreatives": 0,
       "spuCount": 102,
@@ -956,11 +1376,13 @@
           "rank": 1,
           "spu": "戒指",
           "productCount": 69,
-          "dailyGmv": 42622,
-          "dailyGmvWan": 4.3,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 24.2,
+          "heatLevel": "🔥🔥🔥 极热",
           "liveCount": 31,
           "creativeCount": 27,
-          "roi": 2.47,
+          "roi": 0,
           "roiRange": "2.4-2.7",
           "price": 83,
           "typicalNames": [
@@ -976,38 +1398,59 @@
               "rank": 1,
               "name": "普陀禅意文创",
               "anon_name": "TOP1 直播间",
-              "gmv": 23168,
-              "roi": 1.72,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 2,
               "name": "普陀慧济文创阁",
               "anon_name": "TOP2 直播间",
-              "gmv": 14929,
-              "roi": 2.04,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 3,
               "name": "甄韵国风饰品",
               "anon_name": "TOP3 直播间",
-              "gmv": 943,
-              "roi": 1.46,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3fiaheaaacqand3r3qfvbukqeoivaa4sa.f0.mp4?dis_k=54d2848a723148dd40beaf8701992d8e&dis_t=1782305837&m=e192d4abd028e3af92abfa8cc2fc480a&sha256=2b3e7b171f96433106104f44c3693892da48f6643a228994b591a8a55692dd5a",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc374cvgaafjmam5dcg55vb77yekp7qku2a.f0.mp4?dis_k=d7f08bb09346376c85fd5658c2fb9904&dis_t=1782816223&m=653ff0a9c27b3eb4723103aae77d0a92&sha256=7d8d48566a3f71289cc00447a9cb8f681da80d792307ff69ba0b747023413e09",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53cebgsaacdyamuzrz25vbqeieneiqe2ka.f0.mp4?dis_k=97ad12ab07630d7593568059e7dd776d&dis_t=1782305837&m=f9ae6cf9c0e2c56f4f21c90047d8bd89&sha256=2eb0eda2c275df17f922df48351cf2a2ec2c6727c51591fe5b67c639dafa92e1",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 2,
           "spu": "手镯/手链",
           "productCount": 96,
-          "dailyGmv": 34885,
-          "dailyGmvWan": 3.5,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 19.8,
+          "heatLevel": "🔥🔥 高热",
           "liveCount": 38,
           "creativeCount": 37,
-          "roi": 6.93,
+          "roi": 0,
           "roiRange": "6.9-7.2",
           "price": 883,
           "typicalNames": [
@@ -1023,38 +1466,59 @@
               "rank": 1,
               "name": "朱炳仁饰品官方店",
               "anon_name": "TOP1 直播间",
-              "gmv": 27051,
-              "roi": 3.21,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             },
             {
               "rank": 2,
               "name": "麦玲玲师傅linghit",
               "anon_name": "TOP2 直播间",
-              "gmv": 2536,
-              "roi": 1.83,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             },
             {
               "rank": 3,
               "name": "麦玲玲Maklinghit",
               "anon_name": "TOP3 直播间",
-              "gmv": 996,
-              "roi": 1.64,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 4
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53jealeaaazaaj2vsqpnvbusiewjeqbmsa.f0.mp4?dis_k=55f03ef8de30846e2ea4f0bfb9059185&dis_t=1783639941&m=2b73178d9391f9a7feb59bfce32df6df",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53xaamkaaayyaovtcqmzvbvoaeyw4abrka.f0.mp4?dis_k=9dbfcf9fca8509c67b387c995304fcbd&dis_t=1783639938&m=0b0ad981727e209ff02acef81445c35f",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53qaam2aaabuaofqkqjnvbvaaezwaabtka.f0.mp4?dis_k=7e2d461c070dcfd57565ab581a71f93e&dis_t=1783639957&m=5ca16fae9e3f492af6b838ec44da790e",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 3,
           "spu": "项链/颈饰",
           "productCount": 99,
-          "dailyGmv": 14449,
-          "dailyGmvWan": 1.4,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 8.2,
+          "heatLevel": "🔥 中热",
           "liveCount": 54,
           "creativeCount": 22,
-          "roi": 29.53,
+          "roi": 0,
           "roiRange": "29.5-29.8",
           "price": 3551,
           "typicalNames": [
@@ -1069,38 +1533,59 @@
               "rank": 1,
               "name": "江苏财经广播-品茶赏翠",
               "anon_name": "TOP1 直播间",
-              "gmv": 2223,
-              "roi": 38.71,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 2,
               "name": "哈轩珠宝订制",
               "anon_name": "TOP2 直播间",
-              "gmv": 1598,
-              "roi": 31.08,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 3,
               "name": "佳心珠宝回流寄售",
               "anon_name": "TOP3 直播间",
-              "gmv": 1075,
-              "roi": 51.17,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://pgdt.gtimg.cn/141/20204/snscosdownload/SZ/reserved/69ec34470000170317de71de60fa01150000008d00004eec?ck=8d69607648e16dfe7306c21dc11bc97e&m=8d69607648e16dfe7306c21dc11bc97e&sha256=6a6188201d87acce890bc3a179c99885d34b73bb6772c3921fee1d9176dcdaa5",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://pgdt.gtimg.cn/141/20204/snscosdownload/SZ/reserved/6911adc300022932092e75c235f001150000008d00004eec?ck=1f4e2e732f0fafeb93e7049c0bf6b0e1&m=1f4e2e732f0fafeb93e7049c0bf6b0e1&sha256=8b05da22f7cc0b614db8ca396b4899fbe63d98d63c475b3a90a4f3011c993cba",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53mqac6aaa54afpaqmmvuruzaef5saal2a.f0.mp4?dis_k=9cf26a0cd912c3d69472be55f39028b1&dis_t=1762424998&m=ddb2edb4d3ab76f6342069887ef9b693&sha256=2772e24f7afa4f0d7c52bfb41cefd5ed0a9d59abfb37774eb50ca544d65ebce6",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 4,
           "spu": "运动护具",
           "productCount": 11,
-          "dailyGmv": 12744,
-          "dailyGmvWan": 1.3,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 7.3,
+          "heatLevel": "🔥 中热",
           "liveCount": 9,
           "creativeCount": 6,
-          "roi": 2.18,
+          "roi": 0,
           "roiRange": "2.1-2.4",
           "price": 42,
           "typicalNames": [
@@ -1116,38 +1601,59 @@
               "rank": 1,
               "name": "泊伊尚品丝佳居家生活",
               "anon_name": "TOP1 直播间",
-              "gmv": 4270,
-              "roi": 2.06,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 2,
               "name": "泊伊尚品玖霆居家生活",
               "anon_name": "TOP2 直播间",
-              "gmv": 3737,
-              "roi": 1.97,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 3,
               "name": "康舒运动店",
               "anon_name": "TOP3 直播间",
-              "gmv": 3123,
-              "roi": 2.4,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53wab4aaad74adi4ziqnvdxmgeycyahqca.f0.mp4?dis_k=8624899b634986d3114ad5cd4fc15fed&dis_t=1781265489",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53t4awkaabk4an4beaerurxhyemwpqczka.f0.mp4?dis_k=c10bc522d5ddfa580a5f14ba5373f48a&dis_t=1770110180&m=778213aa068e5df721add97a0b3e679b&sha256=6469f4f97edf293b5638ea5cecee8d9cded1336cc436c7023ecb45f509894a0c",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3xmaggaaa7uahkmnrmnurvoyemo5qay2a.f0.mp4?dis_k=1466fe32de25e363ca717d3a6050a01b&dis_t=1773214948&m=9770102b344a0dc34c7539262830df8e&sha256=6f1f44823bce2020a76371e9dd7d29634207e69c814e069e12c10839ed1cd947",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 5,
           "spu": "手串/文玩饰品",
           "productCount": 73,
-          "dailyGmv": 9667,
-          "dailyGmvWan": 1.0,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 5.5,
+          "heatLevel": "🔥 中热",
           "liveCount": 33,
           "creativeCount": 11,
-          "roi": 5.92,
+          "roi": 0,
           "roiRange": "5.9-6.2",
           "price": 892,
           "typicalNames": [
@@ -1163,38 +1669,59 @@
               "rank": 1,
               "name": "中国香博园陈剑锋",
               "anon_name": "TOP1 直播间",
-              "gmv": 2518,
-              "roi": 6.69,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 2,
               "name": "云南省文物总店沉香馆",
               "anon_name": "TOP2 直播间",
-              "gmv": 1300,
-              "roi": 4.5,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 3,
               "name": "海南沉香收藏馆",
               "anon_name": "TOP3 直播间",
-              "gmv": 1161,
-              "roi": 4.5,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://pgdt.gtimg.cn/141/20204/snscosdownload/SZ/reserved/6a18d673000597491aff85b73349af150000008d00004eec?ck=86a8e187fe80a2dee8b1ab8b5036df4d&m=86a8e187fe80a2dee8b1ab8b5036df4d&sha256=42bee25bee330145272f31b361013a90971f04ee2f23c61920de4c6b381adece",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://pgdt.gtimg.cn/141/20204/snscosdownload/SZ/reserved/68ec6b6c0005eeb821cebaf489f715150000008d00004eec?ck=e79d32b6e54104385d1adf292c0408bf&m=e79d32b6e54104385d1adf292c0408bf&sha256=e60d219b8afe5e35dff698f9b17c15f4f8d9940a8c9c9945c669ad0e3d4a5ed1",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://pgdt.gtimg.cn/141/20204/snscosdownload/SZ/reserved/6a10b0400001ea4f0b2d3af199918e0b0000008d00004eec?ck=cb652f09301fa90a4df30377db925731&m=cb652f09301fa90a4df30377db925731&sha256=e23fb1cd96d9b4cf56768defdd7901b4b703e421a720da8a1db3ac480f418582",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 6,
           "spu": "女士耳饰",
           "productCount": 145,
-          "dailyGmv": 9340,
-          "dailyGmvWan": 0.9,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 5.3,
+          "heatLevel": "🔥 中热",
           "liveCount": 43,
           "creativeCount": 21,
-          "roi": 2.28,
+          "roi": 0,
           "roiRange": "2.2-2.5",
           "price": 123,
           "typicalNames": [
@@ -1210,38 +1737,59 @@
               "rank": 1,
               "name": "多盈饰馆",
               "anon_name": "TOP1 直播间",
-              "gmv": 2437,
-              "roi": 1.92,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 2,
               "name": "P&N法式复古首饰",
               "anon_name": "TOP2 直播间",
-              "gmv": 1696,
-              "roi": 2.39,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 4
             },
             {
               "rank": 3,
               "name": "薄荷冰冰饰品百货",
               "anon_name": "TOP3 直播间",
-              "gmv": 847,
-              "roi": 2.35,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53nuagoaaaaiaazyslzjvbw3iem5wqaz2a.f0.mp4?dis_k=d323d54413f5d9c35c73eebc8ff219ca&dis_t=1783327609",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3iianwaaasmaggpyszfvbuqqe3nbabw2a.f0.mp4?dis_k=9997bf5699108b3ffc6ee516252878d2&dis_t=1781599876&m=16f1b83f09c3bcb2647c6fb86f3df052&sha256=37efc7c77dbfc10a80b8e852de26e0612134b38ac6822a1a20e69ed2a5785d3b",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53b4aeiaaaf4ak5ghwk5urudyeiqhqarca.f0.mp4?dis_k=4e58879ce8da5c3de24918649284e022&dis_t=1782291013&m=5794bb0491253ee56d5a466c8141301a&sha256=7d2abb91a20c0f03192bdeadacb2845e8965ce46725bbd4738ddc696c70e097d",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 7,
           "spu": "防晒配件",
           "productCount": 68,
-          "dailyGmv": 8552,
-          "dailyGmvWan": 0.9,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 4.9,
+          "heatLevel": "· 低热",
           "liveCount": 25,
           "creativeCount": 28,
-          "roi": 2.75,
+          "roi": 0,
           "roiRange": "2.7-3.0",
           "price": 35,
           "typicalNames": [
@@ -1257,38 +1805,59 @@
               "rank": 1,
               "name": "微微围巾",
               "anon_name": "TOP1 直播间",
-              "gmv": 2546,
-              "roi": 3.34,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 2,
               "name": "晴天家居百货店",
               "anon_name": "TOP2 直播间",
-              "gmv": 2382,
-              "roi": 1.99,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 3,
               "name": "德芬妲deoinum",
               "anon_name": "TOP3 直播间",
-              "gmv": 1088,
-              "roi": 2.62,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53vmaimaaa7uafgesmcjvbvkyeq2vqbbsa.f0.mp4?dis_k=505143fd63fc2197d6bbb3882214e221&dis_t=1783420255&m=2e7500bd14cca763cd7c73def44024a1&sha256=d33470329093635047f44f145e537e37eeee4128b4597660c665b7204cc1ad24",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc374cvcaafvqahht67njur77yekh7qkuka.f0.mp4?dis_k=904b0746495343e902552ad11bda5c34&dis_t=1775903318&m=01e374a7cd28f556e8bb259be6cf45f2",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc36aaf4aaa3yanltqg6rvbv4ael3yaaxsa.f0.mp4?dis_k=db83e545a39057b86ab26cdfbaf91020&dis_t=1778813745&m=9077cc12593e8eb130713150fa58c2ea",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 8,
           "spu": "耳饰",
           "productCount": 92,
-          "dailyGmv": 6669,
-          "dailyGmvWan": 0.7,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 3.8,
+          "heatLevel": "· 低热",
           "liveCount": 34,
           "creativeCount": 27,
-          "roi": 5.81,
+          "roi": 0,
           "roiRange": "5.8-6.1",
           "price": 191,
           "typicalNames": [
@@ -1304,38 +1873,59 @@
               "rank": 1,
               "name": "P&N法式复古首饰",
               "anon_name": "TOP1 直播间",
-              "gmv": 1706,
-              "roi": 2.56,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             },
             {
               "rank": 2,
               "name": "小妮子饰品分享",
               "anon_name": "TOP2 直播间",
-              "gmv": 919,
-              "roi": 2.66,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 3,
               "name": "梦鲸饰品",
               "anon_name": "TOP3 直播间",
-              "gmv": 742,
-              "roi": 2.27,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3oqbeyaacyiajkaa54nvbq5aejr2aetca.f0.mp4?dis_k=504b5caf096f4a82e3e8c4980ae56256&dis_t=1780555547&m=56e7cad03c3f33c441dd62a35c9ee6f0&sha256=e249d3b020f82cd37fc721eeebb29f3c9bb5970ade722fe0390f69b09c2cf1b2",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3eaaimaaav4ahadqh6bvbuiaeqyqabbsa.f0.mp4?dis_k=61d09b303bdc0199606b8da5f0696c67&dis_t=1780292612&m=240e97056fca1d7416b13a47f7a1fe62&sha256=ca3f7379cfcacb9d5fbcfc0c6d5a18d8cfc73c3b1ec86c53c681deb31d024f61",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53j4aegaaavmagtfxhy5urutyeinhqaq2a.f0.mp4?dis_k=423bf83fc36778f86657840345b969d5&dis_t=1778725820&m=60321b1bb64b24fd6a7cf71b997a3228&sha256=65ec86b229d41734e176a9ece0c2a76c6fc5d84fd13c52ce2f1897393ef97884",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 9,
           "spu": "其他翡翠饰品",
           "productCount": 37,
-          "dailyGmv": 5179,
-          "dailyGmvWan": 0.5,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 2.9,
+          "heatLevel": "· 低热",
           "liveCount": 20,
           "creativeCount": 15,
-          "roi": 24.03,
+          "roi": 0,
           "roiRange": "24.0-24.3",
           "price": 2005,
           "typicalNames": [
@@ -1351,38 +1941,59 @@
               "rank": 1,
               "name": "超哥翡翠圈",
               "anon_name": "TOP1 直播间",
-              "gmv": 1337,
-              "roi": 17.1,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             },
             {
               "rank": 2,
               "name": "毛哥工厂翡翠批发",
               "anon_name": "TOP2 直播间",
-              "gmv": 959,
-              "roi": 29.97,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 3,
               "name": "戴黛福翡翠珠宝",
               "anon_name": "TOP3 直播间",
-              "gmv": 641,
-              "roi": 0.0,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 3
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://pgdt.gtimg.cn/141/20204/snscosdownload/SH/reserved/67074f28000d2726085310eef765b01e0000008d00004eec?m=e69cce15e48c8f068df2d7db8c939de6&ck=e69cce15e48c8f068df2d7db8c939de6&sha256=e40aec3d52575d0d86f91b2a74ff9fcfed3468c019d299a61c7845ffe4dbbf32",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://pgdt.gtimg.cn/141/20204/snscosdownload/SZ/reserved/6911adc300022932092e75c235f001150000008d00004eec?ck=1f4e2e732f0fafeb93e7049c0bf6b0e1&m=1f4e2e732f0fafeb93e7049c0bf6b0e1&sha256=8b05da22f7cc0b614db8ca396b4899fbe63d98d63c475b3a90a4f3011c993cba",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://pgdt.gtimg.cn/141/20204/snscosdownload/SZ/reserved/69ff185600060e482093c58754fb01150000008d00004eec?ck=b6b869cb1bd3bdfa0991d698ac83c743&m=b6b869cb1bd3bdfa0991d698ac83c743&sha256=58011ba37b93fa069db93adc8739610c7a59a817c9a0cd0f25fb2feedf1dab09",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 10,
           "spu": "茶具",
           "productCount": 122,
-          "dailyGmv": 4711,
-          "dailyGmvWan": 0.5,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 2.7,
+          "heatLevel": "· 低热",
           "liveCount": 18,
           "creativeCount": 25,
-          "roi": 2.29,
+          "roi": 0,
           "roiRange": "2.2-2.5",
           "price": 452,
           "typicalNames": [
@@ -1398,37 +2009,56 @@
               "rank": 1,
               "name": "景德镇飞野陶瓷",
               "anon_name": "TOP1 直播间",
-              "gmv": 1735,
-              "roi": 1.43,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 8
             },
             {
               "rank": 2,
               "name": "江西蓝宝网络科技有限公司",
               "anon_name": "TOP2 直播间",
-              "gmv": 1055,
-              "roi": 1.14,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 4
             },
             {
               "rank": 3,
               "name": "何白龙窑",
               "anon_name": "TOP3 直播间",
-              "gmv": 697,
-              "roi": 4.1,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 3
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53vmbf4aacgaaiflexc5ubrkyel2vqexsa.f0.mp4?dis_k=cb2aa8ec018bf146c08a6d7058f2c912&dis_t=1754652241&sha256=242ac55e239933328a1d725baa251ae29304baefacbf910fc91dafc9b6dcbf51&m=31be343cd8f6fb4db1b8b6d6f927edd6",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b535qabiaaa7uafesq4arurv3aectwaafca.f0.mp4?dis_k=2da7f421fc4964192d6ad5cd89536754&dis_t=1763621307&m=45257cbf6fdd2b08ab76cbff9e98184c&sha256=8340dc562acbd01fb7b039428bd37ea218005725acb891f6a8addf52868f1bfc",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53bycnmaae7ialdhhwknsr4dqe2yhajvsa.f0.mp4?dis_k=3e2b865a4255eaeda360d9087fd57717&dis_t=1770278207&m=113e78727310e880abb850e0cd9e305f&sha256=089a51dfa2ae165f4d618b3879cba062029bcfd728eb22a39e563d6903e3cc7a",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         }
       ]
     },
     "贴身衣物": {
       "track": "贴身衣物",
-      "totalDailyGmv": 1546690,
-      "totalDailyGmvWan": 154.7,
+      "totalDailyGmv": 0,
+      "totalDailyGmvWan": 0,
       "top10Coverage": 92.4,
-      "top10DailyGmv": 1428430,
+      "top10DailyGmv": 0,
       "totalLives": 349,
       "totalCreatives": 0,
       "spuCount": 67,
@@ -1437,11 +2067,13 @@
           "rank": 1,
           "spu": "女士文胸",
           "productCount": 382,
-          "dailyGmv": 803222,
-          "dailyGmvWan": 80.3,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 51.9,
+          "heatLevel": "🔥🔥🔥 极热",
           "liveCount": 123,
           "creativeCount": 93,
-          "roi": 2.74,
+          "roi": 0,
           "roiRange": "2.7-3.0",
           "price": 130,
           "typicalNames": [
@@ -1457,38 +2089,59 @@
               "rank": 1,
               "name": "婷美塑身内衣店",
               "anon_name": "TOP1 直播间",
-              "gmv": 112962,
-              "roi": 2.88,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 3
             },
             {
               "rank": 2,
               "name": "焕丽女王内衣服饰优选",
               "anon_name": "TOP2 直播间",
-              "gmv": 87488,
-              "roi": 2.25,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             },
             {
               "rank": 3,
               "name": "欧迪芬Ordifen内衣官方店",
               "anon_name": "TOP3 直播间",
-              "gmv": 83916,
-              "roi": 2.87,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53p4afaaaa7aaic42ihvvbu7yekb7qauca.f0.mp4?dis_k=961c70d2b76d03b884b121388b63582a&dis_t=1783247067&m=7d65ebcb9381b0714b065289358dded4&sha256=0031cd7da5c2af2736c8d98c34cfbad88162b74bd1de84cf22ddb6c839102a7e",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53tqae6aaabeabr7cmu5vbvhaej6oaat2a.f0.mp4?dis_k=dd7d776dccab027e3f7e3851e46d2fe2&dis_t=1783388312&m=5f0c5bbb032f7629e8c3daaec0c1e826&sha256=cf09af41c9ee548981f89ae11a67ad142d1f57c45830436f8f3e7e40a1f4f08b",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53tabnyaacjuaiuxbtvzvbrgae3smafxca.f0.mp4?dis_k=853a833ddd728d52f9091458fd5ddd1a&dis_t=1781618436&m=7d2b4e85454976b8ce41f85c302ffa2f&sha256=5e88cbeb767ac697412940c79654fd1a2a16fa954abead6f8bbcbf0c069a0f6b",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 2,
           "spu": "女士内裤",
           "productCount": 193,
-          "dailyGmv": 245100,
-          "dailyGmvWan": 24.5,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 15.8,
+          "heatLevel": "🔥🔥 高热",
           "liveCount": 61,
           "creativeCount": 70,
-          "roi": 2.07,
+          "roi": 0,
           "roiRange": "2.0-2.3",
           "price": 67,
           "typicalNames": [
@@ -1504,38 +2157,59 @@
               "rank": 1,
               "name": "焕丽女王塑身精选",
               "anon_name": "TOP1 直播间",
-              "gmv": 45929,
-              "roi": 1.98,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             },
             {
               "rank": 2,
               "name": "草本初色严选内裤",
               "anon_name": "TOP2 直播间",
-              "gmv": 32045,
-              "roi": 1.68,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 3,
               "name": "Ufeel云感甄选内衣",
               "anon_name": "TOP3 直播间",
-              "gmv": 31756,
-              "roi": 2.24,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53cyabeaaa34acib2fjfvbwfqecilaaesa.f0.mp4?dis_k=c2a9250284cec43531dee53d8fd29f84&dis_t=1782921845&m=736794769b8735aca857535f79e41a56&sha256=20dfec238ce33175b8871269791c7a53e5c8cec30ce6e2f7476b6ccc27ae5686",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b5374bdeaacliadeizd5rvbr7yegl7qemsa.f0.mp4?dis_k=57ee87519b9cf1f4b95d56296517eb84&dis_t=1780547840&m=c1c800928b76684ac173ed1d5c4bc96d&sha256=aaae3a89f9f89f4ea7dd04086278c7f165917e8223a4ec7e9bc07f1d6cedcfb7",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53tiaciaaawqapnesjzrvbvgqeesnaajca.f0.mp4?dis_k=26ef7264a594fa33a8b4933f1c4fb435&dis_t=1783223950&m=dbb5cc10033239e36545a55843ef83db&sha256=0d376ba3123315083d7806224ece6e70459b918f8d63058c4fb13dcfd21c36a2",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 3,
           "spu": "男士内裤",
           "productCount": 176,
-          "dailyGmv": 104464,
-          "dailyGmvWan": 10.4,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 6.8,
+          "heatLevel": "🔥 中热",
           "liveCount": 39,
           "creativeCount": 56,
-          "roi": 2.27,
+          "roi": 0,
           "roiRange": "2.2-2.5",
           "price": 73,
           "typicalNames": [
@@ -1551,38 +2225,59 @@
               "rank": 1,
               "name": "洁柔山潮服饰优选",
               "anon_name": "TOP1 直播间",
-              "gmv": 21691,
-              "roi": 2.13,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 5
             },
             {
               "rank": 2,
               "name": "崔万志家居生活",
               "anon_name": "TOP2 直播间",
-              "gmv": 10670,
-              "roi": 3.19,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             },
             {
               "rank": 3,
               "name": "恒源祥泰奥扉服饰内衣店",
               "anon_name": "TOP3 直播间",
-              "gmv": 8671,
-              "roi": 2.24,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 4
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53gactkaafe4aa7jkg75vb6maeguyaknka.f0.mp4?dis_k=d4293301c8491b4d11400e5844955109&dis_t=1782790702&m=d1f599372d76b1dca489da366f70a3ff&sha256=848c8a975df882cd8d2bf68c09c50d17a16e2a0b69e9635acc997387cbb7301b",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3nid34aahpmal62x3lfury2qexzvappsa.f0.mp4?dis_k=d62547a6628efe057a269c4cc30f53c8&dis_t=1783330513&m=20a4a786433c762f6d6245024b59ff78&sha256=0e9ab79ee94c8a7278920cd2b30d755969196f1b944e0cbda552219c16068a83",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53emcmoaaehqaou4r2czvb4iyey4rqjr2a.f0.mp4?dis_k=5a3c59ac273a77037aa8881ca766a16a&dis_t=1782725020&m=570bbee9d8cc1a85543e9bd9c1aa1316&sha256=113e3f7e151218c9d1dd7df54c111b257ffa305e324bd99c491c3b1410472b36",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 4,
           "spu": "女士塑身裤",
           "productCount": 99,
-          "dailyGmv": 71171,
-          "dailyGmvWan": 7.1,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 4.6,
+          "heatLevel": "· 低热",
           "liveCount": 31,
           "creativeCount": 35,
-          "roi": 2.16,
+          "roi": 0,
           "roiRange": "2.1-2.4",
           "price": 93,
           "typicalNames": [
@@ -1598,38 +2293,59 @@
               "rank": 1,
               "name": "洋奢塑形美体优选",
               "anon_name": "TOP1 直播间",
-              "gmv": 23435,
-              "roi": 1.94,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             },
             {
               "rank": 2,
               "name": "南极人春塘服饰",
               "anon_name": "TOP2 直播间",
-              "gmv": 16453,
-              "roi": 1.9,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 3
             },
             {
               "rank": 3,
               "name": "美宅归觅内衣店",
               "anon_name": "TOP3 直播间",
-              "gmv": 5612,
-              "roi": 2.08,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53m4baiaacmaafgci7xbvbszyeartqebca.f0.mp4?dis_k=a6f1320138b1e140d34e15d25b46edf2&dis_t=1780307736&m=f6ab56d06305284c771b7c9587809277",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3nqbcqaacguapwua4szvbs3aefbwaekca.f0.mp4?dis_k=696dafbf08faa5a18b9413a559f22346&dis_t=1780405096&m=08e4ff422592aee391cdff1c9f2896bc",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53tuaesaaaaeamyrxizrurxhiejgoqaska.f0.mp4?dis_k=7e15067f1c8061b57b315e689854a814&dis_t=1776846247&m=b53cc510ba0d18a07b7b48119e96d6ad",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 5,
           "spu": "女士运动文胸/运动背心",
           "productCount": 21,
-          "dailyGmv": 56749,
-          "dailyGmvWan": 5.7,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 3.7,
+          "heatLevel": "· 低热",
           "liveCount": 11,
           "creativeCount": 11,
-          "roi": 2.4,
+          "roi": 0,
           "roiRange": "2.4-2.7",
           "price": 117,
           "typicalNames": [
@@ -1645,38 +2361,59 @@
               "rank": 1,
               "name": "草本初色普碧",
               "anon_name": "TOP1 直播间",
-              "gmv": 42494,
-              "roi": 2.32,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             },
             {
               "rank": 2,
               "name": "完美记忆依兮小店",
               "anon_name": "TOP2 直播间",
-              "gmv": 8019,
-              "roi": 2.81,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 3,
               "name": "美嘉挺品牌轻奢内衣",
               "anon_name": "TOP3 直播间",
-              "gmv": 3909,
-              "roi": 2.06,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc37mbdkaacumap5cq5rnvbr6yegx5qenka.f0.mp4?dis_k=e266b65d2013a6b6215c915f66d4d08f&dis_t=1780485100&m=0636fed9f2b472be237f670cfda70b31&sha256=fb5ec12c7a2168715c3b9450b351ba9f8d518c5dcd7caf06982c89c1e4664bb8",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc34qavyaab44apmbqpnfvbxzaeltsacxca.f0.mp4?dis_k=7c81e87c64c999b772d18860c656b517&dis_t=1779345939&m=ed079ce5016942c20a93aa9f1c3aeefb&sha256=ff1f5304c0d891c513b060f7c4da528705002b34ed2856724ec2f3446eb6060f",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53vucvoaafieae5xkhefvb7liek6wqkv2a.f0.mp4?dis_k=54b9cf54806917af961628670374ed18&dis_t=1782730846&m=0044e0cc63f91e5e4e067d071d64c682&sha256=1fbb17044351f394bf4d38fda1b926662fbc8d9aee2a97589d4728ec5949addb",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 6,
           "spu": "儿童抹胸/少女文胸",
           "productCount": 38,
-          "dailyGmv": 42113,
-          "dailyGmvWan": 4.2,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 2.7,
+          "heatLevel": "· 低热",
           "liveCount": 16,
           "creativeCount": 14,
-          "roi": 2.04,
+          "roi": 0,
           "roiRange": "2.0-2.3",
           "price": 115,
           "typicalNames": [
@@ -1692,38 +2429,59 @@
               "rank": 1,
               "name": "molarrabbit少女定型内衣",
               "anon_name": "TOP1 直播间",
-              "gmv": 15589,
-              "roi": 2.35,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             },
             {
               "rank": 2,
               "name": "贝迪纯发育期少女内衣",
               "anon_name": "TOP2 直播间",
-              "gmv": 11776,
-              "roi": 1.72,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 3,
               "name": "婷美乐兴服饰内衣店",
               "anon_name": "TOP3 直播间",
-              "gmv": 10829,
-              "roi": 1.88,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3tmafaaaa2yaauqv2onubvgyekcnqauca.f0.mp4?dis_k=3d08ad44e43a87e4ec7cb59438daf494&dis_t=1757043317&m=d62adac495f29ff6c33e8539d6a3abb1&sha256=57a27024b3469ac63df88d4043f89d32d1519e21094382acf8e57df8007a9202",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3gqajcaaayiapiiv3tburunaese2abeka.f0.mp4?dis_k=c5cb7c1571510396a4110238753a8875&dis_t=1773889020&m=c3e5b6afead18808a3517e84d9c680d4",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53zab3oaadb4anelny6nurtsaew7eahn2a.f0.mp4?dis_k=2cfaf7094b22c456c01119831a56b694&dis_t=1773888970&m=041b54065660e108f2e93dd2db786f13",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 7,
           "spu": "大码女士文胸",
           "productCount": 25,
-          "dailyGmv": 31362,
-          "dailyGmvWan": 3.1,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 2.0,
+          "heatLevel": "· 低热",
           "liveCount": 16,
           "creativeCount": 16,
-          "roi": 3.07,
+          "roi": 0,
           "roiRange": "3.0-3.3",
           "price": 205,
           "typicalNames": [
@@ -1739,24 +2497,24 @@
               "rank": 1,
               "name": "欧迪芬Ordifen官方旗舰店",
               "anon_name": "TOP1 直播间",
-              "gmv": 14439,
-              "roi": 3.03,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 2,
               "name": "美黛安芬内衣店",
               "anon_name": "TOP2 直播间",
-              "gmv": 6518,
-              "roi": 2.63,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 3,
               "name": "互语家的真丝内衣",
               "anon_name": "TOP3 直播间",
-              "gmv": 6305,
-              "roi": 3.56,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             }
           ],
@@ -1766,11 +2524,13 @@
           "rank": 8,
           "spu": "女士文胸内裤套装",
           "productCount": 9,
-          "dailyGmv": 28797,
-          "dailyGmvWan": 2.9,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 1.9,
+          "heatLevel": "· 低热",
           "liveCount": 5,
           "creativeCount": 8,
-          "roi": 3.19,
+          "roi": 0,
           "roiRange": "3.1-3.4",
           "price": 248,
           "typicalNames": [
@@ -1786,38 +2546,59 @@
               "rank": 1,
               "name": "曼妮芬官方总店",
               "anon_name": "TOP1 直播间",
-              "gmv": 18680,
-              "roi": 3.42,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 5
             },
             {
               "rank": 2,
               "name": "嫦香诗精选店",
               "anon_name": "TOP2 直播间",
-              "gmv": 9544,
-              "roi": 2.73,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 3,
               "name": "多情猫沃猫内衣店",
               "anon_name": "TOP3 直播间",
-              "gmv": 571,
-              "roi": 2.66,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53fiacwaaanqadmykl3nvbukqefmvaak2a.f0.mp4?dis_k=e29c1d8b2a6ee1bc351faa82ccdb78a7&dis_t=1783307596&m=7a2b4e5c7231ee059f9397be4474e675",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b536uceeaaepualvwb5j5vb75ieil2qiqsa.f0.mp4?dis_k=7e685df2eb022dbfdb390e049d7f17d1&dis_t=1782184082&m=0caaa324d6b804bbd576e6206a4d6e4e",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3fmbpeaac6mai2vjeq5vbqkye6ivqf4sa.f0.mp4?dis_k=40a09c01997dce8acdf31904b80d8eee&dis_t=1780908000&m=f7b917b87117a3d8aeeea0615e7b3ab2",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 9,
           "spu": "女士塑身连体衣",
           "productCount": 65,
-          "dailyGmv": 23693,
-          "dailyGmvWan": 2.4,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 1.5,
+          "heatLevel": "· 低热",
           "liveCount": 13,
           "creativeCount": 12,
-          "roi": 3.43,
+          "roi": 0,
           "roiRange": "3.4-3.7",
           "price": 258,
           "typicalNames": [
@@ -1833,38 +2614,59 @@
               "rank": 1,
               "name": "舞青衣精油体雕衣",
               "anon_name": "TOP1 直播间",
-              "gmv": 19892,
-              "roi": 3.33,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 2,
               "name": "霏比服饰创始人-轩语",
               "anon_name": "TOP2 直播间",
-              "gmv": 1526,
-              "roi": 3.15,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             },
             {
               "rank": 3,
               "name": "欧世利SIIL塑身内衣官方店",
               "anon_name": "TOP3 直播间",
-              "gmv": 866,
-              "roi": 4.31,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3i4ae4aaagaaf2f2lqrvburyejzdqatsa.f0.mp4?dis_k=2c5140cfae8151919e833cb517751a7c&dis_t=1783305086&m=9a3cc2e3ee2ea0ef070661e705426367",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53zaahcaaa5iacxabpujvbvsaeoheaa4ka.f0.mp4?dis_k=9fa322cec6b4fd05e26464ff38b38e88&dis_t=1781661418&m=3c7c2b3fdf2ccf1f4841dd99a5eaca97&sha256=66c003ec2e8620a4565c8db43b80ed133fbf9b82917acd83d7e528d2846504a1",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53pqcncaaes4aerpb4qzvb47ae2f6ajuka.f0.mp4?dis_k=2f8324d074bfd266315bfd7ded547b35&dis_t=1782094318&m=c32ca2ff5581253a2cc751003b950e56",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 10,
           "spu": "女士睡衣套装/家居服套装",
           "productCount": 88,
-          "dailyGmv": 21755,
-          "dailyGmvWan": 2.2,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 1.4,
+          "heatLevel": "· 低热",
           "liveCount": 16,
           "creativeCount": 20,
-          "roi": 3.78,
+          "roi": 0,
           "roiRange": "3.7-4.0",
           "price": 226,
           "typicalNames": [
@@ -1880,37 +2682,56 @@
               "rank": 1,
               "name": "Victoria家居服",
               "anon_name": "TOP1 直播间",
-              "gmv": 6256,
-              "roi": 3.1,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 3
             },
             {
               "rank": 2,
               "name": "懒人睡衣",
               "anon_name": "TOP2 直播间",
-              "gmv": 4551,
-              "roi": 4.22,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             },
             {
               "rank": 3,
               "name": "Nova芮居家",
               "anon_name": "TOP3 直播间",
-              "gmv": 2745,
-              "roi": 4.03,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://pgdt.gtimg.cn/141/20204/snscosdownload/SZ/reserved/6a3e798c000e26511b85c8849efd01150000008d00004eec?ck=f9fe82cdab8ac0435f827f2717b8df87&m=f9fe82cdab8ac0435f827f2717b8df87&sha256=7479b02f60a305b2c1259e5cbf188f6c57a77c09f9e18cc3a3328a805c63b4d8",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b533uaasaaatqajxj2gujvbvxiebhoqacka.f0.mp4?dis_k=15ea9305b299b0ef4c4253c4357e3abf&dis_t=1783013189&m=dc7f574342c2aa167376e2e020510631&sha256=0142f067fca72456ef0ac7712e30f76337adfae090c8dd2fa6d8923b6a3165ce",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://pgdt.gtimg.cn/141/20204/snscosdownload/SZ/reserved/6a117a11000a140c2d0619f4c2cd15150000008d00004eec?ck=facc198d61b8c4d261fdbc0bfcad6bfe&m=facc198d61b8c4d261fdbc0bfcad6bfe&sha256=252d3cab2e096c656cbde130199176d5cfe1461e54a7dfa106bee6a03b646675",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         }
       ]
     },
     "箱包鞋靴": {
       "track": "箱包鞋靴",
-      "totalDailyGmv": 359389,
-      "totalDailyGmvWan": 35.9,
+      "totalDailyGmv": 0,
+      "totalDailyGmvWan": 0,
       "top10Coverage": 83.3,
-      "top10DailyGmv": 299387,
+      "top10DailyGmv": 0,
       "totalLives": 428,
       "totalCreatives": 0,
       "spuCount": 50,
@@ -1919,11 +2740,13 @@
           "rank": 1,
           "spu": "凉鞋/拖鞋",
           "productCount": 360,
-          "dailyGmv": 62942,
-          "dailyGmvWan": 6.3,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 17.5,
+          "heatLevel": "🔥🔥 高热",
           "liveCount": 86,
           "creativeCount": 118,
-          "roi": 3.61,
+          "roi": 0,
           "roiRange": "3.6-3.9",
           "price": 121,
           "typicalNames": [
@@ -1939,38 +2762,59 @@
               "rank": 1,
               "name": "LeeCooper女鞋品牌号",
               "anon_name": "TOP1 直播间",
-              "gmv": 9424,
-              "roi": 5.01,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 2,
               "name": "花花公子PLAYBOY酷步男鞋店",
               "anon_name": "TOP2 直播间",
-              "gmv": 8038,
-              "roi": 4.15,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 3,
               "name": "顽具熊",
               "anon_name": "TOP3 直播间",
-              "gmv": 7047,
-              "roi": 2.88,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3uiabuaaaiaakjycejnvbviqedkraagsa.f0.mp4?dis_k=5fe8189a3d85e72fa6653a4587cd1fa8&dis_t=1782890229&m=4fb15663d7e277e8df00706b28fd430d&sha256=dae9c8aa1b32cee2f5f83f8d3605cc3bd375a1bc9b906bdebda2d7d465ab4b4f",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc334an4aaazqaheqzkdzvbvxye33pqbxsa.f0.mp4?dis_k=edbeda80b987383dcb1bcac59a34acd2&dis_t=1781181492&m=93a2c5407fb5359070f5f40b5a468903&sha256=cc41495e005f807ffc60775fd9ebda8a698ff3671a555f489628a713ec734db9",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3wmaaeaaa2qafi6br4rvbvmyeakzqaasa.f0.mp4?dis_k=6e6f6b96889825d807a5edaea516f1e8&dis_t=1781618307&m=95062ca716be23547db9b6ebe3f5c12b&sha256=5f7a9006d921a44e3b0f8cdc55ea1522888b02bb2628bb79a8a928e24fe43442",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 2,
           "spu": "拉杆箱",
           "productCount": 69,
-          "dailyGmv": 54061,
-          "dailyGmvWan": 5.4,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 15.0,
+          "heatLevel": "🔥🔥 高热",
           "liveCount": 18,
           "creativeCount": 14,
-          "roi": 5.04,
+          "roi": 0,
           "roiRange": "5.0-5.3",
           "price": 415,
           "typicalNames": [
@@ -1986,38 +2830,59 @@
               "rank": 1,
               "name": "MOMI旅行箱",
               "anon_name": "TOP1 直播间",
-              "gmv": 14594,
-              "roi": 6.42,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 2,
               "name": "卡拉羊旅行箱包",
               "anon_name": "TOP2 直播间",
-              "gmv": 12496,
-              "roi": 4.2,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             },
             {
               "rank": 3,
               "name": "牧岚优品",
               "anon_name": "TOP3 直播间",
-              "gmv": 8671,
-              "roi": 5.45,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b532eb5kaadu4afyzrrcfvbtuie2xiqhvka.f0.mp4?dis_k=08986486d910c034d5bdd8a4adbed12a&dis_t=1781784660&m=d69ee40b8bb1a3308267c049f7faa4c4&sha256=1f3b445d5041134e71e9acd5761d9e9e362f9e443538626a486e5193e7243c1f",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53iqacmaaaaeagsi2gpjvburaeezcaajsa.f0.mp4?dis_k=a877604c19e02f23d015fbdebbe2282d&dis_t=1783059498&m=cde02e984bcad59b9eebc84be34dc3b3&sha256=980e51b32876bd051c4be2b7771dde0ae4a4934fb38525228513c5765623934c",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3uqackaaaguakqwso6burvjaeewsaajka.f0.mp4?dis_k=861d8140a39f401a5dde207a1908b935&dis_t=1766989474&m=4a7ba33f46158c4c3c9623613fa1d1dc&sha256=da2aac464cfefc589d52ce8c1f67909284f84aa2f327aec3f3496e470601bdf5",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 3,
           "spu": "皮鞋/正装鞋",
           "productCount": 387,
-          "dailyGmv": 46934,
-          "dailyGmvWan": 4.7,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 13.1,
+          "heatLevel": "🔥🔥 高热",
           "liveCount": 107,
           "creativeCount": 96,
-          "roi": 3.81,
+          "roi": 0,
           "roiRange": "3.8-4.1",
           "price": 170,
           "typicalNames": [
@@ -2033,38 +2898,59 @@
               "rank": 1,
               "name": "大姚女鞋-小个子增高",
               "anon_name": "TOP1 直播间",
-              "gmv": 8241,
-              "roi": 6.29,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 2,
               "name": "缤纷女鞋工厂店",
               "anon_name": "TOP2 直播间",
-              "gmv": 3363,
-              "roi": 3.96,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 6
             },
             {
               "rank": 3,
               "name": "回力皓兴鞋店",
               "anon_name": "TOP3 直播间",
-              "gmv": 2671,
-              "roi": 2.65,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 3
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53nuapyaaapaaf4npspjuru3ie7rwqb7ca.f0.mp4?dis_k=98f10dfefad729bd79ccd2473948e8bc&dis_t=1779179817&m=b1e0326ae098fd8dfcc827f22bf60236&sha256=3e888e63ae9ec419de30c7b4ed7d9abefaa6c99a60e955adff792472ad0ea9a0",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53zycvaaafxeaclccg5rvb5tqekdhakuca.f0.mp4?dis_k=e9cc553bd44c2664e0baed55855c3bcc&dis_t=1782805891&m=2da8886ad799234615e4c69759e41c55",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53quce4aaec4adwgkhhfvb5biej2cqitsa.f0.mp4?dis_k=3e9ce73d6e05f2b26dceb3249e97ebb0&dis_t=1782805910&m=92e9eb986de12c69fab96f3011d95018",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 4,
           "spu": "斜挎包/单肩包",
           "productCount": 118,
-          "dailyGmv": 38059,
-          "dailyGmvWan": 3.8,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 10.6,
+          "heatLevel": "🔥🔥 高热",
           "liveCount": 55,
           "creativeCount": 40,
-          "roi": 6.04,
+          "roi": 0,
           "roiRange": "6.0-6.3",
           "price": 349,
           "typicalNames": [
@@ -2080,38 +2966,59 @@
               "rank": 1,
               "name": "七七古法香云纱真丝女包",
               "anon_name": "TOP1 直播间",
-              "gmv": 6619,
-              "roi": 8.0,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 3
             },
             {
               "rank": 2,
               "name": "永幸苏绣",
               "anon_name": "TOP2 直播间",
-              "gmv": 5461,
-              "roi": 3.33,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 3,
               "name": "路易卡迪箱包总店",
               "anon_name": "TOP3 直播间",
-              "gmv": 4917,
-              "roi": 3.63,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3aeagoaaa2yanrhsnrrvbuaiem4aqaz2a.f0.mp4?dis_k=2e818e9b1011c01b7a7f8e8470515e07&dis_t=1783480306&m=eebb21b2da2c4fb1f111f189eaf7cc6c&sha256=95f6d4ed7369b85d7dadabb7ec00f17ac01aae779dca6ef893810534cc3c4caa",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53oaaouaaa4malxpsqwzvbu4ae5jyab2sa.f0.mp4?dis_k=7d432dd757a1c606dc59f5f55861d9d7&dis_t=1783648663&m=4c5ce83308cc8b6ee553d0ecc6c00cae&sha256=cf64fc2241e264f87d346d672fc97d7824587c891fc419c15a5060a71dab4b0e",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3lab3qaad2uagi3pch5urswaexbmahoca.f0.mp4?dis_k=b6be8ada01bea629fcae23270934f9e8&dis_t=1776409757&m=bd8aee824c5a5c9bc8541caf09360e44&sha256=830e61e2b5d09910c3d34a9e0d31f498e3c579eb11a0d76ecfc9c28c6474062c",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 5,
           "spu": "板鞋/休闲鞋",
           "productCount": 257,
-          "dailyGmv": 37622,
-          "dailyGmvWan": 3.8,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 10.5,
+          "heatLevel": "🔥🔥 高热",
           "liveCount": 79,
           "creativeCount": 105,
-          "roi": 5.72,
+          "roi": 0,
           "roiRange": "5.7-6.0",
           "price": 323,
           "typicalNames": [
@@ -2127,38 +3034,59 @@
               "rank": 1,
               "name": "LeeCooper时尚official店",
               "anon_name": "TOP1 直播间",
-              "gmv": 4830,
-              "roi": 5.77,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 2,
               "name": "范小洛小个子女鞋",
               "anon_name": "TOP2 直播间",
-              "gmv": 4002,
-              "roi": 10.4,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 3
             },
             {
               "rank": 3,
               "name": "舒乐高男士增高鞋",
               "anon_name": "TOP3 直播间",
-              "gmv": 3192,
-              "roi": 3.4,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc36ubacaaczyah6zy7ynvbr5ieah2qeaka.f0.mp4?dis_k=04a9e785b025c7ebe3bf598a42b53c8a&dis_t=1780317782&m=9774c3465cf4103be4babd2e1641b238&sha256=fba550c9955122a5e321e047cce4042b7d3c6f356dab7804dab051767f5d366f",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53aadpcaagc4add6pluzur2aae6eaan4ka.f0.mp4?dis_k=16ba567c7a1a2ffda42e03a847b70039&dis_t=1779432794&m=89b7a4f3ce469d03c6e113452f1d376d&sha256=3b3fb466d660cb2b9119052f5bae368b01985e40dbe9a42759264cf51fdd9b96",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3tmaksaaan4apr3kofrvbvgyevgnqbkka.f0.mp4?dis_k=6457b71266eae94b721c5ee35dac6101&dis_t=1783518070&m=79c3f5fd436a3ddbb5d40f90599a41cb&sha256=07ce36999398eea7d0d64bc04ba766afd37cc861f7c4701aad9b69e649c19fce",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 6,
           "spu": "时尚休闲鞋",
           "productCount": 154,
-          "dailyGmv": 17310,
-          "dailyGmvWan": 1.7,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 4.8,
+          "heatLevel": "· 低热",
           "liveCount": 48,
           "creativeCount": 42,
-          "roi": 5.05,
+          "roi": 0,
           "roiRange": "5.0-5.3",
           "price": 171,
           "typicalNames": [
@@ -2174,38 +3102,59 @@
               "rank": 1,
               "name": "保罗骆驼男鞋睿洋店",
               "anon_name": "TOP1 直播间",
-              "gmv": 4176,
-              "roi": 2.9,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 2,
               "name": "老匠人手工定制女鞋",
               "anon_name": "TOP2 直播间",
-              "gmv": 3078,
-              "roi": 12.01,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             },
             {
               "rank": 3,
               "name": "Pansy盼喜舒适鞋",
               "anon_name": "TOP3 直播间",
-              "gmv": 2164,
-              "roi": 4.94,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53xicymaafv4adv3o42bur7oqeq25albsa.f0.mp4?dis_k=7489941c8b926cc62213fe4ed96e8c01&dis_t=1775877148&m=fbc125f0d49acb3e12841b76c66f49f3",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3xeacaaaa2iaejh7vgrurvoieec4qaica.f0.mp4?dis_k=4ffab2e510e735757a26c7768c20af5b&dis_t=1777689717&m=536c10949100c06c13dce47086022fcd",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3lmcpwaae6aafskgul5ur4wye7nnqj62a.f0.mp4?dis_k=d9deaf42fa249108759905d4295bb300&dis_t=1782195100&m=9370794dd422cb288f6cbe99f2df7888&sha256=93d8d4fbe2f0291e649264531ccefa36b2fb20f7f36cd32e60611efc21ab1e34",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 7,
           "spu": "双肩包",
           "productCount": 25,
-          "dailyGmv": 16774,
-          "dailyGmvWan": 1.7,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 4.7,
+          "heatLevel": "· 低热",
           "liveCount": 17,
           "creativeCount": 17,
-          "roi": 3.11,
+          "roi": 0,
           "roiRange": "3.1-3.4",
           "price": 257,
           "typicalNames": [
@@ -2221,38 +3170,59 @@
               "rank": 1,
               "name": "reeyee旅行箱包",
               "anon_name": "TOP1 直播间",
-              "gmv": 6531,
-              "roi": 1.82,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             },
             {
               "rank": 2,
               "name": "LUYIDAISHU品牌双肩包",
               "anon_name": "TOP2 直播间",
-              "gmv": 3814,
-              "roi": 3.09,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 3,
               "name": "卡拉羊箱包官方直播间",
               "anon_name": "TOP3 直播间",
-              "gmv": 3461,
-              "roi": 4.7,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53cib62aadlaaghwr37jvbseqe5ujah3ka.f0.mp4?dis_k=c4fecceeb5bc4c3b6244bd69aa7ecf6d&dis_t=1782091343&m=23ed961a70ef05cb06c8a978a8ccfd3e",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc33iaaaaaa2uaamxrnjjurvwqeadnaaaca.f0.mp4?dis_k=0259fe704f34e0fd2c1c3b90cfeaf35c&dis_t=1764558464&m=7f84dba01c7f76ab63d4df3f50ad42a3&sha256=f25ab60676cbe9f55bc2732a3b30012b4b185b8b506a867ed1b0c7ca78c1d5ec",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53y4b72aadmaah7tbu5vvbtrye7xdqh7ka.f0.mp4?dis_k=99018c5450ac3d0fe5fdd833ed8ba3c9&dis_t=1782022829&m=5854a2047fe2740348dc0f5852f1ec0a&sha256=409a2b5b13c2b06c2bcaa747c76abaacf10b03483a96f18d6619d997bf26a7ff",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 8,
           "spu": "玛丽珍鞋",
           "productCount": 60,
-          "dailyGmv": 9245,
-          "dailyGmvWan": 0.9,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 2.6,
+          "heatLevel": "· 低热",
           "liveCount": 24,
           "creativeCount": 33,
-          "roi": 6.59,
+          "roi": 0,
           "roiRange": "6.5-6.8",
           "price": 303,
           "typicalNames": [
@@ -2268,38 +3238,59 @@
               "rank": 1,
               "name": "百丽女鞋官方店",
               "anon_name": "TOP1 直播间",
-              "gmv": 2530,
-              "roi": 4.3,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 3
             },
             {
               "rank": 2,
               "name": "DIOUGENS迪欧摩尼女鞋",
               "anon_name": "TOP2 直播间",
-              "gmv": 2519,
-              "roi": 6.65,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 3,
               "name": "玖禾真皮手工女鞋",
               "anon_name": "TOP3 直播间",
-              "gmv": 1366,
-              "roi": 7.17,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 5
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://pgdt.gtimg.cn/141/20204/snscosdownload/SZ/reserved/6a51cb4400009ba1201bca004a0255150000008d00004eec?ck=39fc0fcd1833c8cdbc8eec03091b686d&m=39fc0fcd1833c8cdbc8eec03091b686d&sha256=2dbcd5cf2c2a45e51e1d4143f357bb6da961081a282916ffe6da986863a3d81d",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53gibuyaad4aafstns2nursmqejqzagtca.f0.mp4?dis_k=0515200097793debbf3b2581acf95762&dis_t=1773213141&m=d8330f727893b63970ffbea5cddaa08d",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3oablgaac3makuqbqgjvbq4aewnyafm2a.f0.mp4?dis_k=cdb030d5bc9a2a652598177d4d13d9ee&dis_t=1781668272&m=007374615f2b73e38d04cfc22718dd57",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 9,
           "spu": "单肩包/托特包",
           "productCount": 33,
-          "dailyGmv": 8270,
-          "dailyGmvWan": 0.8,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 2.3,
+          "heatLevel": "· 低热",
           "liveCount": 20,
           "creativeCount": 21,
-          "roi": 4.98,
+          "roi": 0,
           "roiRange": "4.9-5.2",
           "price": 595,
           "typicalNames": [
@@ -2315,38 +3306,59 @@
               "rank": 1,
               "name": "路易卡迪玲姐",
               "anon_name": "TOP1 直播间",
-              "gmv": 3390,
-              "roi": 3.82,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             },
             {
               "rank": 2,
               "name": "BAGTREE包包树",
               "anon_name": "TOP2 直播间",
-              "gmv": 2609,
-              "roi": 6.86,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             },
             {
               "rank": 3,
               "name": "戈兰黛轻奢女包",
               "anon_name": "TOP3 直播间",
-              "gmv": 848,
-              "roi": 3.27,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc34qb7caadziacqyzntvvbrzae6hsah4ka.f0.mp4?dis_k=66a2aae7b91986b2dd7690b3110685e6&dis_t=1781455163",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53aiawwaabo4agak7yertbwaqenmbac22a.f0.mp4?dis_k=9d69e575e08cf3cad1eb10ac352ebc39&dis_t=1778836467&m=1d0c3ea7084ede43e8b5f8ac063545a3&sha256=525a21020fb05253932c0e33d8aab70dbade564cfbffd80cdb825c2e065d6ef3",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b536yahyaaakuaozfxofbtbv5qept3aa7ca.f0.mp4?dis_k=79c5f14380f599b17fed7e0a5dffbfeb&dis_t=1778836571&m=04fe9f673ad42c57aa41ea6c1e8dc2b5&sha256=e3cb7dfb850040631c08594d169b63fa3dc4d5636dbca7ca65a95b1b3be28a54",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 10,
           "spu": "休闲皮鞋",
           "productCount": 91,
-          "dailyGmv": 8164,
-          "dailyGmvWan": 0.8,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 2.3,
+          "heatLevel": "· 低热",
           "liveCount": 35,
           "creativeCount": 26,
-          "roi": 2.73,
+          "roi": 0,
           "roiRange": "2.7-3.0",
           "price": 255,
           "typicalNames": [
@@ -2362,37 +3374,56 @@
               "rank": 1,
               "name": "卡帝乐鳄鱼辉霖男鞋",
               "anon_name": "TOP1 直播间",
-              "gmv": 2012,
-              "roi": 2.97,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             },
             {
               "rank": 2,
               "name": "贵之步男鞋官方店",
               "anon_name": "TOP2 直播间",
-              "gmv": 1602,
-              "roi": 2.6,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             },
             {
               "rank": 3,
               "name": "男士轻奢男鞋",
               "anon_name": "TOP3 直播间",
-              "gmv": 755,
-              "roi": 1.68,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b532iaauaaavaaaolayvrvbvuqebljaacsa.f0.mp4?dis_k=6b497b69f43a7a6f4cc681ae2a32d158&dis_t=1780746177&m=f854476c9a6be408723e1cc758883837&sha256=b2b429e664f62476d330921fdcc77154bbf4325187d02f53f0352713ac7db62b",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3habl6aac7mae537k65ursoaex44afp2a.f0.mp4?dis_k=d0c50ac16c32120b10da797decc078bb&dis_t=1776873947",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53oyaaqaaaamaktdqzujvbw5qebb3aacca.f0.mp4?dis_k=630e3b1a18f82b38eb25783b189b2457&dis_t=1781365947&m=45510ddc688a386503162e1e3810f5f3&sha256=cfdae390a44d2545bb73712f2d2acf2e64af04ab9a48ffefb54e0191e30a7c3f",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         }
       ]
     },
     "运动户外": {
       "track": "运动户外",
-      "totalDailyGmv": 206521,
-      "totalDailyGmvWan": 20.7,
+      "totalDailyGmv": 0,
+      "totalDailyGmvWan": 0,
       "top10Coverage": 72.9,
-      "top10DailyGmv": 150623,
+      "top10DailyGmv": 0,
       "totalLives": 149,
       "totalCreatives": 0,
       "spuCount": 148,
@@ -2401,11 +3432,13 @@
           "rank": 1,
           "spu": "女士速干T恤/Polo衫",
           "productCount": 73,
-          "dailyGmv": 36127,
-          "dailyGmvWan": 3.6,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 17.5,
+          "heatLevel": "🔥🔥 高热",
           "liveCount": 14,
           "creativeCount": 21,
-          "roi": 3.2,
+          "roi": 0,
           "roiRange": "3.2-3.5",
           "price": 221,
           "typicalNames": [
@@ -2421,38 +3454,59 @@
               "rank": 1,
               "name": "UTO悠途户外运动",
               "anon_name": "TOP1 直播间",
-              "gmv": 10636,
-              "roi": 2.88,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 4
             },
             {
               "rank": 2,
               "name": "UTO悠途户外装备",
               "anon_name": "TOP2 直播间",
-              "gmv": 9269,
-              "roi": 2.89,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 4
             },
             {
               "rank": 3,
               "name": "UTO悠途",
               "anon_name": "TOP3 直播间",
-              "gmv": 6875,
-              "roi": 2.8,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 8
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53tublaaac2aajvvzlujvbrhiewcoqfmca.f0.mp4?dis_k=c7f74837ccdc0d9e7ca47ee9ef24fcd1&dis_t=1781082706&m=2f5be4987c39cbc7f31b74e40db9b2bf",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3p4b4kaadpmadu6zmovvbs7yeyv7qhrka.f0.mp4?dis_k=50f4f450049a3792ccd1097e45564bd5&dis_t=1781755986&m=0b561bef746f952d4575343cab06777c&sha256=9512da1fee27d2287af30ba6cadde7a95f5fa6c2fec353f670ffd09907100e98",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3e4augaab6eact2imabvbwjyeimtqcq2a.f0.mp4?dis_k=dc71c92b64c33cba20572f6f362c132e&dis_t=1780459382&m=38e9640ec1cb6187deb4de812363ad66&sha256=9e4f4d063199d5bb284a8aec1b51bb2ef585bebd90f9288c6954dca61228c3e5",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 2,
           "spu": "运动护具",
           "productCount": 44,
-          "dailyGmv": 26706,
-          "dailyGmvWan": 2.7,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 12.9,
+          "heatLevel": "🔥🔥 高热",
           "liveCount": 16,
           "creativeCount": 7,
-          "roi": 2.25,
+          "roi": 0,
           "roiRange": "2.2-2.5",
           "price": 96,
           "typicalNames": [
@@ -2468,38 +3522,59 @@
               "rank": 1,
               "name": "康舒护具",
               "anon_name": "TOP1 直播间",
-              "gmv": 10404,
-              "roi": 2.36,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 2,
               "name": "康舒运动店",
               "anon_name": "TOP2 直播间",
-              "gmv": 7945,
-              "roi": 2.42,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 3,
               "name": "诺迪户外运动",
               "anon_name": "TOP3 直播间",
-              "gmv": 3643,
-              "roi": 1.86,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53wab4aaad74adi4ziqnvdxmgeycyahqca.f0.mp4?dis_k=8624899b634986d3114ad5cd4fc15fed&dis_t=1781265489",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53t4awkaabk4an4beaerurxhyemwpqczka.f0.mp4?dis_k=c10bc522d5ddfa580a5f14ba5373f48a&dis_t=1770110180&m=778213aa068e5df721add97a0b3e679b&sha256=6469f4f97edf293b5638ea5cecee8d9cded1336cc436c7023ecb45f509894a0c",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3xmaggaaa7uahkmnrmnurvoyemo5qay2a.f0.mp4?dis_k=1466fe32de25e363ca717d3a6050a01b&dis_t=1773214948&m=9770102b344a0dc34c7539262830df8e&sha256=6f1f44823bce2020a76371e9dd7d29634207e69c814e069e12c10839ed1cd947",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 3,
           "spu": "休闲裤",
           "productCount": 31,
-          "dailyGmv": 17061,
-          "dailyGmvWan": 1.7,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 8.3,
+          "heatLevel": "🔥 中热",
           "liveCount": 8,
           "creativeCount": 11,
-          "roi": 4.21,
+          "roi": 0,
           "roiRange": "4.2-4.5",
           "price": 215,
           "typicalNames": [
@@ -2515,38 +3590,59 @@
               "rank": 1,
               "name": "SIINSIIN星钥品牌",
               "anon_name": "TOP1 直播间",
-              "gmv": 11811,
-              "roi": 3.89,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 4
             },
             {
               "rank": 2,
               "name": "SINSIN服饰品牌",
               "anon_name": "TOP2 直播间",
-              "gmv": 1887,
-              "roi": 4.62,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 3,
               "name": "SIINSIIN户外运动店",
               "anon_name": "TOP3 直播间",
-              "gmv": 1251,
-              "roi": 3.61,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53meacaaaaxyahggnzhvuruyieebqqaica.f0.mp4?dis_k=ffc07e6146485657a97b7c8e05d8812c&dis_t=1773753314&m=82846f4fa57674a7d190e0eccb9d1192",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc36qbdsaacgyabha65prurr5aehh2aeoka.f0.mp4?dis_k=801e9dceb390551ef01f47b28540b084&dis_t=1776846441&m=8e744d26d3d12ed340cf04e427a2affd&sha256=d736e7e8b216c8e8868db2b06eaa25696ddcb9f05227e69333de9bcd4e47a6cb",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3amap2aaabuaatrax3nvbwaye7ubqb7ka.f0.mp4?dis_k=3e8313676140d484304200084533c5a5&dis_t=1781077687&m=275e43f248f29bea9943ddacca6e1ed6&sha256=dd6d1cdba70922451fd10cf0e97028ba18c8b0ccf42069bdddcd3ac285779b83",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 4,
           "spu": "女士冲锋衣",
           "productCount": 26,
-          "dailyGmv": 14591,
-          "dailyGmvWan": 1.5,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 7.1,
+          "heatLevel": "🔥 中热",
           "liveCount": 5,
           "creativeCount": 9,
-          "roi": 3.54,
+          "roi": 0,
           "roiRange": "3.5-3.8",
           "price": 376,
           "typicalNames": [
@@ -2562,38 +3658,59 @@
               "rank": 1,
               "name": "CAMEL骆驼品牌官方店",
               "anon_name": "TOP1 直播间",
-              "gmv": 12365,
-              "roi": 3.52,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             },
             {
               "rank": 2,
               "name": "拓路者PioneerCamp",
               "anon_name": "TOP2 直播间",
-              "gmv": 1941,
-              "roi": 3.3,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 4
             },
             {
               "rank": 3,
               "name": "凯乐石户外",
               "anon_name": "TOP3 直播间",
-              "gmv": 153,
-              "roi": 6.97,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53euammaaanqapcvcns5vbujieyysqbrsa.f0.mp4?dis_k=f6ef05c6b44e2425b852eecf555ab1fe&dis_t=1783445327&m=8a38074a692553f0d42b2513e08e6d6e&sha256=cebc49ac15f28ffaff037966b2e9d4277342bedb857e6f10bff83d8ffb34ace0",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53mmbu4aadyiafc3rjgzvbsyyejzrqgtsa.f0.mp4?dis_k=945085090989f4f1aed653f32b6e1207&dis_t=1781145518&m=89a7afec94b952c6a2f4c9ff2763e6e4&sha256=f4ee384e476b583c7b3dc26dcd25c2770e311328bbd88f516be93f719dd6296e",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53pealsaaa2aaopisqavvbu6iexf4qboka.f0.mp4?dis_k=3d39ae3c3c73ae6676d12f3711733701&dis_t=1783652021&m=40305080bcbc342bf2ecf93a7a149cce&sha256=060d4adf03ce68f7092fbc4a232f9fc6c3a12f90d91d5086f4cd724ec8a53117",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 5,
           "spu": "儿童泳镜",
           "productCount": 4,
-          "dailyGmv": 13835,
-          "dailyGmvWan": 1.4,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 6.7,
+          "heatLevel": "🔥 中热",
           "liveCount": 2,
           "creativeCount": 1,
-          "roi": 2.9,
+          "roi": 0,
           "roiRange": "2.8-3.1",
           "price": 26,
           "typicalNames": [
@@ -2606,30 +3723,51 @@
               "rank": 1,
               "name": "世界冠军教练张教练",
               "anon_name": "TOP1 直播间",
-              "gmv": 13826,
-              "roi": 2.9,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 2,
               "name": "0",
               "anon_name": "TOP2 直播间",
-              "gmv": 8,
-              "roi": 3.06,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3qyaloaaajiahd6sexzvbvbqew6dabn2a.f0.mp4?dis_k=7403058d5ceaf68defd4369233a261e7&dis_t=1782892251&m=f1a73c1f8c90ff8a2439d64ea89cce4c&sha256=7c0a2b296820a326c8e0fa74dd29d9e8d97f532e1cc559147892fb82bebf0a65",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53gqagqaaagiabny2lyfvbunaena2aa2ca.f0.mp4?dis_k=938f06b763523d9a80ce4666fc4780d7&dis_t=1783332710&m=1fe84efc7fcf4b8b087995c766e3fab3&sha256=69426f1302e4b5f4b496b571430e0513ade483dae7e4a6072c0c36f1b7710b62",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3peadoaaaf4ao4c2ivnvbu6ieg54qan2a.f0.mp4?dis_k=8f49caa4fb2ac84c0c8235808d696ece&dis_t=1783159202&m=69040f0ff50f3619ce13380d311692b8&sha256=a0fd406aa5f32d9ba6aa13a43e64a56b826861baf1ea777517ebbf913d8642cc",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 6,
           "spu": "帐篷",
           "productCount": 9,
-          "dailyGmv": 12760,
-          "dailyGmvWan": 1.3,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 6.2,
+          "heatLevel": "🔥 中热",
           "liveCount": 2,
           "creativeCount": 2,
-          "roi": 2.18,
+          "roi": 0,
           "roiRange": "2.1-2.4",
           "price": 1455,
           "typicalNames": [
@@ -2645,30 +3783,51 @@
               "rank": 1,
               "name": "太力户外帐篷店",
               "anon_name": "TOP1 直播间",
-              "gmv": 12732,
-              "roi": 2.18,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             },
             {
               "rank": 2,
               "name": "0",
               "anon_name": "TOP2 直播间",
-              "gmv": 27,
-              "roi": 0.0,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3nebtiaadpialj45mvburs2iegruqgnca.f0.mp4?dis_k=7274c3f1a2f08f2abb05f8f25c96c396&dis_t=1773219314&m=67e3395d3bae0bbd530b4cffb21e3d5b&sha256=362d6a146166ec376751c8f59877a21da96a6b3a10d55bc603cd14e15b07546f",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53hqa2caabwiaabhisyzvbwpaeue6adika.f0.mp4?dis_k=0ed79bf856692001b5e9364a76dc6f8e&dis_t=1779671481&m=2b43074d523c8b7d14aed9f8dbdf6c69&sha256=83eadef89fde8e56134506150ff75553ee353df4690151c705011ad4696d36ed",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53tubxkaadq4anltztpfvbthieowoqg5ka.f0.mp4?dis_k=3c7de2d5d41b6d855fe9d18ec6f44157&dis_t=1781571636&m=abd62a094ac49ef6bad6efb679371498&sha256=eeab3689e667db93b78c877f3a7c2a402fea581dcb5bb53e895ab986c3188c98",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 7,
           "spu": "女士瑜伽套装",
           "productCount": 5,
-          "dailyGmv": 10147,
-          "dailyGmvWan": 1.0,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 4.9,
+          "heatLevel": "· 低热",
           "liveCount": 3,
           "creativeCount": 2,
-          "roi": 2.9,
+          "roi": 0,
           "roiRange": "2.8-3.1",
           "price": 199,
           "typicalNames": [
@@ -2683,38 +3842,59 @@
               "rank": 1,
               "name": "FlowEnergy",
               "anon_name": "TOP1 直播间",
-              "gmv": 10111,
-              "roi": 2.9,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 2,
               "name": "0",
               "anon_name": "TOP2 直播间",
-              "gmv": 18,
-              "roi": 3.41,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             },
             {
               "rank": 3,
               "name": "FlowEnergy企业店",
               "anon_name": "TOP3 直播间",
-              "gmv": 17,
-              "roi": 3.33,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc32uaxsaabwyafukavb5vbxviephkqc6ka.f0.mp4?dis_k=738c7c89348caae9bd7819046dd78b97&dis_t=1779704697&m=00dd8bc8536399304b764c77cb723de5&sha256=1a26ab0405816120ae6a1fb913472e9de782f92ccc41e9108e49863254a834ab",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53k4blaaacmaaaztrbynvbqvyewblqfmca.f0.mp4?dis_k=c42de0b8ddac5cf471acdb2225ab6268&dis_t=1780726848&m=7a216c87a26e5c4aa90e0551eb4a221a&sha256=3966b6723d7026eee7f295d5dc1ecb02615995271727e745ca3df86998ecbc96",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53cuacwaaaliaaouy5qrvbufiefmkqak2a.f0.mp4?dis_k=88fe0b738ea2d92f9d597029d8db5647&dis_t=1780296788&m=9697d0390d483f00dfa7a0c2dc00e73a&sha256=9016011eba4bb680025e9bda4d78b1aec51e860e0839d60a12ddfa1ff4dbc87e",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 8,
           "spu": "防晒配件",
           "productCount": 57,
-          "dailyGmv": 7335,
-          "dailyGmvWan": 0.7,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 3.6,
+          "heatLevel": "· 低热",
           "liveCount": 13,
           "creativeCount": 19,
-          "roi": 2.54,
+          "roi": 0,
           "roiRange": "2.5-2.8",
           "price": 39,
           "typicalNames": [
@@ -2730,38 +3910,59 @@
               "rank": 1,
               "name": "特步奥锐克健身器材",
               "anon_name": "TOP1 直播间",
-              "gmv": 4433,
-              "roi": 2.35,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 7
             },
             {
               "rank": 2,
               "name": "特步风火健身器材店",
               "anon_name": "TOP2 直播间",
-              "gmv": 775,
-              "roi": 2.26,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 6
             },
             {
               "rank": 3,
               "name": "冠马讯衣帽",
               "anon_name": "TOP3 直播间",
-              "gmv": 578,
-              "roi": 2.25,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53vmaimaaa7uafgesmcjvbvkyeq2vqbbsa.f0.mp4?dis_k=505143fd63fc2197d6bbb3882214e221&dis_t=1783420255&m=2e7500bd14cca763cd7c73def44024a1&sha256=d33470329093635047f44f145e537e37eeee4128b4597660c665b7204cc1ad24",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc374cvcaafvqahht67njur77yekh7qkuka.f0.mp4?dis_k=904b0746495343e902552ad11bda5c34&dis_t=1775903318&m=01e374a7cd28f556e8bb259be6cf45f2",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc36aaf4aaa3yanltqg6rvbv4ael3yaaxsa.f0.mp4?dis_k=db83e545a39057b86ab26cdfbaf91020&dis_t=1778813745&m=9077cc12593e8eb130713150fa58c2ea",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 9,
           "spu": "护腰枕",
           "productCount": 3,
-          "dailyGmv": 6464,
-          "dailyGmvWan": 0.6,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 3.1,
+          "heatLevel": "· 低热",
           "liveCount": 2,
           "creativeCount": 2,
-          "roi": 2.5,
+          "roi": 0,
           "roiRange": "2.5-2.8",
           "price": 118,
           "typicalNames": [
@@ -2774,30 +3975,51 @@
               "rank": 1,
               "name": "OES深睡云感腰带",
               "anon_name": "TOP1 直播间",
-              "gmv": 6459,
-              "roi": 2.49,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 2
             },
             {
               "rank": 2,
               "name": "0",
               "anon_name": "TOP2 直播间",
-              "gmv": 4,
-              "roi": 1.97,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53qmchuaaetqadldj6uzvb7ayepkbqi6sa.f0.mp4?dis_k=120a3c0ba7f92270f4bfbdb3746db9df&dis_t=1782373964&m=d18581d9bc9f0549501becf75fcb747d&sha256=befb19c26e8fddd7b1850b9ad24b8333b81b133b0f86d3d978a635ef5fffb226",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53piabsaaaxyajkv2qtjvbu6qedf5aagka.f0.mp4?dis_k=83307e0a7253e55720c049e966baf40d&dis_t=1783663850&m=0bc5fa5d520d7630b90be5f27a805bc1&sha256=2b78f441c6b675e122dda37e4340a201050a0c94b0a1bd9e0844b4de58bf02be",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3dqahgaaaviad33z2qnvbuhaeomoaa42a.f0.mp4?dis_k=d4487ed91145286c0ad8407fe0ff8e15&dis_t=1782373920&m=47243c1625fd3652186cb9f83d08cff5&sha256=d203f5f58dc1abba0eba6aacd57fedc08968aee493cb6690b3b8caadfc561736",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
           "rank": 10,
           "spu": "女士防晒配件",
           "productCount": 18,
-          "dailyGmv": 5592,
-          "dailyGmvWan": 0.6,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 2.7,
+          "heatLevel": "· 低热",
           "liveCount": 9,
           "creativeCount": 8,
-          "roi": 3.21,
+          "roi": 0,
           "roiRange": "3.2-3.5",
           "price": 100,
           "typicalNames": [
@@ -2813,28 +4035,47 @@
               "rank": 1,
               "name": "小野和子服饰品牌",
               "anon_name": "TOP1 直播间",
-              "gmv": 2337,
-              "roi": 3.14,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 2,
               "name": "浙锦真丝店",
               "anon_name": "TOP2 直播间",
-              "gmv": 1338,
-              "roi": 1.96,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 3,
               "name": "MissWiss轻奢旗舰店",
               "anon_name": "TOP3 直播间",
-              "gmv": 1080,
-              "roi": 3.02,
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53emad4aaacqaiqoybljvbuiyehyrqapsa.f0.mp4?dis_k=627325d3fc5d243261e4374ddcc4c906&dis_t=1778497086&m=57d61f4e959b177b5925ef6be1000b26&sha256=afcad66491ce533d938ea3c76a8c748a108c479711dba3cd3643668290d2a238",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3omb62aadvaaatxw2xburs4ye5vzqh3ka.f0.mp4?dis_k=1cdb598304273754e8332b18adcc0a59&dis_t=1775890832&m=d0b26bb215df70d6fbb49a24f6fba90a&sha256=5ae5a7604e88f6244d6ae9115e25254b29efc73013d2c2ef37e429b02229e40f",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53p4cfsaaexyadbugpxvur47yelf7qiwka.f0.mp4?dis_k=24a86b2fb4fdcf33c81c7d32f520282f&dis_t=1774938949&m=afbc670f33777c7d4f7e5730ccaefa8a&sha256=c9b8adfe78b554c043755749afac8c9f0928f3fda8ca6a3eb422132dd723429f",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         }
       ]
     }
