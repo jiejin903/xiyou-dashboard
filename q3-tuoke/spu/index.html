@@ -1138,6 +1138,53 @@
   }
   .shop-tag.invested { background: var(--mint-100); color: var(--mint-600); }
   .shop-tag.new { background: var(--danger); color: #fff; }
+  /* ⭐️ 连续N期在榜标签 */
+  .shelf-tag {
+    display: inline-block;
+    padding: 2px 8px; border-radius: var(--radius-xs);
+    font-size: var(--fs-2xs); font-weight: var(--fw-bold);
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    color: #fff; margin-left: 4px;
+    box-shadow: 0 2px 4px rgba(245, 158, 11, 0.3);
+  }
+  .shop-item.persistent {
+    border-left: 3px solid #f59e0b;
+    background: linear-gradient(90deg, #fffbeb, transparent 40%);
+  }
+  /* SPU 卡片顶部⭐️总数徽标 */
+  .shelf-tag-top {
+    position: absolute; top: 12px; right: 12px;
+    padding: 4px 10px; border-radius: var(--radius-full);
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    color: #fff; font-size: var(--fs-2xs); font-weight: var(--fw-bold);
+    box-shadow: 0 2px 6px rgba(245, 158, 11, 0.35);
+    z-index: 2;
+  }
+  .group-title .badge.shelf {
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    color: #fff; margin-left: 6px;
+  }
+  /* 查看更多按钮 */
+  .expand-btn {
+    padding: 12px 16px;
+    text-align: center;
+    background: var(--ink-50);
+    border: 1px dashed var(--ink-300);
+    border-radius: var(--radius-sm);
+    color: var(--brand-500);
+    font-weight: var(--fw-semi);
+    font-size: var(--fs-body);
+    cursor: pointer;
+    margin: 8px 0;
+    transition: all 0.2s;
+  }
+  .expand-btn:hover {
+    background: var(--brand-50);
+    border-color: var(--brand-400);
+    color: var(--brand-600);
+  }
+  .expand-more-shops { animation: fadeIn .3s ease-in; }
+  @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
   .shop-product {
     font-size: var(--fs-xs); color: var(--ink-500);
     overflow: hidden; display: -webkit-box;
@@ -1859,10 +1906,17 @@
       <div class="spu-grid" id="douyin-spu-grid"></div>
     `;
     const grid = document.getElementById('douyin-spu-grid');
-    grid.innerHTML = d.spus.map(s => `
+    grid.innerHTML = d.spus.map(s => {
+      // 该SPU下连续N期在榜的新客数（⭐️ 稳定爆品信号）
+      const shelfCount = (s.newCust || []).filter(x => x.onShelfCount >= 2).length;
+      const shelfBadgeTop = shelfCount > 0
+        ? `<div class="shelf-tag-top">⭐️ ${shelfCount}家连续在榜</div>`
+        : '';
+      return `
       <div class="spu-card" onclick="openDouyinDrawer(${s.rank - 1})">
         <div class="rank-badge${s.rank <= 3 ? ' top3' : ''}">#${s.rank}</div>
         ${s.newShopCount > 0 ? `<div class="new-tag">🔥 ${s.newShopCount}家潜力新客</div>` : ''}
+        ${shelfBadgeTop}
         <div class="spu-img-wrap">
           <img src="${s.topProductImg}" alt="${s.spu}" onerror="this.style.display='none'">
         </div>
@@ -1881,18 +1935,24 @@
           </button>
         </div>
       </div>
-    `).join('');
+    `;
+    }).join('');
   }
 
   function renderShopItem(s) {
+    // ⭐️ 连续N期在榜标签（onShelfCount>=2 才显示）
+    const shelfBadge = (s.onShelfCount && s.onShelfCount >= 2)
+      ? `<span class="shelf-tag" title="${s.historyStatus || ''} · ${s.historyPeriod || ''}">⭐️ 连续${s.onShelfCount}期在榜</span>`
+      : '';
     return `
-      <div class="shop-item ${s.isNew ? 'new-cust' : ''}">
+      <div class="shop-item ${s.isNew ? 'new-cust' : ''}${(s.onShelfCount && s.onShelfCount >= 2) ? ' persistent' : ''}">
         <div class="shop-rank">${s.rank}</div>
         <div class="shop-img"><img src="${s.topProductImg}" alt="" onerror="this.style.display='none'"></div>
         <div class="shop-info">
           <div class="shop-name">
             ${s.shop}
             <span class="shop-tag ${s.isNew ? 'new' : 'invested'}">${s.isNew ? '🔥 待引入' : '✓ 已投放'}</span>
+            ${shelfBadge}
           </div>
           <div class="shop-product">${s.topProduct}</div>
           <div class="shop-stats">
@@ -1901,7 +1961,7 @@
             <span>TOP 商品：<b>${s.topGmvBucket}</b></span>
           </div>
           ${s.isNew
-            ? `<div class="adq-info"><b>ADQ/全域通均未投放</b></div>`
+            ? `<div class="adq-info"><b>ADQ/全域通均未投放</b>${s.historyStatus && s.historyStatus !== '本期新增' ? `　·　<span style="color:#c2410c">${s.historyStatus}</span>` : ''}</div>`
             : `<div class="adq-info"><b>✓ 已投 ADQ/全域通</b></div>`}
         </div>
       </div>`;
@@ -1918,9 +1978,32 @@
     const investedHtml = spu.invested && spu.invested.length > 0
       ? spu.invested.map(renderShopItem).join('')
       : '<div class="group-empty">暂无已投放的头部店铺</div>';
-    const newHtml = spu.newCust && spu.newCust.length > 0
-      ? spu.newCust.map(renderShopItem).join('')
-      : '<div class="group-empty">暂无待引入的潜力新客</div>';
+
+    // 待引入：默认显示前10个 + 折叠剩余
+    const DEFAULT_SHOW = 10;
+    let newHtml = '';
+    if (spu.newCust && spu.newCust.length > 0) {
+      const shown = spu.newCust.slice(0, DEFAULT_SHOW).map(renderShopItem).join('');
+      const hidden = spu.newCust.slice(DEFAULT_SHOW);
+      const hiddenHtml = hidden.map(renderShopItem).join('');
+      const shelfCountInHidden = hidden.filter(s => s.onShelfCount >= 2).length;
+      newHtml = shown;
+      if (hidden.length > 0) {
+        newHtml += `
+          <div class="expand-more-shops" id="expand-more-${spu.rank}" style="display:none">${hiddenHtml}</div>
+          <div class="expand-btn" onclick="toggleMoreShops(${spu.rank}, this)">
+            📖 查看剩余 ${hidden.length} 家待引入客户${shelfCountInHidden > 0 ? `（含 ⭐️ 连续在榜 ${shelfCountInHidden} 家）` : ''} ▼
+          </div>`;
+      }
+    } else {
+      newHtml = '<div class="group-empty">暂无待引入的潜力新客</div>';
+    }
+
+    // 统计连续N期在榜数量
+    const shelfCount = (spu.newCust || []).filter(s => s.onShelfCount >= 2).length;
+    const shelfBadgeHtml = shelfCount > 0
+      ? `<span class="badge shelf">⭐️ 连续在榜 ${shelfCount} 家</span>`
+      : '';
 
     document.getElementById('drawer-list').innerHTML = `
       <div class="group-section">
@@ -1933,6 +2016,7 @@
       <div class="group-section">
         <div class="group-title">
           <span class="badge new">🔥 待引入 TOP${spu.newCust.length}</span>
+          ${shelfBadgeHtml}
           <span class="desc">飞瓜销量在榜、ADQ/全域通均未投放，可优先拓客</span>
         </div>
         ${newHtml}
@@ -1947,6 +2031,21 @@
     document.getElementById('drawer-mask').classList.remove('open');
     document.getElementById('drawer').classList.remove('open');
     document.body.style.overflow = '';
+  }
+  // 折叠展开：查看剩余待引入客户
+  function toggleMoreShops(rank, el) {
+    const box = document.getElementById('expand-more-' + rank);
+    if (!box) return;
+    const open = box.style.display !== 'none';
+    box.style.display = open ? 'none' : '';
+    const m = el.textContent.match(/\d+/);
+    if (open) {
+      el.innerHTML = el.dataset.originalText || el.innerHTML.replace('▲', '▼').replace('收起', `查看剩余 ${m ? m[0] : ''} 家`);
+      el.textContent = el.textContent.replace('▲', '▼').replace('收起', `查看剩余 ${m ? m[0] : ''} 家 · 点击展开`);
+    } else {
+      if (!el.dataset.originalText) el.dataset.originalText = el.innerHTML;
+      el.textContent = '🔼 收起 ▲';
+    }
   }
   document.getElementById('drawer-close').onclick = closeDrawer;
   document.getElementById('drawer-mask').onclick = closeDrawer;
