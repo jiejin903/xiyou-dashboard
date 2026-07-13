@@ -271,57 +271,85 @@
     background: linear-gradient(180deg, transparent 55%, var(--brand-200) 55%);
     padding: 0 4px; font-weight: var(--fw-bold); color: var(--ink-800);
   }
-  /* 联系信息一行（Hero 底部） */
-  .hero-contact {
-    margin: 0 0 var(--space-2); padding: 10px 16px;
-    display: inline-flex; align-items: center; gap: 8px;
-    background: linear-gradient(135deg, var(--brand-100), var(--brand-50));
+  /* ================================
+     🎨 Hero 底部联系模块（v2 · 左文案 + 右二维码 一体卡）
+     ================================ */
+  .hero-contact-block {
+    display: flex; align-items: stretch;
+    margin: 16px 0 8px 18px;
+    padding: 14px 18px 14px 20px;
+    max-width: 620px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,244,229,0.75));
     border: 1px solid var(--brand-200);
-    border-radius: var(--radius-full);
-    font-size: var(--fs-body);
-    color: var(--brand-700);
-    margin-left: 18px;
-    box-shadow: 0 2px 6px rgba(234,88,12,0.08);
-  }
-  .hero-contact b { color: var(--brand-700); font-weight: var(--fw-bold); }
-  .hero-contact-icon { font-size: 16px; }
-  @media (max-width: 640px) {
-    .hero-contact { margin-left: 14px; font-size: var(--fs-sm); padding: 8px 12px; }
-  }
-  /* 联系二维码卡片（Hero 底部） */
-  .hero-qr {
-    margin: 12px 0 8px 18px;
-    display: inline-flex; align-items: center; gap: 14px;
-    padding: 12px 18px 12px 12px;
-    background: rgba(255, 255, 255, 0.85);
-    border: 1px solid var(--brand-200);
+    border-left: 4px solid var(--brand-500);
     border-radius: var(--radius-md);
-    box-shadow: 0 3px 10px rgba(234, 88, 12, 0.10);
-    backdrop-filter: blur(6px);
+    box-shadow: 0 4px 14px rgba(234, 88, 12, 0.10);
+    backdrop-filter: blur(8px);
+    gap: 20px;
+  }
+  .hero-contact-left {
+    flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 6px;
+    min-width: 0;
+  }
+  .hero-contact-badge {
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 3px 10px;
+    background: var(--brand-500); color: #fff;
+    border-radius: var(--radius-full);
+    font-size: var(--fs-2xs); font-weight: var(--fw-bold);
+    align-self: flex-start;
+    letter-spacing: 0.5px;
+  }
+  .hero-contact-icon { font-size: 12px; }
+  .hero-contact-line {
+    font-size: var(--fs-h3);
+    color: var(--ink-800); font-weight: var(--fw-semi);
+    margin-top: 2px; line-height: 1.35;
+  }
+  .hero-contact-line b {
+    color: var(--brand-600); font-weight: var(--fw-bold);
+  }
+  .hero-contact-tags {
+    display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px;
+  }
+  .hero-contact-tag {
+    display: inline-block;
+    padding: 3px 10px; font-size: var(--fs-xs);
+    background: var(--brand-50); color: var(--brand-700);
+    border-radius: var(--radius-full);
+    border: 1px solid var(--brand-100);
+    white-space: nowrap;
+  }
+  .hero-qr-card {
+    flex-shrink: 0;
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    padding: 8px 8px 6px;
+    background: #fff;
+    border-radius: var(--radius-sm);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   }
   .hero-qr-img {
-    width: 90px; height: 90px; flex-shrink: 0;
-    background: #fff; padding: 4px; border-radius: var(--radius-sm);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    width: 96px; height: 96px;
   }
   .hero-qr-img img { width: 100%; height: 100%; display: block; }
-  .hero-qr-tip { display: flex; flex-direction: column; gap: 2px; }
-  .hero-qr-title {
-    font-size: var(--fs-h4); font-weight: var(--fw-bold);
-    color: var(--brand-700);
-  }
-  .hero-qr-desc {
-    font-size: var(--fs-body); color: var(--ink-700); font-weight: var(--fw-semi);
-  }
-  .hero-qr-sub {
-    font-size: var(--fs-sm); color: var(--ink-500); margin-top: 2px;
+  .hero-qr-caption {
+    font-size: var(--fs-xs); color: var(--ink-600); font-weight: var(--fw-semi);
+    letter-spacing: 0.3px;
   }
   @media (max-width: 640px) {
-    .hero-qr { margin-left: 14px; padding: 10px 14px 10px 10px; gap: 10px; }
-    .hero-qr-img { width: 72px; height: 72px; }
-    .hero-qr-title { font-size: var(--fs-body); }
-    .hero-qr-desc { font-size: var(--fs-sm); }
-    .hero-qr-sub { font-size: var(--fs-xs); }
+    .hero-contact-block {
+      margin-left: 14px; margin-right: 14px;
+      padding: 12px 14px 12px 16px;
+      gap: 12px;
+    }
+    .hero-contact-line { font-size: var(--fs-body); }
+    .hero-qr-img { width: 80px; height: 80px; }
+    .hero-contact-tag { font-size: var(--fs-2xs); padding: 2px 8px; }
+  }
+  @media (max-width: 480px) {
+    .hero-contact-block { flex-direction: column; align-items: stretch; }
+    .hero-qr-card { flex-direction: row; align-self: flex-start; }
+    .hero-qr-caption { writing-mode: initial; }
   }
 
   /* ============================================================
@@ -1459,18 +1487,26 @@
     <div class="hero-desc">
       基于<span class="hi">视频号大盘在投数据</span>与<span class="hi">抖音竞媒爆品榜</span>的双源交叉洞察，帮助销售一屏锁定「视频号已跑通的爆款 SPU + 抖音爆但视频号未布局的拓品机会」，覆盖<span class="hi">男装/女装/贴身衣物/珠宝配饰/箱包鞋靴/运动户外</span>六大赛道。
     </div>
-    <div class="hero-contact">
-      <span class="hero-contact-icon">📮</span>
-      <span>如有客户资源，请联系<b>服饰增长组直客销售</b></span>
-    </div>
-    <div class="hero-qr">
-      <div class="hero-qr-img">
-        <img src="qrcode_contact.png" alt="服饰行业拓客指南 联系二维码" />
+    <div class="hero-contact-block">
+      <div class="hero-contact-left">
+        <div class="hero-contact-badge">
+          <span class="hero-contact-icon">📮</span>
+          <span>有客户资源？</span>
+        </div>
+        <div class="hero-contact-line">
+          扫码联系 <b>服饰增长组直客销售</b>
+        </div>
+        <div class="hero-contact-tags">
+          <span class="hero-contact-tag">📊 拓客资源</span>
+          <span class="hero-contact-tag">🎬 素材参考</span>
+          <span class="hero-contact-tag">💡 投放咨询</span>
+        </div>
       </div>
-      <div class="hero-qr-tip">
-        <div class="hero-qr-title">📱 扫码添加</div>
-        <div class="hero-qr-desc">服饰增长组直客销售</div>
-        <div class="hero-qr-sub">拓客资源 · 素材参考 · 投放咨询</div>
+      <div class="hero-qr-card">
+        <div class="hero-qr-img">
+          <img src="qrcode_contact.png" alt="服饰增长组直客销售联系二维码" />
+        </div>
+        <div class="hero-qr-caption">📱 扫码添加</div>
       </div>
     </div>
   </div>
