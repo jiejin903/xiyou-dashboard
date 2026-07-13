@@ -1478,6 +1478,7 @@
   }
   /* 🎯 ROI 模糊化范围：向下取十分位为下限，+0.3 为上限（5.32 → 5.2-5.5）*/
   function fmtRoiRange(roi) {
+    if (typeof roi === 'string') return roi;  // 已是预计算范围字符串（数据已脱敏，无裸 ROI 数值）
     if (roi == null || isNaN(roi)) return '-';
     const lo = Math.floor(roi * 10) / 10;
     const hi = (lo + 0.3);
@@ -1578,7 +1579,7 @@
               <div class="case-title">${s.spu} ${upPill(s.env)}</div>
               <div class="case-desc">${s._track} · ${s.liveCount} 家直播间 · ${s.creativeCount >= 1000 ? (s.creativeCount/1000).toFixed(1)+'k' : s.creativeCount} 条素材</div>
               <div class="case-metrics">
-                <div class="case-metric"><span class="lbl">ROI</span><span class="val">${fmtRoiRange(s.roi)}</span></div>
+                <div class="case-metric"><span class="lbl">ROI</span><span class="val">${fmtRoiRange(s.roiRange)}</span></div>
                 <div class="case-metric"><span class="lbl">客单价</span><span class="val">¥${s.price}</span></div>
               </div>
             </div>
@@ -1636,7 +1637,6 @@
     const w = data.wechat, d = data.douyin;
     const wLives = w ? w.totalLives : 0;
     const wCreatives = w ? w.totalCreatives : 0;
-    const wCoverage = w ? w.top10Coverage : 0;
 
     let html = '';
     // 视频号在投直播间
@@ -1646,12 +1646,12 @@
         <div class="kpi-hero-val u-num">${wLives}<span class="unit">家</span></div>
       </div>
     `;
-    // TOP10 覆盖率
+    // 视频号在投素材（计数指标，非消耗，不含大盘消耗口径）
     html += `
       <div class="kpi-hero-card blue">
-        <div class="kpi-hero-lbl"><span class="icon">📊</span>TOP10 SPU 覆盖率</div>
-        <div class="kpi-hero-val u-num">${wCoverage}<span class="unit">%</span></div>
-        <div class="kpi-hero-note">占${CURRENT_TRACK}大盘消耗比例</div>
+        <div class="kpi-hero-lbl"><span class="icon">📊</span>视频号在投素材</div>
+        <div class="kpi-hero-val u-num">${wCreatives >= 1000 ? (wCreatives/1000).toFixed(1)+'k' : wCreatives}<span class="unit">条</span></div>
+        <div class="kpi-hero-note">${CURRENT_TRACK}赛道跑量素材总量</div>
       </div>
     `;
     // 抖音爆款
@@ -1745,20 +1745,20 @@
             <div class="acc-body-inner">
               <div class="metric-strip metric-strip-3">
                 <div class="metric-cell">
-                  <div class="lbl">消耗环比</div>
+                  <div class="lbl">环比变化</div>
                   ${s.env != null && s.env > 0
                     ? `<div class="val gmv">${upBig(s.env)}</div><div class="rng">近7天 vs 前7天</div>`
-                    : `<div class="val val-text" style="color:var(--mint-600);">增长中 🚀</div><div class="rng">本期消耗保持观察</div>`}
+                    : `<div class="val val-text" style="color:var(--mint-600);">增长中 🚀</div><div class="rng">本期保持观察</div>`}
                 </div>
                 <div class="metric-cell">
                   <div class="lbl">下单 ROI（加权）</div>
-                  <div class="val" style="color:var(--mint-600);">${fmtRoiRange(s.roi)}</div>
-                  <div class="rng">按日耗加权平均</div>
+                  <div class="val" style="color:var(--mint-600);">${fmtRoiRange(s.roiRange)}</div>
+                  <div class="rng">综合加权</div>
                 </div>
                 <div class="metric-cell">
                   <div class="lbl">客单价（加权）</div>
                   <div class="val">¥${s.price}</div>
-                  <div class="rng">按日耗加权平均</div>
+                  <div class="rng">综合加权</div>
                 </div>
               </div>
               <div class="split-row split-row-equal">
@@ -1767,7 +1767,7 @@
                   <div class="creatives-grid">${creativeCells}</div>
                 </div>
                 <div class="split-col">
-                  <div class="split-col-title">📺 消耗 TOP3 直播间<span class="split-col-note">已匿名化</span></div>
+                  <div class="split-col-title">📺 跑量 TOP3 直播间<span class="split-col-note">已匿名化</span></div>
                   <div class="live-list-vertical live-list-3col">${liveHtml}</div>
                 </div>
               </div>
@@ -1793,7 +1793,7 @@
              <div class="creative-fallback" style="display:none">素材加载失败<br>点击打开原视频</div>` :
             `<div class="creative-fallback">素材链接<br>已失效</div>`}
           <div class="creative-overlay">
-            <div class="gmv-line">ROI ${c.roi}</div>
+            <div class="gmv-line">ROI ${c.roiRange}</div>
             <div class="live-line">TOP${i + 1} 跑量素材</div>
           </div>
         </div>
@@ -1984,6 +1984,15 @@
       CURRENT_TRACK = data.trackOrder.find(t => data.tracks[t] && data.tracks[t].wechat) || data.trackOrder[0];
       const _tt2 = document.getElementById('current-track-title'); if (_tt2) _tt2.textContent = CURRENT_TRACK + ' 赛道';
       document.getElementById('update-time').textContent = data.generatedAt;
+      // 数据周期从JSON动态渲染（wechat.period 优先）
+      let periodStr = data.period || '';
+      // 尝试从第一个有数据的赛道拿更精确的 wechat/douyin period
+      for (const tn of data.trackOrder) {
+        const td = data.tracks[tn];
+        if (td && td.wechat && td.wechat.period) { periodStr = td.wechat.period; break; }
+        if (td && td.douyin && td.douyin.period) { periodStr = td.douyin.period; break; }
+      }
+      const _pd = document.getElementById('period'); if (_pd && periodStr) _pd.textContent = periodStr;
       renderTabs();
       renderAll();
       initSectionTabs();
