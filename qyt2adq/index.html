@@ -95,14 +95,14 @@
   <!-- 业务洞察 -->
   <div id="insight-box"></div>
 
-  <!-- Tab切换：Q2TD累计 vs 近一周新增 -->
+  <!-- Tab切换：Q2累计 vs 近双周新增 -->
   <div class="tabs">
     <div class="tab active" data-view="q2td" onclick="switchView('q2td')">
       <span class="main">📈 Q2TD 累计跃迁</span>
       <span class="hint" id="tab-q2td-hint">—</span>
     </div>
     <div class="tab" data-view="week" onclick="switchView('week')">
-      <span class="main">🆕 近一周新增跃迁</span>
+      <span class="main">🆕 近双周新增跃迁</span>
       <span class="hint" id="tab-week-hint">—</span>
     </div>
   </div>
@@ -165,7 +165,7 @@ function render() {
 
   // header sub
   document.getElementById('header-sub').textContent =
-    `Q1池子（2026.1.1-3.31）→ Q2TD跃迁（${meta.q2td_label}） · 近一周（${meta.week_label}） · 生成于 ${meta.generated_at}`;
+    `Q1池子（2026.1.1-3.31）→ Q2跃迁（${meta.q2td_label}） · 近双周（${meta.week_label}） · 生成于 ${meta.generated_at}`;
   document.getElementById('gen-time').textContent = meta.generated_at;
   document.getElementById('period-badge').textContent = `Q2TD ${meta.q2td_label}`;
 
@@ -173,7 +173,7 @@ function render() {
   const kpiHtml = `
     <div class="kpi"><div class="lbl">Q1 纯 QYT 池</div><div class="val">${fmt(k.q1_pool)}</div><div class="hint">家｜分母（仅服饰行业）</div></div>
     <div class="kpi green"><div class="lbl">Q2TD 累计跃迁</div><div class="val">${fmt(k.q2td_mig)}</div><div class="hint">家｜跃迁率 ${k.mig_rate}%</div></div>
-    <div class="kpi orange"><div class="lbl">近一周新增跃迁</div><div class="val">${fmt(k.week_new)}</div><div class="hint">家｜${meta.week_label}</div></div>
+    <div class="kpi orange"><div class="lbl">近双周新增跃迁</div><div class="val">${fmt(k.week_new)}</div><div class="hint">家｜${meta.week_label}</div></div>
     <div class="kpi purple"><div class="lbl">跃迁客户 Q2TD ADQ 累计</div><div class="val">${wan(k.q2td_adq_total_cum)}</div><div class="hint">元｜新增 ADQ 消耗盘</div></div>
   `;
   document.getElementById('kpi-row').innerHTML = kpiHtml;
