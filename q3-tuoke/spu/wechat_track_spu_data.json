@@ -1,37 +1,37 @@
 {
-  "generatedAt": "2026-07-21",
-  "period": "2026-07-13 ~ 2026-07-19（近7天）",
+  "generatedAt": "2026-07-28",
+  "period": "2026-07-20 ~ 2026-07-26（近7天）",
   "source": "中台『近7天大盘在投爆品』· 视频号 SPU 在投效果 · 全类目",
   "tracks": {
     "男装": {
       "track": "男装",
       "totalDailyGmv": 0,
       "totalDailyGmvWan": 0,
-      "top10Coverage": 96.8,
+      "top10Coverage": 95.9,
       "top10DailyGmv": 0,
-      "totalLives": 221,
+      "totalLives": 222,
       "totalCreatives": 0,
-      "spuCount": 33,
+      "spuCount": 38,
       "spus": [
         {
           "rank": 1,
           "spu": "男士T恤/Polo衫",
-          "productCount": 300,
+          "productCount": 342,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 39.2,
+          "gmvPct": 41.5,
           "heatLevel": "🔥🔥🔥 极热",
-          "liveCount": 70,
-          "creativeCount": 99,
+          "liveCount": 75,
+          "creativeCount": 104,
           "roi": 0,
-          "roiRange": "5.6-5.9",
-          "price": 185,
+          "roiRange": "5.5-5.8",
+          "price": 171,
           "typicalNames": [
-            "【谢霆锋同款】十如仕出汗无痕升级款高尔夫高智风短袖polo衫P21-01",
-            "【80支液氨POLO衫】霞湖世家 高支棉男士夏季丝光凉感抑菌翻领短袖",
             "【80支液氨 两件装】霞湖世家张柏芝同款 高支棉抑菌长绒棉圆领短袖",
-            "【李小冉同款】白小T水光魔术T恤短袖男女款纯棉短袖2026年圆领短袖情侣百搭舒适显瘦",
-            "【买一送一/100%棉】Romon/罗蒙纯棉宽松短袖夏季休闲圆领透气T恤"
+            "【80支液氨POLO衫】霞湖世家 高支棉男士夏季丝光凉感抑菌翻领短袖",
+            "【谢霆锋同款】十如仕出汗无痕升级款高尔夫高智风短袖polo衫P21-01",
+            "【买一送一/100%棉】Romon/罗蒙纯棉宽松短袖夏季休闲圆领透气T恤",
+            "【李小冉同款】白小T水光魔术T恤短袖男女款纯棉短袖2026年圆领短袖情侣百搭舒适显瘦"
           ],
           "env": null,
           "topLives": [
@@ -41,41 +41,44 @@
               "anon_name": "TOP1 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 5
+              "creatives": 2
             },
             {
               "rank": 2,
-              "name": "拇指白小T官方旗舰店",
+              "name": "布先生官方店",
               "anon_name": "TOP2 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 8
+              "creatives": 7
             },
             {
               "rank": 3,
-              "name": "十如仕DETERMINANT",
+              "name": "拇指白小T官方旗舰店",
               "anon_name": "TOP3 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 4
+              "creatives": 7
             }
           ],
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3nmagkaaasaacjlcuxrubu2yemvvqazka.f0.mp4?dis_k=cec28c08bcd66fd445d33aaa26efad43&dis_t=1781434713&m=07d04adc6ecfaae7d5504bc485f5e081&sha256=8a3a3285d43e5581977c20aeea32a3aac081ac3ed27308be08893386246bf3d0",
+              "url": "",
+              "md5": "bc9e9067ab551a8705e248b455cd9f6a",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b532qdkmaag4iabd3hp45urzvaeu3kanjsa.f0.mp4?dis_k=b952fcd405f88f3937ecf20ac0131ade&dis_t=1779186476&m=7bb2cef23cd2e3f4b0d724f9bacbc1cf&sha256=2ef09e05445acd1721a310b8dc6f3325605321fa0fcf4820f2adcc0c2a5e5ef6",
+              "url": "",
+              "md5": "2d0607c1aa64187a66845a601fcca34a",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53r4byaaad5magblri65vbtdyeqchqhaca.f0.mp4?dis_k=4c13b865299d5621feafdd8151fdc5f6&dis_t=1781260477&m=657ebd4a0aa238c7bf165582497da9c0&sha256=5a71f2cd0b535b9e9a7b77dffbbfbd92da24cc8b2c9fe95779be866335226023",
+              "url": "",
+              "md5": "802bb68be5d496fb6ba1da963bbb79ee",
               "gmv": 0,
               "roi": 0
             }
@@ -84,22 +87,22 @@
         {
           "rank": 2,
           "spu": "男士休闲裤",
-          "productCount": 270,
+          "productCount": 231,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 24.0,
+          "gmvPct": 23.4,
           "heatLevel": "🔥🔥🔥 极热",
-          "liveCount": 82,
-          "creativeCount": 77,
+          "liveCount": 81,
+          "creativeCount": 75,
           "roi": 0,
-          "roiRange": "4.1-4.4",
-          "price": 161,
+          "roiRange": "3.9-4.2",
+          "price": 143,
           "typicalNames": [
             "天丝亚麻休闲裤男士直筒宽松夏季新款青年时尚薄款弹力垂顺长裤",
             "2026新款冰丝休闲裤男士款夏季薄款弹力宽松长裤凉感透气裤子891",
-            "2026夏季新款冰丝男士弯刀休闲裤美式潮牌宽松直筒阔腿薄款速干裤",
-            "BIAOKINGPAUL/镖王保罗夏季亚麻桑蚕丝混纺男士透气直筒休闲男裤",
-            "【亚麻天丝】薄款男士休闲裤夏季百搭宽松直筒裤松紧腰透气垂顺裤子男"
+            "【亚麻天丝】薄款男士休闲裤夏季百搭宽松直筒裤松紧腰透气垂顺裤子男",
+            "龙牙二代隐腾轻量长裤加强版上班通勤休闲裤商务透气清爽百搭男",
+            "【天丝莱赛尔】拉链六兜口袋夏季薄款休闲裤男士宽松直筒百搭垂顺透气长裤子男"
           ],
           "env": null,
           "topLives": [
@@ -113,15 +116,15 @@
             },
             {
               "rank": 2,
-              "name": "龙牙战术-铁血李大方",
+              "name": "佑帛星选男装",
               "anon_name": "TOP2 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 4
+              "creatives": 1
             },
             {
               "rank": 3,
-              "name": "佑帛星选男装",
+              "name": "黑标男装二号店",
               "anon_name": "TOP3 直播间",
               "gmv": 0,
               "roi": 0,
@@ -131,19 +134,22 @@
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53oaabsaaaoeadwgsgo5vbu4aedfyaagka.f0.mp4?dis_k=2556cb99289701a89ba337cf7bb1749c&dis_t=1782981126&m=2cc36b7ef48e1addfcd1db6030d611fa",
+              "url": "",
+              "md5": "801e78605e64d7896741107fdc15ae19",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3kucdcaaefuajnijqtfvb4viegfkqimka.f0.mp4?dis_k=e00fa94a9fbf4fb67d067972b8f079c8&dis_t=1781835647&m=00393f7be6ac3122ee467af3f9d95898&sha256=a01a9c4309c0c6f37d86d91fd1d649c58cfdc44e2658511551d333489bce5586",
+              "url": "",
+              "md5": "00393f7be6ac3122ee467af3f9d95898",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53lianqaaab4ap63ylvjvbuwqe3bnabwca.f0.mp4?dis_k=d063273265579bc7cebe9c61acbabae7&dis_t=1779115879&m=821afd64b86f8226c3e8ca58dfa75599&sha256=c5637abd7d764b89c56e584d54d0c554942596bb1393cbc69c6afd9f9b90b766",
+              "url": "",
+              "md5": "821afd64b86f8226c3e8ca58dfa75599",
               "gmv": 0,
               "roi": 0
             }
@@ -152,20 +158,20 @@
         {
           "rank": 3,
           "spu": "男士背心/吊带",
-          "productCount": 27,
+          "productCount": 28,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 7.7,
+          "gmvPct": 7.9,
           "heatLevel": "🔥 中热",
-          "liveCount": 15,
-          "creativeCount": 13,
+          "liveCount": 14,
+          "creativeCount": 10,
           "roi": 0,
-          "roiRange": "2.9-3.2",
-          "price": 75,
+          "roiRange": "2.8-3.1",
+          "price": 69,
           "typicalNames": [
+            "啄木鸟正品男士设计感2026夏季啄木鸟logo背心时尚舒适设计感潮流",
             "（3件装/更划算）男士背心夏季透气速干无袖T恤宽松坎肩汗衫",
             "[甄选锦氨冰氧丝]啄木鸟夏季新款男士冰丝透气无袖运动背心宽松坎肩",
-            "啄木鸟正品男士设计感2026夏季啄木鸟logo背心时尚舒适设计感潮流",
             "[买1送1]2026升级240g重磅纯棉背心10A抗菌圆领无袖T恤坎肩百搭休闲舒适透气",
             "男士冰丝背心夏季新款潮流休闲运动健身坎肩男装无袖冰丝男背心"
           ],
@@ -173,7 +179,7 @@
           "topLives": [
             {
               "rank": 1,
-              "name": "俞兆林男士速干精品背心",
+              "name": "啄木鸟行望男装店",
               "anon_name": "TOP1 直播间",
               "gmv": 0,
               "roi": 0,
@@ -181,37 +187,40 @@
             },
             {
               "rank": 2,
-              "name": "啄木鸟森钰男装店",
+              "name": "俞兆林男士速干精品背心",
               "anon_name": "TOP2 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 2
+              "creatives": 1
             },
             {
               "rank": 3,
-              "name": "啄木鸟行望男装店",
+              "name": "啄木鸟森钰男装店",
               "anon_name": "TOP3 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 1
+              "creatives": 2
             }
           ],
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53vqafkaaafuaa2eshcnvbvlaekwwaavka.f0.mp4?dis_k=507fbc83a6413c6ff920fdd3e4d5e160&dis_t=1783060622&m=0d5981c79489a2257948f112db2e59ee&sha256=98af41e0b9ee0e7793061dfcf4b79e831e8e187df659ec82f7bca74c028208bf",
+              "url": "",
+              "md5": "d07bb485a7badd981637a953741d68e4",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53qidzuaaheyalfyp4xjur3aqetkbapgsa.f0.mp4?dis_k=b0eb856eb0a061969ef89f7d04195224&dis_t=1778067690&m=6dc112b29e5805f7bb257b6aadeef601&sha256=c281c286550e72cad1f0bc325704c14333d617e27ccaa910efd4bd345adc9aad",
+              "url": "",
+              "md5": "c499f2f7835fcf3ee76f18f7569841e6",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53h4abgaaagyaftg3gjrubupyecm7qae2a.f0.mp4?dis_k=18d9dc709fff425ea2f6763f11e259d1&dis_t=1777259792&m=b9d25f5ef0b51b2ad3220ac2d8a94a74&sha256=373fb66d141fd85853a172fe110a3648f81e2242155fb6613b05b3d1135f91e0",
+              "url": "",
+              "md5": "bb60492c939d7f325c56fc3c1cc25f87",
               "gmv": 0,
               "roi": 0
             }
@@ -219,221 +228,17 @@
         },
         {
           "rank": 4,
-          "spu": "男士速干T恤/Polo衫",
-          "productCount": 66,
-          "dailyGmv": 0,
-          "dailyGmvWan": 0,
-          "gmvPct": 6.5,
-          "heatLevel": "🔥 中热",
-          "liveCount": 20,
-          "creativeCount": 22,
-          "roi": 0,
-          "roiRange": "3.1-3.4",
-          "price": 121,
-          "typicalNames": [
-            "Jeep吉普（买一送一）男士短袖T恤冰丝莫代尔速干凉感透气户外运动两件装",
-            "[拍1发2]男士速干T恤插肩袖弹力纱圆领透气宽松运动健身短袖户外",
-            "【专卖店奢侈品】男女同款升冰氧丝T恤2088",
-            "[买1送1]2026新款男士速干T打底衫圆领百搭休闲透气纯色运动短袖",
-            "[两件装]2026新款速干T男士圆领舒适透气纯色户外运动健身骑行运动穿戴装备短袖"
-          ],
-          "env": null,
-          "topLives": [
-            {
-              "rank": 1,
-              "name": "JEEP吉普冠领男装店",
-              "anon_name": "TOP1 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 1
-            },
-            {
-              "rank": 2,
-              "name": "思小简纯棉T恤",
-              "anon_name": "TOP2 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 3
-            },
-            {
-              "rank": 3,
-              "name": "思小简短袖T恤",
-              "anon_name": "TOP3 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 2
-            }
-          ],
-          "topCreatives": [
-            {
-              "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53i4afuaaa4uapzkklsnvburyeljdqawsa.f0.mp4?dis_k=a5fd71e8ceae53de4a6bf8deeb3e7b3c&dis_t=1783343012&m=d6f036a50fb26d0c9a9ad158fad7d5b0&sha256=0d93f9b3d496b36d964ccc3911bb906cb26f1146d31f1caed458b73a3af555f0",
-              "gmv": 0,
-              "roi": 0
-            },
-            {
-              "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3oeahaaaaaiacv6yz6vvbu4ieobyqa4ca.f0.mp4?dis_k=73f5dd20d37c752613b7f1b9d79e1d9d&dis_t=1780046454&m=b83b68007b8a054989b7530ab95cc7e1&sha256=46e55e05e2bb5cb1353c957963330da63babf82a77603d2c1d21cc1e72ea38a0",
-              "gmv": 0,
-              "roi": 0
-            },
-            {
-              "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc35ebmuaacneapybzlyzvbr2iezluqfssa.f0.mp4?dis_k=db06b18e9ba1360500be880e33c8b5d8&dis_t=1781085831&m=4acd9e650d20909c10182810508398ce",
-              "gmv": 0,
-              "roi": 0
-            }
-          ]
-        },
-        {
-          "rank": 5,
-          "spu": "男士休闲套装",
-          "productCount": 70,
-          "dailyGmv": 0,
-          "dailyGmvWan": 0,
-          "gmvPct": 6.2,
-          "heatLevel": "🔥 中热",
-          "liveCount": 23,
-          "creativeCount": 19,
-          "roi": 0,
-          "roiRange": "3.5-3.8",
-          "price": 138,
-          "typicalNames": [
-            "牛仔套装短袖翻领衬衫短裤男士夏季2026新款潮流宽松休闲两件套男",
-            "青少年纯棉印花短袖T恤套装男夏季潮流帅气初高中生短裤休闲运动百搭两件套",
-            "【天丝亚麻 开衫套装】夏季男上衣短袖中老年爸爸装两件套老人衣服",
-            "【冰感套装】啄木鸟夏季新款中老年爸爸装休闲POLO衫冰丝裤套装",
-            "2026夏日V领T恤长裤短袖纯色休闲套装男士时尚夏季潮流宽松两件装"
-          ],
-          "env": null,
-          "topLives": [
-            {
-              "rank": 1,
-              "name": "霄桂姿男装",
-              "anon_name": "TOP1 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 1
-            },
-            {
-              "rank": 2,
-              "name": "玄策男装",
-              "anon_name": "TOP2 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 2
-            },
-            {
-              "rank": 3,
-              "name": "啄木鸟雷祯男装店",
-              "anon_name": "TOP3 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 5
-            }
-          ],
-          "topCreatives": [
-            {
-              "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3duateaabcyaludcuwvvbwhiegioqcmsa.f0.mp4?dis_k=6afe38b5f97e5485f047690326c990ef&dis_t=1783998935&m=0d6aea1d22c53d2ca70fad9c1a7845b1&sha256=0faca31fabb4a174a31de53e8efe7ee8bbcdca07f2bf1ef132bc0f6232b695c1",
-              "gmv": 0,
-              "roi": 0
-            },
-            {
-              "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3qqa3qaab34aogvayazvbxbaexccadoca.f0.mp4?dis_k=3809b90028773e42bdcf59d004615899&dis_t=1780046689&m=fd1000bdd44a3410be8776fafe659b53",
-              "gmv": 0,
-              "roi": 0
-            },
-            {
-              "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3zaataaab74alttkuuvvbxsaegdeacmca.f0.mp4?dis_k=0a0440ff878936853efc0d35ed2530a4&dis_t=1783998998&m=dd64831e06512cb68d2ee37229e54a44&sha256=48d2c229fdc554175a1a16d7f1d4ee48311584dd945df2f13f320ad7d35c984f",
-              "gmv": 0,
-              "roi": 0
-            }
-          ]
-        },
-        {
-          "rank": 6,
-          "spu": "男士速干裤",
-          "productCount": 15,
-          "dailyGmv": 0,
-          "dailyGmvWan": 0,
-          "gmvPct": 4.7,
-          "heatLevel": "· 低热",
-          "liveCount": 11,
-          "creativeCount": 8,
-          "roi": 0,
-          "roiRange": "3.1-3.4",
-          "price": 156,
-          "typicalNames": [
-            "JEEP/吉普夏季速干防水工装裤冰丝透气轻薄宽松男女同款休闲裤",
-            "雅鹿夏季男女同款薄款冰丝速干裤",
-            "【5.0冰感系列轻松裤】小熊总2026时尚户外运动透气吸湿排汗休闲裤",
-            "【门店品质】2026夏季新款水洗高弹吸湿速干五分裤男女同款休闲短裤男",
-            "【全额运补】夏季清凉多巴胺运动五分裤男女同款薄款防晒潮牌印花工装短裤"
-          ],
-          "env": null,
-          "topLives": [
-            {
-              "rank": 1,
-              "name": "Jeep吉普男装服饰",
-              "anon_name": "TOP1 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 2
-            },
-            {
-              "rank": 2,
-              "name": "精品服装小店",
-              "anon_name": "TOP2 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 1
-            },
-            {
-              "rank": 3,
-              "name": "总裁休闲男装",
-              "anon_name": "TOP3 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 1
-            }
-          ],
-          "topCreatives": [
-            {
-              "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53duaa6aaaiyacnjif2jvbuhieb4oqad2a.f0.mp4?dis_k=a1aa26354c92640c0bf9272adbd4d505&dis_t=1780368634&m=8535d108a11a04fb79f504481949d4ef&sha256=b0aff8c86162a76082b477668bd7ce27af822fdfe77db72b6b6acbd6aab8db5d",
-              "gmv": 0,
-              "roi": 0
-            },
-            {
-              "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53tmcwcaafcmablhxyxzur7gyemgnqkyka.f0.mp4?dis_k=fe25a0a9d17e56516fd09a7bd190380a&dis_t=1778291414&m=a75bb483c499b782914f24e9131d7fcf&sha256=a97036d3ea97b3e0c6b51ce5b9d91fb0804d8eeb78dc8e48d748a934cd6e23db",
-              "gmv": 0,
-              "roi": 0
-            },
-            {
-              "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b537mcmkaaevean6hxyzzur56yeyx5qjrka.f0.mp4?dis_k=1811dd170596b3977f9a63fb1a71dbdc&dis_t=1778291331&m=4e5d5e9a1915582bb00eeb75b0c475ff&sha256=e7d69d08d25371d5cfb68b080b89b64dd6c96d6c7f0e6637a1d238bec72f4d2e",
-              "gmv": 0,
-              "roi": 0
-            }
-          ]
-        },
-        {
-          "rank": 7,
           "spu": "男士打底衫",
           "productCount": 1,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 3.4,
-          "heatLevel": "· 低热",
+          "gmvPct": 5.1,
+          "heatLevel": "🔥 中热",
           "liveCount": 1,
           "creativeCount": 1,
           "roi": 0,
-          "roiRange": "2.0-2.3",
-          "price": 134,
+          "roiRange": "1.8-2.1",
+          "price": 124,
           "typicalNames": [
             "梦特娇 官方正品，10A抗菌，蚕丝蛋白男士圆领短袖纯色打底衫"
           ],
@@ -451,19 +256,235 @@
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b535qcewaaejqapxsz7lvvb53aejpwais2a.f0.mp4?dis_k=263c2b9fb589228097114b8898ff4139&dis_t=1782296748&m=9334ad0c660f72dec2c6fc6aa5694167&sha256=6e5bb9a00f6dafb083e0b6bf7da78674e5babf75fdcde2986a3d5d04dfea2347",
+              "url": "",
+              "md5": "9334ad0c660f72dec2c6fc6aa5694167",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53zibrmaad4iaffffm35urtsqec3fagfsa.f0.mp4?dis_k=d18b81336bce577ec1d3639b4f2d8f34&dis_t=1773093930&m=08823ef5b23f4ec61eddc9fbff11786e",
+              "url": "",
+              "md5": "08823ef5b23f4ec61eddc9fbff11786e",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3cya4iaabk4afaerd5nvbwfqeyqladrca.f0.mp4?dis_k=f4dc266d12d99c562279bf04c8ab9065&dis_t=1780651076&m=51d41725faf958c47ed763ef94f7ac02&sha256=0cbdb6c21b944b75367ed1a27401635e556fdd70e33f9c36c9ba22f9df746dbf",
+              "url": "",
+              "md5": "51d41725faf958c47ed763ef94f7ac02",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
+        },
+        {
+          "rank": 5,
+          "spu": "男士速干T恤/Polo衫",
+          "productCount": 74,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 4.7,
+          "heatLevel": "· 低热",
+          "liveCount": 19,
+          "creativeCount": 22,
+          "roi": 0,
+          "roiRange": "2.9-3.2",
+          "price": 131,
+          "typicalNames": [
+            "Jeep吉普（买一送一）男士短袖T恤冰丝莫代尔速干凉感透气户外运动两件装",
+            "[拍1发2]男士速干T恤插肩袖弹力纱圆领透气宽松运动健身短袖户外",
+            "[买1送1]2026新款男士速干T打底衫圆领百搭休闲透气纯色运动短袖",
+            "户外透气防滑速干软底涉水溯溪沙滩鞋室内健身瑜伽指压板超慢跑鞋1730",
+            "【冰滑POLO】白小T男士翻领短袖防晒凉感速干polo衫撞色男款商务"
+          ],
+          "env": null,
+          "topLives": [
+            {
+              "rank": 1,
+              "name": "JEEP吉普冠领男装店",
+              "anon_name": "TOP1 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 1
+            },
+            {
+              "rank": 2,
+              "name": "温纤精选男装",
+              "anon_name": "TOP2 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 2
+            },
+            {
+              "rank": 3,
+              "name": "思小简短袖T恤",
+              "anon_name": "TOP3 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 2
+            }
+          ],
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "",
+              "md5": "d6f036a50fb26d0c9a9ad158fad7d5b0",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "",
+              "md5": "空",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "",
+              "md5": "4acd9e650d20909c10182810508398ce",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
+        },
+        {
+          "rank": 6,
+          "spu": "男士速干裤",
+          "productCount": 20,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 4.2,
+          "heatLevel": "· 低热",
+          "liveCount": 16,
+          "creativeCount": 12,
+          "roi": 0,
+          "roiRange": "3.2-3.5",
+          "price": 157,
+          "typicalNames": [
+            "JEEP/吉普夏季速干防水工装裤冰丝透气轻薄宽松男女同款休闲裤",
+            "雅鹿夏季男女同款薄款冰丝速干裤",
+            "【门店品质】2026夏季新款水洗高弹吸湿速干五分裤男女同款休闲短裤男",
+            "MARK FAIRWHALE/马克华菲夏季老钱风cleanfit轻奢显瘦速干弯刀裤",
+            "【5.0冰感系列轻松裤】小熊总2026时尚户外运动透气吸湿排汗休闲裤"
+          ],
+          "env": null,
+          "topLives": [
+            {
+              "rank": 1,
+              "name": "Jeep吉普男装服饰",
+              "anon_name": "TOP1 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 3
+            },
+            {
+              "rank": 2,
+              "name": "精品服装小店",
+              "anon_name": "TOP2 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 1
+            },
+            {
+              "rank": 3,
+              "name": "柠檬树原创服装店",
+              "anon_name": "TOP3 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 1
+            }
+          ],
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "",
+              "md5": "空",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "",
+              "md5": "8535d108a11a04fb79f504481949d4ef",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "",
+              "md5": "a75bb483c499b782914f24e9131d7fcf",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
+        },
+        {
+          "rank": 7,
+          "spu": "男士休闲套装",
+          "productCount": 73,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 4.0,
+          "heatLevel": "· 低热",
+          "liveCount": 22,
+          "creativeCount": 23,
+          "roi": 0,
+          "roiRange": "3.5-3.8",
+          "price": 133,
+          "typicalNames": [
+            "青少年纯棉印花短袖T恤套装男夏季潮流帅气初高中生短裤休闲运动百搭两件套",
+            "牛仔套装短袖翻领衬衫短裤男士夏季2026新款潮流宽松休闲两件套男",
+            "【冰感套装】啄木鸟夏季新款中老年爸爸装休闲POLO衫冰丝裤套装",
+            "2026夏日V领T恤长裤短袖纯色休闲套装男士时尚夏季潮流宽松两件装",
+            "【天丝亚麻 开衫套装】夏季男上衣短袖中老年爸爸装两件套老人衣服"
+          ],
+          "env": null,
+          "topLives": [
+            {
+              "rank": 1,
+              "name": "霄桂姿男装",
+              "anon_name": "TOP1 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 1
+            },
+            {
+              "rank": 2,
+              "name": "啄木鸟雷祯男装店",
+              "anon_name": "TOP2 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 4
+            },
+            {
+              "rank": 3,
+              "name": "玄策男装",
+              "anon_name": "TOP3 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 2
+            }
+          ],
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "",
+              "md5": "dd64831e06512cb68d2ee37229e54a44",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "",
+              "md5": "11150d777ca618c5f8a3f2513134e841",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "",
+              "md5": "7cd4745e7db8f9ada2db80fcb028abc8",
               "gmv": 0,
               "roi": 0
             }
@@ -475,19 +496,19 @@
           "productCount": 39,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 2.7,
+          "gmvPct": 2.1,
           "heatLevel": "· 低热",
-          "liveCount": 22,
-          "creativeCount": 14,
+          "liveCount": 21,
+          "creativeCount": 15,
           "roi": 0,
-          "roiRange": "3.7-4.0",
-          "price": 178,
+          "roiRange": "3.5-3.8",
+          "price": 192,
           "typicalNames": [
             "NHNE/竹节纹理/夏季复古潮流薄款直筒牛仔裤宽松休闲百搭加长裤子",
             "老爷车2026夏季天丝新款宽松直筒男牛仔裤高腰深档弹力男士桑蚕丝牛仔裤爆款",
-            "【冰感亚麻&冰川蓝5.0】夏季新款男士蓝色牛仔裤7A抗菌修身吸湿排汗",
+            "莱赛尔桑蚕丝总裁系列商务直筒休闲冰感牛仔裤",
             "龙牙二代隐霜轻量战术通勤牛仔裤加强版轻薄有型弹力男款休闲裤子",
-            "[花花公子天丝]春夏莱赛尔薄款男士牛仔裤宽松透气直筒裤高档商务男裤子"
+            "老爷车2026夏季新款天丝宽松弹力直筒裤显瘦高腰男士薄款牛仔裤"
           ],
           "env": null,
           "topLives": [
@@ -519,19 +540,22 @@
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53ueamaaaaxeafidgycfurviieycqqbqca.f0.mp4?dis_k=a3db9fdad8c3995adc2a46355e41a10d&dis_t=1775801409&m=fb2f2bf54aac596092c03f97373954d7&sha256=304342a2e32506b43f6e72ce0b83d95de539e303aabbf6cf43d24262f5551a4d",
+              "url": "",
+              "md5": "fb2f2bf54aac596092c03f97373954d7",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53uqbvcaadhyalw5bi55vbtjaekgsaguka.f0.mp4?dis_k=af95bade9e10eed43f02feda967db724&dis_t=1781263075&m=0047186774944082f47de4fee92c3a0a&sha256=8e7e3ec3223eac6823a7f7bf6aead98a7c37bf5d834430175a2bf387d273f5a5",
+              "url": "",
+              "md5": "9b2afe8bb25683299abab079824cfffe",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53t4bxeaadhiajqwri5jvbthyeokpqg4sa.f0.mp4?dis_k=6cb5a02ba94b3173f0956772abc65a1d&dis_t=1781263283&m=9b2afe8bb25683299abab079824cfffe&sha256=2be6781c13aa7d3245456a019ed06da1ce2556de2dd5a3de774d365a054bfe52",
+              "url": "",
+              "md5": "0047186774944082f47de4fee92c3a0a",
               "gmv": 0,
               "roi": 0
             }
@@ -539,29 +563,29 @@
         },
         {
           "rank": 9,
-          "spu": "男士西装裤/正装裤",
-          "productCount": 11,
+          "spu": "男士内裤",
+          "productCount": 16,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 1.2,
+          "gmvPct": 1.5,
           "heatLevel": "· 低热",
-          "liveCount": 5,
-          "creativeCount": 5,
+          "liveCount": 9,
+          "creativeCount": 9,
           "roi": 0,
-          "roiRange": "3.6-3.9",
-          "price": 180,
+          "roiRange": "1.9-2.2",
+          "price": 74,
           "typicalNames": [
-            "【买一送一】中老年夏季冰丝西裤薄款凉感西装休闲裤高腰深裆直筒宽松男士大码爸爸装长裤大裤脚商务休闲裤爸爸长裤免烫男士西装裤",
-            "[买一送一]夏季薄款男士休闲西裤高腰宽松直筒中老年免烫易打理",
-            "超垂天丝亚麻｜夏季商务男士高档薄款宽松高腰直筒免烫休闲裤西裤",
-            "【春夏新品】十如仕梭织澳洲羊毛混纺高定西裤SP05-03",
-            "[含桑蚕丝]柒牌犀牛褶薄款西裤男2026夏季新款男士商务休闲长裤子"
+            "凉感透气双C网眼男士内裤舒适中腰平角裤轻薄运动裤",
+            "男士内裤无痕浮雕冰丝国风印花凉感高弹男士透气抑菌四角短裤",
+            "男士凉感无痕阿罗裤鎏金蝴蝶透气宽松大码家居裤睡裤一裤多穿内裤",
+            "无痕零感新款生蚝温变奶皮空调男士内裤柔软运动透气防磨四角裤",
+            "无痕零感防磨夏季奶皮空调男士内裤柔软裸感运动透气四角内裤"
           ],
           "env": null,
           "topLives": [
             {
               "rank": 1,
-              "name": "悦福记男装工厂店",
+              "name": "素放跟随者服饰",
               "anon_name": "TOP1 直播间",
               "gmv": 0,
               "roi": 0,
@@ -569,15 +593,15 @@
             },
             {
               "rank": 2,
-              "name": "云落生花男装店",
+              "name": "易顺服饰",
               "anon_name": "TOP2 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 1
+              "creatives": 2
             },
             {
               "rank": 3,
-              "name": "BUCHI布驰品牌男装",
+              "name": "跟随者服饰甄选",
               "anon_name": "TOP3 直播间",
               "gmv": 0,
               "roi": 0,
@@ -587,19 +611,22 @@
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53feafeaaawqadlupyizurukiekiuqausa.f0.mp4?dis_k=d9e0d0527375295d0f1b0a719a2be53d&dis_t=1777887138&m=a0aa98df01f74c6d91a7b65aa1b3bcbd",
+              "url": "",
+              "md5": "f0846783769f1719ddc720056ca39a7c",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53x4bv6aadeaangrhdtnurtpyel67qgx2a.f0.mp4?dis_k=faf69c934d9844940f6741d4aac55f83&dis_t=1776323828&m=9f9bb33bcea353907b466906b71978d8&sha256=e1cba09875bf36b7eeb83abb299c2ebbe159e8bd09d0bf3c3a6bcc522c35207f",
+              "url": "",
+              "md5": "d86a5aa3558c8394e3ac4366995f1903",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3jaac2aaay4aeohz32bvbwsaefveaalka.f0.mp4?dis_k=2480450c34c3d252d1e83c2dd5942db4&dis_t=1782278822",
+              "url": "",
+              "md5": "d1f599372d76b1dca489da366f70a3ff",
               "gmv": 0,
               "roi": 0
             }
@@ -608,22 +635,22 @@
         {
           "rank": 10,
           "spu": "男士衬衫",
-          "productCount": 29,
+          "productCount": 31,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 1.1,
+          "gmvPct": 1.3,
           "heatLevel": "· 低热",
-          "liveCount": 11,
+          "liveCount": 14,
           "creativeCount": 13,
           "roi": 0,
-          "roiRange": "3.6-3.9",
-          "price": 121,
+          "roiRange": "3.8-4.1",
+          "price": 108,
           "typicalNames": [
             "【大肚遮肉】【竖纹】罗蒙夏季男士竹纤维衬衫白色商务短袖衬衣正装",
             "【云朵触感】【莫代尔短袖】夏季爆款高级衬衫男商务免烫抗皱休闲新款",
-            "啄木鸟正品格纹翻领衬衣潮流百搭高级感商务休闲短袖衬衫夏季",
-            "[含莫代尔]柒牌正装衬衫男短袖2026夏季新款男士商务休闲纯色衬衣",
-            "[三防科技][竹纤维短袖]培蒙夏季薄款正装商务衬衫男职业衬衣"
+            "[三防科技][竹纤维短袖]培蒙夏季薄款正装商务衬衫男职业衬衣",
+            "【透气pro】欧定头等舱高弹衬衫男士双面棉商务休闲简约长袖春季男",
+            "[含莫代尔]柒牌正装衬衫男短袖2026夏季新款男士商务休闲纯色衬衣"
           ],
           "env": null,
           "topLives": [
@@ -645,7 +672,7 @@
             },
             {
               "rank": 3,
-              "name": "啄木鸟行望男装店",
+              "name": "培蒙男装奥莱旗舰店",
               "anon_name": "TOP3 直播间",
               "gmv": 0,
               "roi": 0,
@@ -655,19 +682,22 @@
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53sybq4aadvuadpbjrmvvbtfqeb2lagdsa.f0.mp4?dis_k=18a066c2ddfb8d131c39f383287e07e2&dis_t=1781676366&m=9a9c9fe3bd9edba6cd6eea552280efd5&sha256=0b2d55ca15a12eafdf966d4d95f371d4dc858f73912bcfa2cee896730ce47da3",
+              "url": "",
+              "md5": "9a9c9fe3bd9edba6cd6eea552280efd5",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3zqag4aaayqaaijbpxvvbvtaen3gaa3sa.f0.mp4?dis_k=6d5ae9f32730948caa714f2cc7b3373b&dis_t=1781492234&m=2d80c482da91b1e4ff674f85a9cddf95",
+              "url": "",
+              "md5": "4963b7031557b48676bda7f37e0e28e9",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53p4bloaacciakmm7wb5urq7yew57qfn2a.f0.mp4?dis_k=ec2a02fe05870d345661f83af03c2920&dis_t=1777602960&m=bc873d585e6744a6b1a514384a949f39&sha256=57911e5030d19ffe69d9a92d57d82ccd63ba05db32be0bb46e850b34d8beecaf",
+              "url": "",
+              "md5": "f572e53827af808cf369554b13a54502",
               "gmv": 0,
               "roi": 0
             }
@@ -679,30 +709,101 @@
       "track": "女装",
       "totalDailyGmv": 0,
       "totalDailyGmvWan": 0,
-      "top10Coverage": 70.9,
+      "top10Coverage": 76.1,
       "top10DailyGmv": 0,
-      "totalLives": 720,
+      "totalLives": 746,
       "totalCreatives": 0,
-      "spuCount": 131,
+      "spuCount": 170,
       "spus": [
         {
           "rank": 1,
-          "spu": "女士休闲裤",
-          "productCount": 330,
+          "spu": "女士T恤/Polo衫",
+          "productCount": 557,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 19.9,
+          "gmvPct": 16.8,
           "heatLevel": "🔥🔥 高热",
-          "liveCount": 121,
-          "creativeCount": 147,
+          "liveCount": 147,
+          "creativeCount": 145,
+          "roi": 0,
+          "roiRange": "5.6-5.9",
+          "price": 163,
+          "typicalNames": [
+            "2026新款竹节棉潮流时尚洋气连帽纽扣T恤夏季百搭减龄显瘦短袖上衣",
+            "夏季新款时尚气质休闲贵气短袖扭结收腰设计感显瘦光泽感轻奢上衣",
+            "【莱赛尔 透心凉面膜T恤】莱赛尔天丝减龄遮肉显瘦透气不闷汗圆领纯色短袖高弹力小衫",
+            "2026夏季爆款时尚女士纯棉V领短袖T恤气质减龄休闲百搭上衣",
+            "新款女士短袖V领时尚T恤女夏季宽松显瘦白色印花休闲通勤上衣H313"
+          ],
+          "env": null,
+          "topLives": [
+            {
+              "rank": 1,
+              "name": "斯雅芙服饰商行",
+              "anon_name": "TOP1 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 4
+            },
+            {
+              "rank": 2,
+              "name": "温莳精品服饰",
+              "anon_name": "TOP2 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 3
+            },
+            {
+              "rank": 3,
+              "name": "诗野服饰商行",
+              "anon_name": "TOP3 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 4
+            }
+          ],
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "",
+              "md5": "70d075f4e61ba7c70690df8847a61a6c",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "",
+              "md5": "空",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "",
+              "md5": "c769992373ce99d99761be70558b7e73",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
+        },
+        {
+          "rank": 2,
+          "spu": "女士休闲裤",
+          "productCount": 363,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 14.5,
+          "heatLevel": "🔥🔥 高热",
+          "liveCount": 128,
+          "creativeCount": 156,
           "roi": 0,
           "roiRange": "6.2-6.5",
-          "price": 353,
+          "price": 155,
           "typicalNames": [
             "拉夏贝尔卡其色裙裤女夏季薄款2026新款冰丝高级感垂感天丝小个子阔腿裤裙",
             "拉夏贝尔九分亚麻裤直筒裤女夏冰丝亲肤透气遮胯显瘦通勤裤子百搭",
-            "浙锦新款28姆米【可水洗可机洗】真丝垂坠显瘦高腰阔腿裤女夏季通勤休闲长裤",
             "【云柔棉豌豆裤】2026年夏季新款高腰显瘦气质百搭时尚豌豆裤 81032",
+            "2026新款夏薄款女士高阶气球裤宽松高腰阔腿裤显瘦九分慵懒哪吒裤",
             "【夏季】新款时尚高腰休闲裤 哈伦萝卜裤 弹力显瘦百搭卫裤纯色裤子"
           ],
           "env": null,
@@ -725,97 +826,32 @@
             },
             {
               "rank": 3,
-              "name": "浙锦ZHEJIN",
+              "name": "妍羊服饰工厂店",
               "anon_name": "TOP3 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 5
+              "creatives": 9
             }
           ],
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53siacuaaa6aac45shibvbxeqefkjaaksa.f0.mp4?dis_k=4108c046546bad923039b09e77157286&dis_t=1783039096",
+              "url": "",
+              "md5": "22440b48329033e6859939c09ab12a4b",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3bmausaaboyaexqcucjvbucyejefqcska.f0.mp4?dis_k=acdcf92863042b170a6000d56507b4bd&dis_t=1783956107",
+              "url": "",
+              "md5": "c523fbdabcff8ac129659c6af8f42834",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3syawqaaboiamgoceq5vbvfqenclac2ca.f0.mp4?dis_k=b2e249e553a26c89b704468cbc92c4d2&dis_t=1782950906&m=c8f66f7a2b1d93d2a57927c4c0334b6a",
-              "gmv": 0,
-              "roi": 0
-            }
-          ]
-        },
-        {
-          "rank": 2,
-          "spu": "女士T恤/Polo衫",
-          "productCount": 480,
-          "dailyGmv": 0,
-          "dailyGmvWan": 0,
-          "gmvPct": 14.4,
-          "heatLevel": "🔥🔥 高热",
-          "liveCount": 129,
-          "creativeCount": 129,
-          "roi": 0,
-          "roiRange": "5.4-5.7",
-          "price": 96,
-          "typicalNames": [
-            "【莱赛尔 凉感亲肤】莱赛尔天丝减龄遮肉显瘦透气不闷汗圆领纯色短袖T恤高弹力上衣",
-            "知己【半夏】夏季新款重工100苎麻镂空刺绣气质百搭休闲短袖T恤",
-            "[品质推荐]2026夏季新款时尚洋气宽松显瘦百搭短袖上衣",
-            "2026夏季爆款时尚女士纯棉V领短袖T恤气质减龄休闲百搭上衣",
-            "【莱赛尔 透心凉面膜T恤】莱赛尔天丝减龄遮肉显瘦透气不闷汗圆领纯色短袖高弹力小衫"
-          ],
-          "env": null,
-          "topLives": [
-            {
-              "rank": 1,
-              "name": "GQO朴舍尤因",
-              "anon_name": "TOP1 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 1
-            },
-            {
-              "rank": 2,
-              "name": "斯雅芙服饰商行",
-              "anon_name": "TOP2 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 4
-            },
-            {
-              "rank": 3,
-              "name": "温莳精品服饰",
-              "anon_name": "TOP3 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 4
-            }
-          ],
-          "topCreatives": [
-            {
-              "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3wubmcaacuyajhorgxbvbrnieyg2qfqka.f0.mp4?dis_k=729d9448a4e33cc4ea907cb8ae9dd18e&dis_t=1780765288&m=70d075f4e61ba7c70690df8847a61a6c&sha256=733ed99002ef32a680e30a2310c195e240692eb9b00da4bc4d3987c7d65ec20f",
-              "gmv": 0,
-              "roi": 0
-            },
-            {
-              "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc344argaabiyaag753unurxzyecptqce2a.f0.mp4?dis_k=5c89b850ca641570e0f5a7e02ece4bc6&dis_t=1773801689&m=6ebb1003d998262f9142e04b3b7fe31a&sha256=c62453039e712a0a3aa43b0190c2e91cab4756f99f7d01861acd9e8297b6aed7",
-              "gmv": 0,
-              "roi": 0
-            },
-            {
-              "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3oea4caabqaajkqs2vfvbu4ieyfyqdqka.f0.mp4?dis_k=d55c1f6d37d98297999c6d68f7b9aef0&dis_t=1784370433",
+              "url": "",
+              "md5": "08e1d7533fbc1f8e2ade0d1a3732403b",
               "gmv": 0,
               "roi": 0
             }
@@ -823,22 +859,163 @@
         },
         {
           "rank": 3,
-          "spu": "女士连衣裙",
-          "productCount": 340,
+          "spu": "女士蕾丝衫/雪纺衫",
+          "productCount": 22,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 6.7,
-          "heatLevel": "🔥 中热",
-          "liveCount": 95,
-          "creativeCount": 155,
+          "gmvPct": 13.6,
+          "heatLevel": "🔥🔥 高热",
+          "liveCount": 15,
+          "creativeCount": 15,
           "roi": 0,
-          "roiRange": "14.7-15.0",
-          "price": 853,
+          "roiRange": "2.7-3.0",
+          "price": 57,
+          "typicalNames": [
+            "【法式优雅】蕾丝上衣圆领显瘦夏季新款内搭骑行穿戴装备",
+            "【买一送一】镂空蕾丝短袖打底衫女内搭防走光半截上衣透明薄纱",
+            "【买一送一】蕾丝短袖镂空打底衫女透明内搭防走光薄纱半截上衣",
+            "pinziko雪柳~碎花压褶复古半身裙女高腰显瘦中长款直筒裙TJG073"
+          ],
+          "env": null,
+          "topLives": [
+            {
+              "rank": 1,
+              "name": "kolakola轻奢服饰",
+              "anon_name": "TOP1 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 1
+            },
+            {
+              "rank": 2,
+              "name": "争争百货",
+              "anon_name": "TOP2 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 1
+            },
+            {
+              "rank": 3,
+              "name": "一嫂精品优选",
+              "anon_name": "TOP3 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 1
+            }
+          ],
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "",
+              "md5": "83132c6bff8af42b40a1035514925afc",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "",
+              "md5": "68de801e09f8a3360c3787adb26c9825",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "",
+              "md5": "d53868c99ed8e477d5b0c64dbc27844a",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
+        },
+        {
+          "rank": 4,
+          "spu": "女士打底衫",
+          "productCount": 14,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 9.1,
+          "heatLevel": "🔥 中热",
+          "liveCount": 10,
+          "creativeCount": 10,
+          "roi": 0,
+          "roiRange": "3.0-3.3",
+          "price": 55,
+          "typicalNames": [
+            "【买一送一】蕾丝短袖镂空打底衫女透明内搭防走光薄纱半截上衣",
+            "哥弟商元【凉感醋酸】夏季新款百搭显瘦休闲透气女短袖打底上衣",
+            "哥弟商元【蚕丝亚麻】夏季吸湿排汗薄款透气百搭显瘦短袖打底上衣",
+            "哥弟商元【亚麻宽松】夏季新品莱赛尔轻薄透气凉感短袖打底上衣"
+          ],
+          "env": null,
+          "topLives": [
+            {
+              "rank": 1,
+              "name": "一嫂精品优选",
+              "anon_name": "TOP1 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 2
+            },
+            {
+              "rank": 2,
+              "name": "哥弟商元贸易有限公司",
+              "anon_name": "TOP2 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 3
+            },
+            {
+              "rank": 3,
+              "name": "争争百货",
+              "anon_name": "TOP3 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 1
+            }
+          ],
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "",
+              "md5": "空",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "",
+              "md5": "61060311d91486d27588947264ca4126",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "",
+              "md5": "3c522060fe5687f9cc4fe00904b1a470",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
+        },
+        {
+          "rank": 5,
+          "spu": "女士连衣裙",
+          "productCount": 424,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 5.7,
+          "heatLevel": "🔥 中热",
+          "liveCount": 105,
+          "creativeCount": 187,
+          "roi": 0,
+          "roiRange": "13.8-14.1",
+          "price": 765,
           "typicalNames": [
             "美洋MEIYANG 奥菲利亚连衣裙 摇曳生风~莱赛尔解构叠穿主义-周五",
-            "浙锦新款【可水洗可机洗】法式抽绳无袖长裙",
-            "时尚减龄洋气连衣裙夏季新款宽松遮肚子遮肉裙子",
-            "美洋MEIYANG 夜华连衣裙 冰爽弹力螺纹棉|气质女神_收腰V领短袖"
+            "美洋MEIYANG 夜华连衣裙 冰爽弹力螺纹棉|气质女神_收腰V领短袖",
+            "黑白笔触MARYLING玛俪琳水墨线条露肩连衣裙A1BB65240",
+            "92%桑蚕丝 （94-98的裙长）不易皱 冠乐绉连衣裙高端 杭州重磅过膝真丝气质妈妈裙夏装新",
+            "浙锦新款【可水洗可机洗】法式抽绳无袖长裙"
           ],
           "env": null,
           "topLives": [
@@ -852,128 +1029,63 @@
             },
             {
               "rank": 2,
-              "name": "浙锦ZHEJIN",
+              "name": "柯播服饰",
               "anon_name": "TOP2 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 2
-            },
-            {
-              "rank": 3,
-              "name": "玛俪琳美童穿搭",
-              "anon_name": "TOP3 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 4
-            }
-          ],
-          "topCreatives": [
-            {
-              "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3siabcaaaviad33knkzvbveqecgjaaeka.f0.mp4?dis_k=afba1c37420e5ef68eb62e1f50982dae&dis_t=1783442495&m=e547e04af1947a2ba9ad5ded05ff987d",
-              "gmv": 0,
-              "roi": 0
-            },
-            {
-              "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3ayaukaabl4acfqazk5vbwbqeiudacrka.f0.mp4?dis_k=1068ecd53e16b2ff712a10c4d814fa6f&dis_t=1780519034&m=b71ecd7c4f1ce31e508fcf4ecd9c7e26&sha256=20fa83b186ea9648d9ad27971b6ff74d525792d1cba8c4d167656a195ee209af",
-              "gmv": 0,
-              "roi": 0
-            },
-            {
-              "rank": 3,
-              "url": "http://pgdt.gtimg.cn/141/20204/snscosdownload/SZ/reserved/69d23c050006d7e02bd12765910d76150000008d00004eec?ck=b0b037988176c1decca63151905967cb&m=b0b037988176c1decca63151905967cb&sha256=6fc0c6fb141273da234a61890110ebc58b2298c8615e06c844706aadc2771375",
-              "gmv": 0,
-              "roi": 0
-            }
-          ]
-        },
-        {
-          "rank": 4,
-          "spu": "女士打底衫",
-          "productCount": 11,
-          "dailyGmv": 0,
-          "dailyGmvWan": 0,
-          "gmvPct": 5.7,
-          "heatLevel": "🔥 中热",
-          "liveCount": 7,
-          "creativeCount": 7,
-          "roi": 0,
-          "roiRange": "3.9-4.2",
-          "price": 90,
-          "typicalNames": [
-            "哥弟商元【凉感醋酸】夏季新款百搭显瘦休闲透气女短袖打底上衣",
-            "哥弟商元【天丝莫代尔】夏季新品凉感短袖打底休闲百搭显瘦透气女士",
-            "哥弟商元【蚕丝亚麻】夏季吸湿排汗薄款透气百搭显瘦短袖打底上衣",
-            "哥弟商元【亚麻宽松】夏季新品莱赛尔轻薄透气凉感短袖打底上衣",
-            "【热销款】三枪水滴领修饰肩颈纤条抗菌棉女衫"
-          ],
-          "env": null,
-          "topLives": [
-            {
-              "rank": 1,
-              "name": "哥弟商元贸易有限公司",
-              "anon_name": "TOP1 直播间",
               "gmv": 0,
               "roi": 0,
               "creatives": 3
             },
             {
-              "rank": 2,
-              "name": "哥弟商元家居服饰",
-              "anon_name": "TOP2 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 2
-            },
-            {
               "rank": 3,
-              "name": "三枪湖北内衣专卖店",
+              "name": "空",
               "anon_name": "TOP3 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 1
+              "creatives": 37
             }
           ],
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53nial2aaajmagc2km5rvbu2qexvvabpka.f0.mp4?dis_k=41fcdd05400ceefae6e7b018d8ff7faa&dis_t=1783421994&m=61060311d91486d27588947264ca4126",
+              "url": "",
+              "md5": "空",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53muaaeaaakmaeimrbyjvbuzieajsqaasa.f0.mp4?dis_k=344d3c48f275b6f23c74fa61606b0437&dis_t=1780565563&m=3c522060fe5687f9cc4fe00904b1a470",
+              "url": "",
+              "md5": "空",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://pgdt.gtimg.cn/141/20204/snscosdownload/SZ/reserved/69f019a3000ce53925b41ca9362476150000008d00004eec?ck=a78e51857c4b94aab5f60fb98a406fc7&m=a78e51857c4b94aab5f60fb98a406fc7&sha256=27a8652e465d3eddb7a52c8bd89c75715e354eeb43554e2cfd526b1890faa003",
+              "url": "",
+              "md5": "空",
               "gmv": 0,
               "roi": 0
             }
           ]
         },
         {
-          "rank": 5,
+          "rank": 6,
           "spu": "女士背心/吊带",
-          "productCount": 73,
+          "productCount": 77,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 5.5,
+          "gmvPct": 5.1,
           "heatLevel": "🔥 中热",
-          "liveCount": 41,
-          "creativeCount": 36,
+          "liveCount": 45,
+          "creativeCount": 39,
           "roi": 0,
-          "roiRange": "3.0-3.3",
-          "price": 53,
+          "roiRange": "3.9-4.2",
+          "price": 58,
           "typicalNames": [
-            "[三伏天必备]夏季背心女修身显瘦辣妹内搭外穿无袖打底吊带上衣",
-            "全新升级款【直播专享】2026春夏新款中老年妈妈款V领蕾丝丝滑遮肚内搭外穿无袖上衣",
-            "哥弟商元【天丝莫代尔凉感背心-中肩带】夏季亲肤透气润肤无痕内搭显瘦女士",
-            "富欣娜吊带背心休闲女2026新薄款夏带胸垫一体式内搭外穿优可丝美背上衣"
+            "【夏季必备】休闲夏季辣妹工字背心 简约修身紧身款女生打底内搭上衣",
+            "【直播优选】夏季新中式日常短款拼接女显瘦百搭打底背心上衣",
+            "【夏季新款】条纹圆领无袖背心女显瘦百搭休闲骑行穿戴装备上衣3354",
+            "哥弟商元【天丝莱赛尔宽松版】凉感罗纹针织背心遮肉透气舒适夏季女士"
           ],
           "env": null,
           "topLives": [
@@ -987,104 +1099,40 @@
             },
             {
               "rank": 2,
-              "name": "哥弟商元家居服饰",
+              "name": "小高精品优选",
               "anon_name": "TOP2 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 3
-            },
-            {
-              "rank": 3,
-              "name": "宁宁轻奢优选",
-              "anon_name": "TOP3 直播间",
               "gmv": 0,
               "roi": 0,
               "creatives": 2
-            }
-          ],
-          "topCreatives": [
-            {
-              "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3taadcaaapuagpeslyfvbvgaeggmaamka.f0.mp4?dis_k=7a37b909d323c483e4571a634f23c6a5&dis_t=1783322464&m=aea7456ccf2745a175620efc7ab565f5&sha256=cdf32c37481d28d0f7c22117c223d2be1ef99d1f72a72d86e44ae105a452d947",
-              "gmv": 0,
-              "roi": 0
-            },
-            {
-              "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53wyao2aaahuacp7kqqrvbvnqe5w3ab3ka.f0.mp4?dis_k=111065b2a62b7985182e0d4c5cfa09f4&dis_t=1783679731&m=2bf9111f02bc05f3aaf92a60148c98b3&sha256=d95cff6afa95a3fd1029d8f4c26fdd4a972845127535432ca1e738b76ab24c6d",
-              "gmv": 0,
-              "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53fualsaaa34aok6kpf5vbuliexewqboka.f0.mp4?dis_k=60268ce37ab01a11565ad4a3abd6cce8&dis_t=1783586106&m=525fe4095d615ed233c0e65e1bdaed12&sha256=3cd5d59c346a4b38ceff2927b0e54db9ce16d0f5eda4f0c6334b9543b200742d",
-              "gmv": 0,
-              "roi": 0
-            }
-          ]
-        },
-        {
-          "rank": 6,
-          "spu": "女士蕾丝衫/雪纺衫",
-          "productCount": 31,
-          "dailyGmv": 0,
-          "dailyGmvWan": 0,
-          "gmvPct": 5.2,
-          "heatLevel": "🔥 中热",
-          "liveCount": 16,
-          "creativeCount": 24,
-          "roi": 0,
-          "roiRange": "3.3-3.6",
-          "price": 60,
-          "typicalNames": [
-            "【买一送一】镂空蕾丝短袖打底衫女裙内搭防走光透明薄纱半截上衣",
-            "【法式优雅】蕾丝上衣圆领显瘦夏季新款内搭骑行穿戴装备",
-            "Mandy Zhang法式温柔风夏季蓝色收腰显瘦气质连衣裙女",
-            "MandyZhang高定千金风白色钉珠醋酸女夏季气质名媛短袖上衣"
-          ],
-          "env": null,
-          "topLives": [
-            {
-              "rank": 1,
-              "name": "争争百货",
-              "anon_name": "TOP1 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 3
-            },
-            {
-              "rank": 2,
-              "name": "kolakola轻奢服饰",
-              "anon_name": "TOP2 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 1
-            },
-            {
-              "rank": 3,
-              "name": "MandyZhang女装",
+              "name": "哥弟商元家居服饰",
               "anon_name": "TOP3 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 3
+              "creatives": 5
             }
           ],
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3mibe4aaccqajorshtnvbqyqejzraetsa.f0.mp4?dis_k=a45dc278d538ad558672ac968e16b7e5&dis_t=1784373651&m=bb33f7f8451bb8d16159e7ec1c0da40b&sha256=a9402b1522ddecda4296376876f80100cbf99b2e40c7c6fbee0f5b6fbcbe8a8a",
+              "url": "",
+              "md5": "aea7456ccf2745a175620efc7ab565f5",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b536uab4aaaamaa7ojz4zvbv5ied32qahsa.f0.mp4?dis_k=59e13fe6de00ffa708106e526e6cafaf&dis_t=1782125051&m=202c30b06e0388e4606b4b8eccf56502",
+              "url": "",
+              "md5": "eae7259e26af137f50351637aaaf82ef",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53wuacsaaaaeam7kzx3jvbvniefg2qakka.f0.mp4?dis_k=6f71acb26f29abcf096d440c1a8f753e&dis_t=1782048441&m=6979ec62c02f508dd6196da762e1cf45",
+              "url": "",
+              "md5": "1dd96ff7840da585aac691ff0e14de29",
               "gmv": 0,
               "roi": 0
             }
@@ -1092,152 +1140,17 @@
         },
         {
           "rank": 7,
-          "spu": "女士半身裙",
-          "productCount": 140,
-          "dailyGmv": 0,
-          "dailyGmvWan": 0,
-          "gmvPct": 4.5,
-          "heatLevel": "· 低热",
-          "liveCount": 48,
-          "creativeCount": 62,
-          "roi": 0,
-          "roiRange": "7.9-8.2",
-          "price": 207,
-          "typicalNames": [
-            "拉夏贝尔冰麻半身裙女2026夏季新款小个子长款裙子女高腰a字伞裙",
-            "（有运费补贴）中长款半身裙网纱大花裙两面穿一片式大摆高腰显瘦时尚休闲百搭L",
-            "MNGATA G.宫小妍【红云纱·粉色草莓】19姆米曼加塔百搭半裙6051618",
-            "（可自由调节腰围）中长款半身裙网纱大花裙两面穿一片式大摆高腰显瘦时尚休闲百搭",
-            "中长款半身裙网纱大花裙两面穿一片式大摆高腰显瘦时尚休闲百搭L"
-          ],
-          "env": null,
-          "topLives": [
-            {
-              "rank": 1,
-              "name": "拉夏品质服饰",
-              "anon_name": "TOP1 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 1
-            },
-            {
-              "rank": 2,
-              "name": "大姐姐优品服饰",
-              "anon_name": "TOP2 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 1
-            },
-            {
-              "rank": 3,
-              "name": "宫小妍2013",
-              "anon_name": "TOP3 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 2
-            }
-          ],
-          "topCreatives": [
-            {
-              "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3zmackaaa24ah6icgpbvbxsyeexfqajka.f0.mp4?dis_k=f0dbfa537ab7642297369327850e2d3a&dis_t=1782995507&m=2b0c720fa6ba4353e9715642a78732c4",
-              "gmv": 0,
-              "roi": 0
-            },
-            {
-              "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3ieagmaaataamrhgvtvurwqiemzaqazsa.f0.mp4?dis_k=cc4142ae2c44efbc5a79485d30022318&dis_t=1775611628",
-              "gmv": 0,
-              "roi": 0
-            },
-            {
-              "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3yicgwaaemmapfgr7mzvb7qqenpbai22a.f0.mp4?dis_k=350811e0a6b1082996de73ae15788d50&dis_t=1782290862&m=069612d83aa5da7f8ae98af8919a4fcf",
-              "gmv": 0,
-              "roi": 0
-            }
-          ]
-        },
-        {
-          "rank": 8,
-          "spu": "女士中式女装/新中式女装",
-          "productCount": 74,
-          "dailyGmv": 0,
-          "dailyGmvWan": 0,
-          "gmvPct": 3.4,
-          "heatLevel": "· 低热",
-          "liveCount": 42,
-          "creativeCount": 44,
-          "roi": 0,
-          "roiRange": "5.6-5.9",
-          "price": 150,
-          "typicalNames": [
-            "（直播专享）夏季新中式日常短款拼接女显瘦百搭打底背心上衣",
-            "小乖逃25 新中式国风蓝色衬衫上衣飞飞袖凤凰开叉马甲 S25472",
-            "【金宝相花·绞罗九分裤】100%桑蚕丝红云纱贴金工艺松紧腰裤子",
-            "【韩紫朵】新品中式国风气质显瘦百搭短袖上衣"
-          ],
-          "env": null,
-          "topLives": [
-            {
-              "rank": 1,
-              "name": "小高精品优选",
-              "anon_name": "TOP1 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 2
-            },
-            {
-              "rank": 2,
-              "name": "深圳南油西西高端定制-小乖逃",
-              "anon_name": "TOP2 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 4
-            },
-            {
-              "rank": 3,
-              "name": "南国丝府香云纱-2026上新中",
-              "anon_name": "TOP3 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 1
-            }
-          ],
-          "topCreatives": [
-            {
-              "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53wubhqaac4uangbjbvfvbrniepc2qe6ca.f0.mp4?dis_k=6229874d1e34c06d70f0bfd54f95dad3&dis_t=1780722527&m=58657fcfd47bf46c1b257ca4362709d1&sha256=d683c60f5dba27b7c7a628997a359364a9ccd0c1af45709ce2d9e6c04fc66d27",
-              "gmv": 0,
-              "roi": 0
-            },
-            {
-              "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53w4cseaaffmagltz2krvb7nyeek3qkisa.f0.mp4?dis_k=032d218c90252b5a2f82fdb64dc8117a&dis_t=1782532002&m=8b1f9e7bd5f77a70182a426bc6d1ab8a",
-              "gmv": 0,
-              "roi": 0
-            },
-            {
-              "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53xucteaafxiaez565cvur7piegk6qkmsa.f0.mp4?dis_k=25aaa8e42398673a87810e04c1b262da&dis_t=1775795726&m=1f9d746fd5df61049421678e5e667aff&sha256=bc62e541eab192e72ac95918afed6bf035ff09fdcc2494caaa2acff01710a0c2",
-              "gmv": 0,
-              "roi": 0
-            }
-          ]
-        },
-        {
-          "rank": 9,
           "spu": "女士骑行服",
-          "productCount": 3,
+          "productCount": 4,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 3.1,
+          "gmvPct": 4.0,
           "heatLevel": "· 低热",
-          "liveCount": 3,
+          "liveCount": 4,
           "creativeCount": 2,
           "roi": 0,
-          "roiRange": "3.4-3.7",
-          "price": 52,
+          "roiRange": "3.0-3.3",
+          "price": 51,
           "typicalNames": [
             "【舒适透气】显瘦百搭洋气工字背心外穿内搭辣妹清凉女潮骑行穿戴装备",
             "【夏季新款】冰丝五分裙裤女简约花苞裤时尚百搭骑行穿戴装备"
@@ -1246,7 +1159,7 @@
           "topLives": [
             {
               "rank": 1,
-              "name": "敏姐服装好物分享",
+              "name": "kolakola时尚服装",
               "anon_name": "TOP1 直播间",
               "gmv": 0,
               "roi": 0,
@@ -1262,7 +1175,7 @@
             },
             {
               "rank": 3,
-              "name": "kolakola时尚服装",
+              "name": "kolakola服装精选",
               "anon_name": "TOP3 直播间",
               "gmv": 0,
               "roi": 0,
@@ -1272,72 +1185,216 @@
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b533aal4aaa2eacxy2pfbvbvwaex3mabpsa.f0.mp4?dis_k=35138aea99a9c69fd6e58b665b6e7020&dis_t=1783600449&m=acdf300d174448cd3a8fdd92ae1b20f4&sha256=06f7dcc44a9e2ad4c4ca407f1207bddfb4279e9169f5d2f3e1024193065ebc0a",
+              "url": "",
+              "md5": "bf214ae96475e57ef39989c4961318ee",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53k4aruaabkqainrsvwfvbwvyedjlqcgsa.f0.mp4?dis_k=f4a58f38429f9bec0e80747e0770eea4&dis_t=1784004746&m=d115778b9486adc237f4fd127d064ae5&sha256=ba3de70150dc5da0b8b49a99fe602a03945a91b4a176aeb4e2f0486633a33115",
+              "url": "",
+              "md5": "d2a800bf63f303eaf3ff69e4c55723ab",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3yud5kaahjqaehpx26rurzrie2xcqpvka.f0.mp4?dis_k=59da42de6d1d64594020f7d8631aca3f&dis_t=1778226844&m=ec4c7760830d8a45c8e4908cb8e58faa",
+              "url": "",
+              "md5": "b3f66279a644b54cb4417c0718e02df2",
               "gmv": 0,
               "roi": 0
             }
           ]
         },
         {
-          "rank": 10,
-          "spu": "大码女士休闲裤",
-          "productCount": 35,
+          "rank": 8,
+          "spu": "女士鲨鱼裤/打底裤",
+          "productCount": 14,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 2.5,
+          "gmvPct": 3.2,
           "heatLevel": "· 低热",
-          "liveCount": 21,
-          "creativeCount": 18,
+          "liveCount": 8,
+          "creativeCount": 8,
           "roi": 0,
-          "roiRange": "3.2-3.5",
-          "price": 39,
+          "roiRange": "2.2-2.5",
+          "price": 29,
           "typicalNames": [
-            "2026夏季新款冰丝速干裤中高腰直筒宽松大码哈伦裤休闲裤松紧腰九分裤显瘦百搭女裤",
-            "七分裤女夏季薄款宽松大码胖mm冰丝女裤休闲哈伦裤五分中裤短裤子",
-            "夏季薄款七分裙裤2026休闲百搭透气冰丝裤宽松显瘦大码松紧腰六分阔腿裤",
-            "2026新款高腰优雅休闲夏季九分裤宽松哈伦裤垂感大码薄款休闲裤子",
-            "爆款2026新款冰丝七分裤女夏季薄款宽松大码胖mm休闲女裤哈伦裤五分中裤短裤子女款"
+            "【夏季热销】春夏季外穿蕾丝无痕不卷边女宽松防走光打底裤",
+            "【直播热卖】春夏季不卷边女外穿无痕蕾丝防走光宽松打底裤",
+            "夏季薄款打底短裤收腹提臀部安全裤防走光三分打底安全裤女芭比裤",
+            "【夏季好品】春夏季外穿蕾丝无痕不卷边女防走光宽松打底裤"
           ],
           "env": null,
           "topLives": [
             {
               "rank": 1,
-              "name": "辣椒工厂店",
+              "name": "小兰精品优选",
               "anon_name": "TOP1 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 2
+            },
+            {
+              "rank": 2,
+              "name": "小咪轻奢优选",
+              "anon_name": "TOP2 直播间",
               "gmv": 0,
               "roi": 0,
               "creatives": 1
             },
             {
-              "rank": 2,
-              "name": "刘良朋",
-              "anon_name": "TOP2 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 3
-            },
-            {
               "rank": 3,
-              "name": "诗美精品女装穿搭视频",
+              "name": "依漩童装企业店",
               "anon_name": "TOP3 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 3
+              "creatives": 1
+            }
+          ],
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "",
+              "md5": "82f35757b503127b8a393e05a89dfbb5",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "",
+              "md5": "f1920ed4ca34a2315d9f30b7a0c4f02b",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "",
+              "md5": "802b203fdc9fe9fff56beef8f2d9c63a",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
+        },
+        {
+          "rank": 9,
+          "spu": "大码女士T恤/Polo衫",
+          "productCount": 113,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 2.2,
+          "heatLevel": "· 低热",
+          "liveCount": 38,
+          "creativeCount": 32,
+          "roi": 0,
+          "roiRange": "4.1-4.4",
+          "price": 83,
+          "typicalNames": [
+            "宽松大码连帽短袖t恤女士夏季显瘦时髦气质女装帽衫潮女装上衣",
+            "时尚简约宽松气质显瘦大码夏季新款T恤上衣",
+            "新款短袖圆领韩版宽松大码印花时尚上衣显瘦T恤3946",
+            "新款短袖t恤女V领印花大码遮肚子显瘦洋气夏季上衣",
+            "夏季新款纯棉短袖t恤女百搭气质时尚宽松显瘦大码女装休闲减龄气质上衣"
+          ],
+          "env": null,
+          "topLives": [
+            {
+              "rank": 1,
+              "name": "彬彬的店1328",
+              "anon_name": "TOP1 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 2
+            },
+            {
+              "rank": 2,
+              "name": "梵依娜女装店",
+              "anon_name": "TOP2 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 2
+            },
+            {
+              "rank": 3,
+              "name": "丽禾316",
+              "anon_name": "TOP3 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 2
             }
           ],
           "topCreatives": []
+        },
+        {
+          "rank": 10,
+          "spu": "儿童T恤/Polo衫",
+          "productCount": 170,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 2.1,
+          "heatLevel": "· 低热",
+          "liveCount": 46,
+          "creativeCount": 27,
+          "roi": 0,
+          "roiRange": "2.6-2.9",
+          "price": 39,
+          "typicalNames": [
+            "2026夏季新款我妈说啥都对趣味童装儿童T恤 全棉透气宽松版型 可爱卡通图案 中小男女宝宝夏季日常休闲百搭短袖上衣",
+            "男孩100%棉重磅短袖男款t恤2026新款夏季纯棉男童中大童潮牌印花宽松半袖上衣服",
+            "夏季忙着捣蛋男童衣服新款短袖纯棉T恤百搭小众儿童趣味圆领薄款透气",
+            "儿童纯棉T恤短袖夏季新款男童宝宝卡通工程车印花中小童洋气上衣t",
+            "2026夏季新款我妈说啥都对趣味童装儿童 T 恤 全棉透气宽松版型 可爱卡通图案 中小男女宝宝夏季日常休闲百搭短袖上衣"
+          ],
+          "env": null,
+          "topLives": [
+            {
+              "rank": 1,
+              "name": "柔齐童装",
+              "anon_name": "TOP1 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 6
+            },
+            {
+              "rank": 2,
+              "name": "小玲童装优选",
+              "anon_name": "TOP2 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 4
+            },
+            {
+              "rank": 3,
+              "name": "棉朵朵童装屋",
+              "anon_name": "TOP3 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 2
+            }
+          ],
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "",
+              "md5": "96e62505cad8a7f583b718b23e2f0ea1",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "",
+              "md5": "fee9c0af3b48e3092c5ce74b65a00e66",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "",
+              "md5": "6f3f5e68e031aedb5b674a563009ad20",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         }
       ]
     },
@@ -1345,31 +1402,101 @@
       "track": "珠宝配饰",
       "totalDailyGmv": 0,
       "totalDailyGmvWan": 0,
-      "top10Coverage": 79.0,
+      "top10Coverage": 78.8,
       "top10DailyGmv": 0,
-      "totalLives": 345,
+      "totalLives": 384,
       "totalCreatives": 0,
-      "spuCount": 115,
+      "spuCount": 149,
       "spus": [
         {
           "rank": 1,
-          "spu": "戒指",
-          "productCount": 65,
+          "spu": "项链/颈饰",
+          "productCount": 155,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 17.5,
+          "gmvPct": 18.1,
           "heatLevel": "🔥🔥 高热",
-          "liveCount": 22,
-          "creativeCount": 19,
+          "liveCount": 80,
+          "creativeCount": 31,
           "roi": 0,
-          "roiRange": "3.6-3.9",
-          "price": 2071,
+          "roiRange": "30.9-31.2",
+          "price": 1601,
           "typicalNames": [
-            "[七粒米]黄铜戒指 普陀山手工开口七粒米活口戒指复古国风可调节",
-            "《七粒米》普陀文创【不掉色】铜戒指开口麦穗男女通用",
+            "翡翠项链-10509-R17-多样性/发一件",
+            "【吴帅翡翠】天然A货翡翠小米珠项链优雅百搭时尚轻奢多样性发-1",
+            "大饼设计款-仙风道骨老神仙翡翠吊坠",
+            "[花姐翡翠雕刻]翡翠吊坠"
+          ],
+          "env": null,
+          "topLives": [
+            {
+              "rank": 1,
+              "name": "十方钰珠宝",
+              "anon_name": "TOP1 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 2
+            },
+            {
+              "rank": 2,
+              "name": "江苏财经广播-以玉会友",
+              "anon_name": "TOP2 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 3
+            },
+            {
+              "rank": 3,
+              "name": "吴帅翡翠店",
+              "anon_name": "TOP3 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 1
+            }
+          ],
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "",
+              "md5": "空",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "",
+              "md5": "空",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "",
+              "md5": "空",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
+        },
+        {
+          "rank": 2,
+          "spu": "戒指",
+          "productCount": 75,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 13.2,
+          "heatLevel": "🔥🔥 高热",
+          "liveCount": 30,
+          "creativeCount": 21,
+          "roi": 0,
+          "roiRange": "2.6-2.9",
+          "price": 119,
+          "typicalNames": [
             "普陀文创《正品·七粒米·不掉色》国风铜戒指开口麦穗轻奢男女通用祝福送礼",
+            "《七粒米》普陀文创【不掉色】铜戒指开口麦穗男女通用",
+            "铜合金【如意算盘戒】新中式复古做旧开口可调节指环",
             "正品《七粒米》普陀文创【不掉色】本命年纯铜戒指开口古法手工麦穗男女通用",
-            "铜合金【如意算盘戒】新中式复古做旧开口可调节指环"
+            "铜合金 [繁花似锦] 新中式复古风景泰蓝珐琅花朵戒指 A0382"
           ],
           "env": null,
           "topLives": [
@@ -1383,82 +1510,15 @@
             },
             {
               "rank": 2,
-              "name": "普陀慧济文创阁",
-              "anon_name": "TOP2 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 2
-            },
-            {
-              "rank": 3,
               "name": "甄韵国风饰品",
-              "anon_name": "TOP3 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 1
-            }
-          ],
-          "topCreatives": [
-            {
-              "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3fiaheaaacqand3r3qfvbukqeoivaa4sa.f0.mp4?dis_k=54d2848a723148dd40beaf8701992d8e&dis_t=1782305837&m=e192d4abd028e3af92abfa8cc2fc480a&sha256=2b3e7b171f96433106104f44c3693892da48f6643a228994b591a8a55692dd5a",
-              "gmv": 0,
-              "roi": 0
-            },
-            {
-              "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc374cvgaafjmam5dcg55vb77yekp7qku2a.f0.mp4?dis_k=d7f08bb09346376c85fd5658c2fb9904&dis_t=1782816223&m=653ff0a9c27b3eb4723103aae77d0a92&sha256=7d8d48566a3f71289cc00447a9cb8f681da80d792307ff69ba0b747023413e09",
-              "gmv": 0,
-              "roi": 0
-            },
-            {
-              "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3waaaqaaataanuvb4ajvbvmaebcyaacca.f0.mp4?dis_k=f55175f2e409844c3c81d65247eedf0c&dis_t=1782705464&m=8f1d5215065d12a049d5c2cf66e4e2da&sha256=2a6f6ade4a468dab6cd4109fa555d5e4e6d0efeddfed152d643e26c0c560626e",
-              "gmv": 0,
-              "roi": 0
-            }
-          ]
-        },
-        {
-          "rank": 2,
-          "spu": "项链/颈饰",
-          "productCount": 91,
-          "dailyGmv": 0,
-          "dailyGmvWan": 0,
-          "gmvPct": 12.3,
-          "heatLevel": "🔥🔥 高热",
-          "liveCount": 59,
-          "creativeCount": 19,
-          "roi": 0,
-          "roiRange": "27.9-28.2",
-          "price": 2830,
-          "typicalNames": [
-            "【品茶赏翠】天然翡翠A货 观音吊坠  18K金镶嵌天然钻石",
-            "吊坠192",
-            "18k金镶嵌贵气精致珠宝饰品天然冰种阳绿翡翠葫芦吊坠",
-            "18K金钻镶嵌天然翡翠高冰晴底佛公吊坠简约大气胶润通透佩戴吸睛"
-          ],
-          "env": null,
-          "topLives": [
-            {
-              "rank": 1,
-              "name": "江苏财经广播-以玉会友",
-              "anon_name": "TOP1 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 3
-            },
-            {
-              "rank": 2,
-              "name": "江苏财经广播-品茶赏翠",
               "anon_name": "TOP2 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 2
+              "creatives": 1
             },
             {
               "rank": 3,
-              "name": "佳心珠宝回流寄售",
+              "name": "梦鲸饰品",
               "anon_name": "TOP3 直播间",
               "gmv": 0,
               "roi": 0,
@@ -1468,19 +1528,22 @@
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://pgdt.gtimg.cn/141/20204/snscosdownload/SZ/reserved/66e5903e000db34717fa4120def301150000008d00004eec?m=1f4e2e732f0fafeb93e7049c0bf6b0e1&ck=1f4e2e732f0fafeb93e7049c0bf6b0e1&sha256=8b05da22f7cc0b614db8ca396b4899fbe63d98d63c475b3a90a4f3011c993cba",
+              "url": "",
+              "md5": "e192d4abd028e3af92abfa8cc2fc480a",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://pgdt.gtimg.cn/141/20204/snscosdownload/SZ/reserved/6a043e3c000b8ede032b71ea293015150000008d00004eec?ck=f628c62b3dc5626b9b2ed35f252b42cf&m=f628c62b3dc5626b9b2ed35f252b42cf&sha256=634ad1612cfcb747591a4f0489b333f60d68a8144c800533bb45c682fba24909",
+              "url": "",
+              "md5": "e2b06015bdc880262e49d03428269e0d",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://pgdt.gtimg.cn/141/20204/snscosdownload/SZ/reserved/69ca777400020a5e2c9987b237918e0b0000008d00004eec?ck=2f85de45b49927b10ee961879de45cb7&m=2f85de45b49927b10ee961879de45cb7&sha256=e55b47d31d33ed0f64839a1d217e88669602e1ab1fcb9695c98e3dd6d80511f9",
+              "url": "",
+              "md5": "f9ae6cf9c0e2c56f4f21c90047d8bd89",
               "gmv": 0,
               "roi": 0
             }
@@ -1488,67 +1551,70 @@
         },
         {
           "rank": 3,
-          "spu": "手镯/手链",
-          "productCount": 97,
+          "spu": "女士耳饰",
+          "productCount": 226,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 12.0,
+          "gmvPct": 11.1,
           "heatLevel": "🔥🔥 高热",
-          "liveCount": 46,
-          "creativeCount": 33,
+          "liveCount": 43,
+          "creativeCount": 13,
           "roi": 0,
-          "roiRange": "18.4-18.7",
-          "price": 2387,
+          "roiRange": "2.2-2.5",
+          "price": 118,
           "typicalNames": [
-            "[麦玲玲设计] 招米三合貔貅男女同款铜合金饰品琉璃手串",
-            "朱炳仁 铜镀金手链【福杵临门-清晏】铜手链轻奢女士饰品",
-            "手链/脚链67",
-            "[花姐翡翠雕刻]翡翠吊坠",
-            "挂件75"
+            "925银耳针复古老钱风高级感气质优雅东方半绿耳钉耳饰耳环",
+            "铜仿珍珠耳环显脸小【KSKU】修饰脸型精致小巧珍珠耳钉女简约百搭通勤气质耳环",
+            "铜合金轻奢高级感满钻花瓣珠珠耳环女气质百搭日常耳饰T",
+            "铜合金[大c闪钻耳圈]设计款素圈耳环轻奢高级感新款爆款小众巨好看耳饰",
+            "925银针铜合金法式复古通勤百搭高级感耳饰英区克莱英蓝双C耳环"
           ],
           "env": null,
           "topLives": [
             {
               "rank": 1,
-              "name": "花姐翡翠雕刻",
+              "name": "P&N法式复古首饰",
               "anon_name": "TOP1 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 2
+              "creatives": 3
             },
             {
               "rank": 2,
-              "name": "朱炳仁饰品官方店",
+              "name": "拾光金工坊",
               "anon_name": "TOP2 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 2
+              "creatives": 3
             },
             {
               "rank": 3,
-              "name": "麦玲玲Mak",
+              "name": "薄荷冰冰饰品百货",
               "anon_name": "TOP3 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 3
+              "creatives": 2
             }
           ],
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3mebkuaacmaakajbcszvbqyievjqqfksa.f0.mp4?dis_k=01debf84d0419d595805c15a5bf3761e&dis_t=1780484641&m=48f1f1da5d140c3ea962a475f38579a8&sha256=4fc73ebbd639283baa79d4d350aa06ed5f8a7c56195cb3bb93e7bc52eba39822",
+              "url": "",
+              "md5": "16f1b83f09c3bcb2647c6fb86f3df052",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53kuch6aaeteahdyj5zrvb4viep5kqi72a.f0.mp4?dis_k=c9ab9d40cc98a08acf94b26bb3e554e8&dis_t=1782184664&m=631fd11768533741fcca92901d6abfe2&sha256=c46a886b1cfff3e63310334a313dd30ad70069653fcbde3ac757537a7d2f71fd",
+              "url": "",
+              "md5": "空",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53qaam2aaabuaofqkqjnvbvaaezwaabtka.f0.mp4?dis_k=7e2d461c070dcfd57565ab581a71f93e&dis_t=1783639957&m=5ca16fae9e3f492af6b838ec44da790e",
+              "url": "",
+              "md5": "1b3a0ac25094aa7486b3a6704bc21980",
               "gmv": 0,
               "roi": 0
             }
@@ -1557,22 +1623,22 @@
         {
           "rank": 4,
           "spu": "手串/文玩饰品",
-          "productCount": 88,
+          "productCount": 84,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
           "gmvPct": 8.5,
           "heatLevel": "🔥 中热",
           "liveCount": 27,
-          "creativeCount": 10,
+          "creativeCount": 11,
           "roi": 0,
-          "roiRange": "7.1-7.4",
-          "price": 817,
+          "roiRange": "6.0-6.3",
+          "price": 689,
           "typicalNames": [
-            "沉香手串中国香博园海南黄棋楠12mm单圈手串xk3055082",
-            "沉香 赛级高品质白奇楠多圈手串7mm",
-            "沉香 （兰奢待）（多圈）CXC183",
-            "沉香 [纳奇]九九沉海南乌身圆叶奇楠07念珠108多圈手串 香气发散好优品手串 RCCXZT005",
-            "沉香手串中国香博园熟结白棋6mm多圈xk8011066"
+            "沉香手串中国香博园熟结白棋10mm单圈xk8011061",
+            "沉香手串中国香博园海南白棋楠8mm多圈xk7022631",
+            "沉香 （达）奶香蜜甜沉香手串8mm多圈（z）",
+            "沉香白岚沉香多宝手串珍珠水晶沉香925银女手链独特新款饰品SL4190",
+            "沉香 | yao奇 | 多圈圆珠手串 B-A21-101"
           ],
           "env": null,
           "topLives": [
@@ -1590,33 +1656,36 @@
               "anon_name": "TOP2 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 1
+              "creatives": 2
             },
             {
               "rank": 3,
-              "name": "海南沉香收藏馆",
+              "name": "海南沉香产业园",
               "anon_name": "TOP3 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 2
+              "creatives": 1
             }
           ],
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://pgdt.gtimg.cn/141/20204/snscosdownload/SZ/reserved/6a18d673000597491aff85b73349af150000008d00004eec?ck=86a8e187fe80a2dee8b1ab8b5036df4d&m=86a8e187fe80a2dee8b1ab8b5036df4d&sha256=42bee25bee330145272f31b361013a90971f04ee2f23c61920de4c6b381adece",
+              "url": "",
+              "md5": "空",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://pgdt.gtimg.cn/141/20204/snscosdownload/SZ/reserved/68ec6b76000d52910fe388dc8dfd15150000008d00004eec?ck=afb33b3a655ffe8012961d3c6eed7afa&m=afb33b3a655ffe8012961d3c6eed7afa&sha256=9b48e5958904696378589e9cd96e2a170455a7adcdf32a300eef8c08a57aacf7",
+              "url": "",
+              "md5": "空",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc36makwaaafiahkpcoazvbv4yevpzqbk2a.f0.mp4?dis_k=5035595467c57f516f327c56d46b2efe&dis_t=1783553759&m=350020d208184afd90fa6249ccdf0722",
+              "url": "",
+              "md5": "空",
               "gmv": 0,
               "roi": 0
             }
@@ -1624,67 +1693,70 @@
         },
         {
           "rank": 5,
-          "spu": "女士耳饰",
-          "productCount": 169,
+          "spu": "手镯/手链",
+          "productCount": 133,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 8.2,
+          "gmvPct": 8.0,
           "heatLevel": "🔥 中热",
-          "liveCount": 47,
-          "creativeCount": 20,
+          "liveCount": 44,
+          "creativeCount": 40,
           "roi": 0,
-          "roiRange": "2.3-2.6",
-          "price": 131,
+          "roiRange": "20.7-21.0",
+          "price": 3245,
           "typicalNames": [
-            "铜合金 法式轻奢高级感2026年新款耳钉女潮耳饰独特设计感复古",
-            "925银耳针复古老钱风高级感气质优雅东方半绿耳钉耳饰耳环",
-            "铜合金[大c闪钻耳圈]设计款素圈耳环轻奢高级感新款爆款小众巨好看耳饰",
-            "铜合金轻奢高级感满钻花瓣珠珠耳环女气质百搭日常耳饰T",
-            "925银针铜合金法式复古通勤百搭高级感耳饰英区克莱英蓝双C耳环"
+            "[麦玲玲设计] 招米三合貔貅男女同款铜合金饰品琉璃手串",
+            "【麦玲玲设计】 招米三合貔貅男女同款铜合金饰品琉璃手串",
+            "【麦玲玲设计】 升级款-招米三合金箔琉璃貔貅男女同款饰品琉璃手串",
+            "【麦玲玲设计】升级款-招米三合金箔琉璃貔貅男女同款饰品琉璃手串",
+            "【麦玲玲设计】基础款-招米三合貔貅男女同款铜合金饰品琉璃手串"
           ],
           "env": null,
           "topLives": [
             {
               "rank": 1,
-              "name": "多盈饰馆",
+              "name": "麦玲玲Mak",
               "anon_name": "TOP1 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 1
+              "creatives": 3
             },
             {
               "rank": 2,
-              "name": "P&N法式复古首饰",
+              "name": "麦玲玲师傅linghit",
               "anon_name": "TOP2 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 4
+              "creatives": 3
             },
             {
               "rank": 3,
-              "name": "拾光金工坊",
+              "name": "麦玲玲Maklinghit",
               "anon_name": "TOP3 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 4
+              "creatives": 5
             }
           ],
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53nuagoaaaaiaazyslzjvbw3iem5wqaz2a.f0.mp4?dis_k=d323d54413f5d9c35c73eebc8ff219ca&dis_t=1783327609",
+              "url": "",
+              "md5": "空",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3iianwaaasmaggpyszfvbuqqe3nbabw2a.f0.mp4?dis_k=9997bf5699108b3ffc6ee516252878d2&dis_t=1781599876&m=16f1b83f09c3bcb2647c6fb86f3df052&sha256=37efc7c77dbfc10a80b8e852de26e0612134b38ac6822a1a20e69ed2a5785d3b",
+              "url": "",
+              "md5": "65fd29ea67a900e488f619c9ec248cf6",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53b4aeiaaaf4ak5ghwk5urudyeiqhqarca.f0.mp4?dis_k=4e58879ce8da5c3de24918649284e022&dis_t=1782291013&m=5794bb0491253ee56d5a466c8141301a&sha256=7d2abb91a20c0f03192bdeadacb2845e8965ce46725bbd4738ddc696c70e097d",
+              "url": "",
+              "md5": "空",
               "gmv": 0,
               "roi": 0
             }
@@ -1693,21 +1765,22 @@
         {
           "rank": 6,
           "spu": "茶具",
-          "productCount": 156,
+          "productCount": 185,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 6.0,
+          "gmvPct": 5.5,
           "heatLevel": "🔥 中热",
-          "liveCount": 21,
-          "creativeCount": 26,
+          "liveCount": 27,
+          "creativeCount": 32,
           "roi": 0,
-          "roiRange": "5.1-5.4",
-          "price": 375,
+          "roiRange": "4.2-4.5",
+          "price": 309,
           "typicalNames": [
-            "紫砂壶107",
-            "景德镇斗彩盖碗[喜上眉梢]三才盖碗 高档茶杯茶具（容量140ml）",
-            "柴房雅器-碧玉青荷，景德镇柴窑青花手绘主人杯高端陶瓷开片茶具，送礼自用佳品（图片原创拍摄）",
-            "景德镇双龙三才盖碗，青花龙纹陶瓷，送礼待客收藏有面子！容量160cc (有任何问题皆可联系客服，请勿差评，谢谢！)"
+            "柴房雅器·景德镇青花双龙如意卧足杯 老陶泥开片主人杯 高端茶具茶杯自用送人有面子",
+            "崔迪器-大雅斋黄地墨彩秋菊陶瓷盖碗",
+            "景德镇青花陶瓷杯缠枝莲品茗杯，容量60cc",
+            "[柴房雅器]富贵有余对杯景德镇珐琅彩陶瓷主人杯容量90ml内外满绘寓意美好送礼",
+            "紫砂壶35"
           ],
           "env": null,
           "topLives": [
@@ -1717,7 +1790,7 @@
               "anon_name": "TOP1 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 8
+              "creatives": 9
             },
             {
               "rank": 2,
@@ -1725,33 +1798,36 @@
               "anon_name": "TOP2 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 7
+              "creatives": 6
             },
             {
               "rank": 3,
-              "name": "春秋紫砂陶茶文化",
+              "name": "花开富贵壹号1",
               "anon_name": "TOP3 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 2
+              "creatives": 7
             }
           ],
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b535qabiaaa7uafesq4arurv3aectwaafca.f0.mp4?dis_k=be955680e3ab756c7d00976c7ff6c480&dis_t=1764917485&m=45257cbf6fdd2b08ab76cbff9e98184c&sha256=8340dc562acbd01fb7b039428bd37ea218005725acb891f6a8addf52868f1bfc",
+              "url": "",
+              "md5": "空",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3eiaq4aab2eagwiy2hjtrwiqebyracdsa.f0.mp4?dis_k=f2ed6c9b93bf6aaee77f7e34a5fb01f4&dis_t=1774862525&m=2f1e94589c69148bf1a7441d05d7b703&sha256=50f433aa098b310b281e64c3a49dac98505133d9437d45ee119d9717fb9b641d",
+              "url": "",
+              "md5": "31be343cd8f6fb4db1b8b6d6f927edd6",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3kebtiaadyuapwqnfofubsuiegriqgnca.f0.mp4?dis_k=66110e201db375ffd3a726330bf8d333&dis_t=1768975388&m=90f27abe8a3feee19162bccf35b1da51&sha256=ebab7cb9879dac1f181c60820fd105244e14bf64f969e559f261fee8cce2e9ba",
+              "url": "",
+              "md5": "5ab33a109dbec8d7027d2a4fe040e924",
               "gmv": 0,
               "roi": 0
             }
@@ -1760,22 +1836,22 @@
         {
           "rank": 7,
           "spu": "耳饰",
-          "productCount": 82,
+          "productCount": 144,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 5.7,
+          "gmvPct": 5.5,
           "heatLevel": "🔥 中热",
-          "liveCount": 30,
-          "creativeCount": 23,
+          "liveCount": 52,
+          "creativeCount": 45,
           "roi": 0,
-          "roiRange": "3.0-3.3",
-          "price": 110,
+          "roiRange": "3.3-3.6",
+          "price": 170,
           "typicalNames": [
             "925银针铜合金法式复古高级感通勤显脸小巴黎砂面耳钉耳饰耳环",
             "铜镀金仿珍珠耳环气质百搭显白显瘦耳饰【KSKU】30+女性经典珍珠耳钉轻奢高跟鞋珍珠耳环圆脸显瘦耳环",
-            "钛钢超闪璀璨星球造型耳环方圆脸耳钉小众设计高级感T",
-            "p&n 铜合金耳饰 法式复古简约气质高级感春夏日银色柳叶耳环",
-            "铜法式Hoop耳环C形素圈【OMGD】修饰脸型显脸小30+百搭耳饰轻奢高档显气质女性耳饰"
+            "铜合金法式复古流风光黛绿玲珑耳环耳饰",
+            "铜镀金羽毛耳饰[非遗点翠]变色耳钉925银针防过敏 纯手工耳饰旗袍非遗礼物",
+            "耳饰2"
           ],
           "env": null,
           "topLives": [
@@ -1785,7 +1861,7 @@
               "anon_name": "TOP1 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 1
+              "creatives": 2
             },
             {
               "rank": 2,
@@ -1793,33 +1869,36 @@
               "anon_name": "TOP2 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 1
+              "creatives": 2
             },
             {
               "rank": 3,
-              "name": "小妮子饰品分享",
+              "name": "昱翠轩",
               "anon_name": "TOP3 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 1
+              "creatives": 2
             }
           ],
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3oqbeyaacyiajkaa54nvbq5aejr2aetca.f0.mp4?dis_k=5952270e664057849461eb8241405fe1&dis_t=1780472260&m=56e7cad03c3f33c441dd62a35c9ee6f0&sha256=e249d3b020f82cd37fc721eeebb29f3c9bb5970ade722fe0390f69b09c2cf1b2",
+              "url": "",
+              "md5": "56e7cad03c3f33c441dd62a35c9ee6f0",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3paayiaabiqapztcz5fvbw6aeqr4adbca.f0.mp4?dis_k=9e895a8f5fa6c529aba00932ec43ffdb&dis_t=1784182869&m=d97e63638970c093ffd7c490eb6533a7&sha256=443db8281ec3c414f19638cfe28998ca9bc7e4424121e43deb88ca2f2af7038c",
+              "url": "",
+              "md5": "空",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53xaahuaaatmafkax3mjurxoaepk4aa6sa.f0.mp4?dis_k=7ea4997a53c3a3380a86c3de9e4eb9f8&dis_t=1778069291",
+              "url": "",
+              "md5": "700bb68bb485ec6297fdb13904368878",
               "gmv": 0,
               "roi": 0
             }
@@ -1827,101 +1906,33 @@
         },
         {
           "rank": 8,
-          "spu": "运动护具",
-          "productCount": 11,
-          "dailyGmv": 0,
-          "dailyGmvWan": 0,
-          "gmvPct": 3.2,
-          "heatLevel": "· 低热",
-          "liveCount": 9,
-          "creativeCount": 7,
-          "roi": 0,
-          "roiRange": "1.8-2.1",
-          "price": 55,
-          "typicalNames": [
-            "髌骨带夏季专业级跑步羽毛球膝盖保护带运动髌护带透气不闷汗男女通用",
-            "夏季空调护膝保暖超薄透气不闷高弹防滑耐磨室内外通用运动户外骑行运动穿戴装备",
-            "石墨烯护膝盖套保暖男女士远红外升温老人关节秋冬防寒防滑护腿套",
-            "夏季空调房桑蚕丝护膝盖套保暖防寒透气男女士膝关节老年人无痕防寒护腿",
-            "【夏季护膝】超薄无痕透气不闷高弹防滑不起球空调房专用"
-          ],
-          "env": null,
-          "topLives": [
-            {
-              "rank": 1,
-              "name": "康舒运动店",
-              "anon_name": "TOP1 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 1
-            },
-            {
-              "rank": 2,
-              "name": "启环居家生活",
-              "anon_name": "TOP2 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 1
-            },
-            {
-              "rank": 3,
-              "name": "金禧康腰膝护理",
-              "anon_name": "TOP3 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 1
-            }
-          ],
-          "topCreatives": [
-            {
-              "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53ruaoaaaa4yak6cj3avvbvdie4cgqbyca.f0.mp4?dis_k=28509593ac90aa650b87fbd517df6d94&dis_t=1782271896&m=47d7adac8b20f9a1c8726126b3864443&sha256=0f80788b6f212a6565f0dbf645b4ba949c3ed88ea5b5850afb1c1cf348df7199",
-              "gmv": 0,
-              "roi": 0
-            },
-            {
-              "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53oebzwaadjqadbobi6jvbs4ietnyqhg2a.f0.mp4?dis_k=1fb8e170b33f550aa2e30564f7d0c931&dis_t=1781246795&m=ba051261daa90a85a66da10b3dd3a2fb&sha256=54768d9a77b43d82b5d548079433c04cb2f4c6829947bdeb7ada829eedaf97c9",
-              "gmv": 0,
-              "roi": 0
-            },
-            {
-              "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3e4as4aabtaajtvzo5vvbwjyefytqclsa.f0.mp4?dis_k=d0a4af21116383ca0900d1a7061f3221&dis_t=1781512219&m=8528b14da593e62075a18b6b8c6f1f5d&sha256=4d24563ca11729d4a831db7322ec86dee0d4fbd80fb5c283c4c4bb23cb9e0785",
-              "gmv": 0,
-              "roi": 0
-            }
-          ]
-        },
-        {
-          "rank": 9,
           "spu": "防晒配件",
-          "productCount": 80,
+          "productCount": 93,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 3.0,
+          "gmvPct": 4.3,
           "heatLevel": "· 低热",
-          "liveCount": 26,
-          "creativeCount": 33,
+          "liveCount": 28,
+          "creativeCount": 30,
           "roi": 0,
           "roiRange": "2.8-3.1",
-          "price": 30,
+          "price": 35,
           "typicalNames": [
-            "德芬妲防晒面罩披肩女户外夏季遮阳防紫外线护颈透气户外穿搭挂耳",
             "T型夏季防晒披肩旅游度假空调房外搭",
-            "2026新款防晒冰袖女夏季罗口宽松加大护臂冰丝套袖透气时尚开车防晒袖套",
-            "防晒袖套加长手臂套开车骑行新款冰丝防晒防紫外线手套夏季薄款女",
-            "浪莎无痕一体透气防晒帽女夏季骑行空顶冰丝防紫外线大帽檐遮阳帽"
+            "2026大帽檐防晒帽女夏季空顶帽防紫外线无痕遮阳帽可折叠太阳帽",
+            "春夏季新款草编大帽檐遮阳帽女时尚休闲太阳帽户外海边度假防晒帽",
+            "夏季时尚防晒衣斗篷款女夏季骑车防紫外线披肩透气宽松加大码长袖披肩",
+            "德芬妲防晒面罩披肩女户外夏季遮阳防紫外线护颈透气户外穿搭挂耳"
           ],
           "env": null,
           "topLives": [
             {
               "rank": 1,
-              "name": "德芬妲deoinum",
+              "name": "夏季防晒服装铺",
               "anon_name": "TOP1 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 1
+              "creatives": 6
             },
             {
               "rank": 2,
@@ -1933,8 +1944,59 @@
             },
             {
               "rank": 3,
-              "name": "晴天家居百货店",
+              "name": "瑞霭夏日遮阳铺.",
               "anon_name": "TOP3 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 2
+            }
+          ],
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "",
+              "md5": "空",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "",
+              "md5": "e8b386b36bd2e2fcc452b9bc5ef15997",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "",
+              "md5": "4d5cadb7aeb57e68115a774fd929fa6b",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
+        },
+        {
+          "rank": 9,
+          "spu": "其他摩托车/电动车装备",
+          "productCount": 1,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 2.4,
+          "heatLevel": "· 低热",
+          "liveCount": 1,
+          "creativeCount": 1,
+          "roi": 0,
+          "roiRange": "1.6-1.9",
+          "price": 14,
+          "typicalNames": [
+            "[新款护膝]夏季专用超薄无痕透气不闷汗防滑不起球摩托车装备护具"
+          ],
+          "env": null,
+          "topLives": [
+            {
+              "rank": 1,
+              "name": "泊伊尚品玖霆居家生活",
+              "anon_name": "TOP1 直播间",
               "gmv": 0,
               "roi": 0,
               "creatives": 1
@@ -1943,19 +2005,22 @@
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc36aaf4aaa3yanltqg6rvbv4ael3yaaxsa.f0.mp4?dis_k=db83e545a39057b86ab26cdfbaf91020&dis_t=1778813745&m=9077cc12593e8eb130713150fa58c2ea",
+              "url": "",
+              "md5": "a50f11f4f928aebdfe4ad772eb810071",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53fmdugaahc4ai45hv4bur2kyeimvqoq2a.f0.mp4?dis_k=9f18d58017d21697d0b20f8255952c39&dis_t=1777520045&m=6031d0e56a76f43ce9e7266cb4122801&sha256=413710d4c47839291ec5bcb96b1cc5eaef87f9c52651655b84791e2359e3bea0",
+              "url": "",
+              "md5": "963ce62838312284a3b2b942c52efbe7",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53uuck2aaeiyadqzb3ujvb5jievwsqjlka.f0.mp4?dis_k=54073249598f889d09581dd46f960873&dis_t=1782552040&m=e8b386b36bd2e2fcc452b9bc5ef15997",
+              "url": "",
+              "md5": "9770102b344a0dc34c7539262830df8e",
               "gmv": 0,
               "roi": 0
             }
@@ -1963,36 +2028,37 @@
         },
         {
           "rank": 10,
-          "spu": "其他翡翠饰品",
-          "productCount": 29,
+          "spu": "其他耳饰",
+          "productCount": 8,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 2.5,
+          "gmvPct": 2.2,
           "heatLevel": "· 低热",
-          "liveCount": 20,
-          "creativeCount": 11,
+          "liveCount": 5,
+          "creativeCount": 3,
           "roi": 0,
-          "roiRange": "26.8-27.1",
-          "price": 733,
+          "roiRange": "2.2-2.5",
+          "price": 203,
           "typicalNames": [
-            "天然翡翠A货 翡翠摆件 超哥圈优选摆件",
-            "手链/脚链312",
-            "大饼设计款-钟馗翡翠吊坠",
-            "天然缅甸翡翠高冰平安扣吊坠"
+            "925银针玻璃仿珠波浪珠光耳线夏季新款优雅高级感耳饰",
+            "铜合金[蝴蝶结耳线]蝴蝶结流苏耳环新款爆款高级感巨好看轻奢方圆脸耳饰",
+            "白岚厝影耳钉925银镀金耳环耳饰女气质饰品高级感轻奢设计首饰ED4634",
+            "白岚弧形宽面耳环女925银镀金轻奢气质小众设计感简约耳环ED2009",
+            "铜合金[花花耳线]时尚花朵流苏耳环设计感抽拉新款爆款轻奢超闪精致耳饰"
           ],
           "env": null,
           "topLives": [
             {
               "rank": 1,
-              "name": "超哥翡翠圈",
+              "name": "P&N法式复古首饰",
               "anon_name": "TOP1 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 2
+              "creatives": 1
             },
             {
               "rank": 2,
-              "name": "哈轩珠宝订制",
+              "name": "拾光金工坊",
               "anon_name": "TOP2 直播间",
               "gmv": 0,
               "roi": 0,
@@ -2000,7 +2066,7 @@
             },
             {
               "rank": 3,
-              "name": "哈轩翡翠珠宝号",
+              "name": "白岚珠宝",
               "anon_name": "TOP3 直播间",
               "gmv": 0,
               "roi": 0,
@@ -2010,19 +2076,22 @@
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://pgdt.gtimg.cn/141/20204/snscosdownload/SZ/reserved/69ff1e520002d51f1d639d17896bbc1e0000008d00004eec?ck=22f7bfead0cfecbcb4c6c8bfd867b07e&m=22f7bfead0cfecbcb4c6c8bfd867b07e&sha256=10528d6e538e8e1315d2c81bcfe4feb66c2f3354de11550089de2110401bc670",
+              "url": "",
+              "md5": "bc1f33c607172b749d911a8ca8fc9a3c",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53mqac6aaa54afpaqmmvuruzaef5saal2a.f0.mp4?dis_k=9cf26a0cd912c3d69472be55f39028b1&dis_t=1762424998&m=ddb2edb4d3ab76f6342069887ef9b693&sha256=2772e24f7afa4f0d7c52bfb41cefd5ed0a9d59abfb37774eb50ca544d65ebce6",
+              "url": "",
+              "md5": "74e99cec0d8729c6c1c4b6502779de47",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://pgdt.gtimg.cn/141/20204/snscosdownload/SZ/reserved/69ff190a00053c6528008c8129f101150000008d00004eec?ck=56fac8def692af650ff17e7a005b57ce&m=56fac8def692af650ff17e7a005b57ce&sha256=ae315ed9f92226d0a890c474c50ac3114903662fdd40a68470709303bea538d0",
+              "url": "",
+              "md5": "空",
               "gmv": 0,
               "roi": 0
             }
@@ -2034,45 +2103,45 @@
       "track": "贴身衣物",
       "totalDailyGmv": 0,
       "totalDailyGmvWan": 0,
-      "top10Coverage": 93.1,
+      "top10Coverage": 92.7,
       "top10DailyGmv": 0,
-      "totalLives": 338,
+      "totalLives": 344,
       "totalCreatives": 0,
-      "spuCount": 69,
+      "spuCount": 73,
       "spus": [
         {
           "rank": 1,
           "spu": "女士文胸",
-          "productCount": 409,
+          "productCount": 429,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 53.6,
+          "gmvPct": 48.1,
           "heatLevel": "🔥🔥🔥 极热",
-          "liveCount": 121,
-          "creativeCount": 90,
+          "liveCount": 129,
+          "creativeCount": 92,
           "roi": 0,
-          "roiRange": "2.7-3.0",
-          "price": 130,
+          "roiRange": "2.6-2.9",
+          "price": 127,
           "typicalNames": [
             "焕丽女王新款国风浮雕提花前开扣聚拢防下垂文胸无痕提拉背心式内衣",
-            "[性感蕾丝蜂巢透气超薄舒适文胸]婷美/3D果冻胶无痕内衣女双重提拉无钢圈聚拢收副乳防下垂文胸",
             "【透气超薄柔软兔耳杯果冻软支撑舒适轻盈高弹稳固聚拢内衣文胸欧迪芬Ordifen 285#",
-            "[凉感蕾丝拼接聚拢抗菌文胸]婷美/10A级抗菌凉感软支撑无钢圈夏季薄款文胸",
-            "婷美夏季显小透气内衣透气网纱性感隐形无痕双提拉文胸"
+            "碧荷诗夏季超薄文胸女聚拢收副乳防下垂无痕美背蕾丝前扣小胸",
+            "【夏季新品】焕丽新款国风浮雕提花前开扣调整型文胸-T",
+            "香幂【买一送一】大胸显小瘦防下垂超薄透气提拉无钢圈无痕粉底肤冰丝调整内衣"
           ],
           "env": null,
           "topLives": [
             {
               "rank": 1,
-              "name": "婷美塑身内衣店",
+              "name": "焕丽女王内衣服饰优选",
               "anon_name": "TOP1 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 3
+              "creatives": 2
             },
             {
               "rank": 2,
-              "name": "焕丽女王内衣服饰优选",
+              "name": "婷美塑身内衣店",
               "anon_name": "TOP2 直播间",
               "gmv": 0,
               "roi": 0,
@@ -2084,25 +2153,28 @@
               "anon_name": "TOP3 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 3
+              "creatives": 2
             }
           ],
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53xuaq2aabsaagf5csrbvbxpiebw6qcdka.f0.mp4?dis_k=b1a7ba01390da227754435873b14df74&dis_t=1784112168&m=b112444eacfcd9641a5ecc6cd78f7118&sha256=a2987bbf9201a375d2559613f1e40e756982d490c49dec1dd46a91e60815f259",
+              "url": "",
+              "md5": "空",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53p4afaaaa7aaic42ihvvbu7yekb7qauca.f0.mp4?dis_k=b75b837ebc6de652a3c0897f1f6b91dc&dis_t=1783168471&m=7d65ebcb9381b0714b065289358dded4&sha256=0031cd7da5c2af2736c8d98c34cfbad88162b74bd1de84cf22ddb6c839102a7e",
+              "url": "",
+              "md5": "b112444eacfcd9641a5ecc6cd78f7118",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b535ubgkaacduah7orpdrvbr3iemxwqezka.f0.mp4?dis_k=5a25f6e7a5b40a01fff10ace9be8eb0a&dis_t=1781340976&m=9a8c59241dd63dd57ee6e02baf29daf7&sha256=b06010aa4a71eec51a3f37e8808c741ba0c7095ebe8e86ee677dabafb9b72bec",
+              "url": "",
+              "md5": "空",
               "gmv": 0,
               "roi": 0
             }
@@ -2111,22 +2183,22 @@
         {
           "rank": 2,
           "spu": "女士内裤",
-          "productCount": 146,
+          "productCount": 167,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 18.4,
-          "heatLevel": "🔥🔥 高热",
-          "liveCount": 49,
-          "creativeCount": 58,
+          "gmvPct": 23.4,
+          "heatLevel": "🔥🔥🔥 极热",
+          "liveCount": 64,
+          "creativeCount": 70,
           "roi": 0,
           "roiRange": "2.0-2.3",
-          "price": 68,
+          "price": 66,
           "typicalNames": [
             "草本初色【花漾蕾丝】高腰法式蕾丝10A抑菌加长底裆平角收腹内裤",
+            "法式豹纹收腹提臀悬浮裤高腰冰丝桑蚕丝无痕性感夏季女内裤",
             "焕丽女王新中式浮雕绣花高腰桑蚕丝加长底裆全包臀不卷边不卡裆女士内裤z",
             "UFeel新款粉底液蕾丝轻薄透气性感女士内裤2615",
-            "【3条装】夏季凉感粉彩风高腰包臀透气无痕蚕丝超薄冰丝内裤",
-            "[崔万志工厂]女士内裤6条新疆棉透气高腰包臀加长裆独立密封包装"
+            "夏季凉感粉彩风高腰包臀透气无痕蚕丝超薄冰丝内裤"
           ],
           "env": null,
           "topLives": [
@@ -2136,7 +2208,7 @@
               "anon_name": "TOP1 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 2
+              "creatives": 1
             },
             {
               "rank": 2,
@@ -2144,11 +2216,11 @@
               "anon_name": "TOP2 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 2
+              "creatives": 3
             },
             {
               "rank": 3,
-              "name": "Ufeel云感甄选内衣",
+              "name": "拉婷内裤店铺",
               "anon_name": "TOP3 直播间",
               "gmv": 0,
               "roi": 0,
@@ -2158,19 +2230,22 @@
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53lyaz6aabsaadeqcy65vbwxqet5padh2a.f0.mp4?dis_k=d532628460ce0c316f71113b3bf695e6&dis_t=1784262105&m=ad7e0de1c5ae9d3b6acb135c24cd9fc8",
+              "url": "",
+              "md5": "ad7e0de1c5ae9d3b6acb135c24cd9fc8",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3viaqsaabvaaoumcqkvvbvkqebgvaccka.f0.mp4?dis_k=f7b5c3a2735f8f42853cb981ffa2f047&dis_t=1783760225&m=7978cbe18a05a490d348a2e5beec3505&sha256=7896b5ba73b0d64d27c2b468b022521adac0906d91fda27f68fd026f69530b06",
+              "url": "",
+              "md5": "0713644dd85a98f5431fdde80b371182",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53jyaugaabmaaktvaxjzvbutqeinhacq2a.f0.mp4?dis_k=e3c6abf3ebeb3681d9166890211eda0e&dis_t=1779920415&m=8472409c83a1df19f1fa9eea47bbc652&sha256=e993c4fccbe9795408cb90258ecac5eb691abe71cb06d4fb9d0119db38996bc9",
+              "url": "",
+              "md5": "c65c30e37b239098d62124fca315763a",
               "gmv": 0,
               "roi": 0
             }
@@ -2179,36 +2254,36 @@
         {
           "rank": 3,
           "spu": "男士内裤",
-          "productCount": 178,
+          "productCount": 204,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 7.0,
+          "gmvPct": 8.5,
           "heatLevel": "🔥 中热",
-          "liveCount": 42,
-          "creativeCount": 57,
+          "liveCount": 45,
+          "creativeCount": 64,
           "roi": 0,
           "roiRange": "2.2-2.5",
-          "price": 75,
+          "price": 71,
           "typicalNames": [
-            "洁柔男士内裤阿罗裤新疆阳光棉休闲大码睡裤居家四角大裤衩",
-            "彩棉男士内裤新疆棉透气宽边0染色10A抑菌条纹纯色无缝四角短裤",
             "凉感透气双C网眼男士内裤舒适中腰平角裤轻薄运动裤",
-            "【虫草养护】恒源祥森林氧吧礼盒10A抗菌冰丝无痕男内裤",
-            "帕兰朵男士棉内裤棉平角裤男生透气青少年男款四角短裤大码2026新款运动舒适裤头"
+            "洁柔男士内裤阿罗裤新疆阳光棉休闲大码睡裤居家四角大裤衩",
+            "啄木鳥冰丝男士条纹内裤10A抑菌大码透气舒适四角裤新款平角短裤",
+            "彩棉男士内裤新疆棉透气宽边0染色10A抑菌条纹纯色无缝四角短裤",
+            "男士凉感无痕阿罗裤鎏金蝴蝶透气宽松大码家居裤睡裤一裤多穿内裤"
           ],
           "env": null,
           "topLives": [
             {
               "rank": 1,
-              "name": "洁柔山潮服饰优选",
+              "name": "素放跟随者服饰",
               "anon_name": "TOP1 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 5
+              "creatives": 9
             },
             {
               "rank": 2,
-              "name": "素放跟随者服饰",
+              "name": "啄木鸟亿昇内衣店",
               "anon_name": "TOP2 直播间",
               "gmv": 0,
               "roi": 0,
@@ -2216,29 +2291,32 @@
             },
             {
               "rank": 3,
-              "name": "崔万志家居生活",
+              "name": "洁柔山潮服饰优选",
               "anon_name": "TOP3 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 1
+              "creatives": 5
             }
           ],
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53gactkaafe4aa7jkg75vb6maeguyaknka.f0.mp4?dis_k=d4293301c8491b4d11400e5844955109&dis_t=1782790702&m=d1f599372d76b1dca489da366f70a3ff&sha256=848c8a975df882cd8d2bf68c09c50d17a16e2a0b69e9635acc997387cbb7301b",
+              "url": "",
+              "md5": "f0846783769f1719ddc720056ca39a7c",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc36eaj6aaaxeaj4b22hzvbv4iet7yqbh2a.f0.mp4?dis_k=dba4896c075f1f7e19ad3b29aef23f12&dis_t=1784346813&m=f0846783769f1719ddc720056ca39a7c&sha256=b29707f61607cd22c1eb97b162a151a8a6b5fbfad2602c78b09fb563de527be6",
+              "url": "",
+              "md5": "d86a5aa3558c8394e3ac4366995f1903",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3nid34aahpmal62x3lfury2qexzvappsa.f0.mp4?dis_k=63e98314d96266ee85d548c93e4b8b89&dis_t=1778575023&m=20a4a786433c762f6d6245024b59ff78&sha256=0e9ab79ee94c8a7278920cd2b30d755969196f1b944e0cbda552219c16068a83",
+              "url": "",
+              "md5": "d1f599372d76b1dca489da366f70a3ff",
               "gmv": 0,
               "roi": 0
             }
@@ -2246,91 +2324,68 @@
         },
         {
           "rank": 4,
-          "spu": "女士塑身裤",
-          "productCount": 76,
+          "spu": "大码女士文胸",
+          "productCount": 30,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 3.4,
+          "gmvPct": 2.5,
           "heatLevel": "· 低热",
-          "liveCount": 24,
-          "creativeCount": 26,
+          "liveCount": 17,
+          "creativeCount": 19,
           "roi": 0,
-          "roiRange": "2.2-2.5",
-          "price": 83,
+          "roiRange": "2.8-3.1",
+          "price": 168,
           "typicalNames": [
-            "【升级高腰款】洋奢国风刺绣提花10A抗菌桑蚕丝底档加强收腹提臀骑行裤女骑行装备",
-            "美宅[国风收腹裤]温峥嵘同款浮雕刺绣提花提臀高腰蚕丝抗菌舒适透气内裤女",
-            "蔓雅夫人轻奢刺绣内裤运动服装显瘦提臀骑行裤修身骑行",
-            "夏季提臀高腰收腹无痕隐形网纱塑形加长底裆透气内裤女提拉翘臀",
-            "新品首发奥丝曼娜秦岚同款莱卡超短提臀裤高弹舒适无痕显瘦塑身夏季薄款"
+            "【李小冉代言】Ordifen/欧迪芬大胸显小蕾丝轻薄蜂巢内衣无钢圈大码收副乳上托文胸",
+            "中老年裸感无痕蕾丝提拉聚拢收副乳美背心大码舒适女士内衣文胸",
+            "美黛安芬无痕内衣女光面大胸显小收副乳防下垂薄款软钢圈大码文胸罩",
+            "互语防走光吊带大胸显小B-F杯大码透气无钢圈透气美背内衣女蕾丝",
+            "【买一送一】前开扣文胸舒适透气调整型无痕蕾丝内衣大码"
           ],
           "env": null,
           "topLives": [
             {
               "rank": 1,
-              "name": "洋奢塑形美体优选",
+              "name": "欧迪芬Ordifen官方内衣店",
               "anon_name": "TOP1 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 2
-            },
-            {
-              "rank": 2,
-              "name": "猫猫好物服饰店铺",
-              "anon_name": "TOP2 直播间",
               "gmv": 0,
               "roi": 0,
               "creatives": 1
             },
             {
+              "rank": 2,
+              "name": "恋漫妮精选",
+              "anon_name": "TOP2 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 2
+            },
+            {
               "rank": 3,
-              "name": "美宅归觅内衣店",
+              "name": "美黛安芬内衣店",
               "anon_name": "TOP3 直播间",
               "gmv": 0,
               "roi": 0,
               "creatives": 1
             }
           ],
-          "topCreatives": [
-            {
-              "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b537qag2aaasuaivn2ih5vbx7aenx6aa3ka.f0.mp4?dis_k=c9e0d39167bfe67dac8673f720917b78&dis_t=1783908253&m=6def5e7bb843f4095e771e16cf303791&sha256=bc127808f31e778f662176236719605fa71c43a09742c7cca8152be2385e7f88",
-              "gmv": 0,
-              "roi": 0
-            },
-            {
-              "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53h4brqaadk4adzgblmnvbqpyeda7qggca.f0.mp4?dis_k=a2dfa09bf025262d9c75f4c144e035a2&dis_t=1781015677&m=9ae4dc28b5084f420c05dfa25df13651",
-              "gmv": 0,
-              "roi": 0
-            },
-            {
-              "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3wub4qaadleam5xzrarvbrniezc2qhsca.f0.mp4?dis_k=134815463e07c29b443595569e141a1f&dis_t=1781663492&m=193bd4773ee2468d4b0273008b1bc4c2",
-              "gmv": 0,
-              "roi": 0
-            }
-          ]
+          "topCreatives": []
         },
         {
           "rank": 5,
-          "spu": "女士运动文胸/运动背心",
-          "productCount": 9,
+          "spu": "女士健身套装/运动套装",
+          "productCount": 2,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 3.3,
+          "gmvPct": 2.4,
           "heatLevel": "· 低热",
-          "liveCount": 8,
-          "creativeCount": 5,
+          "liveCount": 1,
+          "creativeCount": 2,
           "roi": 0,
-          "roiRange": "2.3-2.6",
-          "price": 123,
+          "roiRange": "2.2-2.5",
+          "price": 129,
           "typicalNames": [
-            "草本初色大U隐形粉底液骑行运动装备",
-            "【徐艺洋同款】一衣四穿无痕粉底液美背四种穿法冰丝轻运动瑜伽美背吊带",
-            "【两件装】运动背心自行车骑行服聚拢防抖运动风提拉蕾丝透气中老年舒适",
-            "【夏思凝同款小薄荷聚拢带杯背心】松山棉店2026春夏新品棉莫背心女",
-            "明星同款塑形娇姿提拉舒适无痕美背透气不闷内衣春夏款交叉美背运动防震"
+            "草本初色大U隐形粉底液骑行运动装备"
           ],
           "env": null,
           "topLives": [
@@ -2340,11 +2395,66 @@
               "anon_name": "TOP1 直播间",
               "gmv": 0,
               "roi": 0,
+              "creatives": 2
+            }
+          ],
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "",
+              "md5": "0636fed9f2b472be237f670cfda70b31",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "",
+              "md5": "d8120a2721d75168303c15a20d1018f2",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "",
+              "md5": "ed079ce5016942c20a93aa9f1c3aeefb",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
+        },
+        {
+          "rank": 6,
+          "spu": "女士塑身裤",
+          "productCount": 68,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 2.1,
+          "heatLevel": "· 低热",
+          "liveCount": 27,
+          "creativeCount": 27,
+          "roi": 0,
+          "roiRange": "2.3-2.6",
+          "price": 86,
+          "typicalNames": [
+            "蔓雅夫人轻奢刺绣内裤运动服装显瘦提臀骑行裤修身骑行",
+            "美宅[国风收腹裤]温峥嵘同款浮雕刺绣提花提臀高腰蚕丝抗菌舒适透气内裤女",
+            "新品首发奥丝曼娜秦岚同款莱卡超短提臀裤高弹舒适无痕显瘦塑身夏季薄款",
+            "无痕薄款高奢贴身透气外穿骑行裤女弹力修身运动服女骑行",
+            "南极人32A冰肌舒适无痕夏季体雕运动户外高腰凉感透气骑行服"
+          ],
+          "env": null,
+          "topLives": [
+            {
+              "rank": 1,
+              "name": "蔓雅夫人服饰配饰",
+              "anon_name": "TOP1 直播间",
+              "gmv": 0,
+              "roi": 0,
               "creatives": 1
             },
             {
               "rank": 2,
-              "name": "完美记忆依兮小店",
+              "name": "美宅归觅内衣店",
               "anon_name": "TOP2 直播间",
               "gmv": 0,
               "roi": 0,
@@ -2352,7 +2462,78 @@
             },
             {
               "rank": 3,
-              "name": "美嘉挺品牌轻奢内衣",
+              "name": "南极人春塘服饰",
+              "anon_name": "TOP3 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 2
+            }
+          ],
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "",
+              "md5": "7ebfdefae07e3acc306589bbb4db64e4",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "",
+              "md5": "46f180f02684d66642327b19dda05250",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "",
+              "md5": "3416faee1b67023719b6a605b011c279",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
+        },
+        {
+          "rank": 7,
+          "spu": "女士抹胸/少女文胸",
+          "productCount": 19,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 2.0,
+          "heatLevel": "· 低热",
+          "liveCount": 13,
+          "creativeCount": 14,
+          "roi": 0,
+          "roiRange": "1.7-2.0",
+          "price": 79,
+          "typicalNames": [
+            "【发育期专用】开学季初中高中女生运动透气提拉矫姿无痕内衣背心文胸",
+            "知音草【二三阶段】发育期少女无痕透气内衣细肩带胶条支撑固定杯垫",
+            "【舒悦诗】26年升级碎花粉底液少女发育期初高中舒适运动定型文胸",
+            "知音草【买一送一】发育少女文胸初高中女生内衣矫正坐姿运动背心",
+            "【超薄定型】三阶段发育期夏季凉感隐形无痕固定杯垫细吊带少女内衣"
+          ],
+          "env": null,
+          "topLives": [
+            {
+              "rank": 1,
+              "name": "贝迪纯发育期少女内衣",
+              "anon_name": "TOP1 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 3
+            },
+            {
+              "rank": 2,
+              "name": "舒悦诗少女发育内衣",
+              "anon_name": "TOP2 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 1
+            },
+            {
+              "rank": 3,
+              "name": "知音草少女服饰内衣",
               "anon_name": "TOP3 直播间",
               "gmv": 0,
               "roi": 0,
@@ -2362,42 +2543,45 @@
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc37mbdkaacumap5cq5rnvbr6yegx5qenka.f0.mp4?dis_k=e266b65d2013a6b6215c915f66d4d08f&dis_t=1780485100&m=0636fed9f2b472be237f670cfda70b31&sha256=fb5ec12c7a2168715c3b9450b351ba9f8d518c5dcd7caf06982c89c1e4664bb8",
+              "url": "",
+              "md5": "65b7a032ecd0668f9d3ad701a8b497b2",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3gyakuaaa7aaiv3immjvbunqevi3abksa.f0.mp4?dis_k=bfe74af32e55c445d03cf969c50f8998&dis_t=1779879077&m=a7486a7a3269e2f405da511adc6b47f4&sha256=fc614a0b8ed9584a35c2d0bd7e38d0901a61347cceac30e449b2ba2fbb7fcec7",
+              "url": "",
+              "md5": "17de4899a15a964891ff681ce1008691",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc34qavyaab44apmbqpnfvbxzaeltsacxca.f0.mp4?dis_k=7c81e87c64c999b772d18860c656b517&dis_t=1779345939&m=ed079ce5016942c20a93aa9f1c3aeefb&sha256=ff1f5304c0d891c513b060f7c4da528705002b34ed2856724ec2f3446eb6060f",
+              "url": "",
+              "md5": "9d8c9ae9e090f9c4d6d81fbc2c9922a9",
               "gmv": 0,
               "roi": 0
             }
           ]
         },
         {
-          "rank": 6,
+          "rank": 8,
           "spu": "儿童抹胸/少女文胸",
-          "productCount": 36,
+          "productCount": 30,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 2.7,
+          "gmvPct": 1.4,
           "heatLevel": "· 低热",
-          "liveCount": 16,
-          "creativeCount": 12,
+          "liveCount": 11,
+          "creativeCount": 8,
           "roi": 0,
-          "roiRange": "1.9-2.2",
-          "price": 116,
+          "roiRange": "2.0-2.3",
+          "price": 120,
           "typicalNames": [
             "婷美【蚕丝乳胶抑菌杯】发育期少女内衣减震提拉定型高中初中生文胸",
-            "买一送一  夏季款（10-19岁）Beidichun 贝迪纯 提拉定型内衣透气轻薄背心运动吸湿排汗",
-            "【3件】12-22岁三阶段专用内衣四季少女文胸初高中生大学生定型内衣",
             "笛莎【一阶段】6-13岁玻尿酸女童内衣10A级抑菌开肩挺背透气排汗",
+            "婷美【高定芦荟蚕丝杯】少女文胸发育期初高中提拉内衣防震无痕背心",
+            "婷美【蚕丝空气呼吸杯】少女运动防震初高中发育期吸湿排汗定型内衣",
             "【3件】12-22岁少女运动定型内衣青春发育期儿童文胸女童背心"
           ],
           "env": null,
@@ -2420,7 +2604,7 @@
             },
             {
               "rank": 3,
-              "name": "贝迪纯发育期少女内衣",
+              "name": "笛莎乘梦企业店",
               "anon_name": "TOP3 直播间",
               "gmv": 0,
               "roi": 0,
@@ -2430,49 +2614,52 @@
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3tmafaaaa2yaauqv2onubvgyekcnqauca.f0.mp4?dis_k=3d08ad44e43a87e4ec7cb59438daf494&dis_t=1757043317&m=d62adac495f29ff6c33e8539d6a3abb1&sha256=57a27024b3469ac63df88d4043f89d32d1519e21094382acf8e57df8007a9202",
+              "url": "",
+              "md5": "空",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53feamoaaa3eackbahsbvbukiey4uqbr2a.f0.mp4?dis_k=2b284d5ccd7a5c9132d713985d538daa&dis_t=1778901746&m=493206772ff760743b7e11740fcb6502",
+              "url": "",
+              "md5": "d62adac495f29ff6c33e8539d6a3abb1",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3gqajcaaayiapiiv3tburunaese2abeka.f0.mp4?dis_k=c5cb7c1571510396a4110238753a8875&dis_t=1773889020&m=c3e5b6afead18808a3517e84d9c680d4",
+              "url": "",
+              "md5": "493206772ff760743b7e11740fcb6502",
               "gmv": 0,
               "roi": 0
             }
           ]
         },
         {
-          "rank": 7,
-          "spu": "大码女士文胸",
-          "productCount": 26,
+          "rank": 9,
+          "spu": "女士骑行服",
+          "productCount": 12,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 1.8,
+          "gmvPct": 1.3,
           "heatLevel": "· 低热",
-          "liveCount": 18,
-          "creativeCount": 17,
+          "liveCount": 8,
+          "creativeCount": 7,
           "roi": 0,
-          "roiRange": "3.1-3.4",
-          "price": 153,
+          "roiRange": "1.9-2.2",
+          "price": 62,
           "typicalNames": [
-            "【李小冉代言】Ordifen/欧迪芬大胸显小蕾丝轻薄蜂巢内衣无钢圈大码收副乳上托文胸",
-            "中老年裸感无痕蕾丝提拉聚拢收副乳美背心大码舒适女士内衣文胸",
-            "互语防走光吊带大胸显小B-F杯大码透气无钢圈透气美背内衣女蕾丝",
-            "美黛安芬无痕内衣女光面大胸显小收副乳防下垂薄款软钢圈大码文胸罩",
-            "【超惠2件装可拆卸杯垫】桑扶兰舒适透气内衣无痕大码女士薄款文胸"
+            "星芝亮夏季冰丝无痕户外运动骑行服提拉运动户外自行车骑行服",
+            "【升级高腰款】洋奢国风刺绣提花10A抗菌桑蚕丝底档加强收腹提臀骑行裤女骑行装备",
+            "刺绣提花网纱女士骑行短裤紧身弹力单车裤户外健身通勤运动裤轻薄透气速干不闷汗骑行装备",
+            "[升级版2.0]低领美背内衣女隐形无痕小胸聚拢低胸方领薄款文胸",
+            "2026新款骑行服 薄款冰丝无痕透气骑行服套装"
           ],
           "env": null,
           "topLives": [
             {
               "rank": 1,
-              "name": "恋漫妮精选",
+              "name": "星芝亮锦橙小店",
               "anon_name": "TOP1 直播间",
               "gmv": 0,
               "roi": 0,
@@ -2480,42 +2667,63 @@
             },
             {
               "rank": 2,
-              "name": "欧迪芬Ordifen官方旗舰店",
+              "name": "洋奢塑形美体优选",
               "anon_name": "TOP2 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 1
+              "creatives": 2
             },
             {
               "rank": 3,
-              "name": "互语家的真丝内衣",
+              "name": "恋漫妮内衣馆",
               "anon_name": "TOP3 直播间",
               "gmv": 0,
               "roi": 0,
               "creatives": 1
             }
           ],
-          "topCreatives": []
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "",
+              "md5": "bf214ae96475e57ef39989c4961318ee",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "",
+              "md5": "d2a800bf63f303eaf3ff69e4c55723ab",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "",
+              "md5": "b3f66279a644b54cb4417c0718e02df2",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
         },
         {
-          "rank": 8,
+          "rank": 10,
           "spu": "女士拉拉裤/学步裤/成长裤",
-          "productCount": 9,
+          "productCount": 6,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 1.0,
+          "gmvPct": 1.1,
           "heatLevel": "· 低热",
-          "liveCount": 4,
-          "creativeCount": 5,
+          "liveCount": 5,
+          "creativeCount": 4,
           "roi": 0,
-          "roiRange": "1.8-2.1",
-          "price": 140,
+          "roiRange": "1.7-2.0",
+          "price": 131,
           "typicalNames": [
             "南极人冰感透气吸湿32A抗菌无痕亲肤拉拉裤冰肌舒适夏季超薄透气舒适拉拉裤",
-            "星芝亮新款拉拉裤提花10A抑菌透气底档拉拉裤",
             "新款 [蕉树]粉彩风高腰收腹提臀无痕粉底液加长底裆桑蚕丝拉拉裤",
-            "星芝亮夏季超薄高腰款星芝亮新中式浮雕刺绣无痕加长母婴拉拉裤8063",
-            "南极人 32A冰肌舒适户外骑行服无痕面膜凉感透气运动户外自行车骑行服"
+            "星芝亮新款拉拉裤提花10A抑菌透气底档拉拉裤",
+            "草本初色春夏新款中高腰护垫加长底裆柔软益生菌抑菌无痕拉拉裤"
           ],
           "env": null,
           "topLives": [
@@ -2525,79 +2733,11 @@
               "anon_name": "TOP1 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 3
-            },
-            {
-              "rank": 2,
-              "name": "星芝亮立高内衣",
-              "anon_name": "TOP2 直播间",
-              "gmv": 0,
-              "roi": 0,
               "creatives": 1
             },
             {
-              "rank": 3,
+              "rank": 2,
               "name": "蕉树内衣官方店",
-              "anon_name": "TOP3 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 1
-            }
-          ],
-          "topCreatives": [
-            {
-              "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3cybzaaadhuaaq6znfzvbsfqesalaheca.f0.mp4?dis_k=de3d1dbacc4f3dadc801a34ac13c529e&dis_t=1782228967&m=d28c179e45f727734cb2ec02a39154e2&sha256=0ceb8e072ac2d7c276e62d533b9e8e6a4ce3026ec000e7a5230f88acca792e0f",
-              "gmv": 0,
-              "roi": 0
-            },
-            {
-              "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3o4bo4aactqag5afjzzurq5ye5z3qf3sa.f0.mp4?dis_k=30c9e7db1aba334c3ead4c32aa01c5ca&dis_t=1772849915&m=71dc8649e7785c2c0a2fc2b655297d08&sha256=811dd0255bb4679544723ad4b6aa59952142237e65bcfef2af821c61c1fce184",
-              "gmv": 0,
-              "roi": 0
-            },
-            {
-              "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3riaueaaboqabvckwr5vbxcqeikfacqsa.f0.mp4?dis_k=ba98a2f131d72376fdcacddc432cd4e5&dis_t=1784282046&m=0dc10cf409c12a9254f8f08bedd645c8&sha256=ec07b49f656fb46fa76df501efd9c929ec23ab6b7c87b2f4051a4ee48fe96976",
-              "gmv": 0,
-              "roi": 0
-            }
-          ]
-        },
-        {
-          "rank": 9,
-          "spu": "女士塑身连体衣",
-          "productCount": 45,
-          "dailyGmv": 0,
-          "dailyGmvWan": 0,
-          "gmvPct": 0.9,
-          "heatLevel": "· 低热",
-          "liveCount": 13,
-          "creativeCount": 13,
-          "roi": 0,
-          "roiRange": "4.1-4.4",
-          "price": 261,
-          "typicalNames": [
-            "冰肌塑身衣夏季凉感透气收腹提臀美体塑身衣（明星同款）ZSMXPBJTTK",
-            "欧世利【轻羽清凉塑身衣】收腹提臀无痕塑形后脱式薄款透气美体衣",
-            "霏比【岚蔻高定】夏季短款薄款无痕凉感强塑收腹提臀塑身衣收腰塑形",
-            "婷美【夏季三角连体】肩带可调节透气免穿文胸提拉显瘦连体衣便捷后脱提臀连体衣",
-            "欧世利夏季爆品【赫本二号】塑身衣收腹提臀无痕塑形精准曲线夏季轻薄女士"
-          ],
-          "env": null,
-          "topLives": [
-            {
-              "rank": 1,
-              "name": "舞青衣精油体雕衣",
-              "anon_name": "TOP1 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 1
-            },
-            {
-              "rank": 2,
-              "name": "欧世利SIIL塑身内衣官方店",
               "anon_name": "TOP2 直播间",
               "gmv": 0,
               "roi": 0,
@@ -2605,75 +2745,7 @@
             },
             {
               "rank": 3,
-              "name": "霏比服饰创始人-轩语",
-              "anon_name": "TOP3 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 2
-            }
-          ],
-          "topCreatives": [
-            {
-              "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3i4ae4aaagaaf2f2lqrvburyejzdqatsa.f0.mp4?dis_k=2c5140cfae8151919e833cb517751a7c&dis_t=1783305086&m=9a3cc2e3ee2ea0ef070661e705426367",
-              "gmv": 0,
-              "roi": 0
-            },
-            {
-              "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53zaahcaaa5iacxabpujvbvsaeoheaa4ka.f0.mp4?dis_k=9fa322cec6b4fd05e26464ff38b38e88&dis_t=1781661418&m=3c7c2b3fdf2ccf1f4841dd99a5eaca97&sha256=66c003ec2e8620a4565c8db43b80ed133fbf9b82917acd83d7e528d2846504a1",
-              "gmv": 0,
-              "roi": 0
-            },
-            {
-              "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53wyabyaaagaanj6si75vbvnqeds3aahca.f0.mp4?dis_k=271e3834f81efa335fc68d20b190be0f&dis_t=1783154825&m=599b6efdbfd894a0400d9fc353e456fa",
-              "gmv": 0,
-              "roi": 0
-            }
-          ]
-        },
-        {
-          "rank": 10,
-          "spu": "女士抹胸/少女文胸",
-          "productCount": 14,
-          "dailyGmv": 0,
-          "dailyGmvWan": 0,
-          "gmvPct": 0.9,
-          "heatLevel": "· 低热",
-          "liveCount": 9,
-          "creativeCount": 10,
-          "roi": 0,
-          "roiRange": "1.8-2.1",
-          "price": 78,
-          "typicalNames": [
-            "知音草【二三阶段】发育期少女无痕透气内衣细肩带胶条支撑固定杯垫",
-            "【超薄定型】三阶段发育期夏季凉感隐形无痕固定杯垫细吊带少女内衣",
-            "【发育期专用】开学季初中高中女生运动透气提拉矫姿无痕内衣背心文胸",
-            "【发育期专用】开学季初高中生运动透气提拉矫姿隐形无痕内衣背心文胸",
-            "【舒悦诗】26年升级碎花粉底液少女发育期初高中舒适运动定型文胸"
-          ],
-          "env": null,
-          "topLives": [
-            {
-              "rank": 1,
-              "name": "贝迪纯发育期少女内衣",
-              "anon_name": "TOP1 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 2
-            },
-            {
-              "rank": 2,
-              "name": "贝迪纯少女文胸",
-              "anon_name": "TOP2 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 1
-            },
-            {
-              "rank": 3,
-              "name": "知音草内衣服饰",
+              "name": "星芝亮立高内衣",
               "anon_name": "TOP3 直播间",
               "gmv": 0,
               "roi": 0,
@@ -2683,19 +2755,22 @@
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53muahsaaapaabvysm2fvbuziepfsqa6ka.f0.mp4?dis_k=a0cc6c3813d78a47adf5f42e27c65fcd&dis_t=1783391027&m=9d8c9ae9e090f9c4d6d81fbc2c9922a9&sha256=6a754f8090c84991d11cdfc085addabec3e3b9649faae873c7a41be265c1310e",
+              "url": "",
+              "md5": "8472409c83a1df19f1fa9eea47bbc652",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc36qad6aaaomadwvpt2rurv5aeh72aap2a.f0.mp4?dis_k=8d3505cec4d49c94b64a3889115781d1&dis_t=1777534093&m=3d14b8a17d003a69b7b40da3d0f9f55f",
+              "url": "",
+              "md5": "71dc8649e7785c2c0a2fc2b655297d08",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3uebxmaadoyan4vjnxfvbtiieo2qqg5sa.f0.mp4?dis_k=cc954f6b4aea80a9fdd41c07f7c901f4&dis_t=1781442785&m=671084f5b84c744f4230affc0f4f3729",
+              "url": "",
+              "md5": "d28c179e45f727734cb2ec02a39154e2",
               "gmv": 0,
               "roi": 0
             }
@@ -2707,11 +2782,11 @@
       "track": "箱包鞋靴",
       "totalDailyGmv": 0,
       "totalDailyGmvWan": 0,
-      "top10Coverage": 87.5,
+      "top10Coverage": 85.9,
       "top10DailyGmv": 0,
-      "totalLives": 436,
+      "totalLives": 462,
       "totalCreatives": 0,
-      "spuCount": 52,
+      "spuCount": 54,
       "spus": [
         {
           "rank": 1,
@@ -2719,19 +2794,19 @@
           "productCount": 75,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 19.8,
+          "gmvPct": 18.5,
           "heatLevel": "🔥🔥 高热",
-          "liveCount": 24,
-          "creativeCount": 16,
+          "liveCount": 23,
+          "creativeCount": 15,
           "roi": 0,
-          "roiRange": "5.0-5.3",
-          "price": 393,
+          "roiRange": "5.3-5.6",
+          "price": 443,
           "typicalNames": [
-            "MOMI行李箱扩展大容量多功能拉杆箱20寸旅行箱24登机箱男女皮箱子26寸万向轮",
-            "[牧岚优品]前开盖行李箱大容量拉杆箱旅行箱可扩容密码箱登机箱",
-            "[蒋勤勤代言]卡拉羊云朵箱3.0鎏金板材PLUS行李箱防刮抗摔魔方体拉杆箱CN8141",
-            "[蒋勤勤代言]卡拉羊云朵箱纯PC魔方体防刮耐磨轻便大容量行李箱 CX8125",
-            "Hands Free宽拉杆行李箱超顺滑弹珠轴承轮拉杆箱巨能装旅行箱可登机密码箱皮箱子"
+            "MOMI行李箱扩展大容量多功能拉杆箱20寸旅行箱24登机箱男女皮箱子26寸",
+            "[总裁特批价]卡拉羊纯PC云朵箱鎏金板材防刮耐磨轻盈顺滑拉杆箱行李箱CX8125",
+            "[老爸评测联名款]卡拉羊纯PC魔方体行李箱大容量防刮抗摔拉杆箱CX8127",
+            "[大小一个价]前开盖行李箱大容量拉杆箱旅行箱可扩容密码箱登机箱",
+            "（粉丝专属）Hands Free宽拉杆行李箱超顺滑弹珠轴承轮拉杆箱巨能装旅行箱可登机密码箱皮箱子"
           ],
           "env": null,
           "topLives": [
@@ -2753,7 +2828,7 @@
             },
             {
               "rank": 3,
-              "name": "牧岚优品",
+              "name": "方琼",
               "anon_name": "TOP3 直播间",
               "gmv": 0,
               "roi": 0,
@@ -2763,19 +2838,22 @@
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b532eb5kaadu4afyzrrcfvbtuie2xiqhvka.f0.mp4?dis_k=79a33a92f0ee0d331255f4e188d3810b&dis_t=1781696933&m=d69ee40b8bb1a3308267c049f7faa4c4&sha256=1f3b445d5041134e71e9acd5761d9e9e362f9e443538626a486e5193e7243c1f",
+              "url": "",
+              "md5": "空",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53piavkaabwead3xcw7rvbw6qekv5acvka.f0.mp4?dis_k=e62393bb0f3c7a1466787622ba1b535b&dis_t=1784113367&m=388591364ef027966402d9ebeba46716&sha256=896a12ed7112c2f1ee1e13ccd9d14971d2d6f10e2fe9c8ccd5cbe37306589897",
+              "url": "",
+              "md5": "388591364ef027966402d9ebeba46716",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53iqacmaaaaeagsi2gpjvburaeezcaajsa.f0.mp4?dis_k=7053e5c0a1960c32b12dd0727743d046&dis_t=1782992725&m=cde02e984bcad59b9eebc84be34dc3b3&sha256=980e51b32876bd051c4be2b7771dde0ae4a4934fb38525228513c5765623934c",
+              "url": "",
+              "md5": "ee3f9c86e9d63ca64a06540ee223dfb2",
               "gmv": 0,
               "roi": 0
             }
@@ -2783,45 +2861,45 @@
         },
         {
           "rank": 2,
-          "spu": "板鞋/休闲鞋",
-          "productCount": 258,
+          "spu": "凉鞋/拖鞋",
+          "productCount": 394,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 15.2,
+          "gmvPct": 17.8,
           "heatLevel": "🔥🔥 高热",
-          "liveCount": 81,
-          "creativeCount": 106,
+          "liveCount": 90,
+          "creativeCount": 128,
           "roi": 0,
-          "roiRange": "6.5-6.8",
-          "price": 305,
+          "roiRange": "2.7-3.0",
+          "price": 90,
           "typicalNames": [
-            "LEE COOPER【薄荷曲奇】德训鞋时尚潮流2026夏季新款清凉透气休闲鞋",
-            "少量现现今晚飞顺丰～拍完不加不补！+7cm星空德训鞋！范小洛小个子隐形内增高爆款网面透气很秀气显腿长百搭德训鞋36111",
-            "米白现现[范小洛]+7cm芭蕾德训内增高女鞋2026年夏季新款时尚百搭运动休闲鞋",
-            "[真皮牛皮]夏季新款休闲鞋透气冲孔镂空板鞋内增高隐形增高男鞋",
-            "【编织老爹鞋】8886夏季新品网面透气头层牛皮厚底增高舒适透气百搭时尚运动跑鞋"
+            "【防滑小蛮腰】时尚新款软底轻盈室内静音按摩居家洋气一字凉拖鞋女",
+            "森马明星同款洞洞鞋网红凉鞋男夏季防滑防臭男士外穿包头沙滩拖鞋",
+            "雅鹿正品新款夏季爆款女士凉鞋防滑速干软底耐磨沙滩鞋涉水鞋拖鞋",
+            "【8CM增高】LEE COOPER包头半拖鞋女2026夏款厚底懒人外穿凉鞋",
+            "G-vill/贵之步头层反绒牛皮男女同款真皮凉鞋魔术贴软底舒适时尚百搭勃肯鞋"
           ],
           "env": null,
           "topLives": [
             {
               "rank": 1,
-              "name": "LeeCooper时尚official店",
+              "name": "贝朵阳家居生活",
               "anon_name": "TOP1 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 1
+              "creatives": 2
             },
             {
               "rank": 2,
-              "name": "范小洛店铺号",
+              "name": "森马官方男鞋店",
               "anon_name": "TOP2 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 3
+              "creatives": 2
             },
             {
               "rank": 3,
-              "name": "范小洛小个子女鞋",
+              "name": "LeeCooper女鞋品牌号",
               "anon_name": "TOP3 直播间",
               "gmv": 0,
               "roi": 0,
@@ -2831,19 +2909,22 @@
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3tmaksaaan4apr3kofrvbvgyevgnqbkka.f0.mp4?dis_k=6457b71266eae94b721c5ee35dac6101&dis_t=1783518070&m=79c3f5fd436a3ddbb5d40f90599a41cb&sha256=07ce36999398eea7d0d64bc04ba766afd37cc861f7c4701aad9b69e649c19fce",
+              "url": "",
+              "md5": "fedd5f98b183a518f1776fcd281f5e2f",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53s4af2aaaiyadbcywejvbxfyelwlqaxka.f0.mp4?dis_k=d263dfdbf75b66984c0eed51f543f9fc&dis_t=1779854814",
+              "url": "",
+              "md5": "484ec481a35d73bb7dda40cd0eefcbd4",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b535qac2aaaxuapmqrn6vvbx3aefxwaalka.f0.mp4?dis_k=a98a93d2bb5528fc622465d4e1f3e55a&dis_t=1781390176",
+              "url": "",
+              "md5": "36cb3e45bea1b9c0435eddc539654c34",
               "gmv": 0,
               "roi": 0
             }
@@ -2851,29 +2932,29 @@
         },
         {
           "rank": 3,
-          "spu": "皮鞋/正装鞋",
-          "productCount": 408,
+          "spu": "板鞋/休闲鞋",
+          "productCount": 295,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 13.2,
+          "gmvPct": 12.1,
           "heatLevel": "🔥🔥 高热",
-          "liveCount": 108,
-          "creativeCount": 93,
+          "liveCount": 92,
+          "creativeCount": 105,
           "roi": 0,
-          "roiRange": "3.8-4.1",
-          "price": 196,
+          "roiRange": "6.5-6.8",
+          "price": 313,
           "typicalNames": [
-            "大尧-[麦穗系列]水钻尖头侧空内增高单鞋女26新款夏季浅口6338",
-            "法式复古真软皮单鞋女鞋软底不累脚拼色粗跟浅口增高5cm显瘦搭裙子",
-            "【手工艾草款】经典正宗老北京布鞋千层底单鞋休闲鞋一脚蹬防臭透气",
-            "Pansy盼喜日本女鞋一脚蹬飞织透气软底防滑通勤乐福鞋春季",
-            "[意大利进口胎牛皮]MARCHE无内衬春夏一脚蹬便士乐福鞋商务休闲真皮大底"
+            "LEE COOPER【孟子义同款】夏季网面户外德训鞋女阿甘鞋小个子增高鞋",
+            "LEE COOPER【薄荷曲奇】德训鞋时尚潮流2026夏季新款清凉透气休闲鞋",
+            "2026春夏+7cm芭蕾德训！范小洛小个子隐形内增高春夏百搭运动秀气芭蕾德训鞋35571",
+            "冰凉缎面[范小洛]+7cm芭蕾德训内增高女鞋2026年新款夏季凉鞋时尚百搭运动休闲鞋",
+            "[范小洛]+7cm内增高薄底德训鞋夏凉透气阿甘鞋女款2026新款小个子休闲鞋"
           ],
           "env": null,
           "topLives": [
             {
               "rank": 1,
-              "name": "大姚女鞋-小个子增高",
+              "name": "LeeCooper鞋类品牌号",
               "anon_name": "TOP1 直播间",
               "gmv": 0,
               "roi": 0,
@@ -2881,7 +2962,7 @@
             },
             {
               "rank": 2,
-              "name": "嘉年华创意坊",
+              "name": "范小洛小个子女鞋",
               "anon_name": "TOP2 直播间",
               "gmv": 0,
               "roi": 0,
@@ -2889,7 +2970,7 @@
             },
             {
               "rank": 3,
-              "name": "寸华世纪传统布鞋",
+              "name": "LeeCooper时尚official店",
               "anon_name": "TOP3 直播间",
               "gmv": 0,
               "roi": 0,
@@ -2899,19 +2980,22 @@
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53zycvaaafxeaclccg5rvb5tqekdhakuca.f0.mp4?dis_k=e9cc553bd44c2664e0baed55855c3bcc&dis_t=1782805891&m=2da8886ad799234615e4c69759e41c55",
+              "url": "",
+              "md5": "空",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b536eawsaabceaproczznvbx4ienhyqc2ka.f0.mp4?dis_k=0eb720a9ce74d163fcf28a0c6babd557&dis_t=1784189490&m=73b8655b6b49faa9ee04dacb76cf1392&sha256=19433f4a09fa8ba73323d15468756afcd7a990d37702c425c532a62a8c7a0e3b",
+              "url": "",
+              "md5": "79c3f5fd436a3ddbb5d40f90599a41cb",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b536icdcaaewqao7cjumvvb74qeghzaimka.f0.mp4?dis_k=e4df4073191992282b4196e026c0c9e3&dis_t=1782909813&m=ef5bc784abee8f3d270c395d86781c8d&sha256=b95e648f4a980626a3f8fe89a0e2eb0cabd79c7cc5b1b855ea45a3eb0a3ee94d",
+              "url": "",
+              "md5": "9774c3465cf4103be4babd2e1641b238",
               "gmv": 0,
               "roi": 0
             }
@@ -2919,29 +3003,29 @@
         },
         {
           "rank": 4,
-          "spu": "凉鞋/拖鞋",
-          "productCount": 374,
+          "spu": "皮鞋/正装鞋",
+          "productCount": 431,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 11.4,
+          "gmvPct": 11.1,
           "heatLevel": "🔥🔥 高热",
-          "liveCount": 85,
-          "creativeCount": 125,
+          "liveCount": 120,
+          "creativeCount": 110,
           "roi": 0,
-          "roiRange": "3.5-3.8",
-          "price": 112,
+          "roiRange": "3.0-3.3",
+          "price": 152,
           "typicalNames": [
-            "【8CM增高】LEE COOPER包头半拖鞋女2026夏款厚底懒人外穿凉鞋",
-            "雅鹿正品新款夏季爆款女士凉鞋防滑速干软底耐磨沙滩鞋涉水鞋拖鞋",
-            "PLAYBOY新款洞洞鞋厚底增高男女同款情侣鞋外穿凉鞋透气防滑EVA",
-            "夏季新款潮流男士厚底防滑透气踩屎感沙滩两用外穿凉鞋2026男款",
-            "回力妈妈鞋夏季中老年单鞋新款凉鞋老人舒适软底皮鞋女防滑洞洞鞋"
+            "【手工艾草款】经典正宗老北京布鞋千层底单鞋休闲鞋一脚蹬防臭透气",
+            "大姚-26年夏季新款尖头水钻侧空内增高4.5cm女式浅口单鞋6338",
+            "贵之步/G'VILL头层牛皮休闲夏季豆豆鞋百搭耐磨皮鞋缓震软底商务男鞋",
+            "Oosiid欧狮盾新款透气真皮乐福男鞋一脚蹬英伦风商务正装休闲皮鞋",
+            "大尧-[大麦系列]水钻尖头侧空内增高单鞋女26新款夏季浅口6338"
           ],
           "env": null,
           "topLives": [
             {
               "rank": 1,
-              "name": "LeeCooper女鞋品牌号",
+              "name": "寸华世纪传统布鞋",
               "anon_name": "TOP1 直播间",
               "gmv": 0,
               "roi": 0,
@@ -2949,37 +3033,40 @@
             },
             {
               "rank": 2,
-              "name": "乐步时尚妈妈鞋",
+              "name": "大姚女鞋-小个子增高",
               "anon_name": "TOP2 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 4
+              "creatives": 1
             },
             {
               "rank": 3,
-              "name": "花花公子PLAYBOY酷步男鞋店",
+              "name": "男士轻奢男鞋",
               "anon_name": "TOP3 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 1
+              "creatives": 2
             }
           ],
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3uiabuaaaiaakjycejnvbviqedkraagsa.f0.mp4?dis_k=5fe8189a3d85e72fa6653a4587cd1fa8&dis_t=1782890229&m=4fb15663d7e277e8df00706b28fd430d&sha256=dae9c8aa1b32cee2f5f83f8d3605cc3bd375a1bc9b906bdebda2d7d465ab4b4f",
+              "url": "",
+              "md5": "ef5bc784abee8f3d270c395d86781c8d",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc334an4aaazqaheqzkdzvbvxye33pqbxsa.f0.mp4?dis_k=edbeda80b987383dcb1bcac59a34acd2&dis_t=1781181492&m=93a2c5407fb5359070f5f40b5a468903&sha256=cc41495e005f807ffc60775fd9ebda8a698ff3671a555f489628a713ec734db9",
+              "url": "",
+              "md5": "空",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3iaagmaaawiam24zkvrvbuqaemzaaazsa.f0.mp4?dis_k=8be26f79625733c3a64030dd39d7873a&dis_t=1781181458&m=cf954cac4287ba3c34a99f236343887a&sha256=692be23c55e52952d18148552be9c52ce3e0381edd02011ca1b82351695f0c54",
+              "url": "",
+              "md5": "2da8886ad799234615e4c69759e41c55",
               "gmv": 0,
               "roi": 0
             }
@@ -2987,37 +3074,37 @@
         },
         {
           "rank": 5,
-          "spu": "玛丽珍鞋",
-          "productCount": 76,
+          "spu": "斜挎包/单肩包",
+          "productCount": 141,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 8.6,
+          "gmvPct": 9.9,
           "heatLevel": "🔥 中热",
-          "liveCount": 25,
-          "creativeCount": 38,
+          "liveCount": 59,
+          "creativeCount": 52,
           "roi": 0,
-          "roiRange": "7.5-7.8",
-          "price": 379,
+          "roiRange": "8.2-8.5",
+          "price": 405,
           "typicalNames": [
-            "【买赠洞洞鞋】百丽气质玛丽珍鞋女2026秋新商场同款真皮编织花朵单鞋G1H1DCQ6",
-            "【买赠洞洞鞋】百丽复古玛丽珍鞋女2026春新商场同款柔软真皮轻便单鞋F1C1DAQ6",
-            "【买赠洞洞鞋】百丽水钻带玛丽珍鞋女2026新质感真皮通勤浅口单鞋F7G1DAQ6",
-            "羊皮轻奢百搭玛丽珍2026春季新款粗跟真皮女士单鞋明星同款鞋子",
-            "运动玛丽珍[范小洛]+7cm夏季双带单鞋2026年小个子隐形内增高女鞋休闲透气阿甘鞋子"
+            "[明明舅]SUSEN新款设计师款高级中性风帆布拼真皮六用包",
+            "[明明舅专属]巴利(BALLY)春夏新款 女士牛皮/织物单肩斜挎包水桶包 6311707-DB",
+            "新中式 紫陌繁花1 真丝手拿包国风旗袍斜挎包送长辈妈妈礼物24*15cm",
+            "香港古乔大金包洋气雅丹风百搭气质休闲潮流手提斜挎女包单肩女包GQ8077",
+            "路易卡迪 LC印花双面背腋下单肩包"
           ],
           "env": null,
           "topLives": [
             {
               "rank": 1,
-              "name": "百丽女鞋官方店",
+              "name": "明明舅在欧洲",
               "anon_name": "TOP1 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 5
+              "creatives": 3
             },
             {
               "rank": 2,
-              "name": "百丽BELLE",
+              "name": "七七古法香云纱真丝女包",
               "anon_name": "TOP2 直播间",
               "gmv": 0,
               "roi": 0,
@@ -3025,7 +3112,7 @@
             },
             {
               "rank": 3,
-              "name": "DIOUGENS迪欧摩尼女鞋",
+              "name": "香港古乔定制女包",
               "anon_name": "TOP3 直播间",
               "gmv": 0,
               "roi": 0,
@@ -3035,19 +3122,22 @@
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://pgdt.gtimg.cn/141/20204/snscosdownload/SZ/reserved/6a51cb4400009ba1201bca004a0255150000008d00004eec?ck=39fc0fcd1833c8cdbc8eec03091b686d&m=39fc0fcd1833c8cdbc8eec03091b686d&sha256=2dbcd5cf2c2a45e51e1d4143f357bb6da961081a282916ffe6da986863a3d81d",
+              "url": "",
+              "md5": "空",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://pgdt.gtimg.cn/141/20204/snscosdownload/SZ/reserved/6a52305e000f0b7f1a74252ade908e0b0000008d00004eec?ck=3184f7f22dd5e455eee26b0591e661c9&m=3184f7f22dd5e455eee26b0591e661c9&sha256=c08b49d3e59531817e6103442b4a63097284aa710b159b481b790bc53f09a192",
+              "url": "",
+              "md5": "空",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://pgdt.gtimg.cn/141/20204/snscosdownload/SZ/reserved/6a51cb4400009ba1201bca004a0255150000008d00004eec?ck=39fc0fcd1833c8cdbc8eec03091b686d&m=39fc0fcd1833c8cdbc8eec03091b686d&sha256=2dbcd5cf2c2a45e51e1d4143f357bb6da961081a282916ffe6da986863a3d81d",
+              "url": "",
+              "md5": "11468e688243c3e6503256aa5d13322d",
               "gmv": 0,
               "roi": 0
             }
@@ -3055,44 +3145,45 @@
         },
         {
           "rank": 6,
-          "spu": "斜挎包/单肩包",
-          "productCount": 124,
+          "spu": "时尚休闲鞋",
+          "productCount": 148,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 8.1,
+          "gmvPct": 6.3,
           "heatLevel": "🔥 中热",
-          "liveCount": 54,
-          "creativeCount": 48,
+          "liveCount": 52,
+          "creativeCount": 44,
           "roi": 0,
-          "roiRange": "6.0-6.3",
-          "price": 461,
+          "roiRange": "3.5-3.8",
+          "price": 237,
           "typicalNames": [
-            "路易卡迪 压纹彩色手提单肩斜挎包圆盒包",
-            "[小罗专属]CELEANNA 摇摆吊床包时尚百搭慵懒女士斜挎单肩包小众设计单肩包",
-            "七七-（满青铜纹牛角包）盘金绣新中式香云纱老料可调节单肩斜挎包30*18*7cm",
-            "BAGTREE包包树【朱珠同款】爆款粉彩风奶盒包植鞣皮hobo包百搭单肩斜挎枕头包"
+            "足力健女鞋2026新款夏季透气舒适蕾丝妈妈鞋洋气上班一脚蹬女鞋",
+            "2026春夏季透气飞织网面软底防滑缓震轻便舒适中老年鞋爸爸鞋",
+            "【软底软面休闲鞋】8866-1超薄鞋底轻便款式白银拼接时尚女鞋",
+            "Aokang/奥康官方正品松花黄潮流百搭舒适防滑透气增高四季工装鞋",
+            "卡宾夏季透气开车男鞋3d打印鞋子男款爆款2026新款男士运动休闲鞋"
           ],
           "env": null,
           "topLives": [
             {
               "rank": 1,
-              "name": "七七古法香云纱真丝女包",
+              "name": "足力健爸妈鞋官方直播间",
               "anon_name": "TOP1 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 3
+              "creatives": 1
             },
             {
               "rank": 2,
-              "name": "路易卡迪时尚箱包",
+              "name": "保罗骆驼男鞋睿洋店",
               "anon_name": "TOP2 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 2
+              "creatives": 1
             },
             {
               "rank": 3,
-              "name": "明明舅在欧洲",
+              "name": "老匠人手工定制女鞋",
               "anon_name": "TOP3 直播间",
               "gmv": 0,
               "roi": 0,
@@ -3102,19 +3193,22 @@
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3lqcdcaaet4acttjwk5vb4xaegfoaimka.f0.mp4?dis_k=c64afdf992524d0ad95f07d2a4181eac&dis_t=1781668063&m=bbc682f57f2d07e1ab60fdad7362c11c&sha256=7f9f2175da760ced2ed6782baba998ed9d2bbd75a7f11bdbd1f68f0788ea57ed",
+              "url": "",
+              "md5": "70dfd00e3c577149ab505f8b344ea1b6",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b536aaywaabbmabk7sz4fvbx4aerpyadc2a.f0.mp4?dis_k=955c0647f2887d4520a04cb84f3f30f3&dis_t=1784197087&m=7cd4e2c8a8d5aac74ccddbf5c1660257&sha256=ef2f45c96e1c66dbaf8faea1ab53c9edebf63d1f782e3497867a59bf6d3be3bc",
+              "url": "",
+              "md5": "2f54893219b6ca52977c2ed155fee8a8",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3nics4aafwyafw4ownvur62qefzvaklsa.f0.mp4?dis_k=602eb26185cce45e39dbe96269767aec&dis_t=1775465954&m=af91cb84d19c74c8c24be5397da01810&sha256=f7a2171eaefed0aa678c8264022976dc6135d63d30ba8c4f2dc46207d4b84b01",
+              "url": "",
+              "md5": "536c10949100c06c13dce47086022fcd",
               "gmv": 0,
               "roi": 0
             }
@@ -3123,96 +3217,28 @@
         {
           "rank": 7,
           "spu": "双肩包",
-          "productCount": 28,
+          "productCount": 32,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 3.9,
+          "gmvPct": 3.7,
           "heatLevel": "· 低热",
-          "liveCount": 18,
-          "creativeCount": 19,
+          "liveCount": 16,
+          "creativeCount": 14,
           "roi": 0,
-          "roiRange": "2.8-3.1",
-          "price": 181,
+          "roiRange": "2.6-2.9",
+          "price": 325,
           "typicalNames": [
-            "[升级版四大隔层]双肩包大容量背包初中高中学生书包-007s-zb",
             "ReeYeeS5多功能旅行包大容量扩容设计商务出差户外双肩包电脑行李包轻便实用免托运满足多场景出行需求大容量收纳更省心",
-            "路易卡迪 涂鸦logo手提单肩斜挎背包双肩包",
-            "[全网首发 破价上新 ]卡拉羊30L中学生减负防下坠超轻风琴书包CX5192L",
-            "袋鼠男士5仓双肩包2026新款大容量17英寸商务出差旅行多功能"
+            "【袋鼠品牌】5仓多功能双肩包2026新款大容量17英寸商务出差旅行百搭男女通用初中高中大学书包",
+            "双肩包男士多功能大容量黑色腰部支撑初中高中书包-SJ007S-ZB",
+            "袋鼠男士5仓双肩包2026新款大容量17英寸商务出差旅行多功能",
+            "【袁泉同款】ITO TRUFFLE PRO BACKPACK双肩包商务差旅包男女通勤"
           ],
           "env": null,
           "topLives": [
             {
               "rank": 1,
-              "name": "LUYIDAISHU品牌双肩包",
-              "anon_name": "TOP1 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 1
-            },
-            {
-              "rank": 2,
               "name": "reeyee户外包",
-              "anon_name": "TOP2 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 1
-            },
-            {
-              "rank": 3,
-              "name": "路易卡迪玲姐",
-              "anon_name": "TOP3 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 3
-            }
-          ],
-          "topCreatives": [
-            {
-              "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53cib62aadlaaghwr37jvbseqe5ujah3ka.f0.mp4?dis_k=c4fecceeb5bc4c3b6244bd69aa7ecf6d&dis_t=1782091343&m=23ed961a70ef05cb06c8a978a8ccfd3e",
-              "gmv": 0,
-              "roi": 0
-            },
-            {
-              "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3cqahaaaa5maovkbxtjvbufaeoakaa4ca.f0.mp4?dis_k=a762a40868789fddc2a8f79a5c349baf&dis_t=1782029064&m=b5bbbbcd24c2cc7f1da59d15592c6b7e",
-              "gmv": 0,
-              "roi": 0
-            },
-            {
-              "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53y4b72aadmaah7tbu5vvbtrye7xdqh7ka.f0.mp4?dis_k=99018c5450ac3d0fe5fdd833ed8ba3c9&dis_t=1782022829&m=5854a2047fe2740348dc0f5852f1ec0a&sha256=409a2b5b13c2b06c2bcaa747c76abaacf10b03483a96f18d6619d997bf26a7ff",
-              "gmv": 0,
-              "roi": 0
-            }
-          ]
-        },
-        {
-          "rank": 8,
-          "spu": "时尚休闲鞋",
-          "productCount": 150,
-          "dailyGmv": 0,
-          "dailyGmvWan": 0,
-          "gmvPct": 3.4,
-          "heatLevel": "· 低热",
-          "liveCount": 44,
-          "creativeCount": 41,
-          "roi": 0,
-          "roiRange": "3.6-3.9",
-          "price": 203,
-          "typicalNames": [
-            "2026春夏季透气飞织网面软底防滑缓震轻便舒适中老年鞋爸爸鞋",
-            "Aokang/奥康官方正品松花黄潮流百搭舒适防滑透气增高四季工装鞋",
-            "足力健女鞋2026新款夏季透气舒适蕾丝妈妈鞋洋气上班一脚蹬女鞋",
-            "卡宾夏季透气开车男鞋3d打印鞋子男款爆款2026新款男士运动休闲鞋",
-            "Pansy盼喜大网眼镂空透气渔夫鞋女一脚蹬舒适百搭平底鞋2026年夏季新款"
-          ],
-          "env": null,
-          "topLives": [
-            {
-              "rank": 1,
-              "name": "保罗骆驼男鞋睿洋店",
               "anon_name": "TOP1 直播间",
               "gmv": 0,
               "roi": 0,
@@ -3220,15 +3246,15 @@
             },
             {
               "rank": 2,
-              "name": "Aokang奥康岚霏男鞋店",
+              "name": "袋鼠男包",
               "anon_name": "TOP2 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 3
+              "creatives": 1
             },
             {
               "rank": 3,
-              "name": "Pansy盼喜舒适鞋",
+              "name": "LUYIDAISHU品牌双肩包",
               "anon_name": "TOP3 直播间",
               "gmv": 0,
               "roi": 0,
@@ -3238,43 +3264,46 @@
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3piaceaaaziagoiz6fzvbu6qeej5aaisa.f0.mp4?dis_k=3309fad8ee3ce8f0a537668e045c7808&dis_t=1782467283&m=2f54893219b6ca52977c2ed155fee8a8&sha256=485bf6b328df25097c9d61af0dfd404691a261c26f9cbcb1045666585c645404",
+              "url": "",
+              "md5": "195e2ae79e14053ec2ad05df18fe18f9",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53xicymaafv4adv3o42bur7oqeq25albsa.f0.mp4?dis_k=7489941c8b926cc62213fe4ed96e8c01&dis_t=1775877148&m=fbc125f0d49acb3e12841b76c66f49f3",
+              "url": "",
+              "md5": "7f84dba01c7f76ab63d4df3f50ad42a3",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3xeacaaaa2iaejh7vgrurvoieec4qaica.f0.mp4?dis_k=4ffab2e510e735757a26c7768c20af5b&dis_t=1777689717&m=536c10949100c06c13dce47086022fcd",
+              "url": "",
+              "md5": "7ae465c1bf219eaf6d5b61b2bcc63cef",
               "gmv": 0,
               "roi": 0
             }
           ]
         },
         {
-          "rank": 9,
+          "rank": 8,
           "spu": "休闲皮鞋",
-          "productCount": 103,
+          "productCount": 97,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 2.1,
+          "gmvPct": 2.8,
           "heatLevel": "· 低热",
-          "liveCount": 36,
-          "creativeCount": 30,
+          "liveCount": 37,
+          "creativeCount": 26,
           "roi": 0,
-          "roiRange": "2.5-2.8",
-          "price": 247,
+          "roiRange": "4.0-4.3",
+          "price": 211,
           "typicalNames": [
             "卡帝乐鳄鱼2026年男士真皮牛皮鞋软底软面免系带商务正装皮鞋",
-            "G-vill/贵之步2026年夏季男士网面透气休闲皮鞋旋钮黑色百搭舒适轻便一脚蹬男鞋",
-            "G-vill/贵之步真皮牛皮透气镂空旋钮休闲皮鞋男士舒适商务上班软底运动男鞋",
-            "【头层牛皮】纯手工真皮夏季透气时尚百搭休闲皮鞋男鞋牛筋底手工缝线耐穿舒适耐磨",
-            "卡帝乐鳄鱼2026年镂空真皮皮鞋软底软面透气休闲皮鞋"
+            "【新品小单鞋】9888头层牛皮女真皮拼色厚底擦色复古森女系百搭休闲运动鞋女潮",
+            "羊皮版～法式老钱风方头一脚蹬通勤外穿金属环扣软皮单鞋褶皱羊皮浅口百搭",
+            "不累脚软皮软底舒适妈妈鞋时尚春秋广场舞鞋尖头粗跟简约百搭鞋小皮鞋女",
+            "真软皮女鞋软皮新款春秋软底单鞋防滑时尚百搭妈妈鞋复古工作皮鞋女"
           ],
           "env": null,
           "topLives": [
@@ -3288,7 +3317,7 @@
             },
             {
               "rank": 2,
-              "name": "男士轻奢男鞋",
+              "name": "景泰鞋服",
               "anon_name": "TOP2 直播间",
               "gmv": 0,
               "roi": 0,
@@ -3296,7 +3325,7 @@
             },
             {
               "rank": 3,
-              "name": "贵之步男鞋官方店",
+              "name": "宝格曼BOGEMON",
               "anon_name": "TOP3 直播间",
               "gmv": 0,
               "roi": 0,
@@ -3306,49 +3335,52 @@
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53naddeaagjeaalphoqrury2aegjuammsa.f0.mp4?dis_k=849a063da13e84bb13e6c295194130bd&dis_t=1776826220&m=c0412e5f319a50f7bd2086cab8b9f8bc&sha256=270bd1ed6d1b8c7b869066746ccc9ba59d17a59a88017319ea1eec0aac7d505a",
+              "url": "",
+              "md5": "空",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53oyaaqaaaamaktdqzujvbw5qebb3aacca.f0.mp4?dis_k=630e3b1a18f82b38eb25783b189b2457&dis_t=1781365947&m=45510ddc688a386503162e1e3810f5f3&sha256=cfdae390a44d2545bb73712f2d2acf2e64af04ab9a48ffefb54e0191e30a7c3f",
+              "url": "",
+              "md5": "a2dc5ccbf941560a9a14fca7a358f794",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3hqdk2aag7yaaujp2zfur2paevu6anlka.f0.mp4?dis_k=6625f127136ce23b921d70f327f4cfb1&dis_t=1782986427&m=d3dfcac6ae104079dc7bdd5df38a694c&sha256=5326d3d1776eb3123986b8091c8cc6cbb91412eb132c24a95b36e2c6991660ad",
+              "url": "",
+              "md5": "70ad8e3c56828e9cd5075894cd2c385c",
               "gmv": 0,
               "roi": 0
             }
           ]
         },
         {
-          "rank": 10,
-          "spu": "手提包/手拎包",
-          "productCount": 44,
+          "rank": 9,
+          "spu": "旅行包",
+          "productCount": 7,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 1.8,
+          "gmvPct": 2.0,
           "heatLevel": "· 低热",
-          "liveCount": 19,
-          "creativeCount": 16,
+          "liveCount": 4,
+          "creativeCount": 5,
           "roi": 0,
           "roiRange": "3.4-3.7",
-          "price": 494,
+          "price": 66,
           "typicalNames": [
-            "永幸YOUTHRONE中国风刺绣唐伯虎状元及第复古立体锻绣单肩手提包",
-            "路易卡迪 logo徽标万字纹包礼盒装",
-            "BASABELA芭莎貝拉爆款奶茶色轻奢气质手提包百搭单肩斜挎女包",
-            "包包女款爆款2026新款小香风百搭单肩斜挎手拎水桶包女士包",
-            "Belunis贝伦妮斯轻奢高端斜跨女包气质手提包礼盒装"
+            "大容量旅行包休闲时尚女手提包多功能防水运动单肩斜挎包收纳包",
+            "时尚简约大容量旅行包休闲百搭行李包运动健身包女士单肩包斜挎包",
+            "旅行包大容量新款防水多功能出差旅游包手提包男士大包行李袋女",
+            "大容量包包提包轻便旅行包短途斜挎健身男可手提行李袋出差挎包女",
+            "（爆款-登机包）大容量旅行收纳包袋万向轮干湿分离多功能包行李包爸妈出门必备包学生书包"
           ],
           "env": null,
           "topLives": [
             {
               "rank": 1,
-              "name": "永幸苏绣",
+              "name": "白沟新城亨萨箱包厂",
               "anon_name": "TOP1 直播间",
               "gmv": 0,
               "roi": 0,
@@ -3356,15 +3388,15 @@
             },
             {
               "rank": 2,
-              "name": "路易卡迪箱包总店",
+              "name": "空",
               "anon_name": "TOP2 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 1
+              "creatives": 3
             },
             {
               "rank": 3,
-              "name": "芭莎贝拉箱包店",
+              "name": "集禾箱包",
               "anon_name": "TOP3 直播间",
               "gmv": 0,
               "roi": 0,
@@ -3374,19 +3406,93 @@
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3aeagoaaa2yanrhsnrrvbuaiem4aqaz2a.f0.mp4?dis_k=2e818e9b1011c01b7a7f8e8470515e07&dis_t=1783480306&m=eebb21b2da2c4fb1f111f189eaf7cc6c&sha256=95f6d4ed7369b85d7dadabb7ec00f17ac01aae779dca6ef893810534cc3c4caa",
+              "url": "",
+              "md5": "1e3d1c6871cd6aba2915bba58b3c40b1",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3vqdniaagdualwp7xgfurzlae2swanvca.f0.mp4?dis_k=b35957a11b1e80c38e09856a629756e7&dis_t=1777430462&m=b7df0b8a226123d25734802523c0056a&sha256=dac30179a3aa4acca1bce023831845c0db5165dbfedef7104908a0aba8c78bfa",
+              "url": "",
+              "md5": "56598e5a8f7885bc77672e753118f1b4",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc364aiwaaaliagpbikrjubv5yerp3qbc2a.f0.mp4?dis_k=22787da5c97943712d107db1a106dab7&dis_t=1769840096&m=2ceadb040fbcc5069291e781fff80fa4&sha256=aa11ec89b2f4b39cb54db68c9d71aa00bbdef7d6deacc1781c68e8ceeb3feef1",
+              "url": "",
+              "md5": "ccda6780b880fe048658e5cd30ee03a0",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
+        },
+        {
+          "rank": 10,
+          "spu": "玛丽珍鞋",
+          "productCount": 79,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 1.9,
+          "heatLevel": "· 低热",
+          "liveCount": 25,
+          "creativeCount": 38,
+          "roi": 0,
+          "roiRange": "7.7-8.0",
+          "price": 305,
+          "typicalNames": [
+            "羊皮版～手工复古文艺风做旧全皮浅口单鞋平底通勤玛丽珍鞋软底舒适女鞋",
+            "羊皮轻奢百搭玛丽珍2026春季新款粗跟真皮女士单鞋明星同款鞋子",
+            "思加图2026秋季新款玛丽珍鞋浅口鞋单鞋粗跟小皮鞋女鞋子R2508CQ6",
+            "羊皮版～复古圆头新款文艺增高侧空松弛感做旧一字带玛丽珍鞋女",
+            "足力健夏季薄款蕾丝玛丽珍女款休闲妈妈鞋防滑软底透气舒适女鞋"
+          ],
+          "env": null,
+          "topLives": [
+            {
+              "rank": 1,
+              "name": "玖禾真皮手工女鞋",
+              "anon_name": "TOP1 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 6
+            },
+            {
+              "rank": 2,
+              "name": "DIOUGENS迪欧摩尼女鞋",
+              "anon_name": "TOP2 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 1
+            },
+            {
+              "rank": 3,
+              "name": "STACCATO思加图",
+              "anon_name": "TOP3 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 6
+            }
+          ],
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "",
+              "md5": "b1791000c72f5440805e571964fc1d4d",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "",
+              "md5": "9ec392521cc3a4c6983aa93893ed632c",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "",
+              "md5": "39656b1d06c7facbfe26a9e77957bea9",
               "gmv": 0,
               "roi": 0
             }
@@ -3398,37 +3504,37 @@
       "track": "运动户外",
       "totalDailyGmv": 0,
       "totalDailyGmvWan": 0,
-      "top10Coverage": 73.4,
+      "top10Coverage": 69.0,
       "top10DailyGmv": 0,
-      "totalLives": 149,
+      "totalLives": 159,
       "totalCreatives": 0,
-      "spuCount": 159,
+      "spuCount": 179,
       "spus": [
         {
           "rank": 1,
           "spu": "女士速干T恤/Polo衫",
-          "productCount": 63,
+          "productCount": 60,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 18.0,
+          "gmvPct": 16.4,
           "heatLevel": "🔥🔥 高热",
           "liveCount": 15,
-          "creativeCount": 20,
+          "creativeCount": 19,
           "roi": 0,
-          "roiRange": "3.6-3.9",
-          "price": 163,
+          "roiRange": "3.0-3.3",
+          "price": 161,
           "typicalNames": [
-            "UTO悠途16.5微米美利奴羊毛速干衣短袖男款女款运动T恤徒步",
             "UTO悠途向峰跑步长袖男士吸汗速干T恤女款弹力透气舒适运动服速干衣",
+            "UTO悠途16.5微米美利奴羊毛速干衣短袖男款女款运动T恤徒步",
+            "UTO向氢Coolmax速干短袖新款吸湿抗菌户外运动春夏轻薄T恤",
             "UTO/悠途男士女士向峰羊毛螺旋竹节多彩扎染短袖",
-            "户外运动夜光系列！男女款凉感速干百搭舒适短袖9687-z",
-            "UTO向氢Coolmax速干短袖新款吸湿抗菌户外运动春夏轻薄T恤"
+            "UTO悠途男士女士羊毛螺旋竹节扎染长袖速干衣"
           ],
           "env": null,
           "topLives": [
             {
               "rank": 1,
-              "name": "UTO悠途户外运动",
+              "name": "UTO悠途户外装备",
               "anon_name": "TOP1 直播间",
               "gmv": 0,
               "roi": 0,
@@ -3436,37 +3542,40 @@
             },
             {
               "rank": 2,
-              "name": "UTO悠途户外装备",
+              "name": "UTO悠途运动用品店",
               "anon_name": "TOP2 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 3
+              "creatives": 1
             },
             {
               "rank": 3,
-              "name": "UTO悠途运动用品店",
+              "name": "UTO悠途户外运动",
               "anon_name": "TOP3 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 2
+              "creatives": 4
             }
           ],
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3x4bq6aadzqacxfzpafvbtpyeb67qgd2a.f0.mp4?dis_k=904f46fcd070d15a4f256e18101ba0fe&dis_t=1781277817&m=a3c798d49810a86e634bb97c454cb006",
+              "url": "",
+              "md5": "空",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3e4augaab6eact2imabvbwjyeimtqcq2a.f0.mp4?dis_k=36966e7853db113bff0de280e0cc4321&dis_t=1779264217&m=38e9640ec1cb6187deb4de812363ad66",
+              "url": "",
+              "md5": "20d4cdb64d6ce26e4c8451439b5529aa",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53tublaaac2aajvvzlujvbrhiewcoqfmca.f0.mp4?dis_k=c7f74837ccdc0d9e7ca47ee9ef24fcd1&dis_t=1781082706&m=2f5be4987c39cbc7f31b74e40db9b2bf",
+              "url": "",
+              "md5": "38e9640ec1cb6187deb4de812363ad66",
               "gmv": 0,
               "roi": 0
             }
@@ -3475,13 +3584,13 @@
         {
           "rank": 2,
           "spu": "运动护具",
-          "productCount": 43,
+          "productCount": 44,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 16.7,
+          "gmvPct": 14.0,
           "heatLevel": "🔥🔥 高热",
-          "liveCount": 13,
-          "creativeCount": 6,
+          "liveCount": 11,
+          "creativeCount": 5,
           "roi": 0,
           "roiRange": "2.2-2.5",
           "price": 98,
@@ -3489,8 +3598,8 @@
             "护膝关节保暖春夏运动防护男女中老年跑步跳绳轻便康舒",
             "髌骨带夏季专业级跑步羽毛球膝盖保护带运动髌护带透气不闷汗男女通用",
             "GOUNOD古诺迪专业运动髌骨带跑步登山篮球骑行男女半月板保护护膝",
-            "GOUNOD古诺迪专业运动髌骨带男女跑步篮球登山骑行半月板保护护膝",
-            "GOUNOD古诺迪专业运动髌骨带登山跑步跳舞骑行羽毛球护膝半月板保护髌腱带"
+            "GOUNOD古诺迪专业运动髌骨带登山跑步跳舞骑行羽毛球护膝半月板保护髌腱带",
+            "GOUNOD古诺迪专业运动髌骨带男女跑步篮球登山骑行半月板保护护膝"
           ],
           "env": null,
           "topLives": [
@@ -3522,19 +3631,22 @@
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53ruaoaaaa4yak6cj3avvbvdie4cgqbyca.f0.mp4?dis_k=28509593ac90aa650b87fbd517df6d94&dis_t=1782271896&m=47d7adac8b20f9a1c8726126b3864443&sha256=0f80788b6f212a6565f0dbf645b4ba949c3ed88ea5b5850afb1c1cf348df7199",
+              "url": "",
+              "md5": "47d7adac8b20f9a1c8726126b3864443",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53oebzwaadjqadbobi6jvbs4ietnyqhg2a.f0.mp4?dis_k=1fb8e170b33f550aa2e30564f7d0c931&dis_t=1781246795&m=ba051261daa90a85a66da10b3dd3a2fb&sha256=54768d9a77b43d82b5d548079433c04cb2f4c6829947bdeb7ada829eedaf97c9",
+              "url": "",
+              "md5": "959f87603f81441ba6f8943589b70314",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3e4as4aabtaajtvzo5vvbwjyefytqclsa.f0.mp4?dis_k=d0a4af21116383ca0900d1a7061f3221&dis_t=1781512219&m=8528b14da593e62075a18b6b8c6f1f5d&sha256=4d24563ca11729d4a831db7322ec86dee0d4fbd80fb5c283c4c4bb23cb9e0785",
+              "url": "",
+              "md5": "0ccbed86eea24785ec8d5f1139c8e08b",
               "gmv": 0,
               "roi": 0
             }
@@ -3543,22 +3655,22 @@
         {
           "rank": 3,
           "spu": "休闲裤",
-          "productCount": 29,
+          "productCount": 23,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 7.5,
-          "heatLevel": "🔥 中热",
-          "liveCount": 8,
-          "creativeCount": 10,
+          "gmvPct": 11.0,
+          "heatLevel": "🔥🔥 高热",
+          "liveCount": 9,
+          "creativeCount": 9,
           "roi": 0,
-          "roiRange": "3.9-4.2",
-          "price": 209,
+          "roiRange": "3.7-4.0",
+          "price": 203,
           "typicalNames": [
             "【杨幂同款】SIINSIIN垂垂滑滑冰皮云感直筒裤粉彩风防晒裤",
             "【杨幂同款】SIINSIIN云感直筒裤高腰显瘦夏季冰皮休闲裤",
-            "【杨幂同款】SIINSIIN白色喇叭裤时尚显瘦运动休闲正品鲨鱼微喇裤",
             "【杨幂同款】SIINSIIN白色工装伞兵裤2.0防晒透气休闲宽松正品凉感裤子",
-            "MissWiss云感垂坠阔腿裤显瘦显腿长夏季薄款透气宽松垂感休闲裤"
+            "【杨幂同款】SIINSIIN垂垂滑滑冰丝凉感直筒裤粉彩风防晒裤",
+            "【杨幂同款】SIINSIIN白色喇叭裤时尚显瘦运动休闲正品鲨鱼微喇裤"
           ],
           "env": null,
           "topLives": [
@@ -3568,41 +3680,44 @@
               "anon_name": "TOP1 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 4
-            },
-            {
-              "rank": 2,
-              "name": "SIINSIIN户外运动店",
-              "anon_name": "TOP2 直播间",
-              "gmv": 0,
-              "roi": 0,
               "creatives": 2
             },
             {
-              "rank": 3,
+              "rank": 2,
               "name": "SINSIN服饰品牌",
-              "anon_name": "TOP3 直播间",
+              "anon_name": "TOP2 直播间",
               "gmv": 0,
               "roi": 0,
               "creatives": 1
+            },
+            {
+              "rank": 3,
+              "name": "SIINSIIN户外运动店",
+              "anon_name": "TOP3 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 2
             }
           ],
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3tibn6aaciqairz6q4jurrgqe36nafx2a.f0.mp4?dis_k=64c9612963d7c5d6cd1a9e8212afa9a1&dis_t=1777217729&m=2db26ef8db965ee404bfabeff7bb9c92&sha256=6bab121ec84ac992a3235c34467df0935c620d528b376e90235ebe8b614153b7",
+              "url": "",
+              "md5": "8e744d26d3d12ed340cf04e427a2affd",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc36qbdsaacgyabha65prurr5aehh2aeoka.f0.mp4?dis_k=5a991112bf5cb7626879a80629acbb76&dis_t=1777299197&m=8e744d26d3d12ed340cf04e427a2affd&sha256=d736e7e8b216c8e8868db2b06eaa25696ddcb9f05227e69333de9bcd4e47a6cb",
+              "url": "",
+              "md5": "e7ca25d7f7221a734aade79e1288f9f4",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3amap2aaabuaatrax3nvbwaye7ubqb7ka.f0.mp4?dis_k=d5c8878b2c50d668862ff4f8860769ac&dis_t=1780970416&m=275e43f248f29bea9943ddacca6e1ed6&sha256=dd6d1cdba70922451fd10cf0e97028ba18c8b0ccf42069bdddcd3ac285779b83",
+              "url": "",
+              "md5": "e6fe9f926fb128b348a3279f04d115b7",
               "gmv": 0,
               "roi": 0
             }
@@ -3610,23 +3725,165 @@
         },
         {
           "rank": 4,
-          "spu": "帐篷",
-          "productCount": 10,
+          "spu": "女士冲锋衣",
+          "productCount": 29,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 6.4,
+          "gmvPct": 6.2,
           "heatLevel": "🔥 中热",
-          "liveCount": 2,
-          "creativeCount": 2,
+          "liveCount": 5,
+          "creativeCount": 10,
           "roi": 0,
-          "roiRange": "1.9-2.2",
-          "price": 1590,
+          "roiRange": "3.9-4.2",
+          "price": 475,
+          "typicalNames": [
+            "【王者凯甲】骆驼户外三合一远山蓝冲锋衣春男女防风防水徒步登山",
+            "林更新同款【青鸟冲锋衣】拓路者2026款户外三合一外套男女徒步单层登山服",
+            "【雨舞者】骆驼户外三合一抓绒冲锋衣防风防水徒步登山外套情侣春",
+            "KAILAS凯乐石 女款博格达冲锋衣",
+            "林更新同款【朱雀pro冲锋衣】拓路者全天候硬壳冲锋衣雪山单冲男女徒步登山服"
+          ],
+          "env": null,
+          "topLives": [
+            {
+              "rank": 1,
+              "name": "CAMEL骆驼品牌官方店",
+              "anon_name": "TOP1 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 2
+            },
+            {
+              "rank": 2,
+              "name": "拓路者PioneerCamp",
+              "anon_name": "TOP2 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 4
+            },
+            {
+              "rank": 3,
+              "name": "Camel骆驼运动户外官方店",
+              "anon_name": "TOP3 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 2
+            }
+          ],
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "",
+              "md5": "bcb44c78eabeb3683607253481101fdb",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "",
+              "md5": "空",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "",
+              "md5": "0c28cf4e838d428a9b51fa6fa4d83716",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
+        },
+        {
+          "rank": 5,
+          "spu": "女士速干裤",
+          "productCount": 25,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 5.5,
+          "heatLevel": "🔥 中热",
+          "liveCount": 11,
+          "creativeCount": 12,
+          "roi": 0,
+          "roiRange": "5.8-6.1",
+          "price": 149,
+          "typicalNames": [
+            "【安踏A-COOL】薄款男女同款宽松透气夏日凉感直筒休闲运动裤",
+            "【A-COOL 男女同款】ANTA透爽科技26年夏季梭织直筒商务休闲功能性长裤",
+            "蕉下Beneunder【26上新 直播专享】速干防晒降落伞裤（男女同款）DS673 QJ",
+            "蕉下Beneunder【26春夏上新】晴雨两用 女士防泼水防晒衣WR009",
+            "蕉下【26春夏上新 内购专享】女士棉感T恤CT008  QJ"
+          ],
+          "env": null,
+          "topLives": [
+            {
+              "rank": 1,
+              "name": "安踏ANTA官方号",
+              "anon_name": "TOP1 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 2
+            },
+            {
+              "rank": 2,
+              "name": "安踏ANTA总部店",
+              "anon_name": "TOP2 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 1
+            },
+            {
+              "rank": 3,
+              "name": "蕉下BENEUNDER旗舰",
+              "anon_name": "TOP3 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 2
+            }
+          ],
+          "topCreatives": [
+            {
+              "rank": 1,
+              "url": "",
+              "md5": "空",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 2,
+              "url": "",
+              "md5": "678bdcbaf6138ced9a4515f02bce794e",
+              "gmv": 0,
+              "roi": 0
+            },
+            {
+              "rank": 3,
+              "url": "",
+              "md5": "0b6662bcc0942ec6ebf2bd6ec5100472",
+              "gmv": 0,
+              "roi": 0
+            }
+          ]
+        },
+        {
+          "rank": 6,
+          "spu": "帐篷",
+          "productCount": 12,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 3.8,
+          "heatLevel": "· 低热",
+          "liveCount": 3,
+          "creativeCount": 4,
+          "roi": 0,
+          "roiRange": "2.2-2.5",
+          "price": 1573,
           "typicalNames": [
             "加高帐顶[胡杨林pro] 太力全自动充气帐篷2-4人户外露营过夜帐篷",
             "四门可开[张丹峰专属] 太力山屿自动充气帐篷四面全景过夜露营防风防雨防晒野营",
             "加高加大[胡杨林max]太力户外全自动充气帐篷3-8人天幕露营过夜暴雨露营防晒遮阳超大空间",
-            "加高帐顶 [胡杨林系列] 太力全自动充气帐篷2-4人户外露营过夜天幕",
-            "[张丹峰专属] 太力山屿自动充气帐篷四面全景户外露营过夜防雨防晒"
+            "太力户外充气多人床垫户外帐篷加厚露营打地铺野营冲气便携家用垫",
+            "带电泵[太力浪屿]沙滩公园多用充气帐篷底账可拆轻便便携速开户外露营防晒遮阳玩沙"
           ],
           "env": null,
           "topLives": [
@@ -3636,57 +3893,68 @@
               "anon_name": "TOP1 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 2
+              "creatives": 3
             },
             {
               "rank": 2,
-              "name": "0",
+              "name": "空",
               "anon_name": "TOP2 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 2
+              "creatives": 3
+            },
+            {
+              "rank": 3,
+              "name": "太力户外露营直播间",
+              "anon_name": "TOP3 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 1
             }
           ],
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3nebtiaadpialj45mvburs2iegruqgnca.f0.mp4?dis_k=7274c3f1a2f08f2abb05f8f25c96c396&dis_t=1773219314&m=67e3395d3bae0bbd530b4cffb21e3d5b&sha256=362d6a146166ec376751c8f59877a21da96a6b3a10d55bc603cd14e15b07546f",
+              "url": "",
+              "md5": "67e3395d3bae0bbd530b4cffb21e3d5b",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc32qahwaaadiapv32uwjurxvaeppkaa62a.f0.mp4?dis_k=e71132f35d77347fb9f0c8294ec6f316&dis_t=1775117417&m=057716571674ea6dbfd8428800bcee8e&sha256=a79a1e14ba87ea84764227a7199c237f5f2e0d0e0013ebccbcd17dfbbe84a73e",
+              "url": "",
+              "md5": "90c9c84f7cf69e985bcdc171c6c9052e",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53xqaykaabdiab3h6kr5urxpaeqw6adbka.f0.mp4?dis_k=99627c2a0c6622da747e038d2709dc0c&dis_t=1774951030&m=ae0c5d68ab4c3c0c38eac0918db7ea99&sha256=48f0e7d096cdd0d3a16788fd0504b4c808f71fd9c93d1716e99b5df433ed6b5e",
+              "url": "",
+              "md5": "ae0c5d68ab4c3c0c38eac0918db7ea99",
               "gmv": 0,
               "roi": 0
             }
           ]
         },
         {
-          "rank": 5,
+          "rank": 7,
           "spu": "泳镜",
-          "productCount": 28,
+          "productCount": 23,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 5.9,
-          "heatLevel": "🔥 中热",
+          "gmvPct": 3.7,
+          "heatLevel": "· 低热",
           "liveCount": 6,
-          "creativeCount": 11,
+          "creativeCount": 7,
           "roi": 0,
           "roiRange": "2.4-2.7",
-          "price": 80,
+          "price": 79,
           "typicalNames": [
+            "中欧时尚镀膜中框泳镜 高清防雾密封防水成人游泳护目镜",
             "中欧一体式镀膜泳镜 大框显瘦防水防雾户外游泳专用眼镜",
+            "中欧高清反光泳镜 全包柔胶密封男女泳池冲浪运动镜",
             "中欧时尚显瘦大框泳镜 软硅胶垫圈泳池温泉男女通用游泳镜",
-            "【鲨鱼皮速2】Speedo速比涛成人专业竞速游泳泳镜高清防水防雾训练",
-            "Jeep量子防雾泳镜高清防水防雾近视度数专业游泳眼镜男女通用装备",
-            "【汪顺同款】Speedo/速比涛 云感2.0清晰大框近视泳镜防水防雾高清"
+            "中欧简约高颜值镀膜泳镜 密封隔水成人休闲游泳专用装备"
           ],
           "env": null,
           "topLives": [
@@ -3712,114 +3980,48 @@
               "anon_name": "TOP3 直播间",
               "gmv": 0,
               "roi": 0,
-              "creatives": 3
-            }
-          ],
-          "topCreatives": [
-            {
-              "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3maatkaab2aakz22vlbvbwyaegvqacnka.f0.mp4?dis_k=1434505419afe544c840e3148c1b45d1&dis_t=1783929575&m=6f8091107525dd1d42755f63449d8a51&sha256=5c30061833827b30a1f3312a0bd21a3880ef5eeb64a983e6f3ce740d7a5458ca",
-              "gmv": 0,
-              "roi": 0
-            },
-            {
-              "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53yeajsaaabiaa6asm6bvbvqiethaqbgka.f0.mp4?dis_k=9ad013ec456d76e8ce6427c5f83e9081&dis_t=1783404504&m=2c93994c0b2cb0de79cbd14f8009f0f0&sha256=98b61866aa18f4a41cc99fcd38ea122c412b6dbfe904d78c3713abb705b96349",
-              "gmv": 0,
-              "roi": 0
-            },
-            {
-              "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3fyaqiaabxeaagiktnnvbwlqeaqxacbca.f0.mp4?dis_k=3f73a92256709e854ca26850e6335472&dis_t=1783761318&m=ce453981d0fc2155b425453bd79b04e2&sha256=5166bd7c670160e5d2d1f6a2b9e368ac58a386e0f218981ef24ebb2c9121971b",
-              "gmv": 0,
-              "roi": 0
-            }
-          ]
-        },
-        {
-          "rank": 6,
-          "spu": "女士冲锋衣",
-          "productCount": 26,
-          "dailyGmv": 0,
-          "dailyGmvWan": 0,
-          "gmvPct": 4.8,
-          "heatLevel": "· 低热",
-          "liveCount": 5,
-          "creativeCount": 9,
-          "roi": 0,
-          "roiRange": "4.2-4.5",
-          "price": 493,
-          "typicalNames": [
-            "【王者凯甲】骆驼户外三合一远山蓝冲锋衣春男女防风防水徒步登山",
-            "林更新同款【青鸟冲锋衣】拓路者2026款户外三合一外套男女徒步单层登山服",
-            "林更新同款【青鸟单冲】拓路者硬壳冲锋衣防风防水冲锋衣男女同款",
-            "KAILAS凯乐石 女款博格达冲锋衣",
-            "林更新同款【朱雀pro冲锋衣】拓路者全天候硬壳冲锋衣雪山单冲男女徒步登山服"
-          ],
-          "env": null,
-          "topLives": [
-            {
-              "rank": 1,
-              "name": "CAMEL骆驼品牌官方店",
-              "anon_name": "TOP1 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 2
-            },
-            {
-              "rank": 2,
-              "name": "拓路者PioneerCamp",
-              "anon_name": "TOP2 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 4
-            },
-            {
-              "rank": 3,
-              "name": "凯乐石户外",
-              "anon_name": "TOP3 直播间",
-              "gmv": 0,
-              "roi": 0,
               "creatives": 2
             }
           ],
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53euammaaanqapcvcns5vbujieyysqbrsa.f0.mp4?dis_k=f6ef05c6b44e2425b852eecf555ab1fe&dis_t=1783445327&m=8a38074a692553f0d42b2513e08e6d6e&sha256=cebc49ac15f28ffaff037966b2e9d4277342bedb857e6f10bff83d8ffb34ace0",
+              "url": "",
+              "md5": "6f8091107525dd1d42755f63449d8a51",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3z4am6aaaxeamuyspsnvbvtyez7hqbt2a.f0.mp4?dis_k=3fffc8ac6308935d67d4b2bc73115414&dis_t=1783563665&m=1be88673cdff1a4cceddddffb5e4eaef&sha256=c8d5027b5585368c70dc1c21774ebc1835784921a1ac47c24ef669b2ad78e3d7",
+              "url": "",
+              "md5": "5677cfd2cfb3eda3e3bc46d39a03a46a",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53oectkaaf2aanbnp4qnur64iegvyqknka.f0.mp4?dis_k=ecf131e4ad5533103cdcf05f120cc733&dis_t=1777984935&m=446a53c5f1860ca3c4fa529405aafb59",
+              "url": "",
+              "md5": "86b3cefd9d04291f01339d19483045c0",
               "gmv": 0,
               "roi": 0
             }
           ]
         },
         {
-          "rank": 7,
+          "rank": 8,
           "spu": "女士瑜伽套装",
-          "productCount": 3,
+          "productCount": 2,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 4.2,
+          "gmvPct": 3.3,
           "heatLevel": "· 低热",
           "liveCount": 2,
-          "creativeCount": 2,
+          "creativeCount": 1,
           "roi": 0,
-          "roiRange": "3.0-3.3",
-          "price": 198,
+          "roiRange": "2.8-3.1",
+          "price": 203,
           "typicalNames": [
-            "2.0上新色【三件套】高强度运动内衣上衣三分瑜伽裤运动健身衣服套装",
-            "夏美背透气裸感微压提臀运动瑜伽健身套装"
+            "2.0上新色【三件套】高强度运动内衣上衣三分瑜伽裤运动健身衣服套装"
           ],
           "env": null,
           "topLives": [
@@ -3833,76 +4035,8 @@
             },
             {
               "rank": 2,
-              "name": "0",
+              "name": "空",
               "anon_name": "TOP2 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 2
-            }
-          ],
-          "topCreatives": [
-            {
-              "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc32uaxsaabwyafukavb5vbxviephkqc6ka.f0.mp4?dis_k=738c7c89348caae9bd7819046dd78b97&dis_t=1779704697&m=00dd8bc8536399304b764c77cb723de5&sha256=1a26ab0405816120ae6a1fb913472e9de782f92ccc41e9108e49863254a834ab",
-              "gmv": 0,
-              "roi": 0
-            },
-            {
-              "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53k4blaaacmaaaztrbynvbqvyewblqfmca.f0.mp4?dis_k=c42de0b8ddac5cf471acdb2225ab6268&dis_t=1780726848&m=7a216c87a26e5c4aa90e0551eb4a221a&sha256=3966b6723d7026eee7f295d5dc1ecb02615995271727e745ca3df86998ecbc96",
-              "gmv": 0,
-              "roi": 0
-            },
-            {
-              "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53cuacwaaaliaaouy5qrvbufiefmkqak2a.f0.mp4?dis_k=88fe0b738ea2d92f9d597029d8db5647&dis_t=1780296788&m=9697d0390d483f00dfa7a0c2dc00e73a&sha256=9016011eba4bb680025e9bda4d78b1aec51e860e0839d60a12ddfa1ff4dbc87e",
-              "gmv": 0,
-              "roi": 0
-            }
-          ]
-        },
-        {
-          "rank": 8,
-          "spu": "防晒配件",
-          "productCount": 55,
-          "dailyGmv": 0,
-          "dailyGmvWan": 0,
-          "gmvPct": 3.3,
-          "heatLevel": "· 低热",
-          "liveCount": 12,
-          "creativeCount": 18,
-          "roi": 0,
-          "roiRange": "2.8-3.1",
-          "price": 44,
-          "typicalNames": [
-            "特步防晒面罩女全脸防紫外线骑行脸基尼护颈一体遮阳冰丝护脸口罩",
-            "特步宽松冰袖防晒高弹大码冰丝袖套防紫外线骑车护手臂透气手袖夏",
-            "蕉下【26春夏上新】帽檐款护颈防晒面罩AL341",
-            "[百变造型]经典条纹防晒遮阳帽子盆帽前长后短可调节渔夫帽定型丝帽檐",
-            "2026新升级可机洗水洗真丝防晒口罩"
-          ],
-          "env": null,
-          "topLives": [
-            {
-              "rank": 1,
-              "name": "特步风火健身器材店",
-              "anon_name": "TOP1 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 6
-            },
-            {
-              "rank": 2,
-              "name": "特步奥锐克健身器材",
-              "anon_name": "TOP2 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 7
-            },
-            {
-              "rank": 3,
-              "name": "蕉下深圳壹方汇店",
-              "anon_name": "TOP3 直播间",
               "gmv": 0,
               "roi": 0,
               "creatives": 1
@@ -3911,19 +4045,22 @@
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc36aaf4aaa3yanltqg6rvbv4ael3yaaxsa.f0.mp4?dis_k=db83e545a39057b86ab26cdfbaf91020&dis_t=1778813745&m=9077cc12593e8eb130713150fa58c2ea",
+              "url": "",
+              "md5": "00dd8bc8536399304b764c77cb723de5",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53fmdugaahc4ai45hv4bur2kyeimvqoq2a.f0.mp4?dis_k=9f18d58017d21697d0b20f8255952c39&dis_t=1777520045&m=6031d0e56a76f43ce9e7266cb4122801&sha256=413710d4c47839291ec5bcb96b1cc5eaef87f9c52651655b84791e2359e3bea0",
+              "url": "",
+              "md5": "7a216c87a26e5c4aa90e0551eb4a221a",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53uuck2aaeiyadqzb3ujvb5jievwsqjlka.f0.mp4?dis_k=54073249598f889d09581dd46f960873&dis_t=1782552040&m=e8b386b36bd2e2fcc452b9bc5ef15997",
+              "url": "",
+              "md5": "空",
               "gmv": 0,
               "roi": 0
             }
@@ -3931,78 +4068,29 @@
         },
         {
           "rank": 9,
-          "spu": "遮阳伞/遮阳篷",
-          "productCount": 3,
+          "spu": "女士健身裤/运动裤",
+          "productCount": 21,
           "dailyGmv": 0,
           "dailyGmvWan": 0,
-          "gmvPct": 3.3,
+          "gmvPct": 2.6,
           "heatLevel": "· 低热",
-          "liveCount": 1,
-          "creativeCount": 1,
+          "liveCount": 9,
+          "creativeCount": 11,
           "roi": 0,
-          "roiRange": "3.8-4.1",
-          "price": 29,
+          "roiRange": "2.1-2.4",
+          "price": 123,
           "typicalNames": [
-            "[升级款]防晒加厚防水雨布防雨布电动车装备遮阳伞",
-            "[防雨防晒]户外隔热遮阳防晒防雨加厚防水雨布电动车装备电动车遮阳伞"
+            "【A-COOL 黑冰系列】男女同款ANTA透爽科技26年夏季梭织直筒商务休闲功能性长裤",
+            "UTO悠途水壶腰包跑步短裤男马女拉松越野跑",
+            "夏款超薄纯棉运动裤220克毛圈棉针织卫裤男女同款直筒束脚纯棉速干裤",
+            "科里芙压缩裤全围口袋抽绳紧身裤跑步运动三分裤五分裤男女款",
+            "马孔多轻量风洞短裤凉感原纱防晒防泼水夜跑反光贴片男女跑步短裤"
           ],
           "env": null,
           "topLives": [
             {
               "rank": 1,
-              "name": "弥珀遮阳防雨篷布工厂店",
-              "anon_name": "TOP1 直播间",
-              "gmv": 0,
-              "roi": 0,
-              "creatives": 1
-            }
-          ],
-          "topCreatives": [
-            {
-              "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b534iap4aaa7aafus2rs5vbxyqe73rab7sa.f0.mp4?dis_k=f7e4cd4761c102236b3a8325d96600f0&dis_t=1783735338",
-              "gmv": 0,
-              "roi": 0
-            },
-            {
-              "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53uqcfkaaef4ahaek5kbub5jaekwsaivka.f0.mp4?dis_k=1e84dcab8aece164e075ada7ffdf933d&dis_t=1780744565&m=43b39c6a3c6deaeb06bafcad3b79097c&sha256=eb68f9494e1468c8a49ece556f5318befbce495e5139829c5b556c51cc51a660",
-              "gmv": 0,
-              "roi": 0
-            },
-            {
-              "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3tqap4aaanaaf2pkrsrvbxhae72oab7sa.f0.mp4?dis_k=91ad676165b3b2bda267f99ae2344872&dis_t=1783735306",
-              "gmv": 0,
-              "roi": 0
-            }
-          ]
-        },
-        {
-          "rank": 10,
-          "spu": "儿童泳镜",
-          "productCount": 14,
-          "dailyGmv": 0,
-          "dailyGmvWan": 0,
-          "gmvPct": 3.2,
-          "heatLevel": "· 低热",
-          "liveCount": 6,
-          "creativeCount": 4,
-          "roi": 0,
-          "roiRange": "3.0-3.3",
-          "price": 26,
-          "typicalNames": [
-            "迪士尼儿童泳镜大框3-18岁户外游玩防雾防水高清镜",
-            "中欧高清大视野儿童泳镜 密封防渗水男女宝宝泳池温泉护目镜",
-            "Jeep儿童泳镜男女孩游泳眼镜防水防雾高清游泳镜专业护眼泳镜儿童",
-            "【云感2.0】Speedo/速比涛无压痕护目大框高清防水防雾儿童游泳镜",
-            "中欧儿童专用游泳镜 柔软硅胶垫圈久戴不压眼戏水装备"
-          ],
-          "env": null,
-          "topLives": [
-            {
-              "rank": 1,
-              "name": "世界冠军教练张教练",
+              "name": "安踏ANTA官方商城",
               "anon_name": "TOP1 直播间",
               "gmv": 0,
               "roi": 0,
@@ -4010,7 +4098,7 @@
             },
             {
               "rank": 2,
-              "name": "中欧运动",
+              "name": "UTO悠途户外装备",
               "anon_name": "TOP2 直播间",
               "gmv": 0,
               "roi": 0,
@@ -4018,7 +4106,7 @@
             },
             {
               "rank": 3,
-              "name": "Jeep运动装备",
+              "name": "lquality金选服饰",
               "anon_name": "TOP3 直播间",
               "gmv": 0,
               "roi": 0,
@@ -4028,23 +4116,55 @@
           "topCreatives": [
             {
               "rank": 1,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc3qyaloaaajiahd6sexzvbvbqew6dabn2a.f0.mp4?dis_k=7403058d5ceaf68defd4369233a261e7&dis_t=1782892251&m=f1a73c1f8c90ff8a2439d64ea89cce4c&sha256=7c0a2b296820a326c8e0fa74dd29d9e8d97f532e1cc559147892fb82bebf0a65",
+              "url": "",
+              "md5": "空",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 2,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0b53gqagqaaagiabny2lyfvbunaena2aa2ca.f0.mp4?dis_k=938f06b763523d9a80ce4666fc4780d7&dis_t=1783332710&m=1fe84efc7fcf4b8b087995c766e3fab3&sha256=69426f1302e4b5f4b496b571430e0513ade483dae7e4a6072c0c36f1b7710b62",
+              "url": "",
+              "md5": "417785b8953d3f324e531000fd5d4b5f",
               "gmv": 0,
               "roi": 0
             },
             {
               "rank": 3,
-              "url": "http://adsmind.gdtimg.com/ads_svp_video__0bc36eaacaaaxmahcrsprfvbv4ieahyqaaka.f0.mp4?dis_k=ca27ff2f8838634b53b63150dfcbafe7&dis_t=1783591100&m=966b9ca9909935b4e16ce0a2ba975647&sha256=613028db02b701979b279cba0373d51047f6d21d7ea13e9555bdb1e33c91ea62",
+              "url": "",
+              "md5": "a721e5bf7f1ca148662294e8e6123023",
               "gmv": 0,
               "roi": 0
             }
           ]
+        },
+        {
+          "rank": 10,
+          "spu": "儿童速度球/反应球",
+          "productCount": 1,
+          "dailyGmv": 0,
+          "dailyGmvWan": 0,
+          "gmvPct": 2.4,
+          "heatLevel": "· 低热",
+          "liveCount": 1,
+          "creativeCount": 1,
+          "roi": 0,
+          "roiRange": "2.3-2.6",
+          "price": 188,
+          "typicalNames": [
+            "创步【樊少皇推荐】拳击速度球成人儿童反应球训练解压拳击靶家用"
+          ],
+          "env": null,
+          "topLives": [
+            {
+              "rank": 1,
+              "name": "创步速度球",
+              "anon_name": "TOP1 直播间",
+              "gmv": 0,
+              "roi": 0,
+              "creatives": 1
+            }
+          ],
+          "topCreatives": []
         }
       ]
     }
