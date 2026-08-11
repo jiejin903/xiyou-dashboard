@@ -1,163 +1,163 @@
 {
-  "gen_time": "2026-07-13 20:15:24",
-  "period": "6.29-7.12",
+  "gen_time": "2026-08-11 11:42:26",
+  "period": "7.28-8.10",
   "module_a_top3": [
     {
-      "track": "贴身衣物",
-      "up_count": 11,
+      "track": "箱包鞋靴",
+      "up_count": 4,
       "rep_customer": {
-        "name": "广州美丽商业有限公司",
-        "base_spend": 8985.0,
-        "obs_spend": 70426.0,
-        "spend_lift": 6.14,
+        "name": "广州市神婷皮具有限公司",
+        "base_spend": 1049.0,
+        "obs_spend": 16645.0,
+        "spend_lift": 1.56,
         "driver": "基建增加",
-        "driver_detail": "创意ID910→1134(+25%)"
-      }
-    },
-    {
-      "track": "综合服饰",
-      "up_count": 5,
-      "rep_customer": {
-        "name": "郴州发财羊贸易有限公司",
-        "base_spend": 206.0,
-        "obs_spend": 19222.0,
-        "spend_lift": 1.9,
-        "driver": "双驱动",
-        "driver_detail": "账户数4.0→5.0(+25%) + 广告数8→22(+157%) + ROI 1.51→2.28(+50%)"
+        "driver_detail": "账户数6.0→8.0(+33%) + 广告数32→81(+158%) + 创意ID500→980(+96%)"
       }
     },
     {
       "track": "珠宝配饰",
-      "up_count": 4,
+      "up_count": 3,
       "rep_customer": {
-        "name": "杭州橙椰科技有限公司",
-        "base_spend": 5835.0,
-        "obs_spend": 39932.0,
-        "spend_lift": 3.41,
-        "driver": "基建增加",
-        "driver_detail": "广告数21→50(+137%) + 创意ID371→678(+83%)"
+        "name": "应城市传福珠宝商行(个体工商户)",
+        "base_spend": 4727.0,
+        "obs_spend": 12226.0,
+        "spend_lift": 0.75,
+        "driver": "双驱动",
+        "driver_detail": "广告数7→9(+32%) + 创意ID69→112(+63%) + ROI 19.86→25.52(+29%)"
+      }
+    },
+    {
+      "track": "综合服饰",
+      "up_count": 3,
+      "rep_customer": {
+        "name": "湖南奥讯网络科技有限公司",
+        "base_spend": 7221.0,
+        "obs_spend": 17806.0,
+        "spend_lift": 1.06,
+        "driver": "ROI提升",
+        "driver_detail": "ROI 2.32→2.94(+26%)"
       }
     }
   ],
   "module_b_common": {
-    "total_up": 32,
+    "total_up": 13,
     "drivers": [
       {
         "name": "基建增加",
-        "count": 15,
-        "pct": 46.9
+        "count": 6,
+        "pct": 46.2
       },
       {
         "name": "双驱动",
-        "count": 8,
-        "pct": 25.0
-      },
-      {
-        "name": "链路新增",
         "count": 4,
-        "pct": 12.5
-      },
-      {
-        "name": "自然回升",
-        "count": 3,
-        "pct": 9.4
-      },
-      {
-        "name": "投放端新增",
-        "count": 1,
-        "pct": 3.1
+        "pct": 30.8
       },
       {
         "name": "ROI提升",
+        "count": 2,
+        "pct": 15.4
+      },
+      {
+        "name": "自然回升",
         "count": 1,
-        "pct": 3.1
+        "pct": 7.7
+      },
+      {
+        "name": "链路新增",
+        "count": 0,
+        "pct": 0.0
+      },
+      {
+        "name": "投放端新增",
+        "count": 0,
+        "pct": 0.0
       }
     ],
     "main_driver": "基建增加",
-    "main_driver_pct": 46.9,
+    "main_driver_pct": 46.2,
     "show_main": true,
-    "verdict": "主驱动 = 基建增加（占46.9%）。基建扩张是主要驱动力，建议推动其他客户对齐基建标准。"
+    "verdict": "主驱动 = 基建增加（占46.2%）。基建扩张是主要驱动力，建议推动其他客户对齐基建标准。"
   },
   "module_c_head_baseline": [
     {
       "track": "女装",
-      "head_count": 9,
-      "avg_accounts": 9.3,
-      "avg_ads_per_day": 226.0,
-      "avg_cids_per_day": 1164.0,
-      "avg_spend": 1.86,
+      "head_count": 4,
+      "avg_accounts": 15.8,
+      "avg_ads_per_day": 500.0,
+      "avg_cids_per_day": 2602.0,
+      "avg_spend": 4.64,
       "note": ""
     },
     {
       "track": "男装",
-      "head_count": 12,
-      "avg_accounts": 10.9,
-      "avg_ads_per_day": 244.0,
-      "avg_cids_per_day": 1321.0,
-      "avg_spend": 1.82,
+      "head_count": 7,
+      "avg_accounts": 14.7,
+      "avg_ads_per_day": 308.0,
+      "avg_cids_per_day": 1169.0,
+      "avg_spend": 1.48,
       "note": ""
     },
     {
       "track": "箱包鞋靴",
-      "head_count": 6,
-      "avg_accounts": 5.5,
-      "avg_ads_per_day": 85.0,
-      "avg_cids_per_day": 610.0,
-      "avg_spend": 1.57,
+      "head_count": 10,
+      "avg_accounts": 15.2,
+      "avg_ads_per_day": 170.0,
+      "avg_cids_per_day": 810.0,
+      "avg_spend": 1.83,
       "note": ""
     },
     {
       "track": "贴身衣物",
-      "head_count": 41,
-      "avg_accounts": 18.6,
-      "avg_ads_per_day": 353.0,
-      "avg_cids_per_day": 1799.0,
-      "avg_spend": 3.2,
+      "head_count": 28,
+      "avg_accounts": 22.1,
+      "avg_ads_per_day": 459.0,
+      "avg_cids_per_day": 1863.0,
+      "avg_spend": 2.94,
       "note": ""
     },
     {
       "track": "服饰鞋包其他",
-      "head_count": 4,
-      "avg_accounts": 19.5,
-      "avg_ads_per_day": 50.0,
-      "avg_cids_per_day": 210.0,
-      "avg_spend": 1.22,
+      "head_count": 3,
+      "avg_accounts": 62.3,
+      "avg_ads_per_day": 177.0,
+      "avg_cids_per_day": 402.0,
+      "avg_spend": 2.59,
       "note": ""
     },
     {
       "track": "珠宝配饰",
-      "head_count": 8,
-      "avg_accounts": 4.9,
-      "avg_ads_per_day": 111.0,
-      "avg_cids_per_day": 686.0,
-      "avg_spend": 2.51,
+      "head_count": 9,
+      "avg_accounts": 3.4,
+      "avg_ads_per_day": 83.0,
+      "avg_cids_per_day": 511.0,
+      "avg_spend": 1.24,
       "note": ""
     },
     {
       "track": "运动户外",
-      "head_count": 10,
-      "avg_accounts": 15.4,
-      "avg_ads_per_day": 205.0,
-      "avg_cids_per_day": 1185.0,
-      "avg_spend": 1.99,
+      "head_count": 4,
+      "avg_accounts": 26.2,
+      "avg_ads_per_day": 273.0,
+      "avg_cids_per_day": 1231.0,
+      "avg_spend": 2.31,
       "note": ""
     },
     {
       "track": "综合服饰",
-      "head_count": 21,
-      "avg_accounts": 34.0,
-      "avg_ads_per_day": 190.0,
-      "avg_cids_per_day": 443.0,
-      "avg_spend": 2.36,
+      "head_count": 9,
+      "avg_accounts": 35.9,
+      "avg_ads_per_day": 195.0,
+      "avg_cids_per_day": 410.0,
+      "avg_spend": 2.23,
       "note": ""
     },
     {
       "track": "服饰奢品",
       "head_count": 8,
-      "avg_accounts": 28.4,
-      "avg_ads_per_day": 434.0,
-      "avg_cids_per_day": 1675.0,
-      "avg_spend": 3.0,
+      "avg_accounts": 32.4,
+      "avg_ads_per_day": 371.0,
+      "avg_cids_per_day": 1695.0,
+      "avg_spend": 2.8,
       "note": ""
     }
   ],
