@@ -95,10 +95,10 @@
   <!-- 业务洞察 -->
   <div id="insight-box"></div>
 
-  <!-- Tab切换：Q2累计 vs 近双周新增 -->
+  <!-- Tab切换：Q3TD累计 vs 近双周新增 -->
   <div class="tabs">
     <div class="tab active" data-view="q2td" onclick="switchView('q2td')">
-      <span class="main">📈 Q2TD 累计跃迁</span>
+      <span class="main">📈 Q3TD 累计跃迁</span>
       <span class="hint" id="tab-q2td-hint">—</span>
     </div>
     <div class="tab" data-view="week" onclick="switchView('week')">
@@ -165,16 +165,16 @@ function render() {
 
   // header sub
   document.getElementById('header-sub').textContent =
-    `Q1池子（2026.1.1-3.31）→ Q2跃迁（${meta.q2td_label}） · 近双周（${meta.week_label}） · 生成于 ${meta.generated_at}`;
+    `Q2基线池（${meta.q1_label}）→ Q3TD跃迁（${meta.q2td_label}） · 近双周（${meta.week_label}） · 生成于 ${meta.generated_at}`;
   document.getElementById('gen-time').textContent = meta.generated_at;
-  document.getElementById('period-badge').textContent = `Q2TD ${meta.q2td_label}`;
+  document.getElementById('period-badge').textContent = `Q3TD ${meta.q2td_label}`;
 
   // KPI
   const kpiHtml = `
-    <div class="kpi"><div class="lbl">Q1 纯 QYT 池</div><div class="val">${fmt(k.q1_pool)}</div><div class="hint">家｜分母（仅服饰行业）</div></div>
-    <div class="kpi green"><div class="lbl">Q2TD 累计跃迁</div><div class="val">${fmt(k.q2td_mig)}</div><div class="hint">家｜跃迁率 ${k.mig_rate}%</div></div>
+    <div class="kpi"><div class="lbl">Q2基线 纯 QYT 池</div><div class="val">${fmt(k.q1_pool)}</div><div class="hint">家｜分母（仅服饰行业）</div></div>
+    <div class="kpi green"><div class="lbl">Q3TD 累计跃迁</div><div class="val">${fmt(k.q2td_mig)}</div><div class="hint">家｜跃迁率 ${k.mig_rate}%</div></div>
     <div class="kpi orange"><div class="lbl">近双周新增跃迁</div><div class="val">${fmt(k.week_new)}</div><div class="hint">家｜${meta.week_label}</div></div>
-    <div class="kpi purple"><div class="lbl">跃迁客户 Q2TD ADQ 累计</div><div class="val">${wan(k.q2td_adq_total_cum)}</div><div class="hint">元｜新增 ADQ 消耗盘</div></div>
+    <div class="kpi purple"><div class="lbl">跃迁客户 Q3TD ADQ 累计</div><div class="val">${wan(k.q2td_adq_total_cum)}</div><div class="hint">元｜新增 ADQ 消耗盘</div></div>
   `;
   document.getElementById('kpi-row').innerHTML = kpiHtml;
 
@@ -185,8 +185,8 @@ function render() {
   document.getElementById('insight-box').innerHTML = `
     <div class="insight">
       <div class="t">💡 业务洞察 · 跃迁客户的 QYT 变化（验证是否替代 vs 叠加）</div>
-      跃迁客户群体在 Q1 时 QYT 累计消耗 <b>${wan(k.q1_qyt_total_cum)}</b>，
-      Q2TD 跃迁开 ADQ 后 QYT 累计消耗 <b>${wan(k.q2td_qyt_total_cum)}</b>
+      跃迁客户群体在 Q2基线时 QYT 累计消耗 <b>${wan(k.q1_qyt_total_cum)}</b>，
+      Q3TD 跃迁开 ADQ 后 QYT 累计消耗 <b>${wan(k.q2td_qyt_total_cum)}</b>
       （<span class="${qytGrowthClass}">${qytSign} ${Math.abs(qytGrowth)}%</span>）
       ${qytGrowth >= 0
         ? `→ <b>ADQ 与 QYT 呈叠加效应</b>：跃迁客户开 ADQ 后 QYT 没下降反而 ${qytSign}${Math.abs(qytGrowth)}%，
@@ -262,8 +262,8 @@ function renderView() {
   if (curView === 'q2td') {
     thead = `<thead><tr>
       <th>客户简称</th><th>赛道</th><th>分层</th>
-      <th>Q1 QYT 累计</th><th>Q2TD QYT 累计</th>
-      <th>Q2TD ADQ 累计</th><th>Q2TD ADQ 日均</th><th>ADQ ROI</th>
+      <th>Q2基线 QYT 累计</th><th>Q3TD QYT 累计</th>
+      <th>Q3TD ADQ 累计</th><th>Q3TD ADQ 日均</th><th>ADQ ROI</th>
     </tr></thead>`;
     tbody = '<tbody>' + detail.map(r => {
       const tcls = {'有效起量':'pill-gold','已起步':'pill-fire','尝试性':'pill-seed'}[r.分层] || '';
@@ -284,7 +284,7 @@ function renderView() {
   } else {
     thead = `<thead><tr>
       <th>客户简称</th><th>赛道</th><th>分层</th>
-      <th>Q1 QYT 累计</th>
+      <th>Q2基线 QYT 累计</th>
       <th>本周 ADQ 累计</th><th>本周 ADQ 日均</th>
       <th>本周 QYT 日均</th><th>前期推算日均</th>
     </tr></thead>`;
