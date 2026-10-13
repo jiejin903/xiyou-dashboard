@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>服饰拓客拓品指南 · 全赛道</title>
+<title>Q4拓客拓品指南 · 全赛道</title>
 <style>
   /* ============================================================
      🎨 设计系统 · Design Tokens
@@ -1511,7 +1511,7 @@
   <div class="hero-inner">
     <div class="hero-top">
       <div>
-        <div class="hero-title">服饰拓客拓品指南</div>
+        <div class="hero-title">Q4拓客拓品指南</div>
         <div class="hero-subtitle">服饰增长组 出品</div>
       </div>
       <div class="hero-meta">
@@ -1622,6 +1622,9 @@
 </div>
 
 <script>
+  // 2026-10-13 主人指示：本轮与上期间隔 2 个月，历史快照断档，
+  // 「连续N期在榜」标签失真，本轮暂停展示；下个双周数据连续后把下面改回 true
+  const SHOW_SHELF_TAG = false;
   let DATA = null;
   let CURRENT_TRACK = null;
 
@@ -2031,7 +2034,7 @@
     const grid = document.getElementById('douyin-spu-grid');
     grid.innerHTML = d.spus.map(s => {
       // 该SPU下连续N期在榜的新客数（⭐️ 稳定爆品信号）
-      const shelfCount = (s.newCust || []).filter(x => x.onShelfCount >= 2).length;
+      const shelfCount = SHOW_SHELF_TAG ? (s.newCust || []).filter(x => x.onShelfCount >= 2).length : 0;
       const shelfBadgeTop = shelfCount > 0
         ? `<div class="shelf-tag-top">⭐️ ${shelfCount}家连续在榜</div>`
         : '';
@@ -2064,11 +2067,11 @@
 
   function renderShopItem(s) {
     // ⭐️ 连续N期在榜标签（onShelfCount>=2 才显示）
-    const shelfBadge = (s.onShelfCount && s.onShelfCount >= 2)
+    const shelfBadge = (SHOW_SHELF_TAG && s.onShelfCount && s.onShelfCount >= 2)
       ? `<span class="shelf-tag" title="${s.historyStatus || ''} · ${s.historyPeriod || ''}">⭐️ 连续${s.onShelfCount}期在榜</span>`
       : '';
     return `
-      <div class="shop-item ${s.isNew ? 'new-cust' : ''}${(s.onShelfCount && s.onShelfCount >= 2) ? ' persistent' : ''}">
+      <div class="shop-item ${s.isNew ? 'new-cust' : ''}${(SHOW_SHELF_TAG && s.onShelfCount && s.onShelfCount >= 2) ? ' persistent' : ''}">
         <div class="shop-rank">${s.rank}</div>
         <div class="shop-img"><img src="${s.topProductImg}" alt="" onerror="this.style.display='none'"></div>
         <div class="shop-info">
@@ -2109,7 +2112,7 @@
       const shown = spu.newCust.slice(0, DEFAULT_SHOW).map(renderShopItem).join('');
       const hidden = spu.newCust.slice(DEFAULT_SHOW);
       const hiddenHtml = hidden.map(renderShopItem).join('');
-      const shelfCountInHidden = hidden.filter(s => s.onShelfCount >= 2).length;
+      const shelfCountInHidden = SHOW_SHELF_TAG ? hidden.filter(s => s.onShelfCount >= 2).length : 0;
       newHtml = shown;
       if (hidden.length > 0) {
         newHtml += `
@@ -2123,7 +2126,7 @@
     }
 
     // 统计连续N期在榜数量
-    const shelfCount = (spu.newCust || []).filter(s => s.onShelfCount >= 2).length;
+    const shelfCount = SHOW_SHELF_TAG ? (spu.newCust || []).filter(s => s.onShelfCount >= 2).length : 0;
     const shelfBadgeHtml = shelfCount > 0
       ? `<span class="badge shelf">⭐️ 连续在榜 ${shelfCount} 家</span>`
       : '';
